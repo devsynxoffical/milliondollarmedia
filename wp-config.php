@@ -43,20 +43,39 @@ function wp_env( $key, $default = null ) {
 	return false === $value || '' === $value ? $default : $value;
 }
 
+/**
+ * Parse Railway-style MySQL URL into WordPress DB constants.
+ */
+function wp_configure_database_from_env() {
+	$mysql_url = wp_env( 'MYSQL_URL' ) ?: wp_env( 'DATABASE_URL' );
+
+	if ( $mysql_url ) {
+		$url = parse_url( $mysql_url );
+
+		if ( false !== $url && ! empty( $url['host'] ) ) {
+			define( 'DB_NAME', ltrim( $url['path'] ?? '', '/' ) );
+			define( 'DB_USER', rawurldecode( $url['user'] ?? '' ) );
+			define( 'DB_PASSWORD', rawurldecode( $url['pass'] ?? '' ) );
+
+			$host = $url['host'];
+			$port = $url['port'] ?? wp_env( 'MYSQLPORT', '' );
+			define( 'DB_HOST', $port ? $host . ':' . $port : $host );
+
+			return;
+		}
+	}
+
+	define( 'DB_NAME', wp_env( 'MYSQLDATABASE', wp_env( 'DB_NAME', '' ) ) );
+	define( 'DB_USER', wp_env( 'MYSQLUSER', wp_env( 'DB_USER', '' ) ) );
+	define( 'DB_PASSWORD', wp_env( 'MYSQLPASSWORD', wp_env( 'DB_PASSWORD', '' ) ) );
+
+	$db_host = wp_env( 'MYSQLHOST', wp_env( 'DB_HOST', '127.0.0.1' ) );
+	$db_port = wp_env( 'MYSQLPORT', wp_env( 'DB_PORT', '' ) );
+	define( 'DB_HOST', $db_port ? $db_host . ':' . $db_port : $db_host );
+}
+
 // ** Database settings - provided by Railway environment variables ** //
-/** The name of the database for WordPress */
-define( 'DB_NAME', wp_env( 'MYSQLDATABASE', wp_env( 'DB_NAME', '' ) ) );
-
-/** Database username */
-define( 'DB_USER', wp_env( 'MYSQLUSER', wp_env( 'DB_USER', '' ) ) );
-
-/** Database password */
-define( 'DB_PASSWORD', wp_env( 'MYSQLPASSWORD', wp_env( 'DB_PASSWORD', '' ) ) );
-
-/** Database hostname */
-$db_host = wp_env( 'MYSQLHOST', wp_env( 'DB_HOST', '127.0.0.1' ) );
-$db_port = wp_env( 'MYSQLPORT', wp_env( 'DB_PORT', '' ) );
-define( 'DB_HOST', $db_port ? $db_host . ':' . $db_port : $db_host );
+wp_configure_database_from_env();
 
 /** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );
