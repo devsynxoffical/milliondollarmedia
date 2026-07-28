@@ -1,5 +1,5 @@
 <?php
-define( 'WP_CACHE', true ); // By Speed Optimizer by SiteGround
+define( 'WP_CACHE', false );
 
 
 
@@ -118,7 +118,14 @@ $table_prefix = 'dbj_';
 
 /* Add any custom values between this line and the "stop editing" line. */
 
+// Railway/reverse-proxy: ensure WordPress detects HTTPS correctly.
+if ( isset( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) && 'https' === $_SERVER['HTTP_X_FORWARDED_PROTO'] ) {
+	$_SERVER['HTTPS'] = 'on';
+}
 
+if ( isset( $_SERVER['HTTP_X_FORWARDED_HOST'] ) ) {
+	$_SERVER['HTTP_HOST'] = $_SERVER['HTTP_X_FORWARDED_HOST'];
+}
 
 /**
  * For developers: WordPress debugging mode.
