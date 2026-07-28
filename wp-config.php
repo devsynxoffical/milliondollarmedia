@@ -1,5 +1,5 @@
 <?php
-define( 'WP_CACHE', false );
+define( 'WP_CACHE', true );
 
 
 
@@ -127,6 +127,13 @@ if ( isset( $_SERVER['HTTP_X_FORWARDED_HOST'] ) ) {
 	$_SERVER['HTTP_HOST'] = $_SERVER['HTTP_X_FORWARDED_HOST'];
 }
 
+define( 'DISABLE_WP_CRON', true );
+define( 'WP_MEMORY_LIMIT', '512M' );
+define( 'WP_MAX_MEMORY_LIMIT', '512M' );
+define( 'WP_POST_REVISIONS', 5 );
+define( 'AUTOSAVE_INTERVAL', 300 );
+define( 'EMPTY_TRASH_DAYS', 7 );
+
 /**
  * For developers: WordPress debugging mode.
  *
@@ -164,6 +171,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /** Sets up WordPress vars and included files. */
-@include_once('/var/lib/sec/wp-settings-pre.php'); // Added by SiteGround WordPress management system
 require_once ABSPATH . 'wp-settings.php';
-@include_once('/var/lib/sec/wp-settings.php'); // Added by SiteGround WordPress management system

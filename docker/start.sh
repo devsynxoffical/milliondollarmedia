@@ -5,7 +5,7 @@ PORT="${PORT:-8080}"
 
 # php-apache image must use exactly one MPM module.
 a2dismod mpm_event mpm_worker 2>/dev/null || true
-a2enmod mpm_prefork rewrite headers 2>/dev/null || true
+a2enmod mpm_prefork rewrite headers deflate expires 2>/dev/null || true
 
 # Railway injects PORT dynamically at runtime.
 sed -i "s/^Listen 80$/Listen ${PORT}/" /etc/apache2/ports.conf
