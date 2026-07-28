@@ -1,0 +1,6 @@
+2026-07-05 08:33:02 declined param seen: meta-ads
+2026-07-05 08:33:02 firing Klaviyo for testitmuzamil@gmail.com
+2026-07-05 08:33:02 Klaviyo status: 401 body: {"errors":[{"id":"bbfc0073-cbb8-4813-a4a0-63128baca239","status":401,"code":"not_authenticated","title":"Authentication credentials were not provided.","detail":"Missing or invalid private key.","source":{"pointer":"/data/"}}]}
+2026-07-05 08:36:20 declined param seen: meta-ads
+2026-07-05 08:36:20 firing Klaviyo for testitmuzamil@gmail.com
+2026-07-05 08:36:20 Klaviyo status: 202 body: 

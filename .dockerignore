@@ -1,0 +1,17 @@
+.git
+.gitignore
+.DS_Store
+
+# Logs and diagnostics
+php_errorlog
+wp-content/debug.log
+wp-content/fatal-log.txt
+
+# SiteGround/runtime caches
+wp-content/cache/
+wp-content/uploads/siteground-optimizer-assets/
+
+# Backup/plugin-generated large artifacts
+wp-content/wpvividbackups/
+wp-content/ai1wm-backups/
+wp-content/updraft/

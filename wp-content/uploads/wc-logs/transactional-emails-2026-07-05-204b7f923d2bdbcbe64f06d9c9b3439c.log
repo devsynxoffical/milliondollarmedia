@@ -1,0 +1,10 @@
+2026-07-05T11:54:58+00:00 INFO Email "new_order" for order #4624 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":4624}
+2026-07-05T11:54:58+00:00 INFO Email "customer_processing_order" for order #4624 sent CONTEXT: {"email_type":"customer_processing_order","status":"sent","recipient":"muzamil","order":4624}
+2026-07-05T12:25:23+00:00 INFO Email "new_order" for order #4625 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":4625}
+2026-07-05T12:25:23+00:00 INFO Email "customer_processing_order" for order #4625 sent CONTEXT: {"email_type":"customer_processing_order","status":"sent","recipient":"muzamil","order":4625}
+2026-07-05T12:34:10+00:00 INFO Email "new_order" for order #4629 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":4629}
+2026-07-05T12:34:10+00:00 INFO Email "customer_processing_order" for order #4629 sent CONTEXT: {"email_type":"customer_processing_order","status":"sent","recipient":"muzamil","order":4629}
+2026-07-05T12:37:12+00:00 INFO Email "new_order" for order #4630 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":4630}
+2026-07-05T12:37:12+00:00 INFO Email "customer_processing_order" for order #4630 sent CONTEXT: {"email_type":"customer_processing_order","status":"sent","recipient":"muzamil","order":4630}
+2026-07-05T12:40:59+00:00 INFO Email "new_order" for order #4631 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":4631}
+2026-07-05T12:40:59+00:00 INFO Email "customer_processing_order" for order #4631 sent CONTEXT: {"email_type":"customer_processing_order","status":"sent","recipient":"muzamil","order":4631}

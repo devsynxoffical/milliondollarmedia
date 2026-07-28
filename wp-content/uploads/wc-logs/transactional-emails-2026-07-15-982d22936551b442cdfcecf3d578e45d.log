@@ -1,0 +1,13 @@
+2026-07-15T10:55:21+00:00 INFO Email "customer_new_account" for user #4 sent CONTEXT: {"email_type":"customer_new_account","status":"sent","recipient":"gaurav.kapoor","user":4}
+2026-07-15T10:55:21+00:00 INFO Email "new_order" for order #4904 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":4904}
+2026-07-15T10:55:21+00:00 INFO Email "customer_processing_order" for order #4904 sent CONTEXT: {"email_type":"customer_processing_order","status":"sent","recipient":"gaurav.kapoor","order":4904}
+2026-07-15T11:07:33+00:00 INFO Email "new_order" for order #4908 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":4908}
+2026-07-15T11:07:33+00:00 INFO Email "customer_processing_order" for order #4908 sent CONTEXT: {"email_type":"customer_processing_order","status":"sent","recipient":"muzamil","order":4908}
+2026-07-15T11:12:24+00:00 INFO Email "customer_new_account" for user #5 sent CONTEXT: {"email_type":"customer_new_account","status":"sent","recipient":"muzamil.test","user":5}
+2026-07-15T11:12:24+00:00 INFO Email "new_order" for order #4909 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":4909}
+2026-07-15T11:12:24+00:00 INFO Email "customer_processing_order" for order #4909 sent CONTEXT: {"email_type":"customer_processing_order","status":"sent","recipient":"muzamil.test","order":4909}
+2026-07-15T11:27:02+00:00 INFO Email "new_order" for order #4910 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":4910}
+2026-07-15T11:27:02+00:00 INFO Email "customer_processing_order" for order #4910 sent CONTEXT: {"email_type":"customer_processing_order","status":"sent","recipient":"muzamil.test","order":4910}
+2026-07-15T11:30:21+00:00 INFO Email "customer_new_account" for user #6 sent CONTEXT: {"email_type":"customer_new_account","status":"sent","recipient":"muzamil.hussain1","user":6}
+2026-07-15T11:30:22+00:00 INFO Email "new_order" for order #4911 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":4911}
+2026-07-15T11:30:22+00:00 INFO Email "customer_processing_order" for order #4911 sent CONTEXT: {"email_type":"customer_processing_order","status":"sent","recipient":"muzamil.hussain1","order":4911}

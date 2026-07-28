@@ -1,0 +1,21 @@
+[2026-07-05 12:37:16] Hook fired. URI: /checkout/order-received/4630/?key=wc_order_AIVRK4hJdubfB
+[2026-07-05 12:37:16] Order 4630 product IDs: 427
+[2026-07-05 12:37:16] No condition matched — staying on default page
+[2026-07-05 12:41:01] Hook fired. URI: /checkout/order-received/4631/?key=wc_order_mtSL6TPQsdLrt
+[2026-07-05 12:41:01] Order 4631 product IDs: 427
+[2026-07-05 12:41:01] Redirecting to: https://milliondollarmedia.us/thank-you/
+[2026-07-15 10:55:24] Hook fired. URI: /checkout/order-received/4904/?key=wc_order_vAfhNQaPdA36x
+[2026-07-15 10:55:24] Order 4904 product IDs: 427,3329
+[2026-07-15 10:55:24] Redirecting to: https://milliondollarmedia.us/thank-you/
+[2026-07-15 11:07:34] Hook fired. URI: /checkout/order-received/4908/?key=wc_order_DWdCCn3B7k7J1
+[2026-07-15 11:07:34] Order 4908 product IDs: 427,3329
+[2026-07-15 11:07:34] Redirecting to: https://milliondollarmedia.us/thank-you/
+[2026-07-15 11:12:28] Hook fired. URI: /checkout/order-received/4909/?key=wc_order_WMO6yozAZ40NW
+[2026-07-15 11:12:28] Order 4909 product IDs: 427,3329
+[2026-07-15 11:12:28] Redirecting to: https://milliondollarmedia.us/thank-you/
+[2026-07-15 11:27:04] Hook fired. URI: /checkout/order-received/4910/?key=wc_order_eNXo8pncfjPHq
+[2026-07-15 11:27:04] Order 4910 product IDs: 4413,427
+[2026-07-15 11:27:04] Redirecting to: https://milliondollarmedia.us/thank-you/
+[2026-07-15 11:30:24] Hook fired. URI: /checkout/order-received/4911/?key=wc_order_q9fVMLPATfoMp
+[2026-07-15 11:30:24] Order 4911 product IDs: 427,3329
+[2026-07-15 11:30:24] Redirecting to: https://milliondollarmedia.us/thank-you/

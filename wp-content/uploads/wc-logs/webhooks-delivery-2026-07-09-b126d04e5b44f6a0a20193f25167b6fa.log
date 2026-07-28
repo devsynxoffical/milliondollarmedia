@@ -1,0 +1,118 @@
+2026-07-09T09:19:46+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 24e23d37277295c96e3397844cf15a87
+            [Date] => Jul 9, 2026 @ 9:19
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=UX4NCD
+            [Duration] => 0.15027
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/10.9.3 Hookshot (WordPress/7.0)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://milliondollarmedia.us/
+                            [X-WC-Webhook-Topic] => product.deleted
+                            [X-WC-Webhook-Resource] => product
+                            [X-WC-Webhook-Event] => deleted
+                            [X-WC-Webhook-Signature] => 7lMtPsIjOt/pM4YKdnBwMZwn1XNQGeVoajppAHk8Jm4=
+                            [X-WC-Webhook-ID] => 5
+                            [X-WC-Webhook-Delivery-ID] => 24e23d37277295c96e3397844cf15a87
+                        )
+
+                )
+
+            [Body] => {\"id\":4807}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Thu, 09 Jul 2026 09:19:46 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [cf-ray] => a1863fb999d89ab6-LAX
+                                    [cf-cache-status] => DYNAMIC
+                                    [content-language] => en-us
+                                    [server] => cloudflare
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [vary] => Accept-Language, Cookie, Origin
+                                    [x-content-type-options] => nosniff
+                                    [content-security-policy] => base-uri 'none'; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; object-src 'none'; report-uri /csp/
+                                    [x-envoy-upstream-service-time] => 25
+                                    [x-gr-resolved-region] => us
+                                    [x-klaviyo-req-id] => a653723a-0800-4bac-9a96-6d0494372fb4
+                                    [content-encoding] => gzip
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
+2026-07-09T09:23:02+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => fcaa7c4dbd3af200decb097cb3697ac4
+            [Date] => Jul 9, 2026 @ 9:23
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=UX4NCD
+            [Duration] => 0.16288
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/10.9.3 Hookshot (WordPress/7.0)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://milliondollarmedia.us/
+                            [X-WC-Webhook-Topic] => product.deleted
+                            [X-WC-Webhook-Resource] => product
+                            [X-WC-Webhook-Event] => deleted
+                            [X-WC-Webhook-Signature] => 8cm8JgiQjrWqczzrcFyzZEooMRZMqHGME+9ZV8ca8mQ=
+                            [X-WC-Webhook-ID] => 5
+                            [X-WC-Webhook-Delivery-ID] => fcaa7c4dbd3af200decb097cb3697ac4
+                        )
+
+                )
+
+            [Body] => {\"id\":4808}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Thu, 09 Jul 2026 09:23:02 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [cf-ray] => a18644837a8a83d9-LAX
+                                    [cf-cache-status] => DYNAMIC
+                                    [content-language] => en-us
+                                    [server] => cloudflare
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [vary] => Accept-Language, Cookie, Origin
+                                    [x-content-type-options] => nosniff
+                                    [content-security-policy] => object-src 'none'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; base-uri 'none'; report-uri /csp/
+                                    [x-envoy-upstream-service-time] => 25
+                                    [x-gr-resolved-region] => us
+                                    [x-klaviyo-req-id] => 87e0f2ed-dba1-4e88-b5fe-147101bbbd4c
+                                    [content-encoding] => gzip
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="//milliondollarmedia.us/main-sitemap.xsl"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+	<Document>
+		<name>Locations for Creativity that converts</name>
+		<open>1</open>
+		<Folder>
+			<atom:link href="http://milliondollarmedia.us" />
+			<Placemark>
+				<name><![CDATA[Creativity that converts]]></name>
+				<description><![CDATA[Creativity that converts - ]]></description>
+				<address><![CDATA[]]></address>
+				<phoneNumber><![CDATA[]]></phoneNumber>
+				<atom:link href="http://milliondollarmedia.us"/>
+				<LookAt>
+					<altitude>0</altitude>
+					<range></range>
+					<tilt>0</tilt>
+				</LookAt>
+				<Point>
+				</Point>
+			</Placemark>
+		</Folder>
+	</Document>
+</kml>

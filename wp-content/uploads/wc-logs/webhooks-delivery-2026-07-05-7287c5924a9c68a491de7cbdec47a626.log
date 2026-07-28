@@ -1,0 +1,1508 @@
+2026-07-05T03:04:21+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => d6d7d5ff4f4d866ac1390481529ea379
+            [Date] => Jul 5, 2026 @ 3:04
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=UX4NCD
+            [Duration] => 0.15466
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/10.9.3 Hookshot (WordPress/7.0)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://milliondollarmedia.us/
+                            [X-WC-Webhook-Topic] => product.deleted
+                            [X-WC-Webhook-Resource] => product
+                            [X-WC-Webhook-Event] => deleted
+                            [X-WC-Webhook-Signature] => /s5xXMmIdiYjF7jKvV0gWFHMbqQXDcHS5lNhMpXTXmw=
+                            [X-WC-Webhook-ID] => 5
+                            [X-WC-Webhook-Delivery-ID] => d6d7d5ff4f4d866ac1390481529ea379
+                        )
+
+                )
+
+            [Body] => {\"id\":4557}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Sun, 05 Jul 2026 03:04:21 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [content-length] => 1
+                                    [content-language] => en-us
+                                    [content-security-policy] => base-uri 'none'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; object-src 'none'; report-uri /csp/
+                                    [server] => cloudflare
+                                    [vary] => Accept-Language, Cookie, Origin
+                                    [x-klaviyo-req-id] => 52cd2035-2c12-4c80-a38d-27e2e2c98fa4
+                                    [x-envoy-upstream-service-time] => 23
+                                    [cf-cache-status] => DYNAMIC
+                                    [x-content-type-options] => nosniff
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [cf-ray] => a16324504d634adb-LAX
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
+2026-07-05T03:06:39+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 4007726c025fcd5a913aa059eef4a03c
+            [Date] => Jul 5, 2026 @ 3:06
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=UX4NCD
+            [Duration] => 0.12743
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/10.9.3 Hookshot (WordPress/7.0)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://milliondollarmedia.us/
+                            [X-WC-Webhook-Topic] => product.deleted
+                            [X-WC-Webhook-Resource] => product
+                            [X-WC-Webhook-Event] => deleted
+                            [X-WC-Webhook-Signature] => rfYUDaL5K/1aSMMgaAPTBDe1FMBMCn28WlZr4Tce5Ac=
+                            [X-WC-Webhook-ID] => 5
+                            [X-WC-Webhook-Delivery-ID] => 4007726c025fcd5a913aa059eef4a03c
+                        )
+
+                )
+
+            [Body] => {\"id\":4559}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Sun, 05 Jul 2026 03:06:39 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [content-length] => 1
+                                    [content-language] => en-us
+                                    [content-security-policy] => script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; object-src 'none'; base-uri 'none'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; report-uri /csp/
+                                    [server] => cloudflare
+                                    [vary] => Accept-Language, Cookie, Origin
+                                    [x-klaviyo-req-id] => 377bdd9f-165a-4dd6-8611-e4a98d5fe111
+                                    [x-envoy-upstream-service-time] => 29
+                                    [cf-cache-status] => DYNAMIC
+                                    [x-content-type-options] => nosniff
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [cf-ray] => a16327adfda31360-LAX
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
+2026-07-05T06:25:19+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 2db5e52196d0403528d30bd8bfc90392
+            [Date] => Jul 5, 2026 @ 6:25
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=UX4NCD
+            [Duration] => 0.14702
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/10.9.3 Hookshot (WordPress/7.0)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://milliondollarmedia.us/
+                            [X-WC-Webhook-Topic] => product.deleted
+                            [X-WC-Webhook-Resource] => product
+                            [X-WC-Webhook-Event] => deleted
+                            [X-WC-Webhook-Signature] => 1ydccrUJSCFnMMe1aFBuWSQOn3jlUNoMaYJ/kIAd2ec=
+                            [X-WC-Webhook-ID] => 5
+                            [X-WC-Webhook-Delivery-ID] => 2db5e52196d0403528d30bd8bfc90392
+                        )
+
+                )
+
+            [Body] => {\"id\":436}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Sun, 05 Jul 2026 06:25:19 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [content-length] => 1
+                                    [content-language] => en-us
+                                    [content-security-policy] => script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; base-uri 'none'; object-src 'none'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; report-uri /csp/
+                                    [server] => cloudflare
+                                    [vary] => Accept-Language, Cookie, Origin
+                                    [x-klaviyo-req-id] => 772cfa22-9f98-4621-ba25-812811dede90
+                                    [x-envoy-upstream-service-time] => 24
+                                    [cf-cache-status] => DYNAMIC
+                                    [x-content-type-options] => nosniff
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [cf-ray] => a1644ab26b041268-LAX
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
+2026-07-05T06:25:20+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 2db5e52196d0403528d30bd8bfc90392
+            [Date] => Jul 5, 2026 @ 6:25
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=UX4NCD
+            [Duration] => 0.12521
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/10.9.3 Hookshot (WordPress/7.0)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://milliondollarmedia.us/
+                            [X-WC-Webhook-Topic] => product.deleted
+                            [X-WC-Webhook-Resource] => product
+                            [X-WC-Webhook-Event] => deleted
+                            [X-WC-Webhook-Signature] => PHbhd6Jb5uitS2NXZnmWT2rMxlmOWN0RMC47jF9T+Z4=
+                            [X-WC-Webhook-ID] => 5
+                            [X-WC-Webhook-Delivery-ID] => 2db5e52196d0403528d30bd8bfc90392
+                        )
+
+                )
+
+            [Body] => {\"id\":434}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Sun, 05 Jul 2026 06:25:20 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [content-length] => 1
+                                    [content-language] => en-us
+                                    [content-security-policy] => script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; base-uri 'none'; object-src 'none'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; report-uri /csp/
+                                    [server] => cloudflare
+                                    [vary] => Accept-Language, Cookie, Origin
+                                    [x-klaviyo-req-id] => a40d4ecb-31be-47ff-aa22-5bbed4a7f7e4
+                                    [x-envoy-upstream-service-time] => 26
+                                    [cf-cache-status] => DYNAMIC
+                                    [x-content-type-options] => nosniff
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [cf-ray] => a1644ab348e42ec6-LAX
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
+2026-07-05T06:25:20+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 3e7800ff3ccc04784b743bf48398f9a5
+            [Date] => Jul 5, 2026 @ 6:25
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=UX4NCD
+            [Duration] => 0.11345
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/10.9.3 Hookshot (WordPress/7.0)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://milliondollarmedia.us/
+                            [X-WC-Webhook-Topic] => product.deleted
+                            [X-WC-Webhook-Resource] => product
+                            [X-WC-Webhook-Event] => deleted
+                            [X-WC-Webhook-Signature] => Lq8caVajW7jEa3LMFKC9bmiwUdcDOQuYqVHmywfkkFk=
+                            [X-WC-Webhook-ID] => 5
+                            [X-WC-Webhook-Delivery-ID] => 3e7800ff3ccc04784b743bf48398f9a5
+                        )
+
+                )
+
+            [Body] => {\"id\":433}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Sun, 05 Jul 2026 06:25:20 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [content-length] => 1
+                                    [content-language] => en-us
+                                    [content-security-policy] => script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; object-src 'none'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; base-uri 'none'; report-uri /csp/
+                                    [server] => cloudflare
+                                    [vary] => Accept-Language, Cookie, Origin
+                                    [x-klaviyo-req-id] => 1bc8e755-0249-4691-83ef-3fa31d0b82a7
+                                    [x-envoy-upstream-service-time] => 23
+                                    [cf-cache-status] => DYNAMIC
+                                    [x-content-type-options] => nosniff
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [cf-ray] => a1644ab41852502d-LAX
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
+2026-07-05T06:25:20+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 3e7800ff3ccc04784b743bf48398f9a5
+            [Date] => Jul 5, 2026 @ 6:25
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=UX4NCD
+            [Duration] => 0.11651
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/10.9.3 Hookshot (WordPress/7.0)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://milliondollarmedia.us/
+                            [X-WC-Webhook-Topic] => product.deleted
+                            [X-WC-Webhook-Resource] => product
+                            [X-WC-Webhook-Event] => deleted
+                            [X-WC-Webhook-Signature] => 5nSWiwqNHqe4BVRrPG9nR7lvJbEMGcKQ0VJBrjunMz8=
+                            [X-WC-Webhook-ID] => 5
+                            [X-WC-Webhook-Delivery-ID] => 3e7800ff3ccc04784b743bf48398f9a5
+                        )
+
+                )
+
+            [Body] => {\"id\":431}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Sun, 05 Jul 2026 06:25:20 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [content-length] => 1
+                                    [content-language] => en-us
+                                    [content-security-policy] => frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; base-uri 'none'; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; object-src 'none'; report-uri /csp/
+                                    [server] => cloudflare
+                                    [vary] => Accept-Language, Cookie, Origin
+                                    [x-klaviyo-req-id] => 8ec34ae8-2faa-4065-980f-f9063c28a592
+                                    [x-envoy-upstream-service-time] => 24
+                                    [cf-cache-status] => DYNAMIC
+                                    [x-content-type-options] => nosniff
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [cf-ray] => a1644ab4dac2584b-LAX
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
+2026-07-05T06:25:20+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 3e7800ff3ccc04784b743bf48398f9a5
+            [Date] => Jul 5, 2026 @ 6:25
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=UX4NCD
+            [Duration] => 0.11992
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/10.9.3 Hookshot (WordPress/7.0)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://milliondollarmedia.us/
+                            [X-WC-Webhook-Topic] => product.deleted
+                            [X-WC-Webhook-Resource] => product
+                            [X-WC-Webhook-Event] => deleted
+                            [X-WC-Webhook-Signature] => nzo/UOToFdwK7tEm2oytFmeB7SVUKE972l2kyBzRsAc=
+                            [X-WC-Webhook-ID] => 5
+                            [X-WC-Webhook-Delivery-ID] => 3e7800ff3ccc04784b743bf48398f9a5
+                        )
+
+                )
+
+            [Body] => {\"id\":430}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Sun, 05 Jul 2026 06:25:20 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [content-length] => 1
+                                    [content-language] => en-us
+                                    [content-security-policy] => script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; object-src 'none'; base-uri 'none'; report-uri /csp/
+                                    [server] => cloudflare
+                                    [vary] => Accept-Language, Cookie, Origin
+                                    [x-klaviyo-req-id] => 96ba15c4-d13f-487b-aab3-5811aed6b7d8
+                                    [x-envoy-upstream-service-time] => 24
+                                    [cf-cache-status] => DYNAMIC
+                                    [x-content-type-options] => nosniff
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [cf-ray] => a1644ab599db98a2-LAX
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
+2026-07-05T06:25:20+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 3e7800ff3ccc04784b743bf48398f9a5
+            [Date] => Jul 5, 2026 @ 6:25
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=UX4NCD
+            [Duration] => 0.11403
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/10.9.3 Hookshot (WordPress/7.0)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://milliondollarmedia.us/
+                            [X-WC-Webhook-Topic] => product.deleted
+                            [X-WC-Webhook-Resource] => product
+                            [X-WC-Webhook-Event] => deleted
+                            [X-WC-Webhook-Signature] => t7dMLxSOyMxhkjjFTOAxLm6iphUWB0UlmilaJh7p13o=
+                            [X-WC-Webhook-ID] => 5
+                            [X-WC-Webhook-Delivery-ID] => 3e7800ff3ccc04784b743bf48398f9a5
+                        )
+
+                )
+
+            [Body] => {\"id\":428}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Sun, 05 Jul 2026 06:25:20 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [content-length] => 1
+                                    [content-language] => en-us
+                                    [content-security-policy] => object-src 'none'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; base-uri 'none'; report-uri /csp/
+                                    [server] => cloudflare
+                                    [vary] => Accept-Language, Cookie, Origin
+                                    [x-klaviyo-req-id] => 6c10d363-edc6-4207-99bd-0596b7e95deb
+                                    [x-envoy-upstream-service-time] => 24
+                                    [cf-cache-status] => DYNAMIC
+                                    [x-content-type-options] => nosniff
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [cf-ray] => a1644ab66c8bcc9f-LAX
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
+2026-07-05T06:25:20+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 3e7800ff3ccc04784b743bf48398f9a5
+            [Date] => Jul 5, 2026 @ 6:25
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=UX4NCD
+            [Duration] => 0.11365
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/10.9.3 Hookshot (WordPress/7.0)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://milliondollarmedia.us/
+                            [X-WC-Webhook-Topic] => product.deleted
+                            [X-WC-Webhook-Resource] => product
+                            [X-WC-Webhook-Event] => deleted
+                            [X-WC-Webhook-Signature] => 5zhmj2yW0417wv7CdsRmOrwstDwoy2nWz5ML9xC9MZM=
+                            [X-WC-Webhook-ID] => 5
+                            [X-WC-Webhook-Delivery-ID] => 3e7800ff3ccc04784b743bf48398f9a5
+                        )
+
+                )
+
+            [Body] => {\"id\":426}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Sun, 05 Jul 2026 06:25:20 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [content-length] => 1
+                                    [content-language] => en-us
+                                    [content-security-policy] => object-src 'none'; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; base-uri 'none'; report-uri /csp/
+                                    [server] => cloudflare
+                                    [vary] => Accept-Language, Cookie, Origin
+                                    [x-klaviyo-req-id] => 420d3476-ba30-46f3-9eca-173d0e0d425b
+                                    [x-envoy-upstream-service-time] => 24
+                                    [cf-cache-status] => DYNAMIC
+                                    [x-content-type-options] => nosniff
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [cf-ray] => a1644ab72e2a565f-LAX
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
+2026-07-05T06:25:20+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 3e7800ff3ccc04784b743bf48398f9a5
+            [Date] => Jul 5, 2026 @ 6:25
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=UX4NCD
+            [Duration] => 0.10336
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/10.9.3 Hookshot (WordPress/7.0)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://milliondollarmedia.us/
+                            [X-WC-Webhook-Topic] => product.deleted
+                            [X-WC-Webhook-Resource] => product
+                            [X-WC-Webhook-Event] => deleted
+                            [X-WC-Webhook-Signature] => SUMzwheQFEFHqlGHjIOGHeG7Zc8+ytAdQFfKcmaX7iE=
+                            [X-WC-Webhook-ID] => 5
+                            [X-WC-Webhook-Delivery-ID] => 3e7800ff3ccc04784b743bf48398f9a5
+                        )
+
+                )
+
+            [Body] => {\"id\":425}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Sun, 05 Jul 2026 06:25:20 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [content-length] => 1
+                                    [content-language] => en-us
+                                    [content-security-policy] => script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; object-src 'none'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; base-uri 'none'; report-uri /csp/
+                                    [server] => cloudflare
+                                    [vary] => Accept-Language, Cookie, Origin
+                                    [x-klaviyo-req-id] => 60237593-22eb-40d4-81b8-5cc0d4fd6e4d
+                                    [x-envoy-upstream-service-time] => 20
+                                    [cf-cache-status] => DYNAMIC
+                                    [x-content-type-options] => nosniff
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [cf-ray] => a1644ab7eb7cd903-LAX
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
+2026-07-05T06:25:20+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 3e7800ff3ccc04784b743bf48398f9a5
+            [Date] => Jul 5, 2026 @ 6:25
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=UX4NCD
+            [Duration] => 0.12126
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/10.9.3 Hookshot (WordPress/7.0)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://milliondollarmedia.us/
+                            [X-WC-Webhook-Topic] => product.deleted
+                            [X-WC-Webhook-Resource] => product
+                            [X-WC-Webhook-Event] => deleted
+                            [X-WC-Webhook-Signature] => WTWH7nQf/Lp13eonyU3I1Ar5HMkLsj1JhSCxkDH804E=
+                            [X-WC-Webhook-ID] => 5
+                            [X-WC-Webhook-Delivery-ID] => 3e7800ff3ccc04784b743bf48398f9a5
+                        )
+
+                )
+
+            [Body] => {\"id\":424}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Sun, 05 Jul 2026 06:25:20 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [content-length] => 1
+                                    [content-language] => en-us
+                                    [content-security-policy] => frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; base-uri 'none'; object-src 'none'; report-uri /csp/
+                                    [server] => cloudflare
+                                    [vary] => Accept-Language, Cookie, Origin
+                                    [x-klaviyo-req-id] => 5c2a77c7-5a68-4b92-a90f-c417c96c1bd8
+                                    [x-envoy-upstream-service-time] => 23
+                                    [cf-cache-status] => DYNAMIC
+                                    [x-content-type-options] => nosniff
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [cf-ray] => a1644ab89ef63787-LAX
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
+2026-07-05T06:25:26+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 8c2482c0ee6d79d40c78fe0866edab9d
+            [Date] => Jul 5, 2026 @ 6:25
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=UX4NCD
+            [Duration] => 0.19553
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/10.9.3 Hookshot (WordPress/7.0)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://milliondollarmedia.us/
+                            [X-WC-Webhook-Topic] => product.updated
+                            [X-WC-Webhook-Resource] => product
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => fcNBXE4W+9wdfhq9Gcrp3R/5mU5QQj0RZmXwNE5IkyM=
+                            [X-WC-Webhook-ID] => 3
+                            [X-WC-Webhook-Delivery-ID] => 8c2482c0ee6d79d40c78fe0866edab9d
+                        )
+
+                )
+
+            [Body] => {\"id\":432,\"name\":\"GIF\",\"slug\":\"gif\",\"permalink\":\"https:\\/\\/milliondollarmedia.us\\/product\\/gif\\/\",\"date_created\":\"2025-05-12T15:52:38\",\"date_created_gmt\":\"2025-05-12T15:52:38\",\"date_modified\":\"2026-07-05T06:25:24\",\"date_modified_gmt\":\"2026-07-05T06:25:24\",\"type\":\"simple\",\"status\":\"publish\",\"featured\":false,\"catalog_visibility\":\"visible\",\"description\":\"\",\"short_description\":\"\",\"sku\":\"\",\"price\":\"24.97\",\"regular_price\":\"40\",\"sale_price\":\"24.97\",\"date_on_sale_from\":null,\"date_on_sale_from_gmt\":null,\"date_on_sale_to\":null,\"date_on_sale_to_gmt\":null,\"on_sale\":true,\"purchasable\":true,\"total_sales\":0,\"virtual\":true,\"downloadable\":false,\"downloads\":[],\"download_limit\":-1,\"download_expiry\":-1,\"external_url\":\"\",\"button_text\":\"\",\"tax_status\":\"taxable\",\"tax_class\":\"\",\"manage_stock\":false,\"stock_quantity\":null,\"backorders\":\"no\",\"backorders_allowed\":false,\"backordered\":false,\"low_stock_amount\":null,\"sold_individually\":false,\"weight\":\"\",\"dimensions\":{\"length\":\"\",\"width\":\"\",\"height\":\"\"},\"shipping_required\":false,\"shipping_taxable\":false,\"shipping_class\":\"\",\"shipping_class_id\":0,\"reviews_allowed\":true,\"average_rating\":\"0.00\",\"rating_count\":0,\"upsell_ids\":[],\"cross_sell_ids\":[],\"parent_id\":0,\"purchase_note\":\"\",\"categories\":[{\"id\":22,\"name\":\"Uncategorized\",\"slug\":\"uncategorized\"}],\"brands\":[],\"tags\":[],\"images\":[],\"attributes\":[],\"default_attributes\":[],\"variations\":[],\"grouped_products\":[],\"menu_order\":0,\"price_html\":\"<del aria-hidden=\\\"true\\\"><span class=\\\"woocommerce-Price-amount amount\\\"><bdi><span class=\\\"woocommerce-Price-currencySymbol\\\" translate=\\\"no\\\">&#36;<\\/span>40.00<\\/bdi><\\/span><\\/del> <span class=\\\"screen-reader-text\\\">Original price was: &#036;40.00.<\\/span><ins aria-hidden=\\\"true\\\"><span class=\\\"woocommerce-Price-amount amount\\\"><bdi><span class=\\\"woocommerce-Price-currencySymbol\\\" translate=\\\"no\\\">&#36;<\\/span>24.97<\\/bdi><\\/span><\\/ins><span class=\\\"screen-reader-text\\\">Current price is: &#036;24.97.<\\/span>\",\"related_ids\":[3330,343,4413,3329,437],\"meta_data\":[{\"id\":3079,\"key\":\"site-sidebar-layout\",\"value\":\"default\"},{\"id\":3081,\"key\":\"ast-site-content-layout\",\"value\":\"default\"},{\"id\":3082,\"key\":\"site-content-style\",\"value\":\"default\"},{\"id\":3083,\"key\":\"site-sidebar-style\",\"value\":\"default\"},{\"id\":3084,\"key\":\"theme-transparent-header-meta\",\"value\":\"default\"},{\"id\":15281,\"key\":\"rank_math_internal_links_processed\",\"value\":\"1\"},{\"id\":36183,\"key\":\"rank_math_seo_score\",\"value\":\"10\"},{\"id\":36184,\"key\":\"astra-migrate-meta-layouts\",\"value\":\"set\"}],\"stock_status\":\"instock\",\"has_options\":false,\"post_password\":\"\",\"global_unique_id\":\"\",\"_links\":{\"self\":[{\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/products\\/432\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/products\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Sun, 05 Jul 2026 06:25:26 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [content-length] => 1
+                                    [content-language] => en-us
+                                    [content-security-policy] => frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; base-uri 'none'; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; object-src 'none'; report-uri /csp/
+                                    [server] => cloudflare
+                                    [vary] => Accept-Language, Cookie, Origin
+                                    [x-klaviyo-req-id] => 3e4b15d6-150e-47eb-975c-1437bf33e039
+                                    [x-envoy-upstream-service-time] => 23
+                                    [cf-cache-status] => DYNAMIC
+                                    [x-content-type-options] => nosniff
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [cf-ray] => a1644adb0c60db59-LAX
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
+2026-07-05T06:26:29+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 5f2e3f4af8ede9a34e755c90706f921e
+            [Date] => Jul 5, 2026 @ 6:26
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=UX4NCD
+            [Duration] => 0.18797
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/10.9.3 Hookshot (WordPress/7.0)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://milliondollarmedia.us/
+                            [X-WC-Webhook-Topic] => product.updated
+                            [X-WC-Webhook-Resource] => product
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => /edJV/haJFzUzZlflZZlCYeZ+j5PLBc/6TWNXboyauU=
+                            [X-WC-Webhook-ID] => 3
+                            [X-WC-Webhook-Delivery-ID] => 5f2e3f4af8ede9a34e755c90706f921e
+                        )
+
+                )
+
+            [Body] => {\"id\":427,\"name\":\"Video\",\"slug\":\"video\",\"permalink\":\"https:\\/\\/milliondollarmedia.us\\/product\\/video\\/\",\"date_created\":\"2025-05-12T15:48:45\",\"date_created_gmt\":\"2025-05-12T15:48:45\",\"date_modified\":\"2026-07-05T06:25:40\",\"date_modified_gmt\":\"2026-07-05T06:25:40\",\"type\":\"simple\",\"status\":\"publish\",\"featured\":false,\"catalog_visibility\":\"visible\",\"description\":\"\",\"short_description\":\"\",\"sku\":\"\",\"price\":\"34.97\",\"regular_price\":\"50\",\"sale_price\":\"34.97\",\"date_on_sale_from\":null,\"date_on_sale_from_gmt\":null,\"date_on_sale_to\":null,\"date_on_sale_to_gmt\":null,\"on_sale\":true,\"purchasable\":true,\"total_sales\":0,\"virtual\":true,\"downloadable\":false,\"downloads\":[],\"download_limit\":-1,\"download_expiry\":-1,\"external_url\":\"\",\"button_text\":\"\",\"tax_status\":\"taxable\",\"tax_class\":\"\",\"manage_stock\":false,\"stock_quantity\":null,\"backorders\":\"no\",\"backorders_allowed\":false,\"backordered\":false,\"low_stock_amount\":null,\"sold_individually\":false,\"weight\":\"\",\"dimensions\":{\"length\":\"\",\"width\":\"\",\"height\":\"\"},\"shipping_required\":false,\"shipping_taxable\":false,\"shipping_class\":\"\",\"shipping_class_id\":0,\"reviews_allowed\":true,\"average_rating\":\"0.00\",\"rating_count\":0,\"upsell_ids\":[],\"cross_sell_ids\":[],\"parent_id\":0,\"purchase_note\":\"\",\"categories\":[{\"id\":22,\"name\":\"Uncategorized\",\"slug\":\"uncategorized\"}],\"brands\":[],\"tags\":[],\"images\":[],\"attributes\":[],\"default_attributes\":[],\"variations\":[],\"grouped_products\":[],\"menu_order\":0,\"price_html\":\"<del aria-hidden=\\\"true\\\"><span class=\\\"woocommerce-Price-amount amount\\\"><bdi><span class=\\\"woocommerce-Price-currencySymbol\\\" translate=\\\"no\\\">&#36;<\\/span>50.00<\\/bdi><\\/span><\\/del> <span class=\\\"screen-reader-text\\\">Original price was: &#036;50.00.<\\/span><ins aria-hidden=\\\"true\\\"><span class=\\\"woocommerce-Price-amount amount\\\"><bdi><span class=\\\"woocommerce-Price-currencySymbol\\\" translate=\\\"no\\\">&#36;<\\/span>34.97<\\/bdi><\\/span><\\/ins><span class=\\\"screen-reader-text\\\">Current price is: &#036;34.97.<\\/span>\",\"related_ids\":[4413,437,343,432,3329],\"meta_data\":[{\"id\":2970,\"key\":\"site-sidebar-layout\",\"value\":\"default\"},{\"id\":2972,\"key\":\"ast-site-content-layout\",\"value\":\"default\"},{\"id\":2973,\"key\":\"site-content-style\",\"value\":\"default\"},{\"id\":2974,\"key\":\"site-sidebar-style\",\"value\":\"default\"},{\"id\":2975,\"key\":\"theme-transparent-header-meta\",\"value\":\"default\"},{\"id\":15421,\"key\":\"rank_math_internal_links_processed\",\"value\":\"1\"},{\"id\":36185,\"key\":\"rank_math_seo_score\",\"value\":\"10\"},{\"id\":36186,\"key\":\"astra-migrate-meta-layouts\",\"value\":\"set\"}],\"stock_status\":\"instock\",\"has_options\":false,\"post_password\":\"\",\"global_unique_id\":\"\",\"_links\":{\"self\":[{\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/products\\/427\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/products\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Sun, 05 Jul 2026 06:26:29 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [content-length] => 1
+                                    [content-language] => en-us
+                                    [content-security-policy] => object-src 'none'; base-uri 'none'; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; report-uri /csp/
+                                    [server] => cloudflare
+                                    [vary] => Accept-Language, Cookie, Origin
+                                    [x-klaviyo-req-id] => 463ede76-3db3-4014-8f22-980840f99c59
+                                    [x-envoy-upstream-service-time] => 23
+                                    [cf-cache-status] => DYNAMIC
+                                    [x-content-type-options] => nosniff
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [cf-ray] => a1644c68cb4150ba-LAX
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
+2026-07-05T06:26:30+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => e64a2f6ccc60d4099f8ccb82db8c9f5f
+            [Date] => Jul 5, 2026 @ 6:26
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=UX4NCD
+            [Duration] => 0.12449
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/10.9.3 Hookshot (WordPress/7.0)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://milliondollarmedia.us/
+                            [X-WC-Webhook-Topic] => product.updated
+                            [X-WC-Webhook-Resource] => product
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => ibxe30B++xewT4W2air2QUGA0tPHPDoW2ntHA/knEJ4=
+                            [X-WC-Webhook-ID] => 3
+                            [X-WC-Webhook-Delivery-ID] => e64a2f6ccc60d4099f8ccb82db8c9f5f
+                        )
+
+                )
+
+            [Body] => {\"id\":343,\"name\":\"Image\",\"slug\":\"image\",\"permalink\":\"https:\\/\\/milliondollarmedia.us\\/product\\/image\\/\",\"date_created\":\"2025-05-08T19:23:34\",\"date_created_gmt\":\"2025-05-08T19:23:34\",\"date_modified\":\"2026-07-05T06:25:53\",\"date_modified_gmt\":\"2026-07-05T06:25:53\",\"type\":\"simple\",\"status\":\"publish\",\"featured\":false,\"catalog_visibility\":\"visible\",\"description\":\"\",\"short_description\":\"\",\"sku\":\"\",\"price\":\"14.97\",\"regular_price\":\"25\",\"sale_price\":\"14.97\",\"date_on_sale_from\":null,\"date_on_sale_from_gmt\":null,\"date_on_sale_to\":null,\"date_on_sale_to_gmt\":null,\"on_sale\":true,\"purchasable\":true,\"total_sales\":0,\"virtual\":true,\"downloadable\":false,\"downloads\":[],\"download_limit\":-1,\"download_expiry\":-1,\"external_url\":\"\",\"button_text\":\"\",\"tax_status\":\"taxable\",\"tax_class\":\"\",\"manage_stock\":false,\"stock_quantity\":null,\"backorders\":\"no\",\"backorders_allowed\":false,\"backordered\":false,\"low_stock_amount\":null,\"sold_individually\":false,\"weight\":\"\",\"dimensions\":{\"length\":\"\",\"width\":\"\",\"height\":\"\"},\"shipping_required\":false,\"shipping_taxable\":false,\"shipping_class\":\"\",\"shipping_class_id\":0,\"reviews_allowed\":true,\"average_rating\":\"0.00\",\"rating_count\":0,\"upsell_ids\":[],\"cross_sell_ids\":[],\"parent_id\":0,\"purchase_note\":\"\",\"categories\":[{\"id\":22,\"name\":\"Uncategorized\",\"slug\":\"uncategorized\"}],\"brands\":[],\"tags\":[],\"images\":[],\"attributes\":[],\"default_attributes\":[],\"variations\":[],\"grouped_products\":[],\"menu_order\":0,\"price_html\":\"<del aria-hidden=\\\"true\\\"><span class=\\\"woocommerce-Price-amount amount\\\"><bdi><span class=\\\"woocommerce-Price-currencySymbol\\\" translate=\\\"no\\\">&#36;<\\/span>25.00<\\/bdi><\\/span><\\/del> <span class=\\\"screen-reader-text\\\">Original price was: &#036;25.00.<\\/span><ins aria-hidden=\\\"true\\\"><span class=\\\"woocommerce-Price-amount amount\\\"><bdi><span class=\\\"woocommerce-Price-currencySymbol\\\" translate=\\\"no\\\">&#36;<\\/span>14.97<\\/bdi><\\/span><\\/ins><span class=\\\"screen-reader-text\\\">Current price is: &#036;14.97.<\\/span>\",\"related_ids\":[437,4413,427,3329,432],\"meta_data\":[{\"id\":2238,\"key\":\"site-sidebar-layout\",\"value\":\"default\"},{\"id\":2240,\"key\":\"ast-site-content-layout\",\"value\":\"default\"},{\"id\":2241,\"key\":\"site-content-style\",\"value\":\"default\"},{\"id\":2242,\"key\":\"site-sidebar-style\",\"value\":\"default\"},{\"id\":2243,\"key\":\"theme-transparent-header-meta\",\"value\":\"default\"},{\"id\":16311,\"key\":\"rank_math_internal_links_processed\",\"value\":\"1\"},{\"id\":36187,\"key\":\"rank_math_seo_score\",\"value\":\"10\"},{\"id\":36188,\"key\":\"astra-migrate-meta-layouts\",\"value\":\"set\"}],\"stock_status\":\"instock\",\"has_options\":false,\"post_password\":\"\",\"global_unique_id\":\"\",\"_links\":{\"self\":[{\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/products\\/343\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/products\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Sun, 05 Jul 2026 06:26:30 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [content-length] => 1
+                                    [content-language] => en-us
+                                    [content-security-policy] => frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; object-src 'none'; base-uri 'none'; report-uri /csp/
+                                    [server] => cloudflare
+                                    [vary] => Accept-Language, Cookie, Origin
+                                    [x-klaviyo-req-id] => 6a406990-69bc-40d7-a63b-c8274adc36b8
+                                    [x-envoy-upstream-service-time] => 24
+                                    [cf-cache-status] => DYNAMIC
+                                    [x-content-type-options] => nosniff
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [cf-ray] => a1644c69a885f7bb-LAX
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
+2026-07-05T07:15:04+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => eb5af8a8e61ff0f58e193b68f466b1f0
+            [Date] => Jul 5, 2026 @ 7:15
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=UX4NCD
+            [Duration] => 0.14152
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/10.9.3 Hookshot (WordPress/7.0)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://milliondollarmedia.us/
+                            [X-WC-Webhook-Topic] => product.deleted
+                            [X-WC-Webhook-Resource] => product
+                            [X-WC-Webhook-Event] => deleted
+                            [X-WC-Webhook-Signature] => yxbekgkpgSwaBBdgxAnvHvwHrhEOL2/G47gBZxdKiik=
+                            [X-WC-Webhook-ID] => 5
+                            [X-WC-Webhook-Delivery-ID] => eb5af8a8e61ff0f58e193b68f466b1f0
+                        )
+
+                )
+
+            [Body] => {\"id\":4597}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Sun, 05 Jul 2026 07:15:04 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [content-length] => 1
+                                    [content-language] => en-us
+                                    [content-security-policy] => script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; base-uri 'none'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; object-src 'none'; report-uri /csp/
+                                    [server] => cloudflare
+                                    [vary] => Accept-Language, Cookie, Origin
+                                    [x-klaviyo-req-id] => 6d30b9d2-cc24-44c4-a446-4db681ab61b2
+                                    [x-envoy-upstream-service-time] => 23
+                                    [cf-cache-status] => DYNAMIC
+                                    [x-content-type-options] => nosniff
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [cf-ray] => a164939229c490eb-LAX
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
+2026-07-05T07:15:48+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 9fcc3e96785594c20c3278baf3dbaa3e
+            [Date] => Jul 5, 2026 @ 7:15
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=UX4NCD
+            [Duration] => 0.11261
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/10.9.3 Hookshot (WordPress/7.0)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://milliondollarmedia.us/
+                            [X-WC-Webhook-Topic] => product.deleted
+                            [X-WC-Webhook-Resource] => product
+                            [X-WC-Webhook-Event] => deleted
+                            [X-WC-Webhook-Signature] => LPZlLJ59Z3usRcKwGqINX4eiimZ8eorbISeSmF0A0FU=
+                            [X-WC-Webhook-ID] => 5
+                            [X-WC-Webhook-Delivery-ID] => 9fcc3e96785594c20c3278baf3dbaa3e
+                        )
+
+                )
+
+            [Body] => {\"id\":4599}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Sun, 05 Jul 2026 07:15:48 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [content-length] => 1
+                                    [content-language] => en-us
+                                    [content-security-policy] => base-uri 'none'; object-src 'none'; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; report-uri /csp/
+                                    [server] => cloudflare
+                                    [vary] => Accept-Language, Cookie, Origin
+                                    [x-klaviyo-req-id] => 62cce1c6-260e-4443-b768-9723e83d3eb7
+                                    [x-envoy-upstream-service-time] => 22
+                                    [cf-cache-status] => DYNAMIC
+                                    [x-content-type-options] => nosniff
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [cf-ray] => a16494a68d516387-LAX
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
+2026-07-05T11:55:36+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => e2a0af1ea959885036f398e0a36fe9db
+            [Date] => Jul 5, 2026 @ 11:55
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=UX4NCD
+            [Duration] => 0.227
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/10.9.3 Hookshot (WordPress/7.0)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://milliondollarmedia.us/
+                            [X-WC-Webhook-Topic] => order.created
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => created
+                            [X-WC-Webhook-Signature] => u8OWIUge2nEPQMMeE1v2DtysF0CUsLDyqckVPjJ64Pw=
+                            [X-WC-Webhook-ID] => 2
+                            [X-WC-Webhook-Delivery-ID] => e2a0af1ea959885036f398e0a36fe9db
+                        )
+
+                )
+
+            [Body] => {\"id\":4624,\"parent_id\":0,\"status\":\"processing\",\"currency\":\"USD\",\"version\":\"10.9.3\",\"prices_include_tax\":false,\"date_created\":\"2026-07-05T11:54:58\",\"date_modified\":\"2026-07-05T11:55:00\",\"discount_total\":\"169.70\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"customer_id\":2,\"order_key\":\"wc_order_xuDfhhosyGNhv\",\"billing\":{\"first_name\":\"muzamil\",\"last_name\":\"HUSSAIN\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"test\",\"state\":\"PB\",\"postcode\":\"110015\",\"country\":\"PK\",\"email\":\"testitmuzamil@gmail.com\",\"phone\":\"+923001282023\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"\",\"postcode\":\"\",\"country\":\"\",\"phone\":\"\"},\"payment_method\":\"\",\"payment_method_title\":\"\",\"transaction_id\":\"\",\"customer_ip_address\":\"66.102.125.249\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/150.0.0.0 Safari\\/537.36\",\"created_via\":\"checkout\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":\"2026-07-05T11:54:58\",\"cart_hash\":\"d4440a3d502f9331d97dc065eb3279c5\",\"number\":\"4624\",\"meta_data\":[{\"id\":56,\"key\":\"_debug_log_source_pending_deletion\",\"value\":\"place-order-debug-fc47530c\"},{\"id\":52,\"key\":\"_wc_order_attribution_device_type\",\"value\":\"Desktop\"},{\"id\":45,\"key\":\"_wc_order_attribution_referrer\",\"value\":\"https:\\/\\/milliondollarmedia.us\\/wp-admin\\/post.php?post=3439&action=elementor\"},{\"id\":50,\"key\":\"_wc_order_attribution_session_count\",\"value\":\"8\"},{\"id\":47,\"key\":\"_wc_order_attribution_session_entry\",\"value\":\"https:\\/\\/milliondollarmedia.us\\/mastermind\\/?elementor-preview=3439&ver=1783076717\"},{\"id\":49,\"key\":\"_wc_order_attribution_session_pages\",\"value\":\"4\"},{\"id\":48,\"key\":\"_wc_order_attribution_session_start_time\",\"value\":\"2026-07-03 11:05:19\"},{\"id\":44,\"key\":\"_wc_order_attribution_source_type\",\"value\":\"typein\"},{\"id\":51,\"key\":\"_wc_order_attribution_user_agent\",\"value\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/150.0.0.0 Safari\\/537.36\"},{\"id\":46,\"key\":\"_wc_order_attribution_utm_source\",\"value\":\"(direct)\"},{\"id\":57,\"key\":\"_wc_push_notification_claimed\",\"value\":\"1783252500\"},{\"id\":58,\"key\":\"_wc_push_notification_sent\",\"value\":\"1783252500\"},{\"id\":41,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":7,\"name\":\"Video\",\"product_id\":427,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"34.97\",\"subtotal_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"\",\"global_unique_id\":\"\",\"price\":0,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":8,\"name\":\"Image\",\"product_id\":343,\"variation_id\":0,\"quantity\":9,\"tax_class\":\"\",\"subtotal\":\"134.73\",\"subtotal_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"\",\"global_unique_id\":\"\",\"price\":0,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[{\"id\":9,\"code\":\"gaurav100\",\"discount\":\"169.7\",\"discount_tax\":\"0\",\"meta_data\":[{\"id\":63,\"key\":\"coupon_info\",\"value\":\"[1501,\\\"gaurav100\\\",\\\"percent\\\",100]\",\"display_key\":\"coupon_info\",\"display_value\":\"[1501,\\\"gaurav100\\\",\\\"percent\\\",100]\"}],\"discount_type\":\"percent\",\"nominal_amount\":100,\"free_shipping\":false}],\"refunds\":[],\"payment_url\":\"https:\\/\\/milliondollarmedia.us\\/checkout\\/order-pay\\/4624\\/?pay_for_order=true&key=wc_order_xuDfhhosyGNhv\",\"is_editable\":false,\"needs_payment\":false,\"needs_processing\":true,\"date_created_gmt\":\"2026-07-05T11:54:58\",\"date_modified_gmt\":\"2026-07-05T11:55:00\",\"date_completed_gmt\":null,\"date_paid_gmt\":\"2026-07-05T11:54:58\",\"currency_symbol\":\"$\",\"_links\":{\"self\":[{\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/orders\\/4624\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/orders\"}],\"email_templates\":[{\"embeddable\":true,\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/orders\\/4624\\/actions\\/email_templates\"}],\"customer\":[{\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/customers\\/2\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Sun, 05 Jul 2026 11:55:36 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [content-length] => 1
+                                    [content-language] => en-us
+                                    [content-security-policy] => script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; object-src 'none'; base-uri 'none'; report-uri /csp/
+                                    [server] => cloudflare
+                                    [vary] => Accept-Language, Cookie, Origin
+                                    [x-klaviyo-req-id] => 8b4435a1-b174-40df-ba61-fc91f183e59f
+                                    [x-envoy-upstream-service-time] => 24
+                                    [cf-cache-status] => DYNAMIC
+                                    [x-content-type-options] => nosniff
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [cf-ray] => a1662e838d081bcd-LAX
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
+2026-07-05T11:55:37+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => c1e90bdd06ed8471209907def9804689
+            [Date] => Jul 5, 2026 @ 11:55
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=UX4NCD
+            [Duration] => 0.12864
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/10.9.3 Hookshot (WordPress/7.0)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://milliondollarmedia.us/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => u8OWIUge2nEPQMMeE1v2DtysF0CUsLDyqckVPjJ64Pw=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => c1e90bdd06ed8471209907def9804689
+                        )
+
+                )
+
+            [Body] => {\"id\":4624,\"parent_id\":0,\"status\":\"processing\",\"currency\":\"USD\",\"version\":\"10.9.3\",\"prices_include_tax\":false,\"date_created\":\"2026-07-05T11:54:58\",\"date_modified\":\"2026-07-05T11:55:00\",\"discount_total\":\"169.70\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"customer_id\":2,\"order_key\":\"wc_order_xuDfhhosyGNhv\",\"billing\":{\"first_name\":\"muzamil\",\"last_name\":\"HUSSAIN\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"test\",\"state\":\"PB\",\"postcode\":\"110015\",\"country\":\"PK\",\"email\":\"testitmuzamil@gmail.com\",\"phone\":\"+923001282023\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"\",\"postcode\":\"\",\"country\":\"\",\"phone\":\"\"},\"payment_method\":\"\",\"payment_method_title\":\"\",\"transaction_id\":\"\",\"customer_ip_address\":\"66.102.125.249\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/150.0.0.0 Safari\\/537.36\",\"created_via\":\"checkout\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":\"2026-07-05T11:54:58\",\"cart_hash\":\"d4440a3d502f9331d97dc065eb3279c5\",\"number\":\"4624\",\"meta_data\":[{\"id\":56,\"key\":\"_debug_log_source_pending_deletion\",\"value\":\"place-order-debug-fc47530c\"},{\"id\":52,\"key\":\"_wc_order_attribution_device_type\",\"value\":\"Desktop\"},{\"id\":45,\"key\":\"_wc_order_attribution_referrer\",\"value\":\"https:\\/\\/milliondollarmedia.us\\/wp-admin\\/post.php?post=3439&action=elementor\"},{\"id\":50,\"key\":\"_wc_order_attribution_session_count\",\"value\":\"8\"},{\"id\":47,\"key\":\"_wc_order_attribution_session_entry\",\"value\":\"https:\\/\\/milliondollarmedia.us\\/mastermind\\/?elementor-preview=3439&ver=1783076717\"},{\"id\":49,\"key\":\"_wc_order_attribution_session_pages\",\"value\":\"4\"},{\"id\":48,\"key\":\"_wc_order_attribution_session_start_time\",\"value\":\"2026-07-03 11:05:19\"},{\"id\":44,\"key\":\"_wc_order_attribution_source_type\",\"value\":\"typein\"},{\"id\":51,\"key\":\"_wc_order_attribution_user_agent\",\"value\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/150.0.0.0 Safari\\/537.36\"},{\"id\":46,\"key\":\"_wc_order_attribution_utm_source\",\"value\":\"(direct)\"},{\"id\":57,\"key\":\"_wc_push_notification_claimed\",\"value\":\"1783252500\"},{\"id\":58,\"key\":\"_wc_push_notification_sent\",\"value\":\"1783252500\"},{\"id\":41,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":7,\"name\":\"Video\",\"product_id\":427,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"34.97\",\"subtotal_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"\",\"global_unique_id\":\"\",\"price\":0,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null},{\"id\":8,\"name\":\"Image\",\"product_id\":343,\"variation_id\":0,\"quantity\":9,\"tax_class\":\"\",\"subtotal\":\"134.73\",\"subtotal_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"\",\"global_unique_id\":\"\",\"price\":0,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[{\"id\":9,\"code\":\"gaurav100\",\"discount\":\"169.7\",\"discount_tax\":\"0\",\"meta_data\":[{\"id\":63,\"key\":\"coupon_info\",\"value\":\"[1501,\\\"gaurav100\\\",\\\"percent\\\",100]\",\"display_key\":\"coupon_info\",\"display_value\":\"[1501,\\\"gaurav100\\\",\\\"percent\\\",100]\"}],\"discount_type\":\"percent\",\"nominal_amount\":100,\"free_shipping\":false}],\"refunds\":[],\"payment_url\":\"https:\\/\\/milliondollarmedia.us\\/checkout\\/order-pay\\/4624\\/?pay_for_order=true&key=wc_order_xuDfhhosyGNhv\",\"is_editable\":false,\"needs_payment\":false,\"needs_processing\":true,\"date_created_gmt\":\"2026-07-05T11:54:58\",\"date_modified_gmt\":\"2026-07-05T11:55:00\",\"date_completed_gmt\":null,\"date_paid_gmt\":\"2026-07-05T11:54:58\",\"currency_symbol\":\"$\",\"_links\":{\"self\":[{\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/orders\\/4624\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/orders\"}],\"email_templates\":[{\"embeddable\":true,\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/orders\\/4624\\/actions\\/email_templates\"}],\"customer\":[{\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/customers\\/2\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Sun, 05 Jul 2026 11:55:37 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [content-length] => 1
+                                    [content-language] => en-us
+                                    [content-security-policy] => object-src 'none'; base-uri 'none'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; report-uri /csp/
+                                    [server] => cloudflare
+                                    [vary] => Accept-Language, Cookie, Origin
+                                    [x-klaviyo-req-id] => b634fd52-13c8-4cf1-9d4e-29fd5dbc44b5
+                                    [x-envoy-upstream-service-time] => 25
+                                    [cf-cache-status] => DYNAMIC
+                                    [x-content-type-options] => nosniff
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [cf-ray] => a1662e845e8a2f44-LAX
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
+2026-07-05T12:25:26+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 6f3500326d7e6a4217f9852f79573368
+            [Date] => Jul 5, 2026 @ 12:25
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=UX4NCD
+            [Duration] => 0.2305
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/10.9.3 Hookshot (WordPress/7.0)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://milliondollarmedia.us/
+                            [X-WC-Webhook-Topic] => order.created
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => created
+                            [X-WC-Webhook-Signature] => dtg5UMrAi0mbDM1EbREamnEA4rKFfTe1O1zQIdSwUIQ=
+                            [X-WC-Webhook-ID] => 2
+                            [X-WC-Webhook-Delivery-ID] => 6f3500326d7e6a4217f9852f79573368
+                        )
+
+                )
+
+            [Body] => {\"id\":4625,\"parent_id\":0,\"status\":\"processing\",\"currency\":\"USD\",\"version\":\"10.9.3\",\"prices_include_tax\":false,\"date_created\":\"2026-07-05T12:25:23\",\"date_modified\":\"2026-07-05T12:25:24\",\"discount_total\":\"29.94\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"customer_id\":2,\"order_key\":\"wc_order_gRmXxeOJttNKH\",\"billing\":{\"first_name\":\"muzamil\",\"last_name\":\"HUSSAIN\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"test\",\"state\":\"PB\",\"postcode\":\"110015\",\"country\":\"PK\",\"email\":\"testitmuzamil@gmail.com\",\"phone\":\"+923001282023\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"\",\"postcode\":\"\",\"country\":\"\",\"phone\":\"\"},\"payment_method\":\"\",\"payment_method_title\":\"\",\"transaction_id\":\"\",\"customer_ip_address\":\"66.102.125.249\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/150.0.0.0 Safari\\/537.36\",\"created_via\":\"checkout\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":\"2026-07-05T12:25:23\",\"cart_hash\":\"a7cee051d9336957a6d580dca8a80dae\",\"number\":\"4625\",\"meta_data\":[{\"id\":74,\"key\":\"_debug_log_source_pending_deletion\",\"value\":\"place-order-debug-4ed3ec88\"},{\"id\":70,\"key\":\"_wc_order_attribution_device_type\",\"value\":\"Desktop\"},{\"id\":63,\"key\":\"_wc_order_attribution_referrer\",\"value\":\"https:\\/\\/milliondollarmedia.us\\/wp-admin\\/post.php?post=3439&action=elementor\"},{\"id\":68,\"key\":\"_wc_order_attribution_session_count\",\"value\":\"8\"},{\"id\":65,\"key\":\"_wc_order_attribution_session_entry\",\"value\":\"https:\\/\\/milliondollarmedia.us\\/mastermind\\/?elementor-preview=3439&ver=1783076717\"},{\"id\":67,\"key\":\"_wc_order_attribution_session_pages\",\"value\":\"24\"},{\"id\":66,\"key\":\"_wc_order_attribution_session_start_time\",\"value\":\"2026-07-03 11:05:19\"},{\"id\":62,\"key\":\"_wc_order_attribution_source_type\",\"value\":\"typein\"},{\"id\":69,\"key\":\"_wc_order_attribution_user_agent\",\"value\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/150.0.0.0 Safari\\/537.36\"},{\"id\":64,\"key\":\"_wc_order_attribution_utm_source\",\"value\":\"(direct)\"},{\"id\":75,\"key\":\"_wc_push_notification_claimed\",\"value\":\"1783254324\"},{\"id\":76,\"key\":\"_wc_push_notification_sent\",\"value\":\"1783254324\"},{\"id\":59,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":10,\"name\":\"Image\",\"product_id\":343,\"variation_id\":0,\"quantity\":2,\"tax_class\":\"\",\"subtotal\":\"29.94\",\"subtotal_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"\",\"global_unique_id\":\"\",\"price\":0,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[{\"id\":11,\"code\":\"gaurav100\",\"discount\":\"29.94\",\"discount_tax\":\"0\",\"meta_data\":[{\"id\":75,\"key\":\"coupon_info\",\"value\":\"[1501,\\\"gaurav100\\\",\\\"percent\\\",100]\",\"display_key\":\"coupon_info\",\"display_value\":\"[1501,\\\"gaurav100\\\",\\\"percent\\\",100]\"}],\"discount_type\":\"percent\",\"nominal_amount\":100,\"free_shipping\":false}],\"refunds\":[],\"payment_url\":\"https:\\/\\/milliondollarmedia.us\\/checkout\\/order-pay\\/4625\\/?pay_for_order=true&key=wc_order_gRmXxeOJttNKH\",\"is_editable\":false,\"needs_payment\":false,\"needs_processing\":true,\"date_created_gmt\":\"2026-07-05T12:25:23\",\"date_modified_gmt\":\"2026-07-05T12:25:24\",\"date_completed_gmt\":null,\"date_paid_gmt\":\"2026-07-05T12:25:23\",\"currency_symbol\":\"$\",\"_links\":{\"self\":[{\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/orders\\/4625\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/orders\"}],\"email_templates\":[{\"embeddable\":true,\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/orders\\/4625\\/actions\\/email_templates\"}],\"customer\":[{\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/customers\\/2\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Sun, 05 Jul 2026 12:25:26 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [content-length] => 1
+                                    [content-language] => en-us
+                                    [content-security-policy] => script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; object-src 'none'; base-uri 'none'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; report-uri /csp/
+                                    [server] => cloudflare
+                                    [vary] => Accept-Language, Cookie, Origin
+                                    [x-klaviyo-req-id] => 3859acaf-b806-49d3-9897-6a26eb64957e
+                                    [x-envoy-upstream-service-time] => 24
+                                    [cf-cache-status] => DYNAMIC
+                                    [x-content-type-options] => nosniff
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [cf-ray] => a1665a358a6cfb84-LAX
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
+2026-07-05T12:25:26+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => d1efda361c06bbf5ec2b916153441c6e
+            [Date] => Jul 5, 2026 @ 12:25
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=UX4NCD
+            [Duration] => 0.13639
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/10.9.3 Hookshot (WordPress/7.0)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://milliondollarmedia.us/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => dtg5UMrAi0mbDM1EbREamnEA4rKFfTe1O1zQIdSwUIQ=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => d1efda361c06bbf5ec2b916153441c6e
+                        )
+
+                )
+
+            [Body] => {\"id\":4625,\"parent_id\":0,\"status\":\"processing\",\"currency\":\"USD\",\"version\":\"10.9.3\",\"prices_include_tax\":false,\"date_created\":\"2026-07-05T12:25:23\",\"date_modified\":\"2026-07-05T12:25:24\",\"discount_total\":\"29.94\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"customer_id\":2,\"order_key\":\"wc_order_gRmXxeOJttNKH\",\"billing\":{\"first_name\":\"muzamil\",\"last_name\":\"HUSSAIN\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"test\",\"state\":\"PB\",\"postcode\":\"110015\",\"country\":\"PK\",\"email\":\"testitmuzamil@gmail.com\",\"phone\":\"+923001282023\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"\",\"postcode\":\"\",\"country\":\"\",\"phone\":\"\"},\"payment_method\":\"\",\"payment_method_title\":\"\",\"transaction_id\":\"\",\"customer_ip_address\":\"66.102.125.249\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/150.0.0.0 Safari\\/537.36\",\"created_via\":\"checkout\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":\"2026-07-05T12:25:23\",\"cart_hash\":\"a7cee051d9336957a6d580dca8a80dae\",\"number\":\"4625\",\"meta_data\":[{\"id\":74,\"key\":\"_debug_log_source_pending_deletion\",\"value\":\"place-order-debug-4ed3ec88\"},{\"id\":70,\"key\":\"_wc_order_attribution_device_type\",\"value\":\"Desktop\"},{\"id\":63,\"key\":\"_wc_order_attribution_referrer\",\"value\":\"https:\\/\\/milliondollarmedia.us\\/wp-admin\\/post.php?post=3439&action=elementor\"},{\"id\":68,\"key\":\"_wc_order_attribution_session_count\",\"value\":\"8\"},{\"id\":65,\"key\":\"_wc_order_attribution_session_entry\",\"value\":\"https:\\/\\/milliondollarmedia.us\\/mastermind\\/?elementor-preview=3439&ver=1783076717\"},{\"id\":67,\"key\":\"_wc_order_attribution_session_pages\",\"value\":\"24\"},{\"id\":66,\"key\":\"_wc_order_attribution_session_start_time\",\"value\":\"2026-07-03 11:05:19\"},{\"id\":62,\"key\":\"_wc_order_attribution_source_type\",\"value\":\"typein\"},{\"id\":69,\"key\":\"_wc_order_attribution_user_agent\",\"value\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/150.0.0.0 Safari\\/537.36\"},{\"id\":64,\"key\":\"_wc_order_attribution_utm_source\",\"value\":\"(direct)\"},{\"id\":75,\"key\":\"_wc_push_notification_claimed\",\"value\":\"1783254324\"},{\"id\":76,\"key\":\"_wc_push_notification_sent\",\"value\":\"1783254324\"},{\"id\":59,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":10,\"name\":\"Image\",\"product_id\":343,\"variation_id\":0,\"quantity\":2,\"tax_class\":\"\",\"subtotal\":\"29.94\",\"subtotal_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"\",\"global_unique_id\":\"\",\"price\":0,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[{\"id\":11,\"code\":\"gaurav100\",\"discount\":\"29.94\",\"discount_tax\":\"0\",\"meta_data\":[{\"id\":75,\"key\":\"coupon_info\",\"value\":\"[1501,\\\"gaurav100\\\",\\\"percent\\\",100]\",\"display_key\":\"coupon_info\",\"display_value\":\"[1501,\\\"gaurav100\\\",\\\"percent\\\",100]\"}],\"discount_type\":\"percent\",\"nominal_amount\":100,\"free_shipping\":false}],\"refunds\":[],\"payment_url\":\"https:\\/\\/milliondollarmedia.us\\/checkout\\/order-pay\\/4625\\/?pay_for_order=true&key=wc_order_gRmXxeOJttNKH\",\"is_editable\":false,\"needs_payment\":false,\"needs_processing\":true,\"date_created_gmt\":\"2026-07-05T12:25:23\",\"date_modified_gmt\":\"2026-07-05T12:25:24\",\"date_completed_gmt\":null,\"date_paid_gmt\":\"2026-07-05T12:25:23\",\"currency_symbol\":\"$\",\"_links\":{\"self\":[{\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/orders\\/4625\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/orders\"}],\"email_templates\":[{\"embeddable\":true,\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/orders\\/4625\\/actions\\/email_templates\"}],\"customer\":[{\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/customers\\/2\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Sun, 05 Jul 2026 12:25:26 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [content-length] => 1
+                                    [content-language] => en-us
+                                    [content-security-policy] => base-uri 'none'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; object-src 'none'; report-uri /csp/
+                                    [server] => cloudflare
+                                    [vary] => Accept-Language, Cookie, Origin
+                                    [x-klaviyo-req-id] => f31a104f-c114-40b1-9fb9-9a6845ace519
+                                    [x-envoy-upstream-service-time] => 25
+                                    [cf-cache-status] => DYNAMIC
+                                    [x-content-type-options] => nosniff
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [cf-ray] => a1665a36782ef7b9-LAX
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
+2026-07-05T12:34:36+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 98bd703b924e1cb92f6309c5fae25d5c
+            [Date] => Jul 5, 2026 @ 12:34
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=UX4NCD
+            [Duration] => 0.22105
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/10.9.3 Hookshot (WordPress/7.0)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://milliondollarmedia.us/
+                            [X-WC-Webhook-Topic] => order.created
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => created
+                            [X-WC-Webhook-Signature] => oFPcDgrvb25+sqexxIbbx0dCFEkmp10v2iKjlHG5m70=
+                            [X-WC-Webhook-ID] => 2
+                            [X-WC-Webhook-Delivery-ID] => 98bd703b924e1cb92f6309c5fae25d5c
+                        )
+
+                )
+
+            [Body] => {\"id\":4629,\"parent_id\":0,\"status\":\"processing\",\"currency\":\"USD\",\"version\":\"10.9.3\",\"prices_include_tax\":false,\"date_created\":\"2026-07-05T12:34:10\",\"date_modified\":\"2026-07-05T12:34:11\",\"discount_total\":\"34.97\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"customer_id\":2,\"order_key\":\"wc_order_DjwkJQ4v32kwS\",\"billing\":{\"first_name\":\"muzamil\",\"last_name\":\"HUSSAIN\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"test\",\"state\":\"PB\",\"postcode\":\"110015\",\"country\":\"PK\",\"email\":\"testitmuzamil@gmail.com\",\"phone\":\"+923001282023\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"\",\"postcode\":\"\",\"country\":\"\",\"phone\":\"\"},\"payment_method\":\"\",\"payment_method_title\":\"\",\"transaction_id\":\"\",\"customer_ip_address\":\"66.102.125.249\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/150.0.0.0 Safari\\/537.36\",\"created_via\":\"checkout\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":\"2026-07-05T12:34:10\",\"cart_hash\":\"10d26fba005fa04914f841aec0db48eb\",\"number\":\"4629\",\"meta_data\":[{\"id\":92,\"key\":\"_debug_log_source_pending_deletion\",\"value\":\"place-order-debug-b5a29554\"},{\"id\":88,\"key\":\"_wc_order_attribution_device_type\",\"value\":\"Desktop\"},{\"id\":81,\"key\":\"_wc_order_attribution_referrer\",\"value\":\"https:\\/\\/milliondollarmedia.us\\/wp-admin\\/post.php?post=3439&action=elementor\"},{\"id\":86,\"key\":\"_wc_order_attribution_session_count\",\"value\":\"8\"},{\"id\":83,\"key\":\"_wc_order_attribution_session_entry\",\"value\":\"https:\\/\\/milliondollarmedia.us\\/mastermind\\/?elementor-preview=3439&ver=1783076717\"},{\"id\":85,\"key\":\"_wc_order_attribution_session_pages\",\"value\":\"36\"},{\"id\":84,\"key\":\"_wc_order_attribution_session_start_time\",\"value\":\"2026-07-03 11:05:19\"},{\"id\":80,\"key\":\"_wc_order_attribution_source_type\",\"value\":\"typein\"},{\"id\":87,\"key\":\"_wc_order_attribution_user_agent\",\"value\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/150.0.0.0 Safari\\/537.36\"},{\"id\":82,\"key\":\"_wc_order_attribution_utm_source\",\"value\":\"(direct)\"},{\"id\":93,\"key\":\"_wc_push_notification_claimed\",\"value\":\"1783254851\"},{\"id\":94,\"key\":\"_wc_push_notification_sent\",\"value\":\"1783254851\"},{\"id\":77,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":12,\"name\":\"Video\",\"product_id\":427,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"34.97\",\"subtotal_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"\",\"global_unique_id\":\"\",\"price\":0,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[{\"id\":13,\"code\":\"gaurav100\",\"discount\":\"34.97\",\"discount_tax\":\"0\",\"meta_data\":[{\"id\":87,\"key\":\"coupon_info\",\"value\":\"[1501,\\\"gaurav100\\\",\\\"percent\\\",100]\",\"display_key\":\"coupon_info\",\"display_value\":\"[1501,\\\"gaurav100\\\",\\\"percent\\\",100]\"}],\"discount_type\":\"percent\",\"nominal_amount\":100,\"free_shipping\":false}],\"refunds\":[],\"payment_url\":\"https:\\/\\/milliondollarmedia.us\\/checkout\\/order-pay\\/4629\\/?pay_for_order=true&key=wc_order_DjwkJQ4v32kwS\",\"is_editable\":false,\"needs_payment\":false,\"needs_processing\":true,\"date_created_gmt\":\"2026-07-05T12:34:10\",\"date_modified_gmt\":\"2026-07-05T12:34:11\",\"date_completed_gmt\":null,\"date_paid_gmt\":\"2026-07-05T12:34:10\",\"currency_symbol\":\"$\",\"_links\":{\"self\":[{\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/orders\\/4629\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/orders\"}],\"email_templates\":[{\"embeddable\":true,\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/orders\\/4629\\/actions\\/email_templates\"}],\"customer\":[{\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/customers\\/2\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Sun, 05 Jul 2026 12:34:36 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [content-length] => 1
+                                    [content-language] => en-us
+                                    [content-security-policy] => script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; object-src 'none'; base-uri 'none'; report-uri /csp/
+                                    [server] => cloudflare
+                                    [vary] => Accept-Language, Cookie, Origin
+                                    [x-klaviyo-req-id] => fe71ecb5-3266-4d13-a668-ef042c573a13
+                                    [x-envoy-upstream-service-time] => 25
+                                    [cf-cache-status] => DYNAMIC
+                                    [x-content-type-options] => nosniff
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [cf-ray] => a16667a2a95ada41-LAX
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
+2026-07-05T12:34:36+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 95dea64ad49e4e8e9e049089ccf5a0b5
+            [Date] => Jul 5, 2026 @ 12:34
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=UX4NCD
+            [Duration] => 0.12523
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/10.9.3 Hookshot (WordPress/7.0)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://milliondollarmedia.us/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => oFPcDgrvb25+sqexxIbbx0dCFEkmp10v2iKjlHG5m70=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => 95dea64ad49e4e8e9e049089ccf5a0b5
+                        )
+
+                )
+
+            [Body] => {\"id\":4629,\"parent_id\":0,\"status\":\"processing\",\"currency\":\"USD\",\"version\":\"10.9.3\",\"prices_include_tax\":false,\"date_created\":\"2026-07-05T12:34:10\",\"date_modified\":\"2026-07-05T12:34:11\",\"discount_total\":\"34.97\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"customer_id\":2,\"order_key\":\"wc_order_DjwkJQ4v32kwS\",\"billing\":{\"first_name\":\"muzamil\",\"last_name\":\"HUSSAIN\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"test\",\"state\":\"PB\",\"postcode\":\"110015\",\"country\":\"PK\",\"email\":\"testitmuzamil@gmail.com\",\"phone\":\"+923001282023\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"\",\"postcode\":\"\",\"country\":\"\",\"phone\":\"\"},\"payment_method\":\"\",\"payment_method_title\":\"\",\"transaction_id\":\"\",\"customer_ip_address\":\"66.102.125.249\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/150.0.0.0 Safari\\/537.36\",\"created_via\":\"checkout\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":\"2026-07-05T12:34:10\",\"cart_hash\":\"10d26fba005fa04914f841aec0db48eb\",\"number\":\"4629\",\"meta_data\":[{\"id\":92,\"key\":\"_debug_log_source_pending_deletion\",\"value\":\"place-order-debug-b5a29554\"},{\"id\":88,\"key\":\"_wc_order_attribution_device_type\",\"value\":\"Desktop\"},{\"id\":81,\"key\":\"_wc_order_attribution_referrer\",\"value\":\"https:\\/\\/milliondollarmedia.us\\/wp-admin\\/post.php?post=3439&action=elementor\"},{\"id\":86,\"key\":\"_wc_order_attribution_session_count\",\"value\":\"8\"},{\"id\":83,\"key\":\"_wc_order_attribution_session_entry\",\"value\":\"https:\\/\\/milliondollarmedia.us\\/mastermind\\/?elementor-preview=3439&ver=1783076717\"},{\"id\":85,\"key\":\"_wc_order_attribution_session_pages\",\"value\":\"36\"},{\"id\":84,\"key\":\"_wc_order_attribution_session_start_time\",\"value\":\"2026-07-03 11:05:19\"},{\"id\":80,\"key\":\"_wc_order_attribution_source_type\",\"value\":\"typein\"},{\"id\":87,\"key\":\"_wc_order_attribution_user_agent\",\"value\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/150.0.0.0 Safari\\/537.36\"},{\"id\":82,\"key\":\"_wc_order_attribution_utm_source\",\"value\":\"(direct)\"},{\"id\":93,\"key\":\"_wc_push_notification_claimed\",\"value\":\"1783254851\"},{\"id\":94,\"key\":\"_wc_push_notification_sent\",\"value\":\"1783254851\"},{\"id\":77,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":12,\"name\":\"Video\",\"product_id\":427,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"34.97\",\"subtotal_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"\",\"global_unique_id\":\"\",\"price\":0,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[{\"id\":13,\"code\":\"gaurav100\",\"discount\":\"34.97\",\"discount_tax\":\"0\",\"meta_data\":[{\"id\":87,\"key\":\"coupon_info\",\"value\":\"[1501,\\\"gaurav100\\\",\\\"percent\\\",100]\",\"display_key\":\"coupon_info\",\"display_value\":\"[1501,\\\"gaurav100\\\",\\\"percent\\\",100]\"}],\"discount_type\":\"percent\",\"nominal_amount\":100,\"free_shipping\":false}],\"refunds\":[],\"payment_url\":\"https:\\/\\/milliondollarmedia.us\\/checkout\\/order-pay\\/4629\\/?pay_for_order=true&key=wc_order_DjwkJQ4v32kwS\",\"is_editable\":false,\"needs_payment\":false,\"needs_processing\":true,\"date_created_gmt\":\"2026-07-05T12:34:10\",\"date_modified_gmt\":\"2026-07-05T12:34:11\",\"date_completed_gmt\":null,\"date_paid_gmt\":\"2026-07-05T12:34:10\",\"currency_symbol\":\"$\",\"_links\":{\"self\":[{\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/orders\\/4629\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/orders\"}],\"email_templates\":[{\"embeddable\":true,\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/orders\\/4629\\/actions\\/email_templates\"}],\"customer\":[{\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/customers\\/2\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Sun, 05 Jul 2026 12:34:36 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [content-length] => 1
+                                    [content-language] => en-us
+                                    [content-security-policy] => base-uri 'none'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; object-src 'none'; report-uri /csp/
+                                    [server] => cloudflare
+                                    [vary] => Accept-Language, Cookie, Origin
+                                    [x-klaviyo-req-id] => d702f9d8-0842-45f6-a0f8-fe97a1daac06
+                                    [x-envoy-upstream-service-time] => 25
+                                    [cf-cache-status] => DYNAMIC
+                                    [x-content-type-options] => nosniff
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [cf-ray] => a16667a37db436e7-LAX
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
+2026-07-05T12:37:17+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 46a625056c5d154d6b985ec0fac861b4
+            [Date] => Jul 5, 2026 @ 12:37
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=UX4NCD
+            [Duration] => 0.19706
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/10.9.3 Hookshot (WordPress/7.0)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://milliondollarmedia.us/
+                            [X-WC-Webhook-Topic] => order.created
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => created
+                            [X-WC-Webhook-Signature] => bWKyOqQ3kagwbgLPlfqaCnYPTokAu4ZN9R+TSmxTShI=
+                            [X-WC-Webhook-ID] => 2
+                            [X-WC-Webhook-Delivery-ID] => 46a625056c5d154d6b985ec0fac861b4
+                        )
+
+                )
+
+            [Body] => {\"id\":4630,\"parent_id\":0,\"status\":\"processing\",\"currency\":\"USD\",\"version\":\"10.9.3\",\"prices_include_tax\":false,\"date_created\":\"2026-07-05T12:37:12\",\"date_modified\":\"2026-07-05T12:37:14\",\"discount_total\":\"34.97\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"customer_id\":2,\"order_key\":\"wc_order_AIVRK4hJdubfB\",\"billing\":{\"first_name\":\"muzamil\",\"last_name\":\"HUSSAIN\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"test\",\"state\":\"PB\",\"postcode\":\"110015\",\"country\":\"PK\",\"email\":\"testitmuzamil@gmail.com\",\"phone\":\"+923001282023\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"\",\"postcode\":\"\",\"country\":\"\",\"phone\":\"\"},\"payment_method\":\"\",\"payment_method_title\":\"\",\"transaction_id\":\"\",\"customer_ip_address\":\"66.102.125.249\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/150.0.0.0 Safari\\/537.36\",\"created_via\":\"checkout\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":\"2026-07-05T12:37:12\",\"cart_hash\":\"10d26fba005fa04914f841aec0db48eb\",\"number\":\"4630\",\"meta_data\":[{\"id\":110,\"key\":\"_debug_log_source_pending_deletion\",\"value\":\"place-order-debug-be9019c3\"},{\"id\":106,\"key\":\"_wc_order_attribution_device_type\",\"value\":\"Desktop\"},{\"id\":99,\"key\":\"_wc_order_attribution_referrer\",\"value\":\"https:\\/\\/milliondollarmedia.us\\/wp-admin\\/post.php?post=3439&action=elementor\"},{\"id\":104,\"key\":\"_wc_order_attribution_session_count\",\"value\":\"8\"},{\"id\":101,\"key\":\"_wc_order_attribution_session_entry\",\"value\":\"https:\\/\\/milliondollarmedia.us\\/mastermind\\/?elementor-preview=3439&ver=1783076717\"},{\"id\":103,\"key\":\"_wc_order_attribution_session_pages\",\"value\":\"42\"},{\"id\":102,\"key\":\"_wc_order_attribution_session_start_time\",\"value\":\"2026-07-03 11:05:19\"},{\"id\":98,\"key\":\"_wc_order_attribution_source_type\",\"value\":\"typein\"},{\"id\":105,\"key\":\"_wc_order_attribution_user_agent\",\"value\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/150.0.0.0 Safari\\/537.36\"},{\"id\":100,\"key\":\"_wc_order_attribution_utm_source\",\"value\":\"(direct)\"},{\"id\":111,\"key\":\"_wc_push_notification_claimed\",\"value\":\"1783255034\"},{\"id\":112,\"key\":\"_wc_push_notification_sent\",\"value\":\"1783255034\"},{\"id\":95,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":14,\"name\":\"Video\",\"product_id\":427,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"34.97\",\"subtotal_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"\",\"global_unique_id\":\"\",\"price\":0,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[{\"id\":15,\"code\":\"gaurav100\",\"discount\":\"34.97\",\"discount_tax\":\"0\",\"meta_data\":[{\"id\":99,\"key\":\"coupon_info\",\"value\":\"[1501,\\\"gaurav100\\\",\\\"percent\\\",100]\",\"display_key\":\"coupon_info\",\"display_value\":\"[1501,\\\"gaurav100\\\",\\\"percent\\\",100]\"}],\"discount_type\":\"percent\",\"nominal_amount\":100,\"free_shipping\":false}],\"refunds\":[],\"payment_url\":\"https:\\/\\/milliondollarmedia.us\\/checkout\\/order-pay\\/4630\\/?pay_for_order=true&key=wc_order_AIVRK4hJdubfB\",\"is_editable\":false,\"needs_payment\":false,\"needs_processing\":true,\"date_created_gmt\":\"2026-07-05T12:37:12\",\"date_modified_gmt\":\"2026-07-05T12:37:14\",\"date_completed_gmt\":null,\"date_paid_gmt\":\"2026-07-05T12:37:12\",\"currency_symbol\":\"$\",\"_links\":{\"self\":[{\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/orders\\/4630\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/orders\"}],\"email_templates\":[{\"embeddable\":true,\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/orders\\/4630\\/actions\\/email_templates\"}],\"customer\":[{\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/customers\\/2\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Sun, 05 Jul 2026 12:37:17 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [content-length] => 1
+                                    [content-language] => en-us
+                                    [content-security-policy] => frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; base-uri 'none'; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; object-src 'none'; report-uri /csp/
+                                    [server] => cloudflare
+                                    [vary] => Accept-Language, Cookie, Origin
+                                    [x-klaviyo-req-id] => e83dfb7d-bddf-4c63-ac7d-98b9f36edffb
+                                    [x-envoy-upstream-service-time] => 25
+                                    [cf-cache-status] => DYNAMIC
+                                    [x-content-type-options] => nosniff
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [cf-ray] => a1666b8e1ca0889a-LAX
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
+2026-07-05T12:37:17+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 69a1cf2f7ba422e83776ef8e1369473f
+            [Date] => Jul 5, 2026 @ 12:37
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=UX4NCD
+            [Duration] => 0.1238
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/10.9.3 Hookshot (WordPress/7.0)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://milliondollarmedia.us/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => bWKyOqQ3kagwbgLPlfqaCnYPTokAu4ZN9R+TSmxTShI=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => 69a1cf2f7ba422e83776ef8e1369473f
+                        )
+
+                )
+
+            [Body] => {\"id\":4630,\"parent_id\":0,\"status\":\"processing\",\"currency\":\"USD\",\"version\":\"10.9.3\",\"prices_include_tax\":false,\"date_created\":\"2026-07-05T12:37:12\",\"date_modified\":\"2026-07-05T12:37:14\",\"discount_total\":\"34.97\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"customer_id\":2,\"order_key\":\"wc_order_AIVRK4hJdubfB\",\"billing\":{\"first_name\":\"muzamil\",\"last_name\":\"HUSSAIN\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"test\",\"state\":\"PB\",\"postcode\":\"110015\",\"country\":\"PK\",\"email\":\"testitmuzamil@gmail.com\",\"phone\":\"+923001282023\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"\",\"postcode\":\"\",\"country\":\"\",\"phone\":\"\"},\"payment_method\":\"\",\"payment_method_title\":\"\",\"transaction_id\":\"\",\"customer_ip_address\":\"66.102.125.249\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/150.0.0.0 Safari\\/537.36\",\"created_via\":\"checkout\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":\"2026-07-05T12:37:12\",\"cart_hash\":\"10d26fba005fa04914f841aec0db48eb\",\"number\":\"4630\",\"meta_data\":[{\"id\":110,\"key\":\"_debug_log_source_pending_deletion\",\"value\":\"place-order-debug-be9019c3\"},{\"id\":106,\"key\":\"_wc_order_attribution_device_type\",\"value\":\"Desktop\"},{\"id\":99,\"key\":\"_wc_order_attribution_referrer\",\"value\":\"https:\\/\\/milliondollarmedia.us\\/wp-admin\\/post.php?post=3439&action=elementor\"},{\"id\":104,\"key\":\"_wc_order_attribution_session_count\",\"value\":\"8\"},{\"id\":101,\"key\":\"_wc_order_attribution_session_entry\",\"value\":\"https:\\/\\/milliondollarmedia.us\\/mastermind\\/?elementor-preview=3439&ver=1783076717\"},{\"id\":103,\"key\":\"_wc_order_attribution_session_pages\",\"value\":\"42\"},{\"id\":102,\"key\":\"_wc_order_attribution_session_start_time\",\"value\":\"2026-07-03 11:05:19\"},{\"id\":98,\"key\":\"_wc_order_attribution_source_type\",\"value\":\"typein\"},{\"id\":105,\"key\":\"_wc_order_attribution_user_agent\",\"value\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/150.0.0.0 Safari\\/537.36\"},{\"id\":100,\"key\":\"_wc_order_attribution_utm_source\",\"value\":\"(direct)\"},{\"id\":111,\"key\":\"_wc_push_notification_claimed\",\"value\":\"1783255034\"},{\"id\":112,\"key\":\"_wc_push_notification_sent\",\"value\":\"1783255034\"},{\"id\":95,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":14,\"name\":\"Video\",\"product_id\":427,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"34.97\",\"subtotal_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"\",\"global_unique_id\":\"\",\"price\":0,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[{\"id\":15,\"code\":\"gaurav100\",\"discount\":\"34.97\",\"discount_tax\":\"0\",\"meta_data\":[{\"id\":99,\"key\":\"coupon_info\",\"value\":\"[1501,\\\"gaurav100\\\",\\\"percent\\\",100]\",\"display_key\":\"coupon_info\",\"display_value\":\"[1501,\\\"gaurav100\\\",\\\"percent\\\",100]\"}],\"discount_type\":\"percent\",\"nominal_amount\":100,\"free_shipping\":false}],\"refunds\":[],\"payment_url\":\"https:\\/\\/milliondollarmedia.us\\/checkout\\/order-pay\\/4630\\/?pay_for_order=true&key=wc_order_AIVRK4hJdubfB\",\"is_editable\":false,\"needs_payment\":false,\"needs_processing\":true,\"date_created_gmt\":\"2026-07-05T12:37:12\",\"date_modified_gmt\":\"2026-07-05T12:37:14\",\"date_completed_gmt\":null,\"date_paid_gmt\":\"2026-07-05T12:37:12\",\"currency_symbol\":\"$\",\"_links\":{\"self\":[{\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/orders\\/4630\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/orders\"}],\"email_templates\":[{\"embeddable\":true,\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/orders\\/4630\\/actions\\/email_templates\"}],\"customer\":[{\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/customers\\/2\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Sun, 05 Jul 2026 12:37:17 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [content-length] => 1
+                                    [content-language] => en-us
+                                    [content-security-policy] => script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; object-src 'none'; base-uri 'none'; report-uri /csp/
+                                    [server] => cloudflare
+                                    [vary] => Accept-Language, Cookie, Origin
+                                    [x-klaviyo-req-id] => 7871cde2-8ace-45b6-97b3-5eee61f4b13b
+                                    [x-envoy-upstream-service-time] => 25
+                                    [cf-cache-status] => DYNAMIC
+                                    [x-content-type-options] => nosniff
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [cf-ray] => a1666b8efe87b851-LAX
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
+2026-07-05T12:41:25+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 22f4dc19f14b8de9fc199aabdf15e52b
+            [Date] => Jul 5, 2026 @ 12:41
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=UX4NCD
+            [Duration] => 0.2035
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/10.9.3 Hookshot (WordPress/7.0)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://milliondollarmedia.us/
+                            [X-WC-Webhook-Topic] => order.created
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => created
+                            [X-WC-Webhook-Signature] => 1wH/fj8T0ewdOSTt6WmE+RuxlAWmuq1WxG8PgJtGdQc=
+                            [X-WC-Webhook-ID] => 2
+                            [X-WC-Webhook-Delivery-ID] => 22f4dc19f14b8de9fc199aabdf15e52b
+                        )
+
+                )
+
+            [Body] => {\"id\":4631,\"parent_id\":0,\"status\":\"processing\",\"currency\":\"USD\",\"version\":\"10.9.3\",\"prices_include_tax\":false,\"date_created\":\"2026-07-05T12:40:58\",\"date_modified\":\"2026-07-05T12:41:00\",\"discount_total\":\"34.97\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"customer_id\":2,\"order_key\":\"wc_order_mtSL6TPQsdLrt\",\"billing\":{\"first_name\":\"muzamil\",\"last_name\":\"HUSSAIN\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"test\",\"state\":\"PB\",\"postcode\":\"110015\",\"country\":\"PK\",\"email\":\"testitmuzamil@gmail.com\",\"phone\":\"+923001282023\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"\",\"postcode\":\"\",\"country\":\"\",\"phone\":\"\"},\"payment_method\":\"\",\"payment_method_title\":\"\",\"transaction_id\":\"\",\"customer_ip_address\":\"66.102.125.249\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/150.0.0.0 Safari\\/537.36\",\"created_via\":\"checkout\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":\"2026-07-05T12:40:58\",\"cart_hash\":\"10d26fba005fa04914f841aec0db48eb\",\"number\":\"4631\",\"meta_data\":[{\"id\":128,\"key\":\"_debug_log_source_pending_deletion\",\"value\":\"place-order-debug-7b475a62\"},{\"id\":124,\"key\":\"_wc_order_attribution_device_type\",\"value\":\"Desktop\"},{\"id\":117,\"key\":\"_wc_order_attribution_referrer\",\"value\":\"https:\\/\\/milliondollarmedia.us\\/wp-admin\\/post.php?post=3439&action=elementor\"},{\"id\":122,\"key\":\"_wc_order_attribution_session_count\",\"value\":\"8\"},{\"id\":119,\"key\":\"_wc_order_attribution_session_entry\",\"value\":\"https:\\/\\/milliondollarmedia.us\\/mastermind\\/?elementor-preview=3439&ver=1783076717\"},{\"id\":121,\"key\":\"_wc_order_attribution_session_pages\",\"value\":\"48\"},{\"id\":120,\"key\":\"_wc_order_attribution_session_start_time\",\"value\":\"2026-07-03 11:05:19\"},{\"id\":116,\"key\":\"_wc_order_attribution_source_type\",\"value\":\"typein\"},{\"id\":123,\"key\":\"_wc_order_attribution_user_agent\",\"value\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/150.0.0.0 Safari\\/537.36\"},{\"id\":118,\"key\":\"_wc_order_attribution_utm_source\",\"value\":\"(direct)\"},{\"id\":129,\"key\":\"_wc_push_notification_claimed\",\"value\":\"1783255260\"},{\"id\":130,\"key\":\"_wc_push_notification_sent\",\"value\":\"1783255260\"},{\"id\":113,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":16,\"name\":\"Video\",\"product_id\":427,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"34.97\",\"subtotal_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"\",\"global_unique_id\":\"\",\"price\":0,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[{\"id\":17,\"code\":\"gaurav100\",\"discount\":\"34.97\",\"discount_tax\":\"0\",\"meta_data\":[{\"id\":111,\"key\":\"coupon_info\",\"value\":\"[1501,\\\"gaurav100\\\",\\\"percent\\\",100]\",\"display_key\":\"coupon_info\",\"display_value\":\"[1501,\\\"gaurav100\\\",\\\"percent\\\",100]\"}],\"discount_type\":\"percent\",\"nominal_amount\":100,\"free_shipping\":false}],\"refunds\":[],\"payment_url\":\"https:\\/\\/milliondollarmedia.us\\/checkout\\/order-pay\\/4631\\/?pay_for_order=true&key=wc_order_mtSL6TPQsdLrt\",\"is_editable\":false,\"needs_payment\":false,\"needs_processing\":true,\"date_created_gmt\":\"2026-07-05T12:40:58\",\"date_modified_gmt\":\"2026-07-05T12:41:00\",\"date_completed_gmt\":null,\"date_paid_gmt\":\"2026-07-05T12:40:58\",\"currency_symbol\":\"$\",\"_links\":{\"self\":[{\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/orders\\/4631\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/orders\"}],\"email_templates\":[{\"embeddable\":true,\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/orders\\/4631\\/actions\\/email_templates\"}],\"customer\":[{\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/customers\\/2\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Sun, 05 Jul 2026 12:41:25 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [content-length] => 1
+                                    [content-language] => en-us
+                                    [content-security-policy] => script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; object-src 'none'; base-uri 'none'; report-uri /csp/
+                                    [server] => cloudflare
+                                    [vary] => Accept-Language, Cookie, Origin
+                                    [x-klaviyo-req-id] => 0d1b831b-e967-4751-8ce6-ff42e4a28c8e
+                                    [x-envoy-upstream-service-time] => 23
+                                    [cf-cache-status] => DYNAMIC
+                                    [x-content-type-options] => nosniff
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [cf-ray] => a166719bf9202ec9-LAX
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
+2026-07-05T12:41:25+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 66551e7804d2755a4be50d219fe3c47c
+            [Date] => Jul 5, 2026 @ 12:41
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=UX4NCD
+            [Duration] => 0.11672
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/10.9.3 Hookshot (WordPress/7.0)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://milliondollarmedia.us/
+                            [X-WC-Webhook-Topic] => order.updated
+                            [X-WC-Webhook-Resource] => order
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => 1wH/fj8T0ewdOSTt6WmE+RuxlAWmuq1WxG8PgJtGdQc=
+                            [X-WC-Webhook-ID] => 1
+                            [X-WC-Webhook-Delivery-ID] => 66551e7804d2755a4be50d219fe3c47c
+                        )
+
+                )
+
+            [Body] => {\"id\":4631,\"parent_id\":0,\"status\":\"processing\",\"currency\":\"USD\",\"version\":\"10.9.3\",\"prices_include_tax\":false,\"date_created\":\"2026-07-05T12:40:58\",\"date_modified\":\"2026-07-05T12:41:00\",\"discount_total\":\"34.97\",\"discount_tax\":\"0.00\",\"shipping_total\":\"0.00\",\"shipping_tax\":\"0.00\",\"cart_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"customer_id\":2,\"order_key\":\"wc_order_mtSL6TPQsdLrt\",\"billing\":{\"first_name\":\"muzamil\",\"last_name\":\"HUSSAIN\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"test\",\"state\":\"PB\",\"postcode\":\"110015\",\"country\":\"PK\",\"email\":\"testitmuzamil@gmail.com\",\"phone\":\"+923001282023\"},\"shipping\":{\"first_name\":\"\",\"last_name\":\"\",\"company\":\"\",\"address_1\":\"\",\"address_2\":\"\",\"city\":\"\",\"state\":\"\",\"postcode\":\"\",\"country\":\"\",\"phone\":\"\"},\"payment_method\":\"\",\"payment_method_title\":\"\",\"transaction_id\":\"\",\"customer_ip_address\":\"66.102.125.249\",\"customer_user_agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/150.0.0.0 Safari\\/537.36\",\"created_via\":\"checkout\",\"customer_note\":\"\",\"date_completed\":null,\"date_paid\":\"2026-07-05T12:40:58\",\"cart_hash\":\"10d26fba005fa04914f841aec0db48eb\",\"number\":\"4631\",\"meta_data\":[{\"id\":128,\"key\":\"_debug_log_source_pending_deletion\",\"value\":\"place-order-debug-7b475a62\"},{\"id\":124,\"key\":\"_wc_order_attribution_device_type\",\"value\":\"Desktop\"},{\"id\":117,\"key\":\"_wc_order_attribution_referrer\",\"value\":\"https:\\/\\/milliondollarmedia.us\\/wp-admin\\/post.php?post=3439&action=elementor\"},{\"id\":122,\"key\":\"_wc_order_attribution_session_count\",\"value\":\"8\"},{\"id\":119,\"key\":\"_wc_order_attribution_session_entry\",\"value\":\"https:\\/\\/milliondollarmedia.us\\/mastermind\\/?elementor-preview=3439&ver=1783076717\"},{\"id\":121,\"key\":\"_wc_order_attribution_session_pages\",\"value\":\"48\"},{\"id\":120,\"key\":\"_wc_order_attribution_session_start_time\",\"value\":\"2026-07-03 11:05:19\"},{\"id\":116,\"key\":\"_wc_order_attribution_source_type\",\"value\":\"typein\"},{\"id\":123,\"key\":\"_wc_order_attribution_user_agent\",\"value\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/150.0.0.0 Safari\\/537.36\"},{\"id\":118,\"key\":\"_wc_order_attribution_utm_source\",\"value\":\"(direct)\"},{\"id\":129,\"key\":\"_wc_push_notification_claimed\",\"value\":\"1783255260\"},{\"id\":130,\"key\":\"_wc_push_notification_sent\",\"value\":\"1783255260\"},{\"id\":113,\"key\":\"is_vat_exempt\",\"value\":\"no\"}],\"line_items\":[{\"id\":16,\"name\":\"Video\",\"product_id\":427,\"variation_id\":0,\"quantity\":1,\"tax_class\":\"\",\"subtotal\":\"34.97\",\"subtotal_tax\":\"0.00\",\"total\":\"0.00\",\"total_tax\":\"0.00\",\"taxes\":[],\"meta_data\":[],\"sku\":\"\",\"global_unique_id\":\"\",\"price\":0,\"image\":{\"id\":\"\",\"src\":\"\"},\"parent_name\":null}],\"tax_lines\":[],\"shipping_lines\":[],\"fee_lines\":[],\"coupon_lines\":[{\"id\":17,\"code\":\"gaurav100\",\"discount\":\"34.97\",\"discount_tax\":\"0\",\"meta_data\":[{\"id\":111,\"key\":\"coupon_info\",\"value\":\"[1501,\\\"gaurav100\\\",\\\"percent\\\",100]\",\"display_key\":\"coupon_info\",\"display_value\":\"[1501,\\\"gaurav100\\\",\\\"percent\\\",100]\"}],\"discount_type\":\"percent\",\"nominal_amount\":100,\"free_shipping\":false}],\"refunds\":[],\"payment_url\":\"https:\\/\\/milliondollarmedia.us\\/checkout\\/order-pay\\/4631\\/?pay_for_order=true&key=wc_order_mtSL6TPQsdLrt\",\"is_editable\":false,\"needs_payment\":false,\"needs_processing\":true,\"date_created_gmt\":\"2026-07-05T12:40:58\",\"date_modified_gmt\":\"2026-07-05T12:41:00\",\"date_completed_gmt\":null,\"date_paid_gmt\":\"2026-07-05T12:40:58\",\"currency_symbol\":\"$\",\"_links\":{\"self\":[{\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/orders\\/4631\",\"targetHints\":{\"allow\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"]}}],\"collection\":[{\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/orders\"}],\"email_templates\":[{\"embeddable\":true,\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/orders\\/4631\\/actions\\/email_templates\"}],\"customer\":[{\"href\":\"https:\\/\\/milliondollarmedia.us\\/wp-json\\/wc\\/v3\\/customers\\/2\"}]}}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Sun, 05 Jul 2026 12:41:25 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [content-length] => 1
+                                    [content-language] => en-us
+                                    [content-security-policy] => object-src 'none'; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; base-uri 'none'; report-uri /csp/
+                                    [server] => cloudflare
+                                    [vary] => Accept-Language, Cookie, Origin
+                                    [x-klaviyo-req-id] => dd3e68c6-857e-4840-8481-a7a66281ac79
+                                    [x-envoy-upstream-service-time] => 23
+                                    [cf-cache-status] => DYNAMIC
+                                    [x-content-type-options] => nosniff
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [cf-ray] => a166719cdd574747-LAX
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)

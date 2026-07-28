@@ -1,0 +1,412 @@
+2026-06-20T11:53:59+00:00 - 35.215.71.114 [Tracking API] Sending tracking data: {
+    "timestamp": "2026-06-20 11:53:59",
+    "api_url": "https://track.funnelkit.com",
+    "data_size": "9190 bytes",
+    "data_keys": [
+        "url",
+        "email",
+        "locale",
+        "is_mu",
+        "wp",
+        "php",
+        "mysql",
+        "WooFunnels_version",
+        "theme_info",
+        "users_count",
+        "woocommerce",
+        "active_plugins",
+        "funnel-builder",
+        "snapshot_generation_time",
+        "jit",
+        "product"
+    ],
+    "api_action": "get_tracking_data",
+    "full_data": {
+        "url": "https://milliondollarmedia.us",
+        "email": "gaurav03051931@gmail.com",
+        "locale": "en_US",
+        "is_mu": "no",
+        "wp": "7.0",
+        "php": "8.2.31",
+        "mysql": "8.4.6",
+        "WooFunnels_version": "1.10.12.78",
+        "theme_info": {
+            "name": "Astra",
+            "uri": "https://wpastra.com/",
+            "version": "4.12.4",
+            "author": "Brainstorm Force",
+            "author_uri": "https://wpastra.com/about/?utm_source=theme_preview&utm_medium=author_link&utm_campaign=astra_theme"
+        },
+        "users_count": {
+            "total": 3,
+            "administrator": 3,
+            "none": 0
+        },
+        "woocommerce": {
+            "version": "10.8.1",
+            "country": "US",
+            "currency": "USD",
+            "calc_taxes": "no",
+            "guest_checkout": "yes",
+            "product_count": {
+                "total": "13",
+                "external": 0,
+                "grouped": 0,
+                "simple": 13,
+                "variable": 0
+            },
+            "order_count": {
+                "wc-pending": 0,
+                "wc-processing": 0,
+                "wc-on-hold": 0,
+                "wc-completed": 0,
+                "wc-cancelled": 0,
+                "wc-refunded": 0,
+                "wc-failed": 1,
+                "wc-checkout-draft": 0
+            },
+            "gateways": [
+                "woocommerce_payments_apple_pay",
+                "woocommerce_payments_google_pay",
+                "stripe",
+                "stripe_link",
+                "ppcp-card-button-gateway",
+                "ppcp-bancontact",
+                "ppcp-blik",
+                "ppcp-eps",
+                "ppcp-ideal",
+                "ppcp-mybank",
+                "ppcp-p24",
+                "ppcp-trustly",
+                "ppcp-multibanco",
+                "ppcp-gateway",
+                "ew_wise"
+            ],
+            "orders": {
+                "first": "-",
+                "last": "-",
+                "processing_first": "-",
+                "processing_last": "-",
+                "created_via": {
+                    "checkout": 1
+                }
+            },
+            "settings": {
+                "coupons_enabled": "yes",
+                "guest_checkout": "yes",
+                "delayed_account_creation": "no",
+                "checkout_login_reminder": "no",
+                "secure_checkout": "no",
+                "enable_signup_and_login_from_checkout": "no",
+                "enable_myaccount_registration": "no",
+                "registration_generate_username": "yes",
+                "registration_generate_password": "yes"
+            },
+            "cart_checkout": {
+                "cart_page_contains_cart_shortcode": "No",
+                "checkout_page_contains_checkout_shortcode": "No",
+                "cart_page_contains_cart_block": "No",
+                "cart_block_attributes": [],
+                "checkout_page_contains_checkout_block": "No",
+                "checkout_block_attributes": [],
+                "pickup_location": {
+                    "pickup_location_enabled": false,
+                    "pickup_locations_count": 0
+                },
+                "additional_fields": {
+                    "fields_count": 0,
+                    "fields_names": []
+                }
+            },
+            "mini_cart_block": {
+                "mini_cart_used": "No",
+                "mini_cart_block_attributes": []
+            }
+        },
+        "active_plugins": {
+            "elementor/elementor.php": {
+                "name": "Elementor",
+                "version": "4.1.3",
+                "author": "Elementor.com"
+            },
+            "facebook-conversion-pixel/facebook-conversion-pixel.php": {
+                "name": "Pixel Cat Lite",
+                "version": "3.4.0",
+                "author": "Fatcat Apps"
+            },
+            "funnel-builder/funnel-builder.php": {
+                "name": "FunnelKit Funnel Builder",
+                "version": "3.15.0.5",
+                "author": "FunnelKit"
+            },
+            "pro-elements/pro-elements.php": {
+                "name": "PRO Elements",
+                "version": "4.1.0",
+                "author": "PROElements.org"
+            },
+            "seo-by-rank-math-pro/rank-math-pro.php": {
+                "name": "Rank Math SEO PRO",
+                "version": "3.0.89",
+                "author": "Rank Math SEO"
+            },
+            "seo-by-rank-math/rank-math.php": {
+                "name": "Rank Math SEO",
+                "version": "1.0.272",
+                "author": "Rank Math SEO"
+            },
+            "smartsupp-live-chat/smartsupp.php": {
+                "name": "Smartsupp – live chat, AI shopping assistant and chatbots",
+                "version": "3.9.2",
+                "author": "Smartsupp"
+            },
+            "wc-wise-gateway/wc-wise-gateway.php": {
+                "name": "Gateway for Wise on WooCommerce",
+                "version": "2.2.2",
+                "author": "alx359"
+            },
+            "woo-checkout-field-editor-pro/checkout-form-designer.php": {
+                "name": "Checkout Field Editor for WooCommerce",
+                "version": "2.1.9",
+                "author": "ThemeHigh"
+            },
+            "woocommerce-gateway-stripe/woocommerce-gateway-stripe.php": {
+                "name": "WooCommerce Stripe Gateway",
+                "version": "10.8.2",
+                "author": "Stripe"
+            },
+            "woocommerce-payments/woocommerce-payments.php": {
+                "name": "WooPayments",
+                "version": "10.8.0",
+                "author": "WooCommerce"
+            },
+            "woocommerce-paypal-payments/woocommerce-paypal-payments.php": {
+                "name": "WooCommerce PayPal Payments",
+                "version": "4.0.4",
+                "author": "PayPal"
+            },
+            "woocommerce/woocommerce.php": {
+                "name": "WooCommerce",
+                "version": "10.8.1",
+                "author": "Automattic"
+            }
+        },
+        "funnel-builder": {
+            "module": "lite",
+            "installation_config": {
+                "install_date": "2026-06-20 11:51:41",
+                "first_funnel_created_date": "",
+                "default_page_builder": "elementor",
+                "funnel_as_homepage": false,
+                "custom_permalinks_configured": {
+                    "checkout": "checkouts",
+                    "landing_page": "sp",
+                    "optin_page": "op",
+                    "optin_ty_page": "op-confirmed",
+                    "thankyou_page": "order-confirmed"
+                },
+                "google_maps_api_configured": false,
+                "pixel_settings": {
+                    "facebook": {
+                        "pixel_configured": false,
+                        "pixel_count": 0,
+                        "conversion_api_configured": false,
+                        "conversion_api_test_mode": false,
+                        "purchase_logs_enabled": false,
+                        "page_view_global": false,
+                        "add_to_cart_global": false,
+                        "view_content_global": false,
+                        "page_view_sales": false,
+                        "page_view_optin": false,
+                        "lead_optin": false,
+                        "add_to_cart_bump": false,
+                        "custom_bump": false,
+                        "checkout_page_view": false,
+                        "checkout_initiate": false,
+                        "checkout_add_to_cart": false,
+                        "checkout_payment_info": false,
+                        "purchase_page_view": false,
+                        "purchase_event": false,
+                        "general_event": false,
+                        "general_event_configured": true,
+                        "custom_step_events": false,
+                        "content_for_dynamic_ads": false,
+                        "variable_as_simple": false,
+                        "content_id_type_configured": false,
+                        "content_id_prefix_configured": false,
+                        "content_id_suffix_configured": false,
+                        "exclude_shipping": false,
+                        "exclude_taxes": false,
+                        "advanced_matching": false
+                    },
+                    "google_analytics": {
+                        "analytics_configured": false,
+                        "ga4_tracking": false,
+                        "page_view_global": false,
+                        "add_to_cart_global": false,
+                        "view_item_global": false,
+                        "page_view_sales": false,
+                        "page_view_optin": false,
+                        "lead_optin": false,
+                        "add_to_cart_bump": false,
+                        "custom_bump": false,
+                        "checkout_page_view": false,
+                        "checkout_add_to_cart": false,
+                        "checkout_initiate": false,
+                        "checkout_payment_info": false,
+                        "purchase_page_view": false,
+                        "purchase_event": false,
+                        "custom_step_events": false,
+                        "variable_as_simple": false
+                    },
+                    "google_ads": {
+                        "ads_configured": false,
+                        "page_view_global": false,
+                        "add_to_cart_global": false,
+                        "view_item_global": false,
+                        "page_view_sales": false,
+                        "page_view_optin": false,
+                        "lead_optin": false,
+                        "add_to_cart_bump": false,
+                        "custom_bump": false,
+                        "checkout_page_view": false,
+                        "checkout_add_to_cart": false,
+                        "checkout_initiate": false,
+                        "purchase_page_view": false,
+                        "purchase_event": false,
+                        "custom_step_events": false,
+                        "variable_as_simple": false
+                    },
+                    "pinterest": {
+                        "tag_configured": false,
+                        "page_view_global": false,
+                        "page_visit_global": false,
+                        "add_to_cart_global": false,
+                        "page_view_sales": false,
+                        "page_view_optin": false,
+                        "lead_optin": false,
+                        "add_to_cart_bump": false,
+                        "custom_bump": false,
+                        "checkout_page_view": false,
+                        "checkout_add_to_cart": false,
+                        "checkout_initiate": false,
+                        "purchase_page_view": false,
+                        "purchase_event": false,
+                        "custom_step_events": false,
+                        "variable_as_simple": false
+                    },
+                    "tiktok": {
+                        "pixel_configured": false,
+                        "page_view_global": false,
+                        "add_to_cart_global": false,
+                        "view_content_global": false,
+                        "page_view_sales": false,
+                        "page_view_optin": false,
+                        "add_to_cart_bump": false,
+                        "checkout_page_view": false,
+                        "checkout_add_to_cart": false,
+                        "checkout_initiate": false,
+                        "purchase_page_view": false,
+                        "purchase_event": false,
+                        "variable_as_simple": false
+                    },
+                    "snapchat": {
+                        "pixel_configured": false,
+                        "page_view_global": false,
+                        "add_to_cart_global": false,
+                        "page_view_sales": false,
+                        "page_view_optin": false,
+                        "add_to_cart_bump": false,
+                        "checkout_page_view": false,
+                        "checkout_add_to_cart": false,
+                        "checkout_initiate": false,
+                        "purchase_event": false,
+                        "variable_as_simple": false
+                    }
+                },
+                "theme_settings": {
+                    "checkout": true,
+                    "sales": true,
+                    "upsell_offer": true,
+                    "thankyou": true,
+                    "optin": true,
+                    "optin_confirmation": true
+                },
+                "notification_settings": {
+                    "email_performance_summary": true,
+                    "email_summary_frequency": "monthly",
+                    "email_send_time": "10:00 am",
+                    "email_last_sent": ""
+                },
+                "ab_test_override_permalink": false,
+                "checkout_settings": {
+                    "shipping_method_ascending": false
+                },
+                "optin_settings": {
+                    "recaptcha_enabled": false
+                }
+            },
+            "feature": {
+                "funnels/total": 0,
+                "checkouts/total": 0,
+                "checkouts/active": 0,
+                "checkouts/store_checkout_status": "not_created",
+                "checkouts/most_used_template": "",
+                "checkouts/product_settings/sell_all_together": 0,
+                "checkouts/product_settings/single_selection": 0,
+                "checkouts/product_settings/multiple_selection": 0,
+                "checkouts/field_settings/with_custom_fields": 0,
+                "checkouts/field_settings/with_third_party_fields": 0,
+                "checkouts/lite_optimizations/express_checkout": 0,
+                "checkouts/lite_optimizations/with_inline_validation": 0,
+                "checkouts/lite_optimizations/with_collapsible_fields": 0,
+                "checkouts/lite_optimizations/with_enhanced_phone_field": 0,
+                "checkouts/lite_optimizations/with_address_validation": 0,
+                "landing_pages/total": 0,
+                "landing_pages/active": 0,
+                "landing_pages/with_page_builder": 0,
+                "landing_pages/most_used_template": "",
+                "thankyou_pages/total": 0,
+                "thankyou_pages/active": 0,
+                "thankyou_pages/most_used_template": "",
+                "optin_pages/total": 0,
+                "optin_pages/active": 0,
+                "optin_pages/most_used_template": "",
+                "optin_pages/settings_stats/with_email_enabled": 0,
+                "optin_pages/settings_stats/with_recaptcha": 0,
+                "optin_thankyou/total": 0,
+                "optin_thankyou/active": 0,
+                "optin_thankyou/most_used_template": "",
+                "funnels/max_steps": 0,
+                "checkouts/custom_css_enabled": 0,
+                "upsells/custom_css_enabled": 0,
+                "landing_pages/custom_css_enabled": 0,
+                "optin_pages/custom_css_enabled": 0,
+                "thankyou_pages/custom_css_enabled": 0
+            },
+            "feature_performance": {
+                "last_24_hours/total_conversions": 0,
+                "last_24_hours/total_views": 0,
+                "last_24_hours/checkout_conversions": 0,
+                "last_24_hours/checkout_views": 0,
+                "last_24_hours/optin_conversions": 0,
+                "last_24_hours/optin_views": 0,
+                "last_30_days/total_conversions": 0,
+                "last_30_days/total_views": 0,
+                "last_30_days/checkout_conversions": 0,
+                "last_30_days/checkout_views": 0,
+                "last_30_days/optin_conversions": 0,
+                "last_30_days/optin_views": 0,
+                "all_time/total_conversions": 0,
+                "all_time/total_views": 0,
+                "all_time/checkout_conversions": 0,
+                "all_time/checkout_views": 0,
+                "all_time/optin_conversions": 0,
+                "all_time/optin_views": 0
+            }
+        },
+        "snapshot_generation_time": 0.029203891754150390625,
+        "jit": "yes",
+        "product": "FB"
+    }
+}
+2026-06-20T11:54:00+00:00 - 35.215.71.114 [Tracking API] Response: {"timestamp":"2026-06-20 11:54:00","status":"success","code":200,"body":""}

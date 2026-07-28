@@ -1,0 +1,15 @@
+.DS_Store
+
+# Logs
+php_errorlog
+wp-content/debug.log
+wp-content/fatal-log.txt
+
+# Caches and generated assets
+wp-content/cache/
+wp-content/uploads/siteground-optimizer-assets/
+
+# Backup plugins
+wp-content/wpvividbackups/
+wp-content/ai1wm-backups/
+wp-content/updraft/

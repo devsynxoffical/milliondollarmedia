@@ -1,0 +1,58 @@
+2026-07-08T14:24:11+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => d00373ab85a70e2dec80707bb6bb3ab4
+            [Date] => Jul 8, 2026 @ 14:24
+            [URL] => https://a.klaviyo.com/api/webhook/integration/woocommerce?c=UX4NCD
+            [Duration] => 0.15318
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/10.9.3 Hookshot (WordPress/7.0)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://milliondollarmedia.us/
+                            [X-WC-Webhook-Topic] => product.deleted
+                            [X-WC-Webhook-Resource] => product
+                            [X-WC-Webhook-Event] => deleted
+                            [X-WC-Webhook-Signature] => Ywo8eXxmvWYFrgi0ne8buP86k3HjVEYoSkbO0s4RVzM=
+                            [X-WC-Webhook-ID] => 5
+                            [X-WC-Webhook-Delivery-ID] => d00373ab85a70e2dec80707bb6bb3ab4
+                        )
+
+                )
+
+            [Body] => {\"id\":4797}
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Wed, 08 Jul 2026 14:24:11 GMT
+                                    [content-type] => text/html; charset=utf-8
+                                    [content-length] => 1
+                                    [content-language] => en-us
+                                    [content-security-policy] => object-src 'none'; base-uri 'none'; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; report-uri /csp/
+                                    [server] => cloudflare
+                                    [vary] => Accept-Language, Cookie, Origin
+                                    [x-klaviyo-req-id] => 08130a31-8806-4639-96d0-32e1268d42a8
+                                    [x-envoy-upstream-service-time] => 27
+                                    [cf-cache-status] => DYNAMIC
+                                    [x-content-type-options] => nosniff
+                                    [strict-transport-security] => max-age=31536000; includeSubDomains; preload
+                                    [cf-ray] => a17fc048efb51ee0-LAX
+                                )
+
+                        )
+
+                    [Body] => 1
+                )
+
+        )
+
+)
