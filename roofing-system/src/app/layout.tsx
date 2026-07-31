@@ -18,6 +18,14 @@ export const metadata: Metadata = {
   title: "Roofing Systems Co. | Double Your Revenue in 90 Days",
   description:
     "Only for $1M+ roofers. We run funnel, creatives, ads, and follow-up — you take the sales calls. Double your revenue in 90 days or you don't pay.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-32.png", type: "image/png", sizes: "32x32" },
+      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+  },
   openGraph: {
     title: "Roofing Systems Co. | $1M+ Roofers Only",
     description:
