@@ -13,3 +13,9 @@ wp-content/uploads/siteground-optimizer-assets/
 wp-content/wpvividbackups/
 wp-content/ai1wm-backups/
 wp-content/updraft/
+
+# Database dumps (never commit)
+*.sql
+
+# Local tooling
+scripts/node_modules/
