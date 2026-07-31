@@ -37,6 +37,12 @@ export function Footer() {
             <a href="#reviews" className="hover:text-white">
               Reviews
             </a>
+            <Link href="/privatemastermind" className="hover:text-white">
+              Audience segmentation
+            </Link>
+            <Link href="/privatemastermind-504306" className="hover:text-white">
+              Ads copy mastermind
+            </Link>
             <Link href={BOOKING_PATH} className="hover:text-white">
               Book call
             </Link>

@@ -8,10 +8,10 @@ import { BOOKING_PATH } from "../lib/offer";
 
 const links = [
   { href: "/#masterclass", label: "System" },
-  { href: "/#system", label: "How it works" },
   { href: "/#results", label: "Results" },
   { href: "/#reviews", label: "Reviews" },
-  { href: "/#faq", label: "FAQ" },
+  { href: "/privatemastermind", label: "Audiences" },
+  { href: "/privatemastermind-504306", label: "Ads copy" },
 ];
 
 export function Header() {
