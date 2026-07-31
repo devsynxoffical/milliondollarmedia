@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { BOOKING_PATH } from "../lib/offer";
 import { HeroVisual } from "./HeroVisual";
@@ -10,17 +9,6 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto grid min-h-[100svh] max-w-7xl items-center gap-10 px-5 pb-16 pt-24 md:px-8 md:pb-20 md:pt-28 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
         <div className="text-left">
-          <div className="animate-fade-up mb-7">
-            <Image
-              src="/logo.png"
-              alt="Roofing Systems Co."
-              width={220}
-              height={160}
-              priority
-              className="h-auto w-[150px] md:w-[190px]"
-            />
-          </div>
-
           <p className="animate-fade-up mb-5 inline-flex items-center gap-2 border border-[var(--red)] bg-[var(--red)]/10 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--red)] md:text-xs">
             <span className="h-1.5 w-1.5 rounded-full bg-[var(--red)]" />
             Only for roofers · $1M+ minimum
