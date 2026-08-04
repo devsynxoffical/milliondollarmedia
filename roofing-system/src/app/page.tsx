@@ -1,3 +1,4 @@
+import { Clients } from "../components/Clients";
 import { Comparison } from "../components/Comparison";
 import { Contact } from "../components/Contact";
 import { Faq } from "../components/Faq";
@@ -23,6 +24,7 @@ export default function Home() {
       <LogoStrip />
       <Qualification />
       <ProofGallery />
+      <Clients />
       <Guarantee />
       <Masterclass />
       <Comparison />

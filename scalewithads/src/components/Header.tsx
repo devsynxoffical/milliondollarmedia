@@ -34,13 +34,13 @@ export function Header() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition ${
-        scrolled || open
-          ? "border-b border-[var(--line)] bg-white/85 shadow-[0_1px_12px_rgba(16,24,40,0.05)] backdrop-blur-xl"
-          : "border-b border-transparent bg-transparent"
+      className={`fixed inset-x-0 top-0 z-50 border-b bg-black backdrop-blur-xl transition ${
+        scrolled
+          ? "border-white/15 shadow-[0_1px_16px_rgba(0,0,0,0.4)]"
+          : "border-white/10"
       }`}
     >
-      <div className="mx-auto flex h-[4.25rem] max-w-[1200px] items-center justify-between gap-4 px-5 md:px-8">
+      <div className="mx-auto flex h-20 max-w-[1200px] items-center justify-between gap-4 px-5 md:h-24 md:px-8">
         <Link href="/" className="shrink-0" onClick={() => setOpen(false)}>
           <Image
             src="/logo-original.png"
@@ -48,7 +48,7 @@ export function Header() {
             width={2000}
             height={1538}
             priority
-            className="h-12 w-auto md:h-14"
+            className="h-16 w-auto md:h-20"
           />
         </Link>
 
@@ -57,11 +57,7 @@ export function Header() {
             <a
               key={link.href}
               href={link.href}
-              className={`rounded-lg px-3 py-2 text-[13px] font-medium transition ${
-                scrolled || open
-                  ? "text-[var(--ink-soft)] hover:bg-[var(--surface-2)] hover:text-[var(--ink)]"
-                  : "text-white/75 hover:bg-white/10 hover:text-white"
-              }`}
+              className="rounded-lg px-3 py-2 text-[13px] font-medium text-white/75 transition hover:bg-white/10 hover:text-white"
             >
               {link.label}
             </a>
@@ -77,11 +73,7 @@ export function Header() {
           </Link>
           <button
             type="button"
-            className={`flex h-10 w-10 items-center justify-center rounded-lg border lg:hidden ${
-              scrolled || open
-                ? "border-[var(--line-strong)] text-[var(--ink)]"
-                : "border-white/20 text-white"
-            }`}
+            className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/20 text-white lg:hidden"
             aria-expanded={open}
             aria-label={open ? "Close menu" : "Open menu"}
             onClick={() => setOpen((v) => !v)}
@@ -96,14 +88,14 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="border-t border-[var(--line)] bg-white/95 backdrop-blur-xl lg:hidden">
+        <div className="border-t border-white/10 bg-black lg:hidden">
           <nav className="mx-auto flex max-w-[1200px] flex-col px-5 py-3">
             {links.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="rounded-lg px-2 py-3 text-sm font-medium text-[var(--ink)] transition hover:bg-[var(--surface-2)]"
+                className="rounded-lg px-2 py-3 text-sm font-medium text-white/80 transition hover:bg-white/10 hover:text-white"
               >
                 {link.label}
               </a>

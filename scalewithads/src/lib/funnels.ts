@@ -76,8 +76,7 @@ export const MASTERMIND_FUNNEL: FunnelConfig = {
   subtitle:
     "The Hidden Facebook Interest Framework behind high-ticket sales calls — built from $50M+ Meta spend, 12 years of experience, and million-dollar funnel results across countless verticals.",
   videoLabel: "Watch private 1:1 mastermind",
-  videoSrc:
-    "https://assets.cdn.filesafe.space/HWyar6Z3u3aF6ydghkCx/media/69b311b6cab7f7b0b5822c7a.mp4",
+  videoSrc: "/media/videos/mastermind.mp4",
   videoCover: "/media/covers/cover-mastermind.jpeg",
   learnTitle: "What agencies learn in this mastermind",
   learnItems: [
@@ -110,8 +109,7 @@ export const METADS_FUNNEL: FunnelConfig = {
   subtitle:
     "If your Meta ads aren’t converting at scale — it’s not the offer. It’s how you’re selling it. We teach the ads system behind million-dollar funnels across countless verticals.",
   videoLabel: "Show me the training",
-  videoSrc:
-    "https://assets.cdn.filesafe.space/HWyar6Z3u3aF6ydghkCx/media/69b311b6cab7f7b0b5822c7a.mp4",
+  videoSrc: "/media/videos/metads.mp4",
   videoCover: "/media/covers/cover-mastermind.jpeg",
   learnTitle: "What this Meta training unlocks",
   learnItems: [

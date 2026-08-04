@@ -10,7 +10,7 @@ export function FunnelPage({ funnel }: { funnel: FunnelConfig }) {
   return (
     <main className="bg-[var(--bg)]">
       {/* Hero */}
-      <section className="hero-dark relative overflow-hidden pt-[4.25rem]">
+      <section className="hero-dark relative overflow-hidden pt-20 md:pt-24">
         <div className="studio-grid-dark absolute inset-0" />
         <div className="relative mx-auto max-w-[900px] px-5 py-16 text-center md:px-8 md:py-24">
           <p className="animate-rise eyebrow-bright">{funnel.eyebrow}</p>

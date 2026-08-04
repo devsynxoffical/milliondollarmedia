@@ -1,7 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Footer } from "../components/Footer";
 import { LogoStrip } from "../components/LogoStrip";
+import { Clients } from "../components/Clients";
+import { AdsGallery } from "../components/AdsGallery";
 import { ProofGallery } from "../components/ProofGallery";
 import { Reviews } from "../components/Reviews";
 import { VideoPlayer } from "../components/VideoPlayer";
@@ -18,6 +19,8 @@ const funnels = [
     title: "Done-for-you ads that sell",
     body: "We run Meta ads across all industries. $10K minimum. Double revenue in 90 days.",
     cover: "/media/covers/cover-leadpilot.jpg",
+    videoSrc:
+      "https://assets.cdn.filesafe.space/W8B8H8FvOolLCrvxXzYp/media/69ef9443717d5dd4e170f445.mp4",
   },
   {
     href: "/metads",
@@ -25,6 +28,7 @@ const funnels = [
     title: "LTO training that converts",
     body: "See the Meta selling system behind million-dollar funnel results.",
     cover: "/media/covers/cover-metads.png",
+    videoSrc: "/media/videos/metads.mp4",
   },
   {
     href: "/privatemastermind",
@@ -32,6 +36,7 @@ const funnels = [
     title: "Train agencies to get clients",
     body: "How media agencies win clients with ads that sell — not excuses.",
     cover: "/media/covers/cover-mastermind.jpeg",
+    videoSrc: "/media/videos/mastermind.mp4",
   },
 ];
 
@@ -55,7 +60,7 @@ export default function Home() {
   return (
     <main>
       {/* Hero */}
-      <section className="hero-dark relative overflow-hidden pt-[4.25rem]">
+      <section className="hero-dark relative overflow-hidden pt-20 md:pt-24">
         <div className="studio-grid-dark absolute inset-0" />
         <div className="relative mx-auto max-w-[1200px] px-5 pb-16 pt-16 md:px-8 md:pb-24 md:pt-24">
           <div className="mx-auto max-w-[820px] text-center">
@@ -194,43 +199,53 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
-            {[funnels[0], funnels[2]].map((item) => (
-              <div
-                key={item.href}
-                className="card overflow-hidden bg-[var(--band-2)] p-3 transition duration-300 hover:-translate-y-1.5 hover:border-[#3a3a3a]"
-              >
-                <div className="relative aspect-[16/9] overflow-hidden rounded-xl">
-                  <Image
-                    src={item.cover}
-                    alt={item.title}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                  />
-                </div>
-                <div className="px-3 py-4">
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--accent-bright)]">
-                    {item.label}
-                  </p>
-                  <p className="display mt-2 text-xl text-white">
-                    {item.title}
-                  </p>
-                  <p className="mt-2 text-sm leading-relaxed text-white/80">
-                    {item.body}
-                  </p>
-                  <Link
-                    href={item.href}
-                    className="btn btn-accent mt-5 w-full"
-                  >
-                    Open funnel →
-                  </Link>
+          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {funnels.map((item, i) => (
+              <div key={item.href} className="group relative">
+                <div className="pointer-events-none absolute -inset-1 rounded-3xl bg-gradient-to-b from-[var(--accent)]/50 via-transparent to-transparent opacity-0 blur-xl transition duration-500 group-hover:opacity-100" />
+                <div className="card relative overflow-hidden bg-[var(--band-2)] p-3 transition duration-300 group-hover:-translate-y-2 group-hover:border-[#3a3a3a]">
+                  <span className="absolute right-3 top-3 z-20 flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-black/60 text-sm text-white/70 backdrop-blur transition duration-300 group-hover:border-[var(--accent)] group-hover:text-white">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div className="relative aspect-[16/9] overflow-hidden rounded-xl">
+                    <VideoPlayer
+                      src={item.videoSrc}
+                      cover={item.cover}
+                      title={item.title}
+                      className="rounded-xl"
+                    />
+                  </div>
+                  <div className="px-3 py-4">
+                    <div className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[var(--accent-bright)] transition duration-300 group-hover:scale-125" />
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--accent-bright)]">
+                        {item.label}
+                      </p>
+                    </div>
+                    <p className="display mt-2 text-xl text-white">
+                      {item.title}
+                    </p>
+                    <p className="mt-2 text-sm leading-relaxed text-white/80">
+                      {item.body}
+                    </p>
+                    <Link
+                      href={item.href}
+                      className="btn btn-accent mt-5 w-full group/btn"
+                    >
+                      Open funnel
+                      <svg viewBox="0 0 24 24" className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden>
+                        <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </Link>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      <Clients />
 
       {/* Awards */}
       <section className="border-b border-[var(--line)] bg-white">
@@ -250,6 +265,7 @@ export default function Home() {
       </section>
 
       <ProofGallery />
+      <AdsGallery />
       <Reviews />
 
       {/* Final CTA */}
