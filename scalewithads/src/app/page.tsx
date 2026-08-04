@@ -4,7 +4,12 @@ import { Footer } from "../components/Footer";
 import { LogoStrip } from "../components/LogoStrip";
 import { ProofGallery } from "../components/ProofGallery";
 import { Reviews } from "../components/Reviews";
+import { VideoPlayer } from "../components/VideoPlayer";
 import { BOOKING_PATH, OFFER } from "../lib/offer";
+
+const HERO_VIDEO =
+  "https://assets.cdn.filesafe.space/HWyar6Z3u3aF6ydghkCx/media/69b311b6cab7f7b0b5822c7a.mp4";
+const HERO_VIDEO_COVER = "/media/covers/cover-mastermind.jpeg";
 
 const funnels = [
   {
@@ -117,6 +122,24 @@ export default function Home() {
                 </Link>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Watch it work */}
+      <section className="section-shell bg-white">
+        <div className="mx-auto max-w-[760px] text-center">
+          <p className="eyebrow-accent">Watch it work</p>
+          <h2 className="display mt-3 text-[clamp(1.8rem,3.5vw,2.6rem)] text-[var(--ink)]">
+            The Meta ads system behind $50M+ in spend
+          </h2>
+          <div className="mt-10">
+            <VideoPlayer
+              src={HERO_VIDEO}
+              cover={HERO_VIDEO_COVER}
+              title="The Meta ads system"
+              autoPlay
+            />
           </div>
         </div>
       </section>

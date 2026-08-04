@@ -11,24 +11,20 @@ function Row({ reverse = false }: { reverse?: boolean }) {
   const items = [...logos, ...logos];
   return (
     <div className="relative overflow-hidden py-2">
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-black to-transparent md:w-24" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-black to-transparent md:w-24" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-white to-transparent md:w-24" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-white to-transparent md:w-24" />
       <div
-        className={`${reverse ? "marquee-track-reverse" : "marquee-track"} items-center gap-5 px-4 md:gap-6`}
+        className={`${reverse ? "marquee-track-reverse" : "marquee-track"} items-center gap-8 px-4 md:gap-10`}
       >
         {items.map((src, i) => (
-          <div
+          <Image
             key={`${src}-${i}`}
-            className="group relative flex h-24 w-36 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-[var(--navy)] md:h-28 md:w-44"
-          >
-            <Image
-              src={src}
-              alt={`Partner logo ${i + 1}`}
-              fill
-              className="object-contain invert transition duration-500 group-hover:scale-105"
-              sizes="176px"
-            />
-          </div>
+            src={src}
+            alt={`Partner logo ${i + 1}`}
+            width={207}
+            height={207}
+            className="h-24 w-auto shrink-0 opacity-90 transition duration-500 hover:scale-105 hover:opacity-100 md:h-28"
+          />
         ))}
       </div>
     </div>

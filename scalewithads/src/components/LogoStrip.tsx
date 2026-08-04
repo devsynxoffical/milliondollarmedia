@@ -26,22 +26,18 @@ export function LogoStrip() {
         </div>
       </div>
       <div className="relative mt-10">
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-black to-transparent md:w-28" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-black to-transparent md:w-28" />
-        <div className="marquee-track items-center gap-4 px-6">
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-white to-transparent md:w-28" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-white to-transparent md:w-28" />
+        <div className="marquee-track items-center gap-8 px-6">
           {items.map((src, i) => (
-            <div
+            <Image
               key={`${src}-${i}`}
-              className="relative flex h-16 w-32 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-white/15 bg-black p-3 md:h-20 md:w-40"
-            >
-              <Image
-                src={src}
-                alt={`Brand logo ${i + 1}`}
-                fill
-                className="object-contain p-2 invert"
-                sizes="160px"
-              />
-            </div>
+              src={src}
+              alt={`Brand logo ${i + 1}`}
+              width={207}
+              height={207}
+              className="h-20 w-auto shrink-0 opacity-90 transition duration-500 hover:scale-105 hover:opacity-100 md:h-24"
+            />
           ))}
         </div>
       </div>

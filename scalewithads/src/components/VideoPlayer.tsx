@@ -8,6 +8,7 @@ type VideoPlayerProps = {
   cover: string;
   title: string;
   className?: string;
+  autoPlay?: boolean;
 };
 
 export function VideoPlayer({
@@ -15,9 +16,11 @@ export function VideoPlayer({
   cover,
   title,
   className = "",
+  autoPlay = false,
 }: VideoPlayerProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [started, setStarted] = useState(false);
+  const [muted, setMuted] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [prevSrc, setPrevSrc] = useState(src);
 
@@ -37,6 +40,35 @@ export function VideoPlayer({
       /* ignore seek before metadata */
     }
   }, [src]);
+
+  useEffect(() => {
+    if (!autoPlay) return;
+    const video = videoRef.current;
+    if (!video) return;
+    let cancelled = false;
+
+    const tryPlay = (withSound: boolean) => {
+      video.muted = !withSound;
+      setMuted(!withSound);
+      video.play().then(
+        () => {
+          if (!cancelled) setStarted(true);
+        },
+        () => {
+          if (withSound) tryPlay(false);
+          else if (!cancelled) {
+            setError("Video unavailable.");
+            setStarted(false);
+          }
+        }
+      );
+    };
+
+    tryPlay(true);
+    return () => {
+      cancelled = true;
+    };
+  }, [autoPlay, src]);
 
   async function handlePlay() {
     const video = videoRef.current;
@@ -66,6 +98,8 @@ export function VideoPlayer({
         }`}
         controls={started && !error}
         playsInline
+        loop={autoPlay}
+        muted={muted}
         preload="metadata"
         onError={() => {
           setError("Video unavailable.");

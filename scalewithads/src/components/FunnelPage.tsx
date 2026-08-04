@@ -4,6 +4,7 @@ import { Footer } from "./Footer";
 import { LogoStrip } from "./LogoStrip";
 import { ProofGallery } from "./ProofGallery";
 import { Reviews } from "./Reviews";
+import { VideoPlayer } from "./VideoPlayer";
 
 export function FunnelPage({ funnel }: { funnel: FunnelConfig }) {
   return (
@@ -58,6 +59,17 @@ export function FunnelPage({ funnel }: { funnel: FunnelConfig }) {
               {funnel.ctaSecondary} →
             </Link>
           </div>
+
+          {funnel.slug === "metads" && funnel.videoSrc && (
+            <div className="animate-rise-d2 mx-auto mt-12 max-w-[780px]">
+              <VideoPlayer
+                src={funnel.videoSrc}
+                cover={funnel.videoCover}
+                title={funnel.videoLabel}
+                autoPlay
+              />
+            </div>
+          )}
         </div>
       </section>
 
