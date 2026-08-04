@@ -1,20 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #fcfcfd;
+  --bg: #ffffff;
   --surface: #ffffff;
-  --surface-2: #f5f6f8;
-  --ink: #0c0e13;
-  --ink-soft: #343a4a;
-  --muted: #626b7a;
-  --line: #e6e8ee;
-  --line-strong: #d4d8e0;
-  --accent: #e31b23;
-  --accent-deep: #b01018;
-  --accent-soft: #fde9ea;
-  --accent-bright: #ff4d5a;
-  --band: #0c0e13;
-  --band-2: #141824;
+  --surface-2: #f4f4f4;
+  --ink: #000000;
+  --ink-soft: #1f1f1f;
+  --muted: #3d3d3d;
+  --line: #e6e6e6;
+  --line-strong: #cccccc;
+  --accent: #ed1c24;
+  --accent-deep: #c4181e;
+  --accent-soft: #fbeaeb;
+  --accent-bright: #ff3b43;
+  --band: #01091c;
+  --band-2: #0a0f1a;
   --background: var(--bg);
   --foreground: var(--ink);
 }
@@ -99,8 +99,8 @@
 
   .studio-grid {
     background-image:
-      linear-gradient(rgba(12, 14, 19, 0.035) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(12, 14, 19, 0.035) 1px, transparent 1px);
+      linear-gradient(rgba(0, 0, 0, 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 0, 0, 0.045) 1px, transparent 1px);
     background-size: 56px 56px;
     mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 55%, transparent 100%);
   }
@@ -147,7 +147,7 @@
 
   .hero-dark {
     background:
-      radial-gradient(62% 48% at 50% 0%, rgba(227, 27, 35, 0.16) 0%, transparent 72%),
+      radial-gradient(62% 48% at 50% 0%, rgba(237, 28, 36, 0.18) 0%, transparent 72%),
       var(--band);
   }
 
@@ -209,9 +209,9 @@
   }
 
   .btn-primary:hover {
-    background: #1c2230;
+    background: #1a1a1a;
     transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(12, 14, 19, 0.18);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
   }
 
   .btn-accent {
@@ -224,7 +224,7 @@
   .btn-accent:hover {
     background: var(--accent-deep);
     transform: translateY(-1px);
-    box-shadow: 0 10px 24px rgba(227, 27, 35, 0.35);
+    box-shadow: 0 10px 24px rgba(237, 28, 36, 0.35);
   }
 
   .btn-outline {

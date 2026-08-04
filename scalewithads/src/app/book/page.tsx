@@ -27,7 +27,7 @@ export default function BookPage() {
                 <br />
                 <span className="text-[var(--accent-bright)]">in 90 days</span>
               </h1>
-              <p className="animate-rise-d2 mt-5 max-w-md text-base leading-relaxed text-white/60">
+              <p className="animate-rise-d2 mt-5 max-w-md text-base leading-relaxed text-white/85">
                 Book your application call. We confirm fit, walk the agreement,
                 and map done-for-you ads — or agency training — for your
                 industry.
@@ -40,7 +40,7 @@ export default function BookPage() {
                   "We double your revenue in 90 days — in writing",
                 ].map((item) => (
                   <li key={item} className="flex gap-3">
-                    <span className="mt-2 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#ff4d5a]/15 text-[#ffb3b8]">
+                    <span className="mt-2 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#ff4d5a]/15 text-[var(--accent-bright)]">
                       <svg viewBox="0 0 24 24" className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth={3} aria-hidden>
                         <path d="M20 6L9 17l-5-5" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>

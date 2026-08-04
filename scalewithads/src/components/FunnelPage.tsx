@@ -26,7 +26,7 @@ export function FunnelPage({ funnel }: { funnel: FunnelConfig }) {
               </>
             ) : null}
           </h1>
-          <p className="animate-rise-d2 mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/55 md:text-lg">
+          <p className="animate-rise-d2 mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/80 md:text-lg">
             {funnel.subtitle}
           </p>
 
@@ -128,13 +128,13 @@ export function FunnelPage({ funnel }: { funnel: FunnelConfig }) {
           <div className="panel-ink relative overflow-hidden rounded-3xl px-6 py-16 text-center md:py-20">
             <div className="pointer-events-none absolute inset-0 studio-grid opacity-60" />
             <div className="relative mx-auto max-w-[640px]">
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#ffb3b8]">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--accent-bright)]">
                 Next step
               </p>
               <h2 className="display mt-4 text-[clamp(2rem,4.4vw,3.2rem)] text-white">
                 Ready to scale with ads that sell?
               </h2>
-              <p className="mt-4 text-white/55">
+              <p className="mt-4 text-white/80">
                 $10K minimum. All industries. We double your revenue in 90 days
                 — everything in the agreement.
               </p>

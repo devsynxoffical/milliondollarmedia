@@ -69,7 +69,7 @@ export default function Home() {
                 doubles in 90 days.
               </span>
             </h1>
-            <p className="animate-rise-d2 mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/60 md:text-lg">
+            <p className="animate-rise-d2 mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/85 md:text-lg">
               Scale with Ads is specifically for ads — across countless
               verticals. We train media agencies to get clients.{" "}
               {OFFER.agreement}.
@@ -85,7 +85,7 @@ export default function Home() {
           </div>
 
           <div className="animate-rise-d2 relative mx-auto mt-14 max-w-[960px] md:mt-16">
-            <div className="absolute -inset-x-8 -top-8 h-48 rounded-full bg-[rgba(227,27,35,0.3)] blur-3xl" />
+            <div className="absolute -inset-x-8 -top-8 h-48 rounded-full bg-[rgba(237,28,36,0.35)] blur-3xl" />
             <div className="card relative overflow-hidden shadow-[0_24px_60px_-20px_rgba(16,24,40,0.28)]">
               <div className="flex items-center gap-2 border-b border-[var(--line)] bg-[var(--surface-2)] px-4 py-3">
                 <span className="h-3 w-3 rounded-full bg-[#e5484d]" />
@@ -206,7 +206,7 @@ export default function Home() {
       <section className="panel-ink section-shell">
         <div className="mx-auto max-w-[1200px]">
           <div className="max-w-[640px]">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#ffb3b8]">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--accent-bright)]">
               Choose a path
             </p>
             <h2 className="display mt-3 text-[clamp(2.2rem,4vw,3.4rem)] text-white">
@@ -218,7 +218,7 @@ export default function Home() {
             {[funnels[0], funnels[2]].map((item) => (
               <div
                 key={item.href}
-                className="card overflow-hidden bg-[var(--band-2)] p-3 transition duration-300 hover:-translate-y-1.5 hover:border-[#3a2a30]"
+                className="card overflow-hidden bg-[var(--band-2)] p-3 transition duration-300 hover:-translate-y-1.5 hover:border-[#3a3a3a]"
               >
                 <div className="relative aspect-[16/9] overflow-hidden rounded-xl">
                   <Image
@@ -230,13 +230,13 @@ export default function Home() {
                   />
                 </div>
                 <div className="px-3 py-4">
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#ffb3b8]">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--accent-bright)]">
                     {item.label}
                   </p>
                   <p className="display mt-2 text-xl text-white">
                     {item.title}
                   </p>
-                  <p className="mt-2 text-sm leading-relaxed text-white/55">
+                  <p className="mt-2 text-sm leading-relaxed text-white/80">
                     {item.body}
                   </p>
                   <Link
@@ -278,13 +278,13 @@ export default function Home() {
           <div className="panel-ink relative overflow-hidden rounded-3xl px-6 py-16 text-center md:py-24">
             <div className="pointer-events-none absolute inset-0 studio-grid opacity-60" />
             <div className="relative mx-auto max-w-[640px]">
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#ffb3b8]">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--accent-bright)]">
                 Next step
               </p>
               <h2 className="display mt-4 text-[clamp(2.2rem,5vw,3.6rem)] text-white">
                 Ready to scale with ads that sell?
               </h2>
-              <p className="mt-5 text-base leading-relaxed text-white/55">
+              <p className="mt-5 text-base leading-relaxed text-white/80">
                 $10K minimum. All industries. We double your revenue in 90
                 days — everything in the agreement.
               </p>

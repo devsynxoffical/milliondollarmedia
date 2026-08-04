@@ -53,8 +53,8 @@ export function HeroVisual() {
                       height: `${h}%`,
                       background:
                         i > 5
-                          ? "linear-gradient(180deg,#8b6cff,#4f2fd6)"
-                          : "rgba(107,70,255,0.15)",
+                          ? "linear-gradient(180deg,#ff3b43,#c4181e)"
+                          : "rgba(237,28,36,0.15)",
                     }}
                   />
                 </div>
