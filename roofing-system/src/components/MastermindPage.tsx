@@ -14,7 +14,7 @@ export function MastermindPage({ funnel }: { funnel: FunnelConfig }) {
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(107,70,255,0.16), transparent 60%)",
+              "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(237,28,36,0.16), transparent 60%)",
           }}
         />
 
@@ -139,7 +139,7 @@ export function MastermindPage({ funnel }: { funnel: FunnelConfig }) {
             <h2 className="display text-[clamp(2rem,4.5vw,3.2rem)]">
               Ready to build your
               <br />
-              <span className="text-[var(--lime)]">sales call machine?</span>
+              <span className="text-white">sales call machine?</span>
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-sm text-white/70 md:text-base">
               Watch the mastermind. Then book if you&apos;re ready to install the

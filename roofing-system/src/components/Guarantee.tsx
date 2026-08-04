@@ -16,18 +16,18 @@ export function Guarantee() {
     <section className="section-shell bg-white">
       <div className="mx-auto max-w-7xl">
         <Reveal>
-          <div className="relative overflow-hidden rounded-[2rem] bg-[var(--purple)] px-6 py-12 text-white shadow-[var(--shadow)] md:px-12 md:py-16">
+          <div className="relative overflow-hidden rounded-[2rem] bg-[var(--ink-soft)] px-6 py-12 text-white shadow-[var(--shadow)] md:px-12 md:py-16">
             <div
               className="pointer-events-none absolute inset-0"
               style={{
                 background:
-                  "radial-gradient(ellipse 50% 80% at 10% 50%, rgba(212,255,68,0.15), transparent 55%), radial-gradient(ellipse 40% 60% at 90% 20%, rgba(255,255,255,0.12), transparent 50%)",
+                  "radial-gradient(ellipse 50% 80% at 10% 50%, rgba(237,28,36,0.28), transparent 55%), radial-gradient(ellipse 40% 60% at 90% 20%, rgba(255,255,255,0.1), transparent 50%)",
               }}
             />
 
             <div className="relative z-10 grid items-center gap-10 lg:grid-cols-[0.85fr_1.15fr]">
               <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
-                <div className="bob-icon mb-4 flex h-20 w-20 items-center justify-center rounded-3xl bg-white/15 text-[var(--lime)] backdrop-blur-sm">
+                <div className="bob-icon mb-4 flex h-20 w-20 items-center justify-center rounded-3xl bg-white/10 text-[var(--red-bright)] backdrop-blur-sm">
                   <svg viewBox="0 0 24 24" className="h-10 w-10" aria-hidden>
                     <path
                       d="M12 2c4 1.5 6.5 5 6.5 9.5 1.5 1.8 2.5 4 2.5 6.5l-4-1c-1.2 1.6-3 2.8-5 3-2-.2-3.8-1.4-5-3l-4 1c0-2.5 1-4.7 2.5-6.5C5.5 7 8 3.5 12 2z"
@@ -39,7 +39,7 @@ export function Guarantee() {
                     <circle cx="12" cy="10" r="2.2" fill="none" stroke="currentColor" strokeWidth="1.6" />
                   </svg>
                 </div>
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--lime)]">
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--red-bright)]">
                   Performance guarantee
                 </p>
                 <h2 className="display mt-3 text-[clamp(1.8rem,4vw,2.8rem)]">
@@ -59,7 +59,7 @@ export function Guarantee() {
                     key={item.label}
                     className="rounded-2xl border border-white/15 bg-white/10 p-6 backdrop-blur-sm"
                   >
-                    <p className="display text-4xl text-[var(--lime)] md:text-5xl">
+                    <p className="display text-4xl text-[var(--red-bright)] md:text-5xl">
                       <CountUp end={item.end} suffix={item.suffix} />
                     </p>
                     <p className="mt-2 font-bold text-white">{item.label}</p>

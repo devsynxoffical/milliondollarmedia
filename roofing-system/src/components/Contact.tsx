@@ -55,9 +55,9 @@ export function Contact() {
     <section id="contact" className="section-shell bg-white">
       <div className="mx-auto max-w-7xl">
         <Reveal>
-          <div className="overflow-hidden rounded-[2rem] bg-[var(--purple)] px-5 py-12 shadow-[var(--shadow)] md:px-10 md:py-16">
+          <div className="overflow-hidden rounded-[2rem] bg-[var(--ink-soft)] px-5 py-12 shadow-[var(--shadow)] md:px-10 md:py-16">
             <div className="mx-auto mb-10 max-w-3xl text-center text-white">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--lime)]">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--red-bright)]">
                 Contact us
               </p>
               <h2 className="display mt-3 text-[clamp(2rem,4.5vw,3.2rem)]">
@@ -81,7 +81,7 @@ export function Contact() {
                     href={item.href}
                     className="group flex items-center gap-4 rounded-2xl border border-white/15 bg-white/10 p-5 text-white backdrop-blur-sm transition hover:bg-white/15"
                   >
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[var(--lime)] text-[var(--ink)]">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-[var(--purple)]">
                       {item.icon}
                     </span>
                     <div>
@@ -98,13 +98,13 @@ export function Contact() {
                     className="h-52"
                     style={{
                       backgroundImage:
-                        "linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px), radial-gradient(ellipse 80% 60% at 30% 30%, rgba(212,255,68,0.2), transparent 60%)",
+                        "linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px), radial-gradient(ellipse 80% 60% at 30% 30%, rgba(237,28,36,0.24), transparent 60%)",
                       backgroundSize: "44px 44px, 44px 44px, auto",
                     }}
                   />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <span className="flex items-center gap-2 rounded-full border border-white/30 bg-white/15 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.16em] text-white backdrop-blur-sm">
-                      <span className="h-2 w-2 animate-pulse rounded-full bg-[var(--lime)]" />
+                      <span className="h-2 w-2 animate-pulse rounded-full bg-[var(--red-bright)]" />
                       Serving roofers nationwide
                     </span>
                   </div>

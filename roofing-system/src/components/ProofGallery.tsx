@@ -33,7 +33,7 @@ export function ProofGallery() {
           <div className="mt-10 flex flex-col items-center justify-between gap-5 rounded-[1.75rem] bg-[var(--purple)] px-6 py-8 text-white md:flex-row md:px-10">
             <p className="display text-2xl md:text-3xl">
               Want this running on{" "}
-              <span className="text-[var(--lime)]">your company?</span>
+              <span className="text-white">your company?</span>
             </p>
             <Link href={BOOKING_PATH} className="cta-btn min-w-[220px]">
               <span className="display text-lg tracking-normal">Apply Now</span>

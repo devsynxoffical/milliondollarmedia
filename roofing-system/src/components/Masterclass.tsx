@@ -24,7 +24,7 @@ export function Masterclass() {
             className="pointer-events-none absolute -inset-12 -z-0"
             style={{
               background:
-                "radial-gradient(ellipse 50% 50% at 50% 50%, rgba(107,70,255,0.14), transparent 70%)",
+                "radial-gradient(ellipse 50% 50% at 50% 50%, rgba(237,28,36,0.14), transparent 70%)",
             }}
           />
 

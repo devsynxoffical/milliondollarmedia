@@ -28,7 +28,7 @@ export function Qualification() {
             className="pointer-events-none absolute -inset-8 -z-0 rounded-full"
             style={{
               background:
-                "radial-gradient(ellipse 60% 60% at 40% 40%, rgba(107,70,255,0.18), transparent 65%)",
+                "radial-gradient(ellipse 60% 60% at 40% 40%, rgba(237,28,36,0.18), transparent 65%)",
             }}
           />
           <div className="relative overflow-hidden rounded-[1.75rem] border border-[var(--line)] bg-white shadow-[0_40px_100px_rgba(21,21,40,0.1)]">

@@ -4,14 +4,6 @@ import { BOOKING_PATH } from "../lib/offer";
 import { Marquee } from "./Marquee";
 import { HeroVisual } from "./HeroVisual";
 
-function BoltIcon({ className = "" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} aria-hidden>
-      <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
 function StarIcon({ className = "", fill = false }: { className?: string; fill?: boolean }) {
   return (
     <svg viewBox="0 0 24 24" className={className} aria-hidden>
@@ -23,54 +15,6 @@ function StarIcon({ className = "", fill = false }: { className?: string; fill?:
         strokeLinejoin="round"
       />
     </svg>
-  );
-}
-
-function RocketIcon({ className = "" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} aria-hidden>
-      <path
-        d="M12 2c4 1.5 6.5 5 6.5 9.5 1.5 1.8 2.5 4 2.5 6.5l-4-1c-1.2 1.6-3 2.8-5 3-2-.2-3.8-1.4-5-3l-4 1c0-2.5 1-4.7 2.5-6.5C5.5 7 8 3.5 12 2z"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinejoin="round"
-      />
-      <circle cx="12" cy="10" r="2.2" fill="none" stroke="currentColor" strokeWidth="1.6" />
-      <path d="M9.5 14.5L7 20l2.5-1.2L12 20l2.5-1.2L17 20l-2.5-5.5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-function PlayRing() {
-  return (
-    <a
-      href="#masterclass"
-      className="group absolute -bottom-6 left-6 z-20 hidden sm:block md:left-10"
-      aria-label="Watch the systems breakdown"
-    >
-      <div className="relative h-28 w-28 md:h-32 md:w-32">
-        <svg
-          viewBox="0 0 100 100"
-          className="spin-ring absolute inset-0 h-full w-full"
-          aria-hidden
-        >
-          <defs>
-            <path id="ringPath" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0" />
-          </defs>
-          <text className="fill-white text-[10.5px] font-bold uppercase tracking-[0.22em]">
-            <textPath href="#ringPath">
-              Watch the systems breakdown • live system •
-            </textPath>
-          </text>
-        </svg>
-        <span className="pulse-ring absolute inset-5 flex items-center justify-center rounded-full bg-[var(--lime)] text-[var(--ink)] shadow-[0_14px_40px_rgba(212,255,68,0.4)] transition duration-300 group-hover:scale-105">
-          <svg viewBox="0 0 24 24" className="ml-1 h-7 w-7 fill-current" aria-hidden>
-            <path d="M8 5v14l11-7z" />
-          </svg>
-        </span>
-      </div>
-    </a>
   );
 }
 
@@ -125,26 +69,21 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto grid min-h-[100svh] max-w-7xl items-center gap-12 px-5 pb-28 pt-28 md:px-8 md:pb-36 md:pt-32 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
         <div className="text-left text-white">
-          <p className="animate-fade-up mb-5 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-white/90 backdrop-blur-sm md:text-xs">
+          <p className="animate-fade-up mb-6 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-white/90 backdrop-blur-sm md:text-xs">
             <span className="h-1.5 w-1.5 rounded-full bg-[var(--lime)]" />
             Only for roofers · $1M+ minimum
           </p>
 
-          <p className="animate-fade-up-delay-1 display text-[clamp(2.8rem,7vw,5.8rem)] leading-[0.92] text-white">
-            SCALE NOW
-          </p>
-
-          <h1 className="animate-fade-up-delay-1 mt-3 display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-tight text-white">
-            Double your{" "}
-            <span className="text-[var(--lime)]">roofing revenue</span>
+          <h1 className="animate-fade-up-delay-1 display text-[clamp(2.3rem,5vw,4.2rem)] leading-[1.05] text-white">
+            Double your roofing revenue
             <br />
-            in 90 days
+            in <span className="text-[var(--lime)]">90 days</span> — or you
+            don&apos;t pay.
           </h1>
 
           <p className="animate-fade-up-delay-2 mt-6 max-w-xl text-base leading-relaxed text-white/75 md:text-lg">
-            Funnel. Creatives. Ad management. Follow-up. We run the full
-            acquisition system — you just show up to sales calls. Everything is
-            written in the agreement.
+            Funnel, creatives, ads, and follow-up — fully handled. You just
+            take the sales calls. Everything is written in the agreement.
           </p>
 
           <div className="animate-fade-up-delay-3 mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -170,21 +109,7 @@ export function Hero() {
         </div>
 
         <div className="relative animate-fade-up-delay-2">
-          <div className="float-icon absolute -left-4 -top-8 z-10 flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-[var(--purple)] shadow-[0_16px_40px_rgba(21,21,40,0.2)] md:-left-8 md:h-16 md:w-16">
-            <BoltIcon className="h-7 w-7" />
-          </div>
-          <div className="bob-icon absolute -right-2 -top-10 z-10 flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--lime)] text-[var(--ink)] md:-right-4 md:h-16 md:w-16">
-            <RocketIcon className="h-7 w-7" />
-          </div>
-          <div
-            className="float-icon absolute -bottom-2 -right-2 z-10 flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-[var(--purple)] shadow-[0_16px_40px_rgba(21,21,40,0.2)] md:h-14 md:w-14"
-            style={{ animationDelay: "1.2s" }}
-          >
-            <StarIcon fill className="h-6 w-6" />
-          </div>
-
           <HeroVisual />
-          <PlayRing />
         </div>
       </div>
 

@@ -17,7 +17,7 @@ export default function BookPage() {
           className="pointer-events-none absolute inset-0 opacity-90"
           style={{
             background:
-              "radial-gradient(ellipse 60% 50% at 10% 0%, rgba(107,70,255,0.18), transparent 55%), radial-gradient(ellipse 40% 40% at 90% 20%, rgba(212,255,68,0.12), transparent 50%)",
+              "radial-gradient(ellipse 60% 50% at 10% 0%, rgba(237,28,36,0.2), transparent 55%), radial-gradient(ellipse 40% 40% at 90% 20%, rgba(255,255,255,0.14), transparent 50%)",
           }}
         />
 

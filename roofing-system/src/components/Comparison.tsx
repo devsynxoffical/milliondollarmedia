@@ -76,7 +76,7 @@ export function Comparison() {
               <div className="bg-[var(--purple)] px-8 py-6 text-white md:px-10">
                 <div className="flex items-center justify-between gap-3">
                   <h3 className="display text-2xl">Roofing Systems Co.</h3>
-                  <span className="rounded-full bg-[var(--lime)] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--ink)]">
+                  <span className="rounded-full bg-white px-3 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--purple)]">
                     Featured
                   </span>
                 </div>

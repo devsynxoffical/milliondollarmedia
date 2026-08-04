@@ -96,13 +96,11 @@ export default function Home() {
                 </span>
               </div>
               <div className="relative aspect-[16/9] bg-[var(--band)] sm:aspect-[16/8]">
-                <Image
-                  src="/media/covers/cover-leadpilot.jpg"
-                  alt="Scale with Ads live system"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 920px"
-                  priority
+                <VideoPlayer
+                  src={HERO_VIDEO}
+                  cover={HERO_VIDEO_COVER}
+                  title="The Meta ads system"
+                  autoPlay
                 />
               </div>
               <div className="flex flex-col items-start justify-between gap-3 border-t border-[var(--line)] bg-white px-5 py-4 sm:flex-row sm:items-center md:px-6">
@@ -122,24 +120,6 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Watch it work */}
-      <section className="section-shell bg-white">
-        <div className="mx-auto max-w-[760px] text-center">
-          <p className="eyebrow-accent">Watch it work</p>
-          <h2 className="display mt-3 text-[clamp(1.8rem,3.5vw,2.6rem)] text-[var(--ink)]">
-            The Meta ads system behind $50M+ in spend
-          </h2>
-          <div className="mt-10">
-            <VideoPlayer
-              src={HERO_VIDEO}
-              cover={HERO_VIDEO_COVER}
-              title="The Meta ads system"
-              autoPlay
-            />
           </div>
         </div>
       </section>

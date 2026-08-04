@@ -15,15 +15,15 @@ export function FinalCta() {
     <section className="relative overflow-hidden bg-[var(--fog)]">
       <div className="section-shell">
         <Reveal>
-          <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-[var(--purple)] px-6 py-14 text-white shadow-[var(--shadow)] md:px-12 md:py-16">
+          <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-[var(--ink-soft)] px-6 py-14 text-white shadow-[var(--shadow)] md:px-12 md:py-16">
             <div
               className="pointer-events-none absolute inset-0"
               style={{
                 background:
-                  "radial-gradient(ellipse 60% 80% at 85% 20%, rgba(212,255,68,0.2), transparent 55%), radial-gradient(ellipse 50% 70% at 10% 90%, rgba(255,255,255,0.1), transparent 60%)",
+                  "radial-gradient(ellipse 60% 80% at 85% 20%, rgba(237,28,36,0.24), transparent 55%), radial-gradient(ellipse 50% 70% at 10% 90%, rgba(255,255,255,0.1), transparent 60%)",
               }}
             />
-            <div className="bob-icon pointer-events-none absolute right-8 top-8 z-10 hidden text-[var(--lime)] md:block">
+            <div className="bob-icon pointer-events-none absolute right-8 top-8 z-10 hidden text-[var(--red-bright)] md:block">
               <svg viewBox="0 0 24 24" className="h-14 w-14" aria-hidden>
                 <path
                   d="M12 2c4 1.5 6.5 5 6.5 9.5 1.5 1.8 2.5 4 2.5 6.5l-4-1c-1.2 1.6-3 2.8-5 3-2-.2-3.8-1.4-5-3l-4 1c0-2.5 1-4.7 2.5-6.5C5.5 7 8 3.5 12 2z"
@@ -56,7 +56,7 @@ export function FinalCta() {
                       key={item}
                       className="flex items-start gap-2.5 rounded-2xl bg-white/10 px-4 py-3 text-sm font-semibold text-white/90"
                     >
-                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[var(--lime)] text-[10px] font-bold text-[var(--ink)]">
+                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-white text-[10px] font-bold text-[var(--purple)]">
                         ✓
                       </span>
                       {item}
@@ -78,7 +78,7 @@ export function FinalCta() {
                     Book Application Call
                   </span>
                   <span className="mt-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--ink)]/70">
-                    Next step: /book
+                    $1M+ roofers only
                   </span>
                 </Link>
               </div>
