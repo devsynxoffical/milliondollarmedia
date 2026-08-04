@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
-import { Bebas_Neue, Manrope } from "next/font/google";
+import { Poppins } from "next/font/google";
 import { Header } from "../components/Header";
 import "./globals.css";
 
-const display = Bebas_Neue({
-  weight: "400",
+const display = Poppins({
+  weight: ["600", "700", "800"],
   subsets: ["latin"],
   variable: "--font-display",
 });
 
-const body = Manrope({
+const body = Poppins({
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
   variable: "--font-body",
 });

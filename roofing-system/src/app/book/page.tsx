@@ -11,22 +11,28 @@ export const metadata: Metadata = {
 
 export default function BookPage() {
   return (
-    <main className="min-h-screen bg-[var(--black)]">
-      <section className="relative overflow-hidden border-b border-[var(--line)]">
-        <div className="hero-noise pointer-events-none absolute inset-0 opacity-80" />
+    <main className="min-h-screen bg-[var(--fog)]">
+      <section className="relative overflow-hidden">
+        <div
+          className="pointer-events-none absolute inset-0 opacity-90"
+          style={{
+            background:
+              "radial-gradient(ellipse 60% 50% at 10% 0%, rgba(107,70,255,0.18), transparent 55%), radial-gradient(ellipse 40% 40% at 90% 20%, rgba(212,255,68,0.12), transparent 50%)",
+          }}
+        />
 
         <div className="relative z-10 mx-auto max-w-7xl px-5 pb-10 pt-24 md:px-8 md:pb-14 md:pt-28">
           <div className="grid items-start gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14">
             <div>
-              <p className="inline-flex items-center gap-2 border border-[var(--red)] bg-[var(--red)]/10 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--red)]">
+              <p className="inline-flex items-center gap-2 rounded-full border border-[var(--purple)] bg-[var(--purple-light)] px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--purple)]">
                 Booking funnel · roofers only
               </p>
-              <h1 className="display mt-5 text-[clamp(2.6rem,5vw,4.2rem)] text-white">
-                APPLY TO DOUBLE
+              <h1 className="display mt-5 text-[clamp(2.2rem,4.5vw,3.6rem)] text-[var(--ink)]">
+                Apply to double
                 <br />
-                YOUR REVENUE
+                your revenue
                 <br />
-                <span className="text-[var(--red)]">IN 90 DAYS</span>
+                <span className="text-[var(--purple)]">in 90 days</span>
               </h1>
               <p className="mt-5 max-w-md text-base leading-relaxed text-[var(--muted)]">
                 Book your application call. We confirm you&apos;re a $1M+
@@ -34,10 +40,10 @@ export default function BookPage() {
                 access to the system.
               </p>
 
-              <div className="mt-8 overflow-hidden border border-white/10">
+              <div className="mt-8 overflow-hidden rounded-[1.5rem] border border-[var(--line)] shadow-[var(--shadow-soft)]">
                 <div className="relative aspect-[16/10]">
                   <Image
-                    src="/media/covers/cover-masterclass.png"
+                    src="/media/video/masterclass-poster.png"
                     alt="Application briefing"
                     fill
                     className="object-cover"
@@ -46,7 +52,7 @@ export default function BookPage() {
                 </div>
               </div>
 
-              <ul className="mt-8 space-y-4 text-sm text-white/75">
+              <ul className="mt-8 space-y-4 text-sm text-[var(--ink)]/75">
                 {[
                   "Only for roofers — $1M minimum or don’t apply",
                   "Funnel + creatives + ads + follow-up handled for you",
@@ -55,7 +61,9 @@ export default function BookPage() {
                   "If we don’t perform, you don’t pay",
                 ].map((item) => (
                   <li key={item} className="flex gap-3">
-                    <span className="mt-1 h-2 w-2 shrink-0 bg-[var(--red)]" />
+                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[var(--purple)] text-[10px] font-bold text-white">
+                      ✓
+                    </span>
                     {item}
                   </li>
                 ))}

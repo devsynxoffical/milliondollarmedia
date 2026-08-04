@@ -1,27 +1,45 @@
 @import "tailwindcss";
 
 :root {
-  --black: #050505;
-  --black-soft: #0b0b0b;
-  --ink: #101010;
-  --red: #e10600;
-  --red-deep: #9e0000;
-  --red-bright: #ff2a1f;
-  --red-glow: rgba(225, 6, 0, 0.4);
+  /* Digich-inspired palette — purple primary, lime CTA */
+  --purple: #6b46ff;
+  --purple-dark: #4f2fd6;
+  --purple-deep: #3b1fa8;
+  --purple-light: #f0ecff;
+  --purple-soft: #e8e2ff;
+  --purple-glow: rgba(107, 70, 255, 0.35);
+  --lime: #d4ff44;
+  --lime-dark: #b8e02e;
+  --ink: #151528;
+  --ink-soft: #0f0b1f;
+  --navy: #0c0a1f;
+  --gray: #6b6880;
   --white: #ffffff;
-  --muted: #a7a7a7;
-  --fog: #ececec;
-  --line: rgba(255, 255, 255, 0.1);
-  --line-dark: rgba(0, 0, 0, 0.1);
-  --background: var(--black);
-  --foreground: var(--white);
+  --fog: #f6f4fc;
+  --line: rgba(21, 21, 40, 0.08);
+  --shadow: 0 20px 50px rgba(107, 70, 255, 0.16);
+  --shadow-soft: 0 16px 40px rgba(21, 21, 40, 0.08);
+  --background: var(--white);
+  --foreground: var(--ink);
+  --muted: #6b6880;
+
+  /* Legacy aliases so existing components keep working */
+  --red: var(--purple);
+  --red-dark: var(--purple-dark);
+  --red-light: var(--purple-light);
+  --red-bright: #8b6cff;
+  --red-glow: var(--purple-glow);
+  --black-soft: var(--fog);
+  --gold: var(--lime);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-brand-red: var(--red);
-  --color-brand-black: var(--black);
+  --color-brand-red: var(--purple);
+  --color-brand-black: var(--ink);
+  --color-white: #ffffff;
+  --color-black: #151528;
   --font-display: var(--font-display);
   --font-body: var(--font-body);
 }
@@ -36,9 +54,9 @@ html {
 
 body {
   margin: 0;
-  background: var(--black);
-  color: var(--white);
-  font-family: var(--font-body), sans-serif;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), system-ui, sans-serif;
   overflow-x: hidden;
 }
 
@@ -48,18 +66,81 @@ img {
 }
 
 ::selection {
-  background: var(--red);
+  background: var(--purple);
   color: white;
 }
+
+/* ---------------------------------------------------------------------------
+   Motion primitives (Digich-style: fade-up, float, marquee, rings)
+--------------------------------------------------------------------------- */
 
 @keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(28px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(4deg);
+  }
+}
+
+@keyframes float-y-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-8deg);
+  }
+  50% {
+    transform: translateY(-16px) rotate(-4deg);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-slow-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
   }
 }
 
@@ -96,6 +177,15 @@ img {
   }
 }
 
+@keyframes card-lift {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-6px);
+  }
+}
+
 .animate-fade-up {
   animation: fade-up 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
@@ -112,23 +202,68 @@ img {
   animation: fade-up 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.36s both;
 }
 
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .float-icon,
+  .marquee-track,
+  .marquee-track-reverse,
+  .spin-ring,
+  .spin-ring-reverse,
+  .pulse-ring::before {
+    animation: none !important;
+  }
+}
+
+.float-icon {
+  animation: float-y 4s ease-in-out infinite;
+}
+
+.float-icon-soft {
+  animation: float-y-soft 3.5s ease-in-out infinite;
+}
+
+.bob-icon {
+  animation: bob 3.2s ease-in-out infinite;
+}
+
+.spin-ring {
+  animation: spin-slow 20s linear infinite;
+}
+
+.spin-ring-reverse {
+  animation: spin-slow-reverse 24s linear infinite;
+}
+
 .pulse-ring::before {
   content: "";
   position: absolute;
   inset: -12px;
   border-radius: 999px;
-  border: 2px solid var(--red);
+  border: 2px solid var(--lime);
   animation: pulse-ring 2s ease-out infinite;
 }
 
-.hero-noise {
-  background-image:
-    radial-gradient(ellipse 90% 60% at 15% 20%, rgba(225, 6, 0, 0.28), transparent 55%),
-    radial-gradient(ellipse 70% 50% at 90% 80%, rgba(225, 6, 0, 0.12), transparent 50%),
-    linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
-  background-size: auto, auto, 56px 56px, 56px 56px;
-}
+/* ---------------------------------------------------------------------------
+   Buttons — Digich: lime primary, purple secondary, soft radius
+--------------------------------------------------------------------------- */
 
 .cta-btn {
   position: relative;
@@ -137,44 +272,110 @@ img {
   align-items: center;
   justify-content: center;
   gap: 0.2rem;
-  padding: 1.1rem 2.1rem;
+  padding: 1rem 2.1rem;
   border: none;
   border-radius: 999px;
-  background: linear-gradient(180deg, var(--red-bright) 0%, var(--red) 48%, var(--red-deep) 100%);
-  color: white;
+  background: var(--lime);
+  color: var(--ink);
   text-decoration: none;
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.14) inset,
-    0 14px 40px var(--red-glow);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+  cursor: pointer;
+  box-shadow: 0 12px 32px rgba(212, 255, 68, 0.35);
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .cta-btn:hover {
-  transform: translateY(-2px) scale(1.015);
-  filter: brightness(1.05);
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.2) inset,
-    0 18px 48px rgba(225, 6, 0, 0.55);
+  background: var(--lime-dark);
+  transform: scale(1.05);
+  box-shadow: 0 16px 40px rgba(212, 255, 68, 0.45);
 }
 
 .cta-btn-outline {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem 1.8rem;
-  border: 1.5px solid rgba(255, 255, 255, 0.7);
+  padding: 0.95rem 1.9rem;
+  border-radius: 999px;
+  border: 2px solid var(--purple);
   background: transparent;
-  color: white;
+  color: var(--purple);
   text-decoration: none;
-  letter-spacing: 0.05em;
-  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease;
 }
 
 .cta-btn-outline:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: white;
-  transform: translateY(-1px);
+  background: var(--purple);
+  color: #fff;
+  transform: scale(1.05);
 }
+
+.cta-btn-invert {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  padding: 1rem 2.1rem;
+  border-radius: 999px;
+  border: none;
+  background: #fff;
+  color: var(--ink);
+  text-decoration: none;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.cta-btn-invert:hover {
+  background: var(--lime);
+  color: var(--ink);
+  transform: scale(1.05);
+}
+
+.cta-btn-dark {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  padding: 1rem 2.1rem;
+  border-radius: 999px;
+  border: none;
+  background: var(--purple);
+  color: #fff;
+  text-decoration: none;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.cta-btn-dark:hover {
+  background: var(--purple-dark);
+  transform: scale(1.05);
+}
+
+/* ---------------------------------------------------------------------------
+   Eyebrow / section labels
+--------------------------------------------------------------------------- */
+
+.eyebrow {
+  display: inline-block;
+  color: var(--purple);
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+/* ---------------------------------------------------------------------------
+   Marquee / ticker — Digich flat bar under hero
+--------------------------------------------------------------------------- */
 
 .marquee-track {
   display: flex;
@@ -188,26 +389,45 @@ img {
   animation: marquee-reverse 45s linear infinite;
 }
 
-.section-shell {
-  padding: 4.5rem 1.25rem;
+.marquee-wrap {
+  background: var(--ink);
+  transform: none;
+  overflow: hidden;
+  padding: 16px 0;
 }
 
-@media (min-width: 768px) {
-  .section-shell {
-    padding: 6.5rem 1.75rem;
-  }
+.marquee-track span {
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-right: 40px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  white-space: nowrap;
 }
 
-@media (min-width: 1280px) {
-  .section-shell {
-    padding: 7.5rem 2rem;
-  }
+.marquee-track span::before {
+  content: "✦";
+  color: var(--lime);
 }
+
+/* ---------------------------------------------------------------------------
+   Typography helpers
+--------------------------------------------------------------------------- */
 
 .display {
-  font-family: var(--font-display), sans-serif;
-  letter-spacing: 0.02em;
-  line-height: 0.92;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+.display-stroke {
+  -webkit-text-stroke: 2px var(--ink);
+  color: transparent;
 }
 
 .rail {
@@ -221,7 +441,48 @@ img {
   top: 0;
   bottom: 0;
   width: 3px;
-  background: var(--red);
+  background: var(--purple);
+}
+
+/* ---------------------------------------------------------------------------
+   Layout helpers
+--------------------------------------------------------------------------- */
+
+.section-shell {
+  padding: 5rem 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .section-shell {
+    padding: 7rem 1.75rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .section-shell {
+    padding: 8rem 2rem;
+  }
+}
+
+.hero-noise {
+  background-image:
+    radial-gradient(ellipse 70% 60% at 20% 30%, rgba(255, 255, 255, 0.12), transparent 55%),
+    radial-gradient(ellipse 50% 50% at 85% 70%, rgba(212, 255, 68, 0.08), transparent 50%),
+    linear-gradient(135deg, #6b46ff 0%, #5a35f0 45%, #4f2fd6 100%);
+}
+
+.soft-card {
+  border-radius: 1.5rem;
+  background: #fff;
+  box-shadow: var(--shadow-soft);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.soft-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
 }
 
 .video-frame {
@@ -236,3 +497,20 @@ img {
   background: #000;
 }
 
+.rail-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--purple) rgba(21, 21, 40, 0.1);
+}
+
+.rail-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.rail-scroll::-webkit-scrollbar-track {
+  background: rgba(21, 21, 40, 0.06);
+}
+
+.rail-scroll::-webkit-scrollbar-thumb {
+  background: var(--purple);
+  border-radius: 999px;
+}

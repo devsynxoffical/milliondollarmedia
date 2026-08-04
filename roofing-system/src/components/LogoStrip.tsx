@@ -19,14 +19,14 @@ function Row({ reverse = false }: { reverse?: boolean }) {
         {items.map((src, i) => (
           <div
             key={`${src}-${i}`}
-            className="relative flex h-28 w-40 shrink-0 items-center justify-center overflow-hidden border border-white/10 bg-white/[0.03] md:h-36 md:w-52"
+            className="group relative flex h-24 w-36 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-[var(--navy)] md:h-28 md:w-44"
           >
             <Image
               src={src}
               alt={`Partner logo ${i + 1}`}
               fill
-              className="object-contain scale-[1.45] opacity-95"
-              sizes="208px"
+              className="object-contain invert transition duration-500 group-hover:scale-105"
+              sizes="176px"
             />
           </div>
         ))}
@@ -37,14 +37,16 @@ function Row({ reverse = false }: { reverse?: boolean }) {
 
 export function LogoStrip() {
   return (
-    <section className="border-y border-[var(--line)] bg-black py-10 md:py-12">
-      <div className="mx-auto mb-6 max-w-7xl px-5 text-center md:px-8">
-        <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/45">
-          Trusted by operators across high-ticket acquisition
-        </p>
-        <h2 className="display mt-3 text-3xl text-white md:text-4xl">
-          COMPANIES WE WORK WITH
+    <section className="border-y border-[var(--line)] bg-white py-12 md:py-14">
+      <div className="mx-auto mb-8 max-w-7xl px-5 text-center md:px-8">
+        <p className="eyebrow justify-center">Brands we work with</p>
+        <h2 className="display mt-3 text-2xl text-[var(--ink)] md:text-3xl">
+          Roofing companies. One ads system.
         </h2>
+        <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-[var(--muted)] md:text-base">
+          Operators across every roofing niche — from residential replacements
+          to commercial storm work — running the same acquisition machine.
+        </p>
       </div>
       <Row />
       <div className="mt-3">

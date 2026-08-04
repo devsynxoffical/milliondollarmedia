@@ -1,98 +1,129 @@
-import Image from "next/image";
 import Link from "next/link";
 import { BOOKING_PATH } from "../lib/offer";
+import { Reveal } from "./Reveal";
 
-const steps = [
+const services = [
   {
     step: "01",
     title: "Funnel",
     body: "High-converting roofing funnel built to book qualified sales calls — not tire-kickers.",
-    image: "/media/system/funnel.png",
+    icon: (
+      <svg viewBox="0 0 24 24" className="h-8 w-8" aria-hidden>
+        <path
+          d="M3 4h18l-7 9v6l-4 2v-8L3 4z"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
   },
   {
     step: "02",
     title: "Creatives",
     body: "Ads, angles, and offers designed for roofers who close high-ticket jobs.",
-    image: "/media/system/creatives.png",
+    icon: (
+      <svg viewBox="0 0 24 24" className="h-8 w-8" aria-hidden>
+        <path
+          d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
   },
   {
     step: "03",
     title: "Ad management",
     body: "We run and optimize campaigns daily so leads keep flowing into your calendar.",
-    image: "/media/system/ads.png",
+    icon: (
+      <svg viewBox="0 0 24 24" className="h-8 w-8" aria-hidden>
+        <circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" strokeWidth="1.6" />
+        <circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" strokeWidth="1.6" />
+        <path d="M12 0v3.5M12 20.5V24M0 12h3.5M20.5 12H24" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+      </svg>
+    ),
   },
   {
     step: "04",
     title: "Follow-up",
     body: "We handle follow-up so prospects get worked — you don’t chase them yourself.",
-    image: "/media/system/followup.png",
+    icon: (
+      <svg viewBox="0 0 24 24" className="h-8 w-8" aria-hidden>
+        <path
+          d="M4 5h16a1 1 0 011 1v11a1 1 0 01-1 1H9l-5 4v-4H4a1 1 0 01-1-1V6a1 1 0 011-1z"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
   },
 ];
 
 export function System() {
   return (
-    <section id="system" className="section-shell bg-[var(--fog)] text-black">
+    <section id="system" className="section-shell bg-white">
       <div className="mx-auto max-w-7xl">
-        <div className="max-w-3xl">
-          <p className="text-xs font-bold uppercase tracking-[0.24em] text-[var(--red)]">
-            The operating system
-          </p>
-          <h2 className="display mt-3 text-[clamp(2.4rem,5vw,4rem)] text-black">
-            FOUR MOVES.
-            <br />
-            <span className="text-[var(--red)]">ONE MACHINE.</span>
-          </h2>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-black/65 md:text-lg">
-            We run the full acquisition engine. Your job is simple — close the
-            job on the sales call.
-          </p>
+        <div className="mx-auto max-w-3xl text-center">
+          <Reveal>
+            <p className="eyebrow">The operating system</p>
+            <h2 className="display mt-3 text-[clamp(2rem,4.5vw,3.4rem)] text-[var(--ink)]">
+              Use our system to drive
+              <br />
+              growth at your roofing business
+            </h2>
+            <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-[var(--muted)]">
+              Four moves. One machine. We run the full acquisition engine — your
+              job is simple: close the job on the sales call.
+            </p>
+          </Reveal>
         </div>
 
-        <div className="mt-12 space-y-6">
-          {steps.map((item, index) => {
-            const reverse = index % 2 === 1;
-            return (
-              <article
-                key={item.step}
-                className={`grid overflow-hidden border border-black/10 bg-white lg:grid-cols-2 ${
-                  reverse ? "lg:[&>*:first-child]:order-2" : ""
-                }`}
-              >
-                <div className="relative min-h-[240px] bg-[#0a0a0a] md:min-h-[320px]">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    className="object-contain p-4 md:p-6"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                  />
-                  <div className="absolute left-4 top-4 bg-[var(--red)] px-3 py-1">
-                    <p className="display text-lg text-white">{item.step}</p>
-                  </div>
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {services.map((item, index) => (
+            <Reveal key={item.step} delay={index * 100}>
+              <article className="group soft-card flex h-full flex-col border border-[var(--line)] p-7">
+                <div className="flex items-center justify-between">
+                  <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--purple-light)] text-[var(--purple)] transition duration-300 group-hover:bg-[var(--purple)] group-hover:text-white">
+                    {item.icon}
+                  </span>
+                  <span className="display text-3xl text-[var(--purple)]/20 transition duration-300 group-hover:text-[var(--purple)]">
+                    {item.step}
+                  </span>
                 </div>
-                <div className="flex flex-col justify-center p-7 md:p-10">
-                  <h3 className="display text-4xl text-black md:text-5xl">
-                    {item.title}
-                  </h3>
-                  <p className="mt-4 max-w-md text-base leading-relaxed text-black/65">
-                    {item.body}
-                  </p>
-                </div>
+                <h3 className="display mt-6 text-xl text-[var(--ink)] md:text-2xl">
+                  {item.title}
+                </h3>
+                <p className="mt-3 flex-1 text-sm leading-relaxed text-[var(--muted)]">
+                  {item.body}
+                </p>
+                <Link
+                  href={BOOKING_PATH}
+                  className="mt-6 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-[var(--purple)] transition group-hover:gap-3"
+                >
+                  Learn More
+                  <span>→</span>
+                </Link>
               </article>
-            );
-          })}
+            </Reveal>
+          ))}
         </div>
 
-        <div className="mt-10 flex justify-center">
-          <Link href={BOOKING_PATH} className="cta-btn min-w-[280px]">
-            <span className="display text-xl tracking-[0.06em] md:text-2xl">
-              PUT THIS ON MY BUSINESS
+        <Reveal delay={150} className="mt-12 flex justify-center">
+          <Link href={BOOKING_PATH} className="cta-btn-dark min-w-[260px]">
+            <span className="display text-lg tracking-normal md:text-xl">
+              Put This On My Business
             </span>
-            <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/85">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/80">
               Book application call
             </span>
           </Link>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

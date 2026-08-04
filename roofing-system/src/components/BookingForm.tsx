@@ -18,8 +18,8 @@ export function BookingForm() {
 
   if (status === "done") {
     return (
-      <div className="border border-[var(--red)] bg-black/50 p-8 text-center md:p-10">
-        <p className="font-[family-name:var(--font-display)] text-3xl tracking-[0.04em] text-white md:text-4xl">
+      <div className="rounded-2xl border border-[var(--red)] bg-white p-8 text-center shadow-[var(--shadow)] md:p-10">
+        <p className="font-[family-name:var(--font-display)] text-3xl tracking-[0.04em] text-black md:text-4xl">
           APPLICATION RECEIVED
         </p>
         <p className="mt-4 text-[var(--muted)]">
@@ -37,13 +37,16 @@ export function BookingForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="border border-white/10 bg-black/40 p-6 md:p-8">
-      <div className="mb-8 flex items-center justify-between gap-4 border-b border-white/10 pb-6">
+    <form
+      onSubmit={onSubmit}
+      className="rounded-[1.5rem] border border-[var(--line)] bg-white p-6 shadow-[0_30px_80px_rgba(21,21,40,0.08)] md:p-8"
+    >
+      <div className="mb-8 flex items-center justify-between gap-4 border-b border-[var(--line)] pb-6">
         <div>
-          <p className="font-[family-name:var(--font-display)] text-2xl tracking-[0.04em] text-white md:text-3xl">
+          <p className="font-[family-name:var(--font-display)] text-2xl tracking-[0.04em] text-black md:text-3xl">
             BOOK YOUR CALL
           </p>
-          <p className="mt-1 text-sm text-white/50">
+          <p className="mt-1 text-sm text-black/50">
             Application for $1M+ roofing companies
           </p>
         </div>
@@ -62,14 +65,14 @@ export function BookingForm() {
         <Field label="Phone" name="phone" type="tel" required />
         <Field label="Email" name="email" type="email" required />
         <div className="sm:col-span-2">
-          <label className="mb-2 block text-xs font-semibold uppercase tracking-[0.14em] text-white/55">
+          <label className="mb-2 block text-xs font-semibold uppercase tracking-[0.14em] text-black/55">
             Annual revenue
           </label>
           <select
             name="revenue"
             required
             defaultValue=""
-            className="w-full border border-white/15 bg-black px-4 py-3 text-sm text-white outline-none transition focus:border-[var(--red)]"
+            className="w-full border border-black/15 bg-[var(--fog)] px-4 py-3 text-sm text-black outline-none transition focus:border-[var(--red)]"
           >
             <option value="" disabled>
               Select revenue range
@@ -81,30 +84,30 @@ export function BookingForm() {
           </select>
         </div>
         <div className="sm:col-span-2">
-          <label className="mb-2 block text-xs font-semibold uppercase tracking-[0.14em] text-white/55">
+          <label className="mb-2 block text-xs font-semibold uppercase tracking-[0.14em] text-black/55">
             Preferred call time
           </label>
           <input
             name="preferredTime"
             required
             placeholder="e.g. Tue / Thu mornings EST"
-            className="w-full border border-white/15 bg-black px-4 py-3 text-sm text-white outline-none transition placeholder:text-white/30 focus:border-[var(--red)]"
+            className="w-full border border-black/15 bg-[var(--fog)] px-4 py-3 text-sm text-black outline-none transition placeholder:text-black/30 focus:border-[var(--red)]"
           />
         </div>
         <div className="sm:col-span-2">
-          <label className="mb-2 block text-xs font-semibold uppercase tracking-[0.14em] text-white/55">
+          <label className="mb-2 block text-xs font-semibold uppercase tracking-[0.14em] text-black/55">
             Anything we should know?
           </label>
           <textarea
             name="notes"
             rows={4}
             placeholder="Current lead sources, team size, markets…"
-            className="w-full resize-y border border-white/15 bg-black px-4 py-3 text-sm text-white outline-none transition placeholder:text-white/30 focus:border-[var(--red)]"
+            className="w-full resize-y border border-black/15 bg-[var(--fog)] px-4 py-3 text-sm text-black outline-none transition placeholder:text-black/30 focus:border-[var(--red)]"
           />
         </div>
       </div>
 
-      <label className="mt-5 flex items-start gap-3 text-left text-sm text-white/65">
+      <label className="mt-5 flex items-start gap-3 text-left text-sm text-black/65">
         <input
           type="checkbox"
           name="qualify"
@@ -113,7 +116,7 @@ export function BookingForm() {
         />
         <span>
           I confirm my roofing company does{" "}
-          <strong className="text-white">$1M+ annual revenue</strong> and I
+          <strong className="text-black">$1M+ annual revenue</strong> and I
           understand this offer is only for qualified roofers.
         </span>
       </label>
@@ -123,10 +126,10 @@ export function BookingForm() {
         disabled={status === "submitting"}
         className="cta-btn mt-8 w-full disabled:cursor-wait disabled:opacity-70"
       >
-        <span className="font-[family-name:var(--font-display)] text-xl tracking-[0.06em] md:text-2xl">
-          {status === "submitting" ? "SUBMITTING…" : "SUBMIT APPLICATION"}
+        <span className="display text-lg tracking-normal md:text-xl">
+          {status === "submitting" ? "Submitting…" : "Submit Application"}
         </span>
-        <span className="text-xs font-semibold uppercase tracking-[0.14em] text-white/85">
+        <span className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--ink)]/70">
           Double Revenue in 90 Days — Or You Don&apos;t Pay
         </span>
       </button>
@@ -147,14 +150,14 @@ function Field({
 }) {
   return (
     <div>
-      <label className="mb-2 block text-xs font-semibold uppercase tracking-[0.14em] text-white/55">
+      <label className="mb-2 block text-xs font-semibold uppercase tracking-[0.14em] text-black/55">
         {label}
       </label>
       <input
         name={name}
         type={type}
         required={required}
-        className="w-full border border-white/15 bg-black px-4 py-3 text-sm text-white outline-none transition focus:border-[var(--red)]"
+        className="w-full border border-black/15 bg-[var(--fog)] px-4 py-3 text-sm text-black outline-none transition placeholder:text-black/30 focus:border-[var(--red)]"
       />
     </div>
   );

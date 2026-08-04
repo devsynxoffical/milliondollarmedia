@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 type VideoPlayerProps = {
   src: string;
@@ -20,19 +20,6 @@ export function VideoPlayer({
   const [started, setStarted] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    setStarted(false);
-    setError(null);
-    const video = videoRef.current;
-    if (!video) return;
-    video.pause();
-    try {
-      video.currentTime = 0;
-    } catch {
-      /* ignore seek before metadata */
-    }
-  }, [src]);
-
   async function handlePlay() {
     const video = videoRef.current;
     if (!video) return;
@@ -41,6 +28,7 @@ export function VideoPlayer({
     setStarted(true);
 
     try {
+      video.currentTime = 0;
       await video.play();
     } catch (err) {
       if (err instanceof DOMException && err.name === "AbortError") return;
@@ -86,9 +74,9 @@ export function VideoPlayer({
           />
           <span className="absolute inset-0 bg-black/35 transition group-hover:bg-black/25" />
           <span className="absolute inset-0 flex items-center justify-center">
-            <span className="flex h-16 w-16 items-center justify-center rounded-full border border-white/30 bg-black/55 text-white shadow-[0_0_40px_rgba(229,9,20,0.35)] transition group-hover:scale-105 sm:h-20 sm:w-20">
+            <span className="flex h-16 w-16 items-center justify-center rounded-full border border-white/30 bg-black/55 text-white shadow-[0_0_40px_rgba(200,16,46,0.35)] transition group-hover:scale-105 sm:h-20 sm:w-20">
               {error ? (
-                <span className="px-2 text-center text-[10px] font-bold uppercase tracking-[0.14em] text-[#ff4d4d]">
+                <span className="px-2 text-center text-[10px] font-bold uppercase tracking-[0.14em] text-[#ff4b3e]">
                   Retry
                 </span>
               ) : (
@@ -103,7 +91,7 @@ export function VideoPlayer({
             </span>
           </span>
           {error && (
-            <span className="absolute inset-x-0 bottom-4 text-center text-xs font-semibold uppercase tracking-[0.16em] text-[#ff4d4d]">
+            <span className="absolute inset-x-0 bottom-4 text-center text-xs font-semibold uppercase tracking-[0.16em] text-[#ff4b3e]">
               {error}
             </span>
           )}
