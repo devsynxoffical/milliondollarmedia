@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { BOOKING_PATH } from "../lib/offer";
 
 type Ad = {
@@ -78,6 +78,77 @@ function seekRandom(video: HTMLVideoElement) {
   }
 }
 
+function AdCard({ ad }: { ad: Ad }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [muted, setMuted] = useState(true);
+
+  function toggleMute() {
+    const video = videoRef.current;
+    if (!video) return;
+    const next = !muted;
+    setMuted(next);
+    video.muted = next;
+  }
+
+  return (
+    <Link
+      href={BOOKING_PATH}
+      className="group relative block aspect-[9/16] overflow-hidden rounded-xl border border-white/10 bg-[var(--band-2)] transition duration-300 hover:-translate-y-1 hover:border-[var(--accent)]/60 hover:shadow-[0_0_44px_-10px_rgba(237,28,36,0.45)]"
+    >
+      <video
+        ref={videoRef}
+        src={ad.video}
+        poster={ad.image}
+        autoPlay
+        muted={muted}
+        playsInline
+        preload="metadata"
+        className="absolute inset-0 h-full w-full object-cover"
+        onLoadedMetadata={(e) => seekRandom(e.currentTarget)}
+        onEnded={(e) => {
+          seekRandom(e.currentTarget);
+          e.currentTarget.play();
+        }}
+      />
+      <div className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition duration-700 group-hover:translate-x-full" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40 transition duration-300 group-hover:from-black/90" />
+      <span className="absolute left-3 top-3 rounded-full border border-white/20 bg-black/50 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-white backdrop-blur transition duration-300 group-hover:border-[var(--accent)]/60">
+        {ad.label}
+      </span>
+      <span className="absolute right-3 top-3 flex items-center gap-1.5 rounded-full border border-white/20 bg-black/50 px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.12em] text-white/80 backdrop-blur">
+        <span className="relative flex h-1.5 w-1.5">
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--accent-bright)] opacity-75" />
+          <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[var(--accent-bright)]" />
+        </span>
+        Live
+      </span>
+      <button
+        type="button"
+        onClick={toggleMute}
+        aria-label={muted ? "Turn sound on" : "Mute"}
+        className="absolute bottom-12 right-3 z-10 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-white/25 bg-black/55 text-white opacity-70 backdrop-blur transition hover:scale-105 hover:opacity-100 group-hover:opacity-100"
+      >
+        {muted ? (
+          <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+            <path d="M11 5L6 9H2v6h4l5 4V5z" fill="currentColor" stroke="none" />
+            <path d="M16 9l5 5M21 9l-5 5" />
+          </svg>
+        ) : (
+          <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+            <path d="M11 5L6 9H2v6h4l5 4V5z" fill="currentColor" stroke="none" />
+            <path d="M15.5 8.5a5 5 0 010 7M18 6a8.5 8.5 0 010 12" />
+          </svg>
+        )}
+      </button>
+      <div className="absolute inset-x-0 bottom-0 p-4">
+        <p className="display text-sm text-white md:text-base">
+          {ad.result}
+        </p>
+      </div>
+    </Link>
+  );
+}
+
 export function AdsGallery() {
   const [active, setActive] = useState("All");
   const filtered = active === "All" ? ads : ads.filter((ad) => ad.category === active);
@@ -121,43 +192,7 @@ export function AdsGallery() {
 
         <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
           {filtered.map((ad) => (
-            <Link
-              key={ad.image}
-              href={BOOKING_PATH}
-              className="group relative block aspect-[9/16] overflow-hidden rounded-xl border border-white/10 bg-[var(--band-2)] transition duration-300 hover:-translate-y-1 hover:border-[var(--accent)]/60 hover:shadow-[0_0_44px_-10px_rgba(237,28,36,0.45)]"
-            >
-              <video
-                src={ad.video}
-                poster={ad.image}
-                autoPlay
-                muted
-                playsInline
-                preload="metadata"
-                className="absolute inset-0 h-full w-full object-cover"
-                onLoadedMetadata={(e) => seekRandom(e.currentTarget)}
-                onEnded={(e) => {
-                  seekRandom(e.currentTarget);
-                  e.currentTarget.play();
-                }}
-              />
-              <div className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition duration-700 group-hover:translate-x-full" />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40 transition duration-300 group-hover:from-black/90" />
-              <span className="absolute left-3 top-3 rounded-full border border-white/20 bg-black/50 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-white backdrop-blur transition duration-300 group-hover:border-[var(--accent)]/60">
-                {ad.label}
-              </span>
-              <span className="absolute right-3 top-3 flex items-center gap-1.5 rounded-full border border-white/20 bg-black/50 px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.12em] text-white/80 backdrop-blur">
-                <span className="relative flex h-1.5 w-1.5">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--accent-bright)] opacity-75" />
-                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[var(--accent-bright)]" />
-                </span>
-                Live
-              </span>
-              <div className="absolute inset-x-0 bottom-0 p-4">
-                <p className="display text-sm text-white md:text-base">
-                  {ad.result}
-                </p>
-              </div>
-            </Link>
+            <AdCard key={ad.image} ad={ad} />
           ))}
         </div>
       </div>

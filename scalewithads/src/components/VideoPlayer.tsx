@@ -20,7 +20,7 @@ export function VideoPlayer({
 }: VideoPlayerProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [started, setStarted] = useState(false);
-  const [muted, setMuted] = useState(false);
+  const [muted, setMuted] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [prevSrc, setPrevSrc] = useState(src);
 
@@ -47,16 +47,15 @@ export function VideoPlayer({
     if (!video) return;
     let cancelled = false;
 
-    const tryPlay = (withSound: boolean) => {
-      video.muted = !withSound;
-      setMuted(!withSound);
+    const tryPlay = () => {
+      video.muted = true;
+      setMuted(true);
       video.play().then(
         () => {
           if (!cancelled) setStarted(true);
         },
         () => {
-          if (withSound) tryPlay(false);
-          else if (!cancelled) {
+          if (!cancelled) {
             setError("Video unavailable.");
             setStarted(false);
           }
@@ -64,7 +63,7 @@ export function VideoPlayer({
       );
     };
 
-    tryPlay(true);
+    tryPlay();
     return () => {
       cancelled = true;
     };
@@ -76,6 +75,7 @@ export function VideoPlayer({
 
     setError(null);
     setStarted(true);
+    video.muted = muted;
 
     try {
       await video.play();
@@ -85,6 +85,14 @@ export function VideoPlayer({
       setError("Video unavailable.");
       setStarted(false);
     }
+  }
+
+  function toggleMute() {
+    const video = videoRef.current;
+    if (!video) return;
+    const next = !muted;
+    setMuted(next);
+    video.muted = next;
   }
 
   return (
@@ -101,6 +109,7 @@ export function VideoPlayer({
         loop={autoPlay}
         muted={muted}
         preload="metadata"
+        onVolumeChange={(e) => setMuted(e.currentTarget.muted)}
         onError={() => {
           setError("Video unavailable.");
           setStarted(false);
@@ -108,6 +117,27 @@ export function VideoPlayer({
       >
         <track kind="captions" />
       </video>
+
+      {started && !error && (
+        <button
+          type="button"
+          onClick={toggleMute}
+          aria-label={muted ? "Turn sound on" : "Mute"}
+          className="absolute bottom-4 right-4 z-20 flex h-10 w-10 items-center justify-center rounded-full border border-white/25 bg-black/55 text-white backdrop-blur transition hover:scale-105 hover:bg-black/80"
+        >
+          {muted ? (
+            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+              <path d="M11 5L6 9H2v6h4l5 4V5z" fill="currentColor" stroke="none" />
+              <path d="M16 9l5 5M21 9l-5 5" />
+            </svg>
+          ) : (
+            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+              <path d="M11 5L6 9H2v6h4l5 4V5z" fill="currentColor" stroke="none" />
+              <path d="M15.5 8.5a5 5 0 010 7M18 6a8.5 8.5 0 010 12" />
+            </svg>
+          )}
+        </button>
+      )}
 
       {(!started || error) && (
         <button
