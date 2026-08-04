@@ -1,13 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type VideoPlayerProps = {
   src: string;
   cover: string;
   title: string;
   className?: string;
+  autoPlay?: boolean;
 };
 
 export function VideoPlayer({
@@ -15,10 +16,40 @@ export function VideoPlayer({
   cover,
   title,
   className = "",
+  autoPlay = false,
 }: VideoPlayerProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [started, setStarted] = useState(false);
+  const [muted, setMuted] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!autoPlay) return;
+    const video = videoRef.current;
+    if (!video) return;
+    let cancelled = false;
+
+    const tryPlay = () => {
+      video.muted = true;
+      setMuted(true);
+      video.play().then(
+        () => {
+          if (!cancelled) setStarted(true);
+        },
+        () => {
+          if (!cancelled) {
+            setError("Video unavailable.");
+            setStarted(false);
+          }
+        }
+      );
+    };
+
+    tryPlay();
+    return () => {
+      cancelled = true;
+    };
+  }, [autoPlay, src]);
 
   async function handlePlay() {
     const video = videoRef.current;
@@ -28,13 +59,31 @@ export function VideoPlayer({
     setStarted(true);
 
     try {
-      video.currentTime = 0;
+      if (autoPlay) {
+        video.muted = muted;
+      }
       await video.play();
     } catch (err) {
       if (err instanceof DOMException && err.name === "AbortError") return;
       console.error("Video play error:", err);
       setError("Video unavailable.");
       setStarted(false);
+    }
+  }
+
+  async function toggleSound() {
+    const video = videoRef.current;
+    if (!video) return;
+    const nextMuted = !muted;
+    video.muted = nextMuted;
+    setMuted(nextMuted);
+    if (!nextMuted) {
+      try {
+        await video.play();
+        setStarted(true);
+      } catch {
+        /* ignore */
+      }
     }
   }
 
@@ -47,8 +96,10 @@ export function VideoPlayer({
         className={`absolute inset-0 h-full w-full bg-black object-contain ${
           started && !error ? "opacity-100" : "opacity-0"
         }`}
-        controls={started && !error}
+        controls={started && !error && !autoPlay}
         playsInline
+        loop={autoPlay}
+        muted={muted}
         preload="metadata"
         onError={() => {
           setError("Video unavailable.");
@@ -94,6 +145,33 @@ export function VideoPlayer({
             <span className="absolute inset-x-0 bottom-4 text-center text-xs font-semibold uppercase tracking-[0.16em] text-[#ff4b3e]">
               {error}
             </span>
+          )}
+        </button>
+      )}
+
+      {autoPlay && started && !error && (
+        <button
+          type="button"
+          onClick={toggleSound}
+          className="absolute right-3 top-3 z-20 flex h-10 w-10 items-center justify-center rounded-full border border-white/25 bg-black/60 text-white backdrop-blur-sm transition hover:bg-black/80"
+          aria-label={muted ? "Unmute video" : "Mute video"}
+        >
+          {muted ? (
+            <svg
+              viewBox="0 0 24 24"
+              className="h-5 w-5 fill-current"
+              aria-hidden
+            >
+              <path d="M3 9v6h4l5 5V4L7 9H3zm13.6 3l3.7-3.7-1.4-1.4-3.7 3.7-3.7-3.7-1.4 1.4L13.8 12l-3.7 3.7 1.4 1.4 3.7-3.7 3.7 3.7 1.4-1.4-3.7-3.7z" />
+            </svg>
+          ) : (
+            <svg
+              viewBox="0 0 24 24"
+              className="h-5 w-5 fill-current"
+              aria-hidden
+            >
+              <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3a4.5 4.5 0 00-2.5-4v8a4.5 4.5 0 002.5-4zM14 3.23v2.06a7 7 0 010 13.42v2.06a9 9 0 000-17.54z" />
+            </svg>
           )}
         </button>
       )}

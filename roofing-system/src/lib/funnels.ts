@@ -72,7 +72,7 @@ export const AUDIENCE_FUNNEL: FunnelConfig = {
     "Stop spraying budget at broad Meta audiences. This private recording shows how to segment roofing buyers so you attract people ready to book — not tire-kickers.",
   videoLabel: "Watch Audience Segmentation Mastermind",
   videoSrc: MASTERCLASS_VIDEO,
-  videoCover: "/media/covers/cover-masterclass.png",
+  videoCover: "/media/video/masterclass-poster-2.png",
   learnTitle: "What this recording covers",
   learnItems: [
     "How to segment roofing audiences by intent, home value, and service type",

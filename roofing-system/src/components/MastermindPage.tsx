@@ -58,6 +58,7 @@ export function MastermindPage({ funnel }: { funnel: FunnelConfig }) {
               src={funnel.videoSrc}
               cover={funnel.videoCover}
               title={funnel.videoLabel}
+              autoPlay
             />
           </div>
 

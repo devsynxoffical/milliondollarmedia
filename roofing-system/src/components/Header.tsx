@@ -79,7 +79,7 @@ export function Header() {
                   : "invisible -translate-y-2 opacity-0"
               }`}
             >
-              <div className="overflow-hidden rounded-3xl border border-white/10 bg-[var(--band-2)] shadow-[0_24px_60px_rgba(0,0,0,0.45)]">
+              <div className="overflow-hidden rounded-3xl border border-white/10 bg-[var(--ink-soft)] shadow-[0_24px_60px_rgba(0,0,0,0.45)]">
                 {dropdown.items.map((item) => (
                   <Link
                     key={item.href}
