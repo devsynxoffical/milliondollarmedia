@@ -67,7 +67,7 @@ export function MastermindPage({ funnel }: { funnel: FunnelConfig }) {
               <span className="display text-lg tracking-normal md:text-xl">
                 {funnel.ctaPrimary}
               </span>
-              <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--ink)]/70">
+              <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/80">
                 {funnel.ctaPrimarySub}
               </span>
             </Link>
@@ -78,7 +78,7 @@ export function MastermindPage({ funnel }: { funnel: FunnelConfig }) {
               <span className="display text-base tracking-normal">
                 {funnel.ctaSecondary}
               </span>
-              <span className="text-[10px] font-semibold uppercase tracking-[0.14em] text-black/60">
+              <span className="text-[10px] font-semibold uppercase tracking-[0.14em] text-white/80">
                 {funnel.ctaSecondarySub}
               </span>
             </Link>
@@ -124,7 +124,7 @@ export function MastermindPage({ funnel }: { funnel: FunnelConfig }) {
             <span className="display text-lg tracking-normal md:text-xl">
               {funnel.ctaPrimary}
             </span>
-            <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--ink)]/70">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/80">
               {funnel.ctaPrimarySub}
             </span>
           </Link>
@@ -150,7 +150,7 @@ export function MastermindPage({ funnel }: { funnel: FunnelConfig }) {
               <span className="display text-lg tracking-normal md:text-xl">
                 Book Application Call
               </span>
-              <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--ink)]/70">
+              <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/80">
                 Free 1:1 · roofers only
               </span>
             </Link>

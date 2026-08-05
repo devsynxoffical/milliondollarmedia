@@ -1,18 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #ffffff;
+  --bg: #fafafa;
   --surface: #ffffff;
-  --surface-2: #f4f4f4;
-  --ink: #000000;
-  --ink-soft: #1f1f1f;
-  --muted: #3d3d3d;
-  --line: #e6e6e6;
-  --line-strong: #cccccc;
+  --surface-2: #f3f4f6;
+  --ink: #09090b;
+  --ink-soft: #18181b;
+  --muted: #52525b;
+  --line: #e4e4e7;
+  --line-strong: #d4d4d8;
   --accent: #ed1c24;
   --accent-deep: #c4181e;
-  --accent-soft: #fbeaeb;
+  --accent-soft: #fef2f2;
   --accent-bright: #ff3b43;
+  --lime-glow: #84cc16;
+  --lime-soft: #ecfdf5;
   --band: #01091c;
   --band-2: #0a0f1a;
   --background: var(--bg);
@@ -66,14 +68,14 @@
 @layer components {
   .display {
     font-family: var(--font-display), system-ui, sans-serif;
-    font-weight: 700;
-    letter-spacing: -0.03em;
-    line-height: 1.04;
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 1.05;
   }
 
   .eyebrow {
     font-size: 0.72rem;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--muted);
@@ -81,7 +83,7 @@
 
   .eyebrow-accent {
     font-size: 0.72rem;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--accent);
@@ -99,10 +101,10 @@
 
   .studio-grid {
     background-image:
-      linear-gradient(rgba(0, 0, 0, 0.045) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 0, 0, 0.045) 1px, transparent 1px);
-    background-size: 56px 56px;
-    mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 55%, transparent 100%);
+      linear-gradient(rgba(0, 0, 0, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 0, 0, 0.035) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 60%, transparent 100%);
   }
 
   .marquee-track {
@@ -124,8 +126,8 @@
   .card {
     background: var(--surface);
     border: 1px solid var(--line);
-    border-radius: 1rem;
-    box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+    border-radius: 1.25rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03), 0 10px 30px -10px rgba(0, 0, 0, 0.04);
   }
 
   .chip {
@@ -139,9 +141,54 @@
     letter-spacing: 0.04em;
   }
 
+  .pill-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    padding: 0.35rem 0.9rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    background: #ffffff;
+    border: 1px solid var(--line);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    color: var(--ink-soft);
+  }
+
+  .pill-badge-green {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    padding: 0.35rem 0.9rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    color: #166534;
+  }
+
+  .dot-green {
+    width: 6px;
+    height: 6px;
+    border-radius: 9999px;
+    background-color: #22c55e;
+    box-shadow: 0 0 8px #22c55e;
+  }
+
+  .dot-accent {
+    width: 6px;
+    height: 6px;
+    border-radius: 9999px;
+    background-color: var(--accent);
+    box-shadow: 0 0 8px var(--accent);
+  }
+
   .hero-bg {
     background:
-      radial-gradient(58% 48% at 50% 0%, var(--accent-soft) 0%, transparent 72%),
+      radial-gradient(60% 50% at 50% 0%, rgba(237, 28, 36, 0.06) 0%, transparent 75%),
       var(--bg);
   }
 
@@ -186,13 +233,13 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    border-radius: 0.625rem;
-    padding: 0.8rem 1.35rem;
+    border-radius: 9999px;
+    padding: 0.85rem 1.6rem;
     border: 1px solid transparent;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 0.95rem;
     line-height: 1;
-    letter-spacing: 0.01em;
+    letter-spacing: -0.01em;
     text-decoration: none;
     cursor: pointer;
     transition: background-color 0.18s ease, border-color 0.18s ease,
@@ -206,25 +253,25 @@
   .btn-primary {
     background: var(--ink);
     color: white;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
   }
 
   .btn-primary:hover {
-    background: #1a1a1a;
+    background: #18181b;
     transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
   }
 
   .btn-accent {
     background: var(--accent);
     color: white;
-    box-shadow: 0 1px 2px rgba(16, 24, 40, 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    box-shadow: 0 4px 16px rgba(237, 28, 36, 0.3);
   }
 
   .btn-accent:hover {
     background: var(--accent-deep);
     transform: translateY(-1px);
-    box-shadow: 0 10px 24px rgba(237, 28, 36, 0.35);
+    box-shadow: 0 10px 24px rgba(237, 28, 36, 0.45);
   }
 
   .btn-outline {
@@ -303,6 +350,42 @@
   to {
     opacity: 1;
   }
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+.float-y-soft {
+  animation: float-y 3.5s ease-in-out infinite;
 }
 
 .animate-rise {

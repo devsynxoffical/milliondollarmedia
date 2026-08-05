@@ -183,7 +183,7 @@ export function Reviews() {
             <span className="display text-lg tracking-normal md:text-xl">
               Book Application Call
             </span>
-            <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--ink)]/70">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/80">
               If we don&apos;t perform — you don&apos;t pay
             </span>
           </Link>

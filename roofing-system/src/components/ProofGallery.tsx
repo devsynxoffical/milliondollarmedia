@@ -37,7 +37,7 @@ export function ProofGallery() {
             </p>
             <Link href={BOOKING_PATH} className="cta-btn min-w-[220px]">
               <span className="display text-lg tracking-normal">Apply Now</span>
-              <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--ink)]/70">
+              <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/80">
                 $1M+ roofers only
               </span>
             </Link>

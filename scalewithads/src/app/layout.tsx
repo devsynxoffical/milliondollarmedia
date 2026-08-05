@@ -16,9 +16,9 @@ const body = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Scale with Ads | Done-For-You Ads That Sell",
+  title: "Scale With Ads™ | Done-For-You Client Acquisition System",
   description:
-    "Done-for-you ads across all industries. Train media agencies to get clients. $50M+ Meta spend. 12 years experience. $10K minimum. We double your revenue in 90 days — in the agreement.",
+    "We install our proprietary Scale With Ads™ Client Acquisition System into your business and double your revenue in 90 days — or we work at no management fee until we do. Backed by a written agreement. For $10K+/month businesses.",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -28,9 +28,9 @@ export const metadata: Metadata = {
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
   },
   openGraph: {
-    title: "Scale with Ads | Ads That Sell Across Every Industry",
+    title: "Scale With Ads™ | Double Your Revenue In 90 Days",
     description:
-      "Done-for-you Meta ads + agency training. Two Comma Club Winner. ClickFunnels Awards. $10K minimum. Double revenue in 90 days.",
+      "Complete done-for-you client acquisition system: Meta Ads, creatives, landing pages, CRM, AI automations, and qualification. Double revenue in 90 days — in writing.",
     type: "website",
   },
 };

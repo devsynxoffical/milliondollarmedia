@@ -6,10 +6,10 @@ import { useState } from "react";
 import { BOOKING_PATH } from "../lib/offer";
 
 const links = [
-  { href: "/#system", label: "System" },
-  { href: "/#results", label: "Results" },
-  { href: "/#reviews", label: "Reviews" },
-  { href: "/#contact", label: "Contact" },
+  { href: "/#problem", label: "Problem" },
+  { href: "/#solution", label: "System" },
+  { href: "/#included", label: "Included" },
+  { href: "/#guarantee", label: "Guarantee" },
 ];
 
 const dropdown = {
@@ -25,7 +25,7 @@ export function Header() {
   const [ddOpen, setDdOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[var(--ink-soft)] shadow-[0_8px_30px_rgba(0,0,0,0.35)]">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[var(--ink-soft)]/70 shadow-[0_8px_30px_rgba(0,0,0,0.25)] backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-5 md:h-[72px] md:px-8">
         <Link href="/" className="relative z-10 shrink-0" onClick={() => setOpen(false)}>
           <Image
@@ -101,7 +101,7 @@ export function Header() {
         <div className="flex items-center gap-3">
           <Link
             href={BOOKING_PATH}
-            className="hidden rounded-full bg-[var(--lime)] px-5 py-2.5 text-xs font-bold text-[var(--ink)] shadow-[0_8px_24px_rgba(237,28,36,0.35)] transition hover:scale-105 hover:bg-[var(--lime-dark)] sm:inline-flex"
+            className="hidden rounded-full bg-[var(--purple)] px-5 py-2.5 text-xs font-bold text-white shadow-[0_8px_24px_rgba(237,28,36,0.35)] transition hover:scale-105 hover:bg-[var(--purple-dark)] sm:inline-flex"
           >
             Get Started
           </Link>
@@ -162,7 +162,7 @@ export function Header() {
             <Link
               href={BOOKING_PATH}
               onClick={() => setOpen(false)}
-              className="mt-3 rounded-full bg-[var(--lime)] px-4 py-3 text-center text-xs font-bold text-[var(--ink)]"
+              className="mt-3 rounded-full bg-[var(--purple)] px-4 py-3 text-center text-xs font-bold text-white"
             >
               Get Started
             </Link>

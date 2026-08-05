@@ -1,10 +1,10 @@
 const phrases = [
-  "Double your roofing revenue in 90 days",
+  "Roofing client acquisition system",
   "Only for $1M+ roofers",
-  "If we don't perform — you don't pay",
-  "Funnel · Creatives · Ads · Follow-up",
-  "Best solutions",
-  "Best services",
+  "Double your roofing revenue in 90 days",
+  "Backed by a written agreement",
+  "Offer · Meta Ads · Creatives · Landing Pages · CRM · AI Follow-up",
+  "You own everything",
 ];
 
 export function Marquee() {

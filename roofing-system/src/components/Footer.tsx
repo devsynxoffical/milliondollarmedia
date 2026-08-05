@@ -78,24 +78,27 @@ export function Footer() {
             Navigate
           </p>
           <nav className="mt-4 flex flex-col gap-2 text-sm text-white/70">
-            <a href="#masterclass" className="transition hover:text-[var(--lime)]">
-              Systems video
+            <a href="#problem" className="transition hover:text-[var(--lime)]">
+              The problem
+            </a>
+            <a href="#solution" className="transition hover:text-[var(--lime)]">
+              The system
             </a>
             <a href="#system" className="transition hover:text-[var(--lime)]">
-              How it works
+              8-step process
             </a>
-            <a href="#results" className="transition hover:text-[var(--lime)]">
-              Results
+            <a href="#included" className="transition hover:text-[var(--lime)]">
+              Everything included
             </a>
-            <a href="#reviews" className="transition hover:text-[var(--lime)]">
-              Reviews
+            <a href="#ownership" className="transition hover:text-[var(--lime)]">
+              You own everything
             </a>
-            <Link href="/privatemastermind" className="transition hover:text-[var(--lime)]">
-              Audience segmentation
-            </Link>
-            <Link href="/privatemastermind-504306" className="transition hover:text-[var(--lime)]">
-              Ads copy mastermind
-            </Link>
+            <a href="#comparison" className="transition hover:text-[var(--lime)]">
+              Why choose us
+            </a>
+            <a href="#guarantee" className="transition hover:text-[var(--lime)]">
+              90-day guarantee
+            </a>
             <Link href={BOOKING_PATH} className="transition hover:text-[var(--lime)]">
               Book call
             </Link>

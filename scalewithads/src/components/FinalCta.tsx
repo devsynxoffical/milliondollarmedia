@@ -5,15 +5,16 @@ import { Reveal } from "./Reveal";
 const pains = [
   "Stop guessing.",
   "Stop relying on referrals.",
-  "Stop switching marketing agencies.",
+  "Stop switching agencies.",
 ];
 
 export function FinalCta() {
   return (
     <section className="relative overflow-hidden bg-white">
       <div className="section-shell">
-        <Reveal>
-          <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-[var(--ink-soft)] px-6 py-14 text-white shadow-[var(--shadow)] md:px-12 md:py-16">
+        <Reveal className="h-full">
+          <div className="relative mx-auto max-w-[1200px] overflow-hidden rounded-[2rem] bg-[var(--band)] px-6 py-14 text-white shadow-[0_24px_60px_-24px_rgba(16,24,40,0.4)] md:px-12 md:py-16">
+            <div className="studio-grid absolute inset-0 opacity-60" />
             <div
               className="pointer-events-none absolute inset-0"
               style={{
@@ -23,11 +24,13 @@ export function FinalCta() {
             />
 
             <div className="relative z-10 mx-auto max-w-4xl text-center">
-              <h2 className="display text-[clamp(2rem,5vw,3.6rem)]">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--accent-bright)]">
+                Final step
+              </p>
+              <h2 className="display mt-4 text-[clamp(2rem,5vw,3.6rem)]">
                 Ready To Build A Predictable
                 <br />
-                Roofing{" "}
-                <span className="text-[var(--red-bright)]">
+                <span className="text-[var(--accent-bright)]">
                   Client Acquisition System?
                 </span>
               </h2>
@@ -44,23 +47,22 @@ export function FinalCta() {
               </div>
 
               <p className="mx-auto mt-8 max-w-3xl text-base leading-relaxed text-white/75">
-                Install Roofing Systems™—a complete roofing client acquisition
-                system that consistently attracts, qualifies, nurtures, and
-                books high-value roof replacement opportunities, so your team
-                can focus on running appointments, closing profitable projects,
-                and scaling your roofing company.
+                Install a complete Client Acquisition System that consistently
+                attracts, qualifies, nurtures, and books premium clients—so you
+                can focus on closing deals and scaling your business.
               </p>
 
               <div className="mt-10 flex justify-center">
-                <Link href={BOOKING_PATH} className="cta-btn min-w-[300px]">
-                  <span className="display text-lg tracking-normal md:text-xl">
-                    Book Your Free Strategy Call
-                  </span>
-                  <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/80">
-                    Only for $1M+ roofing companies
-                  </span>
+                <Link
+                  href={BOOKING_PATH}
+                  className="btn btn-accent min-w-[300px] px-8 py-4 text-base"
+                >
+                  Book Your Free Strategy Call
                 </Link>
               </div>
+              <p className="mt-4 text-xs font-medium uppercase tracking-[0.14em] text-white/45">
+                Only for $10K+/month businesses · 90-day written guarantee
+              </p>
             </div>
           </div>
         </Reveal>

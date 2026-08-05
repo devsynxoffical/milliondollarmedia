@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
+import { Inter } from "next/font/google";
 import { Header } from "../components/Header";
 import "./globals.css";
 
-const display = Poppins({
-  weight: ["600", "700", "800"],
+const display = Space_Grotesk({
+  weight: ["500", "600", "700"],
   subsets: ["latin"],
   variable: "--font-display",
 });
 
-const body = Poppins({
+const body = Inter({
   weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
   variable: "--font-body",
@@ -18,7 +19,7 @@ const body = Poppins({
 export const metadata: Metadata = {
   title: "Roofing Systems Co. | Double Your Revenue in 90 Days",
   description:
-    "Only for $1M+ roofers. We run funnel, creatives, ads, and follow-up — you take the sales calls. Double your revenue in 90 days or you don't pay.",
+    "Only for $1M+ roofers. We install your complete roofing client acquisition system — offer positioning, Meta Ads, creatives, landing pages, CRM, AI follow-up. You run the appointments and close. Guaranteed in writing.",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Roofing Systems Co. | $1M+ Roofers Only",
     description:
-      "Double your roofing revenue in 90 days. Full system + live access. If we don't perform, you don't pay.",
+      "Double your roofing revenue in 90 days. Complete client acquisition system, fully installed. Backed by a written agreement.",
     type: "website",
   },
 };

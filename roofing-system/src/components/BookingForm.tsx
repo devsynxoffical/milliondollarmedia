@@ -129,7 +129,7 @@ export function BookingForm() {
         <span className="display text-lg tracking-normal md:text-xl">
           {status === "submitting" ? "Submitting…" : "Submit Application"}
         </span>
-        <span className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--ink)]/70">
+        <span className="text-xs font-semibold uppercase tracking-[0.14em] text-white/80">
           Double Revenue in 90 Days — Or You Don&apos;t Pay
         </span>
       </button>

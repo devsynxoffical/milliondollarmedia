@@ -9,6 +9,7 @@ type VideoPlayerProps = {
   title: string;
   className?: string;
   autoPlay?: boolean;
+  aspect?: string;
 };
 
 export function VideoPlayer({
@@ -17,6 +18,7 @@ export function VideoPlayer({
   title,
   className = "",
   autoPlay = false,
+  aspect = "aspect-video",
 }: VideoPlayerProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [started, setStarted] = useState(false);
@@ -88,7 +90,7 @@ export function VideoPlayer({
   }
 
   return (
-    <div className={`relative aspect-video overflow-hidden bg-black ${className}`}>
+    <div className={`relative ${aspect} overflow-hidden bg-black ${className}`}>
       <video
         key={src}
         ref={videoRef}
