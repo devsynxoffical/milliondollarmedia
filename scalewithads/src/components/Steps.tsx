@@ -94,7 +94,7 @@ export function Steps() {
             Acquisition Process
           </h2>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-zinc-500">
-            One connected system—from the first click to a qualified client on
+            One connected system, from the first click to a qualified client on
             your calendar.
           </p>
         </Reveal>

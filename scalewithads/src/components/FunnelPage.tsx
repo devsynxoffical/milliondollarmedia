@@ -130,8 +130,8 @@ export function FunnelPage({ funnel }: { funnel: FunnelConfig }) {
                 Ready to scale with ads that sell?
               </h2>
               <p className="mt-4 text-white/80">
-                $10K minimum. All industries. We double your revenue in 90 days
-                — everything in the agreement.
+                $10K minimum. All industries. We double your revenue in 90 days,
+                everything in the agreement.
               </p>
               <Link
                 href={funnel.bookingPath}

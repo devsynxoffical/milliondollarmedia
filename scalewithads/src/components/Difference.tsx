@@ -14,7 +14,7 @@ const advantages = [
   "Premium Lead Qualification & Multi-Validation Process",
   "CRM + AI Follow-Up Automations Included",
   "Everything We Build Becomes Your Business Asset",
-  "Revenue-Focused Growth Strategy—Not Just More Leads",
+  "Revenue-Focused Growth Strategy, Not Just More Leads",
 ];
 
 export function Difference() {

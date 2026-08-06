@@ -21,7 +21,7 @@ export function Results() {
               </span>
             </h2>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-zinc-400">
-              Video walkthroughs and results from real clients — one ads system
+              Video walkthroughs and results from real clients, one ads system
               behind all of it.
             </p>
           </Reveal>

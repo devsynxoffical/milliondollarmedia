@@ -22,7 +22,7 @@ export function FinalCta() {
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/80">
             Install a complete Client Acquisition System that consistently
-            attracts, qualifies, nurtures, and books premium clients—so you can
+            attracts, qualifies, nurtures, and books premium clients, so you can
             focus on closing deals and scaling your business.
           </p>
 

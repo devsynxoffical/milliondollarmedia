@@ -46,14 +46,14 @@ export function Footer() {
           {/* Brand Column */}
           <div>
             <Image
-              src="/logo-white.png"
+              src="/logo-alt.png"
               alt="Scale With Ads"
-              width={535}
-              height={812}
+              width={2000}
+              height={1538}
               className="h-12 w-auto object-contain"
             />
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-zinc-400">
-              Scale With Ads™ — complete client acquisition systems for
+              Scale With Ads™, complete client acquisition systems for
               agencies, coaches, high-ticket services &amp; B2B founders.
               Double revenue in 90 days or we work free. Everything in writing.
             </p>

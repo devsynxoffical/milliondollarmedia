@@ -64,7 +64,7 @@ export function Problem() {
             <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-zinc-500 md:text-lg">
               That&apos;s exactly why businesses struggle to scale consistently.
               At Scale With Ads™, we build one complete ecosystem where every
-              part works together—from the first click to a qualified client
+              part works together, from the first click to a qualified client
               sitting on your calendar.
             </p>
           </div>

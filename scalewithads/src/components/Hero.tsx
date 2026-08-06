@@ -33,9 +33,9 @@ export function Hero() {
           </h1>
 
           <p className="animate-fade-up mt-5 max-w-2xl text-lg font-medium leading-relaxed text-zinc-300 sm:text-xl">
-            We install a complete done-for-you client acquisition system —
+            We install a complete done-for-you client acquisition system, 
             offer positioning, Meta Ads, high-converting funnels, CRM, and AI
-            follow-up — so your only job is to take the calls and close premium
+            follow-up, so your only job is to take the calls and close premium
             clients.
           </p>
 

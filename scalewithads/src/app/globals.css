@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  /* Red/Black/White theme palette — matches Roofing Systems Co. */
+  /* Red/Black/White theme palette, matches Roofing Systems Co. */
   --accent: #ed1c24;
   --accent-deep: #c4181e;
   --accent-soft: #fef2f2;

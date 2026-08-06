@@ -18,7 +18,7 @@ const body = Inter({
 export const metadata: Metadata = {
   title: "Scale With Ads™ | Done-For-You Client Acquisition System",
   description:
-    "We install our proprietary Scale With Ads™ Client Acquisition System into your business and double your revenue in 90 days — or we work at no management fee until we do. Backed by a written agreement. For $10K+/month businesses.",
+    "We install our proprietary Scale With Ads™ Client Acquisition System into your business and double your revenue in 90 days, or we work at no management fee until we do. Backed by a written agreement. For $10K+/month businesses.",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Scale With Ads™ | Double Your Revenue In 90 Days",
     description:
-      "Complete done-for-you client acquisition system: Meta Ads, creatives, landing pages, CRM, AI automations, and qualification. Double revenue in 90 days — in writing.",
+      "Complete done-for-you client acquisition system: Meta Ads, creatives, landing pages, CRM, AI automations, and qualification. Double revenue in 90 days, in writing.",
     type: "website",
   },
 };

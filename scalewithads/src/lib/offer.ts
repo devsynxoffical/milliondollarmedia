@@ -2,7 +2,7 @@ export const BOOKING_PATH = "/book";
 
 export const OFFER = {
   brand: "Scale with Ads",
-  focus: "Done-for-you ads that sell — across all industries",
+  focus: "Done-for-you ads that sell, across all industries",
   audience: "Media agencies · brands · operators who run ads",
   training: "We train media agencies on how to get clients",
   promise: "We double your revenue in 90 days",

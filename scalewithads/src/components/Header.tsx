@@ -49,10 +49,10 @@ export function Header() {
       <div className="mx-auto flex h-16 max-w-[1240px] items-center justify-between gap-4 px-5 md:h-18 md:px-8">
         <Link href="/" className="flex items-center gap-3 shrink-0" onClick={() => setOpen(false)}>
           <Image
-            src="/logo-white.png"
+            src="/logo-alt.png"
             alt="Scale with Ads"
-            width={535}
-            height={812}
+            width={2000}
+            height={1538}
             priority
             className="h-10 w-auto object-contain md:h-12"
           />
