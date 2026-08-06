@@ -13,14 +13,22 @@ const links = [
   { href: "/#comparison", label: "Why Us" },
 ];
 
+const mastermindLinks = [
+  { href: "/privatemastermind", label: "Private Mastermind" },
+  { href: "/metads", label: "Meta Ads Training" },
+  { href: "/leadpilot", label: "Lead Pilot" },
+];
+
 export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [mastermindOpen, setMastermindOpen] = useState(false);
   const [prevPathname, setPrevPathname] = useState(pathname);
 
   if (pathname !== prevPathname) {
     setPrevPathname(pathname);
     setOpen(false);
+    setMastermindOpen(false);
   }
 
   return (
@@ -50,7 +58,10 @@ export function Header() {
           />
         </Link>
 
-        <nav className="hidden items-center gap-1 rounded-full border border-zinc-800 bg-zinc-900/90 p-1 backdrop-blur-md lg:flex">
+        <nav
+          className="hidden items-center gap-1 rounded-full border border-zinc-800 bg-zinc-900/90 p-1 backdrop-blur-md lg:flex"
+          onMouseLeave={() => setMastermindOpen(false)}
+        >
           {links.map((link) => (
             <a
               key={link.href}
@@ -60,6 +71,44 @@ export function Header() {
               {link.label}
             </a>
           ))}
+
+          <div
+            className="relative"
+            onMouseEnter={() => setMastermindOpen(true)}
+          >
+            <button
+              type="button"
+              aria-expanded={mastermindOpen}
+              onClick={() => setMastermindOpen((v) => !v)}
+              className="flex items-center gap-1.5 rounded-full px-4 py-1.5 text-[13px] font-semibold text-zinc-300 transition hover:bg-zinc-800 hover:text-white"
+            >
+              Masterminds
+              <svg
+                viewBox="0 0 12 12"
+                className={`h-3 w-3 transition-transform ${mastermindOpen ? "rotate-180" : ""}`}
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              >
+                <path d="M2.5 4.5L6 8l3.5-3.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+
+            {mastermindOpen && (
+              <div className="absolute left-0 top-full mt-2 w-56 rounded-xl border border-zinc-800 bg-zinc-900 p-1.5 shadow-2xl shadow-black/50">
+                {mastermindLinks.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setMastermindOpen(false)}
+                    className="block rounded-lg px-3.5 py-2.5 text-[13px] font-semibold text-zinc-300 transition hover:bg-zinc-800 hover:text-white"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
         </nav>
 
         <div className="flex items-center gap-3">
@@ -99,6 +148,38 @@ export function Header() {
                 {link.label}
               </a>
             ))}
+
+            <button
+              type="button"
+              aria-expanded={mastermindOpen}
+              onClick={() => setMastermindOpen((v) => !v)}
+              className="flex items-center justify-between rounded-lg px-3 py-2.5 text-sm font-semibold text-zinc-300 hover:bg-zinc-800 hover:text-white"
+            >
+              <span>Masterminds</span>
+              <svg
+                viewBox="0 0 12 12"
+                className={`h-3 w-3 transition-transform ${mastermindOpen ? "rotate-180" : ""}`}
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              >
+                <path d="M2.5 4.5L6 8l3.5-3.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+            {mastermindOpen && (
+              <div className="flex flex-col gap-1">
+                {mastermindLinks.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className="rounded-lg py-2 pl-6 pr-3 text-sm font-semibold text-zinc-400 hover:bg-zinc-800 hover:text-white"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            )}
             <Link
               href={BOOKING_PATH}
               onClick={() => setOpen(false)}
