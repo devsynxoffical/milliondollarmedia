@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { BookingForm } from "../../components/BookingForm";
 import { Footer } from "../../components/Footer";
+import { VideoPlayer } from "../../components/VideoPlayer";
+import { MASTERCLASS_COVER, MASTERCLASS_VIDEO } from "../../lib/video";
 
 export const metadata: Metadata = {
   title: "Book Application Call | Roofing Systems Co.",
@@ -40,16 +41,13 @@ export default function BookPage() {
                 access to the system.
               </p>
 
-              <div className="mt-8 overflow-hidden rounded-[1.5rem] border border-[var(--line)] shadow-[var(--shadow-soft)]">
-                <div className="relative aspect-[16/10]">
-                  <Image
-                    src="/media/video/masterclass-poster.png"
-                    alt="Application briefing"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 45vw"
-                  />
-                </div>
+              <div className="mt-8 overflow-hidden rounded-[1.5rem] border border-zinc-200 shadow-sm">
+                <VideoPlayer
+                  src={MASTERCLASS_VIDEO}
+                  cover={MASTERCLASS_COVER}
+                  title="Application briefing"
+                  autoPlay
+                />
               </div>
 
               <ul className="mt-8 space-y-4 text-sm text-[var(--ink)]/75">

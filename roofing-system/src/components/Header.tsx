@@ -6,91 +6,91 @@ import { useState } from "react";
 import { BOOKING_PATH } from "../lib/offer";
 
 const links = [
-  { href: "/#problem", label: "Problem" },
-  { href: "/#solution", label: "System" },
-  { href: "/#included", label: "Included" },
-  { href: "/#guarantee", label: "Guarantee" },
+  { href: "/#system", label: "Acquisition System" },
+  { href: "/#specialties", label: "Specialties" },
+  { href: "/#proof", label: "Results" },
+  { href: "/#training", label: "Academy" },
 ];
 
-const dropdown = {
-  label: "Masterminds",
-  items: [
-    { href: "/privatemastermind", label: "Audience segmentation", note: "Higher-quality calls" },
-    { href: "/privatemastermind-504306", label: "Ads copy creation", note: "Hidden interest framework" },
-  ],
-};
+const mastermindLinks = [
+  { href: "/privatemastermind", label: "Audience Segmentation" },
+  { href: "/privatemastermind-504306", label: "Ads Copy Creation" },
+];
 
 export function Header() {
   const [open, setOpen] = useState(false);
-  const [ddOpen, setDdOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[var(--ink-soft)]/70 shadow-[0_8px_30px_rgba(0,0,0,0.25)] backdrop-blur-xl">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-5 md:h-[72px] md:px-8">
-        <Link href="/" className="relative z-10 shrink-0" onClick={() => setOpen(false)}>
+    <header className="fixed inset-x-0 top-0 z-50 transition-all duration-200 border-b border-zinc-800 bg-[#09090b]/95 backdrop-blur-xl">
+      {/* Top Banner Notice */}
+      <div className="flex h-9 items-center justify-center gap-2 bg-[var(--accent)] px-4 text-center text-[10px] font-bold tracking-wide text-white md:text-[11px]">
+        <span className="flex h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
+        <span>For Roofing Companies Doing $1M+/Year</span>
+        <span className="hidden text-white/80 md:inline">
+          · Double revenue in 90 days or work free.
+        </span>
+      </div>
+
+      <div className="mx-auto flex h-16 max-w-[1240px] items-center justify-between gap-4 px-5 md:h-18 md:px-8">
+        {/* Original Red Logo — No invert filter */}
+        <Link href="/" className="flex items-center gap-3 shrink-0" onClick={() => setOpen(false)}>
           <Image
             src="/logo.png"
             alt="Roofing Systems Co."
-            width={140}
+            width={300}
             height={100}
-            preload
-            className="h-auto w-[92px] brightness-0 invert transition md:w-[110px]"
+            priority
+            className="h-10 w-auto md:h-12 object-contain"
           />
         </Link>
 
-        <nav className="hidden items-center gap-8 lg:flex">
+        {/* Navigation Pills */}
+        <nav className="hidden items-center gap-1 rounded-full border border-zinc-800 bg-zinc-900/90 p-1 backdrop-blur-md lg:flex">
           {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-semibold text-white/90 transition hover:text-white"
+              className="rounded-full px-4 py-1.5 text-[13px] font-semibold text-zinc-300 transition hover:bg-zinc-800 hover:text-white"
             >
               {link.label}
             </a>
           ))}
 
-          <div
-            className="relative"
-            onMouseEnter={() => setDdOpen(true)}
-            onMouseLeave={() => setDdOpen(false)}
-          >
+          {/* Mastermind Dropdown */}
+          <div className="group relative">
             <button
               type="button"
-              onClick={() => setDdOpen((v) => !v)}
-              className="flex items-center gap-1.5 text-sm font-semibold text-white/90 transition hover:text-white"
-              aria-expanded={ddOpen}
+              className="flex items-center gap-1.5 rounded-full px-4 py-1.5 text-[13px] font-semibold text-zinc-300 transition hover:bg-zinc-800 hover:text-white"
+              aria-haspopup="true"
+              aria-expanded="false"
             >
-              {dropdown.label}
+              Mastermind
               <svg
-                viewBox="0 0 24 24"
-                className={`h-3 w-3 fill-current transition duration-200 ${
-                  ddOpen ? "rotate-180" : ""
-                }`}
-                aria-hidden
+                className="h-3 w-3 text-zinc-400 transition-transform group-hover:rotate-180"
+                viewBox="0 0 12 12"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
               >
-                <path d="M12 16l-8-8h16z" />
+                <path d="M2 4l4 4 4-4" />
               </svg>
             </button>
 
-            <div
-              className={`absolute left-1/2 top-full w-72 -translate-x-1/2 pt-4 transition-all duration-300 ${
-                ddOpen
-                  ? "visible translate-y-0 opacity-100"
-                  : "invisible -translate-y-2 opacity-0"
-              }`}
-            >
-              <div className="overflow-hidden rounded-3xl border border-white/10 bg-[var(--ink-soft)] shadow-[0_24px_60px_rgba(0,0,0,0.45)]">
-                {dropdown.items.map((item) => (
+            <div className="invisible absolute left-1/2 top-full z-50 w-64 -translate-x-1/2 pt-2 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+              <div className="overflow-hidden rounded-2xl border border-zinc-800 bg-[#09090b]/95 p-2 shadow-xl backdrop-blur-xl">
+                <p className="px-3 pb-1 pt-2 text-[10px] font-bold uppercase tracking-[0.18em] text-zinc-500">
+                  Private masterminds
+                </p>
+                {mastermindLinks.map((link) => (
                   <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={() => setDdOpen(false)}
-                    className="group flex flex-col gap-1 border-b border-white/10 px-5 py-4 last:border-0 transition hover:bg-white/10"
+                    key={link.href}
+                    href={link.href}
+                    className="block rounded-xl px-3 py-2.5 text-[13px] font-semibold text-zinc-300 transition hover:bg-zinc-800 hover:text-white"
                   >
-                    <span className="text-sm font-bold text-white transition group-hover:text-[var(--red-bright)]">
-                      {item.label}
-                    </span>
-                    <span className="text-xs text-white/45">{item.note}</span>
+                    {link.label}
                   </Link>
                 ))}
               </div>
@@ -98,73 +98,63 @@ export function Header() {
           </div>
         </nav>
 
+        {/* Action Button */}
         <div className="flex items-center gap-3">
           <Link
             href={BOOKING_PATH}
-            className="hidden rounded-full bg-[var(--purple)] px-5 py-2.5 text-xs font-bold text-white shadow-[0_8px_24px_rgba(237,28,36,0.35)] transition hover:scale-105 hover:bg-[var(--purple-dark)] sm:inline-flex"
+            className="btn btn-accent text-[13px] font-bold px-5 py-2 sm:inline-flex shadow-sm hover:shadow-md"
           >
-            Get Started
+            Get Free Demo
           </Link>
 
           <button
             type="button"
-            className={`relative z-10 flex h-10 w-10 items-center justify-center rounded-full border border-white/30 text-white lg:hidden`}
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-zinc-700 text-white lg:hidden"
             aria-expanded={open}
             aria-label={open ? "Close menu" : "Open menu"}
             onClick={() => setOpen((v) => !v)}
           >
-            <span className="sr-only">Menu</span>
             <span className="flex w-4 flex-col gap-1.5">
-              <span
-                className={`h-px w-full bg-white transition ${
-                  open ? "translate-y-[3.5px] rotate-45" : ""
-                }`}
-              />
-              <span
-                className={`h-px w-full bg-white transition ${open ? "opacity-0" : ""}`}
-              />
-              <span
-                className={`h-px w-full bg-white transition ${
-                  open ? "-translate-y-[3.5px] -rotate-45" : ""
-                }`}
-              />
+              <span className={`h-0.5 w-full bg-current transition ${open ? "translate-y-[4px] rotate-45" : ""}`} />
+              <span className={`h-0.5 w-full bg-current transition ${open ? "opacity-0" : ""}`} />
+              <span className={`h-0.5 w-full bg-current transition ${open ? "-translate-y-[4px] -rotate-45" : ""}`} />
             </span>
           </button>
         </div>
       </div>
 
       {open && (
-        <div className="border-t border-white/10 bg-[var(--ink-soft)] lg:hidden">
-          <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-5 py-4">
+        <div className="border-t border-zinc-800 bg-[#09090b] lg:hidden">
+          <nav className="mx-auto flex max-w-[1240px] flex-col px-5 py-4 gap-1">
             {links.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="border-b border-white/10 py-3 text-sm font-semibold text-white/80"
+                className="rounded-lg px-3 py-2.5 text-sm font-semibold text-zinc-300 hover:bg-zinc-800 hover:text-white"
               >
                 {link.label}
               </a>
             ))}
-            <p className="mt-3 text-xs font-bold uppercase tracking-[0.2em] text-[var(--red-bright)]">
-              Masterminds
+            <p className="px-3 pt-3 text-[10px] font-bold uppercase tracking-[0.18em] text-zinc-500">
+              Private masterminds
             </p>
-            {dropdown.items.map((item) => (
+            {mastermindLinks.map((link) => (
               <Link
-                key={item.href}
-                href={item.href}
+                key={link.href}
+                href={link.href}
                 onClick={() => setOpen(false)}
-                className="border-b border-white/10 py-3 text-sm font-semibold text-white/80"
+                className="rounded-lg px-3 py-2.5 text-sm font-semibold text-zinc-300 hover:bg-zinc-800 hover:text-white"
               >
-                {item.label}
+                {link.label}
               </Link>
             ))}
             <Link
               href={BOOKING_PATH}
               onClick={() => setOpen(false)}
-              className="mt-3 rounded-full bg-[var(--purple)] px-4 py-3 text-center text-xs font-bold text-white"
+              className="btn btn-accent mt-3 w-full justify-center"
             >
-              Get Started
+              Get Free Demo
             </Link>
           </nav>
         </div>
@@ -172,3 +162,4 @@ export function Header() {
     </header>
   );
 }
+

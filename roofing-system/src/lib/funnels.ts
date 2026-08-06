@@ -1,4 +1,5 @@
 import { BOOKING_PATH } from "./offer";
+import { MASTERCLASS_VIDEO } from "./video";
 
 export type FunnelConfig = {
   slug: string;
@@ -22,9 +23,6 @@ export type FunnelConfig = {
   ctaSecondarySub: string;
   bookingPath: string;
 };
-
-const MASTERCLASS_VIDEO =
-  "https://assets.cdn.filesafe.space/HWyar6Z3u3aF6ydghkCx/media/69b311b6cab7f7b0b5822c7a.mp4";
 
 export const ADS_COPY_FUNNEL: FunnelConfig = {
   slug: "privatemastermind-504306",

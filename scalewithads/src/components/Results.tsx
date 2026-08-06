@@ -10,18 +10,18 @@ import { Reviews } from "./Reviews";
 export function Results() {
   return (
     <div id="results">
-      <section className="section-shell bg-white">
+      <section className="section-shell bg-[var(--bg)]">
         <div className="mx-auto max-w-[1200px]">
           <Reveal className="mx-auto max-w-3xl text-center">
-            <p className="eyebrow-accent">Real client results</p>
-            <h2 className="display mx-auto mt-3 text-[clamp(2rem,4.5vw,3.4rem)] text-[var(--ink)]">
+            <p className="eyebrow-bright">Real client results</p>
+            <h2 className="display mx-auto mt-3 text-[clamp(2rem,4.5vw,3.4rem)] text-white">
               Don&apos;t Take Our Word For It...
               <br />
-              <span className="text-[var(--accent)]">
+              <span className="text-[var(--accent-bright)]">
                 See What Our Clients Have Achieved.
               </span>
             </h2>
-            <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-[var(--muted)]">
+            <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-white/60">
               Revenue screenshots. Meta Ads dashboards. Video walkthroughs.
               Case studies across countless verticals—one ads system behind all
               of it.

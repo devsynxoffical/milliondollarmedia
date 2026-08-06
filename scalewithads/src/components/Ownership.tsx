@@ -60,16 +60,16 @@ function CheckIcon() {
 
 export function Ownership() {
   return (
-    <section id="ownership" className="section-shell bg-[var(--surface-2)]">
+    <section id="ownership" className="section-shell bg-[var(--band-2)]">
       <div className="mx-auto max-w-[1200px]">
         <Reveal className="text-center">
-          <p className="eyebrow-accent">No lock-ins · No hidden ownership</p>
-          <h2 className="display mx-auto mt-3 max-w-3xl text-[clamp(2rem,4.5vw,3.4rem)] text-[var(--ink)]">
+          <p className="eyebrow-bright">No lock-ins · No hidden ownership</p>
+          <h2 className="display mx-auto mt-3 max-w-3xl text-[clamp(2rem,4.5vw,3.4rem)] text-white">
             Unlike Most Agencies...
             <br />
-            <span className="text-[var(--accent)]">You Own Everything.</span>
+            <span className="text-[var(--accent-bright)]">You Own Everything.</span>
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-[var(--muted)]">
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/60">
             When we build your Client Acquisition System, it becomes your
             business asset.
           </p>
@@ -123,14 +123,14 @@ export function Ownership() {
 
         <Reveal delay={160}>
           <div className="mt-14">
-            <p className="text-center text-xs font-bold uppercase tracking-[0.2em] text-[var(--accent)]">
+            <p className="text-center text-xs font-bold uppercase tracking-[0.2em] text-[var(--accent-bright)]">
               Industries We&apos;ve Worked With
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-2.5">
               {industries.map((item) => (
                 <span
                   key={item}
-                  className="chip border border-[var(--line)] bg-white text-[var(--ink-soft)] transition hover:border-[var(--accent)]/40 hover:bg-[var(--accent-soft)] hover:text-[var(--accent)]"
+                  className="chip border border-white/12 bg-white/[0.05] text-white/70 transition hover:border-[var(--accent)]/50 hover:bg-[var(--accent-soft)] hover:text-[var(--accent-bright)]"
                 >
                   {item}
                 </span>

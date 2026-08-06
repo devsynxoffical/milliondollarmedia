@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { BOOKING_PATH } from "../lib/offer";
+import { MASTERCLASS_COVER, MASTERCLASS_VIDEO } from "../lib/video";
 import { Reveal } from "./Reveal";
 import { VideoPlayer } from "./VideoPlayer";
 
@@ -9,10 +10,6 @@ const bullets = [
   "Daily ad management + optimization",
   "Follow-up handled so you don’t chase leads",
 ];
-
-const COVER = "/media/video/masterclass-poster.png";
-const VIDEO =
-  "https://assets.cdn.filesafe.space/HWyar6Z3u3aF6ydghkCx/media/69b311b6cab7f7b0b5822c7a.mp4";
 
 export function Masterclass() {
   return (
@@ -42,7 +39,7 @@ export function Masterclass() {
               </div>
             </div>
 
-            <VideoPlayer src={VIDEO} cover={COVER} title="Systems breakdown" />
+            <VideoPlayer src={MASTERCLASS_VIDEO} cover={MASTERCLASS_COVER} title="Systems breakdown" />
           </div>
 
           <div className="float-icon-soft absolute -left-4 top-16 z-10 rounded-full border border-[var(--line)] bg-white px-4 py-2 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--purple)] shadow-[var(--shadow)]">

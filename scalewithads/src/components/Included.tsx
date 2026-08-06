@@ -19,16 +19,16 @@ const included = [
 
 export function Included() {
   return (
-    <section id="included" className="section-shell bg-white">
+    <section id="included" className="section-shell bg-[var(--bg)]">
       <div className="mx-auto max-w-[1200px]">
         <Reveal className="text-center">
-          <p className="eyebrow-accent">Everything included</p>
-          <h2 className="display mx-auto mt-3 max-w-3xl text-[clamp(2rem,4.5vw,3.4rem)] text-[var(--ink)]">
+          <p className="eyebrow-bright">Everything included</p>
+          <h2 className="display mx-auto mt-3 max-w-3xl text-[clamp(2rem,4.5vw,3.4rem)] text-white">
             Here&apos;s Everything
             <br />
-            <span className="text-[var(--accent)]">We Build For You</span>
+            <span className="text-[var(--accent-bright)]">We Build For You</span>
           </h2>
-          <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-[var(--muted)]">
+          <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-white/60">
             The complete client acquisition system—installed, managed, and
             optimised for you.
           </p>
@@ -39,14 +39,14 @@ export function Included() {
             {included.map((item) => (
               <div
                 key={item}
-                className="flex items-center gap-3 rounded-2xl border border-[var(--line)] bg-[var(--surface-2)] px-5 py-4 transition hover:-translate-y-1 hover:border-[var(--accent)]/40 hover:bg-white hover:shadow-[0_12px_32px_-12px_rgba(16,24,40,0.14)]"
+                className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 transition hover:-translate-y-1 hover:border-[var(--accent)]/50 hover:bg-white/[0.07] hover:shadow-[0_12px_32px_-12px_rgba(237,28,36,0.35)]"
               >
                 <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--accent)] text-[11px] font-bold text-white">
                   <svg viewBox="0 0 24 24" className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth={3} aria-hidden>
                     <path d="M20 6L9 17l-5-5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </span>
-                <span className="text-sm font-semibold text-[var(--ink)]">
+                <span className="text-sm font-semibold text-white/85">
                   {item}
                 </span>
               </div>

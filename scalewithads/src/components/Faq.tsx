@@ -42,17 +42,17 @@ export function Faq() {
   const [open, setOpen] = useState(0);
 
   return (
-    <section id="faq" className="section-shell bg-white">
+    <section id="faq" className="section-shell bg-[var(--bg)]">
       <div className="mx-auto grid max-w-[1200px] gap-10 lg:grid-cols-[0.85fr_1.15fr]">
         <div>
           <Reveal>
-            <p className="eyebrow-accent">FAQ</p>
-            <h2 className="display mt-3 text-[clamp(2rem,4.5vw,3.4rem)] text-[var(--ink)]">
+            <p className="eyebrow-bright">FAQ</p>
+            <h2 className="display mt-3 text-[clamp(2rem,4.5vw,3.4rem)] text-white">
               Straight
               <br />
               answers
             </h2>
-            <p className="mt-4 max-w-sm text-sm text-[var(--muted)] md:text-base">
+            <p className="mt-4 max-w-sm text-sm text-white/55 md:text-base">
               No fluff. Clear terms. Clear roles. Clear expectations.
             </p>
           </Reveal>
@@ -64,10 +64,10 @@ export function Faq() {
             return (
               <Reveal key={item.q} delay={Math.min(index * 60, 240)}>
                 <div
-                  className={`overflow-hidden rounded-2xl border bg-white transition ${
+                  className={`overflow-hidden rounded-2xl border bg-white/[0.04] transition ${
                     isOpen
-                      ? "border-[var(--accent)]/40 shadow-[0_12px_32px_-16px_rgba(237,28,36,0.25)]"
-                      : "border-[var(--line)]"
+                      ? "border-[var(--accent)]/50 shadow-[0_12px_32px_-16px_rgba(237,28,36,0.35)]"
+                      : "border-white/10"
                   }`}
                 >
                   <button
@@ -75,21 +75,21 @@ export function Faq() {
                     onClick={() => setOpen(isOpen ? -1 : index)}
                     className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left md:px-6 md:py-5"
                   >
-                    <span className="display text-lg text-[var(--ink)] md:text-xl">
+                    <span className="display text-lg text-white md:text-xl">
                       {item.q}
                     </span>
                     <span
                       className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-lg font-bold transition ${
                         isOpen
                           ? "bg-[var(--accent)] text-white"
-                          : "bg-[var(--accent-soft)] text-[var(--accent)]"
+                          : "bg-[var(--accent-soft)] text-[var(--accent-bright)]"
                       }`}
                     >
                       {isOpen ? "−" : "+"}
                     </span>
                   </button>
                   {isOpen && (
-                    <div className="border-t border-[var(--line)] px-5 pb-5 pt-3 text-sm leading-relaxed text-[var(--muted)] md:px-6 md:text-base">
+                    <div className="border-t border-white/10 px-5 pb-5 pt-3 text-sm leading-relaxed text-white/60 md:px-6 md:text-base">
                       {item.a}
                     </div>
                   )}

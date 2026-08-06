@@ -10,10 +10,10 @@ const pains = [
 
 export function FinalCta() {
   return (
-    <section className="relative overflow-hidden bg-white">
+    <section className="relative overflow-hidden bg-[var(--band-2)]">
       <div className="section-shell">
         <Reveal className="h-full">
-          <div className="relative mx-auto max-w-[1200px] overflow-hidden rounded-[2rem] bg-[var(--band)] px-6 py-14 text-white shadow-[0_24px_60px_-24px_rgba(16,24,40,0.4)] md:px-12 md:py-16">
+          <div className="relative mx-auto max-w-[1200px] overflow-hidden rounded-[2rem] bg-[var(--band)] px-6 py-14 text-white shadow-[0_24px_60px_-24px_rgba(237,28,36,0.3)] md:px-12 md:py-16">
             <div className="studio-grid absolute inset-0 opacity-60" />
             <div
               className="pointer-events-none absolute inset-0"

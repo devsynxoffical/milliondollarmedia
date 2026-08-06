@@ -41,28 +41,28 @@ const clients = [
 
 export function Clients() {
   return (
-    <section id="clients" className="section-shell bg-white border-b border-zinc-200/60">
+    <section id="clients" className="section-shell bg-[var(--band-2)] border-b border-white/10">
       <div className="mx-auto max-w-[1240px]">
-        {/* Section Header — Matching Reference Image ("The room. In the wild.") */}
+        {/* Section Header */}
         <div className="flex flex-col items-center text-center max-w-2xl mx-auto">
           <div className="pill-badge mb-3">
             <span className="dot-accent" />
             <span>SCALE WITH ADS COMMUNITY</span>
           </div>
-          <h2 className="display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-zinc-950 tracking-tight">
+          <h2 className="display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
             The room. In the wild.
           </h2>
-          <p className="mt-3 text-base text-zinc-600">
+          <p className="mt-3 text-base text-white/60">
             Real founders, 7 &amp; 8-figure agency owners, and high-ticket operators scaling using the exact same acquisition system.
           </p>
         </div>
 
-        {/* Photo Card Grid — Matching reference layout */}
+        {/* Photo Card Grid */}
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {clients.map((client) => (
             <div
               key={client.name}
-              className="group relative overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-900 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl"
+              className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] shadow-sm transition duration-300 hover:-translate-y-1 hover:border-[var(--accent)]/50 hover:shadow-[0_0_36px_-12px_rgba(237,28,36,0.45)]"
             >
               <div className="relative aspect-[4/3] w-full overflow-hidden">
                 <Image

@@ -2,7 +2,31 @@ import Image from "next/image";
 import Link from "next/link";
 import { BOOKING_PATH } from "../lib/offer";
 import { BackToTop } from "./BackToTop";
-import { NewsletterForm } from "./NewsletterForm";
+
+const navLinks = [
+  { href: "/#system", label: "Acquisition System" },
+  { href: "/#specialties", label: "Specialties" },
+  { href: "/#proof", label: "Results" },
+  { href: "/#training", label: "Academy" },
+  { href: "/#guarantee", label: "Guarantee" },
+  { href: BOOKING_PATH, label: "Book Strategy Call" },
+];
+
+const legalLinks = [
+  { href: "#", label: "Terms of Service" },
+  { href: "#", label: "Privacy Policy" },
+  { href: "#", label: "DMCA Policy" },
+  { href: "#", label: "Income Disclosure" },
+];
+
+const specialties = [
+  "Residential Roofing",
+  "Commercial Roofing",
+  "Storm Damage",
+  "Metal Roofing",
+  "Solar Roofing",
+  "Roof Repair",
+];
 
 const socials = [
   {
@@ -19,7 +43,7 @@ const socials = [
     href: "#",
     icon: (
       <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current" aria-hidden>
-        <path d="M12 4.5c2.4 0 2.7 0 3.6.1 1 0 1.6.2 2 .4.5.2.9.5 1.2.9.4.3.7.7.9 1.2.2.4.3 1 .4 2 .1.9.1 1.2.1 3.6s0 2.7-.1 3.6c0 1-.2 1.6-.4 2-.2.5-.5.9-.9 1.2-.3.4-.7.7-1.2.9-.4.2-1 .3-2 .4-.9.1-1.2.1-3.6.1s-2.7 0-3.6-.1c-1 0-1.6-.2-2-.4-.5-.2-.9-.5-1.2-.9-.4-.3-.7-.7-.9-1.2-.2-.4-.3-1-.4-2-.1-.9-.1-1.2-.1-3.6s0-2.7.1-3.6c0-1 .2-1.6.4-2 .2-.5.5-.9.9-1.2.3-.4.7-.7 1.2-.9.4-.2 1-.3 2-.4.9-.1 1.2-.1 3.6-.1zM12 7a5 5 0 100 10 5 5 0 000-10zm0 8.2a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zm5.2-9.6a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z" />
+        <path d="M12 4.5c2.4 0 2.7 0 3.6.1 1 0 1.6.2 2 .4.5.2.9.5 1.2.9.4.3.7.7.9 1.2.2.4.3 1 .4 2 .1.9.1 1.2.1 3.6s0 2.7-.1 3.6c0 1-.2 1.6-.4 2-.2.5-.5.9-.9 1.2-.3.4-.7.7-1.2.9-.4.2-1 .3-2 .4-.9.1-1.2.1-3.6.1s-2.7 0-3.6-.1c-1 0-1.6-.2-2-.4-.5-.2-.9-.5-1.2-.9-.4-.3-.7-.7-.9-1.2-.2-.4-.3-1-.4-2-.1-.9-.1-1.2-.1-3.6s0-2.7.1-3.6c0-1 .2-1.6.4-2 .2-.5.5-.9.9-1.2.3-.4.7-.7 1.2-.9.4-.2 1-.3 2-.4.9-.1 1.2-.1 3.6-.1z" />
       </svg>
     ),
   },
@@ -32,132 +56,116 @@ const socials = [
       </svg>
     ),
   },
-  {
-    label: "X",
-    href: "#",
-    icon: (
-      <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current" aria-hidden>
-        <path d="M4 4l6.4 8.6L4.4 20h2.4l4.9-5.9L15.8 20H20l-6.8-9.1L19 4h-2.4l-4.5 5.4L8.2 4H4z" />
-      </svg>
-    ),
-  },
 ];
 
 export function Footer() {
   return (
-    <footer className="relative bg-[var(--navy)] px-5 pb-10 pt-16 text-white md:px-8">
-      <div className="mx-auto grid max-w-7xl gap-12 md:grid-cols-2 lg:grid-cols-[1.3fr_0.8fr_0.9fr_1fr]">
-        <div>
-          <Image
-            src="/logo.png"
-            alt="Roofing Systems Co."
-            width={140}
-            height={100}
-            className="h-auto w-[120px] brightness-0 invert opacity-95"
-          />
-          <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/55">
-            Roofing Systems Co. — acquisition systems for $1M+ roofers. Double
-            revenue in 90 days. Everything in writing.
-          </p>
-          <div className="mt-6 flex gap-3">
-            {socials.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                aria-label={item.label}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/60 transition hover:scale-105 hover:border-[var(--lime)] hover:bg-[var(--lime)] hover:text-[var(--ink)]"
-              >
-                {item.icon}
-              </a>
-            ))}
+    <footer className="relative bg-[#09090b] text-white border-t border-zinc-800">
+      {/* Pre-footer CTA Bar */}
+      <div className="border-b border-zinc-800 bg-[var(--accent)] py-5 px-5 text-center">
+        <p className="text-sm font-bold tracking-wide">
+          Proud partner to roofing pros across all verticals.{" "}
+          <Link href={BOOKING_PATH} className="underline underline-offset-4 hover:no-underline">
+            Book your free strategy call →
+          </Link>
+        </p>
+      </div>
+
+      <div className="mx-auto max-w-[1240px] px-5 pt-16 pb-10 md:px-8">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
+          {/* Brand Column */}
+          <div>
+            <Image
+              src="/logo.png"
+              alt="Roofing Systems Co."
+              width={160}
+              height={56}
+              className="h-12 w-auto object-contain"
+            />
+            <p className="mt-5 max-w-xs text-sm leading-relaxed text-zinc-400">
+              Roofing Systems Co. — complete client acquisition systems for $1M+ roofing contractors. Double revenue in 90 days. Everything in writing.
+            </p>
+            <div className="mt-6 flex gap-2.5">
+              {socials.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  aria-label={item.label}
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-zinc-800 text-zinc-400 transition hover:border-[var(--accent)] hover:bg-[var(--accent)] hover:text-white"
+                >
+                  {item.icon}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Navigation */}
+          <div>
+            <p className="text-xs font-bold uppercase tracking-widest text-zinc-500 mb-4">
+              Navigate
+            </p>
+            <nav className="flex flex-col gap-2.5">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm text-zinc-400 transition hover:text-white"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          {/* Specialties */}
+          <div>
+            <p className="text-xs font-bold uppercase tracking-widest text-zinc-500 mb-4">
+              Specialties
+            </p>
+            <nav className="flex flex-col gap-2.5">
+              {specialties.map((item) => (
+                <span key={item} className="text-sm text-zinc-400">
+                  {item}
+                </span>
+              ))}
+            </nav>
+          </div>
+
+          {/* Legal */}
+          <div>
+            <p className="text-xs font-bold uppercase tracking-widest text-zinc-500 mb-4">
+              Legal
+            </p>
+            <nav className="flex flex-col gap-2.5">
+              {legalLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm text-zinc-400 transition hover:text-white"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </nav>
           </div>
         </div>
 
-        <div>
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/40">
-            Navigate
+        {/* Bottom Bar */}
+        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-zinc-800 pt-6 text-xs text-zinc-500 sm:flex-row">
+          <p>
+            © {new Date().getFullYear()} Vaishali Media Productions LLC®. All rights reserved. Results vary.
           </p>
-          <nav className="mt-4 flex flex-col gap-2 text-sm text-white/70">
-            <a href="#problem" className="transition hover:text-[var(--lime)]">
-              The problem
-            </a>
-            <a href="#solution" className="transition hover:text-[var(--lime)]">
-              The system
-            </a>
-            <a href="#system" className="transition hover:text-[var(--lime)]">
-              8-step process
-            </a>
-            <a href="#included" className="transition hover:text-[var(--lime)]">
-              Everything included
-            </a>
-            <a href="#ownership" className="transition hover:text-[var(--lime)]">
-              You own everything
-            </a>
-            <a href="#comparison" className="transition hover:text-[var(--lime)]">
-              Why choose us
-            </a>
-            <a href="#guarantee" className="transition hover:text-[var(--lime)]">
-              90-day guarantee
-            </a>
-            <Link href={BOOKING_PATH} className="transition hover:text-[var(--lime)]">
-              Book call
-            </Link>
-          </nav>
-        </div>
-
-        <div>
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/40">
-            Legal
-          </p>
-          <nav className="mt-4 flex flex-col gap-2 text-sm text-white/70">
-            <a href="#" className="transition hover:text-[var(--lime)]">
-              Terms of Service
-            </a>
-            <a href="#" className="transition hover:text-[var(--lime)]">
-              Privacy
-            </a>
-            <a href="#" className="transition hover:text-[var(--lime)]">
-              DMCA Policy
-            </a>
-            <a href="#" className="transition hover:text-[var(--lime)]">
-              Income Disclosure
-            </a>
-          </nav>
-        </div>
-
-        <div>
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/40">
-            Get updates
-          </p>
-          <p className="mt-4 text-sm leading-relaxed text-white/55">
-            New breakdowns and masterminds for $1M+ roofers. No spam.
-          </p>
-          <NewsletterForm />
-          <label className="mt-3 flex items-start gap-2 text-xs text-white/40">
-            <input type="checkbox" className="mt-0.5 accent-[var(--purple)]" />
-            I agree to the Privacy Policy.
-          </label>
+          <div className="flex gap-5">
+            <a href="#" className="transition hover:text-white">Terms & Conditions</a>
+            <a href="#" className="transition hover:text-white">Privacy Policy</a>
+          </div>
         </div>
       </div>
 
-      <div className="mx-auto mt-12 flex max-w-7xl flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-xs text-white/40 sm:flex-row">
-        <p>
-          Copyright © {new Date().getFullYear()} Vaishali Media Productions
-          LLC®. All rights reserved. Results vary. This page does not guarantee
-          income.
-        </p>
-        <div className="flex gap-5">
-          <a href="#" className="transition hover:text-[var(--lime)]">
-            Terms & Condition
-          </a>
-          <a href="#" className="transition hover:text-[var(--lime)]">
-            Privacy Policy
-          </a>
-        </div>
-      </div>
-
-      <div className="absolute inset-x-0 bottom-0 h-1 bg-[var(--purple)]" />
+      {/* Bottom Accent Line */}
+      <div className="h-1 bg-[var(--accent)]" />
       <BackToTop />
     </footer>
   );
 }
+

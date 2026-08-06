@@ -76,24 +76,24 @@ export function FunnelPage({ funnel }: { funnel: FunnelConfig }) {
       <LogoStrip />
 
       {/* Inside */}
-      <section className="section-shell bg-white">
+      <section className="section-shell bg-[var(--bg)]">
         <div className="mx-auto grid max-w-[1200px] gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
-            <p className="eyebrow-accent">Inside</p>
-            <h2 className="display mt-3 text-[clamp(2rem,3.5vw,3rem)] text-[var(--ink)]">
+            <p className="eyebrow-bright">Inside</p>
+            <h2 className="display mt-3 text-[clamp(2rem,3.5vw,3rem)] text-white">
               {funnel.learnTitle}
             </h2>
           </div>
-          <ol className="space-y-0 border-t border-[var(--line)]">
+          <ol className="space-y-0 border-t border-white/10">
             {funnel.learnItems.map((item, i) => (
               <li
                 key={item}
-                className="grid grid-cols-[64px_1fr] gap-4 border-b border-[var(--line)] py-5"
+                className="grid grid-cols-[64px_1fr] gap-4 border-b border-white/10 py-5"
               >
-                <span className="display text-2xl text-[var(--accent)]">
+                <span className="display text-2xl text-[var(--accent-bright)]">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <p className="pt-1 text-base text-[var(--ink-soft)]">{item}</p>
+                <p className="pt-1 text-base text-white/75">{item}</p>
               </li>
             ))}
           </ol>
@@ -101,13 +101,13 @@ export function FunnelPage({ funnel }: { funnel: FunnelConfig }) {
       </section>
 
       {/* Track */}
-      <section className="section-shell bg-[var(--surface-2)]">
+      <section className="section-shell bg-[var(--band-2)]">
         <div className="mx-auto max-w-[760px] text-center">
-          <p className="eyebrow-accent">Track record</p>
-          <h2 className="display mt-3 text-[clamp(2rem,4vw,3.2rem)] text-[var(--ink)]">
+          <p className="eyebrow-bright">Track record</p>
+          <h2 className="display mt-3 text-[clamp(2rem,4vw,3.2rem)] text-white">
             {funnel.trackTitle}
           </h2>
-          <p className="mt-5 text-base leading-relaxed text-[var(--muted)] md:text-lg">
+          <p className="mt-5 text-base leading-relaxed text-white/60 md:text-lg">
             {funnel.trackBody}
           </p>
           <Link

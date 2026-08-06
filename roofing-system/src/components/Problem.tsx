@@ -1,77 +1,90 @@
 import { Reveal } from "./Reveal";
 
-const players = [
+const features = [
   {
-    label: "Most marketing agencies",
-    note: "only run ads",
+    icon: "⚡",
+    tag: "Speed-to-Lead",
+    title: "AI contacts every lead in under 60 seconds",
+    description: "Our 24/7 SMS and AI voice bot reaches every inbound lead before they cool off — booking inspections automatically while your competitors are sleeping.",
+    stat: "60 sec",
+    statLabel: "Avg. response time",
+    badge: "No more missed leads",
   },
   {
-    label: "Some",
-    note: "build landing pages",
+    icon: "🎯",
+    tag: "Precision Targeting",
+    title: "Meta Ads engineered for homeowners ready to buy",
+    description: "Stop wasting budget on renters and unqualified clicks. Our direct-response creatives specifically target homeowners with roof damage, high home value, and decision-making authority.",
+    stat: "-50%",
+    statLabel: "Cost per qualified lead",
+    badge: "Higher-intent traffic",
   },
   {
-    label: "Others",
-    note: "generate leads",
-  },
-  {
-    label: "Someone else",
-    note: "handles follow-up",
+    icon: "🏗️",
+    tag: "Full System",
+    title: "Built end-to-end for roofing — not generic marketing",
+    description: "Unlike general marketing agencies, every component of our system is built around the roofing sales process — qualification surveys, storm damage angles, insurance claim workflows.",
+    stat: "90 days",
+    statLabel: "To double your revenue",
+    badge: "Written guarantee",
   },
 ];
 
 export function Problem() {
   return (
-    <section id="problem" className="section-shell bg-white">
-      <div className="mx-auto max-w-5xl">
-        <Reveal className="text-center">
-          <p className="eyebrow">The real problem</p>
-          <h2 className="display mx-auto mt-3 max-w-3xl text-[clamp(2rem,4.5vw,3.4rem)] text-[var(--ink)]">
-            Most Roofing Companies Don&apos;t Have A Lead Problem...
-            <br />
-            <span className="text-[var(--purple)]">
-              They Have A Client Acquisition System Problem.
-            </span>
-          </h2>
-        </Reveal>
-
-        <Reveal delay={120}>
-          <div className="mx-auto mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {players.map((item) => (
-              <div
-                key={item.label}
-                className="flex flex-col items-center gap-1 rounded-[1.5rem] border border-[var(--line)] bg-[var(--fog)] px-6 py-8 text-center transition hover:-translate-y-1 hover:border-[var(--purple)]/30 hover:bg-white hover:shadow-[var(--shadow-soft)]"
-              >
-                <span className="flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-white text-[var(--purple)] shadow-[var(--shadow-soft)]">
-                  <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden>
-                    <path
-                      d="M6 6l12 12M18 6L6 18"
-                      stroke="currentColor"
-                      strokeWidth="2.2"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                </span>
-                <p className="mt-4 text-sm font-bold text-[var(--ink)]">
-                  {item.label}
-                </p>
-                <p className="text-xs text-[var(--muted)]">{item.note}</p>
-              </div>
-            ))}
+    <section id="problem" className="section-shell bg-white border-b border-zinc-100">
+      <div className="mx-auto max-w-[1240px]">
+        <Reveal className="flex flex-col items-center text-center max-w-3xl mx-auto">
+          <div className="pill-badge-red mb-3">
+            <span className="dot-red" />
+            <span>AI BUILT FOR ROOFING</span>
           </div>
+          <h2 className="display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-zinc-950 tracking-tight">
+            AI built for roofing businesses
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-500 leading-relaxed">
+            Other agencies run generic ads. We install a complete, AI-powered acquisition system purpose-built for high-performance roofing contractors.
+          </p>
         </Reveal>
 
-        <Reveal delay={200} className="mx-auto mt-10 max-w-2xl text-center">
-          <p className="text-base leading-relaxed text-[var(--muted)] md:text-lg">
-            Nobody owns the entire customer journey. That&apos;s exactly why
-            roofing companies struggle to scale consistently.
-          </p>
-          <p className="mt-5 text-base font-semibold leading-relaxed text-[var(--ink)] md:text-lg">
-            At Roofing Systems™, we build one complete client acquisition
-            ecosystem where every part works together—from the first click to a
-            qualified homeowner sitting on your sales calendar.
-          </p>
-        </Reveal>
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {features.map((feat, i) => (
+            <Reveal key={feat.title} delay={i * 100}>
+              <div className="group relative flex flex-col h-full rounded-2xl border border-zinc-200 bg-white p-7 shadow-xs transition duration-300 hover:shadow-md hover:-translate-y-1">
+                {/* Icon + Tag */}
+                <div className="flex items-center gap-3">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-50 text-lg">
+                    {feat.icon}
+                  </span>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--accent)] bg-red-50 px-2.5 py-1 rounded-full">
+                    {feat.tag}
+                  </span>
+                </div>
+
+                {/* Card Content */}
+                <h3 className="mt-5 text-lg font-extrabold text-zinc-950 leading-snug tracking-tight">
+                  {feat.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-zinc-500 flex-1">
+                  {feat.description}
+                </p>
+
+                {/* Floating Metric Callout */}
+                <div className="mt-6 rounded-xl border border-zinc-100 bg-zinc-50 p-4 flex items-center justify-between">
+                  <div>
+                    <span className="text-2xl font-extrabold text-zinc-950">{feat.stat}</span>
+                    <p className="text-[11px] font-semibold text-zinc-400 mt-0.5">{feat.statLabel}</p>
+                  </div>
+                  <span className="rounded-full bg-[var(--accent)] px-3 py-1 text-[10px] font-bold text-white uppercase tracking-wider">
+                    {feat.badge}
+                  </span>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );
 }
+
