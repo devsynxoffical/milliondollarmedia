@@ -3,20 +3,18 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { BOOKING_PATH } from "../lib/offer";
 
 const links = [
   { href: "/#system", label: "System" },
-  { href: "/#proof", label: "Results" },
-  { href: "/#included", label: "What's Included" },
+  { href: "/#results", label: "Results" },
+  { href: "/#reviews", label: "Videos" },
   { href: "/#comparison", label: "Why Us" },
-  { href: "/#faq", label: "FAQ" },
 ];
 
 export function Header() {
   const pathname = usePathname();
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [prevPathname, setPrevPathname] = useState(pathname);
 
@@ -25,31 +23,17 @@ export function Header() {
     setOpen(false);
   }
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "border-b border-white/10 bg-black/80 backdrop-blur-xl"
-          : "border-b border-transparent bg-transparent"
-      }`}
-    >
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-zinc-800 bg-[#09090b]/95 backdrop-blur-xl transition-all duration-200">
       {pathname === "/" && (
-        <div className="flex h-9 items-center justify-center gap-2 bg-[var(--band)] px-4 text-center text-[10px] font-semibold tracking-wide text-white/90 md:text-[11px]">
-          <span className="flex h-2 w-2 items-center justify-center">
-            <span className="h-1.5 w-1.5 rounded-full bg-[var(--accent)] animate-pulse" />
-          </span>
+        <div className="flex h-9 items-center justify-center gap-2 bg-[var(--accent)] px-4 text-center text-[10px] font-bold tracking-wide text-white md:text-[11px]">
+          <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
           <span>
-            Only for agency owners &amp; B2B founders generating $10,000+/month.
+            Only for agency owners, coaches, high-ticket service providers
+            &amp; B2B founders already generating $10,000+/month.
           </span>
-          <span className="hidden text-white/50 md:inline">
-            · Double revenue in 90 days guaranteed.
+          <span className="hidden text-white/80 md:inline">
+            · Below $10K/month? This system isn&apos;t the right fit.
           </span>
         </div>
       )}
@@ -62,16 +46,16 @@ export function Header() {
             width={535}
             height={812}
             priority
-            className="h-9 w-auto object-contain drop-shadow-[0_0_12px_rgba(237,28,36,0.25)] md:h-11"
+            className="h-10 w-auto object-contain md:h-12"
           />
         </Link>
 
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="hidden items-center gap-1 rounded-full border border-zinc-800 bg-zinc-900/90 p-1 backdrop-blur-md lg:flex">
           {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/60 transition hover:text-white"
+              className="rounded-full px-4 py-1.5 text-[13px] font-semibold text-zinc-300 transition hover:bg-zinc-800 hover:text-white"
             >
               {link.label}
             </a>
@@ -81,14 +65,14 @@ export function Header() {
         <div className="flex items-center gap-3">
           <Link
             href={BOOKING_PATH}
-            className="btn btn-accent hidden px-6 py-2.5 text-[11px] font-bold uppercase tracking-[0.14em] sm:inline-flex"
+            className="btn btn-accent text-[13px] font-bold px-5 py-2 sm:inline-flex shadow-sm hover:shadow-md"
           >
             Apply Now
           </Link>
 
           <button
             type="button"
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white lg:hidden"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-zinc-700 text-white lg:hidden"
             aria-expanded={open}
             aria-label={open ? "Close menu" : "Open menu"}
             onClick={() => setOpen((v) => !v)}
@@ -103,14 +87,14 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="border-t border-white/10 bg-black/90 backdrop-blur-xl lg:hidden">
+        <div className="border-t border-zinc-800 bg-[#09090b] lg:hidden">
           <nav className="mx-auto flex max-w-[1240px] flex-col px-5 py-4 gap-1">
             {links.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-2.5 text-sm font-semibold text-white/70 hover:bg-white/5 hover:text-white"
+                className="rounded-lg px-3 py-2.5 text-sm font-semibold text-zinc-300 hover:bg-zinc-800 hover:text-white"
               >
                 {link.label}
               </a>

@@ -1,48 +1,33 @@
-import Link from "next/link";
-import { BOOKING_PATH } from "../lib/offer";
-import { AdsGallery } from "./AdsGallery";
-import { Clients } from "./Clients";
-import { LogoStrip } from "./LogoStrip";
-import { ProofGallery } from "./ProofGallery";
 import { Reveal } from "./Reveal";
 import { Reviews } from "./Reviews";
 
 export function Results() {
   return (
     <div id="results">
-      <section className="section-shell bg-[var(--bg)]">
-        <div className="mx-auto max-w-[1200px]">
-          <Reveal className="mx-auto max-w-3xl text-center">
-            <p className="eyebrow-bright">Real client results</p>
-            <h2 className="display mx-auto mt-3 text-[clamp(2rem,4.5vw,3.4rem)] text-white">
+      <section className="relative border-b border-zinc-800 bg-[#09090b] py-16 text-white md:py-20">
+        <div className="jobber-grid-dark pointer-events-none absolute inset-0" />
+
+        <div className="relative mx-auto max-w-[1240px] px-5 md:px-8">
+          <Reveal className="mx-auto flex max-w-3xl flex-col items-center text-center">
+            <div className="pill-badge-red mb-3">
+              <span className="dot-red" />
+              <span>REAL CLIENT RESULTS</span>
+            </div>
+            <h2 className="display text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
               Don&apos;t Take Our Word For It...
               <br />
-              <span className="text-[var(--accent-bright)]">
+              <span className="text-[var(--accent)]">
                 See What Our Clients Have Achieved.
               </span>
             </h2>
-            <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-white/60">
-              Revenue screenshots. Meta Ads dashboards. Video walkthroughs.
-              Case studies across countless verticals—one ads system behind all
-              of it.
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-zinc-400">
+              Video walkthroughs and results from real clients — one ads system
+              behind all of it.
             </p>
-          </Reveal>
-
-          <Reveal delay={140} className="mt-9 text-center">
-            <Link
-              href={BOOKING_PATH}
-              className="btn btn-accent min-w-[280px] px-8 py-4 text-base"
-            >
-              Book Your Free Strategy Call
-            </Link>
           </Reveal>
         </div>
       </section>
 
-      <LogoStrip />
-      <ProofGallery />
-      <AdsGallery />
-      <Clients />
       <Reviews />
     </div>
   );

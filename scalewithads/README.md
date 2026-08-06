@@ -17,4 +17,4 @@ npm install
 npm run dev
 ```
 
-Videos stream from the original CDN. Large local `.mp4` files are gitignored.
+Review videos stream from the original CDN. The funnel VSL videos (`public/media/videos/*.mp4`) are bundled with the app so they work on the deployed site.

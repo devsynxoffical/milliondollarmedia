@@ -1,8 +1,6 @@
 import Link from "next/link";
 import type { FunnelConfig } from "../lib/funnels";
 import { Footer } from "./Footer";
-import { LogoStrip } from "./LogoStrip";
-import { ProofGallery } from "./ProofGallery";
 import { Reviews } from "./Reviews";
 import { VideoPlayer } from "./VideoPlayer";
 
@@ -73,27 +71,25 @@ export function FunnelPage({ funnel }: { funnel: FunnelConfig }) {
         </div>
       </section>
 
-      <LogoStrip />
-
       {/* Inside */}
       <section className="section-shell bg-[var(--bg)]">
         <div className="mx-auto grid max-w-[1200px] gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
-            <p className="eyebrow-bright">Inside</p>
-            <h2 className="display mt-3 text-[clamp(2rem,3.5vw,3rem)] text-white">
+            <p className="eyebrow-accent">Inside</p>
+            <h2 className="display mt-3 text-[clamp(2rem,3.5vw,3rem)] text-[var(--ink)]">
               {funnel.learnTitle}
             </h2>
           </div>
-          <ol className="space-y-0 border-t border-white/10">
+          <ol className="space-y-0 border-t border-zinc-100">
             {funnel.learnItems.map((item, i) => (
               <li
                 key={item}
-                className="grid grid-cols-[64px_1fr] gap-4 border-b border-white/10 py-5"
+                className="grid grid-cols-[64px_1fr] gap-4 border-b border-zinc-100 py-5"
               >
-                <span className="display text-2xl text-[var(--accent-bright)]">
+                <span className="display text-2xl text-[var(--accent)]">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <p className="pt-1 text-base text-white/75">{item}</p>
+                <p className="pt-1 text-base text-[var(--ink-soft)]">{item}</p>
               </li>
             ))}
           </ol>
@@ -119,7 +115,6 @@ export function FunnelPage({ funnel }: { funnel: FunnelConfig }) {
         </div>
       </section>
 
-      <ProofGallery />
       <Reviews />
 
       {/* Final CTA */}

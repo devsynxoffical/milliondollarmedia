@@ -1,34 +1,60 @@
-const trust = [
-  "12+ Years Experience",
-  "$50M+ Managed in Meta Ads",
-  "Multi-Industry Experience",
-  "Proven Client Acquisition Framework",
-  "100% Done-For-You",
-];
+import { Reveal } from "./Reveal";
 
-function CheckIcon() {
-  return (
-    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[var(--accent)] text-[10px] font-bold text-white">
-      <svg viewBox="0 0 24 24" className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth={3} aria-hidden>
-        <path d="M20 6L9 17l-5-5" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    </span>
-  );
-}
+const stats = [
+  {
+    value: "12+",
+    label: "Years of Experience",
+    sub: "Across agencies, coaches & B2B",
+  },
+  {
+    value: "$50M+",
+    label: "Managed in Meta Ads",
+    sub: "Tested & proven campaigns",
+  },
+  {
+    value: "90 Days",
+    label: "Revenue Guarantee",
+    sub: "Backed by written agreement",
+  },
+  {
+    value: "100% DFY",
+    label: "Client Acquisition",
+    sub: "Offer, Ads, CRM, AI & Funnels",
+  },
+];
 
 export function TrustBar() {
   return (
-    <section className="border-b border-white/10 bg-[var(--band-2)]">
-      <div className="mx-auto grid max-w-[1200px] grid-cols-1 gap-x-6 gap-y-3 px-5 py-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 md:px-8">
-        {trust.map((item) => (
-          <div
-            key={item}
-            className="flex items-center justify-center gap-2.5 text-sm font-semibold text-white/80"
-          >
-            <CheckIcon />
-            {item}
-          </div>
-        ))}
+    <section className="relative border-b border-zinc-800 bg-[#09090b] py-16 text-white md:py-20">
+      <div className="jobber-grid-dark pointer-events-none absolute inset-0" />
+
+      <div className="relative mx-auto max-w-[1240px] px-5 md:px-8">
+        <Reveal className="mx-auto max-w-3xl text-center">
+          <h2 className="display text-2xl font-extrabold tracking-tight text-white sm:text-4xl">
+            The proven system behind{" "}
+            <span className="text-[var(--accent)]">
+              $50M+ in managed ad spend
+            </span>
+          </h2>
+        </Reveal>
+
+        <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
+          {stats.map((s, idx) => (
+            <Reveal key={s.label} delay={idx * 70}>
+              <div className="rounded-xl border border-zinc-800 bg-zinc-900/90 p-5 text-center shadow-xs transition duration-300 hover:border-[var(--accent)]">
+                <span className="display text-2xl font-extrabold text-[var(--accent)] sm:text-3xl">
+                  {s.value}
+                </span>
+                <p className="mt-1.5 text-xs font-bold text-white sm:text-sm">
+                  {s.label}
+                </p>
+                <p className="mt-0.5 text-[11px] font-medium text-zinc-400">
+                  {s.sub}
+                </p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );

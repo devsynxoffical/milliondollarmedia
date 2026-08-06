@@ -150,7 +150,7 @@ export function VideoPlayer({
             src={cover}
             alt=""
             fill
-            className="object-contain"
+            className="object-cover"
             sizes="(max-width: 1024px) 100vw, 70vw"
           />
           <span className="absolute inset-0 bg-black/30 transition group-hover:bg-black/20" />

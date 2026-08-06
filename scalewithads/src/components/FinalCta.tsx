@@ -10,61 +10,50 @@ const pains = [
 
 export function FinalCta() {
   return (
-    <section className="relative overflow-hidden bg-[var(--band-2)]">
-      <div className="section-shell">
-        <Reveal className="h-full">
-          <div className="relative mx-auto max-w-[1200px] overflow-hidden rounded-[2rem] bg-[var(--band)] px-6 py-14 text-white shadow-[0_24px_60px_-24px_rgba(237,28,36,0.3)] md:px-12 md:py-16">
-            <div className="studio-grid absolute inset-0 opacity-60" />
-            <div
-              className="pointer-events-none absolute inset-0"
-              style={{
-                background:
-                  "radial-gradient(ellipse 60% 80% at 85% 20%, rgba(237,28,36,0.24), transparent 55%), radial-gradient(ellipse 50% 70% at 10% 90%, rgba(255,255,255,0.1), transparent 60%)",
-              }}
-            />
-
-            <div className="relative z-10 mx-auto max-w-4xl text-center">
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--accent-bright)]">
-                Final step
-              </p>
-              <h2 className="display mt-4 text-[clamp(2rem,5vw,3.6rem)]">
-                Ready To Build A Predictable
-                <br />
-                <span className="text-[var(--accent-bright)]">
-                  Client Acquisition System?
-                </span>
-              </h2>
-
-              <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-                {pains.map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full border border-white/15 bg-white/[0.08] px-5 py-2.5 text-sm font-semibold text-white/85 backdrop-blur-sm"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-
-              <p className="mx-auto mt-8 max-w-3xl text-base leading-relaxed text-white/75">
-                Install a complete Client Acquisition System that consistently
-                attracts, qualifies, nurtures, and books premium clients—so you
-                can focus on closing deals and scaling your business.
-              </p>
-
-              <div className="mt-10 flex justify-center">
-                <Link
-                  href={BOOKING_PATH}
-                  className="btn btn-accent min-w-[300px] px-8 py-4 text-base"
-                >
-                  Book Your Free Strategy Call
-                </Link>
-              </div>
-              <p className="mt-4 text-xs font-medium uppercase tracking-[0.14em] text-white/45">
-                Only for $10K+/month businesses · 90-day written guarantee
-              </p>
-            </div>
+    <section className="section-shell bg-[var(--accent)] text-white">
+      <div className="mx-auto max-w-[1240px] text-center">
+        <Reveal>
+          <div className="pill-badge mx-auto mb-4 inline-flex items-center gap-2 border-white/25 bg-white/10 text-white">
+            <span className="dot-red" />
+            <span>FINAL STEP</span>
           </div>
+          <h2 className="display mx-auto max-w-4xl text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
+            Ready To Build A Predictable Client Acquisition System?
+          </h2>
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/80">
+            Install a complete Client Acquisition System that consistently
+            attracts, qualifies, nurtures, and books premium clients—so you can
+            focus on closing deals and scaling your business.
+          </p>
+
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            {pains.map((item) => (
+              <span
+                key={item}
+                className="rounded-full border border-white/25 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
+
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <Link
+              href={BOOKING_PATH}
+              className="btn bg-white px-8 py-4 text-sm font-bold text-[var(--accent)] shadow-md transition hover:bg-zinc-100"
+            >
+              Book Your Free Strategy Call →
+            </Link>
+            <Link
+              href="#system"
+              className="btn btn-outline-dark px-7 py-4 text-sm font-semibold"
+            >
+              See How It Works
+            </Link>
+          </div>
+          <p className="mt-5 text-sm font-semibold text-white/70">
+            $10K/month minimum · 90-day written guarantee · You own everything.
+          </p>
         </Reveal>
       </div>
     </section>

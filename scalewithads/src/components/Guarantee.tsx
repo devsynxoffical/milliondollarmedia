@@ -76,9 +76,9 @@ export function Guarantee() {
         <Reveal delay={140} className="mt-10 text-center">
           <Link
             href={BOOKING_PATH}
-            className="btn btn-accent min-w-[280px] px-8 py-4 text-base"
+            className="btn btn-accent inline-flex min-w-[280px] px-8 py-4 text-sm font-bold shadow-md"
           >
-            Book Your Free Strategy Call
+            Book Your Free Strategy Call →
           </Link>
         </Reveal>
       </div>

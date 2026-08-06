@@ -10,10 +10,10 @@ const options = [
 ];
 
 const inputCls =
-  "w-full rounded-xl border border-white/15 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-white/30 outline-none transition focus:border-[var(--accent)] focus:bg-white/[0.07]";
+  "w-full rounded-xl border border-[var(--line)] bg-white px-4 py-3 text-sm text-[var(--ink)] placeholder:text-zinc-400 outline-none transition focus:border-[var(--accent)] focus:shadow-[0_0_0_3px_rgba(237,28,36,0.1)]";
 
 const labelCls =
-  "block text-xs font-extrabold uppercase tracking-wider text-white/50 mb-1";
+  "block text-xs font-extrabold uppercase tracking-wider text-[var(--muted)] mb-1";
 
 export function BookingForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -26,14 +26,14 @@ export function BookingForm() {
 
   if (submitted) {
     return (
-      <div className="rounded-2xl border border-white/10 bg-white/[0.05] p-8 text-center shadow-lg">
+      <div className="rounded-2xl border border-[var(--line)] bg-white p-8 text-center shadow-lg">
         <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-[var(--accent)] text-white">
           <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth={2.5} aria-hidden>
             <path d="M20 6L9 17l-5-5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </span>
-        <h3 className="display mt-4 text-2xl text-white">Application Received</h3>
-        <p className="mt-2 text-sm text-white/60">
+        <h3 className="display mt-4 text-2xl text-[var(--ink)]">Application Received</h3>
+        <p className="mt-2 text-sm text-[var(--muted)]">
           Thank you! Our growth team will review your business fit and contact you within 24 hours.
         </p>
       </div>
@@ -41,7 +41,7 @@ export function BookingForm() {
   }
 
   return (
-    <div id="booking" className="section-shell bg-[var(--bg)] border-b border-white/10">
+    <div id="booking" className="section-shell bg-[var(--bg)] border-b border-zinc-100">
       <div className="mx-auto max-w-[1240px]">
         <div className="grid gap-12 lg:grid-cols-12 items-center">
           {/* Left Column — Header & Details */}
@@ -50,10 +50,10 @@ export function BookingForm() {
               <span className="dot-accent" />
               <span>APPLY NOW</span>
             </div>
-            <h2 className="display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.1]">
+            <h2 className="display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[var(--ink)] tracking-tight leading-[1.1]">
               Tell us what you&apos;re working on.
             </h2>
-            <p className="mt-4 text-base sm:text-lg text-white/60 leading-relaxed">
+            <p className="mt-4 text-base sm:text-lg text-[var(--muted)] leading-relaxed">
               We build client acquisition systems for scale. Tell us about your business goals and let&apos;s build a system engineered to double your revenue.
             </p>
 
@@ -63,7 +63,7 @@ export function BookingForm() {
                 "Backed by a Written 90-Day Revenue Agreement",
                 "Exclusive to $10K+/month Businesses",
               ].map((item) => (
-                <div key={item} className="flex items-center gap-3 text-sm font-semibold text-white/80">
+                <div key={item} className="flex items-center gap-3 text-sm font-semibold text-[var(--ink-soft)]">
                   <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[var(--accent)] text-white text-xs font-bold">
                     ✓
                   </span>
@@ -77,7 +77,7 @@ export function BookingForm() {
           <div className="lg:col-span-7">
             <form
               onSubmit={handleSubmit}
-              className="rounded-2xl border border-white/10 bg-white/[0.05] p-6 sm:p-8 shadow-xl backdrop-blur-sm"
+              className="rounded-2xl border border-[var(--line)] bg-white p-6 sm:p-8 shadow-xl"
             >
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
@@ -125,7 +125,7 @@ export function BookingForm() {
                       className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition ${
                         selectedTopic === opt
                           ? "bg-[var(--accent)] text-white shadow-xs"
-                          : "border border-white/15 bg-white/[0.04] text-white/70 hover:bg-white/[0.1] hover:text-white"
+                          : "border border-[var(--line)] bg-white text-[var(--muted)] hover:border-[var(--ink)] hover:text-[var(--ink)]"
                       }`}
                     >
                       {opt}
@@ -138,7 +138,7 @@ export function BookingForm() {
                 <label className={labelCls}>Current Monthly Revenue *</label>
                 <select
                   required
-                  className={`${inputCls} bg-[var(--surface)] [&>option]:bg-[var(--surface)] [&>option]:text-white`}
+                  className={`${inputCls} bg-[var(--surface)] [&>option]:bg-[var(--surface)] [&>option]:text-[var(--ink)]`}
                   defaultValue="$10k - $25k/mo"
                 >
                   <option value="under-10k">Under $10k/mo (do not apply)</option>
@@ -165,7 +165,7 @@ export function BookingForm() {
                 Send Message →
               </button>
 
-              <p className="mt-3 text-center text-xs text-white/45">
+              <p className="mt-3 text-center text-xs text-[var(--muted)]">
                 By submitting, you agree to our terms. Backed by a written agreement.
               </p>
             </form>

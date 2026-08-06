@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Inter, Inter_Tight } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google";
 import { Header } from "../components/Header";
 import "./globals.css";
 
-const display = Inter_Tight({
+const display = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-display",
-  weight: ["600", "700", "800"],
+  weight: ["500", "600", "700"],
 });
 
 const body = Inter({

@@ -1,11 +1,9 @@
 import { Comparison } from "../components/Comparison";
 import { Difference } from "../components/Difference";
-import { Faq } from "../components/Faq";
 import { FinalCta } from "../components/FinalCta";
 import { Footer } from "../components/Footer";
 import { Guarantee } from "../components/Guarantee";
 import { Hero } from "../components/Hero";
-import { Included } from "../components/Included";
 import { Ownership } from "../components/Ownership";
 import { Problem } from "../components/Problem";
 import { Results } from "../components/Results";
@@ -19,13 +17,11 @@ export default function Home() {
       <TrustBar />
       <Problem />
       <Difference />
-      <Results />
       <Steps />
-      <Included />
       <Ownership />
       <Comparison />
       <Guarantee />
-      <Faq />
+      <Results />
       <FinalCta />
       <Footer />
     </main>
