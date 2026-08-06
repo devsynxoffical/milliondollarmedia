@@ -40,7 +40,7 @@ export function Hero() {
 
       <div className="relative mx-auto max-w-[1240px] px-5 md:px-8">
         <div className="grid gap-12 lg:grid-cols-12 items-center">
-          {/* Left Column — GetJobber Hero Style */}
+          {/* Left Column, GetJobber Hero Style */}
           <div className="lg:col-span-7 flex flex-col items-start">
             <div className="pill-badge-red animate-fade-in shadow-xs mb-4">
               <span className="dot-red" />
@@ -53,7 +53,7 @@ export function Hero() {
             </h1>
 
             <p className="mt-5 max-w-2xl text-lg sm:text-xl font-medium leading-relaxed text-zinc-300">
-              Stop paying $4,000–$7,000 a month for generic marketing agencies that treat roofing like every other business. Roofing Systems™ is a complete client acquisition system built specifically for roofing companies—and it&apos;s guaranteed to double your revenue in 90 days.
+              Stop paying $4,000–$7,000 a month for generic marketing agencies that treat roofing like every other business. Roofing Systems™ is a complete client acquisition system built specifically for roofing companies, and it&apos;s guaranteed to double your revenue in 90 days.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row items-center gap-3.5 w-full sm:w-auto">
@@ -84,7 +84,7 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Right Column — Vertical Image Scroller (Marquee) */}
+          {/* Right Column, Vertical Image Scroller (Marquee) */}
           <div
             className="lg:col-span-5"
             style={{

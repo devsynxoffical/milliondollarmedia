@@ -65,7 +65,7 @@ export function Contact() {
               </h2>
               <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white/75">
                 Only for $1M+ roofing companies. Funnel, creatives, ads, and
-                follow-up handled for you — you just take the sales calls.
+                follow-up handled for you, you just take the sales calls.
               </p>
             </div>
 

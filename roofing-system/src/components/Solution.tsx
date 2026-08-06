@@ -32,7 +32,7 @@ export function Solution() {
         <Reveal className="flex flex-col items-center text-center max-w-3xl mx-auto">
           <div className="pill-badge-red mb-3">
             <span className="dot-red" />
-            <span>SECTION 3 — THE SOLUTION</span>
+            <span>SECTION 3, THE SOLUTION</span>
           </div>
           <h2 className="display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-zinc-950 tracking-tight">
             We Don&apos;t Just Generate Roofing Leads…

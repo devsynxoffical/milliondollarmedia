@@ -184,7 +184,7 @@ export function Reviews() {
               Book Application Call
             </span>
             <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/80">
-              If we don&apos;t perform — you don&apos;t pay
+              If we don&apos;t perform, you don&apos;t pay
             </span>
           </Link>
         </Reveal>

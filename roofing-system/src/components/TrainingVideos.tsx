@@ -12,7 +12,7 @@ const resources = [
     tag: "Lowest-Cost Leads",
     title: "50% Drop In Cost Per Lead",
     quote: "Roofing agency client? 50% drop in his cost per lead.",
-    body: "How we generate high-quality roofing leads at the lowest possible cost — and what changed in the account to get there.",
+    body: "How we generate high-quality roofing leads at the lowest possible cost, and what changed in the account to get there.",
   },
   {
     id: "DQXUnRNkjR3",
@@ -22,7 +22,7 @@ const resources = [
     tag: "System Strategy",
     title: "Why Most Programs Fail",
     quote: "I've spent over $10,000+ on different programs.",
-    body: "The strategic thinking behind our client acquisition system — and why the way roofing companies buy marketing is usually the problem.",
+    body: "The strategic thinking behind our client acquisition system, and why the way roofing companies buy marketing is usually the problem.",
   },
   {
     id: "DPHgI7fEuIA",
@@ -31,8 +31,8 @@ const resources = [
     category: "Live Training",
     tag: "Realistic Results",
     title: "Inside A Live Roofing Team Training",
-    quote: "2-hour roofing team training — behind the scenes.",
-    body: "What results you can realistically expect once we launch and optimize your campaigns — straight from a live training session with a roofing team.",
+    quote: "2-hour roofing team training, behind the scenes.",
+    body: "What results you can realistically expect once we launch and optimize your campaigns, straight from a live training session with a roofing team.",
   },
 ];
 
@@ -40,7 +40,7 @@ export function TrainingVideos() {
   return (
     <section id="training" className="section-shell bg-white border-b border-zinc-100">
       <div className="mx-auto max-w-[1240px]">
-        {/* Header — GetJobber Style */}
+        {/* Header, GetJobber Style */}
         <Reveal className="flex flex-col items-start max-w-3xl">
           <div className="pill-badge-red mb-3">
             <span className="dot-red" />
@@ -55,7 +55,7 @@ export function TrainingVideos() {
           </p>
         </Reveal>
 
-        {/* Video Cards Grid — GetJobber style */}
+        {/* Video Cards Grid, GetJobber style */}
         <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {resources.map((video, i) => (
             <Reveal key={video.id} delay={i * 100} className="h-full">

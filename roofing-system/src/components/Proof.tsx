@@ -47,7 +47,7 @@ export function Proof() {
           </h2>
           <p className="mt-5 text-base leading-relaxed text-black/70 md:text-lg">
             If it works in one niche, it doesn&apos;t mean anything. We&apos;ve
-            proven it works everywhere. This isn&apos;t a one-off win — it&apos;s
+            proven it works everywhere. This isn&apos;t a one-off win, it&apos;s
             a client acquisition machine that repeats results across industries.
           </p>
         </div>

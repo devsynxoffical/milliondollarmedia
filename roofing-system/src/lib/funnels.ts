@@ -34,7 +34,7 @@ export const ADS_COPY_FUNNEL: FunnelConfig = {
   titleAccent: "300–500 Roofing Sales Calls",
   titleEnd: "Per Month",
   subtitle:
-    "Pinpoint untapped Facebook interests inside Ads Manager that most roofers and roofing agency owners miss — so you can reduce CPL while increasing the volume of qualified calls.",
+    "Pinpoint untapped Facebook interests inside Ads Manager that most roofers and roofing agency owners miss, so you can reduce CPL while increasing the volume of qualified calls.",
   videoLabel: "Watch Private Roofing Mastermind",
   videoSrc: MASTERCLASS_VIDEO,
   videoCover: "/media/covers/cover-ads-copy.jpeg",
@@ -48,7 +48,7 @@ export const ADS_COPY_FUNNEL: FunnelConfig = {
   ],
   trackTitle: "A proven system with a massive track record",
   trackBody:
-    "If it works in one niche, it doesn’t mean anything. We’ve proven it works across industries. This isn’t a one-off win — it’s a client acquisition machine that repeats results.",
+    "If it works in one niche, it doesn’t mean anything. We’ve proven it works across industries. This isn’t a one-off win, it’s a client acquisition machine that repeats results.",
   ctaPrimary: "BUILD MY SALES CALL MACHINE",
   ctaPrimarySub: "Book your free 1:1 call now",
   ctaSecondary: "LET’S SCALE MY SALES CALLS",
@@ -61,13 +61,13 @@ export const AUDIENCE_FUNNEL: FunnelConfig = {
   metaTitle:
     "Private Mastermind: Audience Segmentation | Roofing Systems Co.",
   metaDescription:
-    "Private mastermind recording on audience segmentation for roofing ads — build cleaner targeting, stronger qualification, and more booked sales calls.",
+    "Private mastermind recording on audience segmentation for roofing ads, build cleaner targeting, stronger qualification, and more booked sales calls.",
   eyebrow: "Private mastermind recording · Audience segmentation",
   title: "The Audience Segmentation Playbook Behind",
   titleAccent: "Higher-Quality Roofing Calls",
   titleEnd: "At Lower CPL",
   subtitle:
-    "Stop spraying budget at broad Meta audiences. This private recording shows how to segment roofing buyers so you attract people ready to book — not tire-kickers.",
+    "Stop spraying budget at broad Meta audiences. This private recording shows how to segment roofing buyers so you attract people ready to book, not tire-kickers.",
   videoLabel: "Watch Audience Segmentation Mastermind",
   videoSrc: MASTERCLASS_VIDEO,
   videoCover: "/media/video/masterclass-poster-2.png",

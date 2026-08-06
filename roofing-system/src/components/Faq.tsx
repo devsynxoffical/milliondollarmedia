@@ -17,7 +17,7 @@ const faqs = [
   },
   {
     q: "Can I see what’s happening live?",
-    a: "Yes. You get complete live access to campaigns, performance, and system activity — full transparency.",
+    a: "Yes. You get complete live access to campaigns, performance, and system activity, full transparency.",
   },
   {
     q: "How do I start?",

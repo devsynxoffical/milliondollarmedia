@@ -83,7 +83,7 @@ export function Footer() {
               className="h-12 w-auto object-contain"
             />
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-zinc-400">
-              Roofing Systems Co. — complete client acquisition systems for $1M+ roofing contractors. Double revenue in 90 days. Everything in writing.
+              Roofing Systems Co., complete client acquisition systems for $1M+ roofing contractors. Double revenue in 90 days. Everything in writing.
             </p>
             <div className="mt-6 flex gap-2.5">
               {socials.map((item) => (

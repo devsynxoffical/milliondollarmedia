@@ -33,7 +33,7 @@ export function StatsBand() {
           </h2>
         </Reveal>
 
-        {/* 4 Stat Boxes — GetJobber Style */}
+        {/* 4 Stat Boxes, GetJobber Style */}
         <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4">
           {stats.map((s, idx) => (
             <Reveal key={s.label} delay={idx * 70}>
@@ -46,7 +46,7 @@ export function StatsBand() {
           ))}
         </div>
 
-        {/* Quick Opt-in Bar — GetJobber Style */}
+        {/* Quick Opt-in Bar, GetJobber Style */}
         <div className="mt-10 max-w-xl mx-auto">
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-center gap-2 p-2 rounded-full border border-zinc-800 bg-zinc-900 shadow-md">
             <input

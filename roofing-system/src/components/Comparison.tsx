@@ -47,7 +47,7 @@ export function Comparison() {
                   Traditional Agency
                 </h3>
                 <p className="mt-1 text-sm text-[var(--muted)]">
-                  Generate leads—then stop.
+                  Generate leads, then stop.
                 </p>
               </div>
               <ul className="flex-1 space-y-3 px-8 pb-10 md:px-10">
@@ -81,7 +81,7 @@ export function Comparison() {
                   </span>
                 </div>
                 <p className="mt-1 text-sm text-white/80">
-                  Builds predictable growth—end to end.
+                  Builds predictable growth, end to end.
                 </p>
               </div>
               <ul className="flex-1 space-y-3 px-8 py-8 md:px-10">

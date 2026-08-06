@@ -40,8 +40,8 @@ export function LogoStrip() {
           Roofing companies. One ads system.
         </h2>
         <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-[var(--muted)] md:text-base">
-          Operators across every roofing niche — from residential replacements
-          to commercial storm work — running the same acquisition machine.
+          Operators across every roofing niche, from residential replacements
+          to commercial storm work, running the same acquisition machine.
         </p>
       </div>
       <Row />

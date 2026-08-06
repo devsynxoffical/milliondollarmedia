@@ -7,7 +7,7 @@ import { MASTERCLASS_COVER, MASTERCLASS_VIDEO } from "../../lib/video";
 export const metadata: Metadata = {
   title: "Book Application Call | Roofing Systems Co.",
   description:
-    "Apply for Roofing Systems Co. Only for roofers doing $1M+. Double your revenue in 90 days — or you don't pay.",
+    "Apply for Roofing Systems Co. Only for roofers doing $1M+. Double your revenue in 90 days, or you don't pay.",
 };
 
 export default function BookPage() {
@@ -52,10 +52,10 @@ export default function BookPage() {
 
               <ul className="mt-8 space-y-4 text-sm text-[var(--ink)]/75">
                 {[
-                  "Only for roofers — $1M minimum or don’t apply",
+                  "Only for roofers, $1M minimum or don’t apply",
                   "Funnel + creatives + ads + follow-up handled for you",
                   "You just take the sales call",
-                  "Live access to everything — full transparency",
+                  "Live access to everything, full transparency",
                   "If we don’t perform, you don’t pay",
                 ].map((item) => (
                   <li key={item} className="flex gap-3">

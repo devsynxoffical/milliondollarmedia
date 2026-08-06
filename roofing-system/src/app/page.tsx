@@ -12,7 +12,7 @@ import { MASTERCLASS_COVER, MASTERCLASS_VIDEO } from "../lib/video";
 import Link from "next/link";
 import { Reveal } from "../components/Reveal";
 
-// Roofing Specialties — GetJobber "Proud Partner" grid
+// Roofing Specialties, GetJobber "Proud Partner" grid
 const specialties = [
   { label: "Residential Roofing", emoji: "🏠" },
   { label: "Commercial Roofing", emoji: "🏢" },
@@ -28,7 +28,7 @@ const specialties = [
 const systemSteps = [
   { title: "Market Research & Homeowner Analysis", text: "We identify exactly which homeowners are most likely to invest in a roof replacement and what motivates them to buy." },
   { title: "Roofing Offer Positioning", text: "We position your roofing company so homeowners choose you over competing contractors." },
-  { title: "Roofing Messaging & Creative Development", text: "We create roofing-specific ads, messaging, and creatives that attract premium homeowners—not price shoppers." },
+  { title: "Roofing Messaging & Creative Development", text: "We create roofing-specific ads, messaging, and creatives that attract premium homeowners, not price shoppers." },
   { title: "Landing Pages & Sales Funnel", text: "We build high-converting landing pages and sales funnels that turn roofing traffic into booked inspections and estimates." },
   { title: "Meta Ads Management", text: "We launch, manage, and optimize your roofing campaigns daily." },
   { title: "CRM & AI Automations", text: "Every roofing lead automatically enters your CRM with email, SMS, reminders, and automated follow-up." },
@@ -94,7 +94,7 @@ const guaranteePoints = [
   "Everything is backed by a written agreement.",
 ];
 
-// Results metrics — anchors to header "Results" (#proof)
+// Results metrics, anchors to header "Results" (#proof)
 const proofMetrics = [
   { tag: "Call Volume", metric: "300–500", label: "Qualified sales calls booked every month" },
   { tag: "Roofing Scale", metric: "635", label: "Roofing leads generated in 45 days" },
@@ -143,7 +143,7 @@ function SystemStepsSection() {
         <Reveal className="flex flex-col items-center text-center max-w-3xl mx-auto">
           <div className="pill-badge-red mb-3">
             <span className="dot-red" />
-            <span>SECTION 5 — THE 8-STEP SYSTEM</span>
+            <span>SECTION 5, THE 8-STEP SYSTEM</span>
           </div>
           <h2 className="display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-zinc-950 tracking-tight">
             Our 8-Step Roofing{" "}
@@ -203,7 +203,7 @@ function IncludedSection() {
             <span className="text-[var(--accent)]">Nothing Extra To Pay For.</span>
           </h2>
           <p className="mt-4 text-base sm:text-lg text-zinc-500 leading-relaxed">
-            The complete roofing client acquisition system—installed, managed,
+            The complete roofing client acquisition system, installed, managed,
             and optimized for you.
           </p>
         </Reveal>
@@ -311,7 +311,7 @@ function ComparisonSection() {
               <h3 className="display text-2xl font-extrabold text-zinc-950">
                 Traditional Agency
               </h3>
-              <p className="mt-1 text-sm text-zinc-500">Generate leads—then stop.</p>
+              <p className="mt-1 text-sm text-zinc-500">Generate leads, then stop.</p>
               <ul className="mt-6 flex-1 space-y-3">
                 {traditionalItems.map((item) => (
                   <li
@@ -346,7 +346,7 @@ function ComparisonSection() {
                 </span>
               </div>
               <p className="mt-1 text-sm text-zinc-400">
-                Builds predictable growth—end to end.
+                Builds predictable growth, end to end.
               </p>
               <ul className="mt-6 flex-1 space-y-3">
                 {systemItems.map((item) => (
@@ -438,7 +438,7 @@ function ResultsSection() {
           </h2>
           <p className="mt-4 text-zinc-400 text-base leading-relaxed">
             Not a one-off win. This is a client acquisition machine that repeats
-            results across industries — built and optimized for roofing.
+            results across industries, built and optimized for roofing.
           </p>
         </Reveal>
 
@@ -476,7 +476,7 @@ function CtaSection() {
           Book Your Free Strategy Call. Get Your Client Acquisition System. Stop overpaying for marketing.           Start building a roofing business that prints money.
         </h2>
         <p className="mt-5 max-w-2xl mx-auto text-base text-white/80 leading-relaxed">
-          Install Roofing Systems™ — a complete done-for-you acquisition engine that consistently attracts, qualifies, and books high-value roof replacement opportunities.
+          Install Roofing Systems™, a complete done-for-you acquisition engine that consistently attracts, qualifies, and books high-value roof replacement opportunities.
         </p>
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
           <Link href={BOOKING_PATH} className="btn bg-white text-[var(--accent)] font-bold px-8 py-4 text-sm hover:bg-zinc-100 shadow-md">
@@ -508,8 +508,8 @@ function MasterclassSection() {
             <span className="text-[var(--accent)]">full breakdown</span>
           </h2>
           <p className="mt-4 text-zinc-400 text-base leading-relaxed">
-            See exactly how we install the acquisition system — offer
-            positioning, Meta Ads, funnel, CRM and AI follow-up — so you can
+            See exactly how we install the acquisition system, offer
+            positioning, Meta Ads, funnel, CRM and AI follow-up, so you can
             run a stronger roofing business.
           </p>
         </Reveal>

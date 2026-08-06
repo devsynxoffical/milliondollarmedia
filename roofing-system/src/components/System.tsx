@@ -6,7 +6,7 @@ const services = [
   {
     step: "01",
     title: "Funnel",
-    body: "High-converting roofing funnel built to book qualified sales calls — not tire-kickers.",
+    body: "High-converting roofing funnel built to book qualified sales calls, not tire-kickers.",
     icon: (
       <svg viewBox="0 0 24 24" className="h-8 w-8" aria-hidden>
         <path
@@ -50,7 +50,7 @@ const services = [
   {
     step: "04",
     title: "Follow-up",
-    body: "We handle follow-up so prospects get worked — you don’t chase them yourself.",
+    body: "We handle follow-up so prospects get worked, you don’t chase them yourself.",
     icon: (
       <svg viewBox="0 0 24 24" className="h-8 w-8" aria-hidden>
         <path
@@ -78,7 +78,7 @@ export function System() {
               growth at your roofing business
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-[var(--muted)]">
-              Four moves. One machine. We run the full acquisition engine — your
+              Four moves. One machine. We run the full acquisition engine, your
               job is simple: close the job on the sales call.
             </p>
           </Reveal>

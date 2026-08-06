@@ -174,7 +174,7 @@ export function Clients() {
             </h2>
           </div>
           <p className="max-w-xl text-sm leading-relaxed text-[var(--muted)] md:justify-self-end">
-            From high-ticket coaches to 9-figure agency owners — the same ads
+            From high-ticket coaches to 9-figure agency owners, the same ads
             system, scaled across countless verticals. Hover to pause, scroll
             for the full roster.
           </p>

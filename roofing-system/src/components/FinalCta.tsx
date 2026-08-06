@@ -44,7 +44,7 @@ export function FinalCta() {
               </div>
 
               <p className="mx-auto mt-8 max-w-3xl text-base leading-relaxed text-white/75">
-                Install Roofing Systems™—a complete roofing client acquisition
+                Install Roofing Systems™, a complete roofing client acquisition
                 system that consistently attracts, qualifies, nurtures, and
                 books high-value roof replacement opportunities, so your team
                 can focus on running appointments, closing profitable projects,

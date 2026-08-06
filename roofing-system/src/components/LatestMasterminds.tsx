@@ -20,7 +20,7 @@ const posts = [
   {
     image: "/media/video/masterclass-poster-2.png",
     meta: "Video breakdown · Watch now",
-    title: "Systems Breakdown — You Just Take the Sales Call",
+    title: "Systems Breakdown, You Just Take the Sales Call",
     author: "RSC",
     href: "/#masterclass",
   },
@@ -41,7 +41,7 @@ export function LatestMasterminds() {
           </Reveal>
           <Reveal delay={120}>
             <p className="max-w-md text-sm leading-relaxed text-[var(--muted)] md:justify-self-end md:text-base">
-              Watch the private recordings before you apply. No email walls —
+              Watch the private recordings before you apply. No email walls,
               just the breakdown, then book if it fits.
             </p>
           </Reveal>

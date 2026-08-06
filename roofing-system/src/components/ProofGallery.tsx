@@ -22,7 +22,7 @@ export function ProofGallery() {
             <p className="max-w-md text-sm leading-relaxed text-[var(--muted)] md:justify-self-end md:text-base">
               Real spend. Real results. Tap &quot;See more&quot; to scroll
               deeper into a campaign, or &quot;View full&quot; for the complete
-              dashboard — the same transparency you get with live access.
+              dashboard, the same transparency you get with live access.
             </p>
           </Reveal>
         </div>

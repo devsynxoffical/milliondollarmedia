@@ -32,7 +32,7 @@ export function Header() {
       </div>
 
       <div className="mx-auto flex h-16 max-w-[1240px] items-center justify-between gap-4 px-5 md:h-18 md:px-8">
-        {/* Original Red Logo — No invert filter */}
+        {/* Original Red Logo, No invert filter */}
         <Link href="/" className="flex items-center gap-3 shrink-0" onClick={() => setOpen(false)}>
           <Image
             src="/logo.png"

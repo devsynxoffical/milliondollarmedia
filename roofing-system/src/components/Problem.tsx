@@ -2,7 +2,7 @@ import { Reveal } from "./Reveal";
 
 const paragraphs = [
   "Most marketing agencies dump ad leads on your desk and call it a job done. But if your sales team can't book them, your money is wasted.",
-  "You're losing projects to competitors because your whole marketing process is disconnected — ads, funnel, CRM, follow-up, and booking are all working against each other.",
+  "You're losing projects to competitors because your whole marketing process is disconnected, ads, funnel, CRM, follow-up, and booking are all working against each other.",
   "The result? Expensive leads, missed inspections, empty calendars, and lost revenue.",
   "But here's the thing… You don't need more leads. You need a complete client acquisition system.",
 ];
@@ -14,7 +14,7 @@ export function Problem() {
         <Reveal className="flex flex-col items-center text-center max-w-3xl mx-auto">
           <div className="pill-badge-red mb-3">
             <span className="dot-red" />
-            <span>SECTION 2 — THE PROBLEM</span>
+            <span>SECTION 2, THE PROBLEM</span>
           </div>
           <h2 className="display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-zinc-950 tracking-tight">
             Most Roofing Companies Don&apos;t Have A Lead Problem…

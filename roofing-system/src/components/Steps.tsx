@@ -13,7 +13,7 @@ const steps = [
   },
   {
     title: "Roofing Messaging & Creative Development",
-    text: "We create roofing-specific ads, messaging, and creatives that attract premium homeowners—not price shoppers.",
+    text: "We create roofing-specific ads, messaging, and creatives that attract premium homeowners, not price shoppers.",
   },
   {
     title: "Landing Pages & Sales Funnel",

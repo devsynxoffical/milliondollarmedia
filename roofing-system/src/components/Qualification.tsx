@@ -23,7 +23,7 @@ const phases = [
     step: "01",
     window: "Days 1–30",
     title: "Build",
-    body: "Funnel, creatives and offer — live, tracked and validated.",
+    body: "Funnel, creatives and offer, live, tracked and validated.",
   },
   {
     step: "02",
@@ -216,7 +216,7 @@ export function Qualification() {
               <span className="text-[var(--purple)]">company brand</span>
             </h2>
             <p className="mt-5 max-w-md text-base leading-relaxed text-[var(--muted)]">
-              Serious roofers only. If you&apos;re not at $1M yet — come back
+              Serious roofers only. If you&apos;re not at $1M yet, come back
               when you are. We handle the acquisition machine so you can focus
               on closing.
             </p>
@@ -264,7 +264,7 @@ export function Qualification() {
           <Reveal delay={180}>
             <Link href={BOOKING_PATH} className="cta-btn-dark mt-8 inline-flex">
               <span className="display text-base tracking-normal">
-                I Qualify — Book My Call
+                I Qualify, Book My Call
               </span>
             </Link>
           </Reveal>

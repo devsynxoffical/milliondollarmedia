@@ -53,7 +53,7 @@ export function BookingForm() {
         </p>
         <p className="mt-3 text-sm text-zinc-500">
           We&apos;ll review your details and reach out to confirm your call.
-          $1M+ roofers only — unqualified applications are declined.
+          $1M+ roofers only, unqualified applications are declined.
         </p>
         <Link
           href="/"
@@ -107,7 +107,7 @@ export function BookingForm() {
             <option value="" disabled>
               Select revenue range
             </option>
-            <option value="under-1m">Under $1M — Do not apply</option>
+            <option value="under-1m">Under $1M, Do not apply</option>
             <option value="1-3m">$1M – $3M</option>
             <option value="3-5m">$3M – $5M</option>
             <option value="5m-plus">$5M+</option>
@@ -156,7 +156,7 @@ export function BookingForm() {
         disabled={status === "submitting"}
         className="btn btn-accent mt-8 w-full py-4 text-sm font-bold disabled:cursor-wait disabled:opacity-70 shadow-md"
       >
-        {status === "submitting" ? "Submitting…" : "Submit Application — Double Revenue in 90 Days"}
+        {status === "submitting" ? "Submitting…" : "Submit Application, Double Revenue in 90 Days"}
       </button>
     </form>
   );

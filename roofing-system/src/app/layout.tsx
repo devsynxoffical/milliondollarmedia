@@ -19,7 +19,7 @@ const body = Inter({
 export const metadata: Metadata = {
   title: "Roofing Systems Co. | Double Your Revenue in 90 Days",
   description:
-    "Only for $1M+ roofers. We install your complete roofing client acquisition system — offer positioning, Meta Ads, creatives, landing pages, CRM, AI follow-up. You run the appointments and close. Guaranteed in writing.",
+    "Only for $1M+ roofers. We install your complete roofing client acquisition system, offer positioning, Meta Ads, creatives, landing pages, CRM, AI follow-up. You run the appointments and close. Guaranteed in writing.",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },

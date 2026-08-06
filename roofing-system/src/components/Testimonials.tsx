@@ -3,7 +3,7 @@ const testimonials = [
     name: "Vaishali Kapoor",
     date: "Dec 10",
     excerpt:
-      "Most coaches run free webinars and somehow still end up paying a premium just to get people in the room. High CPL, low shows, zero buyers — the usual cycle.",
+      "Most coaches run free webinars and somehow still end up paying a premium just to get people in the room. High CPL, low shows, zero buyers, the usual cycle.",
     banner: "WE PUT A $7 GATE AND 462 PAID WITHOUT THINKING",
     tone: "red" as const,
   },
@@ -11,7 +11,7 @@ const testimonials = [
     name: "Gaurav Kapoor",
     date: "Dec 25",
     excerpt:
-      "Roofers won't like this… but it needs to be said. If your marketer says roofing leads can't be scaled cheap — fire them.",
+      "Roofers won't like this… but it needs to be said. If your marketer says roofing leads can't be scaled cheap, fire them.",
     banner: "635 LEADS IN 45 DAYS WITH ULTRA-LOW CPMS",
     tone: "yellow" as const,
   },

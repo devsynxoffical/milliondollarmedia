@@ -29,7 +29,7 @@ export function Included() {
             <span className="text-[var(--purple)]">Nothing Extra To Pay For.</span>
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-[var(--muted)]">
-            The complete roofing client acquisition system—installed, managed,
+            The complete roofing client acquisition system, installed, managed,
             and optimized for you.
           </p>
         </Reveal>
