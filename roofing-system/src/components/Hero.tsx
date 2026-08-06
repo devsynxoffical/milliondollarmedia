@@ -3,10 +3,11 @@ import Link from "next/link";
 import { BOOKING_PATH } from "../lib/offer";
 
 const trustBadges = [
-  "Roofing Client Acquisition System",
-  "$50M+ Meta Ad Spend",
-  "90-Day Written Guarantee",
-  "100% DFY System",
+  "12+ Years Experience",
+  "$50M+ Managed in Meta Ads",
+  "Roofing Industry Growth System",
+  "Proven Roofing Client Acquisition Framework",
+  "100% Done-For-You",
 ];
 
 const mediaGrid = [
@@ -47,11 +48,12 @@ export function Hero() {
             </div>
 
             <h1 className="display text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.02]">
-              Run a stronger <span className="text-[var(--accent)]">roofing business.</span>
+              Only For Roofing Companies Doing{" "}
+              <span className="text-[var(--accent)]">$1M+ Per Year</span>
             </h1>
 
             <p className="mt-5 max-w-2xl text-lg sm:text-xl font-medium leading-relaxed text-zinc-300">
-              We install our complete client acquisition system into your roofing company — offer positioning, Meta Ads, high-converting funnels, CRM, and AI follow-up — guaranteed to double your revenue in 90 days.
+              Stop paying $4,000–$7,000 a month for generic marketing agencies that treat roofing like every other business. Roofing Systems™ is a complete client acquisition system built specifically for roofing companies—and it&apos;s guaranteed to double your revenue in 90 days.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row items-center gap-3.5 w-full sm:w-auto">
@@ -59,7 +61,7 @@ export function Hero() {
                 href={BOOKING_PATH}
                 className="btn btn-accent w-full sm:w-auto px-8 py-4 text-base font-bold shadow-md hover:shadow-xl transition-all"
               >
-                Book Strategy Call →
+                Book Your Free Strategy Call →
               </Link>
               <Link
                 href="#system"
