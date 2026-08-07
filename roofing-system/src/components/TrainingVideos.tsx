@@ -82,7 +82,7 @@ export function TrainingVideos() {
                     {video.title}
                   </h3>
                   <p className="text-sm italic leading-relaxed text-zinc-400">
-                    "{video.quote}"
+                    &ldquo;{video.quote}&rdquo;
                   </p>
                   <p className="text-sm leading-relaxed text-zinc-500 mt-auto pt-2">
                     {video.body}

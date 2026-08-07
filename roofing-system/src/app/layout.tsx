@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import { Inter } from "next/font/google";
 import { Header } from "../components/Header";
+import { ScrollProgress } from "../components/ScrollProgress";
 import "./globals.css";
 
 const display = Space_Grotesk({
@@ -44,6 +45,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${display.variable} ${body.variable} h-full`}>
       <body className="min-h-full antialiased">
+        <ScrollProgress />
         <Header />
         {children}
       </body>

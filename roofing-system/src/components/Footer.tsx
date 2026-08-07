@@ -139,7 +139,7 @@ export function Footer() {
             <nav className="flex flex-col gap-2.5">
               {legalLinks.map((link) => (
                 <a
-                  key={link.href}
+                  key={link.label}
                   href={link.href}
                   className="text-sm text-zinc-400 transition hover:text-white"
                 >

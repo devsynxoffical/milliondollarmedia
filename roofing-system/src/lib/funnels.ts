@@ -5,6 +5,7 @@ export type FunnelConfig = {
   slug: string;
   metaTitle: string;
   metaDescription: string;
+  variant: "a" | "b";
   eyebrow: string;
   title: string;
   titleAccent: string;
@@ -26,6 +27,7 @@ export type FunnelConfig = {
 
 export const ADS_COPY_FUNNEL: FunnelConfig = {
   slug: "privatemastermind-504306",
+  variant: "b",
   metaTitle: "Roofing Ads Copy Creation Mastermind | Roofing Systems Co.",
   metaDescription:
     "The Hidden Facebook Interest Framework behind 300–500 roofing sales calls per month. Watch the private mastermind and book your free 1:1 call.",
@@ -58,6 +60,7 @@ export const ADS_COPY_FUNNEL: FunnelConfig = {
 
 export const AUDIENCE_FUNNEL: FunnelConfig = {
   slug: "privatemastermind",
+  variant: "a",
   metaTitle:
     "Private Mastermind: Audience Segmentation | Roofing Systems Co.",
   metaDescription:

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { TiltCard } from "./TiltCard";
 
 const BASE = 400;
 const STEP = 320;
@@ -42,46 +43,51 @@ export function ProofGrid({ files }: { files: string[] }) {
           const height = heights[file] ?? BASE;
           const maxed = height >= MAX;
           return (
-            <div key={file} className="soft-card overflow-hidden border border-[var(--line)] p-2">
-              <div
-                className="relative w-full overflow-hidden rounded-xl bg-[var(--fog)] transition-[height] duration-500 ease-out"
-                style={{ height }}
-              >
-                <Image
-                  src={`/media/proof/${file}`}
-                  alt="Roofing campaign dashboard result"
-                  fill
-                  className="object-cover object-top"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
-              <div className="flex flex-wrap items-center justify-between gap-3 px-2 pb-2 pt-4">
-                <div>
-                  <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--ink)]/40">
-                    Campaign dashboard
-                  </p>
-                  <p className="mt-0.5 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--purple)]">
-                    Live roofing result
-                  </p>
+            <TiltCard
+              key={file}
+              className="bg-white border border-zinc-200 shadow-sm"
+            >
+              <div className="flex h-full flex-col p-2">
+                <div
+                  className="relative w-full overflow-hidden rounded-xl bg-zinc-100 transition-[height] duration-500 ease-out"
+                  style={{ height }}
+                >
+                  <Image
+                    src={`/media/proof/${file}`}
+                    alt="Roofing campaign dashboard result"
+                    fill
+                    className="object-cover object-top"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
                 </div>
-                <div className="flex items-center gap-2">
-                  <button
-                    type="button"
-                    onClick={() => toggle(file)}
-                    className="rounded-full border border-[var(--line)] px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] text-[var(--ink)]/70 transition hover:border-[var(--purple)] hover:text-[var(--purple)]"
-                  >
-                    {maxed ? "Show less ↑" : "See more ↓"}
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setOpen(file)}
-                    className="rounded-full bg-[var(--purple)] px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] text-white transition hover:opacity-90"
-                  >
-                    View full ↗
-                  </button>
+                <div className="flex flex-wrap items-center justify-between gap-3 px-2 pb-2 pt-4">
+                  <div>
+                    <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-zinc-500">
+                      Campaign dashboard
+                    </p>
+                    <p className="mt-0.5 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--accent)]">
+                      Live roofing result
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={() => toggle(file)}
+                      className="rounded-full border border-zinc-200 px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] text-zinc-700 transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                    >
+                      {maxed ? "Show less ↑" : "See more ↓"}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setOpen(file)}
+                      className="rounded-full bg-[var(--accent)] px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] text-white transition hover:opacity-90"
+                    >
+                      View full ↗
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
+            </TiltCard>
           );
         })}
       </div>
