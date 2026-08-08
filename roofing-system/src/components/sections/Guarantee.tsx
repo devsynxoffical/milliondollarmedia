@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { ShieldCheck, Scale, PenLine, ArrowRight } from "lucide-react";
+import { ShieldCheck, Scale, PenLine, ArrowRight, CheckCircle2, Lock } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
 import { gsap, prefersReducedMotion, EASE } from "@/lib/motion";
@@ -46,14 +46,14 @@ function ContractDoc() {
 
       tl.fromTo(
         el,
-        { y: 40, rotate: 2, opacity: 0 },
-        { y: 0, rotate: 0, opacity: 1, duration: 1.1 }
+        { y: 40, rotateX: 10, opacity: 0 },
+        { y: 0, rotateX: 0, opacity: 1, duration: 1.1 }
       );
 
       tl.fromTo(
-        el.querySelectorAll(".doc-line"),
-        { scaleX: 0 },
-        { scaleX: 1, duration: 0.6, transformOrigin: "left", stagger: 0.08 },
+        el.querySelectorAll(".spec-item"),
+        { opacity: 0, y: 15 },
+        { opacity: 1, y: 0, duration: 0.5, stagger: 0.08 },
         "-=0.6"
       );
 
@@ -67,7 +67,7 @@ function ContractDoc() {
       tl.fromTo(
         el.querySelector(".doc-stamp"),
         { scale: 2.2, opacity: 0, rotate: -30 },
-        { scale: 1, opacity: 1, rotate: -16, duration: 0.5, ease: "back.out(2.8)" },
+        { scale: 1, opacity: 1, rotate: -14, duration: 0.5, ease: "back.out(2.8)" },
         "-=0.2"
       );
     }, el);
@@ -78,51 +78,89 @@ function ContractDoc() {
   return (
     <div
       ref={docRef}
-      className="relative mx-auto w-full max-w-md rounded-3xl border border-white/20 bg-[#f9f8f6] p-8 text-[#14171b] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)] transition-transform duration-500 hover:scale-[1.01]"
+      className="relative mx-auto w-full max-w-lg rounded-3xl border border-white/20 bg-[#0d0e14]/90 p-6 sm:p-8 backdrop-blur-2xl shadow-[0_30px_70px_-15px_rgba(237,28,36,0.3)] transition-all duration-500 hover:border-[#ed1c24]/50"
     >
-      {/* Header */}
-      <div className="flex items-center justify-between pb-4 border-b border-[#14171b]/10">
-        <span className="flex items-center gap-2.5 text-base font-extrabold tracking-tight text-[#14171b]">
-          <Scale className="h-5 w-5 text-[#ed1c24]" /> Roofing Systems™
-        </span>
-        <span className="rounded-full bg-[#14171b] px-3.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-[#f5f3ee]">
-          Agreement
-        </span>
+      {/* Background ambient laser glow */}
+      <div className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full bg-[#ed1c24] opacity-20 blur-3xl" />
+      <div className="pointer-events-none absolute -left-20 -bottom-20 h-56 w-56 rounded-full bg-[#ed1c24] opacity-15 blur-3xl" />
+
+      {/* Top Bar / Header */}
+      <div className="flex items-center justify-between pb-5 border-b border-white/10">
+        <div className="flex items-center gap-3">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#ed1c24]/15 border border-[#ed1c24]/40 text-[#ed1c24] shadow-[0_0_15px_rgba(237,28,36,0.3)]">
+            <Scale className="h-5 w-5" />
+          </div>
+          <div>
+            <span className="block font-futura text-base font-extrabold tracking-tight text-white">
+              Roofing Systems™
+            </span>
+            <span className="block font-mono text-[10px] uppercase tracking-widest text-zinc-400">
+              Contract #90D-DFY-GUARANTEE
+            </span>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-emerald-400">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+          Verified
+        </div>
       </div>
 
-      {/* Document Lines */}
-      <div className="mt-6 space-y-3.5">
-        <div className="doc-line h-2.5 w-3/4 origin-left rounded bg-[#14171b]/20" />
-        <div className="doc-line h-2.5 w-full origin-left rounded bg-[#14171b]/20" />
-        <div className="doc-line h-2.5 w-5/6 origin-left rounded bg-[#14171b]/20" />
-        <div className="doc-line h-2.5 w-2/3 origin-left rounded bg-[#14171b]/20" />
-        <div className="doc-line h-2.5 w-11/12 origin-left rounded bg-[#14171b]/20" />
+      {/* Agreement Specifications Grid */}
+      <div className="mt-6 space-y-3">
+        <div className="spec-item flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.03] p-3.5 backdrop-blur-md">
+          <div className="flex items-center gap-2.5">
+            <CheckCircle2 className="h-4 w-4 text-[#ed1c24]" />
+            <span className="text-xs font-semibold text-zinc-300">Growth Milestone</span>
+          </div>
+          <span className="font-mono text-xs font-bold text-white">2X Revenue (90 Days)</span>
+        </div>
+
+        <div className="spec-item flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.03] p-3.5 backdrop-blur-md">
+          <div className="flex items-center gap-2.5">
+            <CheckCircle2 className="h-4 w-4 text-[#ed1c24]" />
+            <span className="text-xs font-semibold text-zinc-300">Management Fee</span>
+          </div>
+          <span className="font-mono text-xs font-bold text-emerald-400">$0 / Free Until Target Met</span>
+        </div>
+
+        <div className="spec-item flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.03] p-3.5 backdrop-blur-md">
+          <div className="flex items-center gap-2.5">
+            <Lock className="h-4 w-4 text-[#ed1c24]" />
+            <span className="text-xs font-semibold text-zinc-300">Contract Binding</span>
+          </div>
+          <span className="font-mono text-xs font-bold text-white">100% Written Agreement</span>
+        </div>
       </div>
 
-      {/* Signature & Stamp Footer */}
-      <div className="mt-8 flex items-end justify-between pt-4 border-t border-[#14171b]/10">
+      {/* Signature & Seal Footer */}
+      <div className="mt-7 flex items-end justify-between pt-5 border-t border-white/10">
         <div>
-          <p className="font-mono text-[9px] font-bold uppercase tracking-widest text-[#14171b]/50">
-            Signed & sealed
+          <p className="font-mono text-[9px] font-bold uppercase tracking-widest text-zinc-400">
+            Executed & Certified
           </p>
-          <svg viewBox="0 0 120 45" className="doc-sign mt-1 h-11 w-32" fill="none" aria-hidden="true">
+          <svg viewBox="0 0 120 45" className="doc-sign mt-1 h-12 w-32" fill="none" aria-hidden="true">
             <path
               d="M4 38 C 22 8, 34 28, 44 14 C 52 5, 60 36, 74 20 C 84 8, 92 30, 104 12 C 110 4, 114 8, 116 6"
-              stroke="#14171b"
+              stroke="#ed1c24"
               strokeWidth="2.5"
               strokeLinecap="round"
             />
           </svg>
+          <span className="block font-mono text-[9px] text-zinc-400 mt-1">Roofing Systems Co. Leadership</span>
         </div>
 
-        {/* Authentic Red Stamp */}
+        {/* 3D Holographic Stamp */}
         <div
-          className="doc-stamp flex h-20 w-20 rotate-[-16deg] items-center justify-center rounded-full border-4 border-double border-[#ed1c24] bg-[#ed1c24]/10 shadow-[0_0_20px_rgba(237,28,36,0.2)]"
+          className="doc-stamp flex h-24 w-24 rotate-[-14deg] items-center justify-center rounded-full border-4 border-double border-[#ed1c24] bg-gradient-to-br from-[#ed1c24]/20 via-[#ed1c24]/10 to-transparent shadow-[0_0_30px_rgba(237,28,36,0.4)] backdrop-blur-md"
         >
-          <span className="text-center font-mono text-[10px] font-extrabold uppercase leading-tight tracking-wider text-[#ed1c24]">
-            90-Day
-            <br />
-            Guarantee
+          <span className="text-center font-mono text-[10px] font-extrabold uppercase leading-tight tracking-wider text-white">
+            100% <br />
+            RISK-FREE <br />
+            <span className="text-[#ed1c24]">90-DAY</span>
           </span>
         </div>
       </div>
@@ -132,7 +170,8 @@ function ContractDoc() {
 
 export function Guarantee() {
   return (
-    <Section id="guarantee" className="relative overflow-hidden bg-[#09090b] py-20 sm:py-28 border-y border-white/10">
+    <Section id="guarantee" className="relative overflow-hidden bg-[#070709] py-20 sm:py-28 border-y border-white/10">
+      {/* Background radial laser effects */}
       <div className="pointer-events-none absolute inset-0">
         <div className="jobber-grid-dark absolute inset-0 opacity-40" />
         <div className="absolute left-1/2 top-1/2 h-[45rem] w-[65rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(237,28,36,0.16),transparent_70%)] blur-3xl" />
@@ -233,7 +272,7 @@ export function Guarantee() {
             </Reveal>
           </div>
 
-          {/* Right Column: Contract Card */}
+          {/* Right Column: Holographic Digital Contract Card */}
           <div className="lg:col-span-5 relative mt-6 lg:mt-0">
             <ContractDoc />
 

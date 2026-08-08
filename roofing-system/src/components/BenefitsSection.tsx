@@ -26,7 +26,6 @@ const adServices: { icon: LucideIcon; label: string }[] = [
   { icon: Megaphone, label: "Messaging Strategy" },
   { icon: BarChart3, label: "Meta Ads" },
   { icon: Palette, label: "Ad Creatives" },
-  { icon: FileText, label: "Landing Pages" },
   { icon: Funnel, label: "Sales Funnel" },
   { icon: TrendingUp, label: "Ongoing Optimisation" },
 ];
