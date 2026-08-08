@@ -5,8 +5,8 @@ import { motion, useMotionValueEvent, useScroll, useSpring } from "framer-motion
 import { BOOKING_PATH } from "../lib/offer";
 import { Reveal } from "./Reveal";
 import { TiltCard } from "./TiltCard";
-import { SectionBadge } from "./axion/SectionBadge";
-import { CTAButton } from "./ui/CTAButton";
+import { SplitReveal } from "./ui/SplitReveal";
+import { Button } from "./ui/Button";
 
 const systemSteps = [
   { title: "Market Research & Homeowner Analysis", text: "We identify exactly which homeowners are most likely to invest in a roof replacement and what motivates them to buy." },
@@ -41,11 +41,15 @@ export function SystemStepsSection() {
     <section id="system" className="section-shell bg-white border-b border-zinc-100">
       <div className="mx-auto max-w-[1240px]">
         <Reveal className="flex flex-col items-center text-center max-w-3xl mx-auto">
-          <SectionBadge num="02" label="The 8-Step System" />
-          <h2 className="mt-8 text-[clamp(1.75rem,4vw,3.4rem)] font-medium leading-[1.12] tracking-[-0.02em] text-gray-900">
-            Our 8-Step Roofing Client Acquisition System
-          </h2>
-          <p className="mt-5 text-[15px] font-medium leading-[1.6] text-gray-600 sm:text-[16px]">
+          <span className="inline-flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-[#ed1c24]">
+            <span className="inline-block h-px w-8 bg-[#ed1c24]" />
+            The 8-Step System
+          </span>
+          <SplitReveal as="h2" mode="lines" className="font-heading mt-4 text-3xl font-bold leading-[1.08] tracking-[-0.03em] text-zinc-950 sm:text-4xl lg:text-5xl">
+            Our 8-Step Roofing{" "}
+            <span className="text-[#ed1c24]">Client Acquisition System</span>
+          </SplitReveal>
+          <p className="mt-4 text-base sm:text-lg text-zinc-500 leading-relaxed">
             Everything stays the same except for roofing terminology.
           </p>
         </Reveal>
@@ -89,16 +93,16 @@ export function SystemStepsSection() {
                         </span>
                       </div>
                       <div className="flex-1 pt-1">
-                        <TiltCard max={3} scale={1.01} className="border border-zinc-200 bg-white shadow-sm group-hover:shadow-[0_16px_40px_-14px_rgba(237,28,36,0.3)]">
+                        <TiltCard max={3} scale={1.01} className="hover-card border border-zinc-200 bg-white shadow-sm">
                           <div className="p-5 sm:p-6">
                             <div className="flex flex-wrap items-center gap-2">
-                              <h3 className="text-[15px] font-medium text-gray-900">
+                              <h3 className="text-sm font-extrabold uppercase tracking-[0.14em] text-zinc-950">
                                 {step.title}
                               </h3>
                               <span
                                 className={`ml-auto flex h-5 w-5 items-center justify-center rounded-full text-[10px] font-black transition-all duration-500 ${
                                   isActive
-                                    ? "scale-100 bg-[var(--accent)] text-white"
+                                    ? "scale-100 bg-[#ed1c24] text-white"
                                     : "scale-0 bg-zinc-200 text-zinc-500"
                                 }`}
                               >
@@ -126,7 +130,9 @@ export function SystemStepsSection() {
           transition={{ duration: 0.5, delay: 0.15 }}
           className="mt-10 flex justify-center"
         >
-          <CTAButton href={BOOKING_PATH} label="Install The System" size="lg" />
+          <Button href={BOOKING_PATH} variant="primary" size="lg">
+            Install The System
+          </Button>
         </motion.div>
       </div>
     </section>

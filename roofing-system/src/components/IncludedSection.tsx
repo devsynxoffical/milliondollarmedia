@@ -21,7 +21,7 @@ import {
 } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { TiltCard } from "./TiltCard";
-import { AnimatedHeading } from "./AnimatedHeading";
+import { SplitReveal } from "./ui/SplitReveal";
 
 type IncludedItem = { icon: LucideIcon; label: string };
 
@@ -66,20 +66,14 @@ export function IncludedSection() {
     <section id="included" className="section-shell bg-white border-b border-zinc-100">
       <div className="mx-auto max-w-[1240px]">
         <Reveal className="flex flex-col items-center text-center max-w-3xl mx-auto">
-          <div className="pill-badge-red mb-3">
-            <span className="dot-red" />
-            <span>EVERYTHING INCLUDED</span>
-          </div>
-          <h2 className="display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-zinc-950 tracking-tight">
-            <AnimatedHeading
-              as="span"
-              text="Everything You Need. Nothing Extra To Pay For."
-              accent={["Nothing", "Extra", "To", "Pay", "For."]}
-              accentClass="hw-accent"
-              mode="rise"
-              stagger={0.04}
-            />
-          </h2>
+          <span className="inline-flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-[#ed1c24]">
+            <span className="inline-block h-px w-8 bg-[#ed1c24]" />
+            Everything Included
+          </span>
+          <SplitReveal as="h2" mode="lines" className="font-heading mt-4 text-3xl font-bold leading-[1.08] tracking-[-0.03em] text-zinc-950 sm:text-4xl lg:text-5xl">
+            Everything You Need.{" "}
+            <span className="text-[#ed1c24]">Nothing Extra To Pay For.</span>
+          </SplitReveal>
           <p className="mt-4 text-base sm:text-lg text-zinc-500 leading-relaxed">
             The complete roofing client acquisition system, installed, managed,
             and optimized for you.
@@ -103,12 +97,12 @@ export function IncludedSection() {
               >
                 <TiltCard
                   max={featured ? 5 : 8}
-                  className="border border-zinc-200 bg-white shadow-sm group-hover:shadow-[0_20px_45px_-14px_rgba(237,28,36,0.35)]"
+                  className="hover-card border border-zinc-200 bg-white shadow-sm"
                 >
                   <div className="flex h-full flex-col p-5 sm:p-6">
                     <div className="flex items-center justify-between">
                       <span
-                        className={`flex items-center justify-center rounded-xl bg-[var(--accent)]/10 text-[var(--accent)] transition-all duration-300 group-hover:bg-[var(--accent)] group-hover:text-white group-hover:scale-110 ${
+                        className={`tilt-icon flex items-center justify-center rounded-xl bg-[#ed1c24]/10 text-[#ed1c24] transition-colors duration-300 group-hover:bg-[#ed1c24] group-hover:text-white ${
                           featured ? "h-11 w-11" : "h-10 w-10"
                         }`}
                       >
@@ -129,7 +123,7 @@ export function IncludedSection() {
                       aria-hidden
                       className="mt-auto block pt-5"
                     >
-                      <span className="block h-px w-full bg-gradient-to-r from-zinc-100 via-zinc-200 to-transparent transition-colors duration-300 group-hover:from-[var(--accent)]/40" />
+                      <span className="block h-px w-full bg-gradient-to-r from-zinc-100 via-zinc-200 to-transparent transition-colors duration-300 group-hover:from-[#ed1c24]/40" />
                     </span>
                   </div>
                 </TiltCard>

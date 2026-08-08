@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Megaphone, Funnel, Cpu, PhoneCall, Home } from "lucide-react";
 import { Reveal } from "./Reveal";
-import { SectionBadge } from "./axion/SectionBadge";
+import { SplitReveal } from "./ui/SplitReveal";
 
 const STAGES = [
   { icon: Megaphone, label: "Meta Ads", sub: "Target high-value homeowners" },
@@ -109,12 +109,16 @@ export function PipelineMotion() {
       </div>
 
       <div ref={hostRef} className="relative mx-auto max-w-[1240px] px-5 md:px-8">
-        <Reveal className="flex flex-col items-center text-center max-w-3xl mx-auto">
-          <SectionBadge num="03" label="The Client Flow" dark />
-          <h2 className="mt-8 text-[clamp(1.75rem,4vw,3.4rem)] font-medium leading-[1.12] tracking-[-0.02em] text-white">
-            From cold ad to closed roof.
-          </h2>
-          <p className="mt-5 text-[15px] font-medium leading-[1.7] text-gray-300 sm:text-[16px]">
+        <Reveal className="text-center max-w-3xl mx-auto">
+          <span className="inline-flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-[#ff6b70]">
+            <span className="inline-block h-px w-8 bg-[#ed1c24]" />
+            The Client Flow
+          </span>
+          <SplitReveal as="h2" mode="lines" className="font-heading mt-4 text-3xl font-bold leading-[1.08] tracking-[-0.03em] text-fog sm:text-4xl lg:text-5xl">
+            From cold ad to{" "}
+            <span className="text-gradient-red">closed roof.</span>
+          </SplitReveal>
+          <p className="mt-4 text-base text-mist leading-relaxed">
             Every roofing lead moves through the same pipeline — automatically. Nothing falls through the cracks.
           </p>
         </Reveal>
@@ -182,7 +186,7 @@ export function PipelineMotion() {
                   >
                     <Icon className="h-5 w-5" strokeWidth={2} />
                   </span>
-                  <h3 className={`mt-3 text-sm font-medium text-white transition-all duration-500 group-hover:text-[var(--accent)] ${inView ? "opacity-100" : "opacity-0"}`} style={{ transitionDelay: `${i * 120 + 100}ms` }}>
+                  <h3 className={`mt-3 text-sm font-extrabold text-white transition-opacity duration-500 ${inView ? "opacity-100" : "opacity-0"}`} style={{ transitionDelay: `${i * 120 + 100}ms` }}>
                     {stage.label}
                   </h3>
                   <p className={`mt-1 text-[11px] leading-snug text-zinc-400 transition-opacity duration-500 ${inView ? "opacity-100" : "opacity-0"}`} style={{ transitionDelay: `${i * 120 + 180}ms` }}>
@@ -212,7 +216,7 @@ export function PipelineMotion() {
                   <div className={`flex items-start gap-3 rounded-2xl border border-zinc-800 bg-zinc-900/80 p-4 transition-all duration-500 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"}`} style={{ transitionDelay: `${i * 120}ms` }}>
                     <Icon className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" />
                     <div>
-                      <h3 className="text-sm font-medium text-white">{stage.label}</h3>
+                      <h3 className="text-sm font-extrabold text-white">{stage.label}</h3>
                       <p className="mt-0.5 text-xs text-zinc-400">{stage.sub}</p>
                     </div>
                   </div>

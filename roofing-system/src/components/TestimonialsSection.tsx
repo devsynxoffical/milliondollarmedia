@@ -1,6 +1,7 @@
 import { Reveal } from "./Reveal";
 import { AuroraBg } from "./AuroraBg";
-import { SectionBadge } from "./axion/SectionBadge";
+import { Marquee } from "./ui/Marquee";
+import { SplitReveal } from "./ui/SplitReveal";
 
 const testimonials = [
   {
@@ -46,8 +47,8 @@ const testimonials = [
     company: "Sterling Roofing Group",
   },
   {
-      quote:
-        "Went from chasing leads to a pipeline that books itself. Hands down the best money we&apos;ve spent.",
+    quote:
+      "Went from chasing leads to a pipeline that books itself. Hands down the best money we&apos;ve spent.",
     name: "Tony S.",
     company: "Frontier Roofing",
   },
@@ -57,7 +58,7 @@ function Stars() {
   return (
     <div className="flex gap-1" aria-label="5 out of 5 stars">
       {Array.from({ length: 5 }).map((_, i) => (
-        <svg key={i} viewBox="0 0 20 20" className="h-4 w-4 fill-[var(--accent)]" aria-hidden>
+        <svg key={i} viewBox="0 0 20 20" className="h-4 w-4 fill-[#ed1c24]" aria-hidden>
           <path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.9L10 14.9l-5.2 2.8 1-5.9L1.5 7.7l5.9-.9L10 1.5z" />
         </svg>
       ))}
@@ -67,38 +68,34 @@ function Stars() {
 
 function TestimonialCard({ t }: { t: (typeof testimonials)[number] }) {
   return (
-    <figure className="glow-card mx-3 flex h-full w-[320px] shrink-0 flex-col rounded-2xl border border-zinc-800 bg-zinc-900/80 p-6 sm:w-[360px]">      <Stars />
-      <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-zinc-300">
+    <figure className="hover-card mx-3 flex h-full w-[320px] shrink-0 flex-col rounded-2xl border border-line bg-panel p-6 sm:w-[360px]">
+      <Stars />
+      <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-mist">
         &ldquo;{t.quote}&rdquo;
       </blockquote>
-      <figcaption className="mt-5 border-t border-zinc-800 pt-4">
-        <p className="text-sm font-medium text-white">{t.name}</p>
-        <p className="mt-0.5 text-xs font-medium text-zinc-500">{t.company}</p>
+      <figcaption className="mt-5 border-t border-line pt-4">
+        <p className="text-sm font-extrabold text-fog">{t.name}</p>
+        <p className="mt-0.5 text-xs font-medium text-dim">{t.company}</p>
       </figcaption>
     </figure>
   );
 }
 
-export function TestimonialsSection({
-  num = "06",
-  label = "What Roofers Say",
-}: {
-  num?: string;
-  label?: string;
-}) {
-  const doubled = [...testimonials, ...testimonials];
-  const third = [...testimonials, ...testimonials];
-
+export function TestimonialsSection() {
   return (
-    <section id="proof" className="relative overflow-hidden bg-[#09090b] text-white border-b border-zinc-800 py-20 md:py-28">
+    <section id="testimonials" className="relative overflow-hidden bg-ink py-20 text-fog md:py-28">
       <AuroraBg className="opacity-60" />
-      <div className="relative mx-auto max-w-[1240px] px-5 md:px-8">
-        <Reveal className="flex flex-col items-center text-center max-w-3xl mx-auto">
-          <SectionBadge num={num} label={label} dark />
-          <h2 className="mt-8 text-[clamp(1.75rem,4vw,3.4rem)] font-medium leading-[1.12] tracking-[-0.02em] text-white">
-            Roofing companies that trust the system
-          </h2>
-          <p className="mt-5 text-[15px] font-medium leading-[1.7] text-gray-300 sm:text-[16px]">
+      <div className="relative mx-auto max-w-[88rem] px-5 md:px-8">
+        <Reveal className="mx-auto max-w-3xl text-center">
+          <span className="inline-flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-[#ff6b70]">
+            <span className="inline-block h-px w-8 bg-[#ed1c24]" />
+            What Roofers Say
+          </span>
+          <SplitReveal as="h2" mode="lines" className="font-heading mt-4 text-3xl font-bold leading-[1.08] tracking-[-0.03em] text-fog sm:text-4xl lg:text-5xl">
+            Roofing companies that{" "}
+            <span className="text-gradient-red">trust the system</span>
+          </SplitReveal>
+          <p className="mt-4 text-mist text-base leading-relaxed">
             Real owners. Real numbers. Here&apos;s what happens when a roofing
             company stops renting leads and starts owning its pipeline.
           </p>
@@ -106,26 +103,22 @@ export function TestimonialsSection({
       </div>
 
       {/* Marquee row 1 */}
-      <Reveal delay={100}>
-        <div className="clients-marquee mt-12">
-          <div className="clients-marquee-track">
-            {doubled.map((t, i) => (
-              <TestimonialCard key={`row1-${i}`} t={t} />
-            ))}
-          </div>
-        </div>
-      </Reveal>
+      <div className="mt-12">
+        <Marquee speed={45}>
+          {testimonials.map((t, i) => (
+            <TestimonialCard key={`row1-${i}`} t={t} />
+          ))}
+        </Marquee>
+      </div>
 
       {/* Marquee row 2 (reverse) */}
-      <Reveal delay={180}>
-        <div className="clients-marquee mt-4">
-          <div className="clients-marquee-track clients-reverse">
-            {third.map((t, i) => (
-              <TestimonialCard key={`row2-${i}`} t={t} />
-            ))}
-          </div>
-        </div>
-      </Reveal>
+      <div className="mt-4">
+        <Marquee speed={50} reverse>
+          {testimonials.map((t, i) => (
+            <TestimonialCard key={`row2-${i}`} t={t} />
+          ))}
+        </Marquee>
+      </div>
     </section>
   );
 }

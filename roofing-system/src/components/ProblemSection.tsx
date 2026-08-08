@@ -5,7 +5,7 @@ import { Megaphone, FileText, Users, MessageCircle, ShieldCheck, X, Check } from
 import { Reveal } from "./Reveal";
 import { TiltCard } from "./TiltCard";
 import { AuroraBg } from "./AuroraBg";
-import { SectionBadge } from "./axion/SectionBadge";
+import { SplitReveal } from "./ui/SplitReveal";
 
 const fragments = [
   { icon: Megaphone, label: "Runs Ads", sub: "Then stops there" },
@@ -47,19 +47,24 @@ export function ProblemSection() {
         <div className="grid items-center gap-12 lg:grid-cols-2">
           {/* Copy */}
           <Reveal className="text-center lg:text-left">
-            <SectionBadge num="01" label="The Problem" dark />
-            <h2 className="mt-8 text-[clamp(1.75rem,4vw,3.4rem)] font-medium leading-[1.12] tracking-[-0.02em] text-white">
-              Most Roofing Companies Don&apos;t Have A Lead Problem... They
-              Have A{" "}
-              <span className="text-[#ed1c24]">Client Acquisition System</span>{" "}
-              Problem.
-            </h2>
-            <p className="mt-6 max-w-xl text-[15px] font-medium leading-[1.7] text-gray-300 lg:mx-0 sm:text-[16px]">
+            <span className="inline-flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-[#ff6b70]">
+              <span className="inline-block h-px w-8 bg-[#ed1c24]" />
+              The Problem
+            </span>
+            <SplitReveal as="h2" mode="lines" className="font-heading mt-4 text-3xl font-bold leading-[1.08] tracking-[-0.03em] text-fog sm:text-4xl lg:text-5xl">
+              Most Roofing Companies Don&apos;t Have A{" "}
+              <span className="text-mist">Lead Problem...</span>
+              <br />
+              <span className="text-gradient-red">
+                Client Acquisition System Problem.
+              </span>
+            </SplitReveal>
+            <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-mist lg:mx-0">
               Most marketing agencies only run ads. Some build landing pages.
               Others generate leads. Someone else handles follow-up. Nobody
               owns the entire customer journey. That&apos;s exactly why roofing
               companies struggle to scale consistently. At{" "}
-              <span className="font-bold text-white">Roofing Systems™</span>, we
+              <span className="font-bold text-fog">Roofing Systems™</span>, we
               build one complete client acquisition ecosystem where every part
               works together — from the first click to a qualified homeowner
               sitting on your sales calendar.
@@ -80,21 +85,21 @@ export function ProblemSection() {
                 <motion.div key={f.label} variants={item} className="h-full">
                   <TiltCard
                     max={8}
-                    className="border border-zinc-800 bg-zinc-900 group-hover:shadow-[0_20px_45px_-14px_rgba(237,28,36,0.35)]"
+                    className="hover-card border border-line bg-panel"
                   >
                     <div className="flex h-full flex-col p-5">
                       <div className="flex items-center justify-between">
-                        <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-zinc-700 bg-zinc-950 text-zinc-500 transition-colors duration-300 group-hover:border-red-900/70 group-hover:text-red-400">
+                        <span className="tilt-icon flex h-9 w-9 items-center justify-center rounded-xl border border-line-strong bg-ink text-mist transition-colors duration-300 group-hover:border-[#ed1c24]/50 group-hover:text-[#ff6b70]">
                           <Icon className="h-4 w-4" strokeWidth={2} />
                         </span>
-                        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-red-950/60 text-red-400">
+                        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#ed1c24]/15 text-[#ff6b70]">
                           <X className="h-3.5 w-3.5" strokeWidth={3} />
                         </span>
                       </div>
-                      <p className="mt-4 text-sm font-medium text-white">
+                      <p className="mt-4 text-sm font-extrabold text-fog">
                         {f.label}
                       </p>
-                      <p className="mt-0.5 text-xs text-zinc-500">{f.sub}</p>
+                      <p className="mt-0.5 text-xs text-dim">{f.sub}</p>
                     </div>
                   </TiltCard>
                 </motion.div>
@@ -106,22 +111,22 @@ export function ProblemSection() {
               <TiltCard
                 max={4}
                 scale={1.01}
-                className="border border-[var(--accent)]/40 bg-zinc-900/80 group-hover:shadow-[0_24px_55px_-14px_rgba(237,28,36,0.5)]"
+                className="hover-card border border-[#ed1c24]/40 bg-panel"
               >
                 <div className="flex h-full items-center gap-4 p-5 sm:p-6">
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[var(--accent)] text-white shadow-md transition-transform duration-300 group-hover:scale-110">
+                  <span className="tilt-icon flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#ed1c24] text-white shadow-md">
                     <ShieldCheck className="h-5 w-5" strokeWidth={2.2} />
                   </span>
                   <div>
-                    <p className="text-sm font-medium text-white sm:text-base">
+                    <p className="text-sm font-extrabold text-fog sm:text-base">
                       One Complete Ecosystem. Every Part Works Together.
                     </p>
-                    <p className="mt-0.5 text-xs text-zinc-400 sm:text-sm">
+                    <p className="mt-0.5 text-xs text-mist sm:text-sm">
                       From the first click to a qualified homeowner on your
                       calendar.
                     </p>
                   </div>
-                  <span className="ml-auto flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--accent)] text-white">
+                  <span className="ml-auto flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#ed1c24] text-white">
                     <Check className="h-4 w-4" strokeWidth={3} />
                   </span>
                 </div>

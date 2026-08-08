@@ -1,17 +1,11 @@
 "use client";
 
-import { FormEvent, useRef, useState } from "react";
-import {
-  motion,
-  useMotionTemplate,
-  useMotionValue,
-  useScroll,
-  useSpring,
-  useTransform,
-} from "framer-motion";
+import { FormEvent, useState } from "react";
 import { BOOKING_PATH } from "../lib/offer";
-import { CountUp } from "./CountUp";
+import { Reveal } from "./Reveal";
+import { Counter } from "./ui/Counter";
 import { AuroraBg } from "./AuroraBg";
+import { SplitReveal } from "./ui/SplitReveal";
 
 const stats = [
   { end: 50, prefix: "$", suffix: " Million+", label: "Managed in Roofing Ads", sub: "Tested & proven campaigns" },
@@ -20,94 +14,8 @@ const stats = [
   { end: 100, prefix: "", suffix: "% DFY", label: "Client Acquisition", sub: "Offer, Ads, CRM, AI, Funnels" },
 ];
 
-const marqueeWords = [
-  "ROOFING SYSTEMS™",
-  "DOUBLE YOUR REVENUE",
-  "IN 90 DAYS",
-  "CLIENT ACQUISITION",
-  "DONE FOR YOU",
-];
-
-const ease = [0.22, 1, 0.36, 1] as const;
-
-function TiltCard({
-  children,
-  className = "",
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
-  const ref = useRef<HTMLDivElement>(null);
-
-  const mx = useMotionValue(0);
-  const my = useMotionValue(0);
-
-  const rotateX = useSpring(useTransform(my, [-0.5, 0.5], [16, -16]), {
-    stiffness: 180,
-    damping: 22,
-  });
-  const rotateY = useSpring(useTransform(mx, [-0.5, 0.5], [-16, 16]), {
-    stiffness: 180,
-    damping: 22,
-  });
-
-  const glowX = useTransform(mx, [-0.5, 0.5], [20, 80]);
-  const glowY = useTransform(my, [-0.5, 0.5], [20, 80]);
-  const spotlight = useMotionTemplate`radial-gradient(220px circle at ${glowX}% ${glowY}%, rgba(237,28,36,0.28), transparent 70%)`;
-
-  function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
-    const rect = ref.current?.getBoundingClientRect();
-    if (!rect) return;
-    mx.set((e.clientX - rect.left) / rect.width - 0.5);
-    my.set((e.clientY - rect.top) / rect.height - 0.5);
-  }
-
-  function handleMouseLeave() {
-    mx.set(0);
-    my.set(0);
-  }
-
-  return (
-    <motion.div
-      ref={ref}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-      className={`group relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/90 p-6 text-center shadow-xs transition-colors duration-300 hover:border-[var(--accent)]/50 ${className}`}
-    >
-      <span className="pointer-events-none absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-[var(--accent)] to-transparent opacity-70" />
-      <motion.div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-        style={{ background: spotlight }}
-      />
-      <div
-        style={{ transform: "translateZ(32px)", transformStyle: "preserve-3d" }}
-      >
-        {children}
-      </div>
-    </motion.div>
-  );
-}
-
 export function StatsBand() {
   const [email, setEmail] = useState("");
-  const sectionRef = useRef<HTMLElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "start 0.4"],
-  });
-
-  const headY = useSpring(useTransform(scrollYProgress, [0, 1], [90, 0]), {
-    stiffness: 90,
-    damping: 24,
-  });
-  const headRotate = useSpring(useTransform(scrollYProgress, [0, 1], [16, 0]), {
-    stiffness: 90,
-    damping: 24,
-  });
-  const marqueeX = useTransform(scrollYProgress, [0, 1], ["2%", "-6%"]);
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -117,114 +25,50 @@ export function StatsBand() {
   }
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative overflow-hidden bg-[#09090b] py-16 text-white md:py-24"
-    >
+    <section className="relative bg-ink py-16 text-fog md:py-20">
       <AuroraBg />
       <div className="jobber-grid-dark absolute inset-0 pointer-events-none opacity-50" />
 
-      {/* 3D scroll-driven marquee */}
-      <div style={{ perspective: 900 }} className="relative">
-        <motion.div
-          aria-hidden
-          style={{ x: marqueeX, rotateX: 24 }}
-          className="marquee-wrap mt-2 select-none"
-        >
-          <div className="marquee-track">
-            {[0, 1].map((copy) => (
-              <div key={copy} className="flex shrink-0 items-center">
-                {marqueeWords.map((word) => (
-                  <span
-                    key={word}
-                    className="whitespace-nowrap px-6 text-[clamp(2.8rem,8vw,7rem)] font-bold tracking-tight text-transparent md:px-10"
-                    style={{
-                      WebkitTextStroke: "1.5px rgba(255,255,255,0.14)",
-                    }}
-                  >
-                    {word}
-                  </span>
-                ))}
-              </div>
-            ))}
-          </div>
-        </motion.div>
-      </div>
+      <div className="relative mx-auto max-w-[88rem] px-5 md:px-8">
+        <Reveal className="mx-auto max-w-3xl text-center">
+          <SplitReveal as="h2" mode="lines" className="font-heading text-2xl font-bold leading-[1.08] tracking-[-0.03em] text-fog sm:text-4xl">
+            Join over 300+ roofing contractors who trust Roofing Systems™
+          </SplitReveal>
+        </Reveal>
 
-      <div className="relative mx-auto max-w-[1240px] px-5 md:px-8">
-        {/* Headline with 3D parallax entrance */}
-        <div style={{ perspective: 1200 }}>
-          <motion.div
-            style={{ y: headY, rotateX: headRotate }}
-            className="mt-4 text-center"
-          >
-            <h2 className="text-[clamp(1.75rem,4vw,3.4rem)] font-medium leading-[1.12] tracking-[-0.02em] text-white">
-              Join over 300+ roofing contractors who trust{" "}
-              <span className="text-[#ed1c24]">Roofing Systems™</span>
-            </h2>
-          </motion.div>
-        </div>
-
-        {/* 3D tilt stat cards */}
-        <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4">
-          {stats.map((s, idx) => (
-            <motion.div
-              key={s.label}
-              initial={{ opacity: 0, y: 64, rotateY: -24 }}
-              whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
-              viewport={{ once: true, margin: "0px 0px -60px 0px" }}
-              transition={{ duration: 0.7, delay: idx * 0.09, ease }}
-            >
-              <TiltCard className="h-full">
-                <span className="inline-block text-[clamp(1.7rem,4vw,2.6rem)] font-medium text-[var(--accent)] transition-transform duration-300 group-hover:scale-110">
-                  <CountUp end={s.end} prefix={s.prefix} suffix={s.suffix} />
+        {/* 4 Stat Boxes, GetJobber Style */}
+        <div className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-4">
+          {stats.map((s) => (
+            <Reveal key={s.label} className="h-full">
+              <div className="flex h-full flex-col items-center gap-1 bg-panel p-6 text-center">
+                <span className="font-heading text-2xl font-bold tracking-[-0.03em] text-[#ed1c24] sm:text-3xl">
+                  <Counter value={s.end} prefix={s.prefix} suffix={s.suffix} />
                 </span>
-                <p className="mt-2 text-sm font-medium text-white sm:text-base">
-                  {s.label}
-                </p>
-                <p className="mt-1 text-[11px] font-medium text-zinc-400 sm:text-xs">
-                  {s.sub}
-                </p>
-              </TiltCard>
-            </motion.div>
+                <p className="mt-1.5 text-xs sm:text-sm font-bold text-fog">{s.label}</p>
+                <p className="mt-0.5 text-[11px] text-dim font-medium">{s.sub}</p>
+              </div>
+            </Reveal>
           ))}
         </div>
 
-        {/* Opt-in bar */}
-        <div className="mx-auto mt-12 max-w-xl" style={{ perspective: 1000 }}>
-          <motion.form
-            onSubmit={handleSubmit}
-            initial={{ opacity: 0, y: 40, rotateX: 18 }}
-            whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-            viewport={{ once: true, margin: "0px 0px -40px 0px" }}
-            transition={{ duration: 0.7, ease }}
-            whileHover={{ y: -3 }}
-            className="group flex flex-col items-center gap-2 rounded-2xl border border-zinc-800 bg-zinc-900/90 p-2 shadow-md transition-colors duration-300 hover:border-[var(--accent)]/40 sm:flex-row"
-          >
+        {/* Quick Opt-in Bar, GetJobber Style */}
+        <div className="mx-auto mt-10 max-w-xl">
+          <form onSubmit={handleSubmit} className="flex flex-col items-center gap-2 rounded-full border border-line bg-panel p-2 shadow-md sm:flex-row">
             <input
               type="email"
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your work email..."
-              className="w-full rounded-full bg-transparent px-5 py-3 text-sm text-white placeholder:text-zinc-500 outline-none"
+              className="w-full rounded-full bg-transparent px-5 py-3 text-sm text-fog placeholder:text-dim outline-none"
             />
-            <button
-              type="submit"
-              className="btn btn-accent w-full shrink-0 px-6 py-3 text-xs font-bold uppercase tracking-wider sm:w-auto"
-            >
+            <button type="submit" className="w-full shrink-0 rounded-full bg-[#ed1c24] px-6 py-3 text-xs font-bold uppercase tracking-wider text-white transition-colors duration-300 hover:bg-[#ff2a1f] sm:w-auto">
               Get Free Demo
             </button>
-          </motion.form>
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-3 text-center text-[11px] font-medium text-zinc-500"
-          >
+          </form>
+          <p className="mt-2 text-center text-[11px] font-medium text-dim">
             Strictly for roofing companies doing $1M+/year.
-          </motion.p>
+          </p>
         </div>
       </div>
     </section>

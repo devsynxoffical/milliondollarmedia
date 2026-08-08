@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { Reveal } from "./Reveal";
 import { BOOKING_PATH } from "../lib/offer";
-import { SectionBadge } from "./axion/SectionBadge";
-import { CTAButton } from "./ui/CTAButton";
+import { SplitReveal } from "./ui/SplitReveal";
+import { Button } from "./ui/Button";
 
 const faqs = [
   {
@@ -62,7 +62,7 @@ function FaqItem({
         aria-expanded={open}
         className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
       >
-        <span className="text-[15px] font-medium text-gray-900 md:text-base">{q}</span>
+        <span className="text-sm font-extrabold text-zinc-950 md:text-base">{q}</span>
         <span
           className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-all duration-300 ${
             open ? "bg-[var(--accent)] text-white rotate-45" : "bg-zinc-100 text-zinc-500"
@@ -95,21 +95,22 @@ export function FaqSection() {
           {/* Left: heading + CTA */}
           <div className="lg:col-span-5">
             <Reveal>
-              <SectionBadge num="09" label="FAQ" />
-              <h2 className="mt-8 text-[clamp(1.75rem,4vw,3.4rem)] font-medium leading-[1.12] tracking-[-0.02em] text-gray-900">
-                Questions? We&apos;ve got answers.
-              </h2>
-              <p className="mt-5 text-[15px] font-medium leading-[1.6] text-gray-600 sm:text-[16px]">
+              <span className="inline-flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-[#ed1c24]">
+                <span className="inline-block h-px w-8 bg-[#ed1c24]" />
+                FAQ
+              </span>
+              <SplitReveal as="h2" mode="lines" className="font-heading mt-4 text-3xl font-bold leading-[1.08] tracking-[-0.03em] text-zinc-950 sm:text-4xl">
+                Questions?{" "}
+                <span className="text-[#ed1c24]">We&apos;ve got answers.</span>
+              </SplitReveal>
+              <p className="mt-4 text-base text-zinc-500 leading-relaxed">
                 Everything roofing companies ask us before installing the
                 system. If your question isn&apos;t here, book a call and ask us
                 directly.
               </p>
-              <CTAButton
-                href={BOOKING_PATH}
-                label="Book Your Free Strategy Call"
-                size="lg"
-                className="mt-8"
-              />
+              <Button href={BOOKING_PATH} variant="primary" size="lg" className="mt-8">
+                Book Your Free Strategy Call
+              </Button>
             </Reveal>
           </div>
 

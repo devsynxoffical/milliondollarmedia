@@ -5,13 +5,10 @@ import { useEffect, useState } from "react";
 import { TiltCard } from "./TiltCard";
 
 const BASE = 400;
-const STEP = 320;
 const MAX = 1640;
 
 export function ProofGrid({ files }: { files: string[] }) {
-  const [heights, setHeights] = useState<Record<string, number>>(() =>
-    Object.fromEntries(files.map((f) => [f, BASE])),
-  );
+  const [expanded, setExpanded] = useState(false);
   const [open, setOpen] = useState<string | null>(null);
 
   useEffect(() => {
@@ -29,19 +26,11 @@ export function ProofGrid({ files }: { files: string[] }) {
     };
   }, [open]);
 
-  const toggle = (file: string) => {
-    setHeights((h) => {
-      const current = h[file] ?? BASE;
-      return { ...h, [file]: current >= MAX ? BASE : Math.min(current + STEP, MAX) };
-    });
-  };
-
   return (
     <>
       <div className="mt-12 grid gap-6 lg:grid-cols-2">
         {files.map((file) => {
-          const height = heights[file] ?? BASE;
-          const maxed = height >= MAX;
+          const height = expanded ? MAX : BASE;
           return (
             <TiltCard
               key={file}
@@ -69,27 +58,28 @@ export function ProofGrid({ files }: { files: string[] }) {
                       Live roofing result
                     </p>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <button
-                      type="button"
-                      onClick={() => toggle(file)}
-                      className="rounded-full border border-zinc-200 px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] text-zinc-700 transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
-                    >
-                      {maxed ? "Show less ↑" : "See more ↓"}
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setOpen(file)}
-                      className="rounded-full bg-[var(--accent)] px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] text-white transition hover:opacity-90"
-                    >
-                      View full ↗
-                    </button>
-                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setOpen(file)}
+                    className="rounded-full border border-zinc-200 px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] text-zinc-700 transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                  >
+                    View full ↗
+                  </button>
                 </div>
               </div>
             </TiltCard>
           );
         })}
+      </div>
+
+      <div className="mt-8 text-center">
+        <button
+          type="button"
+          onClick={() => setExpanded((v) => !v)}
+          className="rounded-full border border-zinc-200 px-6 py-3 text-xs font-bold uppercase tracking-[0.14em] text-zinc-700 transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
+        >
+          {expanded ? "Show less ↑" : "See more ↓"}
+        </button>
       </div>
 
       {open && (
