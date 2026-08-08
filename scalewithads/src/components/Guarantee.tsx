@@ -10,10 +10,21 @@ const points = [
 
 export function Guarantee() {
   return (
-    <section id="guarantee" className="section-shell bg-[var(--surface-2)]">
-      <div className="mx-auto max-w-[1200px]">
+    <section
+      id="guarantee"
+      className="relative overflow-hidden border-b border-zinc-800 bg-[#09090b] py-16 text-white md:py-24"
+    >
+      <div className="jobber-grid-dark pointer-events-none absolute inset-0" />
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 55% 40% at 50% 0%, rgba(237,28,36,0.10), transparent 70%)",
+        }}
+      />
+      <div className="relative mx-auto max-w-[1200px] px-5 md:px-8">
         <Reveal className="h-full">
-          <div className="relative overflow-hidden rounded-[2rem] bg-[var(--band)] px-6 py-12 text-white shadow-[0_24px_60px_-24px_rgba(16,24,40,0.4)] md:px-12 md:py-16">
+          <div className="relative overflow-hidden rounded-[2rem] bg-zinc-900/60 px-6 py-12 text-white shadow-[0_24px_60px_-24px_rgba(16,24,40,0.6)] backdrop-blur-sm md:px-12 md:py-16">
             <div className="studio-grid absolute inset-0 opacity-60" />
             <div
               className="pointer-events-none absolute inset-0"

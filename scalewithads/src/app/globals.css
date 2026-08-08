@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant has-cursor (&:is(.has-cursor *));
+
 :root {
   /* Red/Black/White theme palette, matches Roofing Systems Co. */
   --accent: #ed1c24;
@@ -28,6 +30,35 @@
   --color-accent: var(--accent);
   --font-display: var(--font-display);
   --font-body: var(--font-body);
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --shadow-soft: 0 24px 80px -32px rgb(0 0 0 / 0.85);
+  --shadow-glow: 0 0 80px -20px color-mix(in oklab, var(--color-lime) 55%, transparent);
+}
+
+/*
+  Color tokens are defined WITHOUT `inline` so utilities compile to
+  `var(--color-*)` references instead of inlined literals. This lets the
+  `.theme-light` section class override them at runtime (light sections get
+  dark text, dark card panels, etc.).
+*/
+@theme {
+  --color-ink: var(--ink);
+  --color-base: var(--band);
+  --color-panel: var(--band-2);
+  --color-elevated: #1c1c21;
+  --color-glass: rgba(255, 255, 255, 0.04);
+  --color-line: rgba(255, 255, 255, 0.1);
+  --color-line-strong: rgba(255, 255, 255, 0.2);
+  --color-fog: #f4f4f5;
+  --color-mist: #a1a1aa;
+  --color-dim: #71717a;
+  --color-lime: var(--accent);
+  --color-lime-soft: #ff4d55;
+  --color-violet: var(--accent-bright);
+  --color-amber: #ffb36b;
+  --color-mint: #7ef0c9;
+  --color-rose: #ff7a90;
 }
 
 @layer base {
@@ -37,6 +68,21 @@
 
   html {
     scroll-behavior: smooth;
+  }
+
+  html.has-cursor {
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) transparent;
+  }
+  html.has-cursor ::-webkit-scrollbar {
+    width: 8px;
+  }
+  html.has-cursor ::-webkit-scrollbar-track {
+    background: var(--ink);
+  }
+  html.has-cursor ::-webkit-scrollbar-thumb {
+    background: linear-gradient(var(--accent), var(--accent-deep));
+    border-radius: 999px;
   }
 
   body {
@@ -67,6 +113,13 @@
 }
 
 @layer components {
+  .container-x {
+    width: 100%;
+    max-width: 88rem;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+  }
+
   .display {
     font-family: var(--font-display), system-ui, sans-serif;
     font-weight: 800;
@@ -147,6 +200,15 @@
     animation: drift 42s linear infinite;
   }
 
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
   .marquee-track-reverse {
     display: flex;
     width: max-content;
@@ -209,6 +271,21 @@
     background: #fef2f2;
     border: 1px solid #fecaca;
     color: #b91c1c;
+  }
+
+  .pill-badge-dark {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    padding: 0.35rem 0.95rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
   }
 
   .dot-green,
@@ -403,6 +480,33 @@
   }
 }
 
+@keyframes fade-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-slide-in-1 {
+  animation: fade-slide-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-fade-slide-in-2 {
+  animation: fade-slide-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+}
+
+.animate-fade-slide-in-3 {
+  animation: fade-slide-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+}
+
+.animate-fade-slide-in-4 {
+  animation: fade-slide-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.45s both;
+}
+
 .animate-fade-up {
   opacity: 0;
   animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
@@ -478,4 +582,55 @@
 
 .animate-fade-in {
   animation: fade-in 0.8s ease both;
+}
+
+/* ---- Lenis smooth scroll ---- */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ============================================================
+   Light theme sections (apply .theme-light to a section root)
+   ============================================================ */
+.theme-light {
+  --color-base: #f4f6f8;
+  --color-panel: #ffffff;
+  --color-elevated: #ffffff;
+  --color-glass: #00000006;
+  --color-line: #e6e9ee;
+  --color-line-strong: #ccd3dc;
+  --color-fog: #0c1117;
+  --color-mist: #47515d;
+  --color-dim: #737d88;
+  --color-lime: var(--accent);
+  --color-lime-soft: #ffe4e5;
+  color-scheme: light;
+  background: var(--color-base);
 }

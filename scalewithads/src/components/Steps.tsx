@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { BOOKING_PATH } from "../lib/offer";
 import { Reveal } from "./Reveal";
+import { SectionHeading } from "./SectionHeading";
 
 const steps = [
   {
@@ -82,36 +83,38 @@ const steps = [
 
 export function Steps() {
   return (
-    <section id="system" className="section-shell bg-white border-b border-zinc-100">
-      <div className="mx-auto max-w-[1240px]">
-        <Reveal className="mx-auto flex max-w-3xl flex-col items-center text-center">
-          <div className="pill-badge-red mb-3">
-            <span className="dot-red" />
-            <span>HOW OUR CLIENT ACQUISITION SYSTEM WORKS</span>
-          </div>
-          <h2 className="display text-3xl font-extrabold tracking-tight text-zinc-950 sm:text-4xl lg:text-5xl">
-            Our <span className="text-[var(--accent)]">8-Step</span> Client
-            Acquisition Process
-          </h2>
-          <p className="mt-4 max-w-xl text-base leading-relaxed text-zinc-500">
-            One connected system, from the first click to a qualified client on
-            your calendar.
-          </p>
-        </Reveal>
+    <section
+      id="system"
+      className="relative overflow-hidden border-b border-zinc-200 bg-[#fafafa] py-16 text-zinc-950 md:py-24"
+    >
+      <div className="jobber-grid-light pointer-events-none absolute inset-0 opacity-60" />
+
+      <div className="relative mx-auto max-w-[1240px] px-5 md:px-8">
+        <SectionHeading
+          light
+          eyebrow="HOW OUR CLIENT ACQUISITION SYSTEM WORKS"
+          title={
+            <>
+              Our <span className="text-[#ed1c24]">8-Step</span> Client
+              Acquisition Process
+            </>
+          }
+          description="One connected system, from the first click to a qualified client on your calendar."
+        />
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((step, i) => (
             <Reveal key={step.title} delay={i * 60} className="h-full">
-              <div className="group relative flex h-full flex-col rounded-2xl border border-zinc-200 bg-white p-6 shadow-xs transition duration-300 hover:-translate-y-1 hover:shadow-md">
+              <div className="group relative flex h-full flex-col rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-[#ed1c24] hover:shadow-[0_16px_40px_-16px_rgba(237,28,36,0.15)]">
                 <div className="flex items-center justify-between">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-50 text-[var(--accent)]">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-50 text-[#ed1c24] ring-1 ring-red-100">
                     {step.icon}
                   </span>
-                  <span className="display text-2xl font-extrabold text-zinc-200 transition group-hover:text-[var(--accent)]">
+                  <span className="display text-2xl font-extrabold text-zinc-200 transition group-hover:text-[#ed1c24]">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                 </div>
-                <h3 className="mt-5 text-base font-extrabold leading-snug tracking-tight text-zinc-950">
+                <h3 className="mt-5 text-base font-extrabold leading-snug tracking-tight text-zinc-900">
                   {step.title}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-zinc-500">

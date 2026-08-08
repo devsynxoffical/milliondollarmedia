@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Check } from "lucide-react";
 import type { FunnelConfig } from "../lib/funnels";
 import { Footer } from "./Footer";
 import { VideoPlayer } from "./VideoPlayer";
@@ -204,65 +203,7 @@ function StatsStrip() {
   );
 }
 
-function GuaranteeSection({ funnel }: { funnel: FunnelConfig }) {
-  const promises = [
-    "Done-for-you install, not a DIY template",
-    "Results tied to a written agreement",
-    "No management fee until we hit the target",
-    "The exact system behind every client in the recordings",
-  ];
-  return (
-    <section className="relative overflow-hidden bg-[#09090b] py-20 text-white md:py-24 border-b border-zinc-800">
-      <AuroraBg />
-      <div
-        className="jobber-grid-dark pointer-events-none absolute inset-0 opacity-40"
-        aria-hidden="true"
-      />
-      <div className="relative mx-auto max-w-[1240px] px-5 md:px-8">
-        <Reveal>
-          <div className="overflow-hidden rounded-[2rem] border border-[var(--accent)]/40 bg-zinc-900/70 shadow-[0_30px_90px_-20px_rgba(237,28,36,0.35)] backdrop-blur-sm">
-            <div className="grid gap-8 p-8 md:grid-cols-[1.1fr_0.9fr] md:p-12">
-              <div>
-                <div className="pill-badge-red mb-4">
-                  <span className="dot-red" />
-                  <span>BACKED IN WRITING</span>
-                </div>
-                <h2 className="display text-3xl font-extrabold tracking-tight sm:text-4xl">
-                  Double your revenue in 90 days —{" "}
-                  <span className="text-[var(--accent)]">or we keep working for free.</span>
-                </h2>
-                <p className="mt-4 max-w-lg text-sm leading-relaxed text-zinc-400 md:text-base">
-                  The entire promise sits in a written agreement before you spend a cent. If the
-                  system doesn&apos;t deliver, there&apos;s no management fee until it does.
-                </p>
-                <Link
-                  href={funnel.bookingPath}
-                  className="btn btn-accent mt-7 inline-flex px-8 py-4 shadow-md"
-                >
-                  <span className="text-sm font-extrabold uppercase tracking-wide">
-                    {funnel.ctaPrimary}
-                  </span>
-                </Link>
-              </div>
-              <ul className="flex flex-col justify-center gap-4">
-                {promises.map((item, i) => (
-                  <Reveal key={item} delay={i * 80}>
-                    <li className="flex items-start gap-3 rounded-xl border border-zinc-800 bg-zinc-900/60 p-4">
-                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--accent)] text-white">
-                        <Check className="h-3.5 w-3.5" strokeWidth={3} />
-                      </span>
-                      <p className="text-sm font-medium text-zinc-300 md:text-base">{item}</p>
-                    </li>
-                  </Reveal>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
+
 
 const aboutFacts = [
   { value: "12+", label: "Years in roofing marketing" },
@@ -398,8 +339,6 @@ export function MastermindPage({ funnel }: { funnel: FunnelConfig }) {
       <TrackSection funnel={funnel} />
 
       <StatsStrip />
-
-      <GuaranteeSection funnel={funnel} />
 
       <AboutSection funnel={funnel} />
 

@@ -1,4 +1,5 @@
 import { Reveal } from "./Reveal";
+import { SectionHeading } from "./SectionHeading";
 
 const stats = [
   {
@@ -25,37 +26,46 @@ const stats = [
 
 export function TrustBar() {
   return (
-    <section className="relative border-b border-zinc-800 bg-[#09090b] py-16 text-white md:py-20">
-      <div className="jobber-grid-dark pointer-events-none absolute inset-0" />
+    <section className="relative overflow-hidden border-b border-zinc-200 bg-[#fafafa] py-16 text-zinc-950 md:py-24">
+      <div className="jobber-grid-light pointer-events-none absolute inset-0 opacity-60" />
 
       <div className="relative mx-auto max-w-[1240px] px-5 md:px-8">
-        <Reveal className="mx-auto max-w-3xl text-center">
-          <h2 className="display text-2xl font-extrabold tracking-tight text-white sm:text-4xl">
-            The proven system behind{" "}
-            <span className="text-[var(--accent)]">
-              $50M+ in managed ad spend
-            </span>
-          </h2>
-        </Reveal>
+        <SectionHeading
+          light
+          eyebrow="THE PROVEN SYSTEM"
+          title={
+            <>
+              The proven system behind{" "}
+              <span className="text-[#ed1c24]">
+                $50M+ in managed ad spend
+              </span>
+            </>
+          }
+        />
 
         <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
           {stats.map((s, idx) => (
             <Reveal key={s.label} delay={idx * 70}>
-              <div className="rounded-xl border border-zinc-800 bg-zinc-900/90 p-5 text-center shadow-xs transition duration-300 hover:border-[var(--accent)]">
-                <span className="display text-2xl font-extrabold text-[var(--accent)] sm:text-3xl">
+              <div className="rounded-2xl border border-zinc-200 bg-white p-6 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:border-[#ed1c24] hover:shadow-md">
+                <span className="display text-2xl font-extrabold text-[#ed1c24] sm:text-3xl">
                   {s.value}
                 </span>
-                <p className="mt-1.5 text-xs font-bold text-white sm:text-sm">
-                  {s.label}
-                </p>
-                <p className="mt-0.5 text-[11px] font-medium text-zinc-400">
+                <p className="mt-1.5 text-sm font-bold text-zinc-900">{s.label}</p>
+                <p className="mt-0.5 text-xs font-medium text-zinc-500">
                   {s.sub}
                 </p>
               </div>
             </Reveal>
           ))}
         </div>
+
+        <Reveal delay={80}>
+          <p className="mt-10 text-center text-xs font-bold uppercase tracking-widest text-zinc-400">
+            20+ industries · 17+ client operators · one system
+          </p>
+        </Reveal>
       </div>
     </section>
   );
 }
+

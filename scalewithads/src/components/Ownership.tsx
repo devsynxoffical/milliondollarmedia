@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { BOOKING_PATH } from "../lib/offer";
 import { Reveal } from "./Reveal";
+import { SectionHeading } from "./SectionHeading";
 
 const owned = [
   "Landing Pages",
@@ -17,35 +18,45 @@ export function Ownership() {
   return (
     <section
       id="ownership"
-      className="section-shell border-b border-zinc-100 bg-white"
+      className="relative overflow-hidden border-b border-zinc-800 bg-[#09090b] py-16 text-white md:py-24"
     >
-      <div className="mx-auto max-w-[1240px]">
-        <Reveal className="mx-auto flex max-w-3xl flex-col items-center text-center">
-          <div className="pill-badge-red mb-3">
-            <span className="dot-red" />
-            <span>NO LOCK-INS · NO HIDDEN OWNERSHIP</span>
-          </div>
-          <h2 className="display text-3xl font-extrabold tracking-tight text-zinc-950 sm:text-4xl lg:text-5xl">
-            Unlike Most Agencies...
-            <br />
-            <span className="text-[var(--accent)]">You Own Everything.</span>
-          </h2>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-zinc-500">
-            When we build your Client Acquisition System, it becomes your
-            business asset.
-          </p>
-        </Reveal>
+      <div className="jobber-grid-dark pointer-events-none absolute inset-0" />
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 55% 40% at 50% 0%, rgba(237,28,36,0.10), transparent 70%)",
+        }}
+      />
+
+      <div className="relative mx-auto max-w-[1240px] px-5 md:px-8">
+        <SectionHeading
+          eyebrow="NO LOCK-INS · NO HIDDEN OWNERSHIP"
+          title={
+            <>
+              Unlike Most Agencies...
+              <br className="hidden sm:block" />
+              <span className="text-[var(--accent)]">You Own Everything.</span>
+            </>
+          }
+          description="When we build your Client Acquisition System, it becomes your business asset."
+        />
 
         <Reveal delay={120}>
-          <div className="relative mt-12 overflow-hidden rounded-[2rem] bg-[#09090b] px-6 py-12 text-white md:px-12 md:py-16">
+          <div className="relative mt-12 overflow-hidden rounded-[2rem] border border-zinc-800 bg-zinc-900/50 px-6 py-12 backdrop-blur-sm md:px-12 md:py-16">
             <div className="jobber-grid-dark pointer-events-none absolute inset-0" />
+            <div
+              className="pointer-events-none absolute inset-0"
+              style={{
+                background:
+                  "radial-gradient(ellipse 60% 70% at 15% 20%, rgba(237,28,36,0.16), transparent 55%), radial-gradient(ellipse 40% 60% at 90% 90%, rgba(255,255,255,0.05), transparent 55%)",
+              }}
+            />
             <div className="relative z-10 grid items-center gap-10 lg:grid-cols-[0.85fr_1.15fr]">
               <div>
-                <h3 className="display text-2xl font-extrabold tracking-tight md:text-3xl">
+                <h3 className="display text-2xl font-extrabold tracking-tight text-white md:text-3xl">
                   You own every single{" "}
-                  <span className="text-[var(--accent)]">
-                    asset we build.
-                  </span>
+                  <span className="text-[var(--accent)]">asset we build.</span>
                 </h3>
                 <p className="mt-4 max-w-sm text-sm leading-relaxed text-zinc-400">
                   No lock-ins. No hidden ownership. No dependence on another
@@ -63,7 +74,7 @@ export function Ownership() {
                 {owned.map((item) => (
                   <div
                     key={item}
-                    className="flex items-center gap-2.5 rounded-xl border border-zinc-800 bg-zinc-900/90 px-4 py-3.5 text-sm font-bold text-white transition duration-300 hover:border-[var(--accent)]"
+                    className="flex items-center gap-2.5 rounded-xl border border-zinc-800 bg-[#09090b]/60 px-4 py-3.5 text-sm font-bold text-white transition duration-300 hover:border-[var(--accent)]"
                   >
                     <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[var(--accent)] text-[10px] font-extrabold text-white">
                       ✓

@@ -42,7 +42,7 @@ function VideoTile({ video }: { video: VideoItem }) {
 
   return (
     <div
-      className={`group relative mb-5 break-inside-avoid overflow-hidden rounded-2xl border border-zinc-200 bg-[var(--band-2)] shadow-[0_10px_30px_-16px_rgba(0,0,0,0.3)] transition duration-300 hover:-translate-y-1 hover:border-[var(--accent)]/60 hover:shadow-[0_24px_50px_-20px_rgba(237,28,36,0.45)] ${
+      className={`group relative mb-5 break-inside-avoid overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:border-[#ed1c24]/50 hover:shadow-[0_16px_40px_-16px_rgba(237,28,36,0.2)] ${
         video.aspect === "portrait" ? "aspect-[9/16]" : "aspect-square"
       }`}
     >
@@ -78,7 +78,7 @@ function VideoTile({ video }: { video: VideoItem }) {
 
       {/* Hover play glyph */}
       <div className="absolute inset-0 flex items-center justify-center opacity-0 transition duration-300 group-hover:opacity-100">
-        <span className="flex h-14 w-14 items-center justify-center rounded-full border border-white/40 bg-white/90 text-[var(--ink)] shadow-[0_12px_36px_-8px_rgba(0,0,0,0.5)] backdrop-blur">
+        <span className="flex h-14 w-14 items-center justify-center rounded-full border border-white/40 bg-white/90 text-zinc-900 shadow-[0_12px_36px_-8px_rgba(0,0,0,0.3)] backdrop-blur">
           <svg viewBox="0 0 24 24" className="ml-0.5 h-6 w-6 fill-current" aria-hidden>
             <path d="M8 5v14l11-7z" />
           </svg>
@@ -109,8 +109,12 @@ function VideoTile({ video }: { video: VideoItem }) {
 
 export function Reviews() {
   return (
-    <section id="reviews" className="bg-[var(--bg)] border-b border-zinc-100">
-      <div className="mx-auto max-w-[1240px] px-5 md:px-8">
+    <section
+      id="reviews"
+      className="relative overflow-hidden border-b border-zinc-200 bg-white text-zinc-950"
+    >
+      <div className="jobber-grid-light pointer-events-none absolute inset-0 opacity-40" />
+      <div className="relative mx-auto max-w-[1240px] px-5 md:px-8">
         {/* Video wall */}
         <div className="columns-1 gap-5 sm:columns-2 lg:columns-3">
           {videos.map((video) => (

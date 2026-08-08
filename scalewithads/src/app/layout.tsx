@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
-import { Header } from "../components/Header";
+import { AnnouncementBar } from "../components/layout/AnnouncementBar";
+import { Nav } from "../components/layout/Nav";
+import { ScrollProgress } from "../components/ui/ScrollProgress";
+import { NoiseOverlay } from "../components/ui/NoiseOverlay";
+import { SmoothScroll } from "../components/providers/SmoothScroll";
+import { CustomCursor } from "../components/providers/CustomCursor";
 import "./globals.css";
 
 const display = Space_Grotesk({
@@ -42,9 +47,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable} h-full`}>
-      <body className="min-h-full">
-        <Header />
-        {children}
+      <body className="min-h-full antialiased">
+        <SmoothScroll>
+          <CustomCursor>
+            <NoiseOverlay />
+            <ScrollProgress />
+            <AnnouncementBar />
+            <Nav />
+            {children}
+          </CustomCursor>
+        </SmoothScroll>
       </body>
     </html>
   );

@@ -11,6 +11,7 @@ const links = [
   { href: "/#results", label: "Results" },
   { href: "/#reviews", label: "Videos" },
   { href: "/#comparison", label: "Why Us" },
+  { href: "/medialibrary", label: "Media Library" },
 ];
 
 const mastermindLinks = [
