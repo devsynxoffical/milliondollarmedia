@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { Reveal } from "./Reveal";
 import { BOOKING_PATH } from "../lib/offer";
-import { SplitReveal } from "./ui/SplitReveal";
-import { Button } from "./ui/Button";
+import { HelpCircle, ArrowRight, MessageSquare } from "lucide-react";
+import Link from "next/link";
 
 const faqs = [
   {
@@ -38,11 +38,13 @@ const faqs = [
 ];
 
 function FaqItem({
+  index,
   q,
   a,
   open,
   onToggle,
 }: {
+  index: number;
   q: string;
   a: string;
   open: boolean;
@@ -50,35 +52,60 @@ function FaqItem({
 }) {
   return (
     <div
-      className={`overflow-hidden rounded-2xl border transition-colors duration-300 ${
+      className={`group overflow-hidden rounded-2xl border transition-all duration-400 ${
         open
-          ? "border-[var(--accent)]/50 bg-white shadow-lg"
-          : "border-zinc-200 bg-white shadow-sm hover:border-zinc-300"
+          ? "border-[#ed1c24]/70 bg-gradient-to-r from-[#ed1c24]/10 via-[#0e0f15] to-[#0e0f15] shadow-[0_10px_35px_-10px_rgba(237,28,36,0.3)]"
+          : "border-white/10 bg-[#0d0e14]/90 hover:border-white/20 hover:bg-[#12131b]"
       }`}
     >
       <button
         type="button"
         onClick={onToggle}
         aria-expanded={open}
-        className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
+        className="flex w-full items-center justify-between gap-4 p-5 sm:p-6 text-left"
       >
-        <span className="text-sm font-extrabold text-zinc-950 md:text-base">{q}</span>
-        <span
-          className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-all duration-300 ${
-            open ? "bg-[var(--accent)] text-white rotate-45" : "bg-zinc-100 text-zinc-500"
+        <div className="flex items-center gap-3.5">
+          <span
+            className={`font-mono text-xs font-bold transition-colors ${
+              open ? "text-[#ed1c24]" : "text-zinc-500 group-hover:text-zinc-300"
+            }`}
+          >
+            {String(index + 1).padStart(2, "0")}
+          </span>
+          <span className="text-base sm:text-lg font-bold text-white leading-snug">
+            {q}
+          </span>
+        </div>
+
+        <div
+          className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${
+            open
+              ? "border-[#ed1c24] bg-[#ed1c24] text-white rotate-45 shadow-[0_0_15px_rgba(237,28,36,0.6)]"
+              : "border-white/15 bg-white/[0.04] text-zinc-400 group-hover:border-white/30 group-hover:text-white"
           }`}
         >
-          <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden>
+          <svg
+            viewBox="0 0 24 24"
+            className="h-4 w-4"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            aria-hidden
+          >
             <path d="M12 5v14M5 12h14" />
           </svg>
-        </span>
+        </div>
       </button>
+
       <div
         className="grid transition-[grid-template-rows] duration-300 ease-out"
         style={{ gridTemplateRows: open ? "1fr" : "0fr" }}
       >
         <div className="overflow-hidden">
-          <p className="px-6 pb-6 text-sm leading-relaxed text-zinc-600">{a}</p>
+          <div className="px-6 pb-6 pt-1 text-sm leading-relaxed text-zinc-300 border-t border-white/5">
+            {a}
+          </div>
         </div>
       </div>
     </div>
@@ -89,38 +116,67 @@ export function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="section-shell bg-white border-b border-zinc-100">
-      <div className="mx-auto max-w-[1240px]">
-        <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
-          {/* Left: heading + CTA */}
-          <div className="lg:col-span-5">
+    <section id="faq" className="relative overflow-hidden bg-[#070709] py-20 sm:py-28 border-b border-zinc-800">
+      {/* Ambient background lighting */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="jobber-grid-dark absolute inset-0 opacity-40" />
+        <div className="absolute left-1/4 top-1/2 h-[35rem] w-[50rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(237,28,36,0.12),transparent_70%)] blur-3xl" />
+      </div>
+
+      <div className="container-x relative z-10 mx-auto max-w-[1240px]">
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16 items-start">
+          {/* Left: Heading + CTA */}
+          <div className="lg:col-span-5 lg:sticky lg:top-32">
             <Reveal>
-              <span className="inline-flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-[#ed1c24]">
-                <span className="inline-block h-px w-8 bg-[#ed1c24]" />
-                FAQ
-              </span>
-              <SplitReveal as="h2" mode="lines" className="font-heading mt-4 text-3xl font-bold leading-[1.08] tracking-[-0.03em] text-zinc-950 sm:text-4xl">
-                Questions?{" "}
-                <span className="text-[#ed1c24]">We&apos;ve got answers.</span>
-              </SplitReveal>
-              <p className="mt-4 text-base text-zinc-500 leading-relaxed">
-                Everything roofing companies ask us before installing the
-                system. If your question isn&apos;t here, book a call and ask us
-                directly.
+              <div className="inline-flex items-center gap-2.5 rounded-full bg-[#ed1c24]/10 border border-[#ed1c24]/30 px-4 py-1.5 shadow-[0_0_20px_rgba(237,28,36,0.2)]">
+                <HelpCircle className="h-4 w-4 text-[#ed1c24]" />
+                <span className="font-mono text-xs font-semibold uppercase tracking-widest text-[#ed1c24]">
+                  Clear Answers
+                </span>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.08}>
+              <h2 className="mt-5 text-balance text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+                Questions? <br />
+                <span className="text-gradient-animated">
+                  We&apos;ve got answers.
+                </span>
+              </h2>
+            </Reveal>
+
+            <Reveal delay={0.15}>
+              <p className="mt-4 text-base text-zinc-300 leading-relaxed">
+                Everything roofing companies ask us before installing the system. If your question isn&apos;t here, book a call and ask us directly.
               </p>
-              <Button href={BOOKING_PATH} variant="primary" size="lg" className="mt-8">
-                Book Your Free Strategy Call
-              </Button>
+            </Reveal>
+
+            <Reveal delay={0.25}>
+              <div className="mt-8 flex flex-col gap-4">
+                <Link
+                  href={BOOKING_PATH}
+                  className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-[#ed1c24] px-8 py-4 text-sm font-extrabold uppercase tracking-wider text-white shadow-[0_0_35px_-5px_rgba(237,28,36,0.6)] transition-all duration-300 hover:bg-[#ff2a1f] hover:shadow-[0_0_50px_-5px_rgba(237,28,36,0.85)] hover:scale-[1.02] active:scale-[0.98] w-full sm:w-auto"
+                >
+                  <span>Book Your Free Strategy Call</span>
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
+
+                <div className="flex items-center gap-2.5 text-xs text-zinc-400">
+                  <MessageSquare className="h-4 w-4 text-[#ed1c24]" />
+                  <span>1:1 Custom Strategy Session included free</span>
+                </div>
+              </div>
             </Reveal>
           </div>
 
-          {/* Right: accordion */}
+          {/* Right: Accordion */}
           <div className="lg:col-span-7">
-            <Reveal delay={100}>
-              <div className="space-y-3">
+            <Reveal delay={0.1}>
+              <div className="space-y-3.5">
                 {faqs.map((item, i) => (
                   <FaqItem
                     key={item.q}
+                    index={i}
                     q={item.q}
                     a={item.a}
                     open={openIndex === i}
