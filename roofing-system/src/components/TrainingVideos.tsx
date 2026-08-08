@@ -202,7 +202,7 @@ export function TrainingVideos() {
             className="font-heading mt-4 text-3xl font-bold leading-[1.08] tracking-[-0.03em] text-zinc-950 sm:text-4xl lg:text-5xl"
           >
             Our business is{" "}
-            <span className="relative text-[#ed1c24]">
+            <span className="relative text-gradient-animated">
               helping yours succeed
               <span className="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#ed1c24]/40 to-transparent -skew-y-1" />
             </span>

@@ -96,7 +96,7 @@ export function InteractiveImageAccordion() {
             </span>
             <SplitReveal as="h2" mode="lines" className="font-heading mt-4 text-3xl font-bold leading-[1.08] tracking-[-0.03em] text-zinc-950 sm:text-4xl lg:text-5xl">
               From Shingles To Steel.{" "}
-              <span className="text-[#ed1c24]">One Roof At A Time.</span>
+              <span className="text-gradient-animated">One Roof At A Time.</span>
             </SplitReveal>
             <p className="mt-5 text-base sm:text-lg text-zinc-500 leading-relaxed">
               Residential, commercial, storm damage, metal, tile — our
