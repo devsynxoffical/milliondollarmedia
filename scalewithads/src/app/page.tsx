@@ -4,8 +4,10 @@ import { FinalCta } from "../components/FinalCta";
 import { Footer } from "../components/Footer";
 import { LogoMarquee } from "../components/LogoMarquee";
 import { Problem } from "../components/Problem";
+import { Results } from "../components/Results";
 import { SystemsShowcase } from "../components/SystemsShowcase";
 import { ShortsReelSection } from "../components/ShortsReelSection";
+import { TrainingSection } from "../components/TrainingSection";
 import { TrustBar } from "../components/TrustBar";
 import ResponsiveHeroBanner from "../components/ui/responsive-hero-banner";
 
@@ -20,6 +22,8 @@ export default function Home() {
       <ShortsReelSection />
       <Problem />
       <Difference />
+      <Results />
+      <TrainingSection />
       <FinalCta />
       <Footer />
     </main>

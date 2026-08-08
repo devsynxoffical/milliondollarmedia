@@ -11,7 +11,6 @@ const SHORT_BASE = "/media/library/million-dollar-media/shorts";
 const AD_BASE = "/media/library/million-dollar-media/ad-videos";
 
 const SHORT_META: Array<{ id: string; name: string; label: string }> = [
-  { id: "0xUK8H5oGC8", name: "Solar UGC", label: "Solar" },
   { id: "rsjB72V2a5Y", name: "Solar UGC", label: "Solar" },
   { id: "ZhgiZAqdObo", name: "Solar UGC", label: "Solar" },
   { id: "UtLbkt5TGzc", name: "MVA UGC", label: "MVA" },
@@ -22,8 +21,6 @@ const SHORT_META: Array<{ id: string; name: string; label: string }> = [
   { id: "RX6OZBh1QDg", name: "HVAC UGC", label: "HVAC" },
   { id: "9I2mFbTPoAU", name: "Client Testimonial", label: "Testimonial" },
   { id: "jYIAsu2OtQI", name: "Original Ad", label: "Original" },
-  { id: "ZBWTF-qC4rE", name: "Branding", label: "Branding" },
-  { id: "U_LldHM2p4A", name: "Creative", label: "Creative" },
   { id: "1UFdeUy2GtY", name: "Coaching Ads", label: "Coaching" },
   { id: "Bd4TENqCVWU", name: "Pediatrician Coach", label: "Coaching" },
   { id: "foyuBZ6QcgQ", name: "Two Comma Coach", label: "Coaching" },

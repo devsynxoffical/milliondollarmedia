@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
 import { AnnouncementBar } from "../components/layout/AnnouncementBar";
 import { Nav } from "../components/layout/Nav";
 import { ScrollProgress } from "../components/ui/ScrollProgress";
@@ -8,16 +8,16 @@ import { SmoothScroll } from "../components/providers/SmoothScroll";
 import { CustomCursor } from "../components/providers/CustomCursor";
 import "./globals.css";
 
-const display = Space_Grotesk({
+const display = Outfit({
   subsets: ["latin"],
   variable: "--font-display",
-  weight: ["500", "600", "700"],
+  weight: ["500", "600", "700", "800"],
 });
 
-const body = Inter({
+const body = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-body",
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -47,7 +47,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable} h-full`}>
-      <body className="min-h-full antialiased">
+      <body className="min-h-full antialiased font-body bg-[#070709] text-white">
         <SmoothScroll>
           <CustomCursor>
             <NoiseOverlay />

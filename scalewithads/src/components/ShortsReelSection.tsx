@@ -1,15 +1,15 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { adShorts, type AdVideo } from "../lib/ads";
 import { SectionHeading } from "./SectionHeading";
-import { Play, Volume2, VolumeX, Eye, Sparkles, Flame, ArrowUpRight } from "lucide-react";
+import { TiltCard } from "./ui/TiltCard";
+import { Play, Volume2, VolumeX, Eye, Flame, ArrowUpRight } from "lucide-react";
 import { BOOKING_PATH } from "../lib/offer";
 
-function ShortVideoCard({
+function AutoPlayShortCard({
   video,
   onOpen,
 }: {
@@ -17,75 +17,120 @@ function ShortVideoCard({
   onOpen: (v: AdVideo) => void;
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
 
-  const handleMouseEnter = () => {
-    if (videoRef.current) {
-      videoRef.current.play().catch(() => {});
-      setIsPlaying(true);
-    }
-  };
+  useEffect(() => {
+    const el = videoRef.current;
+    if (!el) return;
 
-  const handleMouseLeave = () => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          el.play().catch(() => {});
+        } else {
+          el.pause();
+        }
+      },
+      { rootMargin: "150px" }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const toggleMute = (e: React.MouseEvent) => {
+    e.stopPropagation();
     if (videoRef.current) {
-      videoRef.current.pause();
-      setIsPlaying(false);
+      const nextMuted = !isMuted;
+      videoRef.current.muted = nextMuted;
+      setIsMuted(nextMuted);
     }
   };
 
   return (
-    <div
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      onClick={() => onOpen(video)}
-      data-cursor="play"
-      className="group relative w-[180px] sm:w-[210px] shrink-0 cursor-pointer overflow-hidden rounded-2xl border border-white/10 bg-zinc-900 shadow-xl transition-all duration-300 hover:-translate-y-2 hover:border-[#ed1c24] hover:shadow-[0_20px_40px_-15px_rgba(237,28,36,0.4)]"
-    >
-      <div className="relative aspect-[9/16] w-full overflow-hidden">
-        <video
-          ref={videoRef}
-          src={video.src}
-          poster={video.poster}
-          muted={isMuted}
-          loop
-          playsInline
-          preload="metadata"
-          className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
-        />
+    <TiltCard maxTilt={6} className="h-full">
+      <div
+        onClick={() => onOpen(video)}
+        data-cursor="play"
+        className="group relative h-full cursor-pointer overflow-hidden rounded-2xl border border-white/15 bg-zinc-900 shadow-xl backdrop-blur-md transition-all duration-300 hover:border-[#ed1c24] hover:shadow-[0_20px_40px_-15px_rgba(237,28,36,0.45)]"
+      >
+        <div className="relative aspect-[9/16] w-full overflow-hidden">
+          <video
+            ref={videoRef}
+            src={video.src}
+            poster={video.poster}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
 
-        {/* Top Tag Pill */}
-        <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none">
-          <span className="rounded-full bg-black/75 px-2.5 py-1 text-[9px] font-extrabold uppercase tracking-wider text-white backdrop-blur-md border border-white/15">
-            {video.label}
-          </span>
-          <span className="flex items-center gap-1 rounded-full bg-black/75 px-2 py-0.5 text-[9px] font-bold text-white/90 backdrop-blur-md">
-            <Eye className="h-3 w-3 text-[#ed1c24]" />
-            14.2K
-          </span>
-        </div>
+          {/* Top Tag & View Count Pill */}
+          <div className="absolute top-3 left-3 right-3 flex items-center justify-between z-10">
+            <span className="inline-flex items-center gap-1 rounded-full bg-black/80 px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-white backdrop-blur-md border border-white/15">
+              <Flame className="h-3 w-3 text-[#ed1c24]" />
+              {video.label}
+            </span>
+            <button
+              onClick={toggleMute}
+              className="flex h-8 w-8 items-center justify-center rounded-full bg-black/80 text-white backdrop-blur-md border border-white/15 hover:bg-black"
+            >
+              {isMuted ? (
+                <VolumeX className="h-3.5 w-3.5 text-zinc-400" />
+              ) : (
+                <Volume2 className="h-3.5 w-3.5 text-[#ed1c24]" />
+              )}
+            </button>
+          </div>
 
-        {/* Center Hover Play Icon */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#ed1c24] text-white shadow-[0_0_30px_rgba(237,28,36,0.8)] scale-90 group-hover:scale-100 transition-transform">
-            <Play className="ml-1 h-6 w-6 fill-current" />
+          {/* Center Hover Play Icon */}
+          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#ed1c24] text-white shadow-[0_0_35px_rgba(237,28,36,0.8)] scale-90 group-hover:scale-100 transition-transform">
+              <Play className="ml-1 h-6 w-6 fill-current" />
+            </div>
+          </div>
+
+          {/* Bottom Info Overlay */}
+          <div className="absolute bottom-3 left-3 right-3 z-10 text-left">
+            <p className="display text-base font-extrabold text-white truncate">
+              {video.name}
+            </p>
+            <div className="mt-1 flex items-center justify-between text-[11px] font-bold text-zinc-300">
+              <span className="flex items-center gap-1">
+                <Eye className="h-3 w-3 text-[#ed1c24]" />
+                18.4K Views
+              </span>
+              <span className="text-[#ed1c24] group-hover:translate-x-0.5 transition-transform">
+                Play HD →
+              </span>
+            </div>
           </div>
         </div>
-
-        {/* Bottom Caption Overlay */}
-        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-3 text-left pointer-events-none">
-          <p className="display text-sm font-extrabold text-white truncate">
-            {video.name}
-          </p>
-          <p className="text-[10px] text-zinc-300">DFY Short-Form Creative</p>
-        </div>
       </div>
-    </div>
+    </TiltCard>
   );
 }
 
 export function ShortsReelSection() {
-  const [activeShort, setActiveShort] = useState<AdVideo | null>(null);
+  const [activeTab, setActiveTab] = useState<string>("all");
+  const [activeShortModal, setActiveShortModal] = useState<AdVideo | null>(null);
+
+  const categories = [
+    { id: "all", label: "All Creatives" },
+    { id: "Solar", label: "Solar UGC" },
+    { id: "MVA", label: "MVA & Legal" },
+    { id: "HVAC", label: "HVAC & Home" },
+    { id: "Coaching", label: "Coaching & VSL" },
+  ];
+
+  const filteredShorts = adShorts.filter((video) => {
+    if (activeTab === "all") return true;
+    return video.label.toLowerCase().includes(activeTab.toLowerCase());
+  });
 
   return (
     <section
@@ -93,67 +138,86 @@ export function ShortsReelSection() {
       className="relative overflow-hidden border-b border-zinc-800 bg-[#070709] py-20 text-white md:py-28"
     >
       <div className="jobber-grid-dark pointer-events-none absolute inset-0 opacity-40" />
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 65% 45% at 50% 50%, rgba(237,28,36,0.12), transparent 75%)",
+        }}
+      />
 
       <div className="relative mx-auto max-w-[1240px] px-5 md:px-8">
         <SectionHeading
-          eyebrow="HIGH-CONVERTING SHORT CREATIVES"
+          eyebrow="HIGH-CONVERTING SHORT-FORM ADS"
           title={
             <>
-              Viral Short-Form Ads Built To{" "}
+              Creative Ads That Autoplay &{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff4d52] via-[#ed1c24] to-[#ff8f93]">
-                Generate Qualified Leads
+                Convert Traffic Into Buyers
               </span>
             </>
           }
-          description="High-converting short-form creative angles designed specifically for Meta, TikTok, and YouTube Shorts."
+          description="Live short-form creative angles running across Meta, TikTok, and YouTube Shorts for our client acquisition system."
         />
 
-        {/* Horizontal Marquee Reel */}
-        <div className="relative mt-12 overflow-hidden py-4">
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-20 w-24 bg-gradient-to-r from-[#070709] to-transparent" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-20 w-24 bg-gradient-to-l from-[#070709] to-transparent" />
-
-          <div className="flex gap-5 overflow-hidden">
-            <motion.div
-              animate={{ x: ["0%", "-50%"] }}
-              transition={{ repeat: Infinity, duration: 35, ease: "linear" }}
-              className="flex shrink-0 items-center gap-5"
+        {/* Category Tabs */}
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
+          {categories.map((cat) => (
+            <button
+              key={cat.id}
+              onClick={() => setActiveTab(cat.id)}
+              className={`rounded-full px-5 py-2 text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
+                activeTab === cat.id
+                  ? "bg-[#ed1c24] text-white shadow-[0_0_20px_rgba(237,28,36,0.5)] scale-105"
+                  : "border border-white/10 bg-white/5 text-zinc-400 hover:border-white/20 hover:text-white"
+              }`}
             >
-              {[...adShorts, ...adShorts].map((video, idx) => (
-                <ShortVideoCard
-                  key={`${video.id}-${idx}`}
-                  video={video}
-                  onOpen={(v) => setActiveShort(v)}
-                />
-              ))}
-            </motion.div>
-          </div>
+              {cat.label}
+            </button>
+          ))}
         </div>
 
-        {/* Bottom Action */}
-        <div className="mt-10 text-center">
+        {/* Creative Bento Grid of Autoplaying Short-Form Ads */}
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 items-stretch">
+          {filteredShorts.map((video, idx) => (
+            <motion.div
+              key={video.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: (idx % 4) * 0.08 }}
+            >
+              <AutoPlayShortCard
+                video={video}
+                onOpen={(v) => setActiveShortModal(v)}
+              />
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Bottom CTA bar */}
+        <div className="mt-14 text-center">
           <Link
             href={BOOKING_PATH}
-            className="btn btn-accent inline-flex items-center gap-2 px-8 py-4 text-sm font-extrabold shadow-[0_0_30px_rgba(237,28,36,0.5)]"
+            className="btn btn-accent inline-flex items-center gap-2 px-8 py-4 text-sm font-extrabold uppercase tracking-wider shadow-[0_0_35px_rgba(237,28,36,0.6)]"
           >
-            <span>GET SHORT CREATIVES FOR YOUR BRAND</span>
+            <span>GET DFY CREATIVE ADS FOR YOUR BRAND</span>
             <ArrowUpRight className="h-4 w-4" />
           </Link>
         </div>
       </div>
 
-      {/* Active Short Video Modal Lightbox */}
+      {/* Short Video Lightbox Modal */}
       <AnimatePresence>
-        {activeShort && (
+        {activeShortModal && (
           <div className="fixed inset-0 z-[300] flex items-center justify-center bg-black/90 p-4 backdrop-blur-xl">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
-              className="relative w-full max-w-sm overflow-hidden rounded-3xl border border-white/20 bg-zinc-950 p-2 shadow-2xl"
+              className="relative w-full max-w-md overflow-hidden rounded-3xl border border-white/20 bg-zinc-950 p-3 shadow-2xl"
             >
               <button
-                onClick={() => setActiveShort(null)}
+                onClick={() => setActiveShortModal(null)}
                 className="absolute top-4 right-4 z-30 flex h-9 w-9 items-center justify-center rounded-full bg-black/80 text-white backdrop-blur hover:bg-black"
               >
                 ✕
@@ -161,20 +225,30 @@ export function ShortsReelSection() {
 
               <div className="aspect-[9/16] w-full overflow-hidden rounded-2xl">
                 <video
-                  src={activeShort.src}
+                  src={activeShortModal.src}
                   controls
                   autoPlay
                   className="h-full w-full object-cover"
                 />
               </div>
 
-              <div className="p-3 text-center">
-                <p className="display text-base font-extrabold text-white">
-                  {activeShort.name}
+              <div className="p-4 text-center">
+                <span className="rounded-full bg-[#ed1c24]/20 border border-[#ed1c24]/40 px-3 py-1 text-xs font-bold text-[#ed1c24]">
+                  {activeShortModal.label}
+                </span>
+                <p className="display text-lg font-extrabold text-white mt-2">
+                  {activeShortModal.name}
                 </p>
-                <p className="text-xs text-zinc-400 mt-0.5">
-                  Category: {activeShort.label}
+                <p className="text-xs text-zinc-400 mt-1">
+                  Scale With Ads™ DFY Short Creative Engine
                 </p>
+
+                <Link
+                  href={BOOKING_PATH}
+                  className="btn btn-accent mt-4 w-full py-3 text-xs font-extrabold uppercase tracking-wider"
+                >
+                  Book Free Strategy Call
+                </Link>
               </div>
             </motion.div>
           </div>

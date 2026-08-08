@@ -22,11 +22,11 @@ export const site = {
 } as const;
 
 export const nav = [
-  { label: "System", href: "#system" },
-  { label: "Results", href: "#results" },
-  { label: "Industries", href: "#clients" },
-  { label: "Guarantee", href: "#guarantee" },
-  { label: "Videos", href: "#videowall" },
+  { label: "Systems", href: "/#systems" },
+  { label: "Operators", href: "/#clients" },
+  { label: "Shorts", href: "/#shorts" },
+  { label: "Results", href: "/#results" },
+  { label: "Media Library", href: "/medialibrary" },
 ] as const;
 
 export const navCta = {

@@ -3,17 +3,17 @@ import Link from "next/link";
 import { BOOKING_PATH } from "../lib/offer";
 
 const navLinks = [
-  { href: "/#system", label: "Acquisition System" },
-  { href: "/#results", label: "Results" },
-  { href: "/#reviews", label: "Client Videos" },
-  { href: "/#comparison", label: "Why Us" },
-  { href: "/#guarantee", label: "Guarantee" },
+  { href: "/#systems", label: "Acquisition Systems" },
+  { href: "/#clients", label: "9-Figure Operators" },
+  { href: "/#shorts", label: "Short Creatives" },
+  { href: "/#results", label: "Campaign Results" },
+  { href: "/medialibrary", label: "Media Library" },
   { href: BOOKING_PATH, label: "Book Strategy Call" },
 ];
 
 const pageLinks = [
-  { href: "/metads", label: "Meta Ads" },
-  { href: "/leadpilot", label: "Lead Pilot" },
+  { href: "/metads", label: "Meta Ads System" },
+  { href: "/leadpilot", label: "Lead Pilot DFY" },
   { href: "/privatemastermind", label: "Private Mastermind" },
   { href: BOOKING_PATH, label: "Apply Now" },
 ];
@@ -26,15 +26,15 @@ const legalLinks = [
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-zinc-800 bg-[#09090b] text-white">
+    <footer className="relative border-t border-zinc-800 bg-[#070709] text-white">
       {/* Pre-footer CTA Bar */}
-      <div className="border-b border-zinc-800 bg-[var(--accent)] px-5 py-5 text-center">
-        <p className="text-sm font-bold tracking-wide">
+      <div className="border-b border-zinc-800 bg-[#ed1c24] px-5 py-5 text-center">
+        <p className="text-sm font-extrabold uppercase tracking-wide">
           Proudly building client acquisition systems for businesses across all
           industries.{" "}
           <Link
             href={BOOKING_PATH}
-            className="underline underline-offset-4 hover:no-underline"
+            className="underline underline-offset-4 hover:no-underline ml-1"
           >
             Book your free strategy call →
           </Link>
@@ -52,7 +52,7 @@ export function Footer() {
               height={1538}
               className="h-12 w-auto object-contain"
             />
-            <p className="mt-5 max-w-xs text-sm leading-relaxed text-zinc-400">
+            <p className="mt-5 max-w-xs text-xs leading-relaxed text-zinc-400">
               Scale With Ads™, complete client acquisition systems for
               agencies, coaches, high-ticket services &amp; B2B founders.
               Double revenue in 90 days or we work free. Everything in writing.
@@ -61,7 +61,7 @@ export function Footer() {
 
           {/* Navigate */}
           <div>
-            <p className="mb-4 text-xs font-bold uppercase tracking-widest text-zinc-500">
+            <p className="mb-4 text-xs font-extrabold uppercase tracking-widest text-[#ed1c24]">
               Navigate
             </p>
             <nav className="flex flex-col gap-2.5">
@@ -69,7 +69,7 @@ export function Footer() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-sm text-zinc-400 transition hover:text-white"
+                  className="text-xs font-semibold text-zinc-400 transition hover:text-white"
                 >
                   {link.label}
                 </Link>
@@ -79,7 +79,7 @@ export function Footer() {
 
           {/* Pages */}
           <div>
-            <p className="mb-4 text-xs font-bold uppercase tracking-widest text-zinc-500">
+            <p className="mb-4 text-xs font-extrabold uppercase tracking-widest text-[#ed1c24]">
               Systems
             </p>
             <nav className="flex flex-col gap-2.5">
@@ -87,7 +87,7 @@ export function Footer() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-sm text-zinc-400 transition hover:text-white"
+                  className="text-xs font-semibold text-zinc-400 transition hover:text-white"
                 >
                   {link.label}
                 </Link>
@@ -97,7 +97,7 @@ export function Footer() {
 
           {/* Legal */}
           <div>
-            <p className="mb-4 text-xs font-bold uppercase tracking-widest text-zinc-500">
+            <p className="mb-4 text-xs font-extrabold uppercase tracking-widest text-[#ed1c24]">
               Legal
             </p>
             <nav className="flex flex-col gap-2.5">
@@ -105,7 +105,7 @@ export function Footer() {
                 <a
                   key={link.label}
                   href={link.href}
-                  className="text-sm text-zinc-400 transition hover:text-white"
+                  className="text-xs font-semibold text-zinc-400 transition hover:text-white"
                 >
                   {link.label}
                 </a>
@@ -120,14 +120,14 @@ export function Footer() {
             © {new Date().getFullYear()} Scale With Ads™. All rights reserved.
             Results vary.
           </p>
-          <p className="font-semibold uppercase tracking-widest text-zinc-600">
+          <p className="font-extrabold uppercase tracking-widest text-zinc-400">
             For $10K+/month businesses only
           </p>
         </div>
       </div>
 
       {/* Bottom Accent Line */}
-      <div className="h-1 bg-[var(--accent)]" />
+      <div className="h-1 bg-[#ed1c24]" />
     </footer>
   );
 }

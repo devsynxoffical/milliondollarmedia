@@ -76,7 +76,8 @@ export const MASTERMIND_FUNNEL: FunnelConfig = {
   subtitle:
     "The Hidden Facebook Interest Framework behind high-ticket sales calls, built from $50M+ Meta spend, 12 years of experience, and million-dollar funnel results across countless verticals.",
   videoLabel: "Watch private 1:1 mastermind",
-  videoSrc: "/media/videos/mastermind.mp4",
+  videoSrc:
+    "https://assets.cdn.filesafe.space/W8B8H8FvOolLCrvxXzYp/media/69ef9443717d5dd4e170f445.mp4",
   videoCover: "/media/covers/cover-mastermind.jpeg",
   learnTitle: "What agencies learn in this mastermind",
   learnItems: [
@@ -94,6 +95,12 @@ export const MASTERMIND_FUNNEL: FunnelConfig = {
   ctaSecondary: "TRAIN MY AGENCY",
   ctaSecondarySub: "$10K minimum · agreement in writing",
   bookingPath: BOOKING_PATH,
+  stats: [
+    { value: "$50M+", label: "Meta ads spent" },
+    { value: "12 YRS", label: "Experience" },
+    { value: "$10K+", label: "Monthly minimum" },
+    { value: "90 DAYS", label: "Revenue target" },
+  ],
 };
 
 export const METADS_FUNNEL: FunnelConfig = {

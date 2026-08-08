@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { BOOKING_PATH } from "../lib/offer";
 import { clients, type LibraryClient } from "../lib/library";
 import { SectionHeading } from "./SectionHeading";
-import { Trophy, Users, Star, ArrowUpRight, Sparkles, CheckCircle, Play } from "lucide-react";
+import { Trophy, ArrowUpRight, Sparkles, CheckCircle } from "lucide-react";
 
 export function ClientsShowcase() {
   const [selectedClient, setSelectedClient] = useState<LibraryClient | null>(null);
@@ -30,24 +30,18 @@ export function ClientsShowcase() {
   return (
     <section
       id="clients"
-      className="relative overflow-hidden border-b border-zinc-800 bg-[#070709] py-20 text-white md:py-28"
+      className="relative overflow-hidden border-b border-zinc-200 bg-white py-20 text-zinc-950 md:py-28"
     >
-      <div className="jobber-grid-dark pointer-events-none absolute inset-0 opacity-50" />
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse 65% 45% at 50% 0%, rgba(237,28,36,0.14), transparent 75%)",
-        }}
-      />
+      <div className="jobber-grid-light pointer-events-none absolute inset-0 opacity-60" />
 
       <div className="relative mx-auto max-w-[1240px] px-5 md:px-8">
         <SectionHeading
+          light
           eyebrow="REAL CLIENTS · 9-FIGURE CREATORS & OPERATORS"
           title={
             <>
               The Industry Leaders Behind{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff4d52] via-[#ed1c24] to-[#ff8f93]">
+              <span className="text-[#ed1c24]">
                 Our Scale Playbook
               </span>
             </>
@@ -64,7 +58,7 @@ export function ClientsShowcase() {
               className={`rounded-full px-5 py-2 text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
                 filter === tab.id
                   ? "bg-[#ed1c24] text-white shadow-[0_0_20px_rgba(237,28,36,0.5)] scale-105"
-                  : "border border-white/10 bg-white/5 text-zinc-400 hover:border-white/20 hover:text-white"
+                  : "border border-zinc-200 bg-zinc-100 text-zinc-600 hover:border-zinc-300 hover:text-zinc-900"
               }`}
             >
               {tab.label}
@@ -72,11 +66,8 @@ export function ClientsShowcase() {
           ))}
         </div>
 
-        {/* Creators Infinite Horizontal Marquee */}
+        {/* Creators Marquee — Left & Right edges fully normal & clear (no dark overlay) */}
         <div className="relative mt-12 overflow-hidden py-4">
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-20 w-24 bg-gradient-to-r from-[#070709] to-transparent" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-20 w-24 bg-gradient-to-l from-[#070709] to-transparent" />
-
           <div className="flex gap-5 overflow-hidden">
             <motion.div
               animate={{ x: ["0%", "-50%"] }}
@@ -88,10 +79,10 @@ export function ClientsShowcase() {
                   key={`${client.slug}-${idx}`}
                   onClick={() => setSelectedClient(client)}
                   data-cursor="view"
-                  className="group relative w-[220px] shrink-0 cursor-pointer overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/80 p-3 shadow-xl backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:border-[#ed1c24] hover:shadow-[0_20px_40px_-15px_rgba(237,28,36,0.4)]"
+                  className="group relative w-[220px] shrink-0 cursor-pointer overflow-hidden rounded-2xl border border-zinc-200 bg-white p-3 shadow-md transition-all duration-300 hover:-translate-y-2 hover:border-[#ed1c24] hover:shadow-[0_20px_40px_-15px_rgba(237,28,36,0.2)]"
                 >
                   {/* Photo with Overlay */}
-                  <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl border border-white/10">
+                  <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl border border-zinc-100">
                     <Image
                       src={client.photo}
                       alt={client.name}
@@ -99,7 +90,7 @@ export function ClientsShowcase() {
                       sizes="220px"
                       className="object-cover transition duration-700 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
 
                     {/* Badge Pill */}
                     <span className="absolute top-2.5 right-2.5 inline-flex items-center gap-1 rounded-full bg-black/80 px-2.5 py-1 text-[9px] font-extrabold uppercase tracking-wider text-white backdrop-blur-md border border-white/15">
@@ -119,7 +110,7 @@ export function ClientsShowcase() {
                   </div>
 
                   {/* Micro Interaction Footer */}
-                  <div className="mt-2.5 flex items-center justify-between px-1 text-[11px] font-bold text-zinc-400 group-hover:text-white transition-colors">
+                  <div className="mt-2.5 flex items-center justify-between px-1 text-[11px] font-bold text-zinc-500 group-hover:text-[#ed1c24] transition-colors">
                     <span className="flex items-center gap-1">
                       <Sparkles className="h-3 w-3 text-[#ed1c24]" />
                       View Profile
@@ -136,13 +127,13 @@ export function ClientsShowcase() {
         <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Link
             href="/medialibrary"
-            className="btn btn-outline-dark px-8 py-4 text-sm font-bold text-white transition-all hover:bg-white/10"
+            className="btn btn-outline border-zinc-300 text-zinc-900 px-8 py-4 text-xs font-extrabold uppercase tracking-wider hover:bg-zinc-100"
           >
             Browse All Client Videos & Case Studies →
           </Link>
           <Link
             href={BOOKING_PATH}
-            className="btn btn-accent px-8 py-4 text-sm font-extrabold shadow-[0_0_30px_rgba(237,28,36,0.5)]"
+            className="btn btn-accent px-8 py-4 text-xs font-extrabold uppercase tracking-wider shadow-[0_10px_30px_-10px_rgba(237,28,36,0.5)]"
           >
             BECOME OUR NEXT CASE STUDY
           </Link>
@@ -157,7 +148,7 @@ export function ClientsShowcase() {
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative w-full max-w-xl overflow-hidden rounded-3xl border border-white/20 bg-zinc-950 p-6 shadow-2xl"
+              className="relative w-full max-w-xl overflow-hidden rounded-3xl border border-white/20 bg-zinc-950 p-6 shadow-2xl text-white"
             >
               <button
                 onClick={() => setSelectedClient(null)}

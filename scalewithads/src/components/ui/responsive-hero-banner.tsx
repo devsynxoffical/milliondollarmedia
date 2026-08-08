@@ -44,7 +44,7 @@ export default function ResponsiveHeroBanner({
         style={{ y: heroParallaxY, opacity: heroOpacity }}
         className="relative z-10 mx-auto max-w-[1240px] px-5 md:px-8"
       >
-        <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+        <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
           {/* Left Column: Text & CTAs */}
           <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
             {/* Live Status Badge */}
@@ -52,7 +52,7 @@ export default function ResponsiveHeroBanner({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="group inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-semibold backdrop-blur-md transition-all hover:border-[var(--accent)]/50 hover:bg-white/10"
+              className="group inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-semibold backdrop-blur-md transition-all hover:border-[#ed1c24]/50 hover:bg-white/10"
               data-cursor="hover"
             >
               <span className="relative flex h-2.5 w-2.5">
@@ -62,7 +62,7 @@ export default function ResponsiveHeroBanner({
               <span className="uppercase tracking-[0.16em] text-white/90">
                 DFY CLIENT ACQUISITION SYSTEM
               </span>
-              <span className="rounded-full bg-[#ed1c24]/20 px-2 py-0.5 text-[10px] font-bold text-[#ed1c24]">
+              <span className="rounded-full bg-[#ed1c24]/20 px-2.5 py-0.5 text-[10px] font-extrabold text-[#ed1c24]">
                 90-DAY GUARANTEE
               </span>
             </motion.div>
@@ -72,23 +72,39 @@ export default function ResponsiveHeroBanner({
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="display mt-6 text-[clamp(2.5rem,5.5vw,4.5rem)] font-extrabold leading-[1.08] tracking-tight text-white"
+              className="display mt-6 text-[clamp(2.2rem,4.8vw,4rem)] font-extrabold leading-[1.1] tracking-tight text-white"
             >
-              Ads That Sell{" "}
+              We Will Install Our Proprietary{" "}
               <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-[#ff4d52] via-[#ed1c24] to-[#ff8f93]">
-                Across Every Industry
-              </span>
+                Scale With Ads™
+              </span>{" "}
+              Client Acquisition System Into Your Business...
             </motion.h1>
 
             {/* Subheading */}
-            <motion.p
+            <motion.h2
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="mt-6 max-w-xl text-base leading-relaxed text-zinc-300 md:text-lg"
+              className="display mt-4 text-xl sm:text-2xl md:text-3xl font-extrabold text-[#ed1c24]"
             >
-              We install a complete done-for-you client acquisition system — offer positioning, Meta Ads, high-converting funnels, CRM, and AI follow-up. We double your revenue in 90 days, backed in writing.
-            </motion.p>
+              Double Your Revenue Within The Next 90 Days...
+            </motion.h2>
+
+            {/* Body */}
+            <motion.div
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.25 }}
+              className="mt-4 max-w-xl space-y-1.5"
+            >
+              <p className="text-base font-semibold leading-relaxed text-zinc-300 md:text-lg">
+                Or We&apos;ll Continue Working For You At No Management Fee Until We Do.
+              </p>
+              <p className="text-base font-semibold leading-relaxed text-white md:text-lg">
+                Backed by a Written Agreement.
+              </p>
+            </motion.div>
 
             {/* Stats Row Pills */}
             <motion.div
@@ -134,12 +150,12 @@ export default function ResponsiveHeroBanner({
               </Link>
 
               <a
-                href="#system"
+                href="#systems"
                 data-cursor="view"
                 className="btn btn-outline-dark flex items-center justify-center gap-2 px-7 py-4.5 text-sm font-semibold text-zinc-200 transition-all hover:bg-white/10 hover:text-white"
               >
                 <Zap className="h-4 w-4 text-[#ed1c24]" />
-                <span>See the 8-Step System</span>
+                <span>Explore Acquisition Systems</span>
               </a>
             </motion.div>
 

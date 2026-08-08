@@ -105,38 +105,28 @@ export function CustomCursor({ children }: { children: ReactNode }) {
     };
   }, []);
 
-  const getLabel = () => {
-    switch (state) {
-      case "view":
-        return "VIEW";
-      case "play":
-        return "PLAY";
-      case "book":
-        return "BOOK";
-      case "drag":
-        return "DRAG";
-      case "text":
-        return "TEXT";
-      default:
-        return null;
-    }
-  };
-
   return (
     <>
       <div
         ref={ringRef}
-        className="pointer-events-none fixed left-0 top-0 z-[200] hidden h-10 w-10 items-center justify-center rounded-full border border-[#ed1c24]/50 bg-[#ed1c24]/10 text-[9px] font-semibold uppercase tracking-[0.18em] text-[#ff6b70] backdrop-blur-[2px] transition-[width,height] duration-300 has-cursor:flex"
+        className="pointer-events-none fixed left-0 top-0 z-[99998] hidden h-10 w-10 items-center justify-center rounded-full border border-[#ed1c24]/60 bg-[#ed1c24]/20 text-[9px] font-extrabold uppercase tracking-[0.18em] text-white shadow-[0_0_20px_rgba(237,28,36,0.6)] backdrop-blur-[2px] transition-[width,height] duration-300 has-cursor:flex"
       >
         <span ref={labelRef} className="transition-opacity duration-300" />
       </div>
       <div
         ref={dotRef}
-        className="pointer-events-none fixed left-0 top-0 z-[201] hidden h-[5px] w-[5px] rounded-full bg-[#ed1c24] has-cursor:block"
+        className="pointer-events-none fixed left-0 top-0 z-[99999] hidden h-[6px] w-[6px] rounded-full bg-[#ed1c24] shadow-[0_0_10px_#ed1c24] has-cursor:block"
       />
       <style jsx global>{`
         .has-cursor * {
           cursor: none !important;
+        }
+        .has-cursor video,
+        .has-cursor iframe,
+        .has-cursor button,
+        .has-cursor a,
+        .has-cursor [role="button"] {
+          cursor: pointer !important;
         }
         .has-cursor .cursor-pressed {
           width: 2.25rem;

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { FunnelPage } from "../../components/FunnelPage";
+import { MastermindFunnelPage } from "../../components/MastermindFunnelPage";
 import { MASTERMIND_FUNNEL } from "../../lib/funnels";
 
 export const metadata: Metadata = {
@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function PrivateMastermindPage() {
-  return <FunnelPage funnel={MASTERMIND_FUNNEL} />;
+  return <MastermindFunnelPage funnel={MASTERMIND_FUNNEL} />;
 }
