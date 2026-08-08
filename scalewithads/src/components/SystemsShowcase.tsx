@@ -1,89 +1,258 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Reveal } from "./Reveal";
+import { motion, AnimatePresence } from "framer-motion";
+import { TiltCard } from "./ui/TiltCard";
 import { SectionHeading } from "./SectionHeading";
+import { Play, ArrowRight, CheckCircle2, Sparkles, Shield, Zap } from "lucide-react";
 
 const systems = [
   {
+    slug: "metads",
     href: "/metads",
-    cover: "/media/covers/masterclass-poster-2.png",
+    cover: "/media/covers/cover-mastermind.jpeg",
+    videoSrc: "/media/videos/metads.mp4",
     tag: "META ADS SYSTEM",
     title: "Meta Ads That Sell",
-    desc: "The LTO training behind ads systems that convert across every industry.",
+    subtitle: "LTO Meta Ads Cash Cow Framework",
+    desc: "The complete system behind high-converting Meta campaigns across all industries. $50M+ spend framework.",
+    stats: [
+      { label: "Client ROAS", value: "3.32x" },
+      { label: "Tracked Sales", value: "$847K" },
+    ],
+    features: [
+      "Hidden Facebook Interest Framework",
+      "Creative & Offer Angle Library",
+      "ROAS-Driven Media Buying",
+    ],
   },
   {
+    slug: "leadpilot",
     href: "/leadpilot",
     cover: "/media/covers/cover-leadpilot.jpg",
-    tag: "LEAD PILOT",
-    title: "Done-For-You Ads",
-    desc: "We write, target, and manage the campaigns that book revenue for you.",
+    videoSrc: "https://assets.cdn.filesafe.space/W8B8H8FvOolLCrvxXzYp/media/69ef9443717d5dd4e170f445.mp4",
+    tag: "DONE-FOR-YOU LEAD PILOT",
+    title: "Done-For-You Client Acquisition",
+    subtitle: "Complete DFY Installation",
+    desc: "We write, target, build funnels, and manage campaigns daily. You only close qualified booked clients.",
+    stats: [
+      { label: "Target", value: "90 Days" },
+      { label: "Agreement", value: "In Writing" },
+    ],
+    features: [
+      "Done-For-You Funnels & Ad Copy",
+      "Multi-Step AI Qualification",
+      "100% Asset Ownership",
+    ],
   },
   {
+    slug: "privatemastermind",
     href: "/privatemastermind",
     cover: "/media/covers/cover-mastermind.jpeg",
-    tag: "PRIVATE MASTERMIND",
-    title: "Agency Growth",
-    desc: "The 1:1 framework for media agencies to win and keep premium clients.",
+    videoSrc: "/media/videos/mastermind.mp4",
+    tag: "AGENCY MASTERMIND",
+    title: "Agency 1:1 Growth Mastermind",
+    subtitle: "For Media Agencies & Operators",
+    desc: "We train agency owners on how to win high-ticket clients with proven ad systems that sell outcomes.",
+    stats: [
+      { label: "Agency Format", value: "1:1 Private" },
+      { label: "Minimum", value: "$10K+" },
+    ],
+    features: [
+      "Client Acquisition for Agencies",
+      "Offer Positioning & Retention",
+      "Proven Scale Playbook",
+    ],
   },
 ];
 
 export function SystemsShowcase() {
+  const [activeTab, setActiveTab] = useState<string>("metads");
+  const [activeVideoSrc, setActiveVideoSrc] = useState<string | null>(null);
+
+  const activeSystem = systems.find((s) => s.slug === activeTab) || systems[0];
+
   return (
     <section
       id="systems"
-      className="relative overflow-hidden border-b border-zinc-200 bg-[#fafafa] py-16 text-zinc-950 md:py-24"
+      className="relative overflow-hidden border-b border-zinc-800 bg-[#070709] py-20 text-white md:py-28"
     >
-      <div className="jobber-grid-light pointer-events-none absolute inset-0 opacity-60" />
+      <div className="jobber-grid-dark pointer-events-none absolute inset-0 opacity-50" />
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 60% 50% at 50% 50%, rgba(237,28,36,0.12), transparent 70%)",
+        }}
+      />
 
       <div className="relative mx-auto max-w-[1240px] px-5 md:px-8">
         <SectionHeading
-          light
-          eyebrow="SYSTEMS WE INSTALL"
+          eyebrow="PROVEN ACQUISITION SYSTEMS"
           title={
             <>
-              Pick the system that{" "}
-              <span className="text-[#ed1c24]">fits your goal</span>
+              Engineered for Brands, Agencies &{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff4d52] via-[#ed1c24] to-[#ff8f93]">
+                High-Ticket Operators
+              </span>
             </>
           }
-          description="Done-for-you ads, the ad-creation training, or the agency mastermind — all built on the same proven playbook."
+          description="Whether you need complete done-for-you ads management or private 1:1 agency training — explore our specialized systems."
         />
 
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
-          {systems.map((item, i) => (
-            <Reveal key={item.href} delay={i * 90} className="h-full">
-              <Link
-                href={item.href}
-                className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:border-[#ed1c24] hover:shadow-[0_16px_40px_-16px_rgba(237,28,36,0.2)]"
-              >
-                <div className="relative aspect-[16/10] w-full overflow-hidden">
-                  <Image
-                    src={item.cover}
-                    alt={item.title}
-                    fill
-                    sizes="(max-width:768px) 100vw, 33vw"
-                    className="object-cover transition duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                  <span className="absolute left-3 top-3 rounded-full bg-[#ed1c24] px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-white">
-                    {item.tag}
-                  </span>
-                </div>
-                <div className="flex flex-1 flex-col p-6">
-                  <h3 className="display text-xl font-extrabold tracking-tight text-zinc-900">
-                    {item.title}
-                  </h3>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-zinc-500">
-                    {item.desc}
-                  </p>
-                  <p className="mt-5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#ed1c24] transition group-hover:gap-3">
-                    Explore system →
-                  </p>
-                </div>
-              </Link>
-            </Reveal>
+        {/* Tab Switcher */}
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+          {systems.map((item) => (
+            <button
+              key={item.slug}
+              onClick={() => setActiveTab(item.slug)}
+              className={`group flex items-center gap-2.5 rounded-full px-6 py-3 text-xs font-extrabold uppercase tracking-wider transition-all duration-300 ${
+                activeTab === item.slug
+                  ? "bg-[#ed1c24] text-white shadow-[0_0_25px_rgba(237,28,36,0.6)] scale-105"
+                  : "border border-white/10 bg-white/5 text-zinc-300 hover:border-white/20 hover:text-white"
+              }`}
+            >
+              <Zap className="h-4 w-4 text-white" />
+              <span>{item.title}</span>
+            </button>
           ))}
         </div>
+
+        {/* Active System Spotlight Bento */}
+        <div className="mt-12">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeSystem.slug}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.4 }}
+              className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center rounded-3xl border border-white/15 bg-zinc-900/80 p-6 md:p-10 shadow-[0_30px_90px_-20px_rgba(0,0,0,0.8)] backdrop-blur-xl"
+            >
+              {/* Left Column: Interactive VSL Card */}
+              <TiltCard maxTilt={6}>
+                <div
+                  onClick={() => setActiveVideoSrc(activeSystem.videoSrc)}
+                  data-cursor="play"
+                  className="group relative overflow-hidden rounded-2xl border border-white/15 bg-black cursor-pointer shadow-2xl"
+                >
+                  <div className="relative aspect-[16/10] w-full overflow-hidden">
+                    <Image
+                      src={activeSystem.cover}
+                      alt={activeSystem.title}
+                      fill
+                      priority
+                      className="object-cover transition duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#ed1c24] text-white shadow-[0_0_40px_rgba(237,28,36,0.8)] transition duration-300 group-hover:scale-110">
+                        <Play className="ml-1 h-7 w-7 fill-current" />
+                      </div>
+                    </div>
+
+                    <div className="absolute top-4 left-4">
+                      <span className="rounded-full bg-[#ed1c24] px-3 py-1 text-[10px] font-extrabold uppercase tracking-widest text-white">
+                        {activeSystem.tag}
+                      </span>
+                    </div>
+
+                    <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-left">
+                      <div>
+                        <p className="text-xs font-bold uppercase tracking-wider text-zinc-300">
+                          {activeSystem.subtitle}
+                        </p>
+                        <p className="display text-lg font-extrabold text-white">
+                          Click to Watch System VSL
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </TiltCard>
+
+              {/* Right Column: System Specs & Features */}
+              <div className="flex flex-col text-left">
+                <span className="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-widest text-[#ed1c24]">
+                  <Sparkles className="h-4 w-4" />
+                  SYSTEM BREAKDOWN
+                </span>
+                <h3 className="display mt-2 text-3xl font-extrabold text-white">
+                  {activeSystem.title}
+                </h3>
+                <p className="mt-4 text-base leading-relaxed text-zinc-300">
+                  {activeSystem.desc}
+                </p>
+
+                {/* Features List */}
+                <div className="mt-6 space-y-3">
+                  {activeSystem.features.map((feat, idx) => (
+                    <div key={idx} className="flex items-center gap-3">
+                      <CheckCircle2 className="h-5 w-5 shrink-0 text-[#ed1c24]" />
+                      <span className="text-sm font-semibold text-zinc-200">{feat}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Stats row */}
+                <div className="mt-8 grid grid-cols-2 gap-4 border-t border-white/10 pt-6">
+                  {activeSystem.stats.map((s, idx) => (
+                    <div key={idx}>
+                      <p className="display text-2xl font-extrabold text-white">{s.value}</p>
+                      <p className="text-xs font-semibold uppercase tracking-wider text-zinc-400">
+                        {s.label}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+
+                {/* CTA Links */}
+                <div className="mt-8 flex flex-wrap items-center gap-4">
+                  <Link
+                    href={activeSystem.href}
+                    className="btn btn-accent inline-flex items-center gap-2 px-7 py-3.5 text-sm font-extrabold uppercase tracking-wider shadow-[0_0_20px_rgba(237,28,36,0.5)]"
+                  >
+                    <span>EXPLORE THIS SYSTEM</span>
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+
+                  <button
+                    onClick={() => setActiveVideoSrc(activeSystem.videoSrc)}
+                    className="btn btn-outline-dark px-6 py-3.5 text-xs font-bold text-white"
+                  >
+                    WATCH OVERVIEW
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </div>
+
+      {/* Video Modal */}
+      {activeVideoSrc && (
+        <div className="fixed inset-0 z-[300] flex items-center justify-center bg-black/90 p-4 backdrop-blur-xl">
+          <div className="relative w-full max-w-4xl overflow-hidden rounded-3xl border border-white/20 bg-zinc-950 p-2 shadow-2xl">
+            <button
+              onClick={() => setActiveVideoSrc(null)}
+              className="absolute top-4 right-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur hover:bg-white/20"
+            >
+              ✕
+            </button>
+            <div className="aspect-video w-full overflow-hidden rounded-2xl">
+              <video
+                src={activeVideoSrc}
+                controls
+                autoPlay
+                className="h-full w-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
