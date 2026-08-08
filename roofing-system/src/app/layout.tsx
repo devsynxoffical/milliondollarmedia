@@ -1,20 +1,13 @@
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
-import { Inter } from "next/font/google";
-import { Header } from "../components/Header";
-import { ScrollProgress } from "../components/ScrollProgress";
+import { SiteChrome } from "../components/SiteChrome";
 import "./globals.css";
 
 const display = Space_Grotesk({
-  weight: ["500", "600", "700"],
-  subsets: ["latin"],
-  variable: "--font-display",
-});
-
-const body = Inter({
   weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
-  variable: "--font-body",
+  variable: "--font-display",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -43,10 +36,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable} h-full`}>
+    <html lang="en" className={`${display.variable} h-full`}>
       <body className="min-h-full antialiased">
-        <ScrollProgress />
-        <Header />
+        <SiteChrome />
         {children}
       </body>
     </html>

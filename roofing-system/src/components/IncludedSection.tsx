@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { TiltCard } from "./TiltCard";
+import { AnimatedHeading } from "./AnimatedHeading";
 
 type IncludedItem = { icon: LucideIcon; label: string };
 
@@ -70,8 +71,14 @@ export function IncludedSection() {
             <span>EVERYTHING INCLUDED</span>
           </div>
           <h2 className="display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-zinc-950 tracking-tight">
-            Everything You Need.{" "}
-            <span className="text-[var(--accent)]">Nothing Extra To Pay For.</span>
+            <AnimatedHeading
+              as="span"
+              text="Everything You Need. Nothing Extra To Pay For."
+              accent={["Nothing", "Extra", "To", "Pay", "For."]}
+              accentClass="hw-accent"
+              mode="rise"
+              stagger={0.04}
+            />
           </h2>
           <p className="mt-4 text-base sm:text-lg text-zinc-500 leading-relaxed">
             The complete roofing client acquisition system, installed, managed,

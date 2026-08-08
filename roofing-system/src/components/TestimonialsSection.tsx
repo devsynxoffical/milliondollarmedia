@@ -1,5 +1,6 @@
 import { Reveal } from "./Reveal";
 import { AuroraBg } from "./AuroraBg";
+import { SectionBadge } from "./axion/SectionBadge";
 
 const testimonials = [
   {
@@ -66,37 +67,38 @@ function Stars() {
 
 function TestimonialCard({ t }: { t: (typeof testimonials)[number] }) {
   return (
-    <figure className="glow-card mx-3 flex h-full w-[320px] shrink-0 flex-col rounded-2xl border border-zinc-800 bg-zinc-900/80 p-6 sm:w-[360px]">
-      <Stars />
+    <figure className="glow-card mx-3 flex h-full w-[320px] shrink-0 flex-col rounded-2xl border border-zinc-800 bg-zinc-900/80 p-6 sm:w-[360px]">      <Stars />
       <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-zinc-300">
         &ldquo;{t.quote}&rdquo;
       </blockquote>
       <figcaption className="mt-5 border-t border-zinc-800 pt-4">
-        <p className="text-sm font-extrabold text-white">{t.name}</p>
+        <p className="text-sm font-medium text-white">{t.name}</p>
         <p className="mt-0.5 text-xs font-medium text-zinc-500">{t.company}</p>
       </figcaption>
     </figure>
   );
 }
 
-export function TestimonialsSection() {
+export function TestimonialsSection({
+  num = "06",
+  label = "What Roofers Say",
+}: {
+  num?: string;
+  label?: string;
+}) {
   const doubled = [...testimonials, ...testimonials];
   const third = [...testimonials, ...testimonials];
 
   return (
-    <section id="testimonials" className="relative overflow-hidden bg-[#09090b] text-white border-b border-zinc-800 py-20 md:py-28">
+    <section id="proof" className="relative overflow-hidden bg-[#09090b] text-white border-b border-zinc-800 py-20 md:py-28">
       <AuroraBg className="opacity-60" />
       <div className="relative mx-auto max-w-[1240px] px-5 md:px-8">
-        <Reveal className="text-center max-w-3xl mx-auto">
-          <div className="pill-badge-red mb-3 mx-auto">
-            <span className="dot-red" />
-            <span>WHAT ROOFERS SAY</span>
-          </div>
-          <h2 className="display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
-            Roofing companies that{" "}
-            <span className="text-gradient-animated">trust the system</span>
+        <Reveal className="flex flex-col items-center text-center max-w-3xl mx-auto">
+          <SectionBadge num={num} label={label} dark />
+          <h2 className="mt-8 text-[clamp(1.75rem,4vw,3.4rem)] font-medium leading-[1.12] tracking-[-0.02em] text-white">
+            Roofing companies that trust the system
           </h2>
-          <p className="mt-4 text-zinc-400 text-base leading-relaxed">
+          <p className="mt-5 text-[15px] font-medium leading-[1.7] text-gray-300 sm:text-[16px]">
             Real owners. Real numbers. Here&apos;s what happens when a roofing
             company stops renting leads and starts owning its pipeline.
           </p>

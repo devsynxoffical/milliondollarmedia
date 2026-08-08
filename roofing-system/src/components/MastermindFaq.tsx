@@ -2,38 +2,29 @@
 
 import { useState } from "react";
 import { Reveal } from "./Reveal";
-import { BOOKING_PATH } from "../lib/offer";
 import { SectionBadge } from "./axion/SectionBadge";
 import { CTAButton } from "./ui/CTAButton";
 
 const faqs = [
   {
-    q: "What exactly is Roofing Systems™?",
-    a: "It's a complete done-for-you client acquisition system built for roofing companies. We handle offer positioning, Meta ads, ad creatives, landing pages, the full sales funnel, CRM setup, AI follow-up, email and SMS sequences, and lead qualification — all managed for you.",
+    q: "Who is this mastermind for?",
+    a: "Roofing company owners and marketing decision-makers who already run ads or want to start. It's built for $1M+ roofing contractors who want predictable, repeatable sales calls instead of guesswork.",
   },
   {
-    q: "Who is this for?",
-    a: "Roofing contractors doing $1M+ in annual revenue who want predictable, repeatable growth instead of lead-dependent chaos. If you're tired of overpaying for marketing with nothing to show for it, this is built for you.",
+    q: "Is this a live call?",
+    a: "No. This is a private mastermind recording you can watch any time. After watching, book a free 1:1 strategy call to talk through your roofing company's specific situation.",
   },
   {
-    q: "How fast will I see results?",
-    a: "Most clients see measurable lead growth within 30–45 days of launch. Every engagement is backed by mutually agreed growth milestones we commit to hitting within the first 90 days.",
+    q: "How do I get the most out of it?",
+    a: "Watch it end-to-end, take notes on the framework, and start with the piece that fits your account first. Then bring your questions to the free strategy call.",
   },
   {
-    q: "What happens if it doesn't work?",
-    a: "We continue working for you at no management fee until we help you hit the agreed milestones. Everything is backed by a written agreement, so the risk sits on us, not you.",
+    q: "What happens after I watch it?",
+    a: "If you want to install the full Roofing Systems™ acquisition system, the strategy call is the next step. It's free, and it's for roofers only.",
   },
   {
-    q: "Do I actually own the assets?",
-    a: "Yes. Landing pages, sales funnel, CRM, automations, ad creatives, copy, follow-up sequences, and your customer data are 100% yours — permanently. It becomes a business asset you own outright.",
-  },
-  {
-    q: "Is there a long-term contract lock-in?",
-    a: "No. We don't lock you in with long-term contracts. We earn the renewal by delivering results, not by trapping you in a commitment.",
-  },
-  {
-    q: "How is this different from a traditional agency?",
-    a: "Agencies run ads and hand you raw, unqualified leads. We build and operate the entire acquisition engine end-to-end — and our proprietary qualification process filters leads before they ever reach your sales team, so your crew spends time closing roofing projects, not chasing tire-kickers.",
+    q: "Is there a guarantee?",
+    a: "Yes. The full system engagement is backed by mutually agreed growth milestones in a written agreement. If we don't help you hit them within 90 days, we keep working at no management fee until we do.",
   },
 ];
 
@@ -52,7 +43,7 @@ function FaqItem({
     <div
       className={`overflow-hidden rounded-2xl border transition-colors duration-300 ${
         open
-          ? "border-[var(--accent)]/50 bg-white shadow-lg"
+          ? "border-[#ed1c24]/50 bg-white shadow-lg"
           : "border-zinc-200 bg-white shadow-sm hover:border-zinc-300"
       }`}
     >
@@ -65,10 +56,18 @@ function FaqItem({
         <span className="text-[15px] font-medium text-gray-900 md:text-base">{q}</span>
         <span
           className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-all duration-300 ${
-            open ? "bg-[var(--accent)] text-white rotate-45" : "bg-zinc-100 text-zinc-500"
+            open ? "rotate-45 bg-[#ed1c24] text-white" : "bg-zinc-100 text-zinc-500"
           }`}
         >
-          <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden>
+          <svg
+            viewBox="0 0 24 24"
+            className="h-4 w-4"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            aria-hidden
+          >
             <path d="M12 5v14M5 12h14" />
           </svg>
         </span>
@@ -85,27 +84,26 @@ function FaqItem({
   );
 }
 
-export function FaqSection() {
+export function MastermindFaq({ bookingPath }: { bookingPath: string }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="section-shell bg-white border-b border-zinc-100">
+    <section className="section-shell bg-white border-b border-zinc-100">
       <div className="mx-auto max-w-[1240px]">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
-          {/* Left: heading + CTA */}
           <div className="lg:col-span-5">
             <Reveal>
-              <SectionBadge num="09" label="FAQ" />
+              <SectionBadge num="05" label="Mastermind FAQ" />
               <h2 className="mt-8 text-[clamp(1.75rem,4vw,3.4rem)] font-medium leading-[1.12] tracking-[-0.02em] text-gray-900">
-                Questions? We&apos;ve got answers.
+                Questions? Get answers.
               </h2>
               <p className="mt-5 text-[15px] font-medium leading-[1.6] text-gray-600 sm:text-[16px]">
-                Everything roofing companies ask us before installing the
-                system. If your question isn&apos;t here, book a call and ask us
+                What roofing companies ask us before installing the full
+                acquisition system. Still unsure? Book a free call and ask us
                 directly.
               </p>
               <CTAButton
-                href={BOOKING_PATH}
+                href={bookingPath}
                 label="Book Your Free Strategy Call"
                 size="lg"
                 className="mt-8"
@@ -113,7 +111,6 @@ export function FaqSection() {
             </Reveal>
           </div>
 
-          {/* Right: accordion */}
           <div className="lg:col-span-7">
             <Reveal delay={100}>
               <div className="space-y-3">

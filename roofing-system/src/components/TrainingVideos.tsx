@@ -1,7 +1,8 @@
-import Link from "next/link";
 import { BOOKING_PATH } from "../lib/offer";
 import { Reveal } from "./Reveal";
 import { VideoPlayer } from "./VideoPlayer";
+import { SectionBadge } from "./axion/SectionBadge";
+import { CTAButton } from "./ui/CTAButton";
 
 const resources = [
   {
@@ -38,28 +39,35 @@ const resources = [
 
 export function TrainingVideos() {
   return (
-    <section id="training" className="section-shell bg-white border-b border-zinc-100">
-      <div className="mx-auto max-w-[1240px]">
-        {/* Header, GetJobber Style */}
+    <section id="training" className="section-shell relative overflow-hidden bg-white border-b border-zinc-100">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-48 right-[-12%] h-[440px] w-[440px] rounded-full blur-[110px]"
+        style={{ background: "radial-gradient(circle, rgba(237,28,36,0.12), transparent 70%)" }}
+      />
+
+      <div className="relative mx-auto max-w-[1240px]">
+        {/* Header */}
         <Reveal className="flex flex-col items-start max-w-3xl">
-          <div className="pill-badge-red mb-3">
-            <span className="dot-red" />
-            <span>ACADEMY & RESOURCES</span>
-          </div>
-          <h2 className="display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-zinc-950 tracking-tight">
-            Our business is{" "}
-            <span className="text-[var(--accent)]">helping yours succeed</span>
+          <SectionBadge num="07" label="Academy & Resources" />
+          <h2 className="mt-8 text-[clamp(1.75rem,4vw,3.4rem)] font-medium leading-[1.12] tracking-[-0.02em] text-gray-900">
+            Our business is helping yours succeed
           </h2>
-          <p className="mt-4 max-w-2xl text-base text-zinc-500 leading-relaxed">
+          <p className="mt-5 max-w-2xl text-[15px] font-medium leading-[1.6] text-gray-600 sm:text-[16px]">
             Watch real case studies, training recordings, and strategy breakdowns from roofing companies scaling with our system.
           </p>
         </Reveal>
 
-        {/* Video Cards Grid, GetJobber style */}
+        {/* Video Cards Grid */}
         <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {resources.map((video, i) => (
             <Reveal key={video.id} delay={i * 100} className="h-full">
-              <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-xs transition duration-300 hover:shadow-md hover:-translate-y-1">
+              <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-[0_1px_2px_rgba(0,0,0,0.04)] transition-all duration-300 hover:-translate-y-1 hover:border-[#ed1c24]/40 hover:shadow-[0_24px_50px_-18px_rgba(237,28,36,0.35)]">
+                <span
+                  aria-hidden
+                  className="absolute inset-x-0 top-0 z-10 h-[3px] origin-left scale-x-0 bg-gradient-to-r from-[#ed1c24] to-[#ff6b70] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100"
+                />
+
                 {/* Video Thumbnail */}
                 <div className="relative overflow-hidden rounded-t-2xl bg-black">
                   <VideoPlayer
@@ -68,23 +76,28 @@ export function TrainingVideos() {
                     title={video.title}
                     aspect="aspect-video"
                   />
-                  <span className="absolute left-4 top-4 rounded-full bg-[var(--accent)] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white shadow-sm">
+                  <span className="absolute left-4 top-4 rounded-full bg-[#ed1c24] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white shadow-sm">
                     {video.category}
+                  </span>
+                  <span className="absolute right-4 top-4 text-[11px] font-medium tabular-nums text-white/60 transition-colors duration-300 group-hover:text-white">
+                    {String(i + 1).padStart(2, "0")}
                   </span>
                 </div>
 
                 {/* Card Content */}
                 <div className="flex flex-1 flex-col gap-2 p-5">
-                  <p className="text-[11px] font-bold uppercase tracking-widest text-[var(--accent)]">
+                  <p className="text-[11px] font-medium uppercase tracking-widest text-[#ed1c24]">
                     {video.tag}
                   </p>
-                  <h3 className="text-base font-extrabold text-zinc-950 leading-snug">
+                  <h3 className="text-lg font-medium leading-snug text-gray-900">
                     {video.title}
                   </h3>
-                  <p className="text-sm italic leading-relaxed text-zinc-400">
-                    &ldquo;{video.quote}&rdquo;
-                  </p>
-                  <p className="text-sm leading-relaxed text-zinc-500 mt-auto pt-2">
+                  <blockquote className="relative mt-1 border-l-2 border-[#ed1c24] pl-3">
+                    <p className="text-sm italic leading-relaxed text-zinc-400">
+                      &ldquo;{video.quote}&rdquo;
+                    </p>
+                  </blockquote>
+                  <p className="mt-auto pt-3 text-sm leading-relaxed text-zinc-500">
                     {video.body}
                   </p>
                 </div>
@@ -95,12 +108,15 @@ export function TrainingVideos() {
 
         {/* CTA Prompt */}
         <Reveal delay={120} className="mt-12 text-center">
-          <p className="mx-auto max-w-xl text-sm text-zinc-500 leading-relaxed">
+          <p className="mx-auto max-w-xl text-[15px] font-medium leading-relaxed text-gray-600">
             Seen enough? Book a free strategy call and we&apos;ll walk you through what this looks like for your roofing company.
           </p>
-          <Link href={BOOKING_PATH} className="btn btn-accent mt-6 px-8 py-4 text-sm font-bold shadow-md inline-flex">
-            Book Your Free Strategy Call →
-          </Link>
+          <CTAButton
+            href={BOOKING_PATH}
+            label="Book Your Free Strategy Call"
+            size="lg"
+            className="mt-6"
+          />
         </Reveal>
       </div>
     </section>

@@ -5,6 +5,7 @@ import { Megaphone, FileText, Users, MessageCircle, ShieldCheck, X, Check } from
 import { Reveal } from "./Reveal";
 import { TiltCard } from "./TiltCard";
 import { AuroraBg } from "./AuroraBg";
+import { SectionBadge } from "./axion/SectionBadge";
 
 const fragments = [
   { icon: Megaphone, label: "Runs Ads", sub: "Then stops there" },
@@ -46,16 +47,14 @@ export function ProblemSection() {
         <div className="grid items-center gap-12 lg:grid-cols-2">
           {/* Copy */}
           <Reveal className="text-center lg:text-left">
-            <h2 className="display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
-              Most Roofing Companies Don&apos;t Have A{" "}
-              <span className="text-zinc-400">Lead Problem...</span>
-              <br />
-              They Have A{" "}
-              <span className="text-[var(--accent)]">
-                Client Acquisition System Problem.
-              </span>
+            <SectionBadge num="01" label="The Problem" dark />
+            <h2 className="mt-8 text-[clamp(1.75rem,4vw,3.4rem)] font-medium leading-[1.12] tracking-[-0.02em] text-white">
+              Most Roofing Companies Don&apos;t Have A Lead Problem... They
+              Have A{" "}
+              <span className="text-[#ed1c24]">Client Acquisition System</span>{" "}
+              Problem.
             </h2>
-            <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-zinc-400 lg:mx-0">
+            <p className="mt-6 max-w-xl text-[15px] font-medium leading-[1.7] text-gray-300 lg:mx-0 sm:text-[16px]">
               Most marketing agencies only run ads. Some build landing pages.
               Others generate leads. Someone else handles follow-up. Nobody
               owns the entire customer journey. That&apos;s exactly why roofing
@@ -92,7 +91,7 @@ export function ProblemSection() {
                           <X className="h-3.5 w-3.5" strokeWidth={3} />
                         </span>
                       </div>
-                      <p className="mt-4 text-sm font-extrabold text-white">
+                      <p className="mt-4 text-sm font-medium text-white">
                         {f.label}
                       </p>
                       <p className="mt-0.5 text-xs text-zinc-500">{f.sub}</p>
@@ -114,7 +113,7 @@ export function ProblemSection() {
                     <ShieldCheck className="h-5 w-5" strokeWidth={2.2} />
                   </span>
                   <div>
-                    <p className="text-sm font-extrabold text-white sm:text-base">
+                    <p className="text-sm font-medium text-white sm:text-base">
                       One Complete Ecosystem. Every Part Works Together.
                     </p>
                     <p className="mt-0.5 text-xs text-zinc-400 sm:text-sm">

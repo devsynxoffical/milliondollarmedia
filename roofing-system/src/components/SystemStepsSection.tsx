@@ -1,11 +1,12 @@
 "use client";
 
 import { useRef, useState } from "react";
-import Link from "next/link";
 import { motion, useMotionValueEvent, useScroll, useSpring } from "framer-motion";
 import { BOOKING_PATH } from "../lib/offer";
 import { Reveal } from "./Reveal";
 import { TiltCard } from "./TiltCard";
+import { SectionBadge } from "./axion/SectionBadge";
+import { CTAButton } from "./ui/CTAButton";
 
 const systemSteps = [
   { title: "Market Research & Homeowner Analysis", text: "We identify exactly which homeowners are most likely to invest in a roof replacement and what motivates them to buy." },
@@ -40,15 +41,11 @@ export function SystemStepsSection() {
     <section id="system" className="section-shell bg-white border-b border-zinc-100">
       <div className="mx-auto max-w-[1240px]">
         <Reveal className="flex flex-col items-center text-center max-w-3xl mx-auto">
-          <div className="pill-badge-red mb-3">
-            <span className="dot-red animate-pulse" />
-            <span>SECTION 5, THE 8-STEP SYSTEM</span>
-          </div>
-          <h2 className="display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-zinc-950 tracking-tight">
-            Our 8-Step Roofing{" "}
-            <span className="text-[var(--accent)]">Client Acquisition System</span>
+          <SectionBadge num="02" label="The 8-Step System" />
+          <h2 className="mt-8 text-[clamp(1.75rem,4vw,3.4rem)] font-medium leading-[1.12] tracking-[-0.02em] text-gray-900">
+            Our 8-Step Roofing Client Acquisition System
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-zinc-500 leading-relaxed">
+          <p className="mt-5 text-[15px] font-medium leading-[1.6] text-gray-600 sm:text-[16px]">
             Everything stays the same except for roofing terminology.
           </p>
         </Reveal>
@@ -95,7 +92,7 @@ export function SystemStepsSection() {
                         <TiltCard max={3} scale={1.01} className="border border-zinc-200 bg-white shadow-sm group-hover:shadow-[0_16px_40px_-14px_rgba(237,28,36,0.3)]">
                           <div className="p-5 sm:p-6">
                             <div className="flex flex-wrap items-center gap-2">
-                              <h3 className="text-sm font-extrabold uppercase tracking-[0.14em] text-zinc-950">
+                              <h3 className="text-[15px] font-medium text-gray-900">
                                 {step.title}
                               </h3>
                               <span
@@ -129,9 +126,7 @@ export function SystemStepsSection() {
           transition={{ duration: 0.5, delay: 0.15 }}
           className="mt-10 flex justify-center"
         >
-          <Link href={BOOKING_PATH} className="btn btn-accent btn-lg px-8 py-4 text-sm font-bold shadow-lg">
-            Install The System →
-          </Link>
+          <CTAButton href={BOOKING_PATH} label="Install The System" size="lg" />
         </motion.div>
       </div>
     </section>

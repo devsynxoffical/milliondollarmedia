@@ -81,28 +81,28 @@ function FlipCard({ src, label, target }: FlipCardProps) {
 // --- Main Hero Component ---
 const TOTAL_IMAGES = 20;
 
-// Roofing labels, one per card
+// System labels, one per card — pitched to roofing company owners
 const LABELS = [
-  "Roof Replacement",
-  "Precision Installation",
-  "Professional Crews",
-  "Safety First",
-  "Quality Craftsmanship",
-  "Steep-Slope Roofing",
-  "Storm Repair",
-  "Licensed & Insured",
-  "Gutter Systems",
-  "Damage Inspection",
-  "Full-Roof Coverage",
-  "Residential Roofing",
-  "Asphalt Shingles",
-  "Clay & Tile",
-  "Tile Roofing",
-  "Metal Roofing",
-  "Slate Roofing",
-  "Ceramic Tiles",
-  "Wood Shakes",
-  "New Shingle Install",
+  "More Roof Replacement Leads",
+  "Done-For-You Roofing Ads",
+  "Roofing Offer Positioning",
+  "Landing Pages & Funnels",
+  "CRM + AI Automation",
+  "Lead Qualification",
+  "Booked Inspections",
+  "SMS Follow-Up",
+  "Email Sequences",
+  "Appointment Reminders",
+  "High-Value Homeowners",
+  "Lower Cost Per Lead",
+  "Storm Damage Pipeline",
+  "Pipeline Automation",
+  "Roofing Messaging",
+  "Creative Development",
+  "Qualified Appointments",
+  "Closed Roof Projects",
+  "90-Day Written Guarantee",
+  "Revenue You Own",
 ];
 
 // Roofing images (Unsplash CDN) — varied: workers, gutters, damage, materials
@@ -259,18 +259,15 @@ export default function IntroAnimation() {
   // --- Render Loop (Manual Calculation for Morph) ---
   const [morphValue, setMorphValue] = useState(0);
   const [rotateValue, setRotateValue] = useState(0);
-  const [parallaxValue, setParallaxValue] = useState(0);
 
   useEffect(() => {
     const unsubscribeMorph = morphProgress.on("change", setMorphValue);
     const unsubscribeRotate = scrollRotate.on("change", setRotateValue);
-    const unsubscribeParallax = smoothMouseX.on("change", setParallaxValue);
     return () => {
       unsubscribeMorph();
       unsubscribeRotate();
-      unsubscribeParallax();
     };
-  }, [morphProgress, scrollRotate, smoothMouseX]);
+  }, [morphProgress, scrollRotate]);
 
   // --- Content Opacity ---
   // Fade in content when arc is formed (morphValue > 0.8)
@@ -295,7 +292,7 @@ export default function IntroAnimation() {
             transition={{ duration: 1 }}
             className="text-2xl font-medium tracking-tight text-gray-800 md:text-4xl"
           >
-            Built to Outlast Every Storm.
+            A Roofing System Built to Outlast Every Storm.
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
@@ -316,17 +313,24 @@ export default function IntroAnimation() {
           style={{ opacity: contentOpacity, y: contentY }}
           className="absolute top-[10%] z-10 flex flex-col items-center justify-center text-center pointer-events-none px-4"
         >
-          <h2 className="text-3xl md:text-5xl font-semibold text-gray-900 tracking-tight mb-4">
-            Roofing Services That Protect Your Home
+          <h2 className="text-2xl md:text-4xl font-semibold text-gray-900 tracking-tight mb-4 max-w-3xl">
+            Stop relying on referrals, storm seasons, inconsistent lead
+            generation, and multiple marketing vendors.
           </h2>
-          <p className="text-sm md:text-base text-gray-600 max-w-lg leading-relaxed">
-            From asphalt shingles to metal and tile, our certified crews handle
-            every installation, repair, and storm-damage claim.
+          <p className="text-sm md:text-base text-gray-600 max-w-2xl leading-relaxed">
+            We build your entire roofing client acquisition ecosystem—including
+            your offer positioning, Meta Ads, roofing ad creatives, landing
+            pages, CRM, AI automations, lead qualification, and follow-up
+            systems—so your only job is to show up, run appointments, and close
+            high-value roof replacement and installation projects.
           </p>
         </motion.div>
 
         {/* Main Container */}
-        <div className="relative flex items-center justify-center w-full h-full">
+        <motion.div
+          style={{ x: smoothMouseX }}
+          className="relative flex items-center justify-center w-full h-full"
+        >
           {IMAGES.slice(0, TOTAL_IMAGES).map((src, i) => {
               let target = { x: 0, y: 0, rotation: 0, scale: 1, opacity: 1 };
 
@@ -384,7 +388,7 @@ export default function IntroAnimation() {
                 const arcRad = (currentArcAngle * Math.PI) / 180;
 
                 const arcPos = {
-                  x: Math.cos(arcRad) * arcRadius + parallaxValue,
+                  x: Math.cos(arcRad) * arcRadius,
                   y: Math.sin(arcRad) * arcRadius + arcCenterY,
                   rotation: currentArcAngle + 90,
                   scale: isMobile ? 1.4 : 1.8, // Increased scale for active state
@@ -409,7 +413,7 @@ export default function IntroAnimation() {
                 />
               );
             })}
-        </div>
+        </motion.div>
       </div>
     </div>
   );
