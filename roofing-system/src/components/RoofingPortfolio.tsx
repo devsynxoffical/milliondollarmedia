@@ -82,7 +82,6 @@ function VideoTile({ video, index }: { video: (typeof ROOFING_VIDEOS)[number]; i
             ref={iframeRef}
             src={vimeoUrl}
             allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
-            allowFullScreen
             title={video.title}
             className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
             style={{ border: "none" }}

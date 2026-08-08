@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 type VideoPlayerProps = {
   src: string;
@@ -25,57 +25,24 @@ export function VideoPlayer({
   const [muted, setMuted] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (!autoPlay) return;
-    const video = videoRef.current;
-    if (!video) return;
-    let cancelled = false;
-
-    const tryPlay = () => {
-      video.muted = true;
-      setMuted(true);
-      video.play().then(
-        () => {
-          if (!cancelled) setStarted(true);
-        },
-        () => {
-          if (!cancelled) {
-            setError("Video unavailable.");
-            setStarted(false);
-          }
-        }
-      );
-    };
-
-    tryPlay();
-    return () => {
-      cancelled = true;
-    };
-  }, [autoPlay, src]);
-
   async function handlePlay() {
     const video = videoRef.current;
     if (!video) return;
 
     setError(null);
 
+    // Always start muted to satisfy browser autoplay policy
+    video.muted = true;
+    video.currentTime = 0;
+
     try {
-      video.muted = muted;
       await video.play();
       setStarted(true);
+      setMuted(true);
     } catch (err) {
       if (err instanceof DOMException && err.name === "AbortError") return;
-      // Fallback: browser blocked unmuted playback, try playing muted
-      try {
-        video.muted = true;
-        setMuted(true);
-        await video.play();
-        setStarted(true);
-      } catch (e) {
-        console.error("Video play error:", e);
-        setError("Video unavailable.");
-        setStarted(false);
-      }
+      setError("Tap to retry");
+      setStarted(false);
     }
   }
 
@@ -85,58 +52,63 @@ export function VideoPlayer({
     const nextMuted = !muted;
     video.muted = nextMuted;
     setMuted(nextMuted);
-    if (!nextMuted) {
-      try {
-        await video.play();
-        setStarted(true);
-      } catch {
-        /* ignore */
-      }
-    }
   }
 
   return (
     <div className={`relative ${aspect} overflow-hidden bg-black ${className}`}>
+      {/* The actual video element — always rendered so it can preload */}
       <video
         key={src}
         ref={videoRef}
         src={src}
-        className={`absolute inset-0 h-full w-full bg-black object-contain ${
-          started && !error ? "opacity-100" : "opacity-0"
+        className={`absolute inset-0 h-full w-full object-contain transition-opacity duration-300 ${
+          started && !error ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
         controls={started && !error && !autoPlay}
         playsInline
         loop={autoPlay}
-        muted={muted}
+        muted
         preload="metadata"
         onError={() => {
           setError("Video unavailable.");
           setStarted(false);
         }}
+        onEnded={() => {
+          if (!autoPlay) setStarted(false);
+        }}
       >
         <track kind="captions" />
       </video>
 
+      {/* Thumbnail + play button overlay — shown before play or on error */}
       {(!started || error) && (
         <button
           type="button"
           onClick={handlePlay}
-          className="group absolute inset-0 z-10"
-          aria-label={`Play ${title}`}
+          className="group absolute inset-0 z-10 w-full h-full"
+          aria-label={error ? `Retry ${title}` : `Play ${title}`}
         >
+          {/* Cover image */}
           <Image
             src={cover}
-            alt=""
+            alt={title}
             fill
             className="object-cover"
             sizes="(max-width: 1024px) 100vw, 70vw"
+            priority={false}
           />
-          <span className="absolute inset-0 bg-black/35 transition group-hover:bg-black/25" />
+
+          {/* Dark overlay */}
+          <span className="absolute inset-0 bg-black/40 transition-colors duration-300 group-hover:bg-black/25" />
+
+          {/* Red play button */}
           <span className="absolute inset-0 flex items-center justify-center">
-            <span className="relative flex h-16 w-16 items-center justify-center rounded-full bg-[#ed1c24] text-white shadow-[0_0_40px_rgba(237,28,36,0.8)] transition-all duration-300 group-hover:scale-110 group-hover:bg-[#ff2a1f] group-hover:shadow-[0_0_60px_rgba(237,28,36,1)] sm:h-20 sm:w-20">
-              <span className="absolute inset-0 rounded-full bg-[#ed1c24] animate-ping opacity-60 pointer-events-none" />
+            <span className="relative flex h-16 w-16 items-center justify-center rounded-full bg-[#ed1c24] text-white shadow-[0_0_40px_rgba(237,28,36,0.8)] transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_60px_rgba(237,28,36,1)] sm:h-20 sm:w-20">
+              {/* Pulse ring */}
+              <span className="absolute inset-0 rounded-full bg-[#ed1c24] animate-ping opacity-50 pointer-events-none" />
+
               {error ? (
-                <span className="relative z-10 px-2 text-center text-[10px] font-bold uppercase tracking-[0.14em] text-white">
+                <span className="relative z-10 px-2 text-center text-[10px] font-bold uppercase tracking-widest text-white">
                   Retry
                 </span>
               ) : (
@@ -150,15 +122,18 @@ export function VideoPlayer({
               )}
             </span>
           </span>
+
+          {/* Error message */}
           {error && (
-            <span className="absolute inset-x-0 bottom-4 text-center text-xs font-semibold uppercase tracking-[0.16em] text-[#ff4b3e]">
+            <span className="absolute inset-x-0 bottom-4 text-center text-xs font-semibold uppercase tracking-widest text-red-400">
               {error}
             </span>
           )}
         </button>
       )}
 
-      {autoPlay && started && !error && (
+      {/* Sound toggle — shown after video starts playing */}
+      {started && !error && (
         <button
           type="button"
           onClick={toggleSound}
@@ -166,19 +141,13 @@ export function VideoPlayer({
           aria-label={muted ? "Unmute video" : "Mute video"}
         >
           {muted ? (
-            <svg
-              viewBox="0 0 24 24"
-              className="h-5 w-5 fill-current"
-              aria-hidden
-            >
+            /* Muted icon */
+            <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden>
               <path d="M3 9v6h4l5 5V4L7 9H3zm13.6 3l3.7-3.7-1.4-1.4-3.7 3.7-3.7-3.7-1.4 1.4L13.8 12l-3.7 3.7 1.4 1.4 3.7-3.7 3.7 3.7 1.4-1.4-3.7-3.7z" />
             </svg>
           ) : (
-            <svg
-              viewBox="0 0 24 24"
-              className="h-5 w-5 fill-current"
-              aria-hidden
-            >
+            /* Unmuted icon */
+            <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden>
               <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3a4.5 4.5 0 00-2.5-4v8a4.5 4.5 0 002.5-4zM14 3.23v2.06a7 7 0 010 13.42v2.06a9 9 0 000-17.54z" />
             </svg>
           )}
