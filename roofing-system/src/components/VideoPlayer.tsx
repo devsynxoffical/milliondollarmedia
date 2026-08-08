@@ -133,15 +133,16 @@ export function VideoPlayer({
           />
           <span className="absolute inset-0 bg-black/35 transition group-hover:bg-black/25" />
           <span className="absolute inset-0 flex items-center justify-center">
-            <span className="flex h-16 w-16 items-center justify-center rounded-full border border-white/30 bg-black/55 text-white shadow-[0_0_40px_rgba(200,16,46,0.35)] transition group-hover:scale-105 sm:h-20 sm:w-20">
+            <span className="relative flex h-16 w-16 items-center justify-center rounded-full bg-[#ed1c24] text-white shadow-[0_0_40px_rgba(237,28,36,0.8)] transition-all duration-300 group-hover:scale-110 group-hover:bg-[#ff2a1f] group-hover:shadow-[0_0_60px_rgba(237,28,36,1)] sm:h-20 sm:w-20">
+              <span className="absolute inset-0 rounded-full bg-[#ed1c24] animate-ping opacity-60 pointer-events-none" />
               {error ? (
-                <span className="px-2 text-center text-[10px] font-bold uppercase tracking-[0.14em] text-[#ff4b3e]">
+                <span className="relative z-10 px-2 text-center text-[10px] font-bold uppercase tracking-[0.14em] text-white">
                   Retry
                 </span>
               ) : (
                 <svg
                   viewBox="0 0 24 24"
-                  className="ml-1 h-7 w-7 fill-current"
+                  className="relative z-10 ml-1 h-7 w-7 fill-current text-white"
                   aria-hidden
                 >
                   <path d="M8 5v14l11-7z" />
