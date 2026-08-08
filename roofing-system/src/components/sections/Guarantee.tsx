@@ -1,35 +1,31 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { ShieldCheck, Scale, PenLine } from "lucide-react";
+import { ShieldCheck, Scale, PenLine, ArrowRight } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
-import { SplitReveal } from "@/components/ui/SplitReveal";
-import { Button } from "@/components/ui/Button";
 import { gsap, prefersReducedMotion, EASE } from "@/lib/motion";
 import { site } from "@/lib/site";
+import Link from "next/link";
 
 const PARTICLES = [
   { top: "15%", left: "6%", size: 6, delay: "0s", color: "#ed1c24" },
   { top: "28%", left: "92%", size: 4, delay: "1.2s", color: "#ff7a90" },
   { top: "68%", left: "4%", size: 5, delay: "0.6s", color: "#ff2a1f" },
   { top: "82%", left: "88%", size: 4, delay: "1.8s", color: "#ed1c24" },
-  { top: "50%", left: "95%", size: 3, delay: "0.3s", color: "#ffffff" },
-  { top: "10%", left: "75%", size: 5, delay: "2.2s", color: "#ffb36b" },
-  { top: "88%", left: "35%", size: 5, delay: "1.5s", color: "#ff7a90" },
 ];
 
 const POINTS = [
   {
-    title: "Written into every engagement",
-    desc: "Binding contractual guarantee included standard in every client agreement.",
+    title: "Written Into Every Engagement",
+    desc: "Binding contractual guarantee included standard in every single client agreement.",
   },
   {
-    title: "Covers mutually agreed growth milestones",
-    desc: "Target metrics defined and agreed upon together before launch.",
+    title: "Covers Mutually Agreed Growth Milestones",
+    desc: "Target metrics defined and agreed upon together prior to launch.",
   },
   {
-    title: "No management fee until we deliver",
+    title: "No Management Fee Until We Deliver",
     desc: "We work completely free of management fees if milestones aren't hit in 90 days.",
   },
 ];
@@ -82,39 +78,38 @@ function ContractDoc() {
   return (
     <div
       ref={docRef}
-      className="relative mx-auto w-full max-w-sm rounded-2xl border border-zinc-200 bg-[#f5f3ee] p-7 text-[#14171b] shadow-2xl"
+      className="relative mx-auto w-full max-w-md rounded-3xl border border-white/20 bg-[#f9f8f6] p-8 text-[#14171b] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)] transition-transform duration-500 hover:scale-[1.01]"
     >
       {/* Header */}
-      <div className="flex items-center justify-between">
-        <span className="flex items-center gap-2 text-base font-bold tracking-tight text-[#14171b]">
+      <div className="flex items-center justify-between pb-4 border-b border-[#14171b]/10">
+        <span className="flex items-center gap-2.5 text-base font-extrabold tracking-tight text-[#14171b]">
           <Scale className="h-5 w-5 text-[#ed1c24]" /> Roofing Systems™
         </span>
-        <span className="rounded-full bg-[#14171b] px-3 py-1 font-mono text-[9px] uppercase tracking-widest text-[#f5f3ee]">
+        <span className="rounded-full bg-[#14171b] px-3.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-[#f5f3ee]">
           Agreement
         </span>
       </div>
 
-      {/* Document Skeleton Lines */}
-      <div className="mt-6 space-y-3">
-        <div className="doc-line h-2.5 w-3/4 origin-left rounded bg-[#14171b]/15" />
-        <div className="doc-line h-2.5 w-full origin-left rounded bg-[#14171b]/15" />
-        <div className="doc-line h-2.5 w-5/6 origin-left rounded bg-[#14171b]/15" />
-        <div className="doc-line h-2.5 w-2/3 origin-left rounded bg-[#14171b]/15" />
-        <div className="doc-line h-2.5 w-11/12 origin-left rounded bg-[#14171b]/15" />
-        <div className="doc-line h-2.5 w-1/2 origin-left rounded bg-[#14171b]/15" />
+      {/* Document Lines */}
+      <div className="mt-6 space-y-3.5">
+        <div className="doc-line h-2.5 w-3/4 origin-left rounded bg-[#14171b]/20" />
+        <div className="doc-line h-2.5 w-full origin-left rounded bg-[#14171b]/20" />
+        <div className="doc-line h-2.5 w-5/6 origin-left rounded bg-[#14171b]/20" />
+        <div className="doc-line h-2.5 w-2/3 origin-left rounded bg-[#14171b]/20" />
+        <div className="doc-line h-2.5 w-11/12 origin-left rounded bg-[#14171b]/20" />
       </div>
 
       {/* Signature & Stamp Footer */}
-      <div className="mt-8 flex items-end justify-between pt-2 border-t border-[#14171b]/10">
+      <div className="mt-8 flex items-end justify-between pt-4 border-t border-[#14171b]/10">
         <div>
-          <p className="font-mono text-[9px] uppercase tracking-widest text-[#14171b]/50">
+          <p className="font-mono text-[9px] font-bold uppercase tracking-widest text-[#14171b]/50">
             Signed & sealed
           </p>
           <svg viewBox="0 0 120 45" className="doc-sign mt-1 h-11 w-32" fill="none" aria-hidden="true">
             <path
               d="M4 38 C 22 8, 34 28, 44 14 C 52 5, 60 36, 74 20 C 84 8, 92 30, 104 12 C 110 4, 114 8, 116 6"
               stroke="#14171b"
-              strokeWidth="2.2"
+              strokeWidth="2.5"
               strokeLinecap="round"
             />
           </svg>
@@ -122,9 +117,9 @@ function ContractDoc() {
 
         {/* Authentic Red Stamp */}
         <div
-          className="doc-stamp flex h-20 w-20 rotate-[-16deg] items-center justify-center rounded-full border-4 border-double border-[#ed1c24] bg-[#ed1c24]/10 shadow-[0_0_15px_rgba(237,28,36,0.15)]"
+          className="doc-stamp flex h-20 w-20 rotate-[-16deg] items-center justify-center rounded-full border-4 border-double border-[#ed1c24] bg-[#ed1c24]/10 shadow-[0_0_20px_rgba(237,28,36,0.2)]"
         >
-          <span className="text-center font-mono text-[10px] font-bold uppercase leading-tight tracking-wider text-[#14171b]">
+          <span className="text-center font-mono text-[10px] font-extrabold uppercase leading-tight tracking-wider text-[#ed1c24]">
             90-Day
             <br />
             Guarantee
@@ -137,7 +132,7 @@ function ContractDoc() {
 
 export function Guarantee() {
   return (
-    <Section id="guarantee" className="relative overflow-hidden bg-[#09090b] py-24 sm:py-32 border-y border-white/10">
+    <Section id="guarantee" className="relative overflow-hidden bg-[#09090b] py-20 sm:py-28 border-y border-white/10">
       <div className="pointer-events-none absolute inset-0">
         <div className="jobber-grid-dark absolute inset-0 opacity-40" />
         <div className="absolute left-1/2 top-1/2 h-[45rem] w-[65rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(237,28,36,0.16),transparent_70%)] blur-3xl" />
@@ -163,6 +158,7 @@ export function Guarantee() {
 
       <div className="container-x relative z-10">
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
+          {/* Left Column */}
           <div className="lg:col-span-7">
             <Reveal>
               <div className="inline-flex items-center gap-2.5 rounded-full bg-[#ed1c24]/10 border border-[#ed1c24]/30 px-4 py-1.5 shadow-[0_0_20px_rgba(237,28,36,0.2)]">
@@ -171,42 +167,40 @@ export function Guarantee() {
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[#ed1c24]"></span>
                 </span>
                 <span className="font-mono text-xs font-semibold uppercase tracking-widest text-[#ed1c24]">
-                  Risk reversed
+                  Risk Reversed
                 </span>
               </div>
             </Reveal>
 
-            <SplitReveal
-              as="h2"
-              className="mt-6 text-balance text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl"
-            >
-              We take the <br />
-              risk...{" "}
-              <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-[#ed1c24] via-red-500 to-[#ed1c24]">
-                not you.
-              </span>
-            </SplitReveal>
+            <Reveal delay={0.08}>
+              <h2 className="mt-5 text-balance text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl">
+                We take the risk... <br />
+                <span className="text-gradient-animated">
+                  not you.
+                </span>
+              </h2>
+            </Reveal>
 
             <Reveal delay={0.15}>
-              <p className="mt-6 max-w-xl text-pretty text-base sm:text-lg leading-relaxed text-zinc-300">
+              <p className="mt-5 max-w-xl text-pretty text-base sm:text-lg leading-relaxed text-zinc-300">
                 If we don&apos;t help you achieve the mutually agreed growth milestones within the
                 first 90 days after implementing your roofing Client Acquisition System, we&apos;ll
                 continue working for you at{" "}
-                <strong className="text-white font-semibold underline decoration-[#ed1c24] underline-offset-4">
+                <strong className="text-white font-bold underline decoration-[#ed1c24] underline-offset-4">
                   no management fee
                 </strong>{" "}
                 until we do. Everything is backed by a written agreement.
               </p>
             </Reveal>
 
-            <Reveal delay={0.25}>
-              <div className="mt-8 grid gap-3.5">
+            <Reveal delay={0.22}>
+              <div className="mt-7 grid gap-3.5">
                 {POINTS.map((pt) => (
                   <div
                     key={pt.title}
-                    className="group relative flex items-start gap-4 rounded-xl border border-white/10 bg-white/[0.03] p-4 backdrop-blur-md transition-all duration-300 hover:border-[#ed1c24]/50 hover:bg-white/[0.06] hover:translate-x-1"
+                    className="group relative flex items-start gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-4.5 backdrop-blur-md transition-all duration-300 hover:border-[#ed1c24]/50 hover:bg-white/[0.06] hover:translate-x-1"
                   >
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#ed1c24]/15 border border-[#ed1c24]/30 text-[#ed1c24] transition-transform duration-300 group-hover:scale-110">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#ed1c24]/15 border border-[#ed1c24]/30 text-[#ed1c24] transition-transform duration-300 group-hover:scale-110">
                       <ShieldCheck className="h-5 w-5" />
                     </div>
                     <div>
@@ -218,19 +212,17 @@ export function Guarantee() {
               </div>
             </Reveal>
 
-            <Reveal delay={0.35}>
-              <div className="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-5">
-                <Button
+            <Reveal delay={0.3}>
+              <div className="mt-9 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                <Link
                   href={site.bookCallUrl}
-                  size="xl"
-                  icon="up-right"
-                  ariaLabel="Claim your guaranteed strategy call"
-                  className="w-full sm:w-auto px-8 py-4 shadow-[0_10px_30px_rgba(237,28,36,0.35)]"
+                  className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-[#ed1c24] px-8 py-4 text-sm font-extrabold uppercase tracking-wider text-white shadow-[0_0_35px_-5px_rgba(237,28,36,0.6)] transition-all duration-300 hover:bg-[#ff2a1f] hover:shadow-[0_0_50px_-5px_rgba(237,28,36,0.85)] hover:scale-[1.02] active:scale-[0.98] w-full sm:w-auto"
                 >
-                  Claim a Strategy Call
-                </Button>
+                  <span>Claim a Strategy Call</span>
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
 
-                <div className="flex items-center gap-2.5 rounded-full bg-white/[0.04] border border-white/10 px-4 py-2 text-xs text-zinc-400">
+                <div className="flex items-center gap-2.5 rounded-full bg-white/[0.04] border border-white/10 px-4 py-2.5 text-xs text-zinc-400">
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
@@ -241,10 +233,11 @@ export function Guarantee() {
             </Reveal>
           </div>
 
+          {/* Right Column: Contract Card */}
           <div className="lg:col-span-5 relative mt-6 lg:mt-0">
             <ContractDoc />
 
-            <div className="animate-float-slow absolute -right-2 -top-6 flex h-14 w-14 rotate-12 items-center justify-center rounded-2xl border border-[#ed1c24]/40 bg-[#ed1c24]/15 backdrop-blur-md shadow-[0_0_20px_rgba(237,28,36,0.3)] hidden sm:flex lg:-right-6">
+            <div className="animate-float-slow absolute -right-2 -top-6 flex h-14 w-14 rotate-12 items-center justify-center rounded-2xl border border-[#ed1c24]/40 bg-[#ed1c24]/15 backdrop-blur-md shadow-[0_0_25px_rgba(237,28,36,0.35)] hidden sm:flex lg:-right-6">
               <PenLine className="h-6 w-6 text-[#ed1c24]" />
             </div>
           </div>

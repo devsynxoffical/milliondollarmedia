@@ -618,19 +618,23 @@
   /* ---- Motion-graphics utilities ---- */
 
   /* Animated brand gradient on headlines */
-  .text-gradient-animated {
+  .text-gradient-animated,
+  h1 .text-lime,
+  h2 .text-lime,
+  h1 em,
+  h2 em {
     background: linear-gradient(
       100deg,
-      var(--accent) 0%,
+      #ed1c24 0%,
       #ff6b70 25%,
-      #fff 50%,
+      #ffffff 50%,
       #ff6b70 75%,
-      var(--accent) 100%
+      #ed1c24 100%
     );
     background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
-    color: transparent;
+    color: transparent !important;
     animation: gradient-slide 6s ease-in-out infinite;
   }
 

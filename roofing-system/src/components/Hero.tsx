@@ -185,19 +185,20 @@ export function Hero() {
               initial="hidden"
               animate="show"
               custom={0.75}
-              className="mt-8 flex flex-col sm:flex-row items-center gap-3.5 w-full sm:w-auto"
+              className="mt-8 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
             >
               <Link
                 href={BOOKING_PATH}
-                className="btn btn-accent w-full sm:w-auto px-8 py-4 text-sm font-extrabold uppercase tracking-wide shadow-md"
+                className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-[#ed1c24] px-8 py-4 text-sm font-extrabold uppercase tracking-wider text-white shadow-[0_0_35px_-5px_rgba(237,28,36,0.6)] transition-all duration-300 hover:bg-[#ff2a1f] hover:shadow-[0_0_50px_-5px_rgba(237,28,36,0.85)] hover:scale-[1.02] active:scale-[0.98] w-full sm:w-auto"
               >
-                Book Your Free Strategy Call →
+                <span>Book Your Free Strategy Call</span>
+                <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
               </Link>
               <Link
                 href="#process"
-                className="btn btn-outline w-full sm:w-auto px-7 py-4 text-base font-semibold"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.06] px-8 py-4 text-sm font-bold uppercase tracking-wider text-white backdrop-blur-md transition-all duration-300 hover:border-[#ed1c24]/80 hover:bg-white/[0.12] hover:text-white hover:shadow-[0_0_25px_-5px_rgba(237,28,36,0.3)] hover:scale-[1.02] active:scale-[0.98] w-full sm:w-auto"
               >
-                See System Workflow
+                <span>See System Workflow</span>
               </Link>
             </motion.div>
 
