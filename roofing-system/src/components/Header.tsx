@@ -7,9 +7,10 @@ import { BOOKING_PATH } from "../lib/offer";
 import { cn } from "../lib/utils";
 
 const links = [
-  { href: "/#system", label: "Acquisition System" },
-  { href: "/#specialties", label: "Specialties" },
-  { href: "/#proof", label: "Results" },
+  { href: "/#why", label: "Why Us" },
+  { href: "/#results", label: "Results" },
+  { href: "/#roofing-work", label: "Industries" },
+  { href: "/#process", label: "Process" },
   { href: "/#training", label: "Academy" },
 ];
 
