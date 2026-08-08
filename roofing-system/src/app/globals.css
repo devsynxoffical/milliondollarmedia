@@ -644,15 +644,11 @@
   .theme-light h2 .text-lime,
   .theme-light h1 em,
   .theme-light h2 em,
-  .theme-light h1 .text-[#ed1c24],
-  .theme-light h2 .text-[#ed1c24],
   .bg-white .text-gradient-animated,
   .bg-white h1 .text-lime,
   .bg-white h2 .text-lime,
   .bg-white h1 em,
   .bg-white h2 em,
-  .bg-white h1 .text-[#ed1c24],
-  .bg-white h2 .text-[#ed1c24],
   .bg-white .text-gradient-red,
   .text-gradient-red-light {
     background: linear-gradient(
