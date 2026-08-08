@@ -58,18 +58,24 @@ export function VideoPlayer({
     if (!video) return;
 
     setError(null);
-    setStarted(true);
 
     try {
-      if (autoPlay) {
-        video.muted = muted;
-      }
+      video.muted = muted;
       await video.play();
+      setStarted(true);
     } catch (err) {
       if (err instanceof DOMException && err.name === "AbortError") return;
-      console.error("Video play error:", err);
-      setError("Video unavailable.");
-      setStarted(false);
+      // Fallback: browser blocked unmuted playback, try playing muted
+      try {
+        video.muted = true;
+        setMuted(true);
+        await video.play();
+        setStarted(true);
+      } catch (e) {
+        console.error("Video play error:", e);
+        setError("Video unavailable.");
+        setStarted(false);
+      }
     }
   }
 

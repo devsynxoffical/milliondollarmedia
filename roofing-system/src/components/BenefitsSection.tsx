@@ -13,6 +13,7 @@ import {
   CalendarCheck2,
   ShieldCheck,
   TrendingUp,
+  Play,
   type LucideIcon,
 } from "lucide-react";
 
@@ -103,10 +104,22 @@ export function BenefitsSection() {
             </div>
           </div>
 
-          {/* Card 2 — Video (center - UNCHANGED AS REQUESTED) */}
-          <div className="relative flex min-h-[460px] flex-col overflow-hidden rounded-3xl border border-white/10 bg-neutral-950 shadow-2xl">
+          {/* Card 2 — Video (center card) */}
+          <div
+            onClick={() => {
+              const vid = document.getElementById("benefits-center-video") as HTMLVideoElement;
+              if (!vid) return;
+              if (vid.paused) {
+                vid.play();
+              } else {
+                vid.muted = !vid.muted;
+              }
+            }}
+            className="group relative flex min-h-[460px] flex-col overflow-hidden rounded-3xl border border-white/10 bg-neutral-950 shadow-2xl cursor-pointer hover:border-[#ed1c24]/50 transition-all duration-300"
+          >
             <div className="relative w-full overflow-hidden flex-1" style={{ height: "75%" }}>
               <video
+                id="benefits-center-video"
                 className="block h-full w-full object-cover"
                 src={BENEFITS_VIDEO_URL}
                 autoPlay
@@ -116,12 +129,15 @@ export function BenefitsSection() {
               />
               <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-neutral-950" />
             </div>
-            <div className="flex items-center justify-start p-6 sm:p-8 bg-neutral-950">
+            <div className="flex items-center justify-between p-6 sm:p-8 bg-neutral-950 relative z-10">
               <h3 className="text-left text-xl font-extrabold leading-tight text-white sm:text-2xl">
                 Proven Creative
                 <br />
                 <span className="text-gradient-animated">& Campaigns</span>
               </h3>
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#ed1c24] text-white shadow-[0_0_25px_rgba(237,28,36,0.6)] transition-transform duration-300 group-hover:scale-110">
+                <Play className="ml-0.5 h-5 w-5 fill-current" />
+              </div>
             </div>
           </div>
 

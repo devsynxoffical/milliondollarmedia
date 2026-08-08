@@ -1,94 +1,77 @@
-"use client";
-
-import { type ReactNode, type MouseEventHandler } from "react";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { Magnetic } from "./Magnetic";
+import * as React from "react";
+import { Slot } from "@radix-ui/react-slot";
+import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
-type ButtonProps = {
-  children: ReactNode;
+const buttonVariants = cva(
+  "inline-flex items-center justify-center whitespace-nowrap rounded-full text-sm font-bold ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 active:scale-95",
+  {
+    variants: {
+      variant: {
+        default: "bg-[#ed1c24] text-white hover:bg-[#ff2a1f] shadow-md hover:shadow-lg",
+        primary: "bg-[#ed1c24] text-white hover:bg-[#ff2a1f] shadow-md hover:shadow-lg",
+        destructive: "bg-red-600 text-white hover:bg-red-700",
+        outline: "border border-zinc-200 bg-white hover:bg-zinc-100 hover:text-zinc-900 text-zinc-800 dark:border-white/20 dark:bg-white/5 dark:text-white dark:hover:bg-white/10",
+        secondary: "bg-zinc-100 text-zinc-900 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-white dark:hover:bg-zinc-700",
+        ghost: "hover:bg-zinc-100 hover:text-zinc-900 dark:hover:bg-white/10 dark:hover:text-white",
+        link: "text-[#ed1c24] underline-offset-4 hover:underline",
+      },
+      size: {
+        default: "h-10 px-5 py-2",
+        sm: "h-9 rounded-full px-3.5 text-xs",
+        md: "h-10 px-5 py-2",
+        lg: "h-12 rounded-full px-8 text-base",
+        xl: "h-14 rounded-full px-10 text-lg",
+        icon: "h-10 w-10",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "default",
+    },
+  }
+);
+
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
+  asChild?: boolean;
   href?: string;
-  onClick?: MouseEventHandler;
-  variant?: "primary" | "outline" | "ghost" | "dark";
-  size?: "md" | "lg" | "xl";
-  icon?: "arrow" | "up-right" | "none";
-  className?: string;
+  icon?: string;
   ariaLabel?: string;
   dataCursor?: string;
-  type?: "button" | "submit";
-};
+}
 
-const variants: Record<string, string> = {
-  primary:
-    "bg-[#ed1c24] text-white hover:bg-[#c4181e] shadow-[0_0_40px_-12px_rgba(237,28,36,0.6)] group-hover:shadow-[0_0_60px_-10px_rgba(237,28,36,0.7)]",
-  outline:
-    "border border-line-strong text-fog hover:border-[#ed1c24]/60 hover:text-[#ff6b70] bg-white/[0.02]",
-  ghost: "text-fog hover:text-[#ff6b70]",
-  dark: "bg-ink text-fog border border-line hover:border-[#ed1c24]/50",
-};
-
-const sizes: Record<string, string> = {
-  md: "px-6 py-3 text-sm",
-  lg: "px-8 py-4 text-[15px]",
-  xl: "px-10 py-5 text-[1rem] sm:px-12",
-};
-
-export function Button({
-  children,
-  href,
-  onClick,
-  variant = "primary",
-  size = "lg",
-  icon = "arrow",
-  className,
-  ariaLabel,
-  dataCursor,
-  type = "button",
-}: ButtonProps) {
-  const cls = cn(
-    "group relative inline-flex items-center justify-center gap-2.5 overflow-hidden rounded-full font-semibold tracking-tight transition-all duration-300 ease-out",
-    variants[variant],
-    sizes[size],
-    className
-  );
-
-  const Icon = icon === "up-right" ? ArrowUpRight : ArrowRight;
-
-  const inner = (
-    <>
-      <span className="relative z-10 flex items-center gap-2.5">
-        <span>{children}</span>
-        {icon !== "none" && (
-          <Icon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5" strokeWidth={2.5} />
-        )}
-      </span>
-      <span className="pointer-events-none absolute inset-0 z-0 translate-y-full rounded-full bg-white/10 transition-transform duration-500 ease-out group-hover:translate-y-0" />
-    </>
-  );
-
-  if (href) {
-    return (
-      <Magnetic>
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant, size, asChild = false, href, icon, ariaLabel, dataCursor, children, ...props }, ref) => {
+    if (href) {
+      return (
         <a
           href={href}
-          className={cls}
           aria-label={ariaLabel}
           data-cursor={dataCursor}
-          {...(href.startsWith("http")
-            ? { target: "_blank", rel: "noopener noreferrer" }
-            : {})}
+          className={cn(buttonVariants({ variant, size, className }))}
+          {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
         >
-          {inner}
+          {children}
         </a>
-      </Magnetic>
+      );
+    }
+
+    const Comp = asChild ? Slot : "button";
+    return (
+      <Comp
+        aria-label={ariaLabel}
+        data-cursor={dataCursor}
+        className={cn(buttonVariants({ variant, size, className }))}
+        ref={ref}
+        {...props}
+      >
+        {children}
+      </Comp>
     );
   }
+);
+Button.displayName = "Button";
 
-  return (
-    <Magnetic>
-      <button type={type} onClick={onClick} className={cls} aria-label={ariaLabel} data-cursor={dataCursor}>
-        {inner}
-      </button>
-    </Magnetic>
-  );
-}
+export { Button, buttonVariants };

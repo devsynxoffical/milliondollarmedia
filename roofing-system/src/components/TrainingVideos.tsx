@@ -95,28 +95,8 @@ function VideoCard({ video, index }: { video: typeof resources[0]; index: number
             className="transition-all duration-500 group-hover:scale-[1.05]"
           />
           
-          {/* Gradient overlay */}
-          <div
-            className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-black/10 to-black/40 transition-opacity duration-300"
-            style={{ opacity: hovered ? 0.8 : 1 }}
-          />
-          
-          {/* Play button with pulse */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <button
-              className="relative flex h-16 w-16 items-center justify-center rounded-full bg-[#ed1c24]/90 text-white shadow-[0_0_40px_rgba(237,28,36,0.6)] transition-all duration-300 hover:bg-[#ed1c24] hover:scale-110 hover:shadow-[0_0_60px_rgba(237,28,36,0.8)]"
-              aria-label={`Watch ${video.title}`}
-            >
-              <svg className="h-6 w-6 ml-1" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-              {/* Pulsing ring */}
-              <span className="absolute inset-0 rounded-full bg-[#ed1c24] animate-ping opacity-75" />
-            </button>
-          </div>
-
           {/* Category badge */}
-          <span className="absolute left-4 top-4 flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-zinc-900 shadow-sm backdrop-blur transition-transform duration-300 hover:scale-105">
+          <span className="absolute left-4 top-4 z-20 flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-zinc-900 shadow-sm backdrop-blur transition-transform duration-300 hover:scale-105">
             <span className={`h-2 w-2 rounded-full ${CATEGORY_COLORS[video.category as keyof typeof CATEGORY_COLORS] || "bg-[#ed1c24]"}`} />
             {video.category}
           </span>
