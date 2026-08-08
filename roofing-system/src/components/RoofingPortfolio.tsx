@@ -57,12 +57,18 @@ function VideoTile({ video, index }: { video: (typeof ROOFING_VIDEOS)[number]; i
     const nextMuted = !muted;
     setMuted(nextMuted);
     el.contentWindow?.postMessage(
-      JSON.stringify({ method: "setVolume", value: nextMuted ? 0 : 1 }),
+      JSON.stringify({ method: nextMuted ? "setVolume" : "play", value: nextMuted ? 0 : 1 }),
       "*"
     );
+    if (!nextMuted) {
+      el.contentWindow?.postMessage(
+        JSON.stringify({ method: "setVolume", value: 1 }),
+        "*"
+      );
+    }
   };
 
-  const vimeoUrl = `https://player.vimeo.com/video/${video.id}?autoplay=1&muted=1&autopause=0&loop=1&background=1&controls=0&transparent=0`;
+  const vimeoUrl = `https://player.vimeo.com/video/${video.id}?autoplay=1&muted=1&autopause=0&loop=1&api=1&app_id=122963&title=0&byline=0&portrait=0`;
 
   return (
     <Reveal delay={index * 0.08} className="h-full">
@@ -75,11 +81,10 @@ function VideoTile({ video, index }: { video: (typeof ROOFING_VIDEOS)[number]; i
           <iframe
             ref={iframeRef}
             src={vimeoUrl}
-            allow="autoplay; fullscreen; picture-in-picture"
+            allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
             allowFullScreen
             title={video.title}
-            loading="lazy"
-            className="h-full w-full object-cover transition duration-700 group-hover:scale-105 pointer-events-none"
+            className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
             style={{ border: "none" }}
           />
 
