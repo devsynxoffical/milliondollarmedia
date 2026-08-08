@@ -1,20 +1,16 @@
 import { Hero } from "../components/Hero";
 import { ScrollMorphHero } from "../components/ScrollMorphHero";
+import { BenefitsSection } from "../components/BenefitsSection";
+import { InteractiveImageAccordion } from "../components/ui/interactive-image-accordion";
+import { StatsBand } from "../components/StatsBand";
+import { PipelineMotion } from "../components/PipelineMotion";
+import { TrainingVideos } from "../components/TrainingVideos";
+import { FaqSection } from "../components/FaqSection";
 import { TrustBar } from "../components/sections/TrustBar";
-import { WhyScale } from "../components/sections/WhyScale";
-import { Different } from "../components/sections/Different";
-import { FunnelProof } from "../components/sections/FunnelProof";
-import { ClientSuccess } from "../components/sections/ClientSuccess";
-import { Masterminds } from "../components/sections/Masterminds";
 import { Process } from "../components/sections/Process";
-import { EverythingIncluded } from "../components/sections/EverythingIncluded";
-import { Ownership } from "../components/sections/Ownership";
-import { Industries } from "../components/sections/Industries";
-import { Comparison } from "../components/sections/Comparison";
+import { WhyScale } from "../components/sections/WhyScale";
 import { Guarantee } from "../components/sections/Guarantee";
-import { FAQ } from "../components/sections/FAQ";
 import { FinalCTA } from "../components/sections/FinalCTA";
-import { CTABanner } from "../components/ui/CTABanner";
 import { Footer } from "../components/Footer";
 
 export default function Home() {
@@ -23,25 +19,22 @@ export default function Home() {
       <main>
         <Hero />
         <ScrollMorphHero />
-        <TrustBar />
         <WhyScale />
-        <Different />
-        <FunnelProof />
-        <ClientSuccess />
-        <Masterminds />
-        <CTABanner compact />
+        <BenefitsSection />
+        <InteractiveImageAccordion />
         <Process />
-        <CTABanner compact />
-        <EverythingIncluded />
-        <Ownership />
-        <Industries />
-        <Comparison />
+        <PipelineMotion />
+        
+        {/* Animated sections from commit be441ff */}
+        <TrainingVideos />
         <Guarantee />
-        <CTABanner compact />
-        <FAQ />
+        <FaqSection />
         <FinalCTA />
+        <TrustBar />
+        <StatsBand />
       </main>
       <Footer />
     </div>
   );
 }
+

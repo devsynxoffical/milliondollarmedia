@@ -1,126 +1,80 @@
 "use client";
 
-import { ShieldCheck, KeyRound, CalendarCheck2, Quote } from "lucide-react";
+import { ShieldCheck, KeyRound, CalendarCheck2, ArrowRight } from "lucide-react";
 import { SplitReveal } from "@/components/ui/SplitReveal";
 import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
-import { Marquee } from "@/components/ui/Marquee";
-import { MeshGradient } from "@/components/ui/MeshGradient";
-import { testimonials } from "@/lib/data";
 import { site } from "@/lib/site";
 
-const TRUST_WORDS = [
-  "No cold outreach",
-  "You own everything",
-  "90-day guarantee",
-  "No lock-in contracts",
-  "Done-for-you",
-  "Qualified calls only",
-  "$100K+ client months",
-  "No exit fees",
+const benefits = [
+  { icon: ShieldCheck, title: "90-Day Written Guarantee", desc: "Mutually agreed growth milestones or we keep working free" },
+  { icon: KeyRound, title: "You Own Everything", desc: "Every asset, account, and audience transfers to you day one" },
+  { icon: CalendarCheck2, title: "Qualified Inspections In Weeks", desc: "Not raw leads — booked appointments with homeowners ready to buy" },
+  { icon: ArrowRight, title: "No Cold Outreach Ever", desc: "Inbound system brings homeowners to you, not the other way around" },
 ];
-
-function FloatingQuote({ t, className }: { t: (typeof testimonials)[number]; className?: string }) {
-  return (
-    <div className={className}>
-      <div className="animate-float-slow panel-glass max-w-[17rem] rounded-2xl p-5 shadow-soft">
-        <Quote className="h-4 w-4 text-lime" />
-        <p className="mt-2 text-sm leading-relaxed text-fog">“{t.quote}”</p>
-        <p className="mt-3 font-mono text-[10px] uppercase tracking-widest text-dim">
-          {t.name} · {t.role}
-        </p>
-      </div>
-    </div>
-  );
-}
 
 export function FinalCTA() {
   return (
-    <section id="book" className="relative overflow-hidden pb-10 pt-24 sm:pt-32">
-      {/* Animated background */}
-      <div className="absolute inset-0">
-        <MeshGradient colors={["#0a0c0f", "#2a1013", "#160a0d", "#1a1206"]} speed={1.4} />
-      </div>
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-lime/50 to-transparent" />
-
-      {/* Floating testimonials */}
-      <div className="pointer-events-none absolute inset-0 hidden lg:block">
-        <FloatingQuote t={testimonials[0]} className="absolute left-[3%] top-[22%]" />
-        <FloatingQuote t={testimonials[1]} className="absolute right-[2%] top-[30%]" />
-        <FloatingQuote t={testimonials[2]} className="absolute bottom-[14%] left-[6%]" />
-      </div>
-
-      <div className="container-x relative z-10 flex flex-col items-center text-center">
-        <Reveal>
+    <section id="book" className="relative overflow-hidden py-20 sm:py-28 lg:py-32 bg-white border-t border-zinc-100">
+      <div className="container-x relative z-10">
+        <Reveal className="flex flex-col items-center text-center max-w-3xl mx-auto">
           <span className="eyebrow-xl justify-center">The next step is yours</span>
-        </Reveal>
-
-        <SplitReveal
-          as="h2"
-          className="mt-6 max-w-5xl text-balance text-[clamp(2.4rem,6.5vw,4.8rem)] font-semibold leading-[1.02] tracking-[-0.03em] text-fog"
-        >
-          Ready to build a{" "}
-          <em className="font-semibold not-italic text-lime">
-            predictable roofing client acquisition system?
-          </em>
-        </SplitReveal>
-
-        <Reveal delay={0.15}>
-          <p className="mx-auto mt-7 max-w-xl text-pretty text-lg leading-relaxed text-mist">
+          <SplitReveal
+            as="h2"
+            className="mt-6 text-balance text-3xl font-bold leading-[1.05] tracking-tight text-zinc-950 sm:text-4xl lg:text-5xl"
+          >
+            Ready to build a{" "}
+            <em className="font-bold not-italic text-[#ed1c24]">
+              predictable roofing client acquisition system?
+            </em>
+          </SplitReveal>
+          <p className="mt-5 max-w-xl text-lg leading-relaxed text-zinc-500">
             Stop guessing. Stop relying on referrals. Stop switching agencies. Install a complete
             system that attracts, qualifies, nurtures and books premium roofing clients — so you
             can focus on closing jobs and scaling your business.
           </p>
         </Reveal>
 
-        <Reveal delay={0.25}>
-          <div className="mt-10 flex flex-col items-center gap-5">
-            <Button
-              href={site.bookCallUrl}
-              size="xl"
-              icon="up-right"
-              className="px-12"
-              ariaLabel="Book your free strategy call"
-            >
-              Book Your Free Strategy Call
-            </Button>
-            <p className="font-mono text-[11px] uppercase tracking-widest text-dim">
-              Free · No pressure · 90-day written guarantee
-            </p>
-          </div>
+        <Reveal delay={0.15} className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {benefits.map((b, i) => {
+            const Icon = b.icon;
+            return (
+              <article
+                key={b.title}
+                className="group relative overflow-hidden rounded-2xl border border-zinc-200 bg-white p-6 transition-all duration-500 hover:border-[#ed1c24]/50 hover:shadow-lg hover:-translate-y-1"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#ed1c24]/10 text-[#ed1c24] transition-all duration-300 group-hover:bg-[#ed1c24] group-hover:text-white">
+                  <Icon className="h-6 w-6" strokeWidth={1.75} />
+                </div>
+                <h3 className="mt-5 font-bold text-zinc-950">{b.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-zinc-500">{b.desc}</p>
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-gradient-to-r from-[#ed1c24]/60 to-transparent transition-transform duration-500 group-hover:scale-x-100"
+                />
+              </article>
+            );
+          })}
         </Reveal>
 
-        <Reveal delay={0.35}>
-          <div className="mt-12 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-sm text-dim">
-            {[
-              { icon: ShieldCheck, label: "90-day written guarantee" },
-              { icon: KeyRound, label: "You own everything" },
-              { icon: CalendarCheck2, label: "Qualified inspections in weeks" },
-            ].map(({ icon: Icon, label }) => (
-              <span key={label} className="inline-flex items-center gap-2">
-                <Icon className="h-4 w-4 text-lime" />
-                {label}
-              </span>
-            ))}
-          </div>
+        <Reveal delay={0.25} className="mt-16 flex flex-col items-center gap-5 text-center">
+          <Button
+            href={site.bookCallUrl}
+            size="xl"
+            icon="up-right"
+            className="px-12"
+            ariaLabel="Book your free strategy call"
+          >
+            Book Your Free Strategy Call
+          </Button>
+          <p className="font-mono text-[11px] uppercase tracking-widest text-zinc-400">
+            Free · No pressure · 90-day written guarantee
+          </p>
         </Reveal>
       </div>
 
-      {/* Trust word marquee */}
-      <Reveal delay={0.3}>
-        <div className="relative mt-20">
-          <Marquee speed="45s">
-            {TRUST_WORDS.map((w) => (
-              <span key={w} className="flex items-center">
-                <span className="px-6 text-3xl font-semibold tracking-tight text-fog/25 sm:text-4xl">
-                  {w}
-                </span>
-                <span className="h-2 w-2 rounded-full bg-lime/40" />
-              </span>
-            ))}
-          </Marquee>
-        </div>
-      </Reveal>
+      {/* Subtle accent line */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#ed1c24]/50 to-transparent" />
     </section>
   );
 }
