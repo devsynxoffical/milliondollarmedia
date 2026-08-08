@@ -1,6 +1,7 @@
 import { Hero } from "../components/Hero";
 import { ScrollMorphHero } from "../components/ScrollMorphHero";
 import { BenefitsSection } from "../components/BenefitsSection";
+import { RoofingPortfolio } from "../components/RoofingPortfolio";
 import { Results } from "../components/sections/Results";
 import { InteractiveImageAccordion } from "../components/ui/interactive-image-accordion";
 import { StatsBand } from "../components/StatsBand";
@@ -22,6 +23,7 @@ export default function Home() {
         <ScrollMorphHero />
         <WhyScale />
         <BenefitsSection />
+        <RoofingPortfolio />
         <Results />
         <InteractiveImageAccordion />
         <Process />

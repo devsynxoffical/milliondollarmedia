@@ -3,7 +3,6 @@
 import {
   BarChart3,
   Palette,
-  FileText,
   Funnel,
   Megaphone,
   Target,
@@ -20,7 +19,7 @@ import {
 const BENEFITS_VIDEO_URL =
   "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260421_072701_f6a01abb-eb30-4559-9d6e-774362defbc3.mp4";
 
-/* ── Left card services (Full-Funnel Roofing Ads) ── */
+/* ── Left card services (Full-Funnel Roofing Ads - 6 items) ── */
 const adServices: { icon: LucideIcon; label: string }[] = [
   { icon: Target, label: "Offer Positioning" },
   { icon: Megaphone, label: "Messaging Strategy" },
@@ -30,7 +29,7 @@ const adServices: { icon: LucideIcon; label: string }[] = [
   { icon: TrendingUp, label: "Ongoing Optimisation" },
 ];
 
-/* ── Right card services (Done-For-You Lead Management) ── */
+/* ── Right card services (Done-For-You Lead Management - 6 items) ── */
 const leadServices: { icon: LucideIcon; label: string }[] = [
   { icon: Database, label: "CRM Setup" },
   { icon: Bot, label: "AI Automations" },
