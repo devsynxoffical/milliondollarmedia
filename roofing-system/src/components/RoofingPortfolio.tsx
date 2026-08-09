@@ -2,7 +2,7 @@
 
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
-import { Flame, Eye, Volume2, VolumeX, Play, ImageIcon, Film, Sparkles } from "lucide-react";
+import { Flame, Eye, Volume2, VolumeX, Play, ImageIcon, Film } from "lucide-react";
 import { Reveal } from "./Reveal";
 
 /* ─────────────────────────────────────────────────────────
@@ -169,7 +169,6 @@ const CONTENT: ContentItem[] = [
 ];
 
 const FILTERS = [
-  { label: "All", value: "All", icon: Sparkles },
   { label: "Videos", value: "Videos", icon: Film },
   { label: "GIFs", value: "GIFs", icon: Flame },
   { label: "Images", value: "Images", icon: ImageIcon },
@@ -337,10 +336,9 @@ function ImageCard({ item, index }: { item: ContentItem; index: number }) {
 
 /* ─── Main Section ───────────────────────────────────── */
 export function RoofingPortfolio() {
-  const [activeFilter, setActiveFilter] = useState("All");
+  const [activeFilter, setActiveFilter] = useState("Videos");
 
-  const filtered =
-    activeFilter === "All" ? CONTENT : CONTENT.filter((c) => c.category === activeFilter);
+  const filtered = CONTENT.filter((c) => c.category === activeFilter);
 
   return (
     <section id="roofing-work" className="relative overflow-hidden bg-[#070709] py-20 sm:py-28 border-b border-zinc-800">
