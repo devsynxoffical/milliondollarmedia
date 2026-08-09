@@ -19,20 +19,12 @@ type ContentItem = {
 };
 
 const CONTENT: ContentItem[] = [
-  // ── VIDEOS ──────────────────────────────────────────────
-  {
-    id: "equi-1",
-    type: "video",
-    src: "/roofing-content/videos/equinox 1.mp4",
-    title: "Equinox Roofing Ad 1",
-    tag: "META ADS",
-    category: "Videos",
-  },
+  // ── VIDEOS (all under 100MB — committed directly to git) ───────────────
   {
     id: "equi-2",
     type: "video",
     src: "/roofing-content/videos/equinox 2.mp4",
-    title: "Equinox Roofing Ad 2",
+    title: "Equinox Roofing Ad",
     tag: "META ADS",
     category: "Videos",
   },
@@ -40,39 +32,15 @@ const CONTENT: ContentItem[] = [
     id: "equi-3",
     type: "video",
     src: "/roofing-content/videos/equinox 3.mp4",
-    title: "Equinox Roofing Ad 3",
+    title: "Equinox Roofing — Full Angle",
     tag: "META ADS",
-    category: "Videos",
-  },
-  {
-    id: "equi-4",
-    type: "video",
-    src: "/roofing-content/videos/equinox 4.mp4",
-    title: "Equinox Roofing Ad 4",
-    tag: "FACEBOOK",
-    category: "Videos",
-  },
-  {
-    id: "equi-5",
-    type: "video",
-    src: "/roofing-content/videos/equinox 5.mp4",
-    title: "Equinox Roofing Ad 5",
-    tag: "FACEBOOK",
-    category: "Videos",
-  },
-  {
-    id: "equi-6",
-    type: "video",
-    src: "/roofing-content/videos/equinox 6(1).mp4",
-    title: "Equinox Roofing Ad 6",
-    tag: "INSTAGRAM",
     category: "Videos",
   },
   {
     id: "equi-vid-2",
     type: "video",
     src: "/roofing-content/videos/EQUINOX VID 2 (1).mp4",
-    title: "Equinox Short Vid",
+    title: "Short-Form Roofing Ad",
     tag: "SHORT FORM",
     category: "Videos",
   },
@@ -80,7 +48,7 @@ const CONTENT: ContentItem[] = [
     id: "leaking-1",
     type: "video",
     src: "/roofing-content/videos/LEAKING VID 1.mp4",
-    title: "Leaking Roof — Storm Damage",
+    title: "Storm Damage Hook Ad",
     tag: "HOOK AD",
     category: "Videos",
   },
@@ -92,7 +60,7 @@ const CONTENT: ContentItem[] = [
     tag: "REEL",
     category: "Videos",
   },
-  // ── GIFs ────────────────────────────────────────────────
+  // ── GIFs ────────────────────────────────────────────────────────────────
   {
     id: "gif-1",
     type: "gif",
@@ -113,11 +81,11 @@ const CONTENT: ContentItem[] = [
     id: "gif-3",
     type: "gif",
     src: "/roofing-content/gif-img/gif 3.gif",
-    title: "Roofing GIF 3",
+    title: "Roofing GIF",
     tag: "GIF AD",
     category: "GIFs",
   },
-  // ── IMAGES ──────────────────────────────────────────────
+  // ── IMAGES ──────────────────────────────────────────────────────────────
   {
     id: "img-1",
     type: "image",

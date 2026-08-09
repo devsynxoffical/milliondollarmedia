@@ -1,5 +1,0 @@
-public/roofing-content/videos/*.mp4 filter=lfs diff=lfs merge=lfs -text
-public/roofing-content/gif-img/*.gif filter=lfs diff=lfs merge=lfs -text
-public/roofing-content/images/*.jpg filter=lfs diff=lfs merge=lfs -text
-public/roofing-content/images/*.jpeg filter=lfs diff=lfs merge=lfs -text
-public/roofing-content/images/*.png filter=lfs diff=lfs merge=lfs -text
