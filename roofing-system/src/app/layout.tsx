@@ -5,7 +5,7 @@ import { Nav } from "../components/layout/Nav";
 import { ScrollProgress } from "../components/ui/ScrollProgress";
 import { NoiseOverlay } from "../components/ui/NoiseOverlay";
 import { SmoothScroll } from "../components/providers/SmoothScroll";
-import { CustomCursor } from "../components/providers/CustomCursor";
+
 import "./globals.css";
 
 const display = Inter_Tight({
@@ -55,13 +55,11 @@ export default function RootLayout({
     <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable} h-full`}>
       <body className="min-h-full antialiased">
         <SmoothScroll>
-          <CustomCursor>
-            <NoiseOverlay />
-            <ScrollProgress />
-            <AnnouncementBar />
-            <Nav />
-            {children}
-          </CustomCursor>
+          <NoiseOverlay />
+          <ScrollProgress />
+          <AnnouncementBar />
+          <Nav />
+          {children}
         </SmoothScroll>
       </body>
     </html>

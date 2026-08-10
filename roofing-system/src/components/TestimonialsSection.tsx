@@ -3,54 +3,49 @@ import { AuroraBg } from "./AuroraBg";
 import { Marquee } from "./ui/Marquee";
 import { SplitReveal } from "./ui/SplitReveal";
 
-const testimonials = [
+const testimonialsRow1 = [
   {
     quote:
       "We went from 8 calls a week to 40+ booked inspections in 60 days. The qualification system is a game changer.",
     name: "Marcus D.",
-    company: "Owner, PeakView Roofing",
   },
   {
     quote:
       "First agency that actually owns the funnel for us. Cost per lead dropped 50% within the first month.",
     name: "Sarah K.",
-    company: "Co-Founder, Summit Roofing Co.",
   },
   {
     quote:
       "The AI follow-up alone paid for the whole system. No more roof repair leads dying in the inbox.",
     name: "James R.",
-    company: "Apex Roofing & Restoration",
   },
   {
     quote:
       "We booked $635K in roofing projects from just $29K in ad spend. The math finally works.",
     name: "Daniel T.",
-    company: "Titan Roofing",
   },
+];
+
+const testimonialsRow2 = [
   {
     quote:
       "Everything is in writing. They put their money where their mouth is with the 90-day guarantee.",
     name: "Chris M.",
-    company: "Legacy Roofing Solutions",
   },
   {
     quote:
       "Their team runs our ads, CRM, and follow-ups. We just run inspections and close roofing jobs.",
     name: "Aaron B.",
-    company: "Redline Roofing",
   },
   {
     quote:
       "Premium homeowners, not price shoppers. The lead quality completely changed our sales process.",
     name: "Mike P.",
-    company: "Sterling Roofing Group",
   },
   {
     quote:
       "Went from chasing leads to a pipeline that books itself. Hands down the best money we&apos;ve spent.",
     name: "Tony S.",
-    company: "Frontier Roofing",
   },
 ];
 
@@ -66,7 +61,7 @@ function Stars() {
   );
 }
 
-function TestimonialCard({ t }: { t: (typeof testimonials)[number] }) {
+function TestimonialCard({ t }: { t: { quote: string; name: string } }) {
   return (
     <figure className="hover-card mx-3 flex h-full w-[320px] shrink-0 flex-col rounded-2xl border border-line bg-panel p-6 sm:w-[360px]">
       <Stars />
@@ -75,7 +70,6 @@ function TestimonialCard({ t }: { t: (typeof testimonials)[number] }) {
       </blockquote>
       <figcaption className="mt-5 border-t border-line pt-4">
         <p className="text-sm font-extrabold text-fog">{t.name}</p>
-        <p className="mt-0.5 text-xs font-medium text-dim">{t.company}</p>
       </figcaption>
     </figure>
   );
@@ -105,7 +99,7 @@ export function TestimonialsSection() {
       {/* Marquee row 1 */}
       <div className="mt-12">
         <Marquee speed={45}>
-          {testimonials.map((t, i) => (
+          {testimonialsRow1.map((t, i) => (
             <TestimonialCard key={`row1-${i}`} t={t} />
           ))}
         </Marquee>
@@ -114,7 +108,7 @@ export function TestimonialsSection() {
       {/* Marquee row 2 (reverse) */}
       <div className="mt-4">
         <Marquee speed={50} reverse>
-          {testimonials.map((t, i) => (
+          {testimonialsRow2.map((t, i) => (
             <TestimonialCard key={`row2-${i}`} t={t} />
           ))}
         </Marquee>

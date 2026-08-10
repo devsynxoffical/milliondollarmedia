@@ -16,6 +16,7 @@ export type FunnelConfig = {
   videoCover: string;
   learnTitle: string;
   learnItems: string[];
+  learnDetails: string[];
   trackTitle: string;
   trackBody: string;
   ctaPrimary: string;
@@ -47,6 +48,13 @@ export const ADS_COPY_FUNNEL: FunnelConfig = {
     "The ads copy angles that book high-ticket roofing sales calls",
     "How to turn Meta traffic into a repeatable sales-call machine",
     "Live examples from campaigns that already scaled",
+  ],
+  learnDetails: [
+    "Most roofers bid on the same five interests, so CPLs climb while response rates sink. This part shows where to look inside Ads Manager for untapped homeowner interests, how to validate them before you spend, and how to stack them into segments your competitors haven't touched.",
+    "Cheap leads aren't the goal — cheap booked calls are. Here are the exact levers that protect lead quality while driving CPL down: intent layers, negative exclusions, and offer-based bid adjustments that keep tire-kickers out of your pipeline.",
+    "High-ticket roofing calls start with copy that reads like it was written for one homeowner. We break down the angle frameworks, hook formulas, and call-to-action patterns that consistently produce sales calls instead of quote-shoppers.",
+    "Ad spend only means something when it feeds a machine. See how we connect Meta traffic to offer pages, retargeting, and qualification so every click feeds a repeatable system that fills the calendar.",
+    "Theory is cheap — proof is better. We walk real campaigns that scaled: what we changed at each step, the numbers that told us to double down, and the mistakes we'd never repeat.",
   ],
   trackTitle: "A proven system with a massive track record",
   trackBody:
@@ -81,6 +89,13 @@ export const AUDIENCE_FUNNEL: FunnelConfig = {
     "How to build lookalikes and exclusions that protect your CPL",
     "Creative + offer matching for each audience segment",
     "A simple testing order so you scale winners faster",
+  ],
+  learnDetails: [
+    "Broad targeting fills calendars with noise; segmented targeting fills them with homeowners ready to talk. This part walks the exact layers we build in Ads Manager — intent level, home value, and service type — so every dollar lands in front of a buyer, not a browser.",
+    "Not all spend is equal. We compare the audience layers that quietly burn budget against the ones that actually book inspections, so you know exactly what to cut and what to fund.",
+    "Lookalikes grow volume; exclusions protect quality. This breakdown shows the exact lookalike + exclusion stack that keeps cost-per-lead stable as you scale past your first warm audience.",
+    "One creative for every segment is how response rates die. We show how to pair the right angle, offer, and creative with each audience segment so your ads feel personal at scale.",
+    "Most roofers test everything at once and learn nothing. Here's the simple testing order we use — start small, kill losers fast, and pour budget into the winner before your competitors even spot it.",
   ],
   trackTitle: "Segmentation that turns spend into sales calls",
   trackBody:

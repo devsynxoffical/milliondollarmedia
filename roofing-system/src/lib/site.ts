@@ -3,8 +3,7 @@ export const site = {
   legalName: "Vaishali Media Productions LLC",
   url: "https://roofingsystems.co",
   bookCallUrl: "/book",
-  email: "hello@roofingsystems.co",
-  phone: "+1 (800) 555-0148",
+  email: "vaishali@milliondollarmedia.us",
   founded: 2015,
   location: {
     addressLocality: "Phoenix",

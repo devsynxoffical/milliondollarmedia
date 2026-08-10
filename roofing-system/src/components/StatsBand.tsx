@@ -32,24 +32,12 @@ export function StatsBand() {
       <div className="relative mx-auto max-w-[88rem] px-5 md:px-8">
         <Reveal className="mx-auto max-w-3xl text-center">
           <SplitReveal as="h2" mode="lines" className="font-heading text-2xl font-bold leading-[1.08] tracking-[-0.03em] text-fog sm:text-4xl">
-            Join over 300+ roofing contractors who trust Roofing Systems™
+            Join Over Roofing Contractors Who Trust{" "}
+            <em className="not-italic text-gradient-animated">Roofing Systems™</em>
           </SplitReveal>
         </Reveal>
 
-        {/* 4 Stat Boxes, GetJobber Style */}
-        <div className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-4">
-          {stats.map((s) => (
-            <Reveal key={s.label} className="h-full">
-              <div className="flex h-full flex-col items-center gap-1 bg-panel p-6 text-center">
-                <span className="font-heading text-2xl font-bold tracking-[-0.03em] text-[#ed1c24] sm:text-3xl">
-                  <Counter value={s.end} prefix={s.prefix} suffix={s.suffix} />
-                </span>
-                <p className="mt-1.5 text-xs sm:text-sm font-bold text-fog">{s.label}</p>
-                <p className="mt-0.5 text-[11px] text-dim font-medium">{s.sub}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+
 
         {/* Quick Opt-in Bar, GetJobber Style */}
         <div className="mx-auto mt-10 max-w-xl">
@@ -59,7 +47,7 @@ export function StatsBand() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your work email..."
+              placeholder="Enter Your Work Email..."
               className="w-full rounded-full bg-transparent px-5 py-3 text-sm text-fog placeholder:text-dim outline-none"
             />
             <button type="submit" className="w-full shrink-0 rounded-full bg-[#ed1c24] px-6 py-3 text-xs font-bold uppercase tracking-wider text-white transition-colors duration-300 hover:bg-[#ff2a1f] sm:w-auto">
@@ -67,7 +55,7 @@ export function StatsBand() {
             </button>
           </form>
           <p className="mt-2 text-center text-[11px] font-medium text-dim">
-            Strictly for roofing companies doing $1M+/year.
+            Strictly For Roofing Companies Doing $1M+/Year.
           </p>
         </div>
       </div>

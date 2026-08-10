@@ -7,11 +7,9 @@ import {
   CheckCircle2,
   ChevronLeft,
   ChevronRight,
-  Play,
   ShieldCheck,
   Sparkles,
   Zap,
-  Award,
 } from "lucide-react";
 import type { FunnelConfig } from "../lib/funnels";
 import { Footer } from "./Footer";
@@ -21,6 +19,7 @@ import { Reveal } from "./Reveal";
 import { AuroraBg } from "./AuroraBg";
 import { TiltCard } from "./TiltCard";
 import { Counter } from "./ui/Counter";
+import { Button } from "./ui/Button";
 import { TestimonialsSection } from "./TestimonialsSection";
 
 function CtaButtons({ funnel }: { funnel: FunnelConfig }) {
@@ -142,14 +141,19 @@ function InteractiveLearnSection({ funnel }: { funnel: FunnelConfig }) {
                   <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#ed1c24] text-sm font-black text-white shadow-md">
                     {String(activeTab + 1).padStart(2, "0")}
                   </span>
-                  <span className="font-mono text-xs uppercase tracking-widest text-[#ed1c24] font-bold">
-                    Mastermind Core Takeaway
-                  </span>
+                  <div>
+                    <span className="font-mono text-xs uppercase tracking-widest text-[#ed1c24] font-bold">
+                      Mastermind Core Takeaway
+                    </span>
+                    <p className="mt-0.5 text-sm font-bold text-zinc-900 max-w-2xl leading-snug">
+                      {funnel.learnItems[activeTab]}
+                    </p>
+                  </div>
                 </div>
 
-                <h3 className="mt-6 text-xl sm:text-2xl font-bold text-zinc-950 leading-relaxed max-w-3xl">
-                  {funnel.learnItems[activeTab]}
-                </h3>
+                <p className="mt-6 text-base sm:text-lg text-zinc-700 leading-relaxed max-w-3xl">
+                  {funnel.learnDetails[activeTab]}
+                </p>
 
                 <div className="mt-8 flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-zinc-200 text-xs text-zinc-600">
                   <span className="flex items-center gap-2 font-semibold">
@@ -322,47 +326,41 @@ function AboutSection({ funnel }: { funnel: FunnelConfig }) {
 
 function FinalCtaSection({ funnel }: { funnel: FunnelConfig }) {
   return (
-    <section className="relative overflow-hidden bg-[#070709] py-20 md:py-28">
-      <div className="relative mx-auto max-w-4xl px-5 md:px-8">
-        <Reveal>
-          <TiltCard className="border border-[#ed1c24]/40 bg-gradient-to-br from-[#120506] via-[#1a080a] to-[#070709] shadow-[0_30px_90px_-20px_rgba(237,28,36,0.35)] overflow-hidden">
-            <div className="relative px-6 py-16 text-center text-white md:px-14">
-              <div className="jobber-grid-dark pointer-events-none absolute inset-0 opacity-20" aria-hidden="true" />
-              <div
-                className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[300px] w-[500px] blur-[90px] opacity-30"
-                style={{ background: "radial-gradient(circle, #ed1c24 0%, transparent 70%)" }}
-              />
-              <div className="relative z-10">
-                <div className="inline-flex items-center gap-2 rounded-full border border-[#ed1c24]/40 bg-[#ed1c24]/20 px-4 py-1 text-xs font-bold uppercase tracking-widest text-[#ed1c24] mb-4">
-                  <Award className="h-3.5 w-3.5 text-[#ed1c24]" />
-                  <span>READY TO SCALE</span>
-                </div>
-                <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
-                  Ready to build your
-                  <br />
-                  <span className="not-italic text-gradient-animated">sales call machine?</span>
-                </h2>
-                <p className="mx-auto mt-5 max-w-xl text-sm text-zinc-300 md:text-base leading-relaxed">
-                  Watch the mastermind. Then book if you&apos;re ready to install
-                  the full acquisition system for your roofing company.
-                </p>
-                <Link
-                  href={funnel.bookingPath}
-                  className="group mt-9 inline-flex flex-col items-center justify-center rounded-full bg-gradient-to-r from-[#ed1c24] to-[#c4181e] px-10 py-4 font-extrabold text-white shadow-[0_15px_40px_-5px_rgba(237,28,36,0.7)] transition-all duration-300 hover:scale-105 hover:shadow-[0_20px_50px_-5px_rgba(237,28,36,0.9)]"
-                >
-                  <span className="text-base uppercase tracking-wide flex items-center gap-2">
-                    Book Application Call
-                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                  </span>
-                  <span className="text-[10px] font-medium uppercase tracking-[0.16em] text-white/80">
-                    Free 1:1 · roofers only
-                  </span>
-                </Link>
-              </div>
-            </div>
-          </TiltCard>
+    <section
+      id="book"
+      className="relative overflow-hidden border-t border-zinc-100 bg-white py-20 sm:py-28 lg:py-32"
+    >
+      <div className="container-x relative z-10">
+        <Reveal className="mx-auto flex max-w-3xl flex-col items-center text-center">
+          <span className="eyebrow-xl justify-center">READY TO SCALE</span>
+          <h2 className="mt-6 text-balance text-3xl font-bold leading-[1.05] tracking-tight text-zinc-950 sm:text-4xl lg:text-5xl">
+            Ready to build your{" "}
+            <em className="not-italic font-bold text-[#ed1c24]">sales call machine?</em>
+          </h2>
+          <p className="mt-5 max-w-xl text-lg leading-relaxed text-zinc-500">
+            Watch the mastermind. Then book if you&apos;re ready to install the full acquisition
+            system for your roofing company.
+          </p>
+        </Reveal>
+
+        <Reveal delay={160} className="mt-12 flex flex-col items-center gap-5 text-center">
+          <Button
+            href={funnel.bookingPath}
+            size="xl"
+            icon="up-right"
+            className="px-12"
+            ariaLabel="Book your application call"
+          >
+            Book Application Call
+          </Button>
+          <p className="font-mono text-[11px] uppercase tracking-widest text-zinc-400">
+            Free 1:1 · Roofers only
+          </p>
         </Reveal>
       </div>
+
+      {/* Subtle accent line */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#ed1c24]/50 to-transparent" />
     </section>
   );
 }

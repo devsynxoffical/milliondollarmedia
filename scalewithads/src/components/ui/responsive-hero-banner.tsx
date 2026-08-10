@@ -67,18 +67,28 @@ export default function ResponsiveHeroBanner({
               </span>
             </motion.div>
 
-            {/* Display Headline */}
-            <motion.h1
+            {/* Small Eyebrow Heading */}
+            <motion.p
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="display mt-6 text-[clamp(2.2rem,4.8vw,4rem)] font-extrabold leading-[1.1] tracking-tight text-white"
+              className="display mt-6 text-sm font-bold uppercase tracking-[0.18em] text-white/80 sm:text-base"
             >
-              We Will Install Our Proprietary{" "}
-              <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-[#ff4d52] via-[#ed1c24] to-[#ff8f93]">
+              We Install Our Proprietary{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff4d52] via-[#ed1c24] to-[#ff8f93]">
                 Scale With Ads™
               </span>{" "}
-              Client Acquisition System Into Your Business...
+              System
+            </motion.p>
+
+            {/* Main Heading */}
+            <motion.h1
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.15 }}
+              className="display mt-3 max-w-2xl text-[clamp(1.75rem,3.4vw,2.75rem)] font-extrabold leading-[1.15] tracking-tight text-white"
+            >
+              Client Acquisition System Into Your Business
             </motion.h1>
 
             {/* Subheading */}
@@ -86,7 +96,7 @@ export default function ResponsiveHeroBanner({
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="display mt-4 text-xl sm:text-2xl md:text-3xl font-extrabold text-[#ed1c24]"
+              className="mt-3 text-lg font-bold text-[#ed1c24] sm:text-xl"
             >
               Double Your Revenue Within The Next 90 Days...
             </motion.h2>
@@ -98,10 +108,10 @@ export default function ResponsiveHeroBanner({
               transition={{ duration: 0.7, delay: 0.25 }}
               className="mt-4 max-w-xl space-y-1.5"
             >
-              <p className="text-base font-semibold leading-relaxed text-zinc-300 md:text-lg">
+              <p className="text-sm font-medium leading-relaxed text-white/80 md:text-base">
                 Or We&apos;ll Continue Working For You At No Management Fee Until We Do.
               </p>
-              <p className="text-base font-semibold leading-relaxed text-white md:text-lg">
+              <p className="text-sm font-medium leading-relaxed text-white md:text-base">
                 Backed by a Written Agreement.
               </p>
             </motion.div>
@@ -126,7 +136,7 @@ export default function ResponsiveHeroBanner({
                   <p className="display text-xl font-extrabold text-white group-hover:text-[#ed1c24] transition-colors">
                     {stat.value}
                   </p>
-                  <p className="mt-0.5 text-[9px] font-bold uppercase tracking-[0.14em] text-zinc-400">
+                  <p className="mt-0.5 text-[9px] font-bold uppercase tracking-[0.14em] text-white/70">
                     {stat.label}
                   </p>
                 </div>
@@ -152,7 +162,7 @@ export default function ResponsiveHeroBanner({
               <a
                 href="#systems"
                 data-cursor="view"
-                className="btn btn-outline-dark flex items-center justify-center gap-2 px-7 py-4.5 text-sm font-semibold text-zinc-200 transition-all hover:bg-white/10 hover:text-white"
+                className="btn btn-outline-dark flex items-center justify-center gap-2 px-7 py-4.5 text-sm font-semibold text-white transition-all hover:bg-white/10"
               >
                 <Zap className="h-4 w-4 text-[#ed1c24]" />
                 <span>Explore Acquisition Systems</span>
@@ -164,7 +174,7 @@ export default function ResponsiveHeroBanner({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="mt-6 flex items-center gap-2 text-xs font-semibold text-zinc-400"
+              className="mt-6 flex items-center gap-2 text-xs font-semibold text-white/80"
             >
               <ShieldCheck className="h-4 w-4 text-[#ed1c24]" />
               <span>100% Asset Ownership · Written Agreement · No Lock-ins</span>
@@ -216,7 +226,7 @@ export default function ResponsiveHeroBanner({
                       <p className="display text-base font-bold text-white">
                         Scale With Ads™ Playbook
                       </p>
-                      <p className="text-xs text-zinc-300">
+                      <p className="text-xs text-white/80">
                         $50M+ Meta Spend Framework
                       </p>
                     </div>
@@ -232,7 +242,7 @@ export default function ResponsiveHeroBanner({
                     <CheckCircle2 className="h-4 w-4 shrink-0 text-[#ed1c24]" />
                     <div>
                       <p className="text-[11px] font-bold text-white">3.32x ROAS</p>
-                      <p className="text-[9px] text-zinc-400">Tracked Client Spend</p>
+                      <p className="text-[9px] text-white/70">Tracked Client Spend</p>
                     </div>
                   </div>
 
@@ -240,7 +250,7 @@ export default function ResponsiveHeroBanner({
                     <CheckCircle2 className="h-4 w-4 shrink-0 text-[#ed1c24]" />
                     <div>
                       <p className="text-[11px] font-bold text-white">13,630+ Offers</p>
-                      <p className="text-[9px] text-zinc-400">Closed Sales Calls</p>
+                      <p className="text-[9px] text-white/70">Closed Sales Calls</p>
                     </div>
                   </div>
                 </div>
