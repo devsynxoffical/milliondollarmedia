@@ -2,6 +2,7 @@
 
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
+import { SectionBackground } from "./ui/SectionBackground";
 import { TrendingUp, Link2, PenTool, BarChart3 } from "lucide-react";
 
 const gaps = [
@@ -47,7 +48,7 @@ export function Problem() {
       id="problem"
       className="relative overflow-hidden border-b border-zinc-200 bg-white py-20 text-zinc-950 md:py-28"
     >
-      <div className="jobber-grid-light pointer-events-none absolute inset-0 opacity-60" />
+      <SectionBackground variant="light" grid />
 
       <div className="relative mx-auto max-w-[1240px] px-5 md:px-8">
         <SectionHeading

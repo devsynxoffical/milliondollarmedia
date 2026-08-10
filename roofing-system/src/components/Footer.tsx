@@ -1,4 +1,4 @@
-import { ArrowUpRight, Mail } from "lucide-react";
+import { ArrowUpRight, Mail, Phone } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { site } from "@/lib/site";
@@ -103,6 +103,15 @@ export function Footer() {
                 >
                   <Mail className="h-4 w-4" />
                   {site.email}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`tel:${site.phone.replace(/[^+\d]/g, "")}`}
+                  className="inline-flex items-center gap-2 text-mist transition-colors hover:text-lime"
+                >
+                  <Phone className="h-4 w-4" />
+                  {site.phone}
                 </a>
               </li>
             </ul>

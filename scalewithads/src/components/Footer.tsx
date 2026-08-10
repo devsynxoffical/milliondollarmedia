@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BOOKING_PATH } from "../lib/offer";
+import { SectionBackground } from "./ui/SectionBackground";
 
 const navLinks = [
   { href: "/#systems", label: "Acquisition Systems" },
@@ -26,9 +27,10 @@ const legalLinks = [
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-zinc-800 bg-[#070709] text-white">
+    <footer className="relative overflow-hidden border-t border-zinc-800 bg-[#070709] text-white">
+      <SectionBackground variant="dark" grid={false} />
       {/* Pre-footer CTA Bar */}
-      <div className="border-b border-zinc-800 bg-[#ed1c24] px-5 py-5 text-center">
+      <div className="relative border-b border-zinc-800 bg-[#ed1c24] px-5 py-5 text-center">
         <p className="text-sm font-extrabold uppercase tracking-wide">
           Proudly building client acquisition systems for businesses across all
           industries.{" "}
@@ -41,7 +43,7 @@ export function Footer() {
         </p>
       </div>
 
-      <div className="mx-auto max-w-[1240px] px-5 pb-10 pt-16 md:px-8">
+      <div className="relative mx-auto max-w-[1240px] px-5 pb-10 pt-16 md:px-8">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
           {/* Brand Column */}
           <div>

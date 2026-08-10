@@ -1,5 +1,6 @@
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
+import { SectionBackground } from "./ui/SectionBackground";
 
 const stats = [
   {
@@ -27,7 +28,7 @@ const stats = [
 export function TrustBar() {
   return (
     <section className="relative overflow-hidden border-b border-zinc-200 bg-[#fafafa] py-16 text-zinc-950 md:py-24">
-      <div className="jobber-grid-light pointer-events-none absolute inset-0 opacity-60" />
+      <SectionBackground variant="light" grid />
 
       <div className="relative mx-auto max-w-[1240px] px-5 md:px-8">
         <SectionHeading

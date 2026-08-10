@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { adShorts, type AdVideo } from "../lib/ads";
 import { SectionHeading } from "./SectionHeading";
 import { TiltCard } from "./ui/TiltCard";
+import { SectionBackground } from "./ui/SectionBackground";
 import { Play, Volume2, VolumeX, Eye, Flame, ArrowUpRight } from "lucide-react";
 import { BOOKING_PATH } from "../lib/offer";
 
@@ -137,14 +138,7 @@ export function ShortsReelSection() {
       id="shorts"
       className="relative overflow-hidden border-b border-zinc-800 bg-[#070709] py-20 text-white md:py-28"
     >
-      <div className="jobber-grid-dark pointer-events-none absolute inset-0 opacity-40" />
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse 65% 45% at 50% 50%, rgba(237,28,36,0.12), transparent 75%)",
-        }}
-      />
+      <SectionBackground variant="dark" grid />
 
       <div className="relative mx-auto max-w-[1240px] px-5 md:px-8">
         <SectionHeading

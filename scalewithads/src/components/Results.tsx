@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { BOOKING_PATH } from "../lib/offer";
 import { SectionHeading } from "./SectionHeading";
 import { TiltCard } from "./ui/TiltCard";
+import { SectionBackground } from "./ui/SectionBackground";
 import { Trophy, TrendingUp, DollarSign, Award, ChevronDown, Maximize2, ShieldCheck, ArrowRight } from "lucide-react";
 
 const DASHBOARDS = [
@@ -45,14 +46,7 @@ export function Results() {
       id="results"
       className="relative overflow-hidden border-b border-zinc-800 bg-[#070709] py-20 text-white md:py-28"
     >
-      <div className="jobber-grid-dark pointer-events-none absolute inset-0 opacity-50" />
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse 70% 50% at 50% 100%, rgba(237,28,36,0.15), transparent 75%)",
-        }}
-      />
+      <SectionBackground variant="dark" grid />
 
       <div className="relative mx-auto max-w-[1240px] px-5 md:px-8">
         <SectionHeading

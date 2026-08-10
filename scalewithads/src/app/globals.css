@@ -531,6 +531,31 @@
   }
 }
 
+@keyframes glow-drift {
+  0%,
+  100% {
+    transform: translate3d(-3%, -2%, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(5%, 4%, 0) scale(1.18);
+  }
+  66% {
+    transform: translate3d(-2%, 6%, 0) scale(0.92);
+  }
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(40px);

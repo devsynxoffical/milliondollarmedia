@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { logos } from "../lib/library";
+import { SectionBackground } from "./ui/SectionBackground";
 
 export function LogoMarquee({ title }: { title?: string }) {
   const row1 = logos.slice(0, 11);
@@ -9,7 +10,7 @@ export function LogoMarquee({ title }: { title?: string }) {
 
   return (
     <section className="relative overflow-hidden border-b border-zinc-800 bg-[#070709] py-14 text-white">
-      <div className="jobber-grid-dark pointer-events-none absolute inset-0 opacity-40" />
+      <SectionBackground variant="dark" grid />
 
       <div className="relative mx-auto max-w-[1240px] px-5 text-center md:px-8">
         {/* Title pill */}

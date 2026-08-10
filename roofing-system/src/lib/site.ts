@@ -4,6 +4,7 @@ export const site = {
   url: "https://roofingsystems.co",
   bookCallUrl: "/book",
   email: "vaishali@milliondollarmedia.us",
+  phone: "+91 82877 82334",
   founded: 2015,
   location: {
     addressLocality: "Phoenix",

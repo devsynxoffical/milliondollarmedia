@@ -6,6 +6,7 @@ import { useState, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { BOOKING_PATH } from "../../lib/offer";
 import { TiltCard } from "./TiltCard";
+import { MetaLogo3D } from "./MetaLogo3D";
 import { Play, ArrowRight, ShieldCheck, Zap, Sparkles, CheckCircle2 } from "lucide-react";
 
 interface ResponsiveHeroBannerProps {
@@ -38,6 +39,14 @@ export default function ResponsiveHeroBanner({
             "radial-gradient(ellipse 70% 55% at 50% -10%, rgba(237,28,36,0.35), transparent 70%), radial-gradient(circle 500px at 15% 75%, rgba(237,28,36,0.12), transparent 70%), radial-gradient(circle 400px at 85% 65%, rgba(255,255,255,0.05), transparent 70%)",
         }}
       />
+
+      {/* Scaling 3D Meta logo watermark */}
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+        <MetaLogo3D
+          glow
+          className="h-[min(85vw,30rem)] w-[min(85vw,30rem)] text-[#ed1c24] opacity-[0.09] mix-blend-screen md:h-[36rem] md:w-[36rem]"
+        />
+      </div>
 
       {/* Hero content container */}
       <motion.div

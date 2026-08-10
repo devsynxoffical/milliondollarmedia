@@ -4,6 +4,7 @@ import Link from "next/link";
 import { BOOKING_PATH } from "../lib/offer";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
+import { SectionBackground } from "./ui/SectionBackground";
 import { TiltCard } from "./ui/TiltCard";
 import { ArrowRight } from "lucide-react";
 
@@ -20,7 +21,7 @@ export function Difference() {
       id="solution"
       className="relative overflow-hidden border-b border-zinc-200 bg-white py-20 text-zinc-950 md:py-28"
     >
-      <div className="jobber-grid-light pointer-events-none absolute inset-0 opacity-60" />
+      <SectionBackground variant="light" grid />
 
       <div className="relative mx-auto max-w-[1240px] px-5 md:px-8">
         <SectionHeading
