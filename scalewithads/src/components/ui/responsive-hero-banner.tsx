@@ -6,16 +6,14 @@ import { useState, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { BOOKING_PATH } from "../../lib/offer";
 import { TiltCard } from "./TiltCard";
+import { GradientText } from "./GradientText";
+import { CountUp } from "./CountUp";
+import { ClickSpark } from "./ClickSpark";
 import { MetaLogo3D } from "./MetaLogo3D";
+import { Hero3DCanvas } from "./Hero3DCanvas";
 import { Play, ArrowRight, ShieldCheck, Zap, Sparkles, CheckCircle2 } from "lucide-react";
 
-interface ResponsiveHeroBannerProps {
-  showNav?: boolean;
-}
-
-export default function ResponsiveHeroBanner({
-  showNav = false,
-}: ResponsiveHeroBannerProps) {
+export default function ResponsiveHeroBanner() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [videoModalOpen, setVideoModalOpen] = useState(false);
 
@@ -29,10 +27,16 @@ export default function ResponsiveHeroBanner({
       className="relative min-h-[92vh] w-full overflow-hidden bg-[#070709] pt-28 pb-20 text-white md:pt-36 md:pb-28"
     >
       {/* High-tech Dark Grid & Ambient Glow background */}
-      <div className="jobber-grid-dark pointer-events-none absolute inset-0 opacity-40" />
+      <div
+        data-parallax
+        data-speed="0.08"
+        className="jobber-grid-dark pointer-events-none absolute inset-0 opacity-40"
+      />
 
       {/* Red accent radial aura layers */}
       <div
+        data-parallax
+        data-speed="0.05"
         className="pointer-events-none absolute inset-0"
         style={{
           background:
@@ -40,8 +44,15 @@ export default function ResponsiveHeroBanner({
         }}
       />
 
+      {/* Real-time Interactive 3D WebGL Advertising Ecosystem & Profit Growth Arrow Scene */}
+      <Hero3DCanvas />
+
       {/* Scaling 3D Meta logo watermark */}
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+      <div
+        data-parallax
+        data-speed="0.12"
+        className="pointer-events-none absolute inset-0 flex items-center justify-center"
+      >
         <MetaLogo3D
           glow
           className="h-[min(85vw,30rem)] w-[min(85vw,30rem)] text-[#ed1c24] opacity-[0.09] mix-blend-screen md:h-[36rem] md:w-[36rem]"
@@ -71,7 +82,7 @@ export default function ResponsiveHeroBanner({
               <span className="uppercase tracking-[0.16em] text-white/90">
                 DFY CLIENT ACQUISITION SYSTEM
               </span>
-              <span className="rounded-full bg-[#ed1c24]/20 px-2.5 py-0.5 text-[10px] font-extrabold text-[#ed1c24]">
+              <span className="rounded-full bg-[#ed1c24]/20 px-2.5 py-0.5 text-[10px] font-extrabold text-[#ed1c24] badge-pulse">
                 90-DAY GUARANTEE
               </span>
             </motion.div>
@@ -84,9 +95,12 @@ export default function ResponsiveHeroBanner({
               className="display mt-6 text-sm font-bold uppercase tracking-[0.18em] text-white/80 sm:text-base"
             >
               We Install Our Proprietary{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff4d52] via-[#ed1c24] to-[#ff8f93]">
+              <GradientText
+                colors={["#ff8f93", "#ff4d52", "#ed1c24", "#ff5a24", "#ff8f93"]}
+                animationSpeed={6}
+              >
                 Scale With Ads™
-              </span>{" "}
+              </GradientText>{" "}
               System
             </motion.p>
 
@@ -105,9 +119,14 @@ export default function ResponsiveHeroBanner({
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="mt-3 text-lg font-bold text-[#ed1c24] sm:text-xl"
+              className="mt-3 text-lg font-extrabold sm:text-xl"
             >
-              Double Your Revenue Within The Next 90 Days...
+              <GradientText
+                colors={["#ffffff", "#ff4d52", "#ed1c24", "#ff5a24", "#ffffff"]}
+                animationSpeed={5}
+              >
+                Double Your Revenue Within The Next 90 Days...
+              </GradientText>
             </motion.h2>
 
             {/* Body */}
@@ -133,17 +152,18 @@ export default function ResponsiveHeroBanner({
               className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 w-full"
             >
               {[
-                { label: "META ADS SPENT", value: "$50M+" },
-                { label: "EXPERIENCE", value: "12 YRS" },
-                { label: "REV TARGET", value: "90 DAYS" },
-                { label: "MINIMUM", value: "$10K+" },
+                { label: "META ADS SPENT", prefix: "$", to: 50, suffix: "M+" },
+                { label: "EXPERIENCE", to: 12, suffix: " YRS" },
+                { label: "REV TARGET", to: 90, suffix: " DAYS" },
+                { label: "MINIMUM", prefix: "$", to: 10, suffix: "K+" },
               ].map((stat, i) => (
                 <div
                   key={i}
-                  className="group rounded-xl border border-white/10 bg-white/[0.04] p-3 text-center backdrop-blur-sm transition-all duration-300 hover:border-[#ed1c24]/40 hover:bg-white/[0.08]"
+                  className="group relative overflow-hidden rounded-xl border border-white/10 bg-white/[0.04] p-3 text-center backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#ed1c24]/40 hover:bg-white/[0.08] hover:shadow-[0_12px_36px_-12px_rgba(237,28,36,0.4)]"
                 >
-                  <p className="display text-xl font-extrabold text-white group-hover:text-[#ed1c24] transition-colors">
-                    {stat.value}
+                  <span className="pointer-events-none absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-[#ed1c24]/70 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <p className="display text-xl font-extrabold text-white transition-colors group-hover:text-[#ed1c24]">
+                    <CountUp to={stat.to} prefix={stat.prefix} suffix={stat.suffix} duration={2} />
                   </p>
                   <p className="mt-0.5 text-[9px] font-bold uppercase tracking-[0.14em] text-white/70">
                     {stat.label}
@@ -159,14 +179,16 @@ export default function ResponsiveHeroBanner({
               transition={{ duration: 0.7, delay: 0.4 }}
               className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start w-full sm:w-auto"
             >
-              <Link
-                href={BOOKING_PATH}
-                data-cursor="book"
-                className="btn btn-accent group flex min-w-[260px] items-center justify-center gap-3 px-8 py-4.5 text-base font-extrabold shadow-[0_12px_40px_-10px_rgba(237,28,36,0.6)] transition-all hover:scale-[1.02]"
-              >
-                <span>BOOK YOUR FREE CALL</span>
-                <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
+              <ClickSpark sparkColor="#ffffff" sparkCount={10} sparkRadius={42} className="rounded-full">
+                <Link
+                  href={BOOKING_PATH}
+                  data-cursor="book"
+                  className="btn btn-accent btn-shine group flex min-w-[260px] items-center justify-center gap-3 px-8 py-4.5 text-base font-extrabold shadow-[0_12px_40px_-10px_rgba(237,28,36,0.6)] transition-all hover:scale-[1.02]"
+                >
+                  <span>BOOK YOUR FREE CALL</span>
+                  <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
+              </ClickSpark>
 
               <a
                 href="#systems"
@@ -198,11 +220,23 @@ export default function ResponsiveHeroBanner({
             className="relative flex justify-center"
           >
             <TiltCard maxTilt={8} className="w-full max-w-[540px]">
-              <div
-                className="group relative overflow-hidden rounded-3xl border border-white/15 bg-zinc-900/80 p-4 shadow-[0_30px_90px_-20px_rgba(0,0,0,0.8)] backdrop-blur-xl"
-                data-cursor="play"
-                onClick={() => setVideoModalOpen(true)}
-              >
+              <div className="relative">
+                {/* Ambient red glow ring behind card */}
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute -inset-4 rounded-[2rem] opacity-60 blur-2xl transition-opacity duration-500"
+                  style={{
+                    background:
+                      "radial-gradient(60% 60% at 50% 30%, rgba(237,28,36,0.28), transparent 75%)",
+                  }}
+                />
+                <div
+                  className="group relative overflow-hidden rounded-3xl border border-white/15 bg-zinc-900/80 p-4 shadow-[0_30px_90px_-20px_rgba(0,0,0,0.8)] backdrop-blur-xl"
+                  data-cursor="play"
+                  onClick={() => setVideoModalOpen(true)}
+                >
+                  {/* Top red recording strip */}
+                  <span className="pointer-events-none absolute inset-x-0 top-0 z-20 h-px bg-gradient-to-r from-transparent via-[#ed1c24]/80 to-transparent" />
                 {/* VSL Cover Thumbnail */}
                 <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-white/10">
                   <Image
@@ -247,7 +281,7 @@ export default function ResponsiveHeroBanner({
 
                 {/* Floating Metric Badges around card */}
                 <div className="mt-4 grid grid-cols-2 gap-2 text-left">
-                  <div className="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/5 p-2.5 backdrop-blur-md">
+                  <div className="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/5 p-2.5 backdrop-blur-md transition-colors duration-300 hover:border-[#ed1c24]/40">
                     <CheckCircle2 className="h-4 w-4 shrink-0 text-[#ed1c24]" />
                     <div>
                       <p className="text-[11px] font-bold text-white">3.32x ROAS</p>
@@ -255,7 +289,7 @@ export default function ResponsiveHeroBanner({
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/5 p-2.5 backdrop-blur-md">
+                  <div className="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/5 p-2.5 backdrop-blur-md transition-colors duration-300 hover:border-[#ed1c24]/40">
                     <CheckCircle2 className="h-4 w-4 shrink-0 text-[#ed1c24]" />
                     <div>
                       <p className="text-[11px] font-bold text-white">13,630+ Offers</p>
@@ -263,6 +297,7 @@ export default function ResponsiveHeroBanner({
                     </div>
                   </div>
                 </div>
+              </div>
               </div>
             </TiltCard>
           </motion.div>

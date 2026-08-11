@@ -8,6 +8,8 @@ import { BOOKING_PATH } from "../lib/offer";
 import { clients, type LibraryClient } from "../lib/library";
 import { SectionHeading } from "./SectionHeading";
 import { SectionBackground } from "./ui/SectionBackground";
+import { SpotlightCard } from "./ui/SpotlightCard";
+import { GradientText } from "./ui/GradientText";
 import { Trophy, ArrowUpRight, Sparkles, CheckCircle } from "lucide-react";
 
 export function ClientsShowcase() {
@@ -42,9 +44,12 @@ export function ClientsShowcase() {
           title={
             <>
               The Industry Leaders Behind{" "}
-              <span className="text-[#ed1c24]">
+              <GradientText
+                colors={["#c4181e", "#ed1c24", "#ff5a24", "#ed1c24", "#c4181e"]}
+                animationSpeed={7}
+              >
                 Our Scale Playbook
-              </span>
+              </GradientText>
             </>
           }
           description="From 9-figure agency owners and Hollywood celebrities to trading coaches and medical experts — powered by our done-for-you ads system."
@@ -76,12 +81,18 @@ export function ClientsShowcase() {
               className="flex shrink-0 items-center gap-5"
             >
               {[...filteredClients, ...filteredClients].map((client, idx) => (
-                <div
+                <SpotlightCard
                   key={`${client.slug}-${idx}`}
-                  onClick={() => setSelectedClient(client)}
-                  data-cursor="view"
-                  className="group relative w-[220px] shrink-0 cursor-pointer overflow-hidden rounded-2xl border border-zinc-200 bg-white p-3 shadow-md transition-all duration-300 hover:-translate-y-2 hover:border-[#ed1c24] hover:shadow-[0_20px_40px_-15px_rgba(237,28,36,0.2)]"
+                  border={false}
+                  borderRadius={16}
+                  spotlightColor="rgba(237, 28, 36, 0.12)"
+                  className="w-[220px] shrink-0 rounded-2xl"
                 >
+                  <div
+                    onClick={() => setSelectedClient(client)}
+                    data-cursor="view"
+                    className="group relative cursor-pointer overflow-hidden rounded-2xl border border-zinc-200 bg-white p-3 shadow-md transition-all duration-300 hover:-translate-y-2 hover:border-[#ed1c24] hover:shadow-[0_20px_40px_-15px_rgba(237,28,36,0.2)]"
+                  >
                   {/* Photo with Overlay */}
                   <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl border border-zinc-100">
                     <Image
@@ -118,7 +129,8 @@ export function ClientsShowcase() {
                     </span>
                     <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#ed1c24]" />
                   </div>
-                </div>
+                  </div>
+                </SpotlightCard>
               ))}
             </motion.div>
           </div>

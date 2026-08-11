@@ -6,6 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { adShorts, type AdVideo } from "../lib/ads";
 import { SectionHeading } from "./SectionHeading";
 import { TiltCard } from "./ui/TiltCard";
+import { GlareHover } from "./ui/GlareHover";
+import { GradientText } from "./ui/GradientText";
 import { SectionBackground } from "./ui/SectionBackground";
 import { Play, Volume2, VolumeX, Eye, Flame, ArrowUpRight } from "lucide-react";
 import { BOOKING_PATH } from "../lib/offer";
@@ -51,11 +53,12 @@ function AutoPlayShortCard({
 
   return (
     <TiltCard maxTilt={6} className="h-full">
-      <div
-        onClick={() => onOpen(video)}
-        data-cursor="play"
-        className="group relative h-full cursor-pointer overflow-hidden rounded-2xl border border-white/15 bg-zinc-900 shadow-xl backdrop-blur-md transition-all duration-300 hover:border-[#ed1c24] hover:shadow-[0_20px_40px_-15px_rgba(237,28,36,0.45)]"
-      >
+      <GlareHover className="h-full rounded-2xl">
+        <div
+          onClick={() => onOpen(video)}
+          data-cursor="play"
+          className="group relative h-full cursor-pointer overflow-hidden rounded-2xl border border-white/15 bg-zinc-900 shadow-xl backdrop-blur-md transition-all duration-300 hover:border-[#ed1c24] hover:shadow-[0_20px_40px_-15px_rgba(237,28,36,0.45)]"
+        >
         <div className="relative aspect-[9/16] w-full overflow-hidden">
           <video
             ref={videoRef}
@@ -111,7 +114,8 @@ function AutoPlayShortCard({
             </div>
           </div>
         </div>
-      </div>
+        </div>
+      </GlareHover>
     </TiltCard>
   );
 }
@@ -146,9 +150,12 @@ export function ShortsReelSection() {
           title={
             <>
               Creative Ads That Autoplay &{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff4d52] via-[#ed1c24] to-[#ff8f93]">
+              <GradientText
+                colors={["#ff8f93", "#ff4d52", "#ed1c24", "#ff5a24", "#ff8f93"]}
+                animationSpeed={6}
+              >
                 Convert Traffic Into Buyers
-              </span>
+              </GradientText>
             </>
           }
           description="Live short-form creative angles running across Meta, TikTok, and YouTube Shorts for our client acquisition system."
@@ -176,9 +183,14 @@ export function ShortsReelSection() {
           {filteredShorts.map((video, idx) => (
             <motion.div
               key={video.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: (idx % 4) * 0.08 }}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{
+                duration: 0.6,
+                ease: [0.16, 1, 0.3, 1],
+                delay: (idx % 4) * 0.08,
+              }}
             >
               <AutoPlayShortCard
                 video={video}

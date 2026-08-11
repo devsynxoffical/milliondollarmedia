@@ -7,6 +7,7 @@ import Image from "next/image";
 import { Menu, X, ArrowUpRight, ChevronDown, Play } from "lucide-react";
 import { nav, navCta, site } from "@/lib/site";
 import { cn } from "@/lib/utils";
+import { lockScroll } from "@/lib/scroll";
 
 const ANNOUNCEMENT_KEY = "swa-announcement-dismissed";
 
@@ -32,8 +33,8 @@ function scrollToId(hash: string) {
   const id = hash.replace("#", "");
   const el = document.getElementById(id);
   if (!el) return;
-  const lenis = (window as unknown as { __lenis?: { scrollTo: (t: HTMLElement, o?: unknown) => void } }).__lenis;
-  if (lenis) lenis.scrollTo(el);
+  const lenis = window.__lenis;
+  if (lenis) lenis.scrollTo(el, { offset: -80, duration: 1.2 });
   else el.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
@@ -82,9 +83,9 @@ export function Nav() {
   }, [pathname]);
 
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
+    lockScroll(open);
     return () => {
-      document.body.style.overflow = "";
+      lockScroll(false);
     };
   }, [open]);
 

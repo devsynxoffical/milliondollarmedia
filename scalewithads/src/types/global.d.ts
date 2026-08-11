@@ -1,13 +1,14 @@
-interface Window {
-  __lenis?: {
-    destroy: () => void;
-    raf: (time: number) => void;
-    scrollTo: (element: HTMLElement, options?: { offset?: number; duration?: number; easing?: (t: number) => number }) => void;
-  };
+import type Lenis from "lenis";
+
+declare global {
+  interface Window {
+    __lenis?: Lenis;
+  }
 }
 
-interface HTMLDocument {
-  documentElement: HTMLElement & {
-    classList: DOMTokenList;
-  };
-}
+declare module "vanta/dist/vanta.net.min";
+declare module "vanta/dist/vanta.dots.min";
+declare module "vanta/dist/vanta.halo.min";
+declare module "vanta/dist/vanta.waves.min";
+
+export {};

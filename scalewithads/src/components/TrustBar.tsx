@@ -1,26 +1,33 @@
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
 import { SectionBackground } from "./ui/SectionBackground";
+import { SpotlightCard } from "./ui/SpotlightCard";
+import { CountUp } from "./ui/CountUp";
 
 const stats = [
   {
-    value: "12+",
+    to: 12,
+    suffix: "+",
     label: "Years of Experience",
     sub: "Across agencies, coaches & B2B",
   },
   {
-    value: "$50M+",
+    to: 50,
+    prefix: "$",
+    suffix: "M+",
     label: "Managed in Meta Ads",
     sub: "Tested & proven campaigns",
   },
   {
-    value: "90 Days",
+    to: 90,
+    suffix: " Days",
     label: "Revenue Guarantee",
     sub: "Backed by written agreement",
   },
   {
-    value: "100% DFY",
-    label: "Client Acquisition",
+    to: 100,
+    suffix: "%",
+    label: "DFY Client Acquisition",
     sub: "Offer, Ads, CRM, AI & Funnels",
   },
 ];
@@ -47,15 +54,29 @@ export function TrustBar() {
         <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
           {stats.map((s, idx) => (
             <Reveal key={s.label} delay={idx * 70}>
-              <div className="rounded-2xl border border-zinc-200 bg-white p-6 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:border-[#ed1c24] hover:shadow-md">
-                <span className="display text-2xl font-extrabold text-[#ed1c24] sm:text-3xl">
-                  {s.value}
-                </span>
-                <p className="mt-1.5 text-sm font-bold text-zinc-900">{s.label}</p>
-                <p className="mt-0.5 text-xs font-medium text-zinc-500">
-                  {s.sub}
-                </p>
-              </div>
+              <SpotlightCard
+                border={false}
+                borderRadius={16}
+                spotlightColor="rgba(237, 28, 36, 0.14)"
+                className="rounded-2xl"
+              >
+                <div className="group relative h-full rounded-2xl border border-zinc-200 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#ed1c24]/50 hover:shadow-[0_18px_44px_-16px_rgba(237,28,36,0.35)]">
+                  <span className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-[#ed1c24]/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <span className="display text-2xl font-extrabold text-[#ed1c24] sm:text-3xl">
+                    <CountUp
+                      to={s.to}
+                      prefix={s.prefix}
+                      suffix={s.suffix}
+                      duration={2}
+                      separator={s.to >= 1000}
+                    />
+                  </span>
+                  <p className="mt-1.5 text-sm font-bold text-zinc-900">{s.label}</p>
+                  <p className="mt-0.5 text-xs font-medium text-zinc-500">
+                    {s.sub}
+                  </p>
+                </div>
+              </SpotlightCard>
             </Reveal>
           ))}
         </div>

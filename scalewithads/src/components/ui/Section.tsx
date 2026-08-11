@@ -1,6 +1,6 @@
 import { type ReactNode } from "react";
-import { Reveal } from "./Reveal";
 import { SplitReveal } from "./SplitReveal";
+import { FadeContent } from "./FadeContent";
 import { cn } from "@/lib/utils";
 
 type SectionProps = {
@@ -42,20 +42,23 @@ export function SectionHeading({
       )}
     >
       {eyebrow && (
-        <Reveal>
+        <FadeContent blur>
           <span className={cn("eyebrow-xl", align === "center" && "justify-center")}>
             {eyebrow}
           </span>
-        </Reveal>
+        </FadeContent>
       )}
       <SplitReveal
         as="h2"
+        mode="words"
+        scroll
+        stagger={0.05}
         className="mt-5 text-balance text-4xl font-semibold leading-[1.05] tracking-tight text-fog sm:text-5xl lg:text-6xl"
       >
         {title}
       </SplitReveal>
       {subtitle && (
-        <Reveal delay={0.15}>
+        <FadeContent blur delay={0.2} y={24}>
           <p
             className={cn(
               "mt-6 max-w-2xl text-pretty text-[1rem] leading-relaxed text-mist sm:text-lg",
@@ -64,7 +67,7 @@ export function SectionHeading({
           >
             {subtitle}
           </p>
-        </Reveal>
+        </FadeContent>
       )}
     </header>
   );

@@ -7,7 +7,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { TiltCard } from "./ui/TiltCard";
 import { SectionBackground } from "./ui/SectionBackground";
 import { SectionHeading } from "./SectionHeading";
-import { Play, ArrowRight, CheckCircle2, Sparkles, Shield, Zap } from "lucide-react";
+import { GradientText } from "./ui/GradientText";
+import { Play, ArrowRight, CheckCircle2, Sparkles, Zap } from "lucide-react";
 
 const systems = [
   {
@@ -88,9 +89,12 @@ export function SystemsShowcase() {
           title={
             <>
               Engineered for Brands, Agencies &{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff4d52] via-[#ed1c24] to-[#ff8f93]">
+              <GradientText
+                colors={["#ff8f93", "#ff4d52", "#ed1c24", "#ff5a24", "#ff8f93"]}
+                animationSpeed={6}
+              >
                 High-Ticket Operators
-              </span>
+              </GradientText>
             </>
           }
           description="Whether you need complete done-for-you ads management or private 1:1 agency training — explore our specialized systems."
@@ -123,8 +127,17 @@ export function SystemsShowcase() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4 }}
-              className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center rounded-3xl border border-white/15 bg-zinc-900/80 p-6 md:p-10 shadow-[0_30px_90px_-20px_rgba(0,0,0,0.8)] backdrop-blur-xl"
+              className="relative grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center rounded-3xl border border-white/15 bg-zinc-900/80 p-6 md:p-10 shadow-[0_30px_90px_-20px_rgba(0,0,0,0.8)] backdrop-blur-xl"
             >
+              {/* Gradient accent glow in top corner */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -top-24 right-10 h-48 w-48 rounded-full opacity-30 blur-3xl"
+                style={{
+                  background:
+                    "radial-gradient(circle, rgba(237,28,36,0.9), transparent 70%)",
+                }}
+              />
               {/* Left Column: Interactive VSL Card */}
               <TiltCard maxTilt={6}>
                 <div

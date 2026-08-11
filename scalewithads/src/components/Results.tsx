@@ -3,12 +3,14 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
 import { BOOKING_PATH } from "../lib/offer";
 import { SectionHeading } from "./SectionHeading";
 import { TiltCard } from "./ui/TiltCard";
+import { GradientText } from "./ui/GradientText";
+import { CountUp } from "./ui/CountUp";
 import { SectionBackground } from "./ui/SectionBackground";
-import { Trophy, TrendingUp, DollarSign, Award, ChevronDown, Maximize2, ShieldCheck, ArrowRight } from "lucide-react";
+import { lockScroll } from "../lib/scroll";
+import { Trophy, TrendingUp, DollarSign, Award, ChevronDown, Maximize2, ArrowRight } from "lucide-react";
 
 const DASHBOARDS = [
   { file: "proof-695d97e2.png", label: "Campaign Dashboard #1 — Tracked Spend & Returns", rev: "$847,290", roas: "3.32x ROAS" },
@@ -33,9 +35,9 @@ export function Results() {
 
   /* Lock scroll when lightbox open */
   useEffect(() => {
-    document.body.style.overflow = lightbox ? "hidden" : "";
+    lockScroll(!!lightbox);
     return () => {
-      document.body.style.overflow = "";
+      lockScroll(false);
     };
   }, [lightbox]);
 
@@ -54,81 +56,95 @@ export function Results() {
           title={
             <>
               Real Campaigns.{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff4d52] via-[#ed1c24] to-[#ff8f93]">
+              <GradientText
+                colors={["#ff8f93", "#ff4d52", "#ed1c24", "#ff5a24", "#ff8f93"]}
+                animationSpeed={6}
+              >
                 Real Tracked Revenue.
-              </span>
+              </GradientText>
             </>
           }
           description="Live dashboards from campaigns we manage — real spend, real qualified appointments, real revenue. No mock-ups, no projections."
         />
 
         {/* Top Metrics Cards */}
-        <div className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4">
+        <div className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4 stagger-parent">
           {[
-            { icon: DollarSign, value: "$847,000+", label: "TRACKED REVENUE" },
-            { icon: TrendingUp, value: "3.32x ROAS", label: "AVERAGE RETURN" },
-            { icon: Trophy, value: "13,630+", label: "OFFERS CONVERTED" },
-            { icon: Award, value: "$50M+", label: "META ADS MANAGED" },
+            { icon: DollarSign, to: 847000, prefix: "$", suffix: "+", label: "TRACKED REVENUE" },
+            { icon: TrendingUp, to: 3.32, decimals: 2, suffix: "x ROAS", label: "AVERAGE RETURN" },
+            { icon: Trophy, to: 13630, suffix: "+", label: "OFFERS CONVERTED" },
+            { icon: Award, to: 50, prefix: "$", suffix: "M+", label: "META ADS MANAGED" },
           ].map((m, i) => (
-            <TiltCard key={i} maxTilt={6}>
-              <div className="rounded-2xl border border-white/10 bg-zinc-900/80 p-5 text-center shadow-xl backdrop-blur-md transition-all hover:border-[#ed1c24]/50">
-                <m.icon className="mx-auto h-7 w-7 text-[#ed1c24] mb-2" />
-                <p className="display text-3xl font-extrabold text-white sm:text-4xl">
-                  {m.value}
-                </p>
-                <p className="mt-2 text-[10px] font-extrabold uppercase tracking-widest text-zinc-400">
-                  {m.label}
-                </p>
-              </div>
-            </TiltCard>
+            <div key={i} className="h-full">
+              <TiltCard maxTilt={6} className="h-full">
+                <div className="hover-lift-red rounded-2xl border border-white/10 bg-zinc-900/80 p-5 text-center shadow-xl backdrop-blur-md">
+                  <m.icon className="mx-auto h-7 w-7 text-[#ed1c24] mb-2" />
+                  <p className="display text-3xl font-extrabold text-white sm:text-4xl">
+                    <CountUp
+                      to={m.to}
+                      decimals={m.decimals ?? 0}
+                      prefix={m.prefix}
+                      suffix={m.suffix}
+                      duration={2.2}
+                      separator={m.to >= 1000}
+                    />
+                  </p>
+                  <p className="mt-2 text-[10px] font-extrabold uppercase tracking-widest text-zinc-400">
+                    {m.label}
+                  </p>
+                </div>
+              </TiltCard>
+            </div>
           ))}
         </div>
 
         {/* Live Proof Dashboard Screenshot Grid */}
         <div className="mt-12 grid gap-6 lg:grid-cols-2">
           {DASHBOARDS.map((item, i) => (
-            <TiltCard key={item.file} maxTilt={4} className="h-full">
-              <div className="flex h-full flex-col rounded-2xl border border-white/15 bg-zinc-900/80 p-3 shadow-2xl backdrop-blur-md transition duration-300 hover:border-[#ed1c24]/60">
-                {/* Image Container with Expandable Height */}
-                <div
-                  className="relative w-full overflow-hidden rounded-xl bg-zinc-950 transition-[height] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
-                  style={{ height }}
-                >
-                  <Image
-                    src={`/${item.file}`}
-                    alt={item.label}
-                    fill
-                    className="object-cover object-top"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                  />
-                  {/* Bottom Gradient Fade Overlay when collapsed */}
-                  {!expanded && (
-                    <div className="pointer-events-none absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-zinc-950 via-zinc-950/70 to-transparent" />
-                  )}
-                </div>
-
-                {/* Dashboard Card Footer */}
-                <div className="flex flex-wrap items-center justify-between gap-3 px-3 pb-2 pt-4">
-                  <div>
-                    <p className="text-[10px] font-extrabold uppercase tracking-widest text-[#ed1c24]">
-                      LIVE CAMPAIGN PROOF
-                    </p>
-                    <p className="display text-base font-extrabold text-white">
-                      {item.label}
-                    </p>
+            <div key={item.file} data-reveal data-reveal-delay={i * 130} className="h-full">
+              <TiltCard maxTilt={4} className="h-full">
+                <div className="hover-lift-red flex h-full flex-col rounded-2xl border border-white/15 bg-zinc-900/80 p-3 shadow-2xl backdrop-blur-md">
+                  {/* Image Container with Expandable Height */}
+                  <div
+                    className="relative w-full overflow-hidden rounded-xl bg-zinc-950 transition-[height] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                    style={{ height }}
+                  >
+                    <Image
+                      src={`/${item.file}`}
+                      alt={item.label}
+                      fill
+                      className="object-cover object-top"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                    />
+                    {/* Bottom Gradient Fade Overlay when collapsed */}
+                    {!expanded && (
+                      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-zinc-950 via-zinc-950/70 to-transparent" />
+                    )}
                   </div>
 
-                  <button
-                    type="button"
-                    onClick={() => setLightbox(item.file)}
-                    className="group inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-wider text-white transition hover:border-[#ed1c24] hover:bg-[#ed1c24] hover:text-white"
-                  >
-                    <span>VIEW FULL PROOF</span>
-                    <Maximize2 className="h-3.5 w-3.5 transition-transform group-hover:scale-110" />
-                  </button>
+                  {/* Dashboard Card Footer */}
+                  <div className="flex flex-wrap items-center justify-between gap-3 px-3 pb-2 pt-4">
+                    <div>
+                      <p className="text-[10px] font-extrabold uppercase tracking-widest text-[#ed1c24]">
+                        LIVE CAMPAIGN PROOF
+                      </p>
+                      <p className="display text-base font-extrabold text-white">
+                        {item.label}
+                      </p>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={() => setLightbox(item.file)}
+                      className="btn-shine group inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-wider text-white transition-all duration-400 hover:border-[#ed1c24] hover:bg-[#ed1c24] hover:text-white hover:shadow-[0_0_20px_rgba(237,28,36,0.5)]"
+                    >
+                      <span>VIEW FULL PROOF</span>
+                      <Maximize2 className="h-3.5 w-3.5 transition-transform group-hover:scale-110" />
+                    </button>
+                  </div>
                 </div>
-              </div>
-            </TiltCard>
+              </TiltCard>
+            </div>
           ))}
         </div>
 
@@ -152,13 +168,13 @@ export function Results() {
         </div>
 
         {/* Bottom Booking CTA */}
-        <div className="mt-14 text-center">
+        <div className="mt-14 text-center" data-reveal data-reveal-dir="zoom">
           <Link
             href={BOOKING_PATH}
-            className="btn btn-accent inline-flex items-center gap-2 px-8 py-4 text-base font-extrabold uppercase tracking-wider shadow-[0_0_35px_rgba(237,28,36,0.6)]"
+            className="btn btn-accent btn-shine inline-flex items-center gap-2 px-8 py-4 text-base font-extrabold uppercase tracking-wider shadow-[0_0_35px_rgba(237,28,36,0.6)] transition-all duration-500 hover:scale-105 hover:shadow-[0_0_60px_rgba(237,28,36,0.8)]"
           >
             <span>BOOK YOUR FREE STRATEGY CALL</span>
-            <ArrowRight className="h-4 w-4" />
+            <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
           <p className="mt-3 text-xs font-semibold text-zinc-400">
             $10K minimum · Double revenue in 90 days · Agreement in writing

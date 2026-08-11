@@ -71,7 +71,7 @@ export function Footer() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-xs font-semibold text-zinc-400 transition hover:text-white"
+                  className="link-underline text-xs font-semibold text-zinc-400 transition hover:text-white"
                 >
                   {link.label}
                 </Link>
@@ -89,7 +89,7 @@ export function Footer() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-xs font-semibold text-zinc-400 transition hover:text-white"
+                  className="link-underline text-xs font-semibold text-zinc-400 transition hover:text-white"
                 >
                   {link.label}
                 </Link>
@@ -107,7 +107,7 @@ export function Footer() {
                 <a
                   key={link.label}
                   href={link.href}
-                  className="text-xs font-semibold text-zinc-400 transition hover:text-white"
+                  className="link-underline text-xs font-semibold text-zinc-400 transition hover:text-white"
                 >
                   {link.label}
                 </a>

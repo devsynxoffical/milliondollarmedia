@@ -68,20 +68,18 @@
 
   html {
     scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) #09090b;
   }
 
-  html.has-cursor {
-    scrollbar-width: thin;
-    scrollbar-color: var(--accent) transparent;
-  }
-  html.has-cursor ::-webkit-scrollbar {
+  ::-webkit-scrollbar {
     width: 8px;
   }
-  html.has-cursor ::-webkit-scrollbar-track {
-    background: var(--ink);
+  ::-webkit-scrollbar-track {
+    background: #09090b;
   }
-  html.has-cursor ::-webkit-scrollbar-thumb {
-    background: linear-gradient(var(--accent), var(--accent-deep));
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #ed1c24, #990f14);
     border-radius: 999px;
   }
 
@@ -658,4 +656,323 @@ html.lenis body {
   --color-lime-soft: #ffe4e5;
   color-scheme: light;
   background: var(--color-base);
+}
+
+/* ============================================================
+   Scaling Line Chart 📈 & Hover Accordion Animations
+   ============================================================ */
+@keyframes chartLinePulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 12px rgba(237, 28, 36, 0.8)) drop-shadow(0 0 25px rgba(237, 28, 36, 0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(237, 28, 36, 1)) drop-shadow(0 0 45px rgba(255, 77, 82, 0.7));
+  }
+}
+
+.chart-line-glow {
+  animation: chartLinePulse 3s ease-in-out infinite;
+}
+
+@keyframes gridLineDrift {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-40px);
+  }
+}
+
+.animate-grid-drift {
+  animation: gridLineDrift 10s linear infinite;
+}
+
+@keyframes pingPulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(237, 28, 36, 0.7);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 16px rgba(237, 28, 36, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(237, 28, 36, 0);
+  }
+}
+
+.pulse-ring {
+  animation: pingPulse 2s infinite;
+}
+
+.hover-glow-card {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hover-glow-card:hover {
+  border-color: rgba(237, 28, 36, 0.4);
+  box-shadow: 0 20px 50px -10px rgba(237, 28, 36, 0.25);
+  transform: translateY(-4px);
+}
+
+/* ============================================================
+   PREMIUM SMOOTH HOVER & INTERACTION UTILITIES
+   ============================================================ */
+
+/* Universal smooth transition baseline */
+a, button, [role="button"] {
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* -- Cards & Panels lift ----------------------------------- */
+.hover-lift {
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s ease;
+  will-change: transform;
+}
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 28px 60px -12px rgba(0, 0, 0, 0.55);
+}
+
+.hover-lift-red {
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s ease;
+  will-change: transform;
+}
+.hover-lift-red:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 28px 60px -16px rgba(237, 28, 36, 0.35);
+  border-color: rgba(237, 28, 36, 0.5) !important;
+}
+
+/* -- Link Underline Slide-in ------------------------------- */
+.link-underline {
+  position: relative;
+  text-decoration: none;
+}
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--accent);
+  border-radius: 1px;
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.link-underline:hover::after { width: 100%; }
+
+/* -- Button shine sweep ------------------------------------ */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shine::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(
+    100deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.12) 50%,
+    transparent 80%
+  );
+  transform: skewX(-20deg);
+  transition: left 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-shine:hover::before { left: 140%; }
+
+/* -- Image zoom-in ----------------------------------------- */
+.img-zoom { overflow: hidden; }
+.img-zoom img,
+.img-zoom > * {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.img-zoom:hover img,
+.img-zoom:hover > * { transform: scale(1.05); }
+
+/* -- Shimmer effect --------------------------------------- */
+@keyframes shimmer {
+  0% { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.04) 0%,
+    rgba(255,255,255,0.10) 50%,
+    rgba(255,255,255,0.04) 100%
+  );
+  background-size: 800px 100%;
+  animation: shimmer 2s infinite linear;
+}
+
+/* -- Red badge pulse glow --------------------------------- */
+@keyframes redGlowPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(237, 28, 36, 0.55); }
+  50% { box-shadow: 0 0 0 8px rgba(237, 28, 36, 0); }
+}
+.badge-pulse { animation: redGlowPulse 2.4s ease-in-out infinite; }
+
+/* -- Stagger reveal helpers ------------------------------- */
+.stagger-parent > * {
+  opacity: 0;
+  transform: translateY(30px);
+}
+.stagger-parent.revealed > * {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.stagger-parent.revealed > *:nth-child(1) { transition-delay: 0.05s; }
+.stagger-parent.revealed > *:nth-child(2) { transition-delay: 0.12s; }
+.stagger-parent.revealed > *:nth-child(3) { transition-delay: 0.19s; }
+.stagger-parent.revealed > *:nth-child(4) { transition-delay: 0.26s; }
+.stagger-parent.revealed > *:nth-child(5) { transition-delay: 0.33s; }
+.stagger-parent.revealed > *:nth-child(6) { transition-delay: 0.40s; }
+
+/* -- CSS-native scroll-driven fade (progressive enhance) -- */
+@supports (animation-timeline: scroll()) {
+  .scroll-fade-in {
+    animation: fadeRiseIn linear both;
+    animation-timeline: view();
+    animation-range: entry 10% entry 45%;
+  }
+  @keyframes fadeRiseIn {
+    from { opacity: 0; transform: translateY(36px); filter: blur(3px); }
+    to   { opacity: 1; transform: translateY(0);    filter: blur(0); }
+  }
+}
+
+/* -- Stat number gradient accent -------------------------- */
+.stat-number {
+  background: linear-gradient(135deg, #fff 0%, #ed1c24 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* -- Frosted glass panel ---------------------------------- */
+.glass-panel {
+  background: rgba(18, 18, 22, 0.72);
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.25rem;
+  transition: border-color 0.4s ease;
+}
+.glass-panel:hover {
+  border-color: rgba(237, 28, 36, 0.35);
+}
+
+/* -- Entrance opacity baseline for GSAP data-reveal ------- */
+[data-reveal] {
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+/* ============================================================
+   PREMIUM CARDS / GRADIENTS (ReactBits-style polish)
+   ============================================================ */
+
+/* -- Premium dark card base --------------------------------- */
+.card-premium {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035) 0%, rgba(255, 255, 255, 0.008) 100%),
+    rgba(12, 12, 15, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  transition:
+    border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-premium:hover {
+  border-color: rgba(237, 28, 36, 0.4);
+  box-shadow: 0 30px 70px -20px rgba(237, 28, 36, 0.22);
+  transform: translateY(-4px);
+}
+
+/* -- Gradient text (red family) ----------------------------- */
+.text-gradient-red {
+  background: linear-gradient(100deg, #ff8a90 0%, #ff2b3d 35%, #ed1c24 60%, #ff5a24 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.text-gradient-white {
+  background: linear-gradient(180deg, #ffffff 20%, rgba(255, 255, 255, 0.55) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* -- Animated conic border ring ----------------------------- */
+@keyframes borderRotate {
+  to { --border-angle: 360deg; }
+}
+@property --border-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+.gradient-border {
+  position: relative;
+  border-radius: 1.25rem;
+  background:
+    linear-gradient(var(--band-2, #121215), var(--band-2, #121215)) padding-box,
+    conic-gradient(
+      from var(--border-angle),
+      rgba(237, 28, 36, 0.9),
+      rgba(237, 28, 36, 0.15) 25%,
+      rgba(255, 255, 255, 0.15) 50%,
+      rgba(237, 28, 36, 0.15) 75%,
+      rgba(237, 28, 36, 0.9)
+    ) border-box;
+  border: 1px solid transparent;
+}
+.gradient-border-animated {
+  animation: borderRotate 6s linear infinite;
+}
+
+/* -- Section red glow backdrop ------------------------------ */
+.section-glow {
+  background:
+    radial-gradient(55% 45% at 50% 0%, rgba(237, 28, 36, 0.12) 0%, transparent 70%);
+}
+
+/* -- Spotlight card gloss (used by SpotlightCard ring) ------ */
+.card-spotlight-ring {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(237, 28, 36, 0.5);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.group:hover .card-spotlight-ring { opacity: 1; }
+
+/* Reduced-motion: always show */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1 !important; transform: none !important; }
+  .stagger-parent > * { opacity: 1 !important; transform: none !important; }
+  .btn-shine::before { display: none; }
+  .scroll-fade-in { animation: none; opacity: 1; }
+  .gradient-border-animated { animation: none; }
 }
