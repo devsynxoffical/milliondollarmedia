@@ -10,25 +10,13 @@ import { ShortsReelSection } from "../components/ShortsReelSection";
 import { TrainingSection } from "../components/TrainingSection";
 import { TrustBar } from "../components/TrustBar";
 import ResponsiveHeroBanner from "../components/ui/responsive-hero-banner";
-import { ScalingGrowthBg } from "../components/ScalingGrowthBg";
-import { ThreeScaleBg } from "../components/ui/ThreeScaleBg";
 import { AgencyHelpSection } from "../components/AgencyHelpSection";
 import { AgencyStatsLocations } from "../components/AgencyStatsLocations";
 import { DetailedAgencyBox } from "../components/DetailedAgencyBox";
-import { VantaBackground } from "../components/ui/VantaBackground";
 
 export default function Home() {
   return (
     <main className="relative min-h-screen bg-[#070709] text-white overflow-hidden">
-      {/* Vanta.js ambient animated background effect */}
-      <VantaBackground effect="net" className="opacity-25" />
-
-      {/* WebGL 3D scaling background object */}
-      <ThreeScaleBg />
-
-      {/* Animated Scaling Line Background 📈 across the site */}
-      <ScalingGrowthBg />
-
       {/* Hero Section */}
       <ResponsiveHeroBanner />
 
