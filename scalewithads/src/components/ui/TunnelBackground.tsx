@@ -2,12 +2,18 @@
 
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
-import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
-import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
-import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass';
-import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass';
-import { GammaCorrectionShader } from 'three/examples/jsm/shaders/GammaCorrectionShader';
-import { CopyShader } from 'three/examples/jsm/shaders/CopyShader';
+// @ts-ignore
+import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
+// @ts-ignore
+import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
+// @ts-ignore
+import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
+// @ts-ignore
+import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass.js';
+// @ts-ignore
+import { GammaCorrectionShader } from 'three/examples/jsm/shaders/GammaCorrectionShader.js';
+// @ts-ignore
+import { CopyShader } from 'three/examples/jsm/shaders/CopyShader.js';
 
 const Lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v));
@@ -50,7 +56,7 @@ const TunnelBackground = () => {
     const pointerStrength = 0.8;
 
     // Renderer & Setup
-    const renderer = new THREE.WebGL1Renderer({ canvas, antialias: true, alpha: false });
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false });
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight, false);
     renderer.shadowMap.enabled = true;

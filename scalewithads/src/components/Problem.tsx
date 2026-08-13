@@ -1,7 +1,6 @@
 "use client";
 
 import { Reveal } from "./Reveal";
-import { SectionHeading } from "./SectionHeading";
 import { SectionBackground } from "./ui/SectionBackground";
 import MagicBento from "./ui/MagicBento";
 
@@ -26,19 +25,6 @@ export function Problem() {
       />
 
       <div className="relative mx-auto max-w-[1240px] px-5 md:px-8">
-        <SectionHeading
-          light
-          eyebrow="WHY GROWTH STALLS"
-          title={
-            <>
-              Most Businesses Don&apos;t Have A Lead Problem...{" "}
-              <span className="text-[#ed1c24]">
-                They Have A System Problem
-              </span>
-            </>
-          }
-          description="Understanding the four critical gaps that drain marketing ROI and cause customer pipeline leaks."
-        />
 
         {/* The 4 Gaps - Interactive Cards */}
         <div className="relative mt-16 mb-8 w-full max-w-[1000px] mx-auto">
