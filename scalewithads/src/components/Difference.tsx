@@ -46,7 +46,7 @@ export function Difference() {
           title={
             <>
               We Don&apos;t Just Generate Clicks...{" "}
-              <span className="text-[#2bf0ff]">
+              <span className="text-[#ed1c24]">
                 We Build An Acquisition Ecosystem
               </span>
             </>
@@ -61,8 +61,8 @@ export function Difference() {
             className="pointer-events-none absolute inset-x-[8%] top-10 hidden lg:block"
           >
             <div className="relative h-0.5 rounded-full bg-zinc-200">
-              <span className="absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-[#2bf0ff]/30 via-[#2bf0ff] to-[#7a3cff] shadow-[0_0_12px_rgba(237,28,36,0.6)]" />
-              <span className="absolute left-[25%] top-1/2 h-2.5 w-2.5 -translate-y-1/2 rounded-full bg-[#2bf0ff] shadow-[0_0_10px_rgba(237,28,36,0.8)]" />
+              <span className="absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-[#ed1c24]/30 via-[#ed1c24] to-[#7a3cff] shadow-[0_0_12px_rgba(237,28,36,0.6)]" />
+              <span className="absolute left-[25%] top-1/2 h-2.5 w-2.5 -translate-y-1/2 rounded-full bg-[#ed1c24] shadow-[0_0_10px_rgba(237,28,36,0.8)]" />
             </div>
           </div>
 
@@ -72,16 +72,16 @@ export function Difference() {
               return (
                 <Reveal key={item.title} delay={i * 90} className="h-full">
                   <TiltCard maxTilt={8} className="h-full">
-                    <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition duration-300 hover:border-[#2bf0ff]/50 hover:shadow-[0_24px_50px_-18px_rgba(237,28,36,0.3)]">
+                    <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition duration-300 hover:border-[#ed1c24]/50 hover:shadow-[0_24px_50px_-18px_rgba(237,28,36,0.3)]">
                       {/* Corner accent */}
-                      <span className="pointer-events-none absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-[#2bf0ff]/50 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                      <span className="pointer-events-none absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-[#ed1c24]/50 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
                       {/* Number + icon row */}
                       <div className="flex items-start justify-between">
                         <span className="display text-gradient-red text-4xl font-extrabold">
                           {String(i + 1).padStart(2, "0")}
                         </span>
-                        <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-cyan-900 bg-cyan-950 text-[#2bf0ff] transition-all duration-300 group-hover:scale-110 group-hover:border-[#2bf0ff]/30 group-hover:bg-[#2bf0ff] group-hover:text-white group-hover:shadow-[0_0_18px_rgba(237,28,36,0.45)]">
+                        <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-red-900 bg-red-950 text-[#ed1c24] transition-all duration-300 group-hover:scale-110 group-hover:border-[#ed1c24]/30 group-hover:bg-[#ed1c24] group-hover:text-white group-hover:shadow-[0_0_18px_rgba(237,28,36,0.45)]">
                           <Icon className="h-5 w-5" />
                         </span>
                       </div>
@@ -95,10 +95,10 @@ export function Difference() {
 
                       {/* Step index indicator */}
                       <div className="mt-5 flex items-center justify-between border-t border-zinc-100 pt-4">
-                        <span className="text-[10px] font-extrabold uppercase tracking-widest text-zinc-400 transition-colors group-hover:text-[#2bf0ff]">
+                        <span className="text-[10px] font-extrabold uppercase tracking-widest text-zinc-400 transition-colors group-hover:text-[#ed1c24]">
                           Step {i + 1} / 4
                         </span>
-                        <ArrowRight className="h-4 w-4 text-[#2bf0ff] transition-transform duration-300 group-hover:translate-x-1" />
+                        <ArrowRight className="h-4 w-4 text-[#ed1c24] transition-transform duration-300 group-hover:translate-x-1" />
                       </div>
                     </div>
                   </TiltCard>

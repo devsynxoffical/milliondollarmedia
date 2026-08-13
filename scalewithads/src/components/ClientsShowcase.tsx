@@ -30,6 +30,15 @@ export function ClientsShowcase() {
     return true;
   });
 
+  const half = Math.ceil(filteredClients.length / 2);
+  const topRow = filteredClients.slice(0, half);
+  const bottomRow = filteredClients.slice(half);
+
+  const rows = [
+    { items: topRow, direction: "left" as const },
+    { items: bottomRow, direction: "right" as const }
+  ];
+
   return (
     <section
       id="clients"
@@ -45,7 +54,7 @@ export function ClientsShowcase() {
             <>
               The Industry Leaders Behind{" "}
               <GradientText
-                colors={["#c4181e", "#2bf0ff", "#ff5a24", "#2bf0ff", "#c4181e"]}
+                colors={["#c4181e", "#ed1c24", "#ff5a24", "#ed1c24", "#c4181e"]}
                 animationSpeed={7}
               >
                 Our Scale Playbook
@@ -63,7 +72,7 @@ export function ClientsShowcase() {
               onClick={() => setFilter(tab.id)}
               className={`rounded-full px-5 py-2 text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
                 filter === tab.id
-                  ? "bg-[#2bf0ff] text-white shadow-[0_0_20px_rgba(237,28,36,0.5)] scale-105"
+                  ? "bg-[#ed1c24] text-white shadow-[0_0_20px_rgba(237,28,36,0.5)] scale-105"
                   : "border border-zinc-200 bg-zinc-100 text-zinc-600 hover:border-zinc-300 hover:text-zinc-900"
               }`}
             >
@@ -73,67 +82,69 @@ export function ClientsShowcase() {
         </div>
 
         {/* Creators Marquee — Left & Right edges fully normal & clear (no dark overlay) */}
-        <div className="relative mt-12 overflow-hidden py-4">
-          <div className="flex gap-5 overflow-hidden">
-            <motion.div
-              animate={{ x: ["0%", "-50%"] }}
-              transition={{ repeat: Infinity, duration: 40, ease: "linear" }}
-              className="flex shrink-0 items-center gap-5"
-            >
-              {[...filteredClients, ...filteredClients].map((client, idx) => (
-                <SpotlightCard
-                  key={`${client.slug}-${idx}`}
-                  border={false}
-                  borderRadius={16}
-                  spotlightColor="rgba(237, 28, 36, 0.12)"
-                  className="w-[220px] shrink-0 rounded-2xl"
-                >
-                  <div
-                    onClick={() => setSelectedClient(client)}
-                    data-cursor="view"
-                    className="group relative cursor-pointer overflow-hidden rounded-2xl border border-zinc-200 bg-white p-3 shadow-md transition-all duration-300 hover:-translate-y-2 hover:border-[#2bf0ff] hover:shadow-[0_20px_40px_-15px_rgba(237,28,36,0.2)]"
+        <div className="relative mt-12 overflow-hidden py-4 flex flex-col gap-6">
+          {rows.map((row, rowIdx) => (
+            <div key={rowIdx} className="flex gap-5 overflow-hidden">
+              <motion.div
+                animate={row.direction === "left" ? { x: ["0%", "-50%"] } : { x: ["-50%", "0%"] }}
+                transition={{ repeat: Infinity, duration: 40, ease: "linear" }}
+                className="flex shrink-0 items-center gap-5"
+              >
+                {[...row.items, ...row.items].map((client, idx) => (
+                  <SpotlightCard
+                    key={`${client.slug}-${idx}`}
+                    border={false}
+                    borderRadius={16}
+                    spotlightColor="rgba(237, 28, 36, 0.12)"
+                    className="w-[220px] shrink-0 rounded-2xl"
                   >
-                  {/* Photo with Overlay */}
-                  <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl border border-zinc-100">
-                    <Image
-                      src={client.photo}
-                      alt={client.name}
-                      fill
-                      sizes="220px"
-                      className="object-cover transition duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                    <div
+                      onClick={() => setSelectedClient(client)}
+                      data-cursor="view"
+                      className="group relative cursor-pointer overflow-hidden rounded-2xl border border-zinc-200 bg-white p-3 shadow-md transition-all duration-300 hover:-translate-y-2 hover:border-[#ed1c24] hover:shadow-[0_20px_40px_-15px_rgba(237,28,36,0.2)]"
+                    >
+                    {/* Photo with Overlay */}
+                    <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl border border-zinc-100">
+                      <Image
+                        src={client.photo}
+                        alt={client.name}
+                        fill
+                        sizes="220px"
+                        className="object-cover transition duration-700 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
 
-                    {/* Badge Pill */}
-                    <span className="absolute top-2.5 right-2.5 inline-flex items-center gap-1 rounded-full bg-black/40 backdrop-blur-md/80 px-2.5 py-1 text-[9px] font-extrabold uppercase tracking-wider text-white backdrop-blur-md border border-white/15">
-                      <Trophy className="h-3 w-3 text-[#2bf0ff]" />
-                      {client.badge}
-                    </span>
+                      {/* Badge Pill */}
+                      <span className="absolute top-2.5 right-2.5 inline-flex items-center gap-1 rounded-full bg-black/40 backdrop-blur-md/80 px-2.5 py-1 text-[9px] font-extrabold uppercase tracking-wider text-white backdrop-blur-md border border-white/15">
+                        <Trophy className="h-3 w-3 text-[#ed1c24]" />
+                        {client.badge}
+                      </span>
 
-                    {/* Bottom Info */}
-                    <div className="absolute bottom-2.5 left-2.5 right-2.5 text-left">
-                      <h3 className="display text-sm font-extrabold text-white truncate">
-                        {client.name}
-                      </h3>
-                      <p className="text-[10px] text-zinc-300 truncate">
-                        {client.title}
-                      </p>
+                      {/* Bottom Info */}
+                      <div className="absolute bottom-2.5 left-2.5 right-2.5 text-left">
+                        <h3 className="display text-sm font-extrabold text-white truncate">
+                          {client.name}
+                        </h3>
+                        <p className="text-[10px] text-zinc-300 truncate">
+                          {client.title}
+                        </p>
+                      </div>
                     </div>
-                  </div>
 
-                  {/* Micro Interaction Footer */}
-                  <div className="mt-2.5 flex items-center justify-between px-1 text-[11px] font-bold text-zinc-500 group-hover:text-[#2bf0ff] transition-colors">
-                    <span className="flex items-center gap-1">
-                      <Sparkles className="h-3 w-3 text-[#2bf0ff]" />
-                      View Profile
-                    </span>
-                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#2bf0ff]" />
-                  </div>
-                  </div>
-                </SpotlightCard>
-              ))}
-            </motion.div>
-          </div>
+                    {/* Micro Interaction Footer */}
+                    <div className="mt-2.5 flex items-center justify-between px-1 text-[11px] font-bold text-zinc-500 group-hover:text-[#ed1c24] transition-colors">
+                      <span className="flex items-center gap-1">
+                        <Sparkles className="h-3 w-3 text-[#ed1c24]" />
+                        View Profile
+                      </span>
+                      <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#ed1c24]" />
+                    </div>
+                    </div>
+                  </SpotlightCard>
+                ))}
+              </motion.div>
+            </div>
+          ))}
         </div>
 
         {/* Bottom CTA bar */}
@@ -181,7 +192,7 @@ export function ClientsShowcase() {
                 </div>
 
                 <div className="flex-1 text-center sm:text-left">
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-[#2bf0ff]/20 border border-[#2bf0ff]/40 px-3 py-1 text-xs font-bold text-[#2bf0ff]">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-[#ed1c24]/20 border border-[#ed1c24]/40 px-3 py-1 text-xs font-bold text-[#ed1c24]">
                     <Trophy className="h-3.5 w-3.5" />
                     {selectedClient.badge}
                   </span>
@@ -192,11 +203,11 @@ export function ClientsShowcase() {
 
                   <div className="mt-4 space-y-2 text-xs text-zinc-300">
                     <div className="flex items-center gap-2">
-                      <CheckCircle className="h-4 w-4 text-[#2bf0ff]" />
+                      <CheckCircle className="h-4 w-4 text-[#ed1c24]" />
                       <span>Scale With Ads™ Client Acquisition Installed</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <CheckCircle className="h-4 w-4 text-[#2bf0ff]" />
+                      <CheckCircle className="h-4 w-4 text-[#ed1c24]" />
                       <span>High-Converting Meta Ads & Creative Funnels</span>
                     </div>
                   </div>

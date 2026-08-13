@@ -48,7 +48,7 @@ export function AdsShowcase() {
         />
 
         {/* Video wall — every ad video plays on scroll */}
-        <div className="mt-12 columns-2 gap-4 sm:columns-3 lg:columns-4">
+        <div className="mt-12 columns-2 gap-4 sm:columns-3 lg:columns-5">
           {allAdVideos.map((video, i) => (
             <Reveal key={video.id} delay={(i % 4) * 60} className="break-inside-avoid">
               <LibraryVideoTile asset={video} />

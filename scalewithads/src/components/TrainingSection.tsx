@@ -68,7 +68,7 @@ function TrainingVideoCard({
         onMouseLeave={handleMouseLeave}
         onClick={() => onOpen(item)}
         data-cursor="play"
-        className="group relative flex h-full flex-col cursor-pointer overflow-hidden rounded-3xl border border-white/15 bg-white/5 backdrop-blur-md/80 shadow-2xl backdrop-blur-xl transition-all duration-300 hover:border-[#2bf0ff] hover:shadow-[0_20px_50px_-15px_rgba(237,28,36,0.45)]"
+        className="group relative flex h-full flex-col cursor-pointer overflow-hidden rounded-3xl border border-white/15 bg-white/5 backdrop-blur-md/80 shadow-2xl backdrop-blur-xl transition-all duration-300 hover:border-[#ed1c24] hover:shadow-[0_20px_50px_-15px_rgba(237,28,36,0.45)]"
       >
         <div className="relative aspect-[16/10] w-full overflow-hidden rounded-t-3xl border-b border-white/10">
           <video
@@ -85,7 +85,7 @@ function TrainingVideoCard({
 
           {/* Top Tag & Duration */}
           <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between z-10">
-            <span className="rounded-full bg-[#2bf0ff] px-3 py-1 text-[10px] font-extrabold uppercase tracking-widest text-white shadow-md">
+            <span className="rounded-full bg-[#ed1c24] px-3 py-1 text-[10px] font-extrabold uppercase tracking-widest text-white shadow-md">
               {item.tag}
             </span>
             <span className="rounded-full bg-black/40 backdrop-blur-md/80 px-2.5 py-1 text-[10px] font-bold text-white/90 backdrop-blur-md border border-white/15">
@@ -95,7 +95,7 @@ function TrainingVideoCard({
 
           {/* Center Play Button */}
           <div className="absolute inset-0 flex items-center justify-center z-10">
-            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#2bf0ff] text-white shadow-[0_0_40px_rgba(237,28,36,0.8)] transition-all duration-300 group-hover:scale-110">
+            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#ed1c24] text-white shadow-[0_0_40px_rgba(237,28,36,0.8)] transition-all duration-300 group-hover:scale-110">
               <Play className="ml-1 h-7 w-7 fill-current" />
             </div>
           </div>
@@ -106,16 +106,16 @@ function TrainingVideoCard({
           <p className="text-xs font-extrabold uppercase tracking-wider text-zinc-400">
             {item.subtitle}
           </p>
-          <h3 className="display mt-2 text-xl font-extrabold text-white group-hover:text-[#2bf0ff] transition-colors">
+          <h3 className="display mt-2 text-xl font-extrabold text-white group-hover:text-[#ed1c24] transition-colors">
             {item.title}
           </h3>
 
           <div className="mt-6 flex items-center justify-between border-t border-white/10 pt-4 text-xs font-bold text-zinc-300">
-            <span className="flex items-center gap-1.5 text-[#2bf0ff]">
+            <span className="flex items-center gap-1.5 text-[#ed1c24]">
               <Video className="h-4 w-4" />
               Watch Full Video
             </span>
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1 text-[#2bf0ff]" />
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1 text-[#ed1c24]" />
           </div>
         </div>
       </div>
@@ -141,7 +141,7 @@ export function TrainingSection() {
           title={
             <>
               Inside Our DFY Media &{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2bf0ff] via-[#2bf0ff] to-[#ff8f93]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ed1c24] via-[#ed1c24] to-[#ff8f93]">
                 Acquisition System
               </span>
             </>
@@ -199,7 +199,7 @@ export function TrainingSection() {
               </div>
 
               <div className="p-4 text-center">
-                <span className="rounded-full bg-[#2bf0ff] px-3 py-1 text-[10px] font-extrabold uppercase tracking-widest text-white">
+                <span className="rounded-full bg-[#ed1c24] px-3 py-1 text-[10px] font-extrabold uppercase tracking-widest text-white">
                   {selectedTraining.tag}
                 </span>
                 <h3 className="display text-xl font-extrabold text-white mt-2">

@@ -25,16 +25,16 @@ const TunnelBackground = () => {
     const canvas = canvasRef.current;
 
     // Fixed parameters
-    const bgColor = '#0a0524';
-    const flameColor = '#ffb52bff';
-    const flameColor2 = '#7a3cff';
+    const bgColor = '#140505';
+    const flameColor = '#ff4d55';
+    const flameColor2 = '#ed1c24';
     const flameAmt = 0.2;
-    const atmoColor = '#ffba8fff';
+    const atmoColor = '#ff8f93';
     const atmoCount = 300;
     const atmoSize = 24;
     const atmoSpeed = 1.0;
-    const colorLow = '#180a3a';
-    const colorHigh = '#ff472bff';
+    const colorLow = '#3a0a0a';
+    const colorHigh = '#ff3b43';
     const opacity = 1.44;
     const pointSize = 5;
     const brightness = 0.4;

@@ -28,8 +28,8 @@ export function ScalingGrowthBg() {
       />
 
       {/* Ambient Red & Cyan Glow Orbs */}
-      <div className="absolute top-1/4 left-1/4 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#2bf0ff]/10 blur-[140px]" />
-      <div className="absolute bottom-1/3 right-1/4 h-[600px] w-[600px] rounded-full bg-[#2bf0ff]/10 blur-[160px]" />
+      <div className="absolute top-1/4 left-1/4 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#ed1c24]/10 blur-[140px]" />
+      <div className="absolute bottom-1/3 right-1/4 h-[600px] w-[600px] rounded-full bg-[#ed1c24]/10 blur-[160px]" />
 
       {/* SVG Animated Scaling Growth Line 📈 */}
       <svg
@@ -44,7 +44,7 @@ export function ScalingGrowthBg() {
         <defs>
           {/* Main Line Neon Gradient */}
           <linearGradient id="chartGradient" x1="0%" y1="100%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#2bf0ff" stopOpacity="0.2" />
+            <stop offset="0%" stopColor="#ed1c24" stopOpacity="0.2" />
             <stop offset="35%" stopColor="#ff2e38" stopOpacity="0.7" />
             <stop offset="70%" stopColor="#ff575d" stopOpacity="0.9" />
             <stop offset="100%" stopColor="#ffffff" stopOpacity="1" />
@@ -52,9 +52,9 @@ export function ScalingGrowthBg() {
 
           {/* Under Line Glow Gradient Fill */}
           <linearGradient id="chartFill" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#2bf0ff" stopOpacity="0.18" />
-            <stop offset="50%" stopColor="#2bf0ff" stopOpacity="0.05" />
-            <stop offset="100%" stopColor="#2bf0ff" stopOpacity="0" />
+            <stop offset="0%" stopColor="#ed1c24" stopOpacity="0.18" />
+            <stop offset="50%" stopColor="#ed1c24" stopOpacity="0.05" />
+            <stop offset="100%" stopColor="#ed1c24" stopOpacity="0" />
           </linearGradient>
 
           <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
@@ -118,7 +118,7 @@ export function ScalingGrowthBg() {
               cy={node.cy}
               r="5"
               fill="#ffffff"
-              stroke="#2bf0ff"
+              stroke="#ed1c24"
               strokeWidth="3"
             />
           </g>
@@ -132,13 +132,13 @@ export function ScalingGrowthBg() {
         transition={{ delay: 1.2, duration: 0.8 }}
         className="absolute top-[18%] right-[8%] hidden lg:flex items-center gap-3 rounded-2xl border border-white/15 bg-black/40 backdrop-blur-md/60 px-4 py-2.5 backdrop-blur-xl shadow-2xl"
       >
-        <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#2bf0ff]/20 text-[#2bf0ff]">
+        <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#ed1c24]/20 text-[#ed1c24]">
           <TrendingUp className="h-5 w-5" />
         </div>
         <div>
           <div className="flex items-center gap-1 text-xs font-bold text-white">
             <span>SCALING PERFORMANCE</span>
-            <span className="text-[#2bf0ff] font-extrabold">+420% ROAS</span>
+            <span className="text-[#ed1c24] font-extrabold">+420% ROAS</span>
           </div>
           <p className="text-[10px] text-white/60">Real-time Meta/Google ad growth</p>
         </div>

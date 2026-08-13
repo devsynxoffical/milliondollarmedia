@@ -90,7 +90,7 @@ export function SystemsShowcase() {
             <>
               Engineered for Brands, Agencies &{" "}
               <GradientText
-                colors={["#ff8f93", "#2bf0ff", "#2bf0ff", "#ff5a24", "#ff8f93"]}
+                colors={["#ff8f93", "#ed1c24", "#ed1c24", "#ff5a24", "#ff8f93"]}
                 animationSpeed={6}
               >
                 High-Ticket Operators
@@ -108,7 +108,7 @@ export function SystemsShowcase() {
               onClick={() => setActiveTab(item.slug)}
               className={`group flex items-center gap-2.5 rounded-full px-6 py-3 text-xs font-extrabold uppercase tracking-wider transition-all duration-300 ${
                 activeTab === item.slug
-                  ? "bg-[#2bf0ff] text-white shadow-[0_0_25px_rgba(237,28,36,0.6)] scale-105"
+                  ? "bg-[#ed1c24] text-white shadow-[0_0_25px_rgba(237,28,36,0.6)] scale-105"
                   : "border border-white/10 bg-white/5 text-zinc-300 hover:border-white/20 hover:text-white"
               }`}
             >
@@ -156,13 +156,13 @@ export function SystemsShowcase() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
 
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#2bf0ff] text-white shadow-[0_0_40px_rgba(237,28,36,0.8)] transition duration-300 group-hover:scale-110">
+                      <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#ed1c24] text-white shadow-[0_0_40px_rgba(237,28,36,0.8)] transition duration-300 group-hover:scale-110">
                         <Play className="ml-1 h-7 w-7 fill-current" />
                       </div>
                     </div>
 
                     <div className="absolute top-4 left-4">
-                      <span className="rounded-full bg-[#2bf0ff] px-3 py-1 text-[10px] font-extrabold uppercase tracking-widest text-white">
+                      <span className="rounded-full bg-[#ed1c24] px-3 py-1 text-[10px] font-extrabold uppercase tracking-widest text-white">
                         {activeSystem.tag}
                       </span>
                     </div>
@@ -183,7 +183,7 @@ export function SystemsShowcase() {
 
               {/* Right Column: System Specs & Features */}
               <div className="flex flex-col text-left">
-                <span className="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-widest text-[#2bf0ff]">
+                <span className="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-widest text-[#ed1c24]">
                   <Sparkles className="h-4 w-4" />
                   SYSTEM BREAKDOWN
                 </span>
@@ -198,7 +198,7 @@ export function SystemsShowcase() {
                 <div className="mt-6 space-y-3">
                   {activeSystem.features.map((feat, idx) => (
                     <div key={idx} className="flex items-center gap-3">
-                      <CheckCircle2 className="h-5 w-5 shrink-0 text-[#2bf0ff]" />
+                      <CheckCircle2 className="h-5 w-5 shrink-0 text-[#ed1c24]" />
                       <span className="text-sm font-semibold text-zinc-200">{feat}</span>
                     </div>
                   ))}

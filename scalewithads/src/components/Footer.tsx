@@ -30,7 +30,7 @@ export function Footer() {
     <footer className="relative overflow-hidden border-t border-zinc-800 bg-transparent text-white">
       <SectionBackground variant="dark" grid={false} />
       {/* Pre-footer CTA Bar */}
-      <div className="relative overflow-hidden border-b border-zinc-800 bg-gradient-to-r from-[#c4181e] via-[#2bf0ff] to-[#c4181e] px-5 py-5 text-center">
+      <div className="relative overflow-hidden border-b border-zinc-800 bg-gradient-to-r from-[#c4181e] via-[#ed1c24] to-[#c4181e] px-5 py-5 text-center">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_120%_at_50%_0%,rgba(255,255,255,0.25),transparent_60%)]"
@@ -63,15 +63,15 @@ export function Footer() {
               agencies, coaches, high-ticket services &amp; B2B founders.
               Double revenue in 90 days or we work free. Everything in writing.
             </p>
-            <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-[#2bf0ff]/30 bg-[#2bf0ff]/10 px-3.5 py-1.5 text-[10px] font-extrabold uppercase tracking-widest text-[#2bf0ff]">
-              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#2bf0ff]" />
+            <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-[#ed1c24]/30 bg-[#ed1c24]/10 px-3.5 py-1.5 text-[10px] font-extrabold uppercase tracking-widest text-[#ed1c24]">
+              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#ed1c24]" />
               90-Day Written Guarantee
             </div>
           </div>
 
           {/* Navigate */}
           <div>
-            <p className="mb-4 text-xs font-extrabold uppercase tracking-widest text-[#2bf0ff]">
+            <p className="mb-4 text-xs font-extrabold uppercase tracking-widest text-[#ed1c24]">
               Navigate
             </p>
             <nav className="flex flex-col gap-2.5">
@@ -89,7 +89,7 @@ export function Footer() {
 
           {/* Pages */}
           <div>
-            <p className="mb-4 text-xs font-extrabold uppercase tracking-widest text-[#2bf0ff]">
+            <p className="mb-4 text-xs font-extrabold uppercase tracking-widest text-[#ed1c24]">
               Systems
             </p>
             <nav className="flex flex-col gap-2.5">
@@ -107,7 +107,7 @@ export function Footer() {
 
           {/* Legal */}
           <div>
-            <p className="mb-4 text-xs font-extrabold uppercase tracking-widest text-[#2bf0ff]">
+            <p className="mb-4 text-xs font-extrabold uppercase tracking-widest text-[#ed1c24]">
               Legal
             </p>
             <nav className="flex flex-col gap-2.5">
@@ -137,7 +137,7 @@ export function Footer() {
       </div>
 
       {/* Bottom Accent Line */}
-      <div className="h-1 bg-[#2bf0ff]" />
+      <div className="h-1 bg-[#ed1c24]" />
     </footer>
   );
 }

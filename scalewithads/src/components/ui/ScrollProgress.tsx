@@ -38,7 +38,7 @@ export function ScrollProgress({ className }: { className?: string }) {
     <div className={cn("pointer-events-none fixed inset-x-0 top-0 z-[100] h-[3px]", className)}>
       <div
         ref={barRef}
-        className="h-full w-full origin-left scale-x-0 bg-gradient-to-r from-[#2bf0ff] via-[#ff6b70] to-[#2bf0ff]"
+        className="h-full w-full origin-left scale-x-0 bg-gradient-to-r from-[#ed1c24] via-[#ff6b70] to-[#ed1c24]"
       />
     </div>
   );

@@ -71,7 +71,7 @@ export function Steps() {
           title={
             <>
               One Connected Ecosystem From{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2bf0ff] via-[#2bf0ff] to-[#ff8f93]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ed1c24] via-[#ed1c24] to-[#ff8f93]">
                 First Click To Closed Revenue
               </span>
             </>
@@ -85,12 +85,12 @@ export function Steps() {
             return (
               <Reveal key={step.title} delay={i * 60} className="h-full">
                 <TiltCard maxTilt={8} className="h-full">
-                  <div className="group flex h-full flex-col rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md/80 p-6 shadow-xl backdrop-blur-md transition-all duration-300 hover:border-[#2bf0ff] hover:shadow-[0_20px_40px_-15px_rgba(237,28,36,0.35)]">
+                  <div className="group flex h-full flex-col rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md/80 p-6 shadow-xl backdrop-blur-md transition-all duration-300 hover:border-[#ed1c24] hover:shadow-[0_20px_40px_-15px_rgba(237,28,36,0.35)]">
                     <div className="flex items-center justify-between">
-                      <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#2bf0ff]/10 text-[#2bf0ff] border border-[#2bf0ff]/20 transition-transform group-hover:scale-110">
+                      <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#ed1c24]/10 text-[#ed1c24] border border-[#ed1c24]/20 transition-transform group-hover:scale-110">
                         <Icon className="h-5 w-5" />
                       </span>
-                      <span className="display text-2xl font-extrabold text-zinc-600 transition group-hover:text-[#2bf0ff]">
+                      <span className="display text-2xl font-extrabold text-zinc-600 transition group-hover:text-[#ed1c24]">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                     </div>

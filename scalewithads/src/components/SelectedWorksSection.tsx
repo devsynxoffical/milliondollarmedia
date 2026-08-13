@@ -84,7 +84,7 @@ export function SelectedWorksSection() {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-[#2bf0ff]">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-[#ed1c24]">
               <Sparkles className="h-3.5 w-3.5" />
               <span>CASE STUDIES & RESULTS</span>
             </div>
@@ -109,7 +109,7 @@ export function SelectedWorksSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
                 onClick={() => setSelectedProject(project)}
-                className="group relative cursor-pointer overflow-hidden rounded-3xl border border-white/15 bg-white/5 backdrop-blur-md/60 p-5 shadow-2xl backdrop-blur-xl transition-all duration-500 hover:border-[#2bf0ff]/50 hover:-translate-y-2"
+                className="group relative cursor-pointer overflow-hidden rounded-3xl border border-white/15 bg-white/5 backdrop-blur-md/60 p-5 shadow-2xl backdrop-blur-xl transition-all duration-500 hover:border-[#ed1c24]/50 hover:-translate-y-2"
               >
                 <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl border border-white/10">
                   <Image
@@ -123,17 +123,17 @@ export function SelectedWorksSection() {
                     <span className="rounded-full bg-black/40 backdrop-blur-md/80 backdrop-blur-md border border-white/15 px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-white">
                       {project.category}
                     </span>
-                    <span className="rounded-full bg-[#2bf0ff] px-3 py-1 text-[11px] font-extrabold text-white shadow-lg">
+                    <span className="rounded-full bg-[#ed1c24] px-3 py-1 text-[11px] font-extrabold text-white shadow-lg">
                       {project.roas}
                     </span>
                   </div>
-                  <div className="absolute bottom-3 right-3 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-md border border-white/20 transition-all duration-300 group-hover:bg-[#2bf0ff] group-hover:border-[#2bf0ff] group-hover:scale-110">
+                  <div className="absolute bottom-3 right-3 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-md border border-white/20 transition-all duration-300 group-hover:bg-[#ed1c24] group-hover:border-[#ed1c24] group-hover:scale-110">
                     <ArrowUpRight className="h-5 w-5" />
                   </div>
                 </div>
                 <div className="mt-5 flex items-center justify-between">
                   <div>
-                    <h3 className="display text-2xl font-extrabold text-white group-hover:text-[#2bf0ff] transition-colors">
+                    <h3 className="display text-2xl font-extrabold text-white group-hover:text-[#ed1c24] transition-colors">
                       {project.client} ↗
                     </h3>
                     <p className="text-xs text-white/70 font-medium mt-1">
@@ -160,7 +160,7 @@ export function SelectedWorksSection() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.2 }}
                   onClick={() => setSelectedProject(project)}
-                  className="group relative flex flex-col justify-between w-full cursor-pointer overflow-hidden rounded-3xl border border-white/15 bg-white/5 backdrop-blur-md/60 p-5 shadow-2xl backdrop-blur-xl transition-all duration-500 hover:border-[#2bf0ff]/50 hover:-translate-y-2"
+                  className="group relative flex flex-col justify-between w-full cursor-pointer overflow-hidden rounded-3xl border border-white/15 bg-white/5 backdrop-blur-md/60 p-5 shadow-2xl backdrop-blur-xl transition-all duration-500 hover:border-[#ed1c24]/50 hover:-translate-y-2"
                 >
                   <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl border border-white/10">
                     <Image
@@ -174,17 +174,17 @@ export function SelectedWorksSection() {
                       <span className="rounded-full bg-black/40 backdrop-blur-md/80 backdrop-blur-md border border-white/15 px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-white">
                         {project.category}
                       </span>
-                      <span className="rounded-full bg-[#2bf0ff] px-3 py-1 text-[11px] font-extrabold text-white shadow-lg">
+                      <span className="rounded-full bg-[#ed1c24] px-3 py-1 text-[11px] font-extrabold text-white shadow-lg">
                         {project.roas}
                       </span>
                     </div>
-                    <div className="absolute bottom-3 right-3 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-md border border-white/20 transition-all duration-300 group-hover:bg-[#2bf0ff] group-hover:border-[#2bf0ff] group-hover:scale-110">
+                    <div className="absolute bottom-3 right-3 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-md border border-white/20 transition-all duration-300 group-hover:bg-[#ed1c24] group-hover:border-[#ed1c24] group-hover:scale-110">
                       <ArrowUpRight className="h-5 w-5" />
                     </div>
                   </div>
                   <div className="mt-5 flex items-center justify-between">
                     <div>
-                      <h3 className="display text-3xl font-extrabold text-white group-hover:text-[#2bf0ff] transition-colors">
+                      <h3 className="display text-3xl font-extrabold text-white group-hover:text-[#ed1c24] transition-colors">
                         {project.client} ↗
                       </h3>
                       <p className="text-xs text-white/70 font-medium mt-1">
@@ -210,7 +210,7 @@ export function SelectedWorksSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.3 + idx * 0.1 }}
                 onClick={() => setSelectedProject(project)}
-                className="group relative cursor-pointer overflow-hidden rounded-3xl border border-white/15 bg-white/5 backdrop-blur-md/60 p-5 shadow-2xl backdrop-blur-xl transition-all duration-500 hover:border-[#2bf0ff]/50 hover:-translate-y-2"
+                className="group relative cursor-pointer overflow-hidden rounded-3xl border border-white/15 bg-white/5 backdrop-blur-md/60 p-5 shadow-2xl backdrop-blur-xl transition-all duration-500 hover:border-[#ed1c24]/50 hover:-translate-y-2"
               >
                 <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl border border-white/10">
                   <Image
@@ -224,17 +224,17 @@ export function SelectedWorksSection() {
                     <span className="rounded-full bg-black/40 backdrop-blur-md/80 backdrop-blur-md border border-white/15 px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-white">
                       {project.category}
                     </span>
-                    <span className="rounded-full bg-[#2bf0ff] px-3 py-1 text-[11px] font-extrabold text-white shadow-lg">
+                    <span className="rounded-full bg-[#ed1c24] px-3 py-1 text-[11px] font-extrabold text-white shadow-lg">
                       {project.roas}
                     </span>
                   </div>
-                  <div className="absolute bottom-3 right-3 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-md border border-white/20 transition-all duration-300 group-hover:bg-[#2bf0ff] group-hover:border-[#2bf0ff] group-hover:scale-110">
+                  <div className="absolute bottom-3 right-3 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-md border border-white/20 transition-all duration-300 group-hover:bg-[#ed1c24] group-hover:border-[#ed1c24] group-hover:scale-110">
                     <ArrowUpRight className="h-5 w-5" />
                   </div>
                 </div>
                 <div className="mt-5 flex items-center justify-between">
                   <div>
-                    <h3 className="display text-2xl font-extrabold text-white group-hover:text-[#2bf0ff] transition-colors">
+                    <h3 className="display text-2xl font-extrabold text-white group-hover:text-[#ed1c24] transition-colors">
                       {project.client} ↗
                     </h3>
                     <p className="text-xs text-white/70 font-medium mt-1">
@@ -281,7 +281,7 @@ export function SelectedWorksSection() {
                 </div>
 
                 <div className="space-y-4">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-[#2bf0ff]/40 bg-[#2bf0ff]/10 px-3 py-1 text-xs font-extrabold text-[#2bf0ff]">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-[#ed1c24]/40 bg-[#ed1c24]/10 px-3 py-1 text-xs font-extrabold text-[#ed1c24]">
                     <TrendingUp className="h-3.5 w-3.5" />
                     <span>{selectedProject.roas}</span>
                   </div>
@@ -300,7 +300,7 @@ export function SelectedWorksSection() {
                     </p>
                     {selectedProject.deliverables.map((item, dIdx) => (
                       <div key={dIdx} className="flex items-center gap-2 text-xs font-semibold text-white/90">
-                        <CheckCircle className="h-4 w-4 text-[#2bf0ff]" />
+                        <CheckCircle className="h-4 w-4 text-[#ed1c24]" />
                         <span>{item}</span>
                       </div>
                     ))}

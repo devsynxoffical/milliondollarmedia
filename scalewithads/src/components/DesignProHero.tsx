@@ -52,7 +52,7 @@ export function DesignProHero() {
           {/* Centered hero */}
           <div className="flex flex-1 flex-col items-center justify-center text-center">
             <p className="flex items-center gap-2 text-xs uppercase tracking-tight text-white/80 sm:text-sm">
-              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#2bf0ff]" />
+              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#ed1c24]" />
               Seats for Next Program Opening Soon
             </p>
 
@@ -62,7 +62,7 @@ export function DesignProHero() {
                 <ShinyText
                   text="Product Leader."
                   baseColor="#c4181e"
-                  shineColor="#2bf0ff"
+                  shineColor="#ed1c24"
                   speed={3}
                   spread={100}
                 />
@@ -74,7 +74,7 @@ export function DesignProHero() {
               className="group mt-10 flex items-center gap-2 rounded-full bg-black/40 backdrop-blur-md px-6 py-3 text-sm font-medium text-white shadow-lg transition-all duration-300 hover:bg-gray-900 md:px-8 md:py-4"
             >
               Apply for Next Enrollment
-              <ArrowRight className="h-4 w-4 text-[#2bf0ff] transition-transform duration-300 group-hover:translate-x-1" />
+              <ArrowRight className="h-4 w-4 text-[#ed1c24] transition-transform duration-300 group-hover:translate-x-1" />
             </a>
           </div>
         </div>

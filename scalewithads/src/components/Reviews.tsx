@@ -42,7 +42,7 @@ function VideoTile({ video }: { video: VideoItem }) {
 
   return (
     <div
-      className={`group relative mb-5 break-inside-avoid overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:border-[#2bf0ff]/50 hover:shadow-[0_16px_40px_-16px_rgba(237,28,36,0.2)] ${
+      className={`group relative mb-5 break-inside-avoid overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:border-[#ed1c24]/50 hover:shadow-[0_16px_40px_-16px_rgba(237,28,36,0.2)] ${
         video.aspect === "portrait" ? "aspect-[9/16]" : "aspect-square"
       }`}
     >
