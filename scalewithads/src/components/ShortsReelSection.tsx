@@ -57,7 +57,7 @@ function AutoPlayShortCard({
         <div
           onClick={() => onOpen(video)}
           data-cursor="play"
-          className="group relative h-full cursor-pointer overflow-hidden rounded-2xl border border-white/15 bg-zinc-900 shadow-xl backdrop-blur-md transition-all duration-300 hover:border-[#ed1c24] hover:shadow-[0_20px_40px_-15px_rgba(237,28,36,0.45)]"
+          className="group relative h-full cursor-pointer overflow-hidden rounded-2xl border border-white/15 bg-white/5 backdrop-blur-md shadow-xl backdrop-blur-md transition-all duration-300 hover:border-[#2bf0ff] hover:shadow-[0_20px_40px_-15px_rgba(237,28,36,0.45)]"
         >
         <div className="relative aspect-[9/16] w-full overflow-hidden">
           <video
@@ -75,25 +75,25 @@ function AutoPlayShortCard({
 
           {/* Top Tag & View Count Pill */}
           <div className="absolute top-3 left-3 right-3 flex items-center justify-between z-10">
-            <span className="inline-flex items-center gap-1 rounded-full bg-black/80 px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-white backdrop-blur-md border border-white/15">
-              <Flame className="h-3 w-3 text-[#ed1c24]" />
+            <span className="inline-flex items-center gap-1 rounded-full bg-black/40 backdrop-blur-md/80 px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-white backdrop-blur-md border border-white/15">
+              <Flame className="h-3 w-3 text-[#2bf0ff]" />
               {video.label}
             </span>
             <button
               onClick={toggleMute}
-              className="flex h-8 w-8 items-center justify-center rounded-full bg-black/80 text-white backdrop-blur-md border border-white/15 hover:bg-black"
+              className="flex h-8 w-8 items-center justify-center rounded-full bg-black/40 backdrop-blur-md/80 text-white backdrop-blur-md border border-white/15 hover:bg-black/40 backdrop-blur-md"
             >
               {isMuted ? (
                 <VolumeX className="h-3.5 w-3.5 text-zinc-400" />
               ) : (
-                <Volume2 className="h-3.5 w-3.5 text-[#ed1c24]" />
+                <Volume2 className="h-3.5 w-3.5 text-[#2bf0ff]" />
               )}
             </button>
           </div>
 
           {/* Center Hover Play Icon */}
           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#ed1c24] text-white shadow-[0_0_35px_rgba(237,28,36,0.8)] scale-90 group-hover:scale-100 transition-transform">
+            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#2bf0ff] text-white shadow-[0_0_35px_rgba(237,28,36,0.8)] scale-90 group-hover:scale-100 transition-transform">
               <Play className="ml-1 h-6 w-6 fill-current" />
             </div>
           </div>
@@ -105,10 +105,10 @@ function AutoPlayShortCard({
             </p>
             <div className="mt-1 flex items-center justify-between text-[11px] font-bold text-zinc-300">
               <span className="flex items-center gap-1">
-                <Eye className="h-3 w-3 text-[#ed1c24]" />
+                <Eye className="h-3 w-3 text-[#2bf0ff]" />
                 18.4K Views
               </span>
-              <span className="text-[#ed1c24] group-hover:translate-x-0.5 transition-transform">
+              <span className="text-[#2bf0ff] group-hover:translate-x-0.5 transition-transform">
                 Play HD →
               </span>
             </div>
@@ -140,7 +140,7 @@ export function ShortsReelSection() {
   return (
     <section
       id="shorts"
-      className="relative overflow-hidden border-b border-zinc-800 bg-[#070709] py-20 text-white md:py-28"
+      className="relative overflow-hidden border-b border-zinc-800 bg-transparent py-20 text-white md:py-28"
     >
       <SectionBackground variant="dark" grid />
 
@@ -151,7 +151,7 @@ export function ShortsReelSection() {
             <>
               Creative Ads That Autoplay &{" "}
               <GradientText
-                colors={["#ff8f93", "#ff4d52", "#ed1c24", "#ff5a24", "#ff8f93"]}
+                colors={["#ff8f93", "#2bf0ff", "#2bf0ff", "#ff5a24", "#ff8f93"]}
                 animationSpeed={6}
               >
                 Convert Traffic Into Buyers
@@ -169,7 +169,7 @@ export function ShortsReelSection() {
               onClick={() => setActiveTab(cat.id)}
               className={`rounded-full px-5 py-2 text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
                 activeTab === cat.id
-                  ? "bg-[#ed1c24] text-white shadow-[0_0_20px_rgba(237,28,36,0.5)] scale-105"
+                  ? "bg-[#2bf0ff] text-white shadow-[0_0_20px_rgba(237,28,36,0.5)] scale-105"
                   : "border border-white/10 bg-white/5 text-zinc-400 hover:border-white/20 hover:text-white"
               }`}
             >
@@ -215,16 +215,16 @@ export function ShortsReelSection() {
       {/* Short Video Lightbox Modal */}
       <AnimatePresence>
         {activeShortModal && (
-          <div className="fixed inset-0 z-[300] flex items-center justify-center bg-black/90 p-4 backdrop-blur-xl">
+          <div className="fixed inset-0 z-[300] flex items-center justify-center bg-black/40 backdrop-blur-md/90 p-4 backdrop-blur-xl">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
-              className="relative w-full max-w-md overflow-hidden rounded-3xl border border-white/20 bg-zinc-950 p-3 shadow-2xl"
+              className="relative w-full max-w-md overflow-hidden rounded-3xl border border-white/20 bg-black/40 backdrop-blur-md p-3 shadow-2xl"
             >
               <button
                 onClick={() => setActiveShortModal(null)}
-                className="absolute top-4 right-4 z-30 flex h-9 w-9 items-center justify-center rounded-full bg-black/80 text-white backdrop-blur hover:bg-black"
+                className="absolute top-4 right-4 z-30 flex h-9 w-9 items-center justify-center rounded-full bg-black/40 backdrop-blur-md/80 text-white backdrop-blur hover:bg-black/40 backdrop-blur-md"
               >
                 ✕
               </button>
@@ -239,7 +239,7 @@ export function ShortsReelSection() {
               </div>
 
               <div className="p-4 text-center">
-                <span className="rounded-full bg-[#ed1c24]/20 border border-[#ed1c24]/40 px-3 py-1 text-xs font-bold text-[#ed1c24]">
+                <span className="rounded-full bg-[#2bf0ff]/20 border border-[#2bf0ff]/40 px-3 py-1 text-xs font-bold text-[#2bf0ff]">
                   {activeShortModal.label}
                 </span>
                 <p className="display text-lg font-extrabold text-white mt-2">

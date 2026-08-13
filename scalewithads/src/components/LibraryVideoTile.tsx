@@ -80,7 +80,7 @@ export function LibraryVideoTile({ asset }: { asset: MediaAsset }) {
         type="button"
         onClick={toggleMute}
         aria-label={muted ? "Turn sound on" : "Mute"}
-        className="absolute bottom-3 right-3 z-10 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-white/25 bg-black/55 text-white opacity-0 backdrop-blur transition hover:scale-105 hover:bg-black/80 group-hover:opacity-100"
+        className="absolute bottom-3 right-3 z-10 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-white/25 bg-black/40 backdrop-blur-md/55 text-white opacity-0 backdrop-blur transition hover:scale-105 hover:bg-black/40 backdrop-blur-md/80 group-hover:opacity-100"
       >
         {muted ? (
           <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>

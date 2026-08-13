@@ -10,7 +10,7 @@ const trustBadges = [
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-[#09090b] pb-16 pt-28 text-white md:pb-24 md:pt-36">
+    <section className="relative overflow-hidden bg-transparent pb-16 pt-28 text-white md:pb-24 md:pt-36">
       <div className="jobber-grid-dark pointer-events-none absolute inset-0" />
       <div
         className="pointer-events-none absolute inset-0"

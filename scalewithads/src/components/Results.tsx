@@ -46,7 +46,7 @@ export function Results() {
   return (
     <section
       id="results"
-      className="relative overflow-hidden border-b border-zinc-800 bg-[#070709] py-20 text-white md:py-28"
+      className="relative overflow-hidden border-b border-zinc-800 bg-transparent py-20 text-white md:py-28"
     >
       <SectionBackground variant="dark" grid />
 
@@ -57,7 +57,7 @@ export function Results() {
             <>
               Real Campaigns.{" "}
               <GradientText
-                colors={["#ff8f93", "#ff4d52", "#ed1c24", "#ff5a24", "#ff8f93"]}
+                colors={["#ff8f93", "#2bf0ff", "#2bf0ff", "#ff5a24", "#ff8f93"]}
                 animationSpeed={6}
               >
                 Real Tracked Revenue.
@@ -77,8 +77,8 @@ export function Results() {
           ].map((m, i) => (
             <div key={i} className="h-full">
               <TiltCard maxTilt={6} className="h-full">
-                <div className="hover-lift-red rounded-2xl border border-white/10 bg-zinc-900/80 p-5 text-center shadow-xl backdrop-blur-md">
-                  <m.icon className="mx-auto h-7 w-7 text-[#ed1c24] mb-2" />
+                <div className="hover-lift-red rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md/80 p-5 text-center shadow-xl backdrop-blur-md">
+                  <m.icon className="mx-auto h-7 w-7 text-[#2bf0ff] mb-2" />
                   <p className="display text-3xl font-extrabold text-white sm:text-4xl">
                     <CountUp
                       to={m.to}
@@ -103,10 +103,10 @@ export function Results() {
           {DASHBOARDS.map((item, i) => (
             <div key={item.file} data-reveal data-reveal-delay={i * 130} className="h-full">
               <TiltCard maxTilt={4} className="h-full">
-                <div className="hover-lift-red flex h-full flex-col rounded-2xl border border-white/15 bg-zinc-900/80 p-3 shadow-2xl backdrop-blur-md">
+                <div className="hover-lift-red flex h-full flex-col rounded-2xl border border-white/15 bg-white/5 backdrop-blur-md/80 p-3 shadow-2xl backdrop-blur-md">
                   {/* Image Container with Expandable Height */}
                   <div
-                    className="relative w-full overflow-hidden rounded-xl bg-zinc-950 transition-[height] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                    className="relative w-full overflow-hidden rounded-xl bg-black/40 backdrop-blur-md transition-[height] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
                     style={{ height }}
                   >
                     <Image
@@ -125,7 +125,7 @@ export function Results() {
                   {/* Dashboard Card Footer */}
                   <div className="flex flex-wrap items-center justify-between gap-3 px-3 pb-2 pt-4">
                     <div>
-                      <p className="text-[10px] font-extrabold uppercase tracking-widest text-[#ed1c24]">
+                      <p className="text-[10px] font-extrabold uppercase tracking-widest text-[#2bf0ff]">
                         LIVE CAMPAIGN PROOF
                       </p>
                       <p className="display text-base font-extrabold text-white">
@@ -136,7 +136,7 @@ export function Results() {
                     <button
                       type="button"
                       onClick={() => setLightbox(item.file)}
-                      className="btn-shine group inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-wider text-white transition-all duration-400 hover:border-[#ed1c24] hover:bg-[#ed1c24] hover:text-white hover:shadow-[0_0_20px_rgba(237,28,36,0.5)]"
+                      className="btn-shine group inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-wider text-white transition-all duration-400 hover:border-[#2bf0ff] hover:bg-[#2bf0ff] hover:text-white hover:shadow-[0_0_20px_rgba(237,28,36,0.5)]"
                     >
                       <span>VIEW FULL PROOF</span>
                       <Maximize2 className="h-3.5 w-3.5 transition-transform group-hover:scale-110" />
@@ -153,14 +153,14 @@ export function Results() {
           <button
             type="button"
             onClick={() => setExpanded((v) => !v)}
-            className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full border border-[#ed1c24]/50 bg-gradient-to-r from-[#ed1c24]/20 via-zinc-900 to-[#ed1c24]/20 px-10 py-5 text-sm font-extrabold uppercase tracking-widest text-white shadow-[0_0_40px_rgba(237,28,36,0.4)] backdrop-blur-xl transition-all duration-300 hover:scale-105 hover:border-[#ed1c24] hover:shadow-[0_0_60px_rgba(237,28,36,0.7)]"
+            className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full border border-[#2bf0ff]/50 bg-gradient-to-r from-[#2bf0ff]/20 via-zinc-900 to-[#2bf0ff]/20 px-10 py-5 text-sm font-extrabold uppercase tracking-widest text-white shadow-[0_0_40px_rgba(237,28,36,0.4)] backdrop-blur-xl transition-all duration-300 hover:scale-105 hover:border-[#2bf0ff] hover:shadow-[0_0_60px_rgba(237,28,36,0.7)]"
             data-cursor="hover"
           >
             <span className="relative z-10">
               {expanded ? "SHOW LESS DASHBOARDS" : "SEE MORE RESULTS"}
             </span>
             <ChevronDown
-              className={`relative z-10 h-5 w-5 text-[#ed1c24] transition-transform duration-500 ${
+              className={`relative z-10 h-5 w-5 text-[#2bf0ff] transition-transform duration-500 ${
                 expanded ? "rotate-180" : ""
               }`}
             />
@@ -185,18 +185,18 @@ export function Results() {
       {/* Lightbox Modal Overlay */}
       {lightbox && (
         <div
-          className="fixed inset-0 z-[300] flex items-center justify-center bg-black/90 p-4 backdrop-blur-xl"
+          className="fixed inset-0 z-[300] flex items-center justify-center bg-black/40 backdrop-blur-md/90 p-4 backdrop-blur-xl"
           onClick={() => setLightbox(null)}
         >
           <button
             type="button"
-            className="absolute top-4 right-4 z-20 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/80 text-white backdrop-blur hover:bg-black"
+            className="absolute top-4 right-4 z-20 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/40 backdrop-blur-md/80 text-white backdrop-blur hover:bg-black/40 backdrop-blur-md"
             onClick={() => setLightbox(null)}
           >
             ✕
           </button>
           <div
-            className="max-h-[92vh] w-auto max-w-[95vw] overflow-auto rounded-2xl bg-zinc-950 p-2 border border-white/20 shadow-2xl"
+            className="max-h-[92vh] w-auto max-w-[95vw] overflow-auto rounded-2xl bg-black/40 backdrop-blur-md p-2 border border-white/20 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <Image

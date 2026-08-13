@@ -27,16 +27,20 @@ const legalLinks = [
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-zinc-800 bg-[#070709] text-white">
+    <footer className="relative overflow-hidden border-t border-zinc-800 bg-transparent text-white">
       <SectionBackground variant="dark" grid={false} />
       {/* Pre-footer CTA Bar */}
-      <div className="relative border-b border-zinc-800 bg-[#ed1c24] px-5 py-5 text-center">
-        <p className="text-sm font-extrabold uppercase tracking-wide">
+      <div className="relative overflow-hidden border-b border-zinc-800 bg-gradient-to-r from-[#c4181e] via-[#2bf0ff] to-[#c4181e] px-5 py-5 text-center">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_120%_at_50%_0%,rgba(255,255,255,0.25),transparent_60%)]"
+        />
+        <p className="relative text-sm font-extrabold uppercase tracking-wide">
           Proudly building client acquisition systems for businesses across all
           industries.{" "}
           <Link
             href={BOOKING_PATH}
-            className="underline underline-offset-4 hover:no-underline ml-1"
+            className="underline underline-offset-4 hover:no-underline ml-1 hover:text-white/80"
           >
             Book your free strategy call →
           </Link>
@@ -59,11 +63,15 @@ export function Footer() {
               agencies, coaches, high-ticket services &amp; B2B founders.
               Double revenue in 90 days or we work free. Everything in writing.
             </p>
+            <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-[#2bf0ff]/30 bg-[#2bf0ff]/10 px-3.5 py-1.5 text-[10px] font-extrabold uppercase tracking-widest text-[#2bf0ff]">
+              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#2bf0ff]" />
+              90-Day Written Guarantee
+            </div>
           </div>
 
           {/* Navigate */}
           <div>
-            <p className="mb-4 text-xs font-extrabold uppercase tracking-widest text-[#ed1c24]">
+            <p className="mb-4 text-xs font-extrabold uppercase tracking-widest text-[#2bf0ff]">
               Navigate
             </p>
             <nav className="flex flex-col gap-2.5">
@@ -81,7 +89,7 @@ export function Footer() {
 
           {/* Pages */}
           <div>
-            <p className="mb-4 text-xs font-extrabold uppercase tracking-widest text-[#ed1c24]">
+            <p className="mb-4 text-xs font-extrabold uppercase tracking-widest text-[#2bf0ff]">
               Systems
             </p>
             <nav className="flex flex-col gap-2.5">
@@ -99,7 +107,7 @@ export function Footer() {
 
           {/* Legal */}
           <div>
-            <p className="mb-4 text-xs font-extrabold uppercase tracking-widest text-[#ed1c24]">
+            <p className="mb-4 text-xs font-extrabold uppercase tracking-widest text-[#2bf0ff]">
               Legal
             </p>
             <nav className="flex flex-col gap-2.5">
@@ -129,7 +137,7 @@ export function Footer() {
       </div>
 
       {/* Bottom Accent Line */}
-      <div className="h-1 bg-[#ed1c24]" />
+      <div className="h-1 bg-[#2bf0ff]" />
     </footer>
   );
 }

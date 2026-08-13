@@ -24,7 +24,7 @@ export function AdsShowcase() {
   return (
     <section
       id="ads"
-      className="relative overflow-hidden border-b border-zinc-800 bg-[#09090b] py-16 text-white md:py-24"
+      className="relative overflow-hidden border-b border-zinc-800 bg-transparent py-16 text-white md:py-24"
     >
       <div className="jobber-grid-dark pointer-events-none absolute inset-0" />
       <div
@@ -67,7 +67,7 @@ export function AdsShowcase() {
             {screenshots.map((ad) => (
               <div
                 key={ad.src}
-                className="group relative w-[96px] shrink-0 snap-start overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/70"
+                className="group relative w-[96px] shrink-0 snap-start overflow-hidden rounded-xl border border-zinc-800 bg-white/5 backdrop-blur-md/70"
               >
                 <div className="relative aspect-[9/16] w-full">
                   <Image

@@ -18,7 +18,7 @@ type ShinyTextProps = {
  */
 export function ShinyText({
   text,
-  baseColor = "#ed1c24",
+  baseColor = "#2bf0ff",
   shineColor = "#ffffff",
   speed = 3,
   spread = 100,

@@ -67,10 +67,10 @@ export function MastermindFunnelPage({ funnel }: Props) {
     "https://assets.cdn.filesafe.space/W8B8H8FvOolLCrvxXzYp/media/69ef9443717d5dd4e170f445.mp4";
 
   return (
-    <main className="bg-[#070709] text-white">
+    <main className="bg-transparent text-white">
 
       {/* ─── HERO ─────────────────────────────────────────── */}
-      <section className="relative min-h-[88vh] overflow-hidden bg-[#070709] pt-32 pb-20 md:pt-40 md:pb-28">
+      <section className="relative min-h-[88vh] overflow-hidden bg-transparent pt-32 pb-20 md:pt-40 md:pb-28">
         {/* Grid overlay */}
         <div className="jobber-grid-dark pointer-events-none absolute inset-0 opacity-40" />
 
@@ -91,7 +91,7 @@ export function MastermindFunnelPage({ funnel }: Props) {
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2.5 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-[11px] font-extrabold uppercase tracking-[0.14em] text-white/90 backdrop-blur-md"
           >
-            <Sparkles className="h-3.5 w-3.5 text-[#ed1c24]" />
+            <Sparkles className="h-3.5 w-3.5 text-[#2bf0ff]" />
             {funnel.eyebrow}
           </motion.div>
 
@@ -103,7 +103,7 @@ export function MastermindFunnelPage({ funnel }: Props) {
             className="display mt-7 text-[clamp(2.4rem,5.5vw,4.2rem)] font-extrabold leading-[1.1] tracking-tight text-white"
           >
             {funnel.title}{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff4d52] via-[#ed1c24] to-[#ff8f93]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2bf0ff] via-[#2bf0ff] to-[#ff8f93]">
               {funnel.titleAccent}
             </span>
             {funnel.titleEnd && (
@@ -135,9 +135,9 @@ export function MastermindFunnelPage({ funnel }: Props) {
               {funnel.stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="group rounded-xl border border-white/10 bg-white/[0.04] p-4 text-center backdrop-blur-sm transition-all hover:border-[#ed1c24]/40 hover:bg-white/[0.08]"
+                  className="group rounded-xl border border-white/10 bg-white/[0.04] p-4 text-center backdrop-blur-sm transition-all hover:border-[#2bf0ff]/40 hover:bg-white/[0.08]"
                 >
-                  <p className="display text-2xl font-extrabold text-white group-hover:text-[#ed1c24] transition-colors">
+                  <p className="display text-2xl font-extrabold text-white group-hover:text-[#2bf0ff] transition-colors">
                     {stat.value}
                   </p>
                   <p className="mt-1 text-[10px] font-bold uppercase tracking-[0.14em] text-zinc-400">
@@ -172,14 +172,14 @@ export function MastermindFunnelPage({ funnel }: Props) {
             transition={{ delay: 0.46, duration: 0.5 }}
             className="mt-6 flex items-center justify-center gap-2 text-xs font-semibold text-zinc-500"
           >
-            <ShieldCheck className="h-4 w-4 text-[#ed1c24]" />
+            <ShieldCheck className="h-4 w-4 text-[#2bf0ff]" />
             <span>100% Asset Ownership · Written Agreement · No Lock-ins</span>
           </motion.div>
         </div>
       </section>
 
       {/* ─── VSL SECTION ──────────────────────────────────── */}
-      <section id="vsl" className="relative overflow-hidden bg-zinc-950 py-20 md:py-24">
+      <section id="vsl" className="relative overflow-hidden bg-black/40 backdrop-blur-md py-20 md:py-24">
         <div
           className="pointer-events-none absolute inset-0"
           style={{
@@ -191,7 +191,7 @@ export function MastermindFunnelPage({ funnel }: Props) {
         <div className="relative mx-auto max-w-[860px] px-5 md:px-8">
           <Reveal>
             <div className="mb-8 text-center">
-              <span className="inline-flex items-center gap-2 rounded-full bg-[#ed1c24]/15 border border-[#ed1c24]/30 px-4 py-1.5 text-[11px] font-extrabold uppercase tracking-widest text-[#ed1c24]">
+              <span className="inline-flex items-center gap-2 rounded-full bg-[#2bf0ff]/15 border border-[#2bf0ff]/30 px-4 py-1.5 text-[11px] font-extrabold uppercase tracking-widest text-[#2bf0ff]">
                 <Play className="h-3 w-3 fill-current" />
                 {funnel.videoLabel}
               </span>
@@ -204,7 +204,7 @@ export function MastermindFunnelPage({ funnel }: Props) {
             </div>
 
             <TiltCard maxTilt={5} className="w-full">
-              <div className="overflow-hidden rounded-3xl border border-white/15 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.9)] bg-zinc-900">
+              <div className="overflow-hidden rounded-3xl border border-white/15 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.9)] bg-white/5 backdrop-blur-md">
                 <VideoPlayer
                   src={vslSrc}
                   cover={funnel.videoCover}
@@ -227,7 +227,7 @@ export function MastermindFunnelPage({ funnel }: Props) {
       </section>
 
       {/* ─── WHAT'S INSIDE ────────────────────────────────── */}
-      <section id="inside" className="relative overflow-hidden border-t border-zinc-800/60 bg-[#070709] py-20 md:py-28">
+      <section id="inside" className="relative overflow-hidden border-t border-zinc-800/60 bg-transparent py-20 md:py-28">
         <div className="jobber-grid-dark pointer-events-none absolute inset-0 opacity-30" />
 
         <div className="relative mx-auto max-w-[1200px] px-5 md:px-8">
@@ -246,8 +246,8 @@ export function MastermindFunnelPage({ funnel }: Props) {
             {funnel.learnItems.map((item, i) => (
               <Reveal key={i} delay={i * 70}>
                 <TiltCard maxTilt={6} className="h-full">
-                  <div className="group flex h-full items-start gap-4 rounded-2xl border border-white/10 bg-zinc-900/80 p-5 backdrop-blur-md transition-all duration-300 hover:border-[#ed1c24]/50 hover:shadow-[0_16px_48px_-16px_rgba(237,28,36,0.3)]">
-                    <span className="display flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#ed1c24]/15 text-sm font-extrabold text-[#ed1c24] border border-[#ed1c24]/20">
+                  <div className="group flex h-full items-start gap-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md/80 p-5 backdrop-blur-md transition-all duration-300 hover:border-[#2bf0ff]/50 hover:shadow-[0_16px_48px_-16px_rgba(237,28,36,0.3)]">
+                    <span className="display flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#2bf0ff]/15 text-sm font-extrabold text-[#2bf0ff] border border-[#2bf0ff]/20">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <p className="pt-1.5 text-sm leading-relaxed text-zinc-300 group-hover:text-white transition-colors">
@@ -262,7 +262,7 @@ export function MastermindFunnelPage({ funnel }: Props) {
       </section>
 
       {/* ─── RESULTS / PROOF ──────────────────────────────── */}
-      <section id="results" className="relative overflow-hidden border-t border-zinc-800/60 bg-zinc-950 py-20 md:py-28">
+      <section id="results" className="relative overflow-hidden border-t border-zinc-800/60 bg-black/40 backdrop-blur-md py-20 md:py-28">
         <div
           className="pointer-events-none absolute inset-0"
           style={{
@@ -274,7 +274,7 @@ export function MastermindFunnelPage({ funnel }: Props) {
         <div className="relative mx-auto max-w-[1200px] px-5 md:px-8">
           {/* Heading */}
           <Reveal className="mb-12 text-center">
-            <span className="inline-flex items-center gap-2 rounded-full bg-[#ed1c24]/15 border border-[#ed1c24]/30 px-4 py-1.5 text-[11px] font-extrabold uppercase tracking-widest text-[#ed1c24]">
+            <span className="inline-flex items-center gap-2 rounded-full bg-[#2bf0ff]/15 border border-[#2bf0ff]/30 px-4 py-1.5 text-[11px] font-extrabold uppercase tracking-widest text-[#2bf0ff]">
               <BarChart2 className="h-3.5 w-3.5" />
               Real Campaigns. Real Numbers.
             </span>
@@ -292,9 +292,9 @@ export function MastermindFunnelPage({ funnel }: Props) {
               {metrics.map(({ value, label, icon: Icon }) => (
                 <div
                   key={label}
-                  className="group rounded-2xl border border-white/10 bg-white/[0.03] p-5 text-center backdrop-blur-sm transition-all hover:border-[#ed1c24]/40 hover:bg-white/[0.07]"
+                  className="group rounded-2xl border border-white/10 bg-white/[0.03] p-5 text-center backdrop-blur-sm transition-all hover:border-[#2bf0ff]/40 hover:bg-white/[0.07]"
                 >
-                  <Icon className="mx-auto mb-2 h-5 w-5 text-[#ed1c24] group-hover:scale-110 transition-transform" />
+                  <Icon className="mx-auto mb-2 h-5 w-5 text-[#2bf0ff] group-hover:scale-110 transition-transform" />
                   <p className="display text-2xl font-extrabold text-white">{value}</p>
                   <p className="mt-1 text-[10px] font-bold uppercase tracking-widest text-zinc-500">{label}</p>
                 </div>
@@ -308,7 +308,7 @@ export function MastermindFunnelPage({ funnel }: Props) {
               <Reveal key={src} delay={i * 120}>
                 <TiltCard maxTilt={5}>
                   <div
-                    className="group relative overflow-hidden rounded-2xl border border-white/10 bg-zinc-900 shadow-2xl cursor-zoom-in transition-all duration-300 hover:border-[#ed1c24]/50"
+                    className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md shadow-2xl cursor-zoom-in transition-all duration-300 hover:border-[#2bf0ff]/50"
                     onClick={() => setLightboxImg(src)}
                   >
                     <div className="relative aspect-[16/9] w-full">
@@ -322,7 +322,7 @@ export function MastermindFunnelPage({ funnel }: Props) {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                     </div>
                     {/* Zoom icon */}
-                    <div className="absolute top-3 right-3 flex h-8 w-8 items-center justify-center rounded-full bg-black/70 text-white opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
+                    <div className="absolute top-3 right-3 flex h-8 w-8 items-center justify-center rounded-full bg-black/40 backdrop-blur-md/70 text-white opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
                       <Maximize2 className="h-4 w-4" />
                     </div>
                     <div className="absolute bottom-3 left-4 text-xs font-semibold text-white/80">
@@ -345,13 +345,13 @@ export function MastermindFunnelPage({ funnel }: Props) {
       </section>
 
       {/* ─── TESTIMONIALS ─────────────────────────────────── */}
-      <section className="relative overflow-hidden border-t border-zinc-800/60 bg-[#070709] py-20 md:py-24">
+      <section className="relative overflow-hidden border-t border-zinc-800/60 bg-transparent py-20 md:py-24">
         <div className="jobber-grid-dark pointer-events-none absolute inset-0 opacity-30" />
 
         <div className="relative mx-auto max-w-[1200px] px-5 md:px-8">
           <Reveal className="mb-10 text-center">
             <span className="inline-flex items-center gap-2 rounded-full bg-white/5 border border-white/10 px-4 py-1.5 text-[11px] font-extrabold uppercase tracking-widest text-zinc-300">
-              <Star className="h-3.5 w-3.5 text-[#ed1c24] fill-[#ed1c24]" />
+              <Star className="h-3.5 w-3.5 text-[#2bf0ff] fill-[#2bf0ff]" />
               What Operators Say
             </span>
           </Reveal>
@@ -360,10 +360,10 @@ export function MastermindFunnelPage({ funnel }: Props) {
             {testimonials.map((t, i) => (
               <Reveal key={t.name} delay={i * 80}>
                 <TiltCard maxTilt={6} className="h-full">
-                  <div className="flex h-full flex-col rounded-2xl border border-white/10 bg-zinc-900/80 p-6 backdrop-blur-md transition-all hover:border-[#ed1c24]/40">
+                  <div className="flex h-full flex-col rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md/80 p-6 backdrop-blur-md transition-all hover:border-[#2bf0ff]/40">
                     <div className="flex gap-0.5 mb-4">
                       {Array.from({ length: t.stars }).map((_, s) => (
-                        <Star key={s} className="h-4 w-4 fill-[#ed1c24] text-[#ed1c24]" />
+                        <Star key={s} className="h-4 w-4 fill-[#2bf0ff] text-[#2bf0ff]" />
                       ))}
                     </div>
                     <p className="text-sm leading-relaxed text-zinc-300 flex-1 italic">
@@ -382,7 +382,7 @@ export function MastermindFunnelPage({ funnel }: Props) {
       </section>
 
       {/* ─── FINAL CTA ────────────────────────────────────── */}
-      <section className="relative overflow-hidden border-t border-zinc-800/60 bg-zinc-950 py-20 md:py-28">
+      <section className="relative overflow-hidden border-t border-zinc-800/60 bg-black/40 backdrop-blur-md py-20 md:py-28">
         <div
           className="pointer-events-none absolute inset-0"
           style={{
@@ -394,14 +394,14 @@ export function MastermindFunnelPage({ funnel }: Props) {
 
         <div className="relative mx-auto max-w-[720px] px-5 text-center md:px-8">
           <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full bg-[#ed1c24]/15 border border-[#ed1c24]/30 px-4 py-1.5 text-[11px] font-extrabold uppercase tracking-widest text-[#ed1c24] mb-6">
+            <span className="inline-flex items-center gap-2 rounded-full bg-[#2bf0ff]/15 border border-[#2bf0ff]/30 px-4 py-1.5 text-[11px] font-extrabold uppercase tracking-widest text-[#2bf0ff] mb-6">
               <ShieldCheck className="h-3.5 w-3.5" />
               Backed by a Written Agreement
             </span>
 
             <h2 className="display text-[clamp(2.2rem,5vw,3.8rem)] font-extrabold leading-[1.1] tracking-tight text-white">
               Ready to Double Your Revenue{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff4d52] via-[#ed1c24] to-[#ff8f93]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2bf0ff] via-[#2bf0ff] to-[#ff8f93]">
                 in 90 Days?
               </span>
             </h2>
@@ -421,7 +421,7 @@ export function MastermindFunnelPage({ funnel }: Props) {
             </div>
 
             <div className="mt-6 flex items-center justify-center gap-2 text-xs text-zinc-500">
-              <ShieldCheck className="h-4 w-4 text-[#ed1c24]" />
+              <ShieldCheck className="h-4 w-4 text-[#2bf0ff]" />
               <span>$10K+ monthly revenue minimum · All industries welcome</span>
             </div>
           </Reveal>
@@ -433,7 +433,7 @@ export function MastermindFunnelPage({ funnel }: Props) {
       {/* ─── LIGHTBOX ──────────────────────────────────────── */}
       {lightboxImg && (
         <div
-          className="fixed inset-0 z-[400] flex items-center justify-center bg-black/95 p-4 backdrop-blur-xl"
+          className="fixed inset-0 z-[400] flex items-center justify-center bg-black/40 backdrop-blur-md/95 p-4 backdrop-blur-xl"
           onClick={() => setLightboxImg(null)}
         >
           <button

@@ -20,11 +20,11 @@ type ButtonProps = {
 
 const variants: Record<string, string> = {
   primary:
-    "bg-[#ed1c24] text-white hover:bg-[#c4181e] shadow-[0_0_40px_-12px_rgba(237,28,36,0.6)] group-hover:shadow-[0_0_60px_-10px_rgba(237,28,36,0.7)]",
+    "bg-[#2bf0ff] text-white hover:bg-[#c4181e] shadow-[0_0_40px_-12px_rgba(237,28,36,0.6)] group-hover:shadow-[0_0_60px_-10px_rgba(237,28,36,0.7)]",
   outline:
-    "border border-line-strong text-fog hover:border-[#ed1c24]/60 hover:text-[#ff6b70] bg-white/[0.02]",
+    "border border-line-strong text-fog hover:border-[#2bf0ff]/60 hover:text-[#ff6b70] bg-white/[0.02]",
   ghost: "text-fog hover:text-[#ff6b70]",
-  dark: "bg-ink text-fog border border-line hover:border-[#ed1c24]/50",
+  dark: "bg-ink text-fog border border-line hover:border-[#2bf0ff]/50",
 };
 
 const sizes: Record<string, string> = {

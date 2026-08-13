@@ -9,7 +9,7 @@ const VIDEO_SRC =
 export function DesignProHero() {
   return (
     <section
-      className="relative h-screen min-h-[640px] w-full overflow-hidden bg-black text-white"
+      className="relative h-screen min-h-[640px] w-full overflow-hidden bg-black/40 backdrop-blur-md text-white"
       style={{ fontFamily: "var(--font-inter), system-ui, sans-serif" }}
     >
       {/* Full-screen looping video background — tinted red to match theme */}
@@ -23,7 +23,7 @@ export function DesignProHero() {
         preload="auto"
       />
       {/* Readability overlay */}
-      <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 bg-black/40 backdrop-blur-md/50" />
       {/* Red ambient tint layer */}
       <div
         className="absolute inset-0"
@@ -52,7 +52,7 @@ export function DesignProHero() {
           {/* Centered hero */}
           <div className="flex flex-1 flex-col items-center justify-center text-center">
             <p className="flex items-center gap-2 text-xs uppercase tracking-tight text-white/80 sm:text-sm">
-              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#ed1c24]" />
+              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#2bf0ff]" />
               Seats for Next Program Opening Soon
             </p>
 
@@ -62,7 +62,7 @@ export function DesignProHero() {
                 <ShinyText
                   text="Product Leader."
                   baseColor="#c4181e"
-                  shineColor="#ff4d52"
+                  shineColor="#2bf0ff"
                   speed={3}
                   spread={100}
                 />
@@ -71,10 +71,10 @@ export function DesignProHero() {
 
             <a
               href="#"
-              className="group mt-10 flex items-center gap-2 rounded-full bg-black px-6 py-3 text-sm font-medium text-white shadow-lg transition-all duration-300 hover:bg-gray-900 md:px-8 md:py-4"
+              className="group mt-10 flex items-center gap-2 rounded-full bg-black/40 backdrop-blur-md px-6 py-3 text-sm font-medium text-white shadow-lg transition-all duration-300 hover:bg-gray-900 md:px-8 md:py-4"
             >
               Apply for Next Enrollment
-              <ArrowRight className="h-4 w-4 text-[#ff4d52] transition-transform duration-300 group-hover:translate-x-1" />
+              <ArrowRight className="h-4 w-4 text-[#2bf0ff] transition-transform duration-300 group-hover:translate-x-1" />
             </a>
           </div>
         </div>

@@ -123,7 +123,7 @@ export function VideoPlayer({
           type="button"
           onClick={toggleMute}
           aria-label={muted ? "Turn sound on" : "Mute"}
-          className="absolute bottom-4 right-4 z-20 flex h-10 w-10 items-center justify-center rounded-full border border-white/25 bg-black/55 text-white backdrop-blur transition hover:scale-105 hover:bg-black/80"
+          className="absolute bottom-4 right-4 z-20 flex h-10 w-10 items-center justify-center rounded-full border border-white/25 bg-black/40 backdrop-blur-md/55 text-white backdrop-blur transition hover:scale-105 hover:bg-black/40 backdrop-blur-md/80"
         >
           {muted ? (
             <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
@@ -153,7 +153,7 @@ export function VideoPlayer({
             className="object-cover"
             sizes="(max-width: 1024px) 100vw, 70vw"
           />
-          <span className="absolute inset-0 bg-black/30 transition group-hover:bg-black/20" />
+          <span className="absolute inset-0 bg-black/40 backdrop-blur-md/30 transition group-hover:bg-black/40 backdrop-blur-md/20" />
           <span className="absolute inset-0 flex items-center justify-center">
             <span className="flex h-16 w-16 items-center justify-center rounded-full border border-white/40 bg-white/90 text-[var(--ink)] shadow-[0_16px_48px_-8px_rgba(12,14,19,0.55)] transition group-hover:scale-105 sm:h-20 sm:w-20">
               {error ? (

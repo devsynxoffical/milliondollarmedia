@@ -33,7 +33,7 @@ export function Header() {
   }
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-zinc-800 bg-[#09090b]/95 backdrop-blur-xl transition-all duration-200">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-zinc-800 bg-transparent/95 backdrop-blur-xl transition-all duration-200">
       {pathname === "/" && (
         <div className="flex h-9 items-center justify-center gap-2 bg-[var(--accent)] px-4 text-center text-[10px] font-bold tracking-wide text-white md:text-[11px]">
           <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
@@ -60,7 +60,7 @@ export function Header() {
         </Link>
 
         <nav
-          className="hidden items-center gap-1 rounded-full border border-zinc-800 bg-zinc-900/90 p-1 backdrop-blur-md lg:flex"
+          className="hidden items-center gap-1 rounded-full border border-zinc-800 bg-white/5 backdrop-blur-md/90 p-1 backdrop-blur-md lg:flex"
           onMouseLeave={() => setMastermindOpen(false)}
         >
           {links.map((link) => (
@@ -96,7 +96,7 @@ export function Header() {
             </button>
 
             {mastermindOpen && (
-              <div className="absolute left-0 top-full mt-2 w-56 rounded-xl border border-zinc-800 bg-zinc-900 p-1.5 shadow-2xl shadow-black/50">
+              <div className="absolute left-0 top-full mt-2 w-56 rounded-xl border border-zinc-800 bg-white/5 backdrop-blur-md p-1.5 shadow-2xl shadow-black/50">
                 {mastermindLinks.map((link) => (
                   <a
                     key={link.href}
@@ -137,7 +137,7 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="border-t border-zinc-800 bg-[#09090b] lg:hidden">
+        <div className="border-t border-zinc-800 bg-transparent lg:hidden">
           <nav className="mx-auto flex max-w-[1240px] flex-col px-5 py-4 gap-1">
             {links.map((link) => (
               <a

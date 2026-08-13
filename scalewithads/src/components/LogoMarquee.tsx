@@ -9,13 +9,13 @@ export function LogoMarquee({ title }: { title?: string }) {
   const row2 = logos.slice(11, 22);
 
   return (
-    <section className="relative overflow-hidden border-b border-zinc-800 bg-[#070709] py-14 text-white">
+    <section className="relative overflow-hidden border-b border-zinc-800 bg-transparent py-14 text-white">
       <SectionBackground variant="dark" grid />
 
       <div className="relative mx-auto max-w-[1240px] px-5 text-center md:px-8">
         {/* Title pill */}
         <div className="inline-flex items-center gap-2.5 rounded-full border border-white/15 bg-white/5 px-5 py-2 backdrop-blur-md mb-10 shadow-md">
-          <span className="h-2.5 w-2.5 rounded-full bg-[#ed1c24] animate-ping" />
+          <span className="h-2.5 w-2.5 rounded-full bg-[#2bf0ff] animate-ping" />
           <span className="text-xs font-extrabold uppercase tracking-widest text-zinc-200">
             {title ?? "TRUSTED BY 1,000+ BRANDS & 9-FIGURE OPERATORS WORLDWIDE"}
           </span>
@@ -64,6 +64,16 @@ export function LogoMarquee({ title }: { title?: string }) {
             </div>
           </div>
         </div>
+
+        {/* Edge fade masks */}
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#070709] to-transparent md:w-40"
+        />
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#070709] to-transparent md:w-40"
+        />
       </div>
     </section>
   );

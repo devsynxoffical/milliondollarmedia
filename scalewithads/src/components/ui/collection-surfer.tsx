@@ -126,7 +126,7 @@ export function CollectionSurfer({
     >
       {/* Sticky viewport */}
       <div
-        className="sticky top-0 h-screen w-full overflow-hidden bg-[#09090b]"
+        className="sticky top-0 h-screen w-full overflow-hidden bg-transparent"
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
       >

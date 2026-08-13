@@ -56,8 +56,8 @@ function createCardTexture({
 
     // Red accent corner glow line
     if (isRedAccent) {
-      ctx.fillStyle = "#ed1c24";
-      ctx.shadowColor = "#ed1c24";
+      ctx.fillStyle = "#2bf0ff";
+      ctx.shadowColor = "#2bf0ff";
       ctx.shadowBlur = 15;
       ctx.fillRect(32, 24, 60, 6);
       ctx.shadowBlur = 0;
@@ -66,7 +66,7 @@ function createCardTexture({
     // Top icon/badge
     if (badge) {
       ctx.font = "bold 20px system-ui, sans-serif";
-      ctx.fillStyle = isRedAccent ? "#ff4d52" : "#a1a1aa";
+      ctx.fillStyle = isRedAccent ? "#2bf0ff" : "#a1a1aa";
       ctx.fillText(badge.toUpperCase(), 36, 54);
     }
 
@@ -96,7 +96,7 @@ function createCardTexture({
     ctx.lineTo(420, 180);
     ctx.lineTo(460, 135);
     ctx.lineWidth = 4;
-    ctx.strokeStyle = "#ed1c24";
+    ctx.strokeStyle = "#2bf0ff";
     ctx.stroke();
 
     // Dot at end of line

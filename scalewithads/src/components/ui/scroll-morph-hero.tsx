@@ -61,7 +61,7 @@ function FlipCard({ src, label, target }: FlipCardProps) {
             className="h-full w-full object-cover"
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-black/10 transition-colors group-hover:bg-transparent" />
+          <div className="absolute inset-0 bg-black/40 backdrop-blur-md/10 transition-colors group-hover:bg-transparent" />
         </div>
 
         {/* Back Face */}
@@ -69,7 +69,7 @@ function FlipCard({ src, label, target }: FlipCardProps) {
           className="absolute inset-0 h-full w-full overflow-hidden rounded-xl shadow-lg bg-gray-900 flex items-center justify-center p-3 border border-gray-700"
           style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
         >
-          <p className="text-[9px] font-bold text-[#ed1c24] uppercase tracking-widest text-center leading-relaxed">
+          <p className="text-[9px] font-bold text-[#2bf0ff] uppercase tracking-widest text-center leading-relaxed">
             {label}
           </p>
         </div>

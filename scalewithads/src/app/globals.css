@@ -6,18 +6,18 @@
   /* Red/Black/White theme palette, matches Roofing Systems Co. */
   --accent: #ed1c24;
   --accent-deep: #c4181e;
-  --accent-soft: #fef2f2;
+  --accent-soft: rgba(237, 28, 36, 0.1);
   --accent-bright: #ff3b43;
   --ink: #09090b;
   --ink-soft: #18181b;
   --muted: #52525b;
   --line: #e4e4e7;
   --line-strong: #d4d4d8;
-  --bg: #fafafa;
-  --surface: #ffffff;
-  --surface-2: #f3f4f6;
-  --band: #09090b;
-  --band-2: #121215;
+  --bg: transparent;
+  --surface: rgba(255, 255, 255, 0.03);
+  --surface-2: rgba(255, 255, 255, 0.06);
+  --band: rgba(0, 0, 0, 0.4);
+  --band-2: rgba(0, 0, 0, 0.6);
   --lime-glow: #84cc16;
   --lime-soft: #ecfdf5;
   --background: var(--bg);
@@ -76,7 +76,7 @@
     width: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: #09090b;
+    background: transparent;
   }
   ::-webkit-scrollbar-thumb {
     background: linear-gradient(to bottom, #ed1c24, #990f14);
@@ -291,7 +291,7 @@
     width: 6px;
     height: 6px;
     border-radius: 9999px;
-    background-color: var(--accent);
+    background-color: var(--accent); box-shadow: 0 0 15px var(--accent);
     box-shadow: 0 0 8px var(--accent);
   }
 
@@ -299,7 +299,7 @@
     width: 6px;
     height: 6px;
     border-radius: 9999px;
-    background-color: var(--accent);
+    background-color: var(--accent); box-shadow: 0 0 15px var(--accent);
     box-shadow: 0 0 8px var(--accent);
   }
 

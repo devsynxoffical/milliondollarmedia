@@ -9,7 +9,7 @@ import { CheckCircle2, ArrowRight, Shield, Zap, Sparkles } from "lucide-react";
 
 export function DetailedAgencyBox() {
   return (
-    <section className="relative z-10 w-full bg-[#070709] py-20 md:py-32 text-white overflow-hidden">
+    <section className="relative z-10 w-full bg-transparent py-20 md:py-32 text-white overflow-hidden">
       <div className="mx-auto max-w-[1280px] px-5 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -19,12 +19,19 @@ export function DetailedAgencyBox() {
           className="relative overflow-hidden rounded-3xl border border-white/20 bg-gradient-to-br from-zinc-900 via-zinc-950 to-black p-8 md:p-14 shadow-2xl"
         >
           {/* Ambient red lighting glow */}
-          <div className="pointer-events-none absolute top-0 right-0 h-96 w-96 rounded-full bg-[#ed1c24]/20 blur-[130px]" />
+          <div className="pointer-events-none absolute top-0 right-0 h-96 w-96 rounded-full bg-[#2bf0ff]/20 blur-[130px]" />
+          <div className="pointer-events-none absolute bottom-0 left-0 h-72 w-72 rounded-full bg-[#7a3cff]/10 blur-[120px]" />
+
+          {/* Top accent line */}
+          <span className="pointer-events-none absolute inset-x-16 top-0 h-px bg-gradient-to-r from-transparent via-[#2bf0ff]/80 to-transparent" />
+
+          {/* Subtle grid texture */}
+          <div className="studio-grid pointer-events-none absolute inset-0 opacity-40" />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content Column */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#ed1c24]/40 bg-[#ed1c24]/10 px-3.5 py-1.5 text-xs font-extrabold uppercase tracking-[0.16em] text-[#ff4d52]">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#2bf0ff]/40 bg-[#2bf0ff]/10 px-3.5 py-1.5 text-xs font-extrabold uppercase tracking-[0.16em] text-[#2bf0ff]">
                 <Sparkles className="h-3.5 w-3.5" />
                 <span>AGENCY PHILOSOPHY</span>
               </div>
@@ -49,7 +56,7 @@ export function DetailedAgencyBox() {
                   "Live Transparent KPI Dashboard",
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-3 backdrop-blur-md">
-                    <CheckCircle2 className="h-5 w-5 text-[#ed1c24] shrink-0" />
+                    <CheckCircle2 className="h-5 w-5 text-[#2bf0ff] shrink-0" />
                     <span className="text-xs font-bold text-white">{item}</span>
                   </div>
                 ))}
@@ -66,7 +73,7 @@ export function DetailedAgencyBox() {
                 </Link>
 
                 <div className="flex items-center gap-2 text-xs font-semibold text-white/70">
-                  <Shield className="h-4 w-4 text-[#ed1c24]" />
+                  <Shield className="h-4 w-4 text-[#2bf0ff]" />
                   <span>No long lock-in contracts</span>
                 </div>
               </div>
@@ -74,19 +81,20 @@ export function DetailedAgencyBox() {
 
             {/* Right Media Column */}
             <div className="lg:col-span-5 relative">
+              <div className="absolute -inset-3 rounded-3xl bg-gradient-to-tr from-[#2bf0ff]/25 via-transparent to-transparent blur-2xl" />
               <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-white/15 shadow-2xl">
                 <Image
                   src="/media/covers/cover-mastermind.jpeg"
                   alt="Scale With Ads Team Studio"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-700 hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
                 {/* Floating Metric Badge over image */}
-                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between rounded-xl border border-white/20 bg-black/80 p-3.5 backdrop-blur-xl">
+                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between rounded-xl border border-white/20 bg-black/40 backdrop-blur-md/80 p-3.5 backdrop-blur-xl">
                   <div className="flex items-center gap-3">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#ed1c24] text-white">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#2bf0ff] text-white">
                       <Zap className="h-4 w-4" />
                     </div>
                     <div>

@@ -42,7 +42,7 @@ function VideoTile({ video }: { video: VideoItem }) {
 
   return (
     <div
-      className={`group relative mb-5 break-inside-avoid overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:border-[#ed1c24]/50 hover:shadow-[0_16px_40px_-16px_rgba(237,28,36,0.2)] ${
+      className={`group relative mb-5 break-inside-avoid overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:border-[#2bf0ff]/50 hover:shadow-[0_16px_40px_-16px_rgba(237,28,36,0.2)] ${
         video.aspect === "portrait" ? "aspect-[9/16]" : "aspect-square"
       }`}
     >
@@ -89,7 +89,7 @@ function VideoTile({ video }: { video: VideoItem }) {
         type="button"
         onClick={toggleMute}
         aria-label={muted ? "Turn sound on" : "Mute"}
-        className="absolute bottom-3 right-3 z-10 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-white/25 bg-black/55 text-white opacity-0 backdrop-blur transition hover:scale-105 hover:bg-black/80 group-hover:opacity-100"
+        className="absolute bottom-3 right-3 z-10 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-white/25 bg-black/40 backdrop-blur-md/55 text-white opacity-0 backdrop-blur transition hover:scale-105 hover:bg-black/40 backdrop-blur-md/80 group-hover:opacity-100"
       >
         {muted ? (
           <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>

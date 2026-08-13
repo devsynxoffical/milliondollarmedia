@@ -18,7 +18,7 @@ export function Ownership() {
   return (
     <section
       id="ownership"
-      className="relative overflow-hidden border-b border-zinc-800 bg-[#09090b] py-16 text-white md:py-24"
+      className="relative overflow-hidden border-b border-zinc-800 bg-transparent py-16 text-white md:py-24"
     >
       <div className="jobber-grid-dark pointer-events-none absolute inset-0" />
       <div
@@ -43,7 +43,7 @@ export function Ownership() {
         />
 
         <Reveal delay={120}>
-          <div className="relative mt-12 overflow-hidden rounded-[2rem] border border-zinc-800 bg-zinc-900/50 px-6 py-12 backdrop-blur-sm md:px-12 md:py-16">
+          <div className="relative mt-12 overflow-hidden rounded-[2rem] border border-zinc-800 bg-white/5 backdrop-blur-md/50 px-6 py-12 backdrop-blur-sm md:px-12 md:py-16">
             <div className="jobber-grid-dark pointer-events-none absolute inset-0" />
             <div
               className="pointer-events-none absolute inset-0"
@@ -74,7 +74,7 @@ export function Ownership() {
                 {owned.map((item) => (
                   <div
                     key={item}
-                    className="flex items-center gap-2.5 rounded-xl border border-zinc-800 bg-[#09090b]/60 px-4 py-3.5 text-sm font-bold text-white transition duration-300 hover:border-[var(--accent)]"
+                    className="flex items-center gap-2.5 rounded-xl border border-zinc-800 bg-transparent/60 px-4 py-3.5 text-sm font-bold text-white transition duration-300 hover:border-[var(--accent)]"
                   >
                     <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[var(--accent)] text-[10px] font-extrabold text-white">
                       ✓

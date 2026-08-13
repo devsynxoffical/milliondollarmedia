@@ -87,7 +87,7 @@ export function AgencyHelpSection() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6" data-reveal data-reveal-dir="up">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-[#ff4d52]">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-[#2bf0ff]">
               <Sparkles className="h-3.5 w-3.5" />
               <span>CAPABILITIES & SERVICES</span>
             </div>
@@ -112,11 +112,28 @@ export function AgencyHelpSection() {
                 onMouseEnter={() => setHoveredId(item.id)}
                 className="group relative cursor-pointer py-8 md:py-10 transition-all duration-500 hover:bg-white/[0.03] hover:translate-x-1"
               >
-                <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 px-2">
-                  {/* Left: Number & Title */}
+                {/* Left accent bar */}
+                <span
+                  aria-hidden="true"
+                  className={`pointer-events-none absolute left-0 top-1/2 h-0 -translate-y-1/2 w-[3px] rounded-full bg-gradient-to-b from-[#7a3cff] to-[#2bf0ff] shadow-[0_0_12px_rgba(237,28,36,0.8)] transition-all duration-500 ${
+                    isHovered ? "h-16 opacity-100" : "opacity-0"
+                  }`}
+                />
+                {/* Row glow */}
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_50%_120%_at_0%_50%,rgba(237,28,36,0.08),transparent_60%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                />
+
+                <div className="relative flex flex-col lg:flex-row lg:items-center justify-between gap-6 px-2">
+                  {/* Left: Number, Icon & Title */}
                   <div className="flex items-center gap-6 lg:gap-10">
-                    <span className="display text-xl md:text-2xl font-bold text-white/50 group-hover:text-[#ed1c24] transition-colors">
+                    <span className="display text-xl md:text-2xl font-bold text-white/50 transition-colors">
                       {item.number}
+                    </span>
+
+                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white/70 transition-all duration-300 group-hover:scale-110 group-hover:border-[#2bf0ff]/40 group-hover:bg-[#2bf0ff]/15 group-hover:text-[#2bf0ff] group-hover:shadow-[0_0_20px_rgba(237,28,36,0.35)]">
+                      <Icon className="h-5 w-5" />
                     </span>
 
                     {/* Inline Hover Image Thumbnail (Social Shepherd style) */}
@@ -146,20 +163,23 @@ export function AgencyHelpSection() {
                     </div>
                   </div>
 
-                  {/* Right: Badges & Arrow */}
+                  {/* Right: Metric chip, Badges & Arrow */}
                   <div className="flex items-center gap-4 self-start lg:self-auto">
                     <div className="hidden md:flex items-center gap-2">
-                      {item.tags.map((tag, idx) => (
+                      <span className="rounded-full border border-[#2bf0ff]/30 bg-[#2bf0ff]/10 px-3 py-1 text-[11px] font-extrabold text-[#2bf0ff] transition-all group-hover:border-[#2bf0ff]/60 group-hover:bg-[#2bf0ff]/20 group-hover:text-white">
+                        {item.metrics}
+                      </span>
+                      {item.tags.slice(0, 2).map((tag, idx) => (
                         <span
                           key={idx}
-                          className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-bold text-white/80 group-hover:border-[#ed1c24]/40 group-hover:text-white transition-all"
+                          className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-bold text-white/80 group-hover:border-[#2bf0ff]/40 group-hover:text-white transition-all"
                         >
                           {tag}
                         </span>
                       ))}
                     </div>
 
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white transition-all duration-300 group-hover:border-[#ed1c24] group-hover:bg-[#ed1c24] group-hover:text-white group-hover:scale-110">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white transition-all duration-300 group-hover:border-[#2bf0ff] group-hover:bg-[#2bf0ff] group-hover:text-white group-hover:scale-110 group-hover:shadow-[0_0_24px_rgba(237,28,36,0.5)]">
                       <ArrowUpRight className="h-6 w-6" />
                     </div>
                   </div>
@@ -177,7 +197,7 @@ export function AgencyHelpSection() {
                     >
                       <div className="mt-6 pt-6 border-t border-white/10 grid grid-cols-1 md:grid-cols-3 gap-6 px-2">
                         <div className="space-y-2">
-                          <p className="text-xs font-bold uppercase tracking-wider text-[#ff4d52]">
+                          <p className="text-xs font-bold uppercase tracking-wider text-[#2bf0ff]">
                             Service Overview
                           </p>
                           <p className="text-sm text-white/80 leading-relaxed font-medium">
@@ -192,19 +212,20 @@ export function AgencyHelpSection() {
                           <ul className="space-y-1.5 text-xs text-white/90 font-medium">
                             {item.highlights.map((point, pIdx) => (
                               <li key={pIdx} className="flex items-center gap-2">
-                                <CheckCircle2 className="h-3.5 w-3.5 text-[#ed1c24] shrink-0" />
+                                <CheckCircle2 className="h-3.5 w-3.5 text-[#2bf0ff] shrink-0" />
                                 <span>{point}</span>
                               </li>
                             ))}
                           </ul>
                         </div>
 
-                        <div className="flex flex-col justify-between rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-md">
+                        <div className="relative flex flex-col justify-between overflow-hidden rounded-xl border border-[#2bf0ff]/25 bg-gradient-to-br from-[#2bf0ff]/15 via-white/[0.04] to-transparent p-4 backdrop-blur-md">
+                          <span className="pointer-events-none absolute -right-6 -top-6 h-20 w-20 rounded-full bg-[#2bf0ff]/25 blur-2xl" />
                           <div className="flex items-center justify-between">
                             <span className="text-[11px] font-bold text-white/70 uppercase">
                               Benchmark Result
                             </span>
-                            <Icon className="h-4 w-4 text-[#ed1c24]" />
+                            <Icon className="h-4 w-4 text-[#2bf0ff]" />
                           </div>
                           <p className="display text-xl font-extrabold text-white mt-2">
                             {item.metrics}

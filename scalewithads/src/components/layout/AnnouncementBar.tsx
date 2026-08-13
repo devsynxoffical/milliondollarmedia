@@ -48,7 +48,7 @@ export function AnnouncementBar() {
   return (
     <div
       id="announcement-bar"
-      className="sticky top-0 z-[70] min-h-10 py-1 bg-[#ed1c24] text-white"
+      className="sticky top-0 z-[70] min-h-10 py-1 bg-[#2bf0ff] text-white"
       role="region"
       aria-label="Announcement"
     >
@@ -71,7 +71,7 @@ export function AnnouncementBar() {
         type="button"
         onClick={dismiss}
         aria-label="Dismiss announcement"
-        className="absolute right-2 top-1/2 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full text-white/80 transition-colors hover:bg-black/20 hover:text-white"
+        className="absolute right-2 top-1/2 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full text-white/80 transition-colors hover:bg-black/40 backdrop-blur-md/20 hover:text-white"
       >
         <X className="h-3.5 w-3.5" />
       </button>

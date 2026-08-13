@@ -59,9 +59,10 @@ export function AgencyStatsLocations() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="pt-6 md:pt-0 md:px-8 first:px-0 space-y-3"
+            className="group relative pt-6 md:pt-0 md:px-8 first:px-0 space-y-3"
           >
-            <div className="flex items-center gap-2 text-[#ff4d52]">
+            <span className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#2bf0ff]/70 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 md:top-1/2 md:h-16 md:w-[3px] md:-translate-y-1/2 md:bg-gradient-to-b md:from-transparent md:via-[#2bf0ff]/70 md:to-transparent" />
+            <div className="flex items-center gap-2 text-[#2bf0ff]">
               <ShieldCheck className="h-5 w-5" />
               <span className="text-xs font-bold uppercase tracking-widest">PROVEN RETENTION</span>
             </div>
@@ -79,9 +80,10 @@ export function AgencyStatsLocations() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="pt-6 md:pt-0 md:px-8 space-y-3"
+            className="group relative pt-6 md:pt-0 md:px-8 space-y-3"
           >
-            <div className="flex items-center gap-2 text-[#ff4d52]">
+            <span className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#2bf0ff]/70 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 md:top-1/2 md:h-16 md:w-[3px] md:-translate-y-1/2 md:bg-gradient-to-b md:from-transparent md:via-[#2bf0ff]/70 md:to-transparent" />
+            <div className="flex items-center gap-2 text-[#2bf0ff]">
               <Users className="h-5 w-5" />
               <span className="text-xs font-bold uppercase tracking-widest">ACTIVE PARTNERSHIPS</span>
             </div>
@@ -99,9 +101,10 @@ export function AgencyStatsLocations() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="pt-6 md:pt-0 md:px-8 space-y-3"
+            className="group relative pt-6 md:pt-0 md:px-8 space-y-3"
           >
-            <div className="flex items-center gap-2 text-[#ff4d52]">
+            <span className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#2bf0ff]/70 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 md:top-1/2 md:h-16 md:w-[3px] md:-translate-y-1/2 md:bg-gradient-to-b md:from-transparent md:via-[#2bf0ff]/70 md:to-transparent" />
+            <div className="flex items-center gap-2 text-[#2bf0ff]">
               <Award className="h-5 w-5" />
               <span className="text-xs font-bold uppercase tracking-widest">INDUSTRY RECOGNITION</span>
             </div>
@@ -117,7 +120,7 @@ export function AgencyStatsLocations() {
         {/* Global Hubs Typography Wall */}
         <div className="pt-12 border-t border-white/10 text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-white/80 mb-10">
-            <Globe className="h-4 w-4 text-[#ed1c24]" />
+            <Globe className="h-4 w-4 text-[#2bf0ff]" />
             <span>GLOBAL PRESENCE & AGENCY HUBS</span>
           </div>
 
@@ -135,7 +138,7 @@ export function AgencyStatsLocations() {
                 <h3 className="display text-5xl sm:text-7xl md:text-8xl font-extrabold tracking-tighter text-white/25 transition-all duration-500 group-hover:text-white group-hover:scale-105 group-hover:drop-shadow-[0_0_35px_rgba(237,28,36,0.8)]">
                   {loc.name}
                 </h3>
-                <span className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-mono font-bold text-[#ff4d52] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-mono font-bold text-[#2bf0ff] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <Clock className="h-3 w-3" />
                   {times[loc.name] || "LIVE"} {loc.country}
                 </span>
