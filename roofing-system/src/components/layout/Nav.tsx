@@ -118,22 +118,24 @@ export function Nav() {
       >
         <nav
           className={cn(
-            "container-x flex h-16 items-center justify-between transition-all duration-500",
-            scrolled && "border-b border-line bg-ink/70 backdrop-blur-xl"
+            "container-x flex h-16 md:h-18 items-center justify-between transition-all duration-500",
+            scrolled
+              ? "border-b border-white/10 bg-[#070709]/85 backdrop-blur-2xl shadow-[0_10px_40px_rgba(0,0,0,0.8)]"
+              : "bg-gradient-to-b from-[#070709]/90 via-[#070709]/40 to-transparent"
           )}
           aria-label="Main navigation"
         >
           <Logo />
-          <ul className="hidden items-center gap-1 lg:flex">
+          <ul className="hidden items-center gap-1.5 lg:flex rounded-full border border-white/10 bg-[#0c0d12]/80 p-1.5 backdrop-blur-xl shadow-2xl">
             {nav.map((item) => (
               <li key={item.href}>
                 <a
                   href={item.href}
                   onClick={(e) => go(e, item.href)}
-                  className="group relative rounded-full px-4 py-2 text-sm font-medium text-mist transition-colors hover:text-fog"
+                  className="group relative rounded-full px-4 py-2 text-[13px] font-semibold text-zinc-300 transition-all duration-300 hover:text-white hover:bg-white/5"
                 >
                   {item.label}
-                  <span className="absolute inset-x-4 bottom-1 h-px origin-left scale-x-0 bg-lime transition-transform duration-300 group-hover:scale-x-100" />
+                  <span className="absolute inset-x-4 bottom-1.5 h-0.5 origin-center scale-x-0 bg-[#ed1c24] rounded-full transition-transform duration-300 group-hover:scale-x-100 shadow-[0_0_8px_#ed1c24]" />
                 </a>
               </li>
             ))}
@@ -148,22 +150,28 @@ export function Nav() {
                 aria-expanded={dd}
                 aria-haspopup="true"
                 className={cn(
-                  "flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-medium transition-colors",
-                  dd ? "text-fog" : "text-mist hover:text-fog"
+                  "flex items-center gap-1.5 rounded-full px-4 py-2 text-[13px] font-semibold transition-all duration-300",
+                  dd ? "text-white bg-white/10" : "text-zinc-300 hover:text-white hover:bg-white/5"
                 )}
               >
-                Masterminds
+                <span className="relative flex items-center gap-1.5">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#ed1c24] animate-pulse" />
+                  Masterminds
+                </span>
                 <ChevronDown
-                  className={cn("h-4 w-4 transition-transform duration-300", dd && "rotate-180")}
+                  className={cn("h-3.5 w-3.5 text-zinc-400 transition-transform duration-300", dd && "rotate-180 text-white")}
                 />
               </button>
               <div
                 className={cn(
-                  "absolute left-1/2 top-full z-50 w-80 -translate-x-1/2 pt-3 transition-all duration-300",
-                  dd ? "visible opacity-100" : "invisible opacity-0"
+                  "absolute left-1/2 top-full z-50 w-80 -translate-x-1/2 pt-3 transition-all duration-200",
+                  dd ? "visible opacity-100" : "invisible opacity-0 pointer-events-none"
                 )}
               >
-                <div className="overflow-hidden rounded-2xl border border-line bg-panel p-2 shadow-soft">
+                <div className="overflow-hidden rounded-2xl border border-white/15 bg-[#090a0f]/95 p-2 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] backdrop-blur-2xl">
+                  <p className="px-3 pb-2 pt-1 font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-[#ed1c24]">
+                    Private Masterminds
+                  </p>
                   {mastermindLinks.map((m) => (
                     <Link
                       key={m.href}
@@ -172,16 +180,16 @@ export function Nav() {
                         setDd(false);
                         setOpen(false);
                       }}
-                      className="group/item flex items-start gap-3 rounded-xl px-4 py-3 transition-colors hover:bg-lime/10"
+                      className="group/item flex items-start gap-3 rounded-xl px-3.5 py-3 transition-all duration-200 hover:bg-white/10"
                     >
-                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-lime/10 text-lime">
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#ed1c24]/15 text-[#ed1c24] border border-[#ed1c24]/30 shadow-[0_0_10px_rgba(237,28,36,0.2)]">
                         <Play className="h-3.5 w-3.5 fill-current" />
                       </span>
                       <span>
-                        <span className="block text-sm font-semibold text-fog transition-colors group-hover/item:text-lime">
+                        <span className="block text-xs font-bold text-white transition-colors group-hover/item:text-[#ed1c24]">
                           {m.label}
                         </span>
-                        <span className="mt-0.5 block text-xs text-dim">{m.sub}</span>
+                        <span className="mt-0.5 block text-[11px] font-medium text-zinc-400 leading-snug">{m.sub}</span>
                       </span>
                     </Link>
                   ))}
@@ -193,18 +201,20 @@ export function Nav() {
             <a
               href={navCta.href}
               onClick={(e) => go(e, navCta.href)}
-              className="group relative hidden items-center gap-2 overflow-hidden rounded-full bg-lime px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:shadow-[0_0_40px_-8px_var(--color-lime)] sm:inline-flex"
+              className="group relative hidden items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-[#ed1c24] to-[#c4181e] px-6 py-2.5 text-[13px] font-bold text-white shadow-[0_0_35px_-8px_rgba(237,28,36,0.8)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_50px_-5px_rgba(237,28,36,1)] sm:inline-flex"
               data-cursor="book"
             >
-              {navCta.label}
-              <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <span className="relative z-10 flex items-center gap-2 uppercase tracking-wide text-xs font-extrabold">
+                {navCta.label}
+                <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </span>
             </a>
             <button
               type="button"
               onClick={() => setOpen((v) => !v)}
               aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-line-strong text-fog lg:hidden"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white backdrop-blur-md lg:hidden transition-colors hover:bg-white/10"
             >
               {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>

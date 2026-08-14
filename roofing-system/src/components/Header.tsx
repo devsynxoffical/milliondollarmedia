@@ -38,46 +38,48 @@ export function Header() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-        scrolled && "border-b border-line bg-[#06080a]/80 backdrop-blur-xl"
+        "fixed inset-x-0 top-0 z-50 transition-all duration-500",
+        scrolled
+          ? "border-b border-white/10 bg-[#070709]/85 backdrop-blur-2xl shadow-[0_10px_40px_rgba(0,0,0,0.8)]"
+          : "bg-gradient-to-b from-[#070709]/90 via-[#070709]/40 to-transparent"
       )}
     >
-      {/* Top Banner Notice */}
+      {/* Top Announcement Banner Notice */}
       <div
         className={cn(
-          "flex h-9 items-center justify-center gap-2 bg-[#ed1c24] px-4 text-center text-[10px] font-bold tracking-wide text-white transition-all duration-500 md:text-[11px]",
-          bannerHidden && "max-h-0 overflow-hidden opacity-0"
+          "flex h-9 items-center justify-center gap-2 bg-gradient-to-r from-[#ed1c24] via-[#ff2a1f] to-[#ed1c24] px-4 text-center text-[11px] font-bold tracking-wide text-white transition-all duration-500 shadow-sm",
+          bannerHidden && "max-h-0 overflow-hidden opacity-0 py-0 border-none"
         )}
       >
-        <span className="flex h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
-        <span>For Roofing Companies Doing $1M+/Year</span>
-        <span className="hidden text-white/80 md:inline">
+        <span className="flex h-2 w-2 rounded-full bg-white animate-ping" />
+        <span className="font-semibold">For Roofing Companies Doing $1M+/Year</span>
+        <span className="hidden text-white/90 md:inline font-medium">
           · Double revenue in 90 days or work free.
         </span>
       </div>
 
-      <div className="mx-auto flex h-16 max-w-[88rem] items-center justify-between gap-4 px-5 md:h-18 md:px-8">
-        <Link href="/" className="flex shrink-0 items-center gap-3" onClick={() => setOpen(false)}>
+      <div className="mx-auto flex h-18 max-w-[88rem] items-center justify-between gap-4 px-5 md:h-20 md:px-8">
+        <Link href="/" className="flex shrink-0 items-center gap-3 transition-transform duration-300 hover:scale-[1.02]" onClick={() => setOpen(false)}>
           <Image
             src="/logo.png"
             alt="Roofing Systems Co."
             width={300}
             height={100}
             priority
-            className="h-10 w-auto object-contain md:h-12"
+            className="h-10 w-auto object-contain md:h-12 drop-shadow-[0_2px_12px_rgba(237,28,36,0.3)]"
           />
         </Link>
 
         {/* Navigation Pills */}
-        <nav className="hidden items-center gap-1 rounded-full border border-line bg-[#0f1216]/90 p-1 backdrop-blur-md lg:flex">
+        <nav className="hidden items-center gap-1.5 rounded-full border border-white/10 bg-[#0c0d12]/80 p-1.5 backdrop-blur-xl shadow-2xl lg:flex">
           {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="group relative rounded-full px-4 py-1.5 text-[13px] font-semibold text-mist transition hover:text-fog"
+              className="group relative rounded-full px-4 py-2 text-[13px] font-semibold text-zinc-300 transition-all duration-300 hover:text-white hover:bg-white/5"
             >
               {link.label}
-              <span className="absolute inset-x-4 bottom-1 h-px origin-left scale-x-0 bg-[#ed1c24] transition-transform duration-300 group-hover:scale-x-100" />
+              <span className="absolute inset-x-4 bottom-1.5 h-0.5 origin-center scale-x-0 bg-[#ed1c24] rounded-full transition-transform duration-300 group-hover:scale-x-100 shadow-[0_0_8px_#ed1c24]" />
             </a>
           ))}
 
@@ -85,13 +87,16 @@ export function Header() {
           <div className="group relative">
             <button
               type="button"
-              className="flex items-center gap-1.5 rounded-full px-4 py-1.5 text-[13px] font-semibold text-mist transition hover:text-fog"
+              className="flex items-center gap-1.5 rounded-full px-4 py-2 text-[13px] font-semibold text-zinc-300 transition-all duration-300 hover:text-white hover:bg-white/5"
               aria-haspopup="true"
               aria-expanded="false"
             >
-              Mastermind
+              <span className="relative flex items-center gap-1.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#ed1c24] animate-pulse" />
+                Mastermind
+              </span>
               <svg
-                className="h-3 w-3 text-dim transition-transform duration-300 group-hover:rotate-180"
+                className="h-3.5 w-3.5 text-zinc-400 transition-transform duration-300 group-hover:rotate-180 group-hover:text-white"
                 viewBox="0 0 12 12"
                 fill="none"
                 stroke="currentColor"
@@ -104,20 +109,20 @@ export function Header() {
               </svg>
             </button>
 
-            <div className="invisible absolute left-1/2 top-full z-50 w-64 -translate-x-1/2 pt-2 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-              <div className="overflow-hidden rounded-2xl border border-line bg-[#06080a]/95 p-2 shadow-[0_24px_80px_-32px_rgba(0,0,0,0.85)] backdrop-blur-xl">
-                <p className="px-3 pb-1 pt-2 font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-dim">
-                  Private masterminds
+            <div className="invisible absolute left-1/2 top-full z-50 w-72 -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+              <div className="overflow-hidden rounded-2xl border border-white/15 bg-[#090a0f]/95 p-3 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] backdrop-blur-2xl">
+                <p className="px-3 pb-2 pt-1 font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-[#ed1c24]">
+                  Private Masterminds
                 </p>
                 {mastermindLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="group/item block rounded-xl px-3 py-2.5 text-[13px] font-semibold text-mist transition hover:bg-elevated hover:text-fog"
+                    className="group/item block rounded-xl p-3 text-[13px] font-medium text-zinc-300 transition-all duration-200 hover:bg-white/10 hover:text-white"
                   >
                     <span className="flex items-center justify-between gap-2">
-                      {link.label}
-                      <span className="translate-x-1 text-[#ed1c24] opacity-0 transition-all duration-300 group-hover/item:translate-x-0 group-hover/item:opacity-100">
+                      <span>{link.label}</span>
+                      <span className="translate-x-0.5 text-[#ed1c24] opacity-0 transition-all duration-200 group-hover/item:translate-x-1 group-hover/item:opacity-100">
                         →
                       </span>
                     </span>
@@ -133,23 +138,25 @@ export function Header() {
           <Link
             href={BOOKING_PATH}
             data-cursor="book"
-            className="hidden items-center gap-2 rounded-full bg-[#ed1c24] px-5 py-2.5 text-[13px] font-bold text-white shadow-[0_0_30px_-10px_rgba(237,28,36,0.7)] transition-all duration-300 hover:bg-[#ff2a1f] hover:shadow-[0_0_45px_-8px_rgba(237,28,36,0.9)] sm:inline-flex"
+            className="group relative hidden items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-[#ed1c24] to-[#c4181e] px-6 py-2.5 text-[13px] font-bold text-white shadow-[0_0_35px_-8px_rgba(237,28,36,0.8)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_50px_-5px_rgba(237,28,36,1)] sm:inline-flex"
           >
-            Get Free Demo
-            <span className="transition-transform duration-300 group-hover:translate-x-0.5">→</span>
+            <span className="relative z-10 flex items-center gap-2 uppercase tracking-wide text-xs font-extrabold">
+              Get Free Demo
+              <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+            </span>
           </Link>
 
           <button
             type="button"
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-line-strong text-white lg:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white backdrop-blur-md lg:hidden transition-colors hover:bg-white/10"
             aria-expanded={open}
             aria-label={open ? "Close menu" : "Open menu"}
             onClick={() => setOpen((v) => !v)}
           >
             <span className="flex w-4 flex-col gap-1.5">
-              <span className={`h-0.5 w-full bg-current transition ${open ? "translate-y-[4px] rotate-45" : ""}`} />
-              <span className={`h-0.5 w-full bg-current transition ${open ? "opacity-0" : ""}`} />
-              <span className={`h-0.5 w-full bg-current transition ${open ? "-translate-y-[4px] -rotate-45" : ""}`} />
+              <span className={`h-0.5 w-full bg-current transition-all duration-300 ${open ? "translate-y-[5px] rotate-45" : ""}`} />
+              <span className={`h-0.5 w-full bg-current transition-all duration-300 ${open ? "opacity-0" : ""}`} />
+              <span className={`h-0.5 w-full bg-current transition-all duration-300 ${open ? "-translate-y-[5px] -rotate-45" : ""}`} />
             </span>
           </button>
         </div>
@@ -158,23 +165,23 @@ export function Header() {
       {/* Mobile Menu */}
       <div
         className={cn(
-          "fixed inset-x-0 top-0 z-[-1] h-screen overflow-y-auto bg-[#06080a]/95 pt-32 backdrop-blur-2xl transition-all duration-300 lg:hidden",
-          open ? "visible opacity-100" : "invisible opacity-0"
+          "fixed inset-x-0 top-0 z-[-1] h-screen overflow-y-auto bg-[#070709]/98 pt-32 backdrop-blur-3xl transition-all duration-300 lg:hidden",
+          open ? "visible opacity-100" : "invisible opacity-0 pointer-events-none"
         )}
       >
-        <nav className="mx-auto flex max-w-[88rem] flex-col px-5 py-4">
-          {links.map((link, i) => (
+        <nav className="mx-auto flex max-w-[88rem] flex-col gap-1 px-6 py-4">
+          {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="rounded-lg px-3 py-3 text-sm font-semibold text-mist transition hover:bg-elevated hover:text-fog"
-              style={{ transitionDelay: open ? `${100 + i * 60}ms` : "0ms" }}
+              className="rounded-xl px-4 py-3.5 text-base font-semibold text-zinc-300 transition-all hover:bg-white/10 hover:text-white"
             >
               {link.label}
             </a>
           ))}
-          <p className="px-3 pt-3 font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-dim">
+          <div className="my-2 h-px bg-white/10" />
+          <p className="px-4 pt-2 font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-[#ed1c24]">
             Private masterminds
           </p>
           {mastermindLinks.map((link) => (
@@ -182,7 +189,7 @@ export function Header() {
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="rounded-lg px-3 py-3 text-sm font-semibold text-mist transition hover:bg-elevated hover:text-fog"
+              className="rounded-xl px-4 py-3 text-base font-medium text-zinc-300 transition-all hover:bg-white/10 hover:text-white"
             >
               {link.label}
             </Link>
@@ -191,12 +198,13 @@ export function Header() {
             href={BOOKING_PATH}
             onClick={() => setOpen(false)}
             data-cursor="book"
-            className="mt-4 flex w-full items-center justify-center gap-2 rounded-full bg-[#ed1c24] px-5 py-3.5 text-sm font-bold text-white"
+            className="mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#ed1c24] to-[#c4181e] px-6 py-4 text-base font-bold text-white shadow-lg"
           >
-            Get Free Demo
+            Get Free Demo →
           </Link>
         </nav>
       </div>
     </header>
   );
 }
+
