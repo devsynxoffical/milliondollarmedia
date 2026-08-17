@@ -1,223 +1,183 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import { LibraryVideoTile } from "../../components/LibraryVideoTile";
-import {
-  allClients,
-  logos,
-  shortsCount,
-  videoCount,
-  type LibraryClient,
-} from "../../lib/library";
+import { FloatingNavbar } from "@/components/redesign/FloatingNavbar";
+import { LusionEndSection } from "@/components/redesign/LusionEndSection";
+import { EditorialFooter } from "@/components/redesign/EditorialFooter";
+import { adShorts } from "@/lib/ads";
+import { Play, Film, Flame, ArrowRight, Sparkles, CheckCircle2 } from "lucide-react";
+import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Media Library | Scale with Ads",
+  title: "Shorts & Videos Library | ScaleWithAds",
   description:
-    "Every client video, short, ad and brand logo in one place. Real client results and Million Dollar Media ads across countless verticals.",
+    "Explore high-converting VSLs, TikTok UGC cuts, and performance motion ad examples engineered by ScaleWithAds.",
 };
 
-function ClientSection({ client }: { client: LibraryClient }) {
-  const hasMedia =
-    client.videos.length > 0 || client.shorts.length > 0 || client.logos.length > 0;
-
-  return (
-    <section
-      id={client.slug}
-      className="scroll-mt-28 rounded-2xl border border-zinc-800 bg-[var(--band-2)] p-5 md:p-8"
-    >
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <div className="flex items-center gap-4">
-          <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full ring-2 ring-[var(--accent)]/50">
-            <Image
-              src={client.photo}
-              alt={client.name}
-              fill
-              className="object-cover"
-              sizes="64px"
-            />
-          </div>
-          <div>
-            <h3 className="display text-lg font-bold text-white sm:text-xl">
-              {client.name}
-            </h3>
-            <p className="text-sm text-zinc-400">{client.title}</p>
-            <span className="mt-1.5 inline-block rounded-full border border-[var(--accent)]/40 bg-[var(--accent)]/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.1em] text-[var(--accent-bright)]">
-              {client.badge}
-            </span>
-          </div>
-        </div>
-
-        {hasMedia ? (
-          <div className="flex flex-wrap gap-2 text-[11px] font-semibold text-zinc-400">
-            {client.videos.length > 0 && (
-              <span className="chip-glass">
-                {client.videos.length} video{client.videos.length > 1 ? "s" : ""}
-              </span>
-            )}
-            {client.shorts.length > 0 && (
-              <span className="chip-glass">
-                {client.shorts.length} short{client.shorts.length > 1 ? "s" : ""}
-              </span>
-            )}
-            {client.logos.length > 0 && (
-              <span className="chip-glass">
-                {client.logos.length} logo{client.logos.length > 1 ? "s" : ""}
-              </span>
-            )}
-          </div>
-        ) : (
-          <span className="text-[11px] font-semibold uppercase tracking-[0.1em] text-zinc-600">
-            No media yet
-          </span>
-        )}
-      </div>
-
-      {client.videos.length > 0 && (
-        <div className="mt-6">
-          <p className="eyebrow-accent mb-3">Videos</p>
-          <div className="columns-1 gap-5 sm:columns-2 lg:columns-3">
-            {client.videos.map((video) => (
-              <LibraryVideoTile key={video.id} asset={video} />
-            ))}
-          </div>
-        </div>
-      )}
-
-      {client.shorts.length > 0 && (
-        <div className="mt-6">
-          <p className="eyebrow-accent mb-3">Shorts</p>
-          <div className="grid grid-cols-2 gap-5 sm:grid-cols-4">
-            {client.shorts.map((short) => (
-              <LibraryVideoTile key={short.id} asset={short} />
-            ))}
-          </div>
-        </div>
-      )}
-
-      {client.logos.length > 0 && (
-        <div className="mt-6">
-          <p className="eyebrow-accent mb-3">Logos</p>
-          <div className="flex flex-wrap items-center gap-4">
-            {client.logos.map((logo) => (
-              <Image
-                key={logo}
-                src={logo}
-                alt={client.name}
-                width={120}
-                height={48}
-                className="h-10 w-auto object-contain opacity-80"
-              />
-            ))}
-          </div>
-        </div>
-      )}
-    </section>
-  );
-}
-
 export default function MediaLibraryPage() {
+  const creativePillars = [
+    {
+      num: "01",
+      title: "First 3-Second Pattern Interrupt",
+      desc: "We test 20+ visual & audio hooks per campaign to stop the scroll instantly and boost view-through rate by 300%.",
+    },
+    {
+      num: "02",
+      title: "Psychological Problem-Agitation",
+      desc: "Engaging narrative scripts that highlight key pain points without triggering ad fatigue or policy flags.",
+    },
+    {
+      num: "03",
+      title: "Unapologetic Proof & Case Studies",
+      desc: "On-screen revenue telemetry, real customer testimonials, and direct social proof overlays.",
+    },
+    {
+      num: "04",
+      title: "Irresistible CTA & Micro-Funnels",
+      desc: "Directing high-intent traffic to customized pre-sell landers built for instant checkout conversion.",
+    },
+  ];
+
   return (
-    <main className="bg-[#09090b]">
-      {/* Hero */}
-      <section className="relative overflow-hidden pt-32 pb-16 md:pt-40 md:pb-20">
-        <div className="jobber-grid-dark pointer-events-none absolute inset-0" />
-        <div className="relative mx-auto max-w-[1240px] px-5 md:px-8">
-          <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
-            <span className="pill-badge-red mb-4">
-              <span className="dot-red" />
-              <span>MEDIA LIBRARY</span>
-            </span>
-            <h1 className="display text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
-              Every client video.
-              <br />
-              <span className="text-[var(--accent)]">One place.</span>
-            </h1>
-            <p className="mt-4 max-w-xl text-base leading-relaxed text-zinc-400">
-              Client results, Million Dollar Media ads, shorts, and brand logos
-              across countless verticals — all organized and ready to watch.
-            </p>
+    <main className="min-h-screen bg-[#FDFBF7] text-stone-900 font-sans selection:bg-purple-200 selection:text-purple-950">
+      <FloatingNavbar />
 
-            <div className="mt-8 grid w-full max-w-md grid-cols-3 gap-3">
-              {[
-                { value: `${allClients.length}`, label: "Clients & brands" },
-                { value: `${videoCount}`, label: "Videos" },
-                { value: `${shortsCount}`, label: "Shorts" },
-              ].map((stat) => (
-                <div
-                  key={stat.label}
-                  className="rounded-xl border border-zinc-800 bg-[var(--band-2)] px-4 py-3"
-                >
-                  <p className="display text-2xl font-bold text-white">
-                    {stat.value}
-                  </p>
-                  <p className="mt-0.5 text-[11px] font-semibold uppercase tracking-[0.1em] text-zinc-500">
-                    {stat.label}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+      {/* Page Header Hero */}
+      <section className="pt-36 sm:pt-44 pb-16 px-4 md:px-8 max-w-7xl mx-auto text-center border-b border-stone-200">
+        <span className="text-xs font-mono font-black uppercase tracking-widest text-purple-700 bg-purple-100 border border-purple-200 px-4 py-2 rounded-full inline-flex items-center gap-2 mb-6">
+          <Film className="w-3.5 h-3.5 text-purple-700" />
+          <span>AUTOPLAYING SHORTS & CREATIVE REELS</span>
+        </span>
+        <h1 className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tight uppercase font-hero text-stone-950 leading-none">
+          SHORTS & <span className="font-serif italic lowercase text-purple-700">reels.</span>
+        </h1>
+        <p className="mt-4 text-stone-600 text-base sm:text-lg max-w-2xl mx-auto font-medium">
+          Live autoplaying shortform ad creatives, VSLs, and TikTok UGC cuts engineered to generate high-ROAS returns across 20+ industries.
+        </p>
       </section>
 
-      {/* Client roster */}
-      <section className="mx-auto max-w-[1240px] px-5 pb-16 md:px-8 md:pb-20">
-        <div className="mb-6 flex flex-wrap items-center gap-2">
-          <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-zinc-500">
-            Jump to
-          </span>
-          {allClients.map((client) => (
-            <a
-              key={client.slug}
-              href={`#${client.slug}`}
-              className="rounded-full border border-zinc-800 bg-[var(--band-2)] px-3.5 py-1.5 text-[12px] font-semibold text-zinc-300 transition hover:border-[var(--accent)] hover:text-white"
-            >
-              {client.name.split(" · ")[0].split(" ").slice(0, 2).join(" ")}
-            </a>
-          ))}
-          <a
-            href="#brand-logos"
-            className="rounded-full border border-zinc-800 bg-[var(--band-2)] px-3.5 py-1.5 text-[12px] font-semibold text-zinc-300 transition hover:border-[var(--accent)] hover:text-white"
-          >
-            Brand Logos
-          </a>
-        </div>
-
-        <div className="space-y-6">
-          {allClients.map((client) => (
-            <ClientSection key={client.slug} client={client} />
-          ))}
-        </div>
-
-        {/* Logo wall */}
-        <section id="brand-logos" className="scroll-mt-28 mt-10">
-          <div className="rounded-2xl border border-zinc-800 bg-[var(--band-2)] p-5 md:p-8">
-            <p className="eyebrow-accent mb-2">Brand logos</p>
-            <h2 className="display text-2xl font-bold text-white md:text-3xl">
-              Brands we work with.
+      {/* Auto-Playing Shorts Grid (Using All 16 Real Reels from /media/library/million-dollar-media/shorts/) */}
+      <section className="py-20 px-4 md:px-8 max-w-7xl mx-auto">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-12">
+          <div>
+            <div className="flex items-center gap-2 mb-1">
+              <Flame className="w-4 h-4 text-rose-500" />
+              <span className="text-xs font-mono font-bold text-rose-600 uppercase tracking-widest">
+                LIVE AUTOPLAYING AD CREATIVES ({adShorts.length} REELS)
+              </span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-black text-stone-950 font-hero">
+              Active Shortform Campaign Vault
             </h2>
-            <p className="mt-1 text-sm text-zinc-400">
-              Two Comma Club Winner. ClickFunnels Awards. The system repeats
-              across industries.
-            </p>
-            <div className="mt-6 grid grid-cols-2 items-center gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-              {logos.map((logo) => (
-                <div
-                  key={logo}
-                  className="flex h-16 items-center justify-center rounded-xl border border-zinc-800 bg-[#09090b] px-3 transition hover:border-[var(--accent)]/50"
-                >
-                  <Image
-                    src={logo}
-                    alt="Client brand logo"
-                    width={120}
-                    height={48}
-                    className="h-9 w-auto object-contain opacity-75"
-                  />
-                </div>
-              ))}
-            </div>
           </div>
-        </section>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-stone-950 hover:bg-purple-700 text-white font-bold text-xs uppercase tracking-wider transition-colors shadow-lg"
+          >
+            <span>Order DFY Video Ads</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {adShorts.map((item, idx) => (
+            <div
+              key={item.id || idx}
+              className="group relative rounded-3xl overflow-hidden border-2 border-stone-950 bg-stone-900 aspect-[9/16] flex flex-col justify-between p-5 cursor-pointer hover:border-purple-600 transition-all shadow-xl"
+            >
+              {/* Autoplay Video Loop */}
+              <video
+                src={item.src}
+                poster={item.poster}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-black/30 pointer-events-none" />
+
+              <div className="relative z-10 flex items-center justify-between pointer-events-none">
+                <span className="text-xs font-mono font-black px-2.5 py-1 rounded-full bg-purple-700 text-white shadow-md">
+                  {item.label}
+                </span>
+                <span className="text-[10px] font-mono font-bold text-white bg-black/60 px-2.5 py-1 rounded-full border border-white/20">
+                  AUTO REEL #{idx + 1}
+                </span>
+              </div>
+
+              <div className="relative z-10 text-left pointer-events-none">
+                <h3 className="font-extrabold text-base text-white tracking-tight font-hero leading-tight">
+                  {item.name}
+                </h3>
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
+
+      {/* Creative New Lower Section: "Ad Anatomy & Hook Strategy" */}
+      <section className="py-24 px-4 md:px-8 bg-stone-950 text-white border-t border-b border-stone-800 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-xs font-mono font-black uppercase tracking-widest text-purple-400 bg-purple-500/10 border border-purple-500/30 px-4 py-2 rounded-full inline-flex items-center gap-2 mb-4">
+              <Sparkles className="w-3.5 h-3.5 text-purple-400" />
+              <span>THE SCALEWITHADS CREATIVE ARCHITECTURE</span>
+            </span>
+            <h2 className="text-4xl sm:text-6xl font-black text-white uppercase font-hero tracking-tight">
+              Anatomy of a <span className="font-serif italic lowercase text-purple-400">viral ad.</span>
+            </h2>
+            <p className="text-stone-400 text-sm sm:text-base font-medium mt-3">
+              Why our shortform ad creatives consistently outperform generic agency video edits.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {creativePillars.map((p, idx) => (
+              <div
+                key={idx}
+                className="bg-stone-900/90 border border-stone-800 rounded-3xl p-6 flex flex-col justify-between hover:border-purple-500 transition-colors shadow-2xl"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-3xl font-black text-purple-400 font-hero">
+                      {p.num}
+                    </span>
+                    <CheckCircle2 className="w-5 h-5 text-purple-400" />
+                  </div>
+                  <h3 className="text-xl font-extrabold text-white font-hero tracking-tight mb-2">
+                    {p.title}
+                  </h3>
+                  <p className="text-stone-400 text-xs font-medium leading-relaxed">
+                    {p.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-16 p-8 rounded-3xl bg-gradient-to-r from-purple-950/80 via-stone-900 to-stone-950 border border-purple-800/50 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div>
+              <h3 className="text-2xl font-black text-white font-hero">
+                Ready to Launch High-ROAS Shortform Ads?
+              </h3>
+              <p className="text-stone-400 text-xs font-medium mt-1">
+                Our creative lab produces 20+ script-to-rendered UGC & VSL variations every 5 business days.
+              </p>
+            </div>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs uppercase tracking-wider transition-colors shadow-lg shadow-purple-600/30 whitespace-nowrap"
+            >
+              <span>Book Strategy Call</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+        </div>
+      </section>
+
+      <LusionEndSection />
+      <EditorialFooter />
     </main>
   );
 }

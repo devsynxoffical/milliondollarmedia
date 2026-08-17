@@ -1,12 +1,7 @@
 import type { Metadata } from "next";
-import { AnnouncementBar } from "../components/layout/AnnouncementBar";
-import { Nav } from "../components/layout/Nav";
-import { ScrollProgress } from "../components/ui/ScrollProgress";
-import { NoiseOverlay } from "../components/ui/NoiseOverlay";
 import { SmoothScroll } from "../components/providers/SmoothScroll";
-import { CustomCursor } from "../components/providers/CustomCursor";
+import { ScrollToTop } from "../components/ScrollToTop";
 import "./globals.css";
-
 
 export const metadata: Metadata = {
   title: "Scale With Ads™ | Done-For-You Client Acquisition System",
@@ -34,17 +29,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full">
-      <body className="min-h-full antialiased font-sans bg-[#070709] text-white">
-
+    <html lang="en" className="h-full" suppressHydrationWarning>
+      <body className="min-h-full antialiased font-sans bg-[#FDFBF7] text-stone-900" suppressHydrationWarning>
+        <ScrollToTop />
         <SmoothScroll>
-          <CustomCursor>
-            <NoiseOverlay />
-            <ScrollProgress />
-            <AnnouncementBar />
-            <Nav />
-            {children}
-          </CustomCursor>
+          {children}
         </SmoothScroll>
       </body>
     </html>

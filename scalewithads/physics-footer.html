@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Physics Footer — Let's Work Together</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+<style>
+  :root{
+    --bg: #e9eaee;
+    --ink: #16171a;
+  }
+  *{ box-sizing: border-box; }
+  html, body{
+    margin:0; padding:0;
+    background: var(--bg);
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+  }
+
+  .stage{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  canvas{
+    position: absolute;
+    top: 0; left: 0;
+    display: block;
+    /* the cursor should feel "active" over the whole physics field */
+    cursor: grab;
+  }
+  canvas.grabbing{ cursor: grabbing; }
+
+  /* ---------- top nav ---------- */
+  .nav{
+    position: absolute;
+    top: 32px; left: 0; right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+    z-index: 10;
+    pointer-events: none;
+  }
+  .nav *{ pointer-events: auto; }
+  .logo{
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: var(--ink);
+  }
+  .nav-right{ display:flex; align-items:center; gap: 10px; }
+  .pill{
+    display:flex; align-items:center; gap:8px;
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(0,0,0,0.08);
+    padding: 12px 20px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--ink);
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.15s ease;
+  }
+  .pill:hover{ transform: translateY(-1px); }
+  .pill.dark{
+    background: var(--ink);
+    color: #fff;
+    border: none;
+  }
+  .dot{ width:6px; height:6px; border-radius:50%; background: currentColor; opacity:0.6; }
+
+  /* ---------- headline ---------- */
+  .headline-wrap{
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 130px;
+    z-index: 5;
+    pointer-events: none;
+    text-align: center;
+  }
+  .eyebrow{
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: rgba(20,20,20,0.55);
+    margin-bottom: 18px;
+  }
+  h1{
+    margin: 0;
+    font-size: clamp(48px, 8vw, 118px);
+    line-height: 0.98;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    font-family: "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .scroll-pill{
+    position: absolute;
+    bottom: 40px; left: 50%;
+    transform: translateX(-50%);
+    display:flex; align-items:center; gap:10px;
+    background: rgba(255,255,255,0.75);
+    padding: 14px 26px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--ink);
+    z-index: 10;
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+
+<div class="stage" id="stage">
+  <div class="nav">
+    <div class="logo">LUSION</div>
+    <div class="nav-right">
+      <div class="pill dark">LET'S TALK <span class="dot"></span></div>
+      <div class="pill">MENU <span class="dot"></span></div>
+    </div>
+  </div>
+
+  <div class="headline-wrap">
+    <div class="eyebrow">IS YOUR BIG IDEA READY TO GO WILD?</div>
+    <h1>Let's work<br/>together!</h1>
+  </div>
+
+  <div class="scroll-pill">↓ CONTINUE TO SCROLL ↓</div>
+</div>
+
+<script>
+(function(){
+  const { Engine, Render, Runner, World, Bodies, Body, Composite,
+          Mouse, MouseConstraint, Events, Vector, Common } = Matter;
+
+  const stage = document.getElementById('stage');
+  let W = window.innerWidth, H = window.innerHeight;
+
+  // ---------------- engine ----------------
+  const engine = Engine.create();
+  engine.gravity.y = 1.1;
+  const world = engine.world;
+
+  // canvas rendered manually (custom shapes / colors) instead of Matter's default renderer
+  const canvas = document.createElement('canvas');
+  canvas.width = W; canvas.height = H;
+  stage.insertBefore(canvas, stage.firstChild);
+  const ctx = canvas.getContext('2d');
+
+  // ---------------- palette ----------------
+  const COLORS = ['#16171a', '#4a4d54', '#c7cbd1', '#2b3ee0', '#7c3aed',
+                  '#e11d2e', '#22c55e', '#d4ff3f', '#c7cbd1', '#16171a'];
+  const rand = (a,b) => a + Math.random()*(b-a);
+  const pick = arr => arr[(Math.random()*arr.length)|0];
+
+  // ---------------- boundaries ----------------
+  const wallOpts = { isStatic: true, restitution: 0.15, friction: 0.4, render:{visible:false} };
+  let ground, leftWall, rightWall, ceiling;
+  function buildBounds(){
+    if (ground) Composite.remove(world, [ground, leftWall, rightWall, ceiling]);
+    const t = 120;
+    ground    = Bodies.rectangle(W/2, H + t/2 - 2, W*2, t, wallOpts);
+    leftWall  = Bodies.rectangle(-t/2, H/2, t, H*3, wallOpts);
+    rightWall = Bodies.rectangle(W + t/2, H/2, t, H*3, wallOpts);
+    ceiling   = Bodies.rectangle(W/2, -t/2 - 400, W*2, t, wallOpts);
+    Composite.add(world, [ground, leftWall, rightWall, ceiling]);
+  }
+  buildBounds();
+
+  // ---------------- shape factory ----------------
+  // each body carries a `.shapeInfo` used purely for custom drawing
+  const shapes = [];
+
+  function addBody(body, info){
+    body.shapeInfo = info;
+    body.restitution = 0.35;
+    body.friction = 0.15;
+    body.frictionAir = 0.012;
+    shapes.push(body);
+    Composite.add(world, body);
+  }
+
+  function makeCircle(x,y,r,color){
+    const b = Bodies.circle(x,y,r,{});
+    addBody(b, {type:'circle', r, color});
+  }
+  function makeRing(x,y,r,color){
+    const b = Bodies.circle(x,y,r,{});
+    addBody(b, {type:'ring', r, color, w: Math.max(4, r*0.32)});
+  }
+  function makeTriangle(x,y,s,color){
+    const b = Bodies.polygon(x,y,3,s,{});
+    addBody(b, {type:'poly', color});
+  }
+  function makePentagon(x,y,s,color){
+    const b = Bodies.polygon(x,y,5,s,{});
+    addBody(b, {type:'poly', color});
+  }
+  function makeHex(x,y,s,color){
+    const b = Bodies.polygon(x,y,6,s,{});
+    addBody(b, {type:'poly', color});
+  }
+  function makeCapsule(x,y,w,h,color){
+    const b = Bodies.rectangle(x,y,w,h,{ chamfer:{ radius: Math.min(w,h)/2 } });
+    addBody(b, {type:'capsule', w, h, color});
+  }
+  function makeBowtie(x,y,s,color){
+    // hourglass / lightning-ish silhouette via custom vertices
+    const verts = [
+      {x:-s, y:-s}, {x:s, y:-s*0.15}, {x:-s*0.15, y:0},
+      {x:s, y:s}, {x:-s, y:s*0.15}, {x:s*0.15, y:0}
+    ];
+    const b = Bodies.fromVertices(x, y, [verts], {}, true);
+    addBody(b, {type:'poly', color});
+  }
+
+  const spawners = [makeCircle, makeRing, makeTriangle, makePentagon, makeHex, makeCapsule, makeBowtie];
+
+  function spawnField(count){
+    for(let i=0;i<count;i++){
+      const x = rand(40, W-40);
+      const y = rand(-1600, -40);
+      const size = rand(14, 34);
+      const color = pick(COLORS);
+      const fn = pick(spawners);
+      if (fn === makeCapsule){
+        fn(x,y, size*1.6, size*0.7, color);
+      } else {
+        fn(x,y,size,color);
+      }
+    }
+  }
+
+  const COUNT = window.innerWidth < 700 ? 90 : 170;
+  spawnField(COUNT);
+
+  // ---------------- mouse: drag + ambient repulsion ----------------
+  const mouse = Mouse.create(canvas);
+  mouse.pixelRatio = window.devicePixelRatio || 1;
+
+  const mouseConstraint = MouseConstraint.create(engine, {
+    mouse,
+    constraint: { stiffness: 0.18, damping: 0.15, render:{visible:false} }
+  });
+  Composite.add(world, mouseConstraint);
+
+  canvas.addEventListener('mousedown', ()=> canvas.classList.add('grabbing'));
+  window.addEventListener('mouseup', ()=> canvas.classList.remove('grabbing'));
+
+  // track raw pointer position for the ambient "push everything nearby" field,
+  // independent from whatever Matter's mouse constraint is doing
+  const pointer = { x: -9999, y: -9999, active:false, px:-9999, py:-9999 };
+  function updatePointer(clientX, clientY){
+    pointer.px = pointer.x; pointer.py = pointer.y;
+    pointer.x = clientX; pointer.y = clientY;
+    pointer.active = true;
+  }
+  window.addEventListener('mousemove', e => updatePointer(e.clientX, e.clientY));
+  window.addEventListener('mouseleave', () => pointer.active = false);
+  window.addEventListener('touchmove', e => {
+    if (e.touches[0]) updatePointer(e.touches[0].clientX, e.touches[0].clientY);
+  }, {passive:true});
+
+  const REPEL_RADIUS = 130;
+  const REPEL_STRENGTH = 0.018;
+
+  Events.on(engine, 'beforeUpdate', () => {
+    if (!pointer.active) return;
+    const vx = pointer.x - pointer.px, vy = pointer.y - pointer.py;
+    const speed = Math.min(1, Math.hypot(vx,vy) / 40);
+    for (const b of shapes){
+      const dx = b.position.x - pointer.x;
+      const dy = b.position.y - pointer.y;
+      const dist = Math.hypot(dx,dy);
+      if (dist < REPEL_RADIUS && dist > 0.001){
+        const falloff = 1 - dist / REPEL_RADIUS;
+        const force = REPEL_STRENGTH * falloff * (0.4 + speed);
+        Body.applyForce(b, b.position, {
+          x: (dx/dist) * force,
+          y: (dy/dist) * force * 0.6 - falloff * 0.0015 // slight lift, like a splash
+        });
+      }
+    }
+  });
+
+  // ---------------- render loop ----------------
+  function drawShape(b){
+    const info = b.shapeInfo;
+    ctx.save();
+    ctx.translate(b.position.x, b.position.y);
+    ctx.rotate(b.angle);
+    ctx.fillStyle = info.color;
+
+    if (info.type === 'circle'){
+      ctx.beginPath();
+      ctx.arc(0,0,info.r,0,Math.PI*2);
+      ctx.fill();
+    } else if (info.type === 'ring'){
+      ctx.beginPath();
+      ctx.arc(0,0, info.r - info.w/2, 0, Math.PI*2);
+      ctx.lineWidth = info.w;
+      ctx.strokeStyle = info.color;
+      ctx.stroke();
+    } else if (info.type === 'capsule'){
+      const w = info.w, h = info.h, r = h/2;
+      ctx.beginPath();
+      ctx.moveTo(-w/2 + r, -h/2);
+      ctx.lineTo(w/2 - r, -h/2);
+      ctx.arc(w/2 - r, 0, r, -Math.PI/2, Math.PI/2);
+      ctx.lineTo(-w/2 + r, h/2);
+      ctx.arc(-w/2 + r, 0, r, Math.PI/2, 1.5*Math.PI);
+      ctx.closePath();
+      ctx.fill();
+    } else if (info.type === 'poly'){
+      const verts = b.vertices;
+      ctx.rotate(-b.angle); // vertices already in world space
+      ctx.translate(-b.position.x, -b.position.y);
+      ctx.beginPath();
+      ctx.moveTo(verts[0].x, verts[0].y);
+      for(let i=1;i<verts.length;i++) ctx.lineTo(verts[i].x, verts[i].y);
+      ctx.closePath();
+      ctx.fill();
+    }
+    ctx.restore();
+  }
+
+  function render(){
+    ctx.clearRect(0,0,W,H);
+    for (const b of shapes) drawShape(b);
+    requestAnimationFrame(render);
+  }
+
+  const runner = Runner.create();
+  Runner.run(runner, engine);
+  requestAnimationFrame(render);
+
+  // ---------------- resize ----------------
+  function onResize(){
+    W = window.innerWidth; H = window.innerHeight;
+    canvas.width = W; canvas.height = H;
+    buildBounds();
+  }
+  window.addEventListener('resize', onResize);
+
+})();
+</script>
+</body>
+</html>
