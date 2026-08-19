@@ -39,8 +39,12 @@ export function FloatingNavbar() {
       >
         {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-2.5 group pl-1">
-          <div className="w-8 h-8 rounded-full bg-stone-950 flex items-center justify-center text-white transition-transform group-hover:scale-105">
-            <Sparkles className="w-4 h-4 text-purple-300" />
+          <div className="w-8 h-8 rounded-full bg-stone-950 flex items-center justify-center overflow-hidden border border-stone-900 shadow-sm transition-transform group-hover:scale-105">
+            <img
+              src="/icon-logo/favicon.jpeg"
+              alt="ScaleWithAds Icon"
+              className="w-full h-full object-cover"
+            />
           </div>
           <span className="font-extrabold text-stone-950 tracking-tight text-lg font-hero">
             ScaleWithAds

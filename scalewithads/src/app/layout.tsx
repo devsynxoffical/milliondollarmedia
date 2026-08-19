@@ -9,11 +9,10 @@ export const metadata: Metadata = {
     "We install our proprietary Scale With Ads™ Client Acquisition System into your business and double your revenue in 90 days, or we work at no management fee until we do. Backed by a written agreement. For $10K+/month businesses.",
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/favicon-32.png", type: "image/png", sizes: "32x32" },
-      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
+      { url: "/icon-logo/favicon.jpeg", type: "image/jpeg" },
     ],
-    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+    shortcut: "/icon-logo/favicon.jpeg",
+    apple: "/icon-logo/favicon.jpeg",
   },
   openGraph: {
     title: "Scale With Ads™ | Double Your Revenue In 90 Days",

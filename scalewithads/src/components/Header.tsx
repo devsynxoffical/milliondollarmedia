@@ -50,7 +50,7 @@ export function Header() {
       <div className="mx-auto flex h-16 max-w-[1240px] items-center justify-between gap-4 px-5 md:h-18 md:px-8">
         <Link href="/" className="flex items-center gap-3 shrink-0" onClick={() => setOpen(false)}>
           <Image
-            src="/logo-alt.png"
+            src="/icon-logo/mainlogo.jpeg"
             alt="Scale with Ads"
             width={2000}
             height={1538}

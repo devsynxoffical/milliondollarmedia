@@ -6,7 +6,25 @@ import Link from "next/link";
 
 interface CustomBody extends Matter.Body {
   shapeInfo?: {
-    type: "meta" | "google" | "tiktok" | "youtube" | "instagram" | "shopify" | "snapchat" | "twitter" | "roas";
+    type:
+      | "facebook"
+      | "meta"
+      | "instagram"
+      | "whatsapp"
+      | "tiktok"
+      | "youtube"
+      | "google"
+      | "linkedin"
+      | "pinterest"
+      | "reddit"
+      | "snapchat"
+      | "twitter"
+      | "threads"
+      | "discord"
+      | "telegram"
+      | "spotify"
+      | "shopify"
+      | "roas";
     r: number;
     color: string;
     bgGradient?: [string, string];
@@ -56,12 +74,12 @@ export function LusionEndSection() {
     }
     buildBounds();
 
-    // 3. Ultra-Vibrant Brand & Performance Icon Spawners
+    // 3. Ultra-Vibrant Brand & Social Media Platform Icon Spawners
     const shapes: CustomBody[] = [];
 
     function addBody(body: CustomBody, info: NonNullable<CustomBody["shapeInfo"]>) {
       body.shapeInfo = info;
-      body.restitution = 0.7; // High bounciness
+      body.restitution = 0.75; // High bounciness
       body.friction = 0.1;
       body.frictionAir = 0.008;
       shapes.push(body);
@@ -69,50 +87,95 @@ export function LusionEndSection() {
     }
 
     const platformCreators = [
-      // Meta Ads Badge (Vivid Blue)
+      // 1. Facebook Badge (Classic Blue)
       (x: number, y: number, r: number) => {
         const b = Bodies.circle(x, y, r, {}) as CustomBody;
-        addBody(b, { type: "meta", r, color: "#1877F2", bgGradient: ["#0064E0", "#1877F2"], label: "Meta" });
+        addBody(b, { type: "facebook", r, color: "#1877F2", bgGradient: ["#0064E0", "#1877F2"], label: "Facebook" });
       },
-      // Google Ads Badge (Vivid Red / White)
+      // 2. Meta Ads Badge (Vivid Blue Gradient)
       (x: number, y: number, r: number) => {
         const b = Bodies.circle(x, y, r, {}) as CustomBody;
-        addBody(b, { type: "google", r, color: "#EA4335", bgGradient: ["#FFFFFF", "#F8FAFC"], label: "Google" });
+        addBody(b, { type: "meta", r, color: "#0064E0", bgGradient: ["#0052CC", "#2563EB"], label: "Meta" });
       },
-      // TikTok Ads Badge (Cyan/Pink Accented Black)
-      (x: number, y: number, r: number) => {
-        const b = Bodies.circle(x, y, r, {}) as CustomBody;
-        addBody(b, { type: "tiktok", r, color: "#000000", bgGradient: ["#18181B", "#000000"], label: "TikTok" });
-      },
-      // YouTube Ads Badge (Crimson Red)
-      (x: number, y: number, r: number) => {
-        const b = Bodies.circle(x, y, r, {}) as CustomBody;
-        addBody(b, { type: "youtube", r, color: "#FF0000", bgGradient: ["#DC2626", "#FF0000"], label: "YouTube" });
-      },
-      // Instagram Badge (Vibrant Pink/Amber Gradient)
+      // 3. Instagram Badge (Sunset Orange/Pink Gradient)
       (x: number, y: number, r: number) => {
         const b = Bodies.circle(x, y, r, {}) as CustomBody;
         addBody(b, { type: "instagram", r, color: "#E1306C", bgGradient: ["#F59E0B", "#E1306C"], label: "Instagram" });
       },
-      // Shopify / E-Comm Badge (Emerald Green)
+      // 4. WhatsApp Badge (Emerald Green)
       (x: number, y: number, r: number) => {
         const b = Bodies.circle(x, y, r, {}) as CustomBody;
-        addBody(b, { type: "shopify", r, color: "#95BF47", bgGradient: ["#10B981", "#059669"], label: "Shopify" });
+        addBody(b, { type: "whatsapp", r, color: "#25D366", bgGradient: ["#10B981", "#059669"], label: "WhatsApp" });
       },
-      // Snapchat Ads Badge (Electric Yellow)
+      // 5. TikTok Ads Badge (Cyan/Pink Accented Black)
+      (x: number, y: number, r: number) => {
+        const b = Bodies.circle(x, y, r, {}) as CustomBody;
+        addBody(b, { type: "tiktok", r, color: "#000000", bgGradient: ["#18181B", "#000000"], label: "TikTok" });
+      },
+      // 6. YouTube Ads Badge (Crimson Red)
+      (x: number, y: number, r: number) => {
+        const b = Bodies.circle(x, y, r, {}) as CustomBody;
+        addBody(b, { type: "youtube", r, color: "#FF0000", bgGradient: ["#DC2626", "#FF0000"], label: "YouTube" });
+      },
+      // 7. Google Ads Badge (White / Vivid Multi)
+      (x: number, y: number, r: number) => {
+        const b = Bodies.circle(x, y, r, {}) as CustomBody;
+        addBody(b, { type: "google", r, color: "#EA4335", bgGradient: ["#FFFFFF", "#F8FAFC"], label: "Google" });
+      },
+      // 8. LinkedIn Badge (Corporate Blue)
+      (x: number, y: number, r: number) => {
+        const b = Bodies.circle(x, y, r, {}) as CustomBody;
+        addBody(b, { type: "linkedin", r, color: "#0A66C2", bgGradient: ["#0284C7", "#0369A1"], label: "LinkedIn" });
+      },
+      // 9. Pinterest Badge (Deep Red)
+      (x: number, y: number, r: number) => {
+        const b = Bodies.circle(x, y, r, {}) as CustomBody;
+        addBody(b, { type: "pinterest", r, color: "#E60023", bgGradient: ["#EF4444", "#B91C1C"], label: "Pinterest" });
+      },
+      // 10. Reddit Badge (Orange Red)
+      (x: number, y: number, r: number) => {
+        const b = Bodies.circle(x, y, r, {}) as CustomBody;
+        addBody(b, { type: "reddit", r, color: "#FF4500", bgGradient: ["#F97316", "#C2410C"], label: "Reddit" });
+      },
+      // 11. Snapchat Badge (Electric Yellow)
       (x: number, y: number, r: number) => {
         const b = Bodies.circle(x, y, r, {}) as CustomBody;
         addBody(b, { type: "snapchat", r, color: "#FFFC00", bgGradient: ["#FFFF00", "#EAB308"], label: "Snapchat" });
       },
-      // X / Twitter Badge (Obsidian Black)
+      // 12. X / Twitter Badge (Obsidian Black)
       (x: number, y: number, r: number) => {
         const b = Bodies.circle(x, y, r, {}) as CustomBody;
         addBody(b, { type: "twitter", r, color: "#000000", bgGradient: ["#27272A", "#09090B"], label: "X" });
       },
-      // ROAS & Scale Metric Emojis (Vibrant Purple & Coral)
+      // 13. Threads Badge (Dark Charcoal)
       (x: number, y: number, r: number) => {
         const b = Bodies.circle(x, y, r, {}) as CustomBody;
-        const emojis = ["🚀", "📈", "💰", "⚡", "🎯", "💥", "🔥", "🏆", "💎", "🌟"];
+        addBody(b, { type: "threads", r, color: "#111827", bgGradient: ["#1F2937", "#111827"], label: "Threads" });
+      },
+      // 14. Discord Badge (Indigo Violet)
+      (x: number, y: number, r: number) => {
+        const b = Bodies.circle(x, y, r, {}) as CustomBody;
+        addBody(b, { type: "discord", r, color: "#5865F2", bgGradient: ["#6366F1", "#4F46E5"], label: "Discord" });
+      },
+      // 15. Telegram Badge (Cyan Blue)
+      (x: number, y: number, r: number) => {
+        const b = Bodies.circle(x, y, r, {}) as CustomBody;
+        addBody(b, { type: "telegram", r, color: "#24A1DE", bgGradient: ["#0EA5E9", "#0284C7"], label: "Telegram" });
+      },
+      // 16. Spotify Badge (Electric Green)
+      (x: number, y: number, r: number) => {
+        const b = Bodies.circle(x, y, r, {}) as CustomBody;
+        addBody(b, { type: "spotify", r, color: "#1DB954", bgGradient: ["#22C55E", "#15803D"], label: "Spotify" });
+      },
+      // 17. Shopify / E-Comm Badge (Emerald Lime)
+      (x: number, y: number, r: number) => {
+        const b = Bodies.circle(x, y, r, {}) as CustomBody;
+        addBody(b, { type: "shopify", r, color: "#95BF47", bgGradient: ["#84CC16", "#65A30D"], label: "Shopify" });
+      },
+      // 18. ROAS & Scale Metric Emojis (Vibrant Multi)
+      (x: number, y: number, r: number) => {
+        const b = Bodies.circle(x, y, r, {}) as CustomBody;
+        const emojis = ["🚀", "📈", "💰", "⚡", "🎯", "💥", "🔥", "🏆", "💎", "🌟", "👑", "💸"];
         const randEmoji = emojis[Math.floor(Math.random() * emojis.length)];
         const grads: [string, string][] = [
           ["#A855F7", "#7E22CE"],
@@ -126,18 +189,18 @@ export function LusionEndSection() {
       },
     ];
 
-    // High Density Spawn (200+ Badges)
+    // High Density Spawn (240+ Badges)
     function spawnField(count: number) {
       for (let i = 0; i < count; i++) {
         const x = 30 + Math.random() * (W - 60);
-        const y = -1400 + Math.random() * 1350;
+        const y = -1500 + Math.random() * 1450;
         const r = 18 + Math.random() * 16; // 18px to 34px radius
         const creator = platformCreators[i % platformCreators.length];
         creator(x, y, r);
       }
     }
 
-    const COUNT = W < 700 ? 110 : 210;
+    const COUNT = W < 700 ? 120 : 240;
     spawnField(COUNT);
 
     // 4. Mouse Interaction & Ambient Repulsion
@@ -156,7 +219,7 @@ export function LusionEndSection() {
     canvas.addEventListener("mousedown", handleMouseDown);
     window.addEventListener("mouseup", handleMouseUp);
 
-    // Hyper-Responsive Pointer Tracking
+    // Pointer Tracking
     const pointer = { x: -9999, y: -9999, active: false, px: -9999, py: -9999 };
 
     function updatePointer(clientX: number, clientY: number) {
@@ -204,7 +267,7 @@ export function LusionEndSection() {
       }
     });
 
-    // 5. High-Polish Render Loop with Crisp Brand Graphics
+    // 5. Render Loop with All Social Media Platform Graphics
     function drawShape(b: CustomBody) {
       if (!ctx || !b.shapeInfo) return;
       const info = b.shapeInfo;
@@ -244,16 +307,24 @@ export function LusionEndSection() {
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
 
-      if (info.type === "meta") {
+      if (info.type === "facebook") {
+        ctx.font = `900 ${Math.round(r * 1.25)}px Arial, sans-serif`;
+        ctx.fillStyle = "#FFFFFF";
+        ctx.fillText("f", 0, r * 0.04);
+      } else if (info.type === "meta") {
         ctx.font = `bold ${Math.round(r * 1.15)}px sans-serif`;
+        ctx.fillStyle = "#FFFFFF";
         ctx.fillText("∞", 0, 0);
       } else if (info.type === "google") {
-        ctx.font = `black ${Math.round(r * 1.0)}px sans-serif`;
+        ctx.font = `900 ${Math.round(r * 1.0)}px Arial, sans-serif`;
+        ctx.fillStyle = "#16171A";
         ctx.fillText("G", 0, 0);
       } else if (info.type === "tiktok") {
         ctx.font = `bold ${Math.round(r * 0.95)}px sans-serif`;
+        ctx.fillStyle = "#FFFFFF";
         ctx.fillText("♪", 0, 0);
       } else if (info.type === "youtube") {
+        ctx.fillStyle = "#FFFFFF";
         ctx.beginPath();
         const s = r * 0.55;
         ctx.moveTo(-s * 0.4, -s);
@@ -262,20 +333,64 @@ export function LusionEndSection() {
         ctx.closePath();
         ctx.fill();
       } else if (info.type === "instagram") {
-        ctx.beginPath();
-        ctx.arc(0, 0, r * 0.42, 0, Math.PI * 2);
-        ctx.lineWidth = 2.5;
+        // Draw Instagram Camera Icon
+        const s = r * 0.45;
         ctx.strokeStyle = "#FFFFFF";
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        if (typeof ctx.roundRect === "function") {
+          ctx.roundRect(-s, -s, s * 2, s * 2, s * 0.4);
+        } else {
+          ctx.rect(-s, -s, s * 2, s * 2);
+        }
         ctx.stroke();
-      } else if (info.type === "shopify") {
-        ctx.font = `${Math.round(r * 0.9)}px sans-serif`;
-        ctx.fillText("🛍️", 0, 0);
+
+        // Center Lens
+        ctx.beginPath();
+        ctx.arc(0, 0, s * 0.45, 0, Math.PI * 2);
+        ctx.stroke();
+
+        // Flash Dot
+        ctx.fillStyle = "#FFFFFF";
+        ctx.beginPath();
+        ctx.arc(s * 0.5, -s * 0.5, s * 0.12, 0, Math.PI * 2);
+        ctx.fill();
+      } else if (info.type === "whatsapp") {
+        ctx.font = `bold ${Math.round(r * 0.95)}px sans-serif`;
+        ctx.fillText("💬", 0, 0);
+      } else if (info.type === "linkedin") {
+        ctx.font = `900 ${Math.round(r * 0.9)}px Arial, sans-serif`;
+        ctx.fillStyle = "#FFFFFF";
+        ctx.fillText("in", 0, -r * 0.05);
+      } else if (info.type === "pinterest") {
+        ctx.font = `900 ${Math.round(r * 1.05)}px Arial, sans-serif`;
+        ctx.fillStyle = "#FFFFFF";
+        ctx.fillText("P", 0, 0);
+      } else if (info.type === "reddit") {
+        ctx.font = `bold ${Math.round(r * 0.85)}px sans-serif`;
+        ctx.fillStyle = "#FFFFFF";
+        ctx.fillText("r/", 0, 0);
       } else if (info.type === "snapchat") {
         ctx.font = `${Math.round(r * 0.9)}px sans-serif`;
         ctx.fillText("👻", 0, 0);
       } else if (info.type === "twitter") {
         ctx.font = `bold ${Math.round(r * 0.85)}px sans-serif`;
         ctx.fillText("𝕏", 0, 0);
+      } else if (info.type === "threads") {
+        ctx.font = `bold ${Math.round(r * 0.95)}px sans-serif`;
+        ctx.fillText("@", 0, 0);
+      } else if (info.type === "discord") {
+        ctx.font = `${Math.round(r * 0.9)}px sans-serif`;
+        ctx.fillText("👾", 0, 0);
+      } else if (info.type === "telegram") {
+        ctx.font = `${Math.round(r * 0.9)}px sans-serif`;
+        ctx.fillText("✈", 0, 0);
+      } else if (info.type === "spotify") {
+        ctx.font = `bold ${Math.round(r * 0.9)}px sans-serif`;
+        ctx.fillText("🟢", 0, 0);
+      } else if (info.type === "shopify") {
+        ctx.font = `${Math.round(r * 0.9)}px sans-serif`;
+        ctx.fillText("🛍️", 0, 0);
       } else if (info.type === "roas") {
         ctx.font = `${Math.round(r * 1.05)}px sans-serif`;
         ctx.fillText(info.emoji || "🚀", 0, 0);
@@ -342,20 +457,20 @@ export function LusionEndSection() {
             
             {/* Subtitle */}
             <div id="end-section-subtitle" className="mb-6">
-              <span className="text-[11px] sm:text-xs font-mono font-bold tracking-[0.2em] text-stone-600 uppercase">
-                IS YOUR BIG IDEA READY TO GO WILD?
+              <span className="text-[11px] sm:text-xs font-mono font-bold tracking-[0.2em] text-purple-700 uppercase bg-purple-100 px-4 py-1.5 rounded-full border border-purple-200 inline-block shadow-sm">
+                ✦ READY TO BUILD A PREDICTABLE CLIENT ACQUISITION SYSTEM?
               </span>
             </div>
 
             {/* Title with Heavy Underlines */}
             <div id="end-section-title" className="inline-block group cursor-pointer pointer-events-auto">
               <Link href="/contact" className="block">
-                <h1 className="text-6xl sm:text-8xl md:text-9xl lg:text-[115px] font-black text-stone-950 tracking-tight leading-[0.92] uppercase font-hero">
-                  <span className="block border-b-6 sm:border-b-8 md:border-b-[10px] border-stone-950 pb-2 sm:pb-4 group-hover:text-purple-700 group-hover:border-purple-700 transition-colors">
-                    Let's work
+                <h1 className="text-6xl sm:text-8xl md:text-9xl lg:text-[115px] font-black text-purple-600 tracking-tight leading-[0.92] uppercase font-hero">
+                  <span className="block border-b-6 sm:border-b-8 md:border-b-[10px] border-purple-600 pb-2 sm:pb-4 group-hover:text-purple-800 group-hover:border-purple-800 transition-colors">
+                    LET&apos;S WORK
                   </span>
-                  <span className="block border-b-6 sm:border-b-8 md:border-b-[10px] border-stone-950 pt-2 pb-2 sm:pb-4 group-hover:text-purple-700 group-hover:border-purple-700 transition-colors">
-                    together!
+                  <span className="block border-b-6 sm:border-b-8 md:border-b-[10px] border-purple-600 pt-2 pb-2 sm:pb-4 group-hover:text-purple-800 group-hover:border-purple-800 transition-colors">
+                    TOGETHER!
                   </span>
                 </h1>
               </Link>

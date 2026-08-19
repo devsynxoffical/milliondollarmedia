@@ -34,7 +34,8 @@ export function CreativeCtaSection() {
           transition={{ duration: 0.6 }}
           className="text-4xl sm:text-6xl md:text-7xl font-black text-stone-950 tracking-tight leading-tight"
         >
-          Let's build something bold
+          Ready To Build A Predictable <br />
+          <span className="text-purple-700">Client Acquisition System?</span>
         </motion.h2>
 
         {/* CTA Subtext */}
@@ -43,9 +44,9 @@ export function CreativeCtaSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="mt-6 text-stone-700 text-lg sm:text-xl max-w-xl mx-auto font-medium"
+          className="mt-6 text-stone-700 text-base sm:text-xl max-w-2xl mx-auto font-medium leading-relaxed"
         >
-          Stop burning ad budget on low ROAS. Schedule your 1-on-1 strategy call with our senior media buyers today.
+          Stop guessing. Stop relying on referrals. Stop switching agencies. Install a complete Client Acquisition System that consistently attracts, qualifies, nurtures, and books premium clients—so you can focus on closing deals and scaling your business.
         </motion.p>
 
         {/* Action Buttons (Lunvoro dual pill buttons) */}
@@ -57,20 +58,11 @@ export function CreativeCtaSection() {
           className="mt-10 flex flex-wrap items-center justify-center gap-4"
         >
           <a
-            href="https://calendly.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-8 py-3.5 rounded-full bg-purple-600 hover:bg-purple-700 text-white font-black text-base transition-all shadow-lg hover:shadow-xl active:scale-95"
+            href="/book"
+            className="flex items-center gap-2 px-8 py-4 rounded-full bg-purple-700 hover:bg-purple-800 text-white font-extrabold text-base transition-all shadow-lg hover:shadow-xl active:scale-95"
           >
-            <span>Let's talk</span>
-            <ArrowRight className="w-4 h-4 text-purple-200" />
-          </a>
-          <a
-            href="#work"
-            className="flex items-center gap-2 px-8 py-3.5 rounded-full bg-white border-2 border-stone-900 text-stone-950 hover:bg-stone-950 hover:text-white font-black text-base transition-all shadow-md active:scale-95"
-          >
-            <span>See work</span>
-            <ArrowRight className="w-4 h-4" />
+            <span>BOOK YOUR FREE STRATEGY CALL</span>
+            <ArrowRight className="w-5 h-5 text-purple-200" />
           </a>
         </motion.div>
       </div>

@@ -84,7 +84,7 @@ export function FourWaysSection() {
                 onMouseEnter={() => setHoveredIdx(idx)}
                 className={`relative transition-all duration-400 ease-out border-b cursor-pointer ${
                   isHovered
-                    ? "bg-[#0F0F11] text-white border-stone-950 shadow-2xl py-12 px-6 sm:px-10 rounded-3xl my-3 border-transparent"
+                    ? "bg-[#9333EA] text-white border-2 border-stone-950 shadow-2xl shadow-purple-950/20 py-12 px-6 sm:px-10 rounded-3xl my-4"
                     : "bg-transparent text-stone-900 border-stone-300 py-10 px-4 sm:px-6 hover:border-stone-400"
                 }`}
               >
@@ -95,7 +95,7 @@ export function FourWaysSection() {
                     <div className="md:col-span-1">
                       <span
                         className={`text-xs font-mono font-bold tracking-widest transition-colors ${
-                          isHovered ? "text-purple-400" : "text-stone-400"
+                          isHovered ? "text-purple-200 font-black" : "text-stone-400"
                         }`}
                       >
                         {item.number}
@@ -113,7 +113,7 @@ export function FourWaysSection() {
                         {item.italicWord && (
                           <span
                             className={`italic font-serif font-normal lowercase pl-1.5 transition-colors ${
-                              isHovered ? "text-purple-300" : "text-purple-900"
+                              isHovered ? "text-purple-200" : "text-purple-900"
                             }`}
                           >
                             {item.italicWord}
@@ -121,8 +121,8 @@ export function FourWaysSection() {
                         )}
                       </h3>
                       <p
-                        className={`text-sm sm:text-base font-medium max-w-xl transition-colors mt-2 leading-relaxed ${
-                          isHovered ? "text-stone-300" : "text-stone-600"
+                        className={`text-sm sm:text-base font-semibold max-w-xl transition-colors mt-2 leading-relaxed ${
+                          isHovered ? "text-purple-100" : "text-stone-600"
                         }`}
                       >
                         {item.subtitle}

@@ -69,15 +69,19 @@ export function AdGenieHero() {
           </motion.h1>
         </div>
 
-        {/* Hero Subtitle Animation (Official ScaleWithAds Guarantee Copy) */}
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: 40, skewX: -6, filter: "blur(8px)" }}
           animate={{ opacity: 1, y: 0, skewX: 0, filter: "blur(0px)" }}
           transition={{ duration: 1.6, delay: 0.6, ease: silkEase }}
-          className="mt-6 text-base sm:text-lg md:text-xl text-stone-800 max-w-3xl font-medium leading-relaxed font-sans"
+          className="mt-6 text-base sm:text-lg md:text-xl text-stone-800 max-w-3xl font-medium leading-relaxed font-sans space-y-4"
         >
-          We install our proprietary <span className="font-bold text-stone-950">$50M+ proven Meta Ads system</span> directly into your business. Double your revenue within the next 90 days — or we work at no management fee until we do.
-        </motion.p>
+          <p>
+            We will install our proprietary <span className="font-bold text-stone-950">Scale With Ads™ Client Acquisition System</span> into your business... Double your revenue within the next 90 days... Or we'll continue working for you at no management fee until we do. <span className="font-bold text-stone-950">Backed by a Written Agreement.</span>
+          </p>
+          <p className="text-sm sm:text-base text-stone-600 font-normal">
+            Stop relying on referrals, inconsistent lead generation, and multiple freelancers. We build your entire client acquisition ecosystem—so your only job is to show up, take the calls, and close premium clients.
+          </p>
+        </motion.div>
 
         {/* Hero Action Pill Buttons */}
         <motion.div
@@ -291,40 +295,29 @@ export function AdGenieHero() {
 
                   </div>
 
-                  {/* Simulated Chart Graph Area */}
-                  <div className="p-5 rounded-2xl bg-stone-50 border border-stone-200">
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="text-xs font-bold text-stone-800 font-mono uppercase tracking-wider">
-                        ROAS Growth Telemetry Curve
-                      </span>
-                      <span className="text-xs font-mono font-bold text-purple-700">
-                        Target: 4.5x+ ROAS
+                  {/* Real YouTube Video Player (e5za2tPu7ZI) */}
+                  <div className="p-4 sm:p-5 rounded-2xl bg-stone-900 border border-stone-800 text-white relative overflow-hidden shadow-2xl">
+                    <div className="flex items-center justify-between mb-4 relative z-20">
+                      <div className="flex items-center gap-2">
+                        <span className="w-2.5 h-2.5 rounded-full bg-rose-500 animate-pulse" />
+                        <span className="text-xs font-bold text-stone-200 font-mono uppercase tracking-wider">
+                          Scale With Ads™ Official System VSL
+                        </span>
+                      </div>
+                      <span className="text-xs font-mono font-bold text-purple-400 bg-purple-950/80 px-2.5 py-1 rounded-md border border-purple-800/50">
+                        4K HD Video
                       </span>
                     </div>
 
-                    {/* SVG Curve Line Graph */}
-                    <div className="h-36 w-full relative flex items-end">
-                      <svg className="w-full h-full overflow-visible" viewBox="0 0 500 120" preserveAspectRatio="none">
-                        <defs>
-                          <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stopColor="#7E22CE" stopOpacity="0.35" />
-                            <stop offset="100%" stopColor="#7E22CE" stopOpacity="0.0" />
-                          </linearGradient>
-                        </defs>
-                        <path
-                          d="M 0 100 Q 80 85 140 60 T 280 40 T 400 20 L 500 10 L 500 120 L 0 120 Z"
-                          fill="url(#chartGrad)"
-                        />
-                        <path
-                          d="M 0 100 Q 80 85 140 60 T 280 40 T 400 20 L 500 10"
-                          fill="none"
-                          stroke="#7E22CE"
-                          strokeWidth="3.5"
-                          strokeLinecap="round"
-                        />
-                        <circle cx="500" cy="10" r="5" fill="#7E22CE" className="animate-ping" />
-                        <circle cx="500" cy="10" r="5" fill="#7E22CE" />
-                      </svg>
+                    {/* YouTube iFrame Embed */}
+                    <div className="w-full aspect-video rounded-xl overflow-hidden border border-stone-700 shadow-2xl relative bg-black">
+                      <iframe
+                        src="https://www.youtube.com/embed/e5za2tPu7ZI?autoplay=1&mute=1&loop=1&playlist=e5za2tPu7ZI&controls=1&rel=0&modestbranding=1"
+                        title="Scale With Ads™ Client Acquisition System VSL"
+                        className="w-full h-full border-0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                      />
                     </div>
                   </div>
 

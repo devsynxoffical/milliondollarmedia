@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { FloatingNavbar } from "@/components/redesign/FloatingNavbar";
 import { SelectedWorkShowcase } from "@/components/redesign/SelectedWorkShowcase";
-import { ClientsPartnersSection } from "@/components/redesign/ClientsPartnersSection";
+import { EditorialSubhero } from "@/components/redesign/EditorialSubhero";
 import { CreativeCtaSection } from "@/components/redesign/CreativeCtaSection";
 import { LusionEndSection } from "@/components/redesign/LusionEndSection";
 import { EditorialFooter } from "@/components/redesign/EditorialFooter";
@@ -284,7 +284,7 @@ export default function WorkPage() {
       </AnimatePresence>
 
       <SelectedWorkShowcase />
-      <ClientsPartnersSection />
+      <EditorialSubhero />
       <CreativeCtaSection />
       <LusionEndSection />
       <EditorialFooter />
