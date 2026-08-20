@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { Star, ShieldCheck, Sparkles, Trophy, ArrowUpRight } from "lucide-react";
 
 export function EditorialSubhero() {
   // 22 Client Logos from /media/logos/ (logo-01.png to logo-22.png)
@@ -25,7 +26,41 @@ export function EditorialSubhero() {
     "border-[#C77DFF] bg-fuchsia-50/50 shadow-fuchsia-200/40",
   ];
 
-  // Real ScaleWithAds High-Impact Rectangular Client Cards
+  // Card Creative Color Themes (Matching Header Vibrancy)
+  const cardThemes = [
+    {
+      border: "border-purple-600 hover:shadow-[0_0_35px_rgba(147,51,234,0.4)]",
+      badge: "bg-purple-100 text-purple-950 border-purple-300",
+      roleColor: "text-purple-700",
+      glow: "from-purple-500/20 to-transparent",
+    },
+    {
+      border: "border-rose-500 hover:shadow-[0_0_35px_rgba(244,63,94,0.4)]",
+      badge: "bg-rose-100 text-rose-950 border-rose-300",
+      roleColor: "text-rose-600",
+      glow: "from-rose-500/20 to-transparent",
+    },
+    {
+      border: "border-amber-500 hover:shadow-[0_0_35px_rgba(245,158,11,0.4)]",
+      badge: "bg-amber-100 text-amber-950 border-amber-300",
+      roleColor: "text-amber-700",
+      glow: "from-amber-500/20 to-transparent",
+    },
+    {
+      border: "border-emerald-500 hover:shadow-[0_0_35px_rgba(16,185,129,0.4)]",
+      badge: "bg-emerald-100 text-emerald-950 border-emerald-300",
+      roleColor: "text-emerald-700",
+      glow: "from-emerald-500/20 to-transparent",
+    },
+    {
+      border: "border-blue-500 hover:shadow-[0_0_35px_rgba(59,130,246,0.4)]",
+      badge: "bg-blue-100 text-blue-950 border-blue-300",
+      roleColor: "text-blue-700",
+      glow: "from-blue-500/20 to-transparent",
+    },
+  ];
+
+  // Real ScaleWithAds High-Impact Client Cards
   const clients = [
     {
       name: "Darrell Stern",
@@ -134,13 +169,14 @@ export function EditorialSubhero() {
   const repeatedClients = [...clients, ...clients];
 
   return (
-    <section className="py-20 sm:py-24 px-4 sm:px-8 bg-[#FDFBF7] text-stone-900 border-t border-b border-stone-200 overflow-hidden">
+    <section className="py-20 sm:py-24 px-4 sm:px-8 bg-[#FDFBF7] text-stone-900 border-t border-b border-stone-200 overflow-hidden select-none">
       
       {/* 1. Lunvoro-Style Small Circle Logo Scroller (Using /media/logos/) */}
-      <div className="w-full mb-16 overflow-hidden select-none">
+      <div className="w-full mb-16 overflow-hidden">
         <div className="text-center mb-8">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-purple-700 bg-purple-100 border border-purple-200 px-4 py-1.5 rounded-full inline-block shadow-sm">
-            ✦ TRUSTED BY 300+ HIGH-GROWTH BRANDS
+          <span className="text-xs font-mono font-black uppercase tracking-widest text-purple-700 bg-purple-100 border border-purple-200 px-4 py-1.5 rounded-full inline-flex items-center gap-2 shadow-sm">
+            <Sparkles className="w-3.5 h-3.5 text-purple-700" />
+            <span>TRUSTED BY 300+ HIGH-GROWTH BRANDS</span>
           </span>
         </div>
 
@@ -169,48 +205,96 @@ export function EditorialSubhero() {
         </motion.div>
       </div>
 
-      {/* 2. Real Client Showcase Rectangular Cards Marquee */}
-      <div className="w-full overflow-hidden select-none">
-        <div className="text-center mb-8">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-purple-700 bg-purple-100 border border-purple-200 px-4 py-1.5 rounded-full inline-block shadow-sm">
-            ✦ FEATURED CLIENT RESULTS & CASE STUDIES
+      {/* 2. Playful Header-Inspired Client Cards Marquee */}
+      <div className="w-full overflow-hidden">
+        <div className="text-center mb-10">
+          <span className="text-xs font-mono font-black uppercase tracking-widest text-purple-700 bg-purple-100 border border-purple-200 px-4 py-1.5 rounded-full inline-flex items-center gap-2 shadow-sm">
+            <Trophy className="w-3.5 h-3.5 text-purple-700" />
+            <span>FEATURED CLIENT RESULTS & CASE STUDIES</span>
           </span>
         </div>
 
-        {/* Marquee Row 2 */}
+        {/* Marquee Row 2 (Playful Tilted Header-Style Cards) */}
         <motion.div
           animate={{ x: ["-50%", "0%"] }}
-          transition={{ ease: "linear", duration: 40, repeat: Infinity }}
-          className="flex items-center gap-6 whitespace-nowrap w-max py-2"
+          transition={{ ease: "linear", duration: 45, repeat: Infinity }}
+          className="flex items-center gap-7 whitespace-nowrap w-max py-6 px-4"
         >
           {repeatedClients.map((client, idx) => {
+            const theme = cardThemes[idx % cardThemes.length];
+            const initialTilt = idx % 2 === 0 ? -2.5 : 2.5;
+
             return (
               <motion.div
                 key={idx}
-                whileHover={{ scale: 1.04, y: -6 }}
-                className="w-[230px] sm:w-[260px] h-[340px] sm:h-[370px] rounded-3xl border-2 border-stone-950 bg-white text-stone-900 shadow-xl p-3 flex flex-col justify-between shrink-0 group cursor-pointer hover:border-purple-600 hover:shadow-2xl transition-all duration-300 relative overflow-hidden"
+                initial={{ rotate: initialTilt }}
+                whileHover={{
+                  rotate: 0,
+                  scale: 1.06,
+                  y: -10,
+                  zIndex: 30,
+                }}
+                transition={{ type: "spring", stiffness: 350, damping: 20 }}
+                className={`w-[240px] sm:w-[270px] h-[360px] sm:h-[390px] rounded-[32px] border-3 ${theme.border} bg-white text-stone-900 shadow-xl p-3.5 flex flex-col justify-between shrink-0 group cursor-pointer transition-all duration-300 relative overflow-hidden`}
               >
-                {/* Top Client Image */}
-                <div className="h-[210px] sm:h-[230px] w-full rounded-2xl overflow-hidden border border-stone-200 bg-stone-100 relative">
+                {/* Arc Accent Lines (Matching Header Design) */}
+                <svg
+                  className="absolute -top-1 left-4 w-12 h-3 text-purple-400 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"
+                  viewBox="0 0 40 12"
+                  fill="none"
+                >
+                  <path d="M 4 10 Q 20 1 36 10" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                </svg>
+
+                {/* Top Image Frame with Glassmorphic Badge */}
+                <div className="h-[220px] sm:h-[245px] w-full rounded-[24px] overflow-hidden border-2 border-stone-950 bg-stone-900 relative shadow-inner">
                   <img
                     src={client.img}
                     alt={client.name}
-                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover object-top group-hover:scale-108 transition-transform duration-500"
                   />
+                  
+                  {/* Top-Left Glassmorphic Badge */}
+                  <div className="absolute top-2.5 left-2.5 bg-stone-950/85 backdrop-blur-md text-white text-[10px] font-mono font-black border border-white/20 px-2.5 py-1 rounded-full flex items-center gap-1 shadow-md">
+                    <span className="text-amber-400 font-extrabold">°o</span>
+                    <span className="uppercase tracking-wider">{client.metric}</span>
+                  </div>
+
+                  {/* Top-Right Arrow Action Icon */}
+                  <div className="absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/90 backdrop-blur-md text-stone-950 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-md">
+                    <ArrowUpRight className="w-4 h-4 text-purple-700" />
+                  </div>
+
+                  {/* Bottom Gradient Glow Overlay */}
+                  <div className={`absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t ${theme.glow} pointer-events-none`} />
                 </div>
 
-                {/* Bottom Card Content */}
-                <div className="p-2 flex flex-col justify-end">
-                  <h4 className="text-sm sm:text-base font-black text-stone-950 tracking-tight uppercase font-hero leading-tight group-hover:text-purple-700 transition-colors">
-                    {client.name}
-                  </h4>
-                  <p className="text-rose-600 font-extrabold text-[11px] sm:text-xs tracking-wide uppercase mt-0.5">
-                    {client.role}
-                  </p>
-                  <p className="text-stone-600 font-bold text-[11px] mt-0.5 tracking-tight">
-                    {client.metric}
-                  </p>
+                {/* Bottom Card Header-Style Content */}
+                <div className="px-1 py-1 flex flex-col justify-between flex-1 mt-2">
+                  <div className="flex items-center justify-between">
+                    <h4 className="text-sm sm:text-base font-black text-stone-950 tracking-tight uppercase font-hero leading-tight group-hover:text-purple-700 transition-colors truncate max-w-[190px]">
+                      {client.name}
+                    </h4>
+                    <span className="text-[10px] font-mono font-extrabold text-stone-400 group-hover:text-purple-600">
+                      ★ 5.0
+                    </span>
+                  </div>
+
+                  <div className="mt-1 flex items-center justify-between gap-1">
+                    <span className={`text-[10px] font-mono font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${theme.badge} truncate max-w-[210px]`}>
+                      {client.role}
+                    </span>
+                  </div>
                 </div>
+
+                {/* Arc Bottom Accent */}
+                <svg
+                  className="absolute -bottom-1 right-4 w-12 h-3 text-purple-400 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"
+                  viewBox="0 0 40 12"
+                  fill="none"
+                >
+                  <path d="M 4 2 Q 20 11 36 2" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                </svg>
               </motion.div>
             );
           })}
