@@ -33,6 +33,14 @@ interface CustomBody extends Matter.Body {
   };
 }
 
+interface WaterRipple {
+  x: number;
+  y: number;
+  r: number;
+  maxR: number;
+  opacity: number;
+}
+
 export function LusionEndSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -53,14 +61,14 @@ export function LusionEndSection() {
 
     const { Engine, Bodies, Body, Composite, Mouse, MouseConstraint, Events, Runner } = Matter;
 
-    // 1. Physics Engine Setup
+    // 1. Physics Engine Setup (Liquid Fluid Feel)
     const engine = Engine.create({
-      gravity: { x: 0, y: 0.9 },
+      gravity: { x: 0, y: 0.85 },
     });
     const world = engine.world;
 
-    // 2. Boundaries (Floor, Left, Right, Ceiling)
-    const wallOpts = { isStatic: true, restitution: 0.4, friction: 0.2, render: { visible: false } };
+    // 2. Boundaries
+    const wallOpts = { isStatic: true, restitution: 0.5, friction: 0.15, render: { visible: false } };
     let ground: Matter.Body, leftWall: Matter.Body, rightWall: Matter.Body, ceiling: Matter.Body;
 
     function buildBounds() {
@@ -74,114 +82,96 @@ export function LusionEndSection() {
     }
     buildBounds();
 
-    // 3. Ultra-Vibrant Brand & Social Media Platform Icon Spawners
+    // 3. Platform Icon Spawners
     const shapes: CustomBody[] = [];
 
     function addBody(body: CustomBody, info: NonNullable<CustomBody["shapeInfo"]>) {
       body.shapeInfo = info;
-      body.restitution = 0.75; // High bounciness
-      body.friction = 0.1;
-      body.frictionAir = 0.008;
+      body.restitution = 0.8;
+      body.friction = 0.08;
+      body.frictionAir = 0.012; // Fluid resistance feel
       shapes.push(body);
       Composite.add(world, body);
     }
 
     const platformCreators = [
-      // 1. Facebook Badge (Classic Blue)
       (x: number, y: number, r: number) => {
         const b = Bodies.circle(x, y, r, {}) as CustomBody;
         addBody(b, { type: "facebook", r, color: "#1877F2", bgGradient: ["#0064E0", "#1877F2"], label: "Facebook" });
       },
-      // 2. Meta Ads Badge (Vivid Blue Gradient)
       (x: number, y: number, r: number) => {
         const b = Bodies.circle(x, y, r, {}) as CustomBody;
         addBody(b, { type: "meta", r, color: "#0064E0", bgGradient: ["#0052CC", "#2563EB"], label: "Meta" });
       },
-      // 3. Instagram Badge (Sunset Orange/Pink Gradient)
       (x: number, y: number, r: number) => {
         const b = Bodies.circle(x, y, r, {}) as CustomBody;
         addBody(b, { type: "instagram", r, color: "#E1306C", bgGradient: ["#F59E0B", "#E1306C"], label: "Instagram" });
       },
-      // 4. WhatsApp Badge (Emerald Green)
       (x: number, y: number, r: number) => {
         const b = Bodies.circle(x, y, r, {}) as CustomBody;
         addBody(b, { type: "whatsapp", r, color: "#25D366", bgGradient: ["#10B981", "#059669"], label: "WhatsApp" });
       },
-      // 5. TikTok Ads Badge (Cyan/Pink Accented Black)
       (x: number, y: number, r: number) => {
         const b = Bodies.circle(x, y, r, {}) as CustomBody;
         addBody(b, { type: "tiktok", r, color: "#000000", bgGradient: ["#18181B", "#000000"], label: "TikTok" });
       },
-      // 6. YouTube Ads Badge (Crimson Red)
       (x: number, y: number, r: number) => {
         const b = Bodies.circle(x, y, r, {}) as CustomBody;
         addBody(b, { type: "youtube", r, color: "#FF0000", bgGradient: ["#DC2626", "#FF0000"], label: "YouTube" });
       },
-      // 7. Google Ads Badge (White / Vivid Multi)
       (x: number, y: number, r: number) => {
         const b = Bodies.circle(x, y, r, {}) as CustomBody;
         addBody(b, { type: "google", r, color: "#EA4335", bgGradient: ["#FFFFFF", "#F8FAFC"], label: "Google" });
       },
-      // 8. LinkedIn Badge (Corporate Blue)
       (x: number, y: number, r: number) => {
         const b = Bodies.circle(x, y, r, {}) as CustomBody;
         addBody(b, { type: "linkedin", r, color: "#0A66C2", bgGradient: ["#0284C7", "#0369A1"], label: "LinkedIn" });
       },
-      // 9. Pinterest Badge (Deep Red)
       (x: number, y: number, r: number) => {
         const b = Bodies.circle(x, y, r, {}) as CustomBody;
         addBody(b, { type: "pinterest", r, color: "#E60023", bgGradient: ["#EF4444", "#B91C1C"], label: "Pinterest" });
       },
-      // 10. Reddit Badge (Orange Red)
       (x: number, y: number, r: number) => {
         const b = Bodies.circle(x, y, r, {}) as CustomBody;
         addBody(b, { type: "reddit", r, color: "#FF4500", bgGradient: ["#F97316", "#C2410C"], label: "Reddit" });
       },
-      // 11. Snapchat Badge (Electric Yellow)
       (x: number, y: number, r: number) => {
         const b = Bodies.circle(x, y, r, {}) as CustomBody;
         addBody(b, { type: "snapchat", r, color: "#FFFC00", bgGradient: ["#FFFF00", "#EAB308"], label: "Snapchat" });
       },
-      // 12. X / Twitter Badge (Obsidian Black)
       (x: number, y: number, r: number) => {
         const b = Bodies.circle(x, y, r, {}) as CustomBody;
         addBody(b, { type: "twitter", r, color: "#000000", bgGradient: ["#27272A", "#09090B"], label: "X" });
       },
-      // 13. Threads Badge (Dark Charcoal)
       (x: number, y: number, r: number) => {
         const b = Bodies.circle(x, y, r, {}) as CustomBody;
         addBody(b, { type: "threads", r, color: "#111827", bgGradient: ["#1F2937", "#111827"], label: "Threads" });
       },
-      // 14. Discord Badge (Indigo Violet)
       (x: number, y: number, r: number) => {
         const b = Bodies.circle(x, y, r, {}) as CustomBody;
         addBody(b, { type: "discord", r, color: "#5865F2", bgGradient: ["#6366F1", "#4F46E5"], label: "Discord" });
       },
-      // 15. Telegram Badge (Cyan Blue)
       (x: number, y: number, r: number) => {
         const b = Bodies.circle(x, y, r, {}) as CustomBody;
         addBody(b, { type: "telegram", r, color: "#24A1DE", bgGradient: ["#0EA5E9", "#0284C7"], label: "Telegram" });
       },
-      // 16. Spotify Badge (Electric Green)
       (x: number, y: number, r: number) => {
         const b = Bodies.circle(x, y, r, {}) as CustomBody;
         addBody(b, { type: "spotify", r, color: "#1DB954", bgGradient: ["#22C55E", "#15803D"], label: "Spotify" });
       },
-      // 17. Shopify / E-Comm Badge (Emerald Lime)
       (x: number, y: number, r: number) => {
         const b = Bodies.circle(x, y, r, {}) as CustomBody;
         addBody(b, { type: "shopify", r, color: "#95BF47", bgGradient: ["#84CC16", "#65A30D"], label: "Shopify" });
       },
-      // 18. ROAS & Scale Metric Emojis (Vibrant Multi)
       (x: number, y: number, r: number) => {
         const b = Bodies.circle(x, y, r, {}) as CustomBody;
-        const emojis = ["🚀", "📈", "💰", "⚡", "🎯", "💥", "🔥", "🏆", "💎", "🌟", "👑", "💸"];
+        const emojis = ["🚀", "📈", "💰", "⚡", "🎯", "💥", "🔥", "🏆", "💎", "🌟", "👑", "💧"];
         const randEmoji = emojis[Math.floor(Math.random() * emojis.length)];
         const grads: [string, string][] = [
+          ["#38BDF8", "#0284C7"], // Watery Cyan
           ["#A855F7", "#7E22CE"],
           ["#EC4899", "#BE185D"],
           ["#3B82F6", "#1D4ED8"],
-          ["#F59E0B", "#D97706"],
           ["#10B981", "#047857"],
         ];
         const chosenGrad = grads[Math.floor(Math.random() * grads.length)];
@@ -189,12 +179,11 @@ export function LusionEndSection() {
       },
     ];
 
-    // High Density Spawn (240+ Badges)
     function spawnField(count: number) {
       for (let i = 0; i < count; i++) {
         const x = 30 + Math.random() * (W - 60);
         const y = -1500 + Math.random() * 1450;
-        const r = 18 + Math.random() * 16; // 18px to 34px radius
+        const r = 18 + Math.random() * 16;
         const creator = platformCreators[i % platformCreators.length];
         creator(x, y, r);
       }
@@ -203,7 +192,8 @@ export function LusionEndSection() {
     const COUNT = W < 700 ? 120 : 240;
     spawnField(COUNT);
 
-    // 4. Mouse Interaction & Ambient Repulsion
+    // 4. Mouse & Interactive Water Ripples
+    const ripples: WaterRipple[] = [];
     const mouse = Mouse.create(canvas);
     mouse.pixelRatio = window.devicePixelRatio || 1;
 
@@ -213,13 +203,26 @@ export function LusionEndSection() {
     });
     Composite.add(world, mouseConstraint);
 
-    const handleMouseDown = () => canvas.classList.add("grabbing");
+    function addWaterRipple(x: number, y: number) {
+      ripples.push({
+        x,
+        y,
+        r: 5,
+        maxR: 90 + Math.random() * 50,
+        opacity: 0.7,
+      });
+    }
+
+    const handleMouseDown = (e: MouseEvent) => {
+      canvas.classList.add("grabbing");
+      const rect = canvas.getBoundingClientRect();
+      addWaterRipple(e.clientX - rect.left, e.clientY - rect.top);
+    };
     const handleMouseUp = () => canvas.classList.remove("grabbing");
 
     canvas.addEventListener("mousedown", handleMouseDown);
     window.addEventListener("mouseup", handleMouseUp);
 
-    // Pointer Tracking
     const pointer = { x: -9999, y: -9999, active: false, px: -9999, py: -9999 };
 
     function updatePointer(clientX: number, clientY: number) {
@@ -230,6 +233,11 @@ export function LusionEndSection() {
       pointer.x = clientX - rect.left;
       pointer.y = clientY - rect.top;
       pointer.active = true;
+
+      // Spawn subtle water motion ripples on drag
+      if (Math.hypot(pointer.x - pointer.px, pointer.y - pointer.py) > 12 && Math.random() < 0.3) {
+        addWaterRipple(pointer.x, pointer.y);
+      }
     }
 
     const handleMouseMove = (e: MouseEvent) => updatePointer(e.clientX, e.clientY);
@@ -242,8 +250,8 @@ export function LusionEndSection() {
     window.addEventListener("mouseleave", handleMouseLeave);
     window.addEventListener("touchmove", handleTouchMove, { passive: true });
 
-    // Strong Kinetic Impulse Field (Wide 230px radius)
-    const REPEL_RADIUS = 230;
+    // Water Repulsion Field
+    const REPEL_RADIUS = 240;
 
     Events.on(engine, "beforeUpdate", () => {
       if (!pointer.active) return;
@@ -258,8 +266,8 @@ export function LusionEndSection() {
 
         if (dist < REPEL_RADIUS && dist > 0.001) {
           const falloff = Math.pow(1 - dist / REPEL_RADIUS, 1.8);
-          const forceX = (dx / dist) * falloff * 0.026 * (0.6 + speed);
-          const forceY = (dy / dist) * falloff * 0.026 - falloff * 0.01 * (0.8 + speed);
+          const forceX = (dx / dist) * falloff * 0.028 * (0.6 + speed);
+          const forceY = (dy / dist) * falloff * 0.028 - falloff * 0.012 * (0.8 + speed);
 
           Body.applyForce(b, b.position, { x: forceX, y: forceY });
           Body.setAngularVelocity(b, b.angularVelocity + (Math.random() - 0.5) * 0.25);
@@ -267,7 +275,66 @@ export function LusionEndSection() {
       }
     });
 
-    // 5. Render Loop with All Social Media Platform Graphics
+    // 5. Render Loop with Animated Water Waves & Physics Badges
+    let waveTime = 0;
+
+    function drawWaterWaves() {
+      if (!ctx) return;
+      waveTime += 0.03;
+
+      // Draw Expanding Water Ripples
+      for (let i = ripples.length - 1; i >= 0; i--) {
+        const rip = ripples[i];
+        rip.r += 2.2;
+        rip.opacity -= 0.015;
+
+        if (rip.opacity <= 0 || rip.r >= rip.maxR) {
+          ripples.splice(i, 1);
+          continue;
+        }
+
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(rip.x, rip.y, rip.r, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(56, 189, 248, ${rip.opacity})`;
+        ctx.lineWidth = 3;
+        ctx.shadowColor = "rgba(56, 189, 248, 0.4)";
+        ctx.shadowBlur = 10;
+        ctx.stroke();
+        ctx.restore();
+      }
+
+      // Draw Dynamic Water Liquid Sine Waves at Bottom Surface
+      ctx.save();
+      const waveY = H - 80;
+
+      // Wave Layer 1 (Teal Water Translucent)
+      ctx.beginPath();
+      ctx.moveTo(0, H);
+      for (let x = 0; x <= W; x += 15) {
+        const y = waveY + Math.sin(x * 0.015 + waveTime) * 12 + Math.cos(x * 0.008 + waveTime * 1.2) * 8;
+        ctx.lineTo(x, y);
+      }
+      ctx.lineTo(W, H);
+      ctx.closePath();
+      ctx.fillStyle = "rgba(56, 189, 248, 0.12)";
+      ctx.fill();
+
+      // Wave Layer 2 (Purple Aqua Water Wave)
+      ctx.beginPath();
+      ctx.moveTo(0, H);
+      for (let x = 0; x <= W; x += 15) {
+        const y = waveY + 10 + Math.sin(x * 0.02 - waveTime * 1.4) * 10 + Math.sin(x * 0.01 + waveTime) * 6;
+        ctx.lineTo(x, y);
+      }
+      ctx.lineTo(W, H);
+      ctx.closePath();
+      ctx.fillStyle = "rgba(168, 85, 247, 0.1)";
+      ctx.fill();
+
+      ctx.restore();
+    }
+
     function drawShape(b: CustomBody) {
       if (!ctx || !b.shapeInfo) return;
       const info = b.shapeInfo;
@@ -296,13 +363,13 @@ export function LusionEndSection() {
       }
       ctx.fill();
 
-      // Sharp Dark Border Line
+      // Dark Border
       ctx.shadowBlur = 0;
       ctx.lineWidth = 2.5;
       ctx.strokeStyle = "#16171A";
       ctx.stroke();
 
-      // Brand Icon Graphics Inside Physics Badges
+      // Icon Graphics
       ctx.fillStyle = info.type === "google" || info.type === "snapchat" ? "#16171A" : "#FFFFFF";
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
@@ -333,7 +400,6 @@ export function LusionEndSection() {
         ctx.closePath();
         ctx.fill();
       } else if (info.type === "instagram") {
-        // Draw Instagram Camera Icon
         const s = r * 0.45;
         ctx.strokeStyle = "#FFFFFF";
         ctx.lineWidth = 2.5;
@@ -345,12 +411,10 @@ export function LusionEndSection() {
         }
         ctx.stroke();
 
-        // Center Lens
         ctx.beginPath();
         ctx.arc(0, 0, s * 0.45, 0, Math.PI * 2);
         ctx.stroke();
 
-        // Flash Dot
         ctx.fillStyle = "#FFFFFF";
         ctx.beginPath();
         ctx.arc(s * 0.5, -s * 0.5, s * 0.12, 0, Math.PI * 2);
@@ -404,6 +468,7 @@ export function LusionEndSection() {
       if (!ctx) return;
       ctx.clearRect(0, 0, W, H);
       for (const b of shapes) drawShape(b);
+      drawWaterWaves();
       animId = requestAnimationFrame(renderLoop);
     }
 
@@ -411,7 +476,6 @@ export function LusionEndSection() {
     Runner.run(runner, engine);
     renderLoop();
 
-    // 6. Resize Handler
     function onResize() {
       if (!stage || !canvas) return;
       W = stage.clientWidth || window.innerWidth;
@@ -438,10 +502,29 @@ export function LusionEndSection() {
   return (
     <section id="end-section" className="py-24 px-4 bg-[#E9EAEE] text-stone-900 border-t border-stone-300 relative overflow-hidden select-none min-h-[640px] flex items-center justify-center">
       
-      {/* Container Stage & Canvas */}
+      {/* SVG Water Ripple Turbulence & Liquid Distortion Filter */}
+      <svg className="hidden">
+        <defs>
+          <filter id="water-wave-filter">
+            <feTurbulence type="fractalNoise" baseFrequency="0.012 0.02" numOctaves="3" result="noise" seed="5">
+              <animate attributeName="baseFrequency" dur="10s" values="0.012 0.02; 0.022 0.035; 0.012 0.02" repeatCount="indefinite" />
+            </feTurbulence>
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="12" xChannelSelector="R" yChannelSelector="G" />
+          </filter>
+        </defs>
+      </svg>
+
+      {/* Container Stage & Canvas with Water Filter Effect */}
       <div ref={containerRef} className="absolute inset-0 w-full h-full">
-        <canvas ref={canvasRef} className="absolute inset-0 w-full h-full block cursor-grab active:cursor-grabbing z-0" />
+        <canvas
+          ref={canvasRef}
+          className="absolute inset-0 w-full h-full block cursor-grab active:cursor-grabbing z-0"
+          style={{ filter: "url(#water-wave-filter)" }}
+        />
       </div>
+
+      {/* Ambient Water Reflection Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-cyan-500/10 via-purple-500/5 to-transparent pointer-events-none z-0" />
 
       {/* DevTools DOM Structure matching Lusion.co/projects #end-section */}
       <div id="end-section-outer" className="w-full max-w-6xl mx-auto text-center relative z-10 pointer-events-none">
