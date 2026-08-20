@@ -38,17 +38,12 @@ export function FloatingNavbar() {
         className="pointer-events-auto w-full max-w-5xl bg-white/95 backdrop-blur-xl border-2 border-stone-900 shadow-xl rounded-full px-5 py-2.5 flex items-center justify-between transition-all"
       >
         {/* Brand Logo */}
-        <Link href="/" className="flex items-center gap-2.5 group pl-1">
-          <div className="w-8 h-8 rounded-full bg-stone-950 flex items-center justify-center overflow-hidden border border-stone-900 shadow-sm transition-transform group-hover:scale-105">
-            <img
-              src="/icon-logo/favicon.jpeg"
-              alt="ScaleWithAds Icon"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <span className="font-extrabold text-stone-950 tracking-tight text-lg font-hero">
-            ScaleWithAds
-          </span>
+        <Link href="/" className="flex items-center group pl-1">
+          <img
+            src="/icon-logo/mainlogoswa.png"
+            alt="ScaleWithAds"
+            className="h-8 sm:h-9 w-auto object-contain transition-transform group-hover:scale-105"
+          />
         </Link>
 
         {/* Desktop Playful Tilted Nav Pills */}
