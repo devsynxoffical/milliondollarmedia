@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { FloatingNavbar } from "@/components/redesign/FloatingNavbar";
+import { ResultsSection } from "@/components/redesign/ResultsSection";
 import { SelectedWorkShowcase } from "@/components/redesign/SelectedWorkShowcase";
 import { EditorialSubhero } from "@/components/redesign/EditorialSubhero";
 import { CreativeCtaSection } from "@/components/redesign/CreativeCtaSection";
@@ -283,6 +284,7 @@ export default function WorkPage() {
         )}
       </AnimatePresence>
 
+      <ResultsSection />
       <SelectedWorkShowcase />
       <EditorialSubhero />
       <CreativeCtaSection />
