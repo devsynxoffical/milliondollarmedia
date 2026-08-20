@@ -42,7 +42,7 @@ export function FloatingNavbar() {
           <img
             src="/icon-logo/mainlogoswa.png"
             alt="ScaleWithAds"
-            className="h-8 sm:h-9 w-auto object-contain transition-transform group-hover:scale-105"
+            className="h-11 sm:h-13 md:h-14 w-auto object-contain transition-transform group-hover:scale-105"
           />
         </Link>
 
