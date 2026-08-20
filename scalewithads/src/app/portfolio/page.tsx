@@ -70,6 +70,9 @@ const portfolioVideos = [
   { id: "1203105415", title: "Capital Growth Strategy 5", category: "Finance", vimeoId: "1203105415", duration: "29s" },
   { id: "1203808613", title: "Personal Injury MVA Law 1", category: "MVA", vimeoId: "1203808613", duration: "53s" },
   { id: "1203105376", title: "MVA Legal Client Acquisition 2", category: "MVA", vimeoId: "1203105376", duration: "45s" },
+  { id: "1219790482", title: "Personal Injury MVA Campaign 3", category: "MVA", vimeoId: "1219790482", duration: "48s" },
+  { id: "1219790483", title: "MVA Auto Accident Settlement Ad 4", category: "MVA", vimeoId: "1219790483", duration: "52s" },
+  { id: "1219790484", title: "MVA Legal Client Retainer Engine 5", category: "MVA", vimeoId: "1219790484", duration: "41s" },
 
   // Chiro & Home Services
   { id: "1203105308", title: "Spine & Pain Chiropractic Ad 1", category: "Chiro", vimeoId: "1203105308", duration: "35s" },
