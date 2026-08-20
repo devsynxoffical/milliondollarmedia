@@ -15,6 +15,7 @@ import { MeetTheTeamSection } from "@/components/redesign/MeetTheTeamSection";
 import { GuaranteeSection } from "@/components/redesign/GuaranteeSection";
 import { FaqSection } from "@/components/redesign/FaqSection";
 import { ProcessSection } from "@/components/redesign/ProcessSection";
+import { PricingSection } from "@/components/redesign/PricingSection";
 import { CreativeCtaSection } from "@/components/redesign/CreativeCtaSection";
 import { LusionEndSection } from "@/components/redesign/LusionEndSection";
 import { EditorialFooter } from "@/components/redesign/EditorialFooter";
@@ -96,7 +97,12 @@ export default function RedesignPage() {
 
 
 
-      {/* 16. Lusion Interactive End Section (Matter.js Physics Particle Field & Underlined Heading) */}
+      {/* 15. Pricing Section */}
+      <div id="pricing">
+        <PricingSection />
+      </div>
+
+      {/* 16. Lusion Interactive End Section */}
       <LusionEndSection />
 
       {/* 17. Editorial Footer */}
