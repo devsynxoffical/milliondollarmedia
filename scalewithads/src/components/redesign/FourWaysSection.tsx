@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Video, BarChart3, Layout, Zap, ArrowUpRight } from "lucide-react";
+import { Layers, AlertTriangle, TrendingUp, CheckCircle2, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
 interface CardItem {
@@ -15,64 +15,66 @@ interface CardItem {
 }
 
 export function FourWaysSection() {
-  const [hoveredIdx, setHoveredIdx] = useState<number | null>(2); // Default hover on 3rd card like Lusion screenshot
+  const [hoveredIdx, setHoveredIdx] = useState<number | null>(3); // Default hover on 4th card
 
   const ways: CardItem[] = [
     {
       number: "01",
-      title: "UGC & VSL Video",
-      italicWord: "Production",
-      subtitle: "Short-form video hooks, VSL scripts, and high-converting ad assets crafted with direct-response precision.",
-      icon: Video,
+      title: "Most Agencies Only Run",
+      italicWord: "ads",
+      subtitle: "Most agencies only run ads. Some build funnels.",
+      icon: Layers,
       href: "/services",
     },
     {
       number: "02",
-      title: "First-Party Attribution",
-      italicWord: "& CAPI",
-      subtitle: "Pixel-perfect tracking dashboards and server-side setup so zero ad spend is ever misattributed.",
-      icon: BarChart3,
+      title: "Others Write",
+      italicWord: "copy",
+      subtitle: "Others write copy. Someone else handles follow-up.",
+      icon: AlertTriangle,
       href: "/features",
     },
     {
       number: "03",
-      title: "High-Converting Sales",
-      italicWord: "Funnels",
-      subtitle: "Custom landing pages and interactive checkout flows built to turn cold ad traffic into instant profit.",
-      icon: Layout,
+      title: "Nobody Owns The Customer",
+      italicWord: "journey",
+      subtitle: "Nobody owns the entire customer journey. That's exactly why businesses struggle to scale consistently.",
+      icon: TrendingUp,
       href: "/work",
     },
     {
       number: "04",
-      title: "Algorithmic Media",
-      italicWord: "Buying",
-      subtitle: "Multi-channel ad scaling across Meta, TikTok & Google to multiply daily spend with stable ROAS.",
-      icon: Zap,
-      href: "/contact",
+      title: "One Complete Scale",
+      italicWord: "ecosystem",
+      subtitle: "At Scale With Ads™, we build one complete ecosystem where every part works together—from the first click to a qualified client sitting on your calendar.",
+      icon: CheckCircle2,
+      href: "/book",
     },
   ];
 
   return (
-    <section className="py-28 px-4 sm:px-8 bg-[#FDFBF7] text-stone-900 border-b border-stone-200 relative overflow-hidden">
+    <section className="py-24 sm:py-32 px-4 sm:px-8 bg-[#FDFBF7] text-stone-900 border-b border-stone-200 relative overflow-hidden">
       
-      {/* Decorative Curving Accent Ribbon (Matching Lusion Studio Orange Curve) */}
+      {/* Decorative Curving Accent Ribbon (Matching Lusion Studio Orange/Rose Curve) */}
       <div className="absolute top-0 right-10 md:right-32 w-48 sm:w-64 h-48 sm:h-64 border-r-8 border-t-8 border-rose-500 rounded-tr-[120px] opacity-90 pointer-events-none -z-0" />
 
       <div className="max-w-6xl mx-auto relative z-10">
         
-        {/* Section Header (Exact Lusion Studio Headline Layout) */}
+        {/* Section Header with requested title (NO BLACK) */}
         <div className="mb-20">
-          <span className="text-xs font-black uppercase tracking-widest text-purple-700 bg-purple-100 border border-purple-200 px-3.5 py-1.5 rounded-full mb-6 inline-block">
-            ✦ WHAT WE DO
+          <span className="text-xs font-black uppercase tracking-widest text-purple-700 bg-purple-100 border border-purple-200 px-4 py-1.5 rounded-full mb-6 inline-block shadow-sm">
+            ✦ WHY MOST BUSINESSES NEVER SCALE
           </span>
 
-          <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-[76px] font-black text-stone-950 tracking-tight leading-[0.98] uppercase font-hero max-w-4xl">
-            Four Ways <br />
-            We Bring <span className="italic font-serif font-normal text-purple-900 lowercase pr-2">ideas</span> To Life
+          <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-[68px] font-black text-stone-950 tracking-tight leading-[1.02] uppercase font-hero max-w-5xl">
+            Most Businesses Don't Have A Lead Problem... <br />
+            <span className="text-purple-700 font-extrabold normal-case tracking-normal block mt-2">
+              They Have A Client Acquisition System Problem.
+            </span>
           </h2>
         </div>
 
-        {/* 4 Clean Minimalist Interactive Cards with Hover Color Inversion (Lusion Studio 4 Cards) */}
+        {/* 4 Interactive Hover Cards (Purple Inversion - NO BLACK) */}
         <div className="flex flex-col border-t border-stone-300">
           {ways.map((item, idx) => {
             const Icon = item.icon;
@@ -105,7 +107,7 @@ export function FourWaysSection() {
                     {/* Main Title & Subtitle */}
                     <div className="md:col-span-8 flex flex-col gap-2">
                       <h3
-                        className={`text-3xl sm:text-5xl md:text-6xl font-black tracking-tight uppercase leading-none font-hero transition-colors ${
+                        className={`text-2xl sm:text-4xl md:text-5xl font-black tracking-tight uppercase leading-none font-hero transition-colors ${
                           isHovered ? "text-white" : "text-stone-950"
                         }`}
                       >
@@ -135,7 +137,7 @@ export function FourWaysSection() {
                         className={`w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center transition-all ${
                           isHovered
                             ? "bg-white/10 text-white border border-white/20 scale-110 shadow-lg"
-                            : "bg-stone-100 text-stone-900 border border-stone-200"
+                            : "bg-purple-100 text-purple-900 border border-purple-200"
                         }`}
                       >
                         <Icon className="w-8 h-8 sm:w-10 sm:h-10" />
@@ -144,7 +146,7 @@ export function FourWaysSection() {
                         className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${
                           isHovered
                             ? "bg-purple-600 text-white translate-x-1 -translate-y-1"
-                            : "bg-transparent text-stone-400"
+                            : "bg-transparent text-purple-700"
                         }`}
                       >
                         <ArrowUpRight className="w-5 h-5" />
@@ -157,6 +159,7 @@ export function FourWaysSection() {
             );
           })}
         </div>
+
       </div>
     </section>
   );

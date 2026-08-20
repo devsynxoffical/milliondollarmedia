@@ -21,9 +21,9 @@ export function FloatingNavbar() {
       rotate: -4,
       hasArcBottom: true,
       dropdown: [
-        { label: "8-Figure Operator Circle", href: "/privatemastermind/circle", icon: Crown, desc: "Exclusive Founder Mastermind" },
-        { label: "1-on-1 Growth Coaching", href: "/privatemastermind/coaching", icon: Zap, desc: "Direct Media Buying Audits" },
-        { label: "Scaling Playbooks & SOPs", href: "/privatemastermind/playbook", icon: BookOpen, desc: "$50M+ Meta Ads Blueprints" },
+        { label: "Private Mastermind", href: "/privatemastermind", icon: Crown, desc: "Private 1:1 Advisory & Media Systems" },
+        { label: "$847K LTO Funnel", href: "/privatemastermind/playbook", icon: BookOpen, desc: "$847K Meta Ads Funnel Case Study" },
+        { label: "Paid Pilot Trial", href: "/privatemastermind/circle", icon: Zap, desc: "Guaranteed Revenue Paid Trial" },
       ],
     },
     { label: "Services", href: "/services", rotate: 3 },

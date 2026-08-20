@@ -102,15 +102,16 @@ export default function PlaybooksPage() {
             Watch Playbook VSL Masterclass
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-stone-950 font-hero tracking-tight mt-3">
-            Watch This Before You Book a Call
+            How We Scaled an LTO Funnel to $847K in Revenue | $255K Ad Spend Nearly $1M in Sales Using Meta Ads
           </h2>
         </div>
 
         <div className="relative rounded-3xl overflow-hidden border-4 border-stone-950 shadow-2xl bg-black aspect-video">
           <video
-            src="https://assets.cdn.filesafe.space/W8B8H8FvOolLCrvxXzYp/media/69ef9443717d5dd4e170f445.mp4"
-            poster="/media/covers/masterclass-poster-2.png"
+            src="https://storage.googleapis.com/msgsndr/HWyar6Z3u3aF6ydghkCx/media/695c7a35993346e69427d4db.mp4"
+            poster="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://storage.googleapis.com/msgsndr/HWyar6Z3u3aF6ydghkCx/media/695d947da88e874feacb84ad.png"
             controls
+            autoPlay
             className="w-full h-full object-cover"
           />
         </div>

@@ -136,11 +136,12 @@ export default function PrivateMastermindPage() {
         </div>
 
         <div className="relative rounded-3xl overflow-hidden border-4 border-stone-950 shadow-2xl bg-black aspect-video">
-          <video
-            src="https://assets.cdn.filesafe.space/W8B8H8FvOolLCrvxXzYp/media/69ef9443717d5dd4e170f445.mp4"
-            poster="/media/covers/cover-mastermind.jpeg"
-            controls
-            className="w-full h-full object-cover"
+          <iframe
+            src="https://www.youtube.com/embed/oSMaA6LOnrQ?autoplay=0&rel=0&modestbranding=1"
+            title="Private 1:1 Mastermind"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="w-full h-full border-0"
           />
         </div>
 

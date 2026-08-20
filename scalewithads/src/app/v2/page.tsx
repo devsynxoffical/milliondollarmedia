@@ -10,9 +10,11 @@ import { SelectedWorkShowcase } from "@/components/redesign/SelectedWorkShowcase
 import { StickyContentScroll } from "@/components/redesign/StickyContentScroll";
 import { WhatWeDoSection } from "@/components/redesign/WhatWeDoSection";
 import { DeliverablesSection } from "@/components/redesign/DeliverablesSection";
+import { OwnershipSection } from "@/components/redesign/OwnershipSection";
 import { MeetTheTeamSection } from "@/components/redesign/MeetTheTeamSection";
 import { GuaranteeSection } from "@/components/redesign/GuaranteeSection";
 import { FaqSection } from "@/components/redesign/FaqSection";
+import { ProcessSection } from "@/components/redesign/ProcessSection";
 import { CreativeCtaSection } from "@/components/redesign/CreativeCtaSection";
 import { LusionEndSection } from "@/components/redesign/LusionEndSection";
 import { EditorialFooter } from "@/components/redesign/EditorialFooter";
@@ -60,9 +62,10 @@ export default function RedesignPage() {
         <SelectedWorkShowcase />
       </div>
 
-      {/* 9. Diroz Layout: Sticky 2-Column Scroll Section (Phases 01-04 on Scroll) */}
+      {/* 9. Process & System Training Videos */}
       <div id="process">
         <StickyContentScroll />
+        <ProcessSection />
       </div>
 
       {/* 10. What We Do Blueprint (Dynamic Tilting Rows & Floating 3D Windows) */}
@@ -73,6 +76,7 @@ export default function RedesignPage() {
       {/* 11. Full Scope of Work (Everything Included) */}
       <div id="included">
         <DeliverablesSection />
+        <OwnershipSection />
       </div>
 
       {/* 12. Meet The Team (Lunvoro Interactive Card Stacking & Unfolding) */}
