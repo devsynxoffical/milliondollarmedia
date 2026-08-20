@@ -108,7 +108,7 @@ export default function PlaybooksPage() {
 
         <div className="relative rounded-3xl overflow-hidden border-4 border-stone-950 shadow-2xl bg-black aspect-video">
           <video
-            src="https://storage.googleapis.com/msgsndr/HWyar6Z3u3aF6ydghkCx/media/695c7a35993346e69427d4db.mp4"
+            src="https://storage.googleapis.com/msgsndr/HWyar6Z3u3aF6ydghkCx/media/695da2543a532d67105ad96c.mp4"
             poster="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://storage.googleapis.com/msgsndr/HWyar6Z3u3aF6ydghkCx/media/695d947da88e874feacb84ad.png"
             controls
             autoPlay
