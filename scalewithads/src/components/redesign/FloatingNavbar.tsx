@@ -35,14 +35,14 @@ export function FloatingNavbar() {
         initial={{ y: -40, opacity: 0, scale: 0.95, filter: "blur(6px)" }}
         animate={{ y: 0, opacity: 1, scale: 1, filter: "blur(0px)" }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
-        className="pointer-events-auto w-full max-w-5xl bg-white/95 backdrop-blur-xl border-2 border-stone-900 shadow-xl rounded-full px-5 py-2.5 flex items-center justify-between transition-all"
+        className="pointer-events-auto w-full max-w-5xl bg-white border-2 border-stone-950 shadow-2xl rounded-full px-6 py-2 flex items-center justify-between transition-all"
       >
         {/* Brand Logo */}
         <Link href="/" className="flex items-center group pl-1">
           <img
             src="/icon-logo/mainlogoswa.png"
             alt="ScaleWithAds"
-            className="h-11 sm:h-13 md:h-14 w-auto object-contain transition-transform group-hover:scale-105"
+            className="h-7 sm:h-8 md:h-9 w-auto object-contain transition-transform group-hover:scale-105"
           />
         </Link>
 
