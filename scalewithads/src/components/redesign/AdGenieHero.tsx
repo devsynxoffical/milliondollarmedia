@@ -74,11 +74,23 @@ export function AdGenieHero() {
           initial={{ opacity: 0, y: 40, skewX: -6, filter: "blur(8px)" }}
           animate={{ opacity: 1, y: 0, skewX: 0, filter: "blur(0px)" }}
           transition={{ duration: 1.6, delay: 0.6, ease: silkEase }}
-          className="mt-6 text-base sm:text-lg md:text-xl text-stone-800 max-w-3xl font-medium leading-relaxed font-sans space-y-4"
+          className="mt-6 max-w-3xl font-sans space-y-3"
         >
-          <p>
-            We will install our proprietary <span className="font-bold text-stone-950">Scale With Ads™ Client Acquisition System</span> into your business... Double your revenue within the next 90 days... Or we'll continue working for you at no management fee until we do. <span className="font-bold text-stone-950">Backed by a Written Agreement.</span>
+          <p className="text-sm sm:text-base text-stone-600 font-medium">
+            We will install our proprietary <span className="font-extrabold text-stone-950">Scale With Ads™ Client Acquisition System</span> into your business...
           </p>
+
+          <div className="p-5 sm:p-6 rounded-3xl bg-purple-50/90 border-2 border-purple-200 shadow-lg text-center">
+            <h2 className="text-xl sm:text-3xl md:text-4xl font-black text-stone-950 font-hero uppercase tracking-tight leading-tight">
+              Double your revenue <span className="text-purple-700 font-serif italic lowercase font-normal">within 90 days...</span>
+            </h2>
+            <p className="text-sm sm:text-base font-bold text-stone-800 mt-2">
+              Or we&apos;ll continue working for you at no management fee until we do.
+            </p>
+            <div className="mt-3.5 inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-stone-950 text-white font-mono text-xs font-black uppercase tracking-widest shadow-sm">
+              <span>✦ BACKED BY A WRITTEN AGREEMENT</span>
+            </div>
+          </div>
         </motion.div>
 
         {/* Hero Action Pill Buttons */}
