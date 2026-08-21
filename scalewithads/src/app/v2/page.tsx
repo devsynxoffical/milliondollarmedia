@@ -8,8 +8,6 @@ import { DifferenceSection } from "@/components/redesign/DifferenceSection";
 import { ResultsSection } from "@/components/redesign/ResultsSection";
 import { SelectedWorkShowcase } from "@/components/redesign/SelectedWorkShowcase";
 import { StickyContentScroll } from "@/components/redesign/StickyContentScroll";
-import { WhatWeDoSection } from "@/components/redesign/WhatWeDoSection";
-import { DeliverablesSection } from "@/components/redesign/DeliverablesSection";
 import { OwnershipSection } from "@/components/redesign/OwnershipSection";
 import { MeetTheTeamSection } from "@/components/redesign/MeetTheTeamSection";
 import { GuaranteeSection } from "@/components/redesign/GuaranteeSection";
@@ -60,20 +58,14 @@ export default function RedesignPage() {
         <SelectedWorkShowcase />
       </div>
 
-      {/* 9. Process & System Training Videos */}
+      {/* 10. Process & System Training Videos */}
       <div id="process">
         <StickyContentScroll />
         <ProcessSection />
       </div>
 
-      {/* 10. What We Do Blueprint (Dynamic Tilting Rows & Floating 3D Windows) */}
-      <div id="services">
-        <WhatWeDoSection />
-      </div>
-
-      {/* 11. Full Scope of Work (Everything Included) */}
+      {/* 11. Ownership Guarantee */}
       <div id="included">
-        <DeliverablesSection />
         <OwnershipSection />
       </div>
 

@@ -2,7 +2,6 @@
 
 import React from "react";
 import { FloatingNavbar } from "@/components/redesign/FloatingNavbar";
-import { WhatWeDoSection } from "@/components/redesign/WhatWeDoSection";
 import { MarqueeTicker } from "@/components/redesign/MarqueeTicker";
 import { PricingSection } from "@/components/redesign/PricingSection";
 import { CreativeCtaSection } from "@/components/redesign/CreativeCtaSection";
@@ -588,9 +587,8 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Ticker & Blueprint Components */}
+      {/* Ticker & Pricing Components */}
       <MarqueeTicker />
-      <WhatWeDoSection />
       <PricingSection />
       <CreativeCtaSection />
       <LusionEndSection />
