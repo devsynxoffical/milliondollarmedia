@@ -11,76 +11,97 @@ import { motion, AnimatePresence } from "framer-motion";
 // Complete Video Database directly from milliondollarmedia.us/portfolio/
 const portfolioVideos = [
   // Roofing
-  { id: "1203105523", title: "Equinox Roof Ad 2F", category: "Roofing", vimeoId: "1203105523", duration: "51s" },
-  { id: "1203105527", title: "Top Roof Conversion Ad 3", category: "Roofing", vimeoId: "1203105527", duration: "61s" },
-  { id: "1203105510", title: "Equinox Storm Roofing 1F", category: "Roofing", vimeoId: "1203105510", duration: "57s" },
-  { id: "1203105488", title: "Equinox Replacement Roof June 3", category: "Roofing", vimeoId: "1203105488", duration: "51s" },
-  { id: "1203105494", title: "Equinox High-ROAS Roof 6", category: "Roofing", vimeoId: "1203105494", duration: "36s" },
-
-  // HVAC
-  { id: "1203808552", title: "$0 Down Heating System Ad", category: "HVAC", vimeoId: "1203808552", duration: "28s" },
-  { id: "1203812276", title: "HVAC Climate Control Ad 1", category: "HVAC", vimeoId: "1203812276", duration: "41s" },
-  { id: "1203812274", title: "HVAC Seasonal Offer Ad 4", category: "HVAC", vimeoId: "1203812274", duration: "29s" },
-  { id: "1203812272", title: "HVAC Comfort Engine 3", category: "HVAC", vimeoId: "1203812272", duration: "34s" },
-  { id: "1203812271", title: "HVAC Heat Pump Promo 2", category: "HVAC", vimeoId: "1203812271", duration: "31s" },
-  { id: "1203815881", title: "$0 Down Home Heater Special", category: "HVAC", vimeoId: "1203815881", duration: "37s" },
-
-  // Solar
-  { id: "1203808485", title: "California Solar Clean Energy", category: "Solar", vimeoId: "1203808485", duration: "30s" },
-  { id: "1203808486", title: "California Solar Utility Savings", category: "Solar", vimeoId: "1203808486", duration: "41s" },
-  { id: "1203828547", title: "Solar California Federal Incentive", category: "Solar", vimeoId: "1203828547", duration: "24s" },
-  { id: "1203828545", title: "Solar Power Lock-In 2", category: "Solar", vimeoId: "1203828545", duration: "24s" },
-  { id: "1203828548", title: "Solar Battery Storage Ad 3", category: "Solar", vimeoId: "1203828548", duration: "43s" },
-
+  { id: "1203105527_roofing", title: "Equinox Roof Conversion 1", category: "Roofing", vimeoId: "1203105527", duration: "61s" },
+  { id: "1203105510_roofing", title: "Equinox Storm Roofing 2", category: "Roofing", vimeoId: "1203105510", duration: "57s" },
+  { id: "1203105488_roofing", title: "Equinox Replacement Roof 3", category: "Roofing", vimeoId: "1203105488", duration: "51s" },
+  { id: "1203105494_roofing", title: "Equinox High-ROAS Roof 4", category: "Roofing", vimeoId: "1203105494", duration: "36s" },
+  { id: "1203105572_roofing", title: "Equinox Roofing Scale 5", category: "Roofing", vimeoId: "1203105572", duration: "48s" },
+  { id: "1203105532_roofing", title: "Equinox Roof Ad 6", category: "Roofing", vimeoId: "1203105532", duration: "51s" },
+  
   // Supplements
-  { id: "1203105580", title: "Gummies Bio-Nourish Ad", category: "Supplements", vimeoId: "1203105580", duration: "66s" },
-  { id: "1203827387", title: "DTC Health Gummies Reel 1", category: "Supplements", vimeoId: "1203827387", duration: "40s" },
-  { id: "1203827386", title: "DTC Wellness Formulation 2", category: "Supplements", vimeoId: "1203827386", duration: "38s" },
-  { id: "1203827815", title: "Nutritional Health Ad 3", category: "Supplements", vimeoId: "1203827815", duration: "45s" },
-
-  // Agency Owner
-  { id: "1203828901", title: "7-Figure Agency Acquisition 1-2", category: "Agency Owner", vimeoId: "1203828901", duration: "64s" },
-  { id: "1203828900", title: "Agency Scale & CAPI Engine 4-2", category: "Agency Owner", vimeoId: "1203828900", duration: "87s" },
-  { id: "1203828899", title: "High-Ticket Client Blueprint 3-2", category: "Agency Owner", vimeoId: "1203828899", duration: "99s" },
-
+  { id: "1203105580_supplements", title: "Gummies Bio-Nourish Ad 1", category: "Supplements", vimeoId: "1203105580", duration: "66s" },
+  { id: "1203828901_supplements", title: "DTC Health Gummies Reel 2", category: "Supplements", vimeoId: "1203828901", duration: "64s" },
+  { id: "1203828900_supplements", title: "DTC Wellness Formulation 3", category: "Supplements", vimeoId: "1203828900", duration: "87s" },
+  { id: "1203828899_supplements", title: "Nutritional Health Ad 4", category: "Supplements", vimeoId: "1203828899", duration: "99s" },
+  
   // Recruitment
-  { id: "1203105458", title: "LinkedIn Executive Talent Acquisition 2", category: "Recruitment", vimeoId: "1203105458", duration: "43s" },
-  { id: "1203105467", title: "LinkedIn Talent Recruitment Ad 1", category: "Recruitment", vimeoId: "1203105467", duration: "60s" },
-  { id: "1203819145", title: "Corporate Hiring Engine 1", category: "Recruitment", vimeoId: "1203819145", duration: "39s" },
-  { id: "1203819144", title: "Career Growth Funnel 2", category: "Recruitment", vimeoId: "1203819144", duration: "37s" },
-
-  // SAAS
-  { id: "1203105447", title: "Seven Fathom B2B SaaS Demo 1", category: "SAAS", vimeoId: "1203105447", duration: "55s" },
-  { id: "1203105413", title: "Seven Fathom Product Walkthrough 2", category: "SAAS", vimeoId: "1203105413", duration: "65s" },
-  { id: "1203105414", title: "Seven Fathom Feature Breakdown 3", category: "SAAS", vimeoId: "1203105414", duration: "41s" },
-
-  // VSL
-  { id: "1203816135", title: "Longform Client VSL Script 1", category: "VSL", vimeoId: "1203816135", duration: "31s" },
-  { id: "1203816133", title: "Direct-Response VSL Funnel 2", category: "VSL", vimeoId: "1203816133", duration: "32s" },
-  { id: "1203816132", title: "High-Ticket VSL Breakdown 3", category: "VSL", vimeoId: "1203816132", duration: "28s" },
-  { id: "1203816465", title: "Scale With Ads VSL Architecture 5", category: "VSL", vimeoId: "1203816465", duration: "36s" },
+  { id: "1203105467_recruitment", title: "LinkedIn Executive Talent Acquisition 1", category: "Recruitment", vimeoId: "1203105467", duration: "60s" },
+  { id: "1203105458_recruitment", title: "LinkedIn Talent Recruitment Ad 2", category: "Recruitment", vimeoId: "1203105458", duration: "43s" },
 
   // Events
-  { id: "1203105532", title: "Mastermind Conference Reel 3", category: "Events", vimeoId: "1203105532", duration: "43s" },
-  { id: "1203819315", title: "Keynote Event Highlights 1", category: "Events", vimeoId: "1203819315", duration: "41s" },
-  { id: "1203833007", title: "Live Mastermind Showcase 2", category: "Events", vimeoId: "1203833007", duration: "50s" },
+  { id: "1203105416_events", title: "Commercial Finance & Keynote Event 1", category: "Events", vimeoId: "1203105416", duration: "31s" },
+  { id: "1203105447_events", title: "Seven Fathom B2B SaaS Event Reel 2", category: "Events", vimeoId: "1203105447", duration: "55s" },
+  { id: "1203105413_events", title: "Seven Fathom Product Walkthrough Event 3", category: "Events", vimeoId: "1203105413", duration: "65s" },
+  { id: "1203105414_events", title: "Seven Fathom Feature Breakdown Event 4", category: "Events", vimeoId: "1203105414", duration: "41s" },
+  { id: "1203105415_events", title: "Capital Growth Strategy Event 5", category: "Events", vimeoId: "1203105415", duration: "29s" },
+  
+  // HVAC
+  { id: "1203812276_hvac", title: "HVAC Climate Control Ad 1", category: "HVAC", vimeoId: "1203812276", duration: "41s" },
+  { id: "1203812274_hvac", title: "HVAC Seasonal Offer Ad 2", category: "HVAC", vimeoId: "1203812274", duration: "29s" },
+  { id: "1203812272_hvac", title: "HVAC Comfort Engine 3", category: "HVAC", vimeoId: "1203812272", duration: "34s" },
+  { id: "1203812271_hvac", title: "HVAC Heat Pump Promo 4", category: "HVAC", vimeoId: "1203812271", duration: "31s" },
+  { id: "1203815881_hvac", title: "$0 Down Home Heater Special 5", category: "HVAC", vimeoId: "1203815881", duration: "37s" },
+  
+  // Solar
+  { id: "1203808485_solar", title: "California Solar Clean Energy 1", category: "Solar", vimeoId: "1203808485", duration: "30s" },
+  { id: "1203808486_solar", title: "California Solar Utility Savings 2", category: "Solar", vimeoId: "1203808486", duration: "41s" },
+  { id: "1203828547_solar", title: "Solar California Federal Incentive 3", category: "Solar", vimeoId: "1203828547", duration: "24s" },
+  { id: "1203828545_solar", title: "Solar Power Lock-In 4", category: "Solar", vimeoId: "1203828545", duration: "24s" },
+  { id: "1203828548_solar", title: "Solar Battery Storage Ad 5", category: "Solar", vimeoId: "1203828548", duration: "43s" },
+  { id: "1203828546_solar", title: "Solar Installation Campaign 6", category: "Solar", vimeoId: "1203828546", duration: "28s" },
+  
+  // Agency Owner
+  { id: "1203105308_agency_owner", title: "7-Figure Agency Acquisition 1", category: "Agency Owner", vimeoId: "1203105308", duration: "35s" },
+  { id: "1203105309_agency_owner", title: "Agency Scale & CAPI Engine 2", category: "Agency Owner", vimeoId: "1203105309", duration: "52s" },
+  { id: "1203808613_agency_owner", title: "High-Ticket Client Blueprint 3", category: "Agency Owner", vimeoId: "1203808613", duration: "53s" },
+  
+  // Chiro
+  { id: "1203812402_chiro", title: "Spine & Pain Chiropractic Ad 1", category: "Chiro", vimeoId: "1203812402", duration: "47s" },
+  { id: "1203812401_chiro", title: "Wellness Chiro Special Offer 2", category: "Chiro", vimeoId: "1203812401", duration: "52s" },
+  { id: "1203812400_chiro", title: "Chiropractic Spinal Care 3", category: "Chiro", vimeoId: "1203812400", duration: "45s" },
+  
+  // Finance
+  { id: "1203818782_finance", title: "Commercial Finance Capital 1", category: "Finance", vimeoId: "1203818782", duration: "55s" },
+  { id: "1203818781_finance", title: "Capital Growth Strategy 2", category: "Finance", vimeoId: "1203818781", duration: "42s" },
+  { id: "1207996165_finance", title: "B2B Lending Acquisition 3", category: "Finance", vimeoId: "1207996165", duration: "38s" },
+  { id: "1207996164_finance", title: "Fintech Growth System 4", category: "Finance", vimeoId: "1207996164", duration: "41s" },
+  { id: "1207996161_finance", title: "Corporate Capital Campaign 5", category: "Finance", vimeoId: "1207996161", duration: "46s" },
+  { id: "1207996163_finance", title: "Financial Advisory Engine 6", category: "Finance", vimeoId: "1207996163", duration: "49s" },
+  
+  // MVA
+  { id: "1203816135_mva", title: "Personal Injury MVA Law 1", category: "MVA", vimeoId: "1203816135", duration: "31s" },
+  { id: "1203816133_mva", title: "MVA Legal Client Acquisition 2", category: "MVA", vimeoId: "1203816133", duration: "32s" },
+  { id: "1203816132_mva", title: "MVA Auto Accident Law 3", category: "MVA", vimeoId: "1203816132", duration: "28s" },
+  { id: "1203816131_mva", title: "MVA Injury Settlement Ad 4", category: "MVA", vimeoId: "1203816131", duration: "35s" },
+  { id: "1203816465_mva", title: "MVA Legal Retainer Campaign 5", category: "MVA", vimeoId: "1203816465", duration: "36s" },
+  { id: "1203816469_mva", title: "MVA Accident Claim Ad 6", category: "MVA", vimeoId: "1203816469", duration: "42s" },
+  { id: "1203816506_mva", title: "MVA Law Firm Scale 7", category: "MVA", vimeoId: "1203816506", duration: "44s" },
+  { id: "1219790482_mva", title: "Personal Injury MVA Campaign 8", category: "MVA", vimeoId: "1219790482", duration: "48s" },
+  { id: "1219790483_mva", title: "MVA Auto Accident Settlement Ad 9", category: "MVA", vimeoId: "1219790483", duration: "52s" },
+  { id: "1219790484_mva", title: "MVA Legal Client Retainer Engine 10", category: "MVA", vimeoId: "1219790484", duration: "41s" },
+  
+  // SAAS
+  { id: "1203819145_saas", title: "Corporate Hiring & SaaS Engine 1", category: "SAAS", vimeoId: "1203819145", duration: "39s" },
+  { id: "1203819144_saas", title: "Career Growth SaaS Funnel 2", category: "SAAS", vimeoId: "1203819144", duration: "37s" },
+  { id: "1203819143_saas", title: "SaaS Conversion Platform 3", category: "SAAS", vimeoId: "1203819143", duration: "42s" },
+  { id: "1203819315_saas", title: "Keynote Event & SaaS Highlights 4", category: "SAAS", vimeoId: "1203819315", duration: "41s" },
+  { id: "1203827387_saas", title: "DTC Health SaaS Reel 5", category: "SAAS", vimeoId: "1203827387", duration: "40s" },
+  { id: "1203827386_saas", title: "DTC Wellness SaaS 6", category: "SAAS", vimeoId: "1203827386", duration: "38s" },
+  
+  // Window & Doors
+  { id: "1203812402_wd", title: "Window & Door Installation Ad 1", category: "Window & Doors", vimeoId: "1203812402", duration: "47s" },
+  { id: "1203812401_wd", title: "Window Replacement Promo 2", category: "Window & Doors", vimeoId: "1203812401", duration: "52s" },
 
-  // Finance & MVA
-  { id: "1203105416", title: "Commercial Finance Capital 6", category: "Finance", vimeoId: "1203105416", duration: "31s" },
-  { id: "1203105415", title: "Capital Growth Strategy 5", category: "Finance", vimeoId: "1203105415", duration: "29s" },
-  { id: "1203808613", title: "Personal Injury MVA Law 1", category: "MVA", vimeoId: "1203808613", duration: "53s" },
-  { id: "1203105376", title: "MVA Legal Client Acquisition 2", category: "MVA", vimeoId: "1203105376", duration: "45s" },
-  { id: "1219790482", title: "Personal Injury MVA Campaign 3", category: "MVA", vimeoId: "1219790482", duration: "48s" },
-  { id: "1219790483", title: "MVA Auto Accident Settlement Ad 4", category: "MVA", vimeoId: "1219790483", duration: "52s" },
-  { id: "1219790484", title: "MVA Legal Client Retainer Engine 5", category: "MVA", vimeoId: "1219790484", duration: "41s" },
+  // Carpet Cleaning
+  { id: "1203818782_cc", title: "Deep Carpet Cleaning Promo 1", category: "Carpet Cleaning", vimeoId: "1203818782", duration: "55s" },
+  { id: "1203818781_cc", title: "Carpet Sanitation Offer 2", category: "Carpet Cleaning", vimeoId: "1203818781", duration: "42s" },
 
-  // Chiro & Home Services
-  { id: "1203105308", title: "Spine & Pain Chiropractic Ad 1", category: "Chiro", vimeoId: "1203105308", duration: "35s" },
-  { id: "1203105309", title: "Wellness Chiro Special Offer 2", category: "Chiro", vimeoId: "1203105309", duration: "52s" },
-  { id: "1203812402", title: "Window & Door Installation Ad 1", category: "Window & Doors", vimeoId: "1203812402", duration: "47s" },
-  { id: "1203812401", title: "Window Replacement Promo 2", category: "Window & Doors", vimeoId: "1203812401", duration: "52s" },
-  { id: "1203818782", title: "Deep Carpet Cleaning Promo 1", category: "Carpet Cleaning", vimeoId: "1203818782", duration: "55s" },
-  { id: "1203818781", title: "Carpet Sanitation Offer 2", category: "Carpet Cleaning", vimeoId: "1203818781", duration: "42s" },
+  // VSL
+  { id: "1203105582_vsl", title: "Longform Client VSL Script 1", category: "VSL", vimeoId: "1203105582", duration: "40s" },
+  { id: "1203105583_vsl", title: "Direct-Response VSL Funnel 2", category: "VSL", vimeoId: "1203105583", duration: "38s" },
+  { id: "1208393043_vsl", title: "High-Ticket VSL Breakdown 3", category: "VSL", vimeoId: "1208393043", duration: "45s" },
+  { id: "1208395435_vsl", title: "Scale With Ads VSL Architecture 4", category: "VSL", vimeoId: "1208395435", duration: "49s" },
+  { id: "1203105523_vsl", title: "System VSL Masterclass 5", category: "VSL", vimeoId: "1203105523", duration: "51s" },
 ];
 
 const categories = [
