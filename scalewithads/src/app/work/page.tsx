@@ -16,33 +16,6 @@ export default function WorkPage() {
   const [expandedProofs, setExpandedProofs] = useState(false);
   const [lightboxImg, setLightboxImg] = useState<string | null>(null);
 
-  const caseStudies = [
-    {
-      title: "E-Commerce Apparel Brand",
-      metric: "$2,400,000+",
-      sub: "Revenue Scaled in 90 Days",
-      roas: "5.4x ROAS",
-      niche: "DTC Fashion",
-      desc: "Installed Meta Advantage+ CAPI funnel with 12 UGC video hook variations, doubling blended ROAS.",
-    },
-    {
-      title: "B2B SaaS Growth Engine",
-      metric: "$1,450,000",
-      sub: "Pipeline Added in 60 Days",
-      roas: "4.82x ROAS",
-      niche: "Software",
-      desc: "Deployed longform VSL ad system paired with server-side lead tracking to cut CPA by 62%.",
-    },
-    {
-      title: "Health & Wellness Brand",
-      metric: "12,000,000+",
-      sub: "TikTok Impressions & Sales",
-      roas: "4.2x ROAS",
-      niche: "Supplements",
-      desc: "Scaled TikTok Spark Ads using creator UGC cuts, driving $840k in new front-end revenue.",
-    },
-  ];
-
   return (
     <main className="min-h-screen bg-[#FDFBF7] text-stone-900 font-sans selection:bg-purple-200 selection:text-purple-950">
       <FloatingNavbar />
@@ -60,54 +33,6 @@ export default function WorkPage() {
           <p className="mt-4 text-stone-600 font-medium text-lg sm:text-xl max-w-2xl mx-auto">
             Deep dives into how we scale revenue, reduce cost per acquisition, and multiply ROAS across 20+ industries.
           </p>
-        </div>
-      </section>
-
-      {/* Case Studies Detailed Cards Grid */}
-      <section className="py-20 px-4 md:px-8 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {caseStudies.map((cs, idx) => (
-            <div
-              key={idx}
-              className="bg-white rounded-3xl border-2 border-stone-950 p-8 shadow-xl hover:shadow-2xl transition-all flex flex-col justify-between"
-            >
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-xs font-mono font-bold text-stone-400 uppercase tracking-widest">
-                    {cs.niche}
-                  </span>
-                  <span className="text-xs font-mono font-black px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300">
-                    {cs.roas}
-                  </span>
-                </div>
-                <h3 className="text-2xl font-extrabold text-stone-950 font-hero tracking-tight">
-                  {cs.title}
-                </h3>
-                <div className="my-6 p-4 rounded-2xl bg-purple-50 border border-purple-100">
-                  <span className="text-3xl font-black text-purple-900 font-mono block">
-                    {cs.metric}
-                  </span>
-                  <span className="text-xs font-bold text-purple-700 font-mono mt-0.5 block">
-                    {cs.sub}
-                  </span>
-                </div>
-                <p className="text-stone-600 text-sm font-medium leading-relaxed">
-                  {cs.desc}
-                </p>
-              </div>
-
-              <div className="mt-8 pt-4 border-t border-stone-200 flex items-center justify-between">
-                <span className="text-xs font-mono font-bold text-stone-500">Verified Client Case</span>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-1.5 font-bold text-xs uppercase text-purple-700 hover:text-purple-950 transition-colors"
-                >
-                  <span>Read Breakdown</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
-            </div>
-          ))}
         </div>
       </section>
 
