@@ -170,19 +170,6 @@ export default function PrivateMastermindPage() {
     <main className="min-h-screen bg-[#FDFBF7] text-stone-900 font-sans selection:bg-purple-200 selection:text-purple-950">
       <FloatingNavbar />
 
-      {/* Top Ticker Warning Banner */}
-      <div className="pt-24 bg-[#1D1435] text-purple-200 text-xs font-mono py-2.5 px-4 overflow-hidden border-b border-purple-900 select-none">
-        <div className="animate-marquee whitespace-nowrap flex items-center gap-8">
-          <span className="flex items-center gap-2 text-amber-300 font-bold">
-            <AlertTriangle className="w-3.5 h-3.5" />
-            ⚠️ THIS IS ONLY FOR AGENCY OWNERS, COACHES, HIGH-TICKET SERVICE PROVIDERS & B2B FOUNDERS ALREADY GENERATING $10,000+/MONTH.
-          </span>
-          <span className="text-emerald-400 font-bold">
-            ⚡ CLICK TO BOOK YOUR FREE STRATEGY CALL — LIMITED SPOTS AVAILABLE.
-          </span>
-        </div>
-      </div>
-
       {/* Hero Header Section */}
       <section className="pt-28 sm:pt-36 pb-20 px-4 md:px-8 bg-white text-stone-900 overflow-hidden border-b border-stone-200 relative">
         {/* Subtle Ambient Background Glow */}
