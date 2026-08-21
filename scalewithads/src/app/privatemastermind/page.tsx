@@ -288,7 +288,7 @@ export default function PrivateMastermindPage() {
         </div>
       </section>
 
-      {/* Curriculum Breakdown Grid (8 Core Pillars - Animated Cards) */}
+      {/* Curriculum Breakdown Grid (8 Core Pillars - 4 Cards per row, 2 lines total) */}
       <section className="py-24 px-4 md:px-8 max-w-7xl mx-auto border-t border-stone-200">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-mono font-black uppercase tracking-widest text-purple-700 bg-purple-100 border border-purple-200 px-4 py-2 rounded-full inline-flex items-center gap-2 shadow-sm">
@@ -303,37 +303,38 @@ export default function PrivateMastermindPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* 4 Cards in a Line (2 Rows Total) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
           {curriculumPillars.map((p, idx) => {
             const Icon = p.icon;
             return (
               <div
                 key={idx}
-                className="bg-white rounded-3xl border-2 border-stone-950 p-8 shadow-xl hover:border-purple-600 hover:-translate-y-2 hover:scale-[1.01] hover:shadow-[0_20px_50px_rgba(147,51,234,0.18)] transition-all duration-300 flex flex-col justify-between group cursor-pointer"
+                className="bg-white rounded-3xl border-2 border-stone-950 p-6 sm:p-7 shadow-lg hover:border-purple-600 hover:-translate-y-2 hover:scale-[1.015] hover:shadow-[0_20px_45px_rgba(147,51,234,0.18)] transition-all duration-300 flex flex-col justify-between group cursor-pointer min-h-[300px]"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-mono font-black text-purple-700 bg-purple-100 px-3 py-1.5 rounded-full border border-purple-200 inline-flex items-center gap-1.5">
-                      <span className="w-2 h-2 rounded-full bg-purple-600 animate-pulse" />
+                    <span className="text-[11px] font-mono font-black text-purple-700 bg-purple-100 px-3 py-1 rounded-full border border-purple-200 inline-flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-purple-600 animate-pulse" />
                       PILLAR {p.number}
                     </span>
-                    <div className="w-11 h-11 rounded-2xl bg-stone-950 text-white flex items-center justify-center group-hover:bg-purple-700 transition-colors shadow-md">
-                      <Icon className="w-5 h-5" />
+                    <div className="w-10 h-10 rounded-2xl bg-stone-950 text-white flex items-center justify-center group-hover:bg-purple-700 transition-colors shadow-md shrink-0">
+                      <Icon className="w-4 h-4" />
                     </div>
                   </div>
 
-                  <h3 className="text-2xl font-black text-stone-950 font-hero tracking-tight mb-3 group-hover:text-purple-700 transition-colors">
+                  <h3 className="text-xl sm:text-2xl font-black text-stone-950 font-hero tracking-tight mb-2.5 group-hover:text-purple-700 transition-colors leading-snug">
                     {p.title}
                   </h3>
 
-                  <p className="text-stone-600 text-sm sm:text-base font-medium leading-relaxed mb-6 font-sans">
+                  <p className="text-stone-600 text-xs sm:text-sm font-medium leading-relaxed mb-5 font-sans">
                     {p.desc}
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-stone-100 flex items-center justify-between font-mono">
-                  <span className="text-xs font-bold text-stone-400">ScaleWithAds Blueprint #{p.number}</span>
-                  <span className="text-xs font-black text-purple-700 bg-purple-50 px-3 py-1 rounded-full border border-purple-200 uppercase tracking-wide">
+                <div className="pt-3.5 border-t border-stone-100 flex items-center justify-between font-mono text-[11px]">
+                  <span className="font-bold text-stone-400">Blueprint #{p.number}</span>
+                  <span className="font-black text-purple-700 bg-purple-50 px-2.5 py-1 rounded-full border border-purple-200 uppercase tracking-wide truncate max-w-[140px]">
                     {p.highlight}
                   </span>
                 </div>
