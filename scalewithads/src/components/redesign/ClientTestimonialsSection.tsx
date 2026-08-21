@@ -48,32 +48,29 @@ export function ClientTestimonialsSection() {
   ];
 
   return (
-    <section className="py-24 sm:py-32 px-4 sm:px-8 bg-[#0F0C1B] text-white border-t border-b border-purple-950 relative overflow-hidden select-none">
+    <section className="py-24 sm:py-32 px-4 sm:px-8 bg-white text-stone-900 border-t border-b border-stone-200 relative overflow-hidden select-none">
       
-      {/* Purple Ambient Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[550px] bg-purple-600/20 rounded-full blur-[140px] pointer-events-none -z-0" />
-
-      {/* Decorative Grid Overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(#9333ea_1px,transparent_1px)] [background-size:28px_28px] opacity-15 pointer-events-none" />
+      {/* Subtle Purple Ambient Background Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[550px] bg-purple-200/40 rounded-full blur-[140px] pointer-events-none -z-0" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-purple-300 bg-purple-950/80 border border-purple-800/80 px-4 py-2 rounded-full inline-flex items-center gap-2 mb-4 shadow-sm">
-            <Sparkles className="w-3.5 h-3.5 text-purple-400" />
+          <span className="text-xs font-mono font-bold uppercase tracking-widest text-purple-900 bg-purple-100 border border-purple-200 px-4 py-2 rounded-full inline-flex items-center gap-2 mb-4 shadow-sm">
+            <Sparkles className="w-3.5 h-3.5 text-purple-700" />
             <span>VERIFIED CLIENT PROOF</span>
           </span>
 
-          <h2 className="text-4xl sm:text-6xl md:text-7xl font-black text-white tracking-tight uppercase font-hero leading-tight">
+          <h2 className="text-4xl sm:text-6xl md:text-7xl font-black text-stone-950 tracking-tight uppercase font-hero leading-tight">
             CLIENT <span className="animate-purple-gradient font-hero">TESTIMONIALS</span>
           </h2>
-          <p className="mt-4 text-stone-300 text-base sm:text-lg font-medium">
+          <p className="mt-4 text-stone-600 text-base sm:text-lg font-medium">
             Real founders, coaches & agencies sharing their client acquisition scaling results.
           </p>
         </div>
 
-        {/* 3 Video Cards Grid (Sleek Smooth Purple Border & Hover Glow) */}
+        {/* 3 Video Cards Grid (Sleek White Cards with Black Border & Hover Glow) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
           {testimonials.map((item) => (
             <motion.div
@@ -81,10 +78,10 @@ export function ClientTestimonialsSection() {
               whileHover={{ y: -6, scale: 1.01 }}
               transition={{ duration: 0.3 }}
               onClick={() => setActiveVideo(item)}
-              className="rounded-3xl bg-stone-950 border-2 border-purple-600/60 hover:border-purple-400 shadow-[0_0_30px_rgba(147,51,234,0.25)] hover:shadow-[0_0_50px_rgba(147,51,234,0.5)] overflow-hidden cursor-pointer group relative flex flex-col justify-between"
+              className="rounded-3xl bg-white border-2 border-stone-950 hover:border-purple-600 shadow-xl hover:shadow-[0_20px_50px_rgba(147,51,234,0.18)] overflow-hidden cursor-pointer group relative flex flex-col justify-between"
             >
               {/* Direct Video Preview Frame Container */}
-              <div className="relative w-full aspect-video bg-black flex items-center justify-center p-2 overflow-hidden rounded-t-3xl">
+              <div className="relative w-full aspect-video bg-stone-950 flex items-center justify-center p-2 overflow-hidden rounded-t-3xl border-b border-stone-200">
                 <video
                   src={item.videoUrl}
                   preload="metadata"
@@ -92,39 +89,39 @@ export function ClientTestimonialsSection() {
                   playsInline
                   className="w-full h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-stone-950/70 via-transparent to-black/20 opacity-40 group-hover:opacity-10 transition-opacity pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 opacity-40 group-hover:opacity-10 transition-opacity pointer-events-none" />
 
                 {/* Top Right Duration Badge */}
-                <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-stone-950/90 backdrop-blur-md border border-purple-500/40 flex items-center gap-1.5 text-[11px] font-mono text-purple-200 shadow-lg pointer-events-none">
+                <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-black/80 backdrop-blur-md border border-white/20 flex items-center gap-1.5 text-[11px] font-mono text-purple-200 shadow-lg pointer-events-none">
                   <Volume2 className="w-3 h-3 text-purple-400" />
                   <span>{item.duration}</span>
                 </div>
 
                 {/* Center Play Icon with Purple Glow */}
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-purple-600/90 text-white border-2 border-purple-300 flex items-center justify-center group-hover:scale-110 group-hover:bg-purple-500 transition-all duration-300 shadow-[0_0_35px_rgba(168,85,247,0.85)]">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-purple-600 text-white border-2 border-purple-300 flex items-center justify-center group-hover:scale-110 group-hover:bg-purple-700 transition-all duration-300 shadow-[0_0_35px_rgba(147,51,234,0.6)]">
                     <Play className="w-6 h-6 sm:w-7 sm:h-7 fill-current ml-0.5" />
                   </div>
                 </div>
               </div>
 
               {/* Card Footer Info */}
-              <div className="p-6 bg-stone-950/90 border-t border-purple-900/50 flex flex-col justify-between grow">
+              <div className="p-6 bg-white border-t border-stone-100 flex flex-col justify-between grow">
                 <div>
-                  <span className="text-xs font-mono font-bold text-purple-400 uppercase tracking-wider block mb-1">
+                  <span className="text-xs font-mono font-black text-purple-700 uppercase tracking-wider block mb-1">
                     ✦ {item.clientName}
                   </span>
-                  <h3 className="text-sm font-extrabold text-white leading-snug group-hover:text-purple-300 transition-colors">
+                  <h3 className="text-base font-extrabold text-stone-950 font-hero leading-snug group-hover:text-purple-700 transition-colors">
                     {item.title}
                   </h3>
                 </div>
 
-                <div className="mt-4 pt-3 border-t border-stone-800/60 flex items-center justify-between text-xs font-mono text-stone-400">
-                  <span className="inline-flex items-center gap-1 text-emerald-400">
+                <div className="mt-5 pt-3.5 border-t border-stone-100 flex items-center justify-between text-xs font-mono">
+                  <span className="inline-flex items-center gap-1 text-emerald-700 font-bold">
                     <CheckCircle2 className="w-3.5 h-3.5" />
                     <span>Verified Result</span>
                   </span>
-                  <span className="text-purple-400 font-bold uppercase">Watch Video ↗</span>
+                  <span className="text-purple-700 font-black uppercase">Watch Video ↗</span>
                 </div>
               </div>
             </motion.div>
