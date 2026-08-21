@@ -112,7 +112,7 @@ export function DifferenceSection() {
             className="text-3xl sm:text-5xl md:text-6xl lg:text-[66px] font-black text-stone-950 tracking-tight leading-[1.05] uppercase font-hero max-w-5xl"
           >
             We Don&apos;t Just Generate Leads... <br />
-            <span className="text-purple-700 font-extrabold normal-case tracking-normal block mt-2">
+            <span className="animate-purple-gradient font-extrabold normal-case tracking-normal block mt-2">
               We Build A Complete Client Acquisition Ecosystem.
             </span>
           </motion.h2>
