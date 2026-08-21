@@ -49,40 +49,35 @@ export function AdGenieHero() {
           </motion.h1>
         </div>
 
-        {/* High-Converting Irresistible Offer Card */}
+        {/* Seamless High-Converting Offer Subtext (NO BLOCK CONTAINER) */}
         <motion.div
           initial={{ opacity: 0, y: 40, skewX: -4, filter: "blur(8px)" }}
           animate={{ opacity: 1, y: 0, skewX: 0, filter: "blur(0px)" }}
           transition={{ duration: 1.6, delay: 0.5, ease: silkEase }}
-          className="mt-8 max-w-3xl w-full"
+          className="mt-6 max-w-3xl text-center space-y-4 font-sans"
         >
-          <div className="p-6 sm:p-8 rounded-3xl bg-purple-50/90 border-2 border-purple-200 shadow-xl text-center relative overflow-hidden">
-            <p className="text-base sm:text-lg text-stone-800 font-medium leading-relaxed font-sans">
-              We will install our complete <span className="font-black text-stone-950">Done-For-You Client Acquisition Ecosystem</span> into your business — High-Converting Funnels, Meta Ads & AI Follow-Up.
-            </p>
+          <p className="text-base sm:text-xl font-extrabold text-stone-900 leading-relaxed">
+            We install our complete <span className="text-purple-700 font-black">Done-For-You Client Acquisition Ecosystem</span> into your business — High-Converting Funnels, Meta Ads & AI Automations.
+          </p>
 
-            <div className="my-5 p-4 rounded-2xl bg-white border border-purple-200/80 shadow-sm">
-              <p className="text-base sm:text-xl font-extrabold text-stone-950 font-sans leading-snug">
-                If we don&apos;t double your revenue within 90 days... <br className="hidden sm:inline" />
-                <span className="text-purple-700 font-bold">we&apos;ll continue working for you at zero management fee until we do.</span>
-              </p>
-            </div>
+          <p className="text-sm sm:text-lg font-bold text-stone-700 max-w-2xl mx-auto leading-normal">
+            Or we&apos;ll continue working for you at <span className="font-black text-stone-950 underline underline-offset-4 decoration-purple-500">zero management fee</span> until we do.
+          </p>
 
-            {/* Feature Guarantees Row */}
-            <div className="flex flex-wrap items-center justify-center gap-2.5 pt-2">
-              <span className="px-3.5 py-1.5 rounded-full bg-stone-950 text-white font-mono text-[11px] font-black uppercase tracking-wider inline-flex items-center gap-1.5 shadow-sm">
-                <ShieldCheck className="w-3.5 h-3.5 text-purple-400" />
-                <span>Written 90-Day Guarantee</span>
-              </span>
-              <span className="px-3.5 py-1.5 rounded-full bg-purple-200/80 text-purple-950 font-mono text-[11px] font-black uppercase tracking-wider inline-flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-purple-700" />
-                <span>100% Asset Ownership</span>
-              </span>
-              <span className="px-3.5 py-1.5 rounded-full bg-emerald-100 text-emerald-900 border border-emerald-300 font-mono text-[11px] font-black uppercase tracking-wider inline-flex items-center gap-1.5">
-                <Zap className="w-3.5 h-3.5 text-emerald-700" />
-                <span>Zero Management Fee Risk</span>
-              </span>
-            </div>
+          {/* Clean Pill Badges */}
+          <div className="flex flex-wrap items-center justify-center gap-2.5 pt-2">
+            <span className="px-4 py-1.5 rounded-full bg-stone-950 text-white font-mono text-[11px] font-black uppercase tracking-wider inline-flex items-center gap-1.5 shadow-sm">
+              <ShieldCheck className="w-3.5 h-3.5 text-purple-400" />
+              <span>Written 90-Day Guarantee</span>
+            </span>
+            <span className="px-4 py-1.5 rounded-full bg-purple-100 text-purple-950 border border-purple-300 font-mono text-[11px] font-black uppercase tracking-wider inline-flex items-center gap-1.5">
+              <CheckCircle2 className="w-3.5 h-3.5 text-purple-700" />
+              <span>100% Asset Ownership</span>
+            </span>
+            <span className="px-4 py-1.5 rounded-full bg-emerald-100 text-emerald-900 border border-emerald-300 font-mono text-[11px] font-black uppercase tracking-wider inline-flex items-center gap-1.5">
+              <Zap className="w-3.5 h-3.5 text-emerald-700" />
+              <span>Zero Management Fee Risk</span>
+            </span>
           </div>
         </motion.div>
 
