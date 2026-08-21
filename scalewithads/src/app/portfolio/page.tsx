@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import { FloatingNavbar } from "@/components/redesign/FloatingNavbar";
+import { ClientTestimonialsSection } from "@/components/redesign/ClientTestimonialsSection";
+import { CreativeCtaSection } from "@/components/redesign/CreativeCtaSection";
 import { LusionEndSection } from "@/components/redesign/LusionEndSection";
 import { EditorialFooter } from "@/components/redesign/EditorialFooter";
 import { Play, Film, Flame, ArrowRight, Sparkles, Filter, X, Maximize2 } from "lucide-react";
@@ -272,6 +274,12 @@ export default function PortfolioPage() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Client Video Testimonials */}
+      <ClientTestimonialsSection />
+
+      {/* Book a Call Strategy CTA */}
+      <CreativeCtaSection />
 
       <LusionEndSection />
       <EditorialFooter />
