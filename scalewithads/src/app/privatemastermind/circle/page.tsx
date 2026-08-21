@@ -1,5 +1,8 @@
 import React from "react";
 import { FloatingNavbar } from "@/components/redesign/FloatingNavbar";
+import { ResultsSection } from "@/components/redesign/ResultsSection";
+import { TrainingVideosSection } from "@/components/redesign/TrainingVideosSection";
+import { ClientTestimonialsSection } from "@/components/redesign/ClientTestimonialsSection";
 import { LusionEndSection } from "@/components/redesign/LusionEndSection";
 import { EditorialFooter } from "@/components/redesign/EditorialFooter";
 import { Crown, ArrowRight, ShieldCheck, Sparkles, CheckCircle2, TrendingUp, BarChart2, Star, AlertTriangle, Play, Zap, RefreshCw, Lock, Award, FileText } from "lucide-react";
@@ -72,117 +75,133 @@ export default function OperatorCirclePage() {
     },
   ];
 
+  const faqs = [
+    {
+      q: "What exactly is included in the 90-day private mastermind?",
+      a: "You’ll get one private 1-on-1 strategy call every week, plus 24/7 access to us for questions and support throughout the program. There is no artificial time limit on your weekly calls — we stay on until your questions are answered and you have clarity on your next steps. You’ll also get recordings of every session so you can revisit the strategies and training whenever you need.",
+    },
+    {
+      q: "What will I learn during the 90 days?",
+      a: "We’ll work with you directly on the areas that drive growth, including ad copy creation, high-converting creatives, hyper-targeted audience segmentation, testing frameworks, scaling strategies, lead qualification systems, and email & SMS automations. The goal is to help you build a repeatable system you can use long after the mastermind ends.",
+    },
+    {
+      q: "What if I don’t double my revenue in 90 days?",
+      a: "We stand behind the program with our 90-Day Double Revenue Guarantee. If you follow the strategies, implement the work, and don’t double your revenue within the 90-day period, we’ll continue working with you for free until you do.",
+    },
+    {
+      q: "Is there a refund policy?",
+      a: "There are no refunds for the mastermind. This is a hands-on, personalized program where we commit our time, expertise, and resources directly to your business. The 90-Day Double Revenue Guarantee is designed to give you confidence in the outcome while keeping the focus on implementation and results.",
+    },
+    {
+      q: "Will I get recordings of the 1-on-1 sessions?",
+      a: "Yes. Every session is recorded. You’ll have access to the recordings so you can review the strategies, revisit specific recommendations, and make sure nothing gets missed between sessions.",
+    },
+  ];
+
   return (
     <main className="min-h-screen bg-[#FDFBF7] text-stone-900 font-sans selection:bg-purple-200 selection:text-purple-950">
       <FloatingNavbar />
 
-      {/* Top Warning Banner */}
-      <div className="pt-24 bg-[#1D1435] text-purple-200 text-xs font-mono py-2.5 px-4 overflow-hidden border-b border-purple-900 select-none">
-        <div className="animate-marquee whitespace-nowrap flex items-center gap-8">
-          <span className="flex items-center gap-2 text-amber-300 font-bold">
-            <AlertTriangle className="w-3.5 h-3.5" />
-            ⚠️ THIS IS ONLY FOR AGENCY OWNERS, COACHES, HIGH-TICKET SERVICE PROVIDERS & B2B FOUNDERS ALREADY GENERATING $10,000+/MONTH.
-          </span>
-          <span className="text-emerald-400 font-bold">
-            ⚡ CLICK TO BOOK YOUR FREE STRATEGY CALL — LIMITED SPOTS AVAILABLE.
-          </span>
-        </div>
-      </div>
+      {/* Hero Header Section */}
+      <section className="pt-28 sm:pt-36 pb-16 px-4 md:px-8 bg-white text-stone-900 overflow-hidden border-b border-stone-200 relative">
+        {/* Subtle Ambient Background Glow */}
+        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[900px] h-[550px] bg-gradient-to-tr from-purple-200/40 via-purple-100/20 to-amber-100/10 rounded-full blur-3xl pointer-events-none -z-10" />
 
-      {/* Hero Header */}
-      <section className="pt-16 pb-20 px-4 md:px-8 bg-white text-stone-900 border-b border-stone-200">
-        <div className="max-w-5xl mx-auto text-center">
-          <span className="text-xs font-mono font-black uppercase tracking-widest text-purple-700 bg-purple-100 border border-purple-200 px-4 py-2 rounded-full inline-flex items-center gap-2 mb-6">
+        <div className="max-w-5xl mx-auto text-center flex flex-col items-center">
+          {/* Eyebrow Tag */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-100 border border-purple-200 text-purple-900 font-extrabold text-xs tracking-widest uppercase mb-6 shadow-sm">
             <Crown className="w-4 h-4 text-purple-700" />
             <span>PAID PILOT TRIAL · GUARANTEED REVENUE GROWTH</span>
-          </span>
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-stone-950 uppercase font-hero leading-tight">
-            Turn Meta Ads into a <span className="font-serif italic lowercase text-purple-700">cash cow machine</span> for any industry.
+          </div>
+
+          {/* Main Headline */}
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-stone-950 uppercase font-hero leading-tight select-none">
+            Turn Meta Ads into a <br />
+            <span className="animate-purple-gradient font-hero tracking-tight">CASH COW MACHINE</span> for any industry.
           </h1>
-          <p className="mt-6 text-stone-600 text-base sm:text-xl max-w-3xl mx-auto font-medium leading-relaxed font-sans">
+
+          {/* Subtext */}
+          <p className="mt-4 text-base sm:text-lg font-medium text-stone-700 max-w-2xl mx-auto leading-relaxed font-sans">
             If your Meta ads aren’t converting at scale, it’s not the offer. It’s how you’re selling it. Test our complete acquisition system risk-free with our 90-day written growth guarantee.
           </p>
 
           {/* Stats Grid */}
-          <div className="mx-auto mt-10 grid max-w-3xl grid-cols-2 gap-4 sm:grid-cols-4">
+          <div className="mx-auto mt-8 grid max-w-4xl grid-cols-2 gap-3.5 sm:grid-cols-4 w-full">
             {stats.map((s, idx) => (
-              <div key={idx} className="rounded-2xl border border-stone-200 bg-stone-50 p-4 text-center shadow-sm">
+              <div key={idx} className="rounded-2xl border-2 border-stone-950 bg-stone-50 p-4 text-center shadow-sm hover:border-purple-600 transition-colors">
                 <p className="text-3xl font-black text-purple-700 font-mono">{s.value}</p>
-                <p className="mt-1 text-[10px] font-bold uppercase tracking-wider text-stone-500 font-mono">{s.label}</p>
+                <p className="mt-1 text-[10px] font-extrabold uppercase tracking-wider text-stone-600 font-mono">{s.label}</p>
               </div>
             ))}
-          </div>
-
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            <Link
-              href="/book"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-stone-950 hover:bg-purple-700 text-white font-black text-sm uppercase tracking-wider transition-all shadow-xl active:scale-95"
-            >
-              <span>APPLY FOR PAID PILOT TRIAL</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link
-              href="/book"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#EAE0FF] hover:bg-purple-200 text-purple-950 font-black text-sm uppercase tracking-wider border-2 border-stone-950 transition-all active:scale-95"
-            >
-              <span>BOOK A STRATEGY CALL →</span>
-            </Link>
           </div>
         </div>
       </section>
 
-      {/* Mastermind VSL Video Player */}
-      <section className="py-20 px-4 md:px-8 max-w-5xl mx-auto text-center">
-        <div className="mb-6">
-          <span className="inline-flex items-center gap-2 rounded-full bg-purple-100 border border-purple-200 px-4 py-1.5 text-xs font-mono font-bold text-purple-700 uppercase tracking-widest">
-            <Play className="w-3.5 h-3.5 fill-current" />
-            Watch Paid Pilot VSL Video
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-stone-950 font-hero tracking-tight mt-3">
-            Watch This Before You Apply for the Paid Pilot
-          </h2>
-        </div>
-
-        <div className="relative rounded-3xl overflow-hidden border-4 border-stone-950 shadow-2xl bg-black aspect-video">
+      {/* Mastermind VSL Video Player Section */}
+      <section className="py-16 px-4 md:px-8 max-w-5xl mx-auto text-center">
+        {/* Direct VSL Video Frame (No Poster Cover Image) */}
+        <div className="relative rounded-3xl overflow-hidden border-4 border-stone-950 shadow-[0_25px_70px_rgba(147,51,234,0.3)] bg-black aspect-video">
           <video
             src="https://assets.cdn.filesafe.space/W8B8H8FvOolLCrvxXzYp/media/69ef9443717d5dd4e170f445.mp4"
-            poster="/media/covers/cover-mastermind.jpeg"
             controls
+            autoPlay
+            preload="auto"
             className="w-full h-full object-cover"
           />
+        </div>
+
+        {/* Big BOOK YOUR CALL Button Below VSL */}
+        <div className="mt-10 sm:mt-14 flex flex-col items-center justify-center">
+          <Link
+            href="/book"
+            className="w-full sm:w-auto px-12 py-5 sm:px-16 sm:py-6 text-xl sm:text-2xl font-black rounded-full bg-stone-950 hover:bg-purple-700 text-white shadow-[0_20px_50px_rgba(147,51,234,0.3)] transition-all duration-300 hover:scale-105 active:scale-95 border-2 border-purple-500/40 inline-flex items-center justify-center gap-3 tracking-wider uppercase"
+          >
+            <span>BOOK YOUR CALL</span>
+            <ArrowRight className="w-6 h-6 sm:w-7 sm:h-7 stroke-[2.5]" />
+          </Link>
+          <span className="mt-3.5 text-xs font-mono font-bold text-stone-500 uppercase tracking-widest flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span>100% Free Strategy Session • Limited Weekly Spots</span>
+          </span>
         </div>
       </section>
 
       {/* Side-by-Side Comparison Matrix */}
       <section className="py-24 px-4 md:px-8 max-w-6xl mx-auto border-t border-stone-200">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-mono font-black uppercase tracking-widest text-purple-700 bg-purple-100 border border-purple-200 px-4 py-2 rounded-full">
-            TRADITIONAL AGENCY VS SCALEWITHADS
+          <span className="text-xs font-mono font-black uppercase tracking-widest text-purple-700 bg-purple-100 border border-purple-200 px-4 py-2 rounded-full inline-flex items-center gap-2 shadow-sm">
+            <Sparkles className="w-3.5 h-3.5 text-purple-700" />
+            <span>TRADITIONAL AGENCY VS SCALEWITHADS</span>
           </span>
-          <h2 className="text-3xl sm:text-5xl font-black text-stone-950 font-hero tracking-tight mt-4">
-            Why Our Paid Pilot Outperforms Traditional Agencies
+          <h2 className="text-3xl sm:text-5xl font-black text-stone-950 font-hero tracking-tight mt-4 uppercase leading-tight">
+            Why Our Paid Pilot Outperforms <br />
+            <span className="animate-purple-gradient font-hero tracking-tight">TRADITIONAL AGENCIES</span>
           </h2>
         </div>
 
         <div className="bg-white rounded-3xl border-2 border-stone-950 shadow-xl overflow-hidden">
-          <div className="grid grid-cols-1 md:grid-cols-3 bg-stone-950 text-white p-6 font-hero text-sm uppercase tracking-wider font-extrabold border-b-2 border-stone-950">
-            <div className="hidden md:block">Deliverable / Protocol</div>
-            <div className="text-rose-400">Traditional Marketing Agencies</div>
-            <div className="text-emerald-400">ScaleWithAds Paid Pilot</div>
+          <div className="grid grid-cols-1 md:grid-cols-3 bg-stone-950 text-white p-6 font-hero text-xs sm:text-sm uppercase tracking-wider font-black border-b-2 border-stone-950">
+            <div className="hidden md:block font-mono text-stone-400">DELIVERABLE / PROTOCOL</div>
+            <div className="text-rose-400 font-mono flex items-center gap-2">✕ TRADITIONAL AGENCIES</div>
+            <div className="text-emerald-400 font-mono flex items-center gap-2">✓ SCALEWITHADS PAID PILOT</div>
           </div>
 
-          <div className="divide-y-2 divide-stone-200">
+          <div className="divide-y-2 divide-stone-100">
             {comparisonRows.map((row, idx) => (
-              <div key={idx} className="grid grid-cols-1 md:grid-cols-3 p-6 gap-4 text-sm font-medium">
-                <div className="font-extrabold text-stone-950 font-hero flex items-center gap-2">
-                  <Zap className="w-4 h-4 text-purple-700" />
+              <div key={idx} className="grid grid-cols-1 md:grid-cols-3 p-6 gap-4 text-sm font-medium items-center">
+                <div className="font-black text-stone-950 font-hero text-sm sm:text-base flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center shrink-0 border border-purple-200">
+                    <Zap className="w-4 h-4" />
+                  </div>
                   <span>{row.feature}</span>
                 </div>
-                <div className="text-stone-600 bg-rose-50/50 p-3 rounded-xl border border-rose-200/60 text-xs">
-                  ❌ {row.traditional}
+                <div className="text-stone-900 bg-rose-50/80 p-4 rounded-2xl border border-rose-200 text-xs sm:text-sm font-sans font-bold flex items-start gap-2.5 leading-relaxed">
+                  <span className="text-rose-600 font-black shrink-0">✕</span>
+                  <span>{row.traditional}</span>
                 </div>
-                <div className="text-stone-950 bg-emerald-50 p-3 rounded-xl border border-emerald-300 text-xs font-extrabold">
-                  ✓ {row.scalewithads}
+                <div className="text-stone-950 bg-emerald-50 p-4 rounded-2xl border-2 border-emerald-300 text-xs sm:text-sm font-sans font-extrabold flex items-start gap-2.5 shadow-sm leading-relaxed">
+                  <span className="text-emerald-600 font-black shrink-0">✓</span>
+                  <span>{row.scalewithads}</span>
                 </div>
               </div>
             ))}
@@ -255,7 +274,7 @@ export default function OperatorCirclePage() {
         <div className="mt-14 p-8 rounded-3xl bg-white border-2 border-stone-950 shadow-xl text-center">
           <span className="text-xs font-mono font-bold text-stone-400 uppercase tracking-widest block mb-2">TRACK RECORD</span>
           <h3 className="text-2xl font-black text-stone-950 font-hero mb-3">Real Meta scale. Real awards. Real brands.</h3>
-          <p className="text-stone-600 text-sm font-medium leading-relaxed max-w-2xl mx-auto">
+          <p className="text-stone-600 text-sm font-medium leading-relaxed max-w-2xl mx-auto font-sans">
             Two Comma Club Winner. ClickFunnels Awards. Client proof like $847K revenue on $255K tracked spend at 3.32 ROAS, and 13,630 LTO offers sold. This is ads that sell.
           </p>
 
@@ -268,6 +287,42 @@ export default function OperatorCirclePage() {
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* Proven Track Record Section */}
+      <ResultsSection />
+
+      {/* System Training Library Section */}
+      <TrainingVideosSection />
+
+      {/* Verified Client Video Testimonials Section */}
+      <ClientTestimonialsSection />
+
+      {/* Frequently Asked Questions Accordion */}
+      <section className="py-24 px-4 md:px-8 max-w-5xl mx-auto border-t border-stone-200">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="text-xs font-mono font-black uppercase tracking-widest text-purple-700 bg-purple-100 border border-purple-200 px-4 py-2 rounded-full inline-flex items-center gap-2 shadow-sm">
+            <Sparkles className="w-3.5 h-3.5 text-purple-700" />
+            <span>FREQUENTLY ASKED QUESTIONS</span>
+          </span>
+          <h2 className="text-3xl sm:text-5xl font-black text-stone-950 font-hero tracking-tight mt-4 uppercase leading-tight">
+            Everything You Need to <span className="animate-purple-gradient font-hero tracking-tight">KNOW</span>
+          </h2>
+        </div>
+
+        <div className="space-y-6">
+          {faqs.map((faq, idx) => (
+            <div key={idx} className="p-8 rounded-3xl bg-white border-2 border-stone-950 shadow-xl hover:border-purple-600 transition-colors">
+              <h3 className="text-xl font-black text-stone-950 font-hero tracking-tight flex items-center gap-3 mb-3">
+                <Sparkles className="w-5 h-5 text-purple-700 shrink-0" />
+                <span>{faq.q}</span>
+              </h3>
+              <p className="text-stone-600 text-base font-medium leading-relaxed font-sans pl-8">
+                {faq.a}
+              </p>
+            </div>
+          ))}
         </div>
       </section>
 

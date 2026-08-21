@@ -1,5 +1,8 @@
 import React from "react";
 import { FloatingNavbar } from "@/components/redesign/FloatingNavbar";
+import { ResultsSection } from "@/components/redesign/ResultsSection";
+import { TrainingVideosSection } from "@/components/redesign/TrainingVideosSection";
+import { ClientTestimonialsSection } from "@/components/redesign/ClientTestimonialsSection";
 import { LusionEndSection } from "@/components/redesign/LusionEndSection";
 import { EditorialFooter } from "@/components/redesign/EditorialFooter";
 import { BookOpen, ArrowRight, ShieldCheck, Download, Sparkles, CheckCircle2, AlertTriangle, Play, TrendingUp, DollarSign, Layers, Clock, Cpu } from "lucide-react";
@@ -74,6 +77,29 @@ export default function PlaybooksPage() {
     },
   ];
 
+  const faqs = [
+    {
+      q: "What exactly is included in the 90-day private mastermind?",
+      a: "You’ll get one private 1-on-1 strategy call every week, plus 24/7 access to us for questions and support throughout the program. There is no artificial time limit on your weekly calls — we stay on until your questions are answered and you have clarity on your next steps. You’ll also get recordings of every session so you can revisit the strategies and training whenever you need.",
+    },
+    {
+      q: "What will I learn during the 90 days?",
+      a: "We’ll work with you directly on the areas that drive growth, including ad copy creation, high-converting creatives, hyper-targeted audience segmentation, testing frameworks, scaling strategies, lead qualification systems, and email & SMS automations. The goal is to help you build a repeatable system you can use long after the mastermind ends.",
+    },
+    {
+      q: "What if I don’t double my revenue in 90 days?",
+      a: "We stand behind the program with our 90-Day Double Revenue Guarantee. If you follow the strategies, implement the work, and don’t double your revenue within the 90-day period, we’ll continue working with you for free until you do.",
+    },
+    {
+      q: "Is there a refund policy?",
+      a: "There are no refunds for the mastermind. This is a hands-on, personalized program where we commit our time, expertise, and resources directly to your business. The 90-Day Double Revenue Guarantee is designed to give you confidence in the outcome while keeping the focus on implementation and results.",
+    },
+    {
+      q: "Will I get recordings of the 1-on-1 sessions?",
+      a: "Yes. Every session is recorded. You’ll have access to the recordings so you can review the strategies, revisit specific recommendations, and make sure nothing gets missed between sessions.",
+    },
+  ];
+
   return (
     <main className="min-h-screen bg-[#FDFBF7] text-stone-900 font-sans selection:bg-purple-200 selection:text-purple-950">
       <FloatingNavbar />
@@ -115,13 +141,13 @@ export default function PlaybooksPage() {
 
       {/* Mastermind VSL Video Section */}
       <section className="py-16 px-4 md:px-8 max-w-5xl mx-auto text-center">
-        {/* VSL Video Player with Ambient Glow Border */}
+        {/* VSL Video Player Direct (No Thumbnail Cover Image) */}
         <div className="relative rounded-3xl overflow-hidden border-4 border-stone-950 shadow-[0_25px_70px_rgba(147,51,234,0.3)] bg-black aspect-video">
           <video
             src="https://storage.googleapis.com/msgsndr/HWyar6Z3u3aF6ydghkCx/media/695da2543a532d67105ad96c.mp4"
-            poster="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://storage.googleapis.com/msgsndr/HWyar6Z3u3aF6ydghkCx/media/695d947da88e874feacb84ad.png"
             controls
             autoPlay
+            preload="auto"
             className="w-full h-full object-cover"
           />
         </div>
@@ -148,8 +174,8 @@ export default function PlaybooksPage() {
           <span className="text-xs font-mono font-black uppercase tracking-widest text-purple-700 bg-purple-100 border border-purple-200 px-4 py-2 rounded-full">
             90-DAY SCALING ROADMAP
           </span>
-          <h2 className="text-3xl sm:text-5xl font-black text-stone-950 font-hero tracking-tight mt-4">
-            How We Achieved $847K Step-by-Step
+          <h2 className="text-3xl sm:text-5xl font-black text-stone-950 font-hero tracking-tight mt-4 uppercase leading-tight">
+            How We Achieved <span className="animate-purple-gradient font-hero tracking-tight">$847K Step-by-Step</span>
           </h2>
         </div>
 
@@ -176,44 +202,67 @@ export default function PlaybooksPage() {
       </section>
 
       {/* Playbooks Grid */}
-      <section className="py-24 px-4 md:px-8 max-w-7xl mx-auto border-t border-stone-200">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-mono font-black uppercase tracking-widest text-purple-700 bg-purple-100 border border-purple-200 px-4 py-2 rounded-full">
-            INCLUDED SOP LIBRARY
-          </span>
-          <h2 className="text-3xl sm:text-5xl font-black text-stone-950 font-hero tracking-tight mt-4">
-            Downloadable SOPs & Systems
-          </h2>
-        </div>
-
+      <section className="py-20 px-4 md:px-8 max-w-7xl mx-auto border-t border-stone-200">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {playbooks.map((p, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-3xl border-2 border-stone-950 p-8 shadow-xl hover:border-purple-600 transition-all flex flex-col justify-between"
+              className="bg-white rounded-3xl border-2 border-stone-950 p-8 shadow-xl hover:border-purple-600 hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(147,51,234,0.18)] transition-all duration-300 flex flex-col justify-between group"
             >
               <div>
-                <span className="text-xs font-mono font-bold text-purple-700 bg-purple-100 border border-purple-200 px-3 py-1 rounded-full uppercase tracking-wider inline-block mb-4">
+                <span className="text-xs font-mono font-black text-purple-700 bg-purple-100 border border-purple-200 px-3 py-1 rounded-full uppercase tracking-wider inline-block mb-4">
                   {p.type}
                 </span>
-                <h3 className="text-2xl font-extrabold text-stone-950 font-hero tracking-tight mb-3">
+                <h3 className="text-2xl font-black text-stone-950 font-hero tracking-tight mb-3 group-hover:text-purple-700 transition-colors">
                   {p.title}
                 </h3>
-                <p className="text-stone-600 text-sm font-medium leading-relaxed">
+                <p className="text-stone-600 text-sm font-medium leading-relaxed font-sans">
                   {p.desc}
                 </p>
               </div>
 
-              <div className="mt-8 pt-4 border-t border-stone-200 flex items-center justify-between">
-                <span className="text-xs font-mono font-bold text-stone-500">Blueprint #0{idx + 1}</span>
-                <Link
-                  href="/book"
-                  className="inline-flex items-center gap-1.5 font-bold text-xs uppercase text-purple-700 hover:text-purple-950 transition-colors"
-                >
-                  <span>Download SOP</span>
-                  <Download className="w-3.5 h-3.5" />
-                </Link>
+              <div className="mt-8 pt-4 border-t border-stone-200 flex items-center justify-between font-mono">
+                <span className="text-xs font-bold text-stone-400">Blueprint #0{idx + 1}</span>
+                <span className="text-xs font-black text-purple-700 bg-purple-50 px-3 py-1 rounded-full border border-purple-200 uppercase tracking-wide">
+                  PROPRIETARY SOP
+                </span>
               </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Proven Track Record Section */}
+      <ResultsSection />
+
+      {/* System Training Library Section */}
+      <TrainingVideosSection />
+
+      {/* Verified Client Video Testimonials Section */}
+      <ClientTestimonialsSection />
+
+      {/* Frequently Asked Questions Accordion */}
+      <section className="py-24 px-4 md:px-8 max-w-5xl mx-auto border-t border-stone-200">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="text-xs font-mono font-black uppercase tracking-widest text-purple-700 bg-purple-100 border border-purple-200 px-4 py-2 rounded-full inline-flex items-center gap-2 shadow-sm">
+            <Sparkles className="w-3.5 h-3.5 text-purple-700" />
+            <span>FREQUENTLY ASKED QUESTIONS</span>
+          </span>
+          <h2 className="text-3xl sm:text-5xl font-black text-stone-950 font-hero tracking-tight mt-4 uppercase leading-tight">
+            Everything You Need to <span className="animate-purple-gradient font-hero tracking-tight">KNOW</span>
+          </h2>
+        </div>
+
+        <div className="space-y-6">
+          {faqs.map((faq, idx) => (
+            <div key={idx} className="p-8 rounded-3xl bg-white border-2 border-stone-950 shadow-xl hover:border-purple-600 transition-colors">
+              <h3 className="text-xl font-black text-stone-950 font-hero tracking-tight flex items-center gap-3 mb-3">
+                <Sparkles className="w-5 h-5 text-purple-700 shrink-0" />
+                <span>{faq.q}</span>
+              </h3>
+              <p className="text-stone-600 text-base font-medium leading-relaxed font-sans pl-8">
+                {faq.a}
+              </p>
             </div>
           ))}
         </div>
