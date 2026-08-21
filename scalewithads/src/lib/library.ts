@@ -21,10 +21,13 @@ export type LibraryClient = {
 
 const CDN = "https://storage.googleapis.com/msgsndr/HWyar6Z3u3aF6ydghkCx/media";
 
+const excludedLogos = new Set(["09", "14"]);
 const LOGOS = Array.from(
   { length: 22 },
-  (_, i) => `/media/library/logos/logo-${String(i + 1).padStart(2, "0")}.png`
-);
+  (_, i) => String(i + 1).padStart(2, "0")
+)
+  .filter((num) => !excludedLogos.has(num))
+  .map((num) => `/media/library/logos/logo-${num}.png`);
 
 export const brandLibrary: LibraryClient = {
   slug: "million-dollar-media",

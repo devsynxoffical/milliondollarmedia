@@ -45,7 +45,7 @@ export function FloatingNavbar() {
             onError={(e) => {
               (e.currentTarget as HTMLImageElement).src = "/icon-logo/mainlogo.jpeg";
             }}
-            className="h-8 sm:h-9 md:h-10 w-auto object-contain transition-transform group-hover:scale-105"
+            className="h-12 sm:h-14 md:h-16 w-auto object-contain transition-transform group-hover:scale-105"
           />
         </Link>
 
@@ -95,11 +95,10 @@ export function FloatingNavbar() {
                 >
                   <Link
                     href={item.href}
-                    className={`inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full border-2 text-xs font-extrabold tracking-tight transition-colors ${
-                      isActive
+                    className={`inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full border-2 text-xs font-extrabold tracking-tight transition-colors ${isActive
                         ? "bg-[#A855F7] text-white border-stone-950 shadow-md"
                         : "bg-white text-stone-900 border-purple-300 hover:border-stone-950 hover:bg-purple-50"
-                    }`}
+                      }`}
                   >
                     {isActive && <span className="font-mono text-[10px]">°o</span>}
                     <span>{item.label}</span>

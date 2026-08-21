@@ -5,14 +5,15 @@ import { motion } from "framer-motion";
 import { Star, ShieldCheck, Sparkles, Trophy, ArrowUpRight } from "lucide-react";
 
 export function EditorialSubhero() {
-  // 22 Client Logos from /media/logos/ (logo-01.png to logo-22.png)
+  // 20 Client Logos from /media/logos/ (excluding logo-09.png & logo-14.png)
+  const excludedLogos = new Set(["09", "14"]);
   const logos = Array.from({ length: 22 }, (_, i) => {
     const num = (i + 1).toString().padStart(2, "0");
     return {
       id: num,
       src: `/media/logos/logo-${num}.png`,
     };
-  });
+  }).filter((item) => !excludedLogos.has(item.id));
 
   const repeatedLogos = [...logos, ...logos];
 
