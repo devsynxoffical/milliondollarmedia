@@ -245,21 +245,22 @@ export default function PrivateMastermindPage() {
           </div>
 
           {/* Mastermind Video Player Section (Official VSL Video) */}
-          <div className="mt-14 max-w-5xl mx-auto text-center">
-            <div className="mb-6">
-              <span className="inline-flex items-center gap-2 rounded-full bg-purple-100 border border-purple-200 px-4 py-1.5 text-xs font-mono font-bold text-purple-700 uppercase tracking-widest">
-                <Play className="w-3.5 h-3.5 fill-current" />
+          <div className="mt-16 max-w-5xl mx-auto text-center relative z-10">
+            <div className="mb-8">
+              <span className="inline-flex items-center gap-2 rounded-full bg-purple-100 border border-purple-300 px-5 py-2 text-xs font-mono font-extrabold text-purple-800 uppercase tracking-widest shadow-sm">
+                <Play className="w-4 h-4 fill-purple-700 text-purple-700" />
                 Watch Private 1:1 Mastermind Video
               </span>
-              <h2 className="text-3xl sm:text-5xl font-black text-stone-950 font-hero tracking-tight mt-3 uppercase">
-                Glimse of our exact mastermind
+              <h2 className="text-4xl sm:text-6xl font-black text-stone-950 font-hero tracking-tight mt-4 uppercase leading-tight">
+                GLIMPSE OF OUR <span className="animate-purple-gradient">EXACT MASTERMIND</span>
               </h2>
-              <p className="mt-2 text-stone-600 text-sm sm:text-base font-medium max-w-2xl mx-auto">
+              <p className="mt-3 text-stone-600 text-base sm:text-lg font-medium max-w-2xl mx-auto">
                 Understand exactly what we install, how it works, and why it doubles revenue in 90 days.
               </p>
             </div>
 
-            <div className="relative rounded-3xl overflow-hidden border-4 border-stone-950 shadow-2xl bg-black aspect-video">
+            {/* Glowing Video Frame Container */}
+            <div className="relative rounded-[32px] overflow-hidden border-4 border-stone-950 shadow-[0_25px_70px_rgba(147,51,234,0.3)] bg-black aspect-video group">
               <iframe
                 src="https://www.youtube.com/embed/oSMaA6LOnrQ?autoplay=0&rel=0&modestbranding=1"
                 title="Private 1:1 Mastermind"
@@ -269,14 +270,19 @@ export default function PrivateMastermindPage() {
               />
             </div>
 
-            <div className="mt-8">
+            {/* BIGGG CTA Button */}
+            <div className="mt-10 flex flex-col items-center gap-3">
               <Link
                 href="/book"
-                className="inline-flex items-center gap-2 px-9 py-4.5 rounded-full bg-stone-950 hover:bg-purple-700 text-white font-black text-sm uppercase tracking-wider transition-all shadow-xl active:scale-95"
+                className="inline-flex items-center justify-center gap-3 px-12 py-5 sm:px-16 sm:py-6 rounded-full bg-stone-950 hover:bg-purple-700 text-white font-black text-lg sm:text-2xl uppercase tracking-wider transition-all duration-300 shadow-[0_15px_40px_rgba(147,51,234,0.35)] hover:scale-105 active:scale-95 border-2 border-purple-500/40"
               >
-                <span>TRAIN MY AGENCY</span>
-                <ArrowRight className="w-4 h-4" />
+                <span>BOOK YOUR CALL</span>
+                <ArrowRight className="w-6 h-6 sm:w-7 sm:h-7 stroke-[3]" />
               </Link>
+
+              <p className="text-xs sm:text-sm font-mono font-bold text-stone-500 tracking-wide mt-2">
+                ✦ Written 90-Day Double Revenue Guarantee · 100% Asset Ownership · 1:1 Direct Advisory
+              </p>
             </div>
           </div>
         </div>
