@@ -85,23 +85,20 @@ const portfolioVideos = [
   { id: "1203819144_saas", title: "Career Growth SaaS Funnel 2", category: "SAAS", vimeoId: "1203819144", duration: "37s" },
   { id: "1203819143_saas", title: "SaaS Conversion Platform 3", category: "SAAS", vimeoId: "1203819143", duration: "42s" },
   { id: "1203819315_saas", title: "Keynote Event & SaaS Highlights 4", category: "SAAS", vimeoId: "1203819315", duration: "41s" },
-  { id: "1203827387_saas", title: "DTC Health SaaS Reel 5", category: "SAAS", vimeoId: "1203827387", duration: "40s" },
-  { id: "1203827386_saas", title: "DTC Wellness SaaS 6", category: "SAAS", vimeoId: "1203827386", duration: "38s" },
   
   // Window & Doors
-  { id: "1203812402_wd", title: "Window & Door Installation Ad 1", category: "Window & Doors", vimeoId: "1203812402", duration: "47s" },
-  { id: "1203812401_wd", title: "Window Replacement Promo 2", category: "Window & Doors", vimeoId: "1203812401", duration: "52s" },
+  { id: "1203827387_wd", title: "Window & Door Installation Ad 1", category: "Window & Doors", vimeoId: "1203827387", duration: "40s" },
+  { id: "1203827386_wd", title: "Window Replacement Promo 2", category: "Window & Doors", vimeoId: "1203827386", duration: "38s" },
 
   // Carpet Cleaning
-  { id: "1203818782_cc", title: "Deep Carpet Cleaning Promo 1", category: "Carpet Cleaning", vimeoId: "1203818782", duration: "55s" },
-  { id: "1203818781_cc", title: "Carpet Sanitation Offer 2", category: "Carpet Cleaning", vimeoId: "1203818781", duration: "42s" },
+  { id: "1203827815_cc", title: "Deep Carpet Cleaning Promo 1", category: "Carpet Cleaning", vimeoId: "1203827815", duration: "45s" },
+  { id: "1203827814_cc", title: "Carpet Sanitation Offer 2", category: "Carpet Cleaning", vimeoId: "1203827814", duration: "42s" },
 
   // VSL
   { id: "1203105582_vsl", title: "Longform Client VSL Script 1", category: "VSL", vimeoId: "1203105582", duration: "40s" },
   { id: "1203105583_vsl", title: "Direct-Response VSL Funnel 2", category: "VSL", vimeoId: "1203105583", duration: "38s" },
   { id: "1208393043_vsl", title: "High-Ticket VSL Breakdown 3", category: "VSL", vimeoId: "1208393043", duration: "45s" },
   { id: "1208395435_vsl", title: "Scale With Ads VSL Architecture 4", category: "VSL", vimeoId: "1208395435", duration: "49s" },
-  { id: "1203105523_vsl", title: "System VSL Masterclass 5", category: "VSL", vimeoId: "1203105523", duration: "51s" },
 ];
 
 const categories = [
