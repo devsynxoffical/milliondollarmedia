@@ -185,7 +185,7 @@ export function OwnershipSection() {
           <div className="w-full overflow-hidden mb-4 select-none">
             <motion.div
               animate={{ x: ["0%", "-50%"] }}
-              transition={{ ease: "linear", duration: 38, repeat: Infinity }}
+              transition={{ ease: "linear", duration: 75, repeat: Infinity }}
               className="flex items-center gap-3.5 whitespace-nowrap w-max"
             >
               {[...industriesRow1, ...industriesRow1].map((ind, idx) => (
@@ -204,7 +204,7 @@ export function OwnershipSection() {
           <div className="w-full overflow-hidden select-none">
             <motion.div
               animate={{ x: ["-50%", "0%"] }}
-              transition={{ ease: "linear", duration: 42, repeat: Infinity }}
+              transition={{ ease: "linear", duration: 85, repeat: Infinity }}
               className="flex items-center gap-3.5 whitespace-nowrap w-max"
             >
               {[...industriesRow2, ...industriesRow2].map((ind, idx) => (

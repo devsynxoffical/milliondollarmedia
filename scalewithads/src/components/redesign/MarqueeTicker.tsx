@@ -23,7 +23,7 @@ export function MarqueeTicker() {
         animate={{ x: ["0%", "-50%"] }}
         transition={{
           ease: "linear",
-          duration: 20,
+          duration: 45,
           repeat: Infinity,
         }}
         className="flex items-center gap-8 whitespace-nowrap w-max"
