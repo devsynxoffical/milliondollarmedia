@@ -362,14 +362,14 @@ export default function PrivateMastermindPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Left Card: WHO THIS IS FOR */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-emerald-500/10 via-white to-emerald-500/5 border-2 border-emerald-500/30 hover:border-emerald-500/60 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(16,185,129,0.18)] transition-all duration-300 flex flex-col justify-between group">
+          <div className="p-8 sm:p-10 rounded-3xl bg-white border-2 border-stone-950 hover:border-purple-600 shadow-xl hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(147,51,234,0.18)] transition-all duration-300 flex flex-col justify-between group">
             <div>
-              <div className="flex items-center justify-between mb-8 pb-4 border-b border-emerald-200/60">
-                <span className="px-4 py-1.5 rounded-full text-xs font-mono font-black uppercase tracking-wider text-emerald-950 bg-emerald-100 border border-emerald-300 inline-flex items-center gap-2 shadow-sm">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              <div className="flex items-center justify-between mb-8 pb-4 border-b border-stone-100">
+                <span className="px-4 py-1.5 rounded-full text-xs font-mono font-black uppercase tracking-wider text-white bg-stone-950 border border-stone-900 inline-flex items-center gap-2 shadow-sm">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                   <span>WHO THIS IS FOR</span>
                 </span>
-                <span className="text-xs font-mono font-extrabold text-emerald-700 bg-emerald-100/60 px-3 py-1 rounded-full border border-emerald-200">
+                <span className="text-xs font-mono font-black text-emerald-800 bg-emerald-100 px-3 py-1 rounded-full border border-emerald-300">
                   ✓ Ideal Fit
                 </span>
               </div>
@@ -381,29 +381,31 @@ export default function PrivateMastermindPage() {
                   "B2B & local service founders tired of unreliable agency retainer fees",
                   "Founders who demand 100% ownership of their funnels, copy & ad assets",
                 ].map((item, iIdx) => (
-                  <li key={iIdx} className="flex items-start gap-3.5 text-sm sm:text-base font-bold text-stone-900 leading-snug">
-                    <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+                  <li key={iIdx} className="flex items-start gap-3.5 text-base sm:text-lg font-extrabold text-stone-950 leading-snug">
+                    <div className="w-6 h-6 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+                      <CheckCircle2 className="w-4 h-4 fill-emerald-600 text-white" />
+                    </div>
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="mt-8 pt-4 border-t border-emerald-200/50 flex items-center justify-between text-xs font-mono font-bold text-emerald-800">
-              <span>✦ Guaranteed System Fit</span>
-              <span>100% Alignment</span>
+            <div className="mt-8 pt-4 border-t border-stone-100 flex items-center justify-between text-xs font-mono font-bold text-stone-500">
+              <span className="text-emerald-700 font-extrabold">✦ Guaranteed System Fit</span>
+              <span className="text-stone-900 font-black">100% Alignment</span>
             </div>
           </div>
 
           {/* Right Card: WHO THIS IS NOT FOR */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-rose-500/10 via-white to-rose-500/5 border-2 border-rose-500/30 hover:border-rose-500/60 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(244,63,94,0.18)] transition-all duration-300 flex flex-col justify-between group">
+          <div className="p-8 sm:p-10 rounded-3xl bg-white border-2 border-stone-950 hover:border-purple-600 shadow-xl hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(147,51,234,0.18)] transition-all duration-300 flex flex-col justify-between group">
             <div>
-              <div className="flex items-center justify-between mb-8 pb-4 border-b border-rose-200/60">
-                <span className="px-4 py-1.5 rounded-full text-xs font-mono font-black uppercase tracking-wider text-rose-950 bg-rose-100 border border-rose-300 inline-flex items-center gap-2 shadow-sm">
+              <div className="flex items-center justify-between mb-8 pb-4 border-b border-stone-100">
+                <span className="px-4 py-1.5 rounded-full text-xs font-mono font-black uppercase tracking-wider text-white bg-stone-950 border border-stone-900 inline-flex items-center gap-2 shadow-sm">
                   <span className="w-2 h-2 rounded-full bg-rose-500 animate-pulse" />
                   <span>WHO THIS IS NOT FOR</span>
                 </span>
-                <span className="text-xs font-mono font-extrabold text-rose-700 bg-rose-100/60 px-3 py-1 rounded-full border border-rose-200">
+                <span className="text-xs font-mono font-black text-rose-800 bg-rose-100 px-3 py-1 rounded-full border border-rose-300">
                   ✕ Strictly Filtered
                 </span>
               </div>
@@ -415,17 +417,19 @@ export default function PrivateMastermindPage() {
                   "Founders looking to delegate 100% of executive strategy without involvement",
                   "Agencies unwilling to install server-side conversion tracking & CAPI",
                 ].map((item, iIdx) => (
-                  <li key={iIdx} className="flex items-start gap-3.5 text-sm sm:text-base font-bold text-stone-900 leading-snug">
-                    <XCircle className="w-5 h-5 text-rose-600 shrink-0 mt-0.5" />
+                  <li key={iIdx} className="flex items-start gap-3.5 text-base sm:text-lg font-extrabold text-stone-950 leading-snug">
+                    <div className="w-6 h-6 rounded-full bg-rose-100 border border-rose-300 text-rose-700 flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+                      <XCircle className="w-4 h-4 fill-rose-600 text-white" />
+                    </div>
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="mt-8 pt-4 border-t border-rose-200/50 flex items-center justify-between text-xs font-mono font-bold text-rose-800">
-              <span>✦ Rejection Safeguard</span>
-              <span>Zero Low-Intent Leads</span>
+            <div className="mt-8 pt-4 border-t border-stone-100 flex items-center justify-between text-xs font-mono font-bold text-stone-500">
+              <span className="text-rose-700 font-extrabold">✦ Rejection Safeguard</span>
+              <span className="text-stone-900 font-black">Zero Low-Intent Leads</span>
             </div>
           </div>
         </div>
