@@ -1,15 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import {
   ArrowRight,
-  TrendingUp,
   Sparkles,
   ShieldCheck,
   CheckCircle2,
-  Lock,
   Zap,
 } from "lucide-react";
 import { MacbookScroll } from "../ui/MacbookScroll";
@@ -36,39 +34,62 @@ export function AdGenieHero() {
           <span>SCALEWITHADS™ CLIENT ACQUISITION SYSTEM</span>
         </motion.div>
 
-        {/* Main Hero Headline (Clear Offer Title) */}
-        <div className="overflow-hidden py-2 max-w-5xl">
+        {/* 1. TOP SUB-TEXT (Above Giant Headline) */}
+        <motion.p
+          initial={{ opacity: 0, y: 25 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.4, delay: 0.15, ease: silkEase }}
+          className="text-lg sm:text-2xl md:text-3xl font-extrabold text-stone-900 tracking-tight font-sans max-w-3xl leading-snug"
+        >
+          We Will Install Our Proprietary <span className="text-purple-700 font-black">ScaleWithAds™</span> <br className="hidden sm:inline" />
+          Client Acquisition System Into Your Business.
+        </motion.p>
+
+        {/* 2. CENTER GIANT HEADLINE WITH MOVING ANIMATED GRADIENT */}
+        <div className="overflow-hidden py-4 my-2 max-w-6xl">
           <motion.h1
-            initial={{ opacity: 0, y: 80, skewX: -12, filter: "blur(12px)" }}
-            animate={{ opacity: 1, y: 0, skewX: 0, filter: "blur(0px)" }}
-            transition={{ duration: 1.8, delay: 0.2, ease: silkEase }}
-            className="text-4xl sm:text-6xl md:text-7xl lg:text-[88px] font-black tracking-tight text-black uppercase leading-[1.02] font-hero select-none"
+            initial={{ opacity: 0, y: 60, skewX: -8, filter: "blur(10px)" }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              skewX: 0,
+              filter: "blur(0px)",
+              backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+            }}
+            transition={{
+              opacity: { duration: 1.6, delay: 0.3, ease: silkEase },
+              y: { duration: 1.6, delay: 0.3, ease: silkEase },
+              skewX: { duration: 1.6, delay: 0.3, ease: silkEase },
+              filter: { duration: 1.6, delay: 0.3, ease: silkEase },
+              backgroundPosition: { duration: 7, repeat: Infinity, ease: "easeInOut" },
+            }}
+            className="text-5xl sm:text-7xl md:text-8xl lg:text-[96px] font-black tracking-tighter uppercase leading-[0.98] font-hero bg-gradient-to-r from-stone-950 via-purple-700 to-stone-950 bg-[length:200%_auto] bg-clip-text text-transparent select-none drop-shadow-sm"
           >
-            DOUBLE YOUR REVENUE <br />
-            <span className="font-serif italic lowercase text-purple-700 font-normal">within 90 days.</span>
+            Double Your Revenue <br />
+            Within The Next 90 Days
           </motion.h1>
         </div>
 
-        {/* Seamless High-Converting Offer Subtext (NO BLOCK CONTAINER) */}
+        {/* 3. BOTTOM SUB-TEXT (Below Giant Headline) */}
         <motion.div
-          initial={{ opacity: 0, y: 40, skewX: -4, filter: "blur(8px)" }}
-          animate={{ opacity: 1, y: 0, skewX: 0, filter: "blur(0px)" }}
-          transition={{ duration: 1.6, delay: 0.5, ease: silkEase }}
-          className="mt-6 max-w-3xl text-center space-y-4 font-sans"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.4, delay: 0.55, ease: silkEase }}
+          className="mt-2 max-w-3xl text-center space-y-3 font-sans"
         >
-          <p className="text-base sm:text-xl font-extrabold text-stone-900 leading-relaxed">
-            We install our complete <span className="text-purple-700 font-black">Done-For-You Client Acquisition Ecosystem</span> into your business — High-Converting Funnels, Meta Ads & AI Automations.
+          <p className="text-base sm:text-xl font-bold text-stone-800 max-w-2xl mx-auto leading-relaxed">
+            Or We&apos;ll Continue Working For You At <span className="font-extrabold text-stone-950 underline underline-offset-4 decoration-purple-500">No Management Fee</span> Until We Do.
           </p>
 
-          <p className="text-sm sm:text-lg font-bold text-stone-700 max-w-2xl mx-auto leading-normal">
-            Or we&apos;ll continue working for you at <span className="font-black text-stone-950 underline underline-offset-4 decoration-purple-500">zero management fee</span> until we do.
+          <p className="text-xs sm:text-sm font-semibold text-stone-600 tracking-wide uppercase">
+            Done-For-You Client Acquisition From Meta Ads To The Booked Call.
           </p>
 
           {/* Clean Pill Badges */}
-          <div className="flex flex-wrap items-center justify-center gap-2.5 pt-2">
+          <div className="flex flex-wrap items-center justify-center gap-2.5 pt-3">
             <span className="px-4 py-1.5 rounded-full bg-stone-950 text-white font-mono text-[11px] font-black uppercase tracking-wider inline-flex items-center gap-1.5 shadow-sm">
               <ShieldCheck className="w-3.5 h-3.5 text-purple-400" />
-              <span>Written 90-Day Guarantee</span>
+              <span>Backed By A Written Agreement</span>
             </span>
             <span className="px-4 py-1.5 rounded-full bg-purple-100 text-purple-950 border border-purple-300 font-mono text-[11px] font-black uppercase tracking-wider inline-flex items-center gap-1.5">
               <CheckCircle2 className="w-3.5 h-3.5 text-purple-700" />
@@ -76,7 +97,7 @@ export function AdGenieHero() {
             </span>
             <span className="px-4 py-1.5 rounded-full bg-emerald-100 text-emerald-900 border border-emerald-300 font-mono text-[11px] font-black uppercase tracking-wider inline-flex items-center gap-1.5">
               <Zap className="w-3.5 h-3.5 text-emerald-700" />
-              <span>Zero Management Fee Risk</span>
+              <span>Zero Risk Guarantee</span>
             </span>
           </div>
         </motion.div>
@@ -85,14 +106,14 @@ export function AdGenieHero() {
         <motion.div
           initial={{ opacity: 0, y: 35, scale: 0.92 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 1.5, delay: 0.8, ease: silkEase }}
+          transition={{ duration: 1.5, delay: 0.75, ease: silkEase }}
           className="mt-8 flex flex-wrap items-center justify-center gap-3"
         >
           <Link
             href="/book"
             className="flex items-center gap-2 px-8 py-4 rounded-full bg-[#1D1435] hover:bg-[#2C1D50] text-white font-black text-sm uppercase tracking-wider transition-all shadow-lg hover:shadow-xl active:scale-95"
           >
-            <span>Book Your Free Call</span>
+            <span>Book Your Free Strategy Call</span>
             <ArrowRight className="w-4 h-4 text-purple-300" />
           </Link>
           <Link
@@ -108,7 +129,7 @@ export function AdGenieHero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.95 }}
+          transition={{ duration: 1.2, delay: 0.9 }}
           className="mt-5"
         >
           <Link
