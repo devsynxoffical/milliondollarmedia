@@ -45,10 +45,7 @@ export default function RedesignPage() {
         <EditorialSubhero />
       </div>
 
-      {/* 5. Four Ways We Bring Ideas To Life (Lusion Studio 4 Cards with Curving Accent Ribbon) */}
-      <FourWaysSection />
-
-      {/* 6. What Makes Scale With Ads™ Different */}
+      {/* 5. Merged Ecosystem Difference Section (4 Journey Steps + 5 Interactive Advantage Cards) */}
       <div id="difference">
         <DifferenceSection />
       </div>
