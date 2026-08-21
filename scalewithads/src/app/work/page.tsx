@@ -5,6 +5,7 @@ import { FloatingNavbar } from "@/components/redesign/FloatingNavbar";
 import { ClientTestimonialsSection } from "@/components/redesign/ClientTestimonialsSection";
 import { ResultsSection } from "@/components/redesign/ResultsSection";
 import { SelectedWorkShowcase } from "@/components/redesign/SelectedWorkShowcase";
+import { CommunitySection } from "@/components/redesign/CommunitySection";
 import { FaqSection } from "@/components/redesign/FaqSection";
 import { CreativeCtaSection } from "@/components/redesign/CreativeCtaSection";
 import { LusionEndSection } from "@/components/redesign/LusionEndSection";
@@ -40,6 +41,9 @@ export default function WorkPage() {
 
       {/* Selected Work Portfolio Showcase */}
       <SelectedWorkShowcase />
+
+      {/* Private Community Section */}
+      <CommunitySection />
 
       {/* Frequently Asked Questions */}
       <FaqSection />

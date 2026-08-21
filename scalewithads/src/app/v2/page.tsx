@@ -11,6 +11,7 @@ import { StickyContentScroll } from "@/components/redesign/StickyContentScroll";
 import { OwnershipSection } from "@/components/redesign/OwnershipSection";
 import { MeetTheTeamSection } from "@/components/redesign/MeetTheTeamSection";
 import { GuaranteeSection } from "@/components/redesign/GuaranteeSection";
+import { CommunitySection } from "@/components/redesign/CommunitySection";
 import { FaqSection } from "@/components/redesign/FaqSection";
 import { ProcessSection } from "@/components/redesign/ProcessSection";
 import { PricingSection } from "@/components/redesign/PricingSection";
@@ -84,7 +85,12 @@ export default function RedesignPage() {
         <PricingSection />
       </div>
 
-      {/* 15. Frequently Asked Questions */}
+      {/* 15. Private Community Section */}
+      <div id="community">
+        <CommunitySection />
+      </div>
+
+      {/* 16. Frequently Asked Questions */}
       <div id="faq">
         <FaqSection />
       </div>
