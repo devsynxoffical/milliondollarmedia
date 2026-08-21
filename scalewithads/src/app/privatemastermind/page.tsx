@@ -149,50 +149,88 @@ export default function PrivateMastermindPage() {
       </div>
 
       {/* Hero Header Section */}
-      <section className="pt-16 pb-20 px-4 md:px-8 bg-white text-stone-900 border-b border-stone-200">
-        <div className="max-w-5xl mx-auto text-center">
-          <span className="text-xs font-mono font-black uppercase tracking-widest text-purple-700 bg-purple-100 border border-purple-200 px-4 py-2 rounded-full inline-flex items-center gap-2 mb-6 shadow-sm">
-            <Crown className="w-4 h-4 text-purple-700" />
-            <span>Private Mastermind · Media Agencies + High-Ticket Founders</span>
-          </span>
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-stone-950 uppercase font-hero leading-tight">
-            We train media agencies on how to{" "}
-            <span className="font-serif italic lowercase text-purple-700">get clients with ads</span>{" "}
-            that actually sell.
-          </h1>
-          <p className="mt-6 text-stone-600 text-base sm:text-xl max-w-3xl mx-auto font-medium leading-relaxed font-sans">
-            The Hidden Facebook Interest Framework behind high-ticket sales calls, built from $50M+ Meta spend, 12 years of experience, and million-dollar funnel results across 20+ verticals.
+      <section className="pt-28 sm:pt-36 pb-20 px-4 md:px-8 bg-white text-stone-900 overflow-hidden border-b border-stone-200 relative">
+        {/* Subtle Ambient Background Glow */}
+        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[900px] h-[550px] bg-gradient-to-tr from-purple-200/40 via-purple-100/20 to-amber-100/10 rounded-full blur-3xl pointer-events-none -z-10" />
+
+        <div className="max-w-6xl mx-auto text-center flex flex-col items-center">
+
+          {/* Top Eyebrow Tag */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-100 border border-purple-200 text-purple-900 font-extrabold text-xs tracking-widest uppercase mb-6 shadow-sm">
+            <Sparkles className="w-4 h-4 text-purple-700" />
+            <span>SCALEWITHADS™ CLIENT ACQUISITION SYSTEM</span>
+          </div>
+
+          {/* 1. TOP SUB-TEXT (Above Giant Headline) */}
+          <p className="text-lg sm:text-2xl md:text-3xl font-extrabold text-stone-900 tracking-tight font-sans max-w-3xl leading-snug">
+            We Will Install Our Proprietary <span className="text-purple-700 font-black">ScaleWithAds™</span> <br className="hidden sm:inline" />
+            Client Acquisition System Into Your Business.
           </p>
 
-          {/* Stats Bar */}
-          <div className="mx-auto mt-10 grid max-w-3xl grid-cols-2 gap-4 sm:grid-cols-4">
-            {stats.map((s, idx) => (
-              <div
-                key={idx}
-                className="rounded-2xl border border-stone-200 bg-stone-50 p-4 text-center shadow-sm"
-              >
-                <p className="text-3xl font-black text-purple-700 font-mono">
-                  {s.value}
-                </p>
-                <p className="mt-1 text-[10px] font-bold uppercase tracking-wider text-stone-500 font-mono">
-                  {s.label}
-                </p>
-              </div>
-            ))}
+          {/* 2. CENTER GIANT HEADLINE WITH MOVING ANIMATED GRADIENT */}
+          <div className="overflow-hidden py-4 my-2 max-w-6xl">
+            <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-[96px] font-black tracking-tighter uppercase leading-[0.98] font-hero animate-purple-gradient select-none drop-shadow-sm">
+              Double Your Revenue <br />
+              Within The Next 90 Days
+            </h1>
           </div>
 
-          <div className="mt-10 flex flex-col items-center justify-center gap-3">
+          {/* 3. BOTTOM SUB-TEXT (Below Giant Headline) */}
+          <div className="mt-2 max-w-3xl text-center space-y-3 font-sans">
+            <p className="text-base sm:text-xl font-bold text-stone-800 max-w-2xl mx-auto leading-relaxed">
+              Or We&apos;ll Continue Working For You At <span className="font-extrabold text-stone-950 underline underline-offset-4 decoration-purple-500">No Management Fee</span> Until We Do.
+            </p>
+
+            <p className="text-xs sm:text-sm font-semibold text-stone-600 tracking-wide uppercase">
+              Done-For-You Client Acquisition From Meta Ads To The Booked Call.
+            </p>
+
+            {/* Clean Pill Badges */}
+            <div className="flex flex-wrap items-center justify-center gap-2.5 pt-3">
+              <span className="px-4 py-1.5 rounded-full bg-stone-950 text-white font-mono text-[11px] font-black uppercase tracking-wider inline-flex items-center gap-1.5 shadow-sm">
+                <ShieldCheck className="w-3.5 h-3.5 text-purple-400" />
+                <span>Backed By A Written Agreement</span>
+              </span>
+              <span className="px-4 py-1.5 rounded-full bg-purple-100 text-purple-950 border border-purple-300 font-mono text-[11px] font-black uppercase tracking-wider inline-flex items-center gap-1.5">
+                <CheckCircle2 className="w-3.5 h-3.5 text-purple-700" />
+                <span>100% Asset Ownership</span>
+              </span>
+              <span className="px-4 py-1.5 rounded-full bg-emerald-100 text-emerald-900 border border-emerald-300 font-mono text-[11px] font-black uppercase tracking-wider inline-flex items-center gap-1.5">
+                <Zap className="w-3.5 h-3.5 text-emerald-700" />
+                <span>Zero Risk Guarantee</span>
+              </span>
+            </div>
+          </div>
+
+          {/* Hero Action Pill Buttons */}
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <Link
               href="/book"
-              className="inline-flex items-center gap-2 px-9 py-4.5 rounded-full bg-stone-950 hover:bg-purple-700 text-white font-black text-sm uppercase tracking-wider transition-all shadow-xl active:scale-95"
+              className="flex items-center gap-2 px-8 py-4 rounded-full bg-[#1D1435] hover:bg-[#2C1D50] text-white font-black text-sm uppercase tracking-wider transition-all shadow-lg hover:shadow-xl active:scale-95"
             >
-              <span>BUILD MY CLIENT-GETTING MACHINE</span>
-              <ArrowRight className="w-4 h-4" />
+              <span>Book Your Free Strategy Call</span>
+              <ArrowRight className="w-4 h-4 text-purple-300" />
             </Link>
-            <span className="text-xs text-stone-500 font-mono">
-              Book your free 1:1 call now · 100% Asset Ownership · Written Agreement · No Lock-ins
-            </span>
+            <Link
+              href="/services"
+              className="flex items-center gap-2 px-8 py-4 rounded-full bg-[#EAE0FF] hover:bg-[#DDD0FF] text-[#1D1435] font-black text-sm uppercase tracking-wider transition-all shadow-sm hover:shadow-md active:scale-95"
+            >
+              <span>Explore Systems</span>
+              <ArrowRight className="w-4 h-4 text-[#1D1435]" />
+            </Link>
           </div>
+
+          {/* DFY Creative Banner Tag */}
+          <div className="mt-5">
+            <Link
+              href="/book"
+              className="inline-flex items-center gap-1.5 text-xs font-mono font-black text-purple-700 hover:text-purple-900 tracking-wider uppercase underline underline-offset-4"
+            >
+              <span>GET DFY CREATIVE ADS FOR YOUR BRAND</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
         </div>
       </section>
 
