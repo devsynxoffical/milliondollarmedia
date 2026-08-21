@@ -200,7 +200,7 @@ export default function PrivateMastermindPage() {
           {/* 3. BOTTOM SUB-TEXT (Below Giant Headline) */}
           <div className="mt-2 max-w-3xl text-center space-y-3 font-sans">
             <p className="text-base sm:text-xl font-bold text-stone-800 max-w-2xl mx-auto leading-relaxed">
-              Double Your Revenue in the Next 90 Days Or <span className="font-extrabold text-stone-950 underline underline-offset-4 decoration-purple-500">We&apos;ll Keep Working With You For Free</span> Until You Do.
+              <span className="font-extrabold text-stone-950 underline underline-offset-4 decoration-purple-500">Or We&apos;ll Keep Working With You For Free</span> Until You Do.
             </p>
 
             <p className="text-xs sm:text-sm font-extrabold text-purple-700 tracking-wide uppercase font-mono">
@@ -288,16 +288,17 @@ export default function PrivateMastermindPage() {
         </div>
       </section>
 
-      {/* Curriculum Breakdown Grid (8 Core Pillars) */}
+      {/* Curriculum Breakdown Grid (8 Core Pillars - Animated Cards) */}
       <section className="py-24 px-4 md:px-8 max-w-7xl mx-auto border-t border-stone-200">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-mono font-black uppercase tracking-widest text-purple-700 bg-purple-100 border border-purple-200 px-4 py-2 rounded-full">
-            MASTERMIND CURRICULUM ARCHITECTURE
+          <span className="text-xs font-mono font-black uppercase tracking-widest text-purple-700 bg-purple-100 border border-purple-200 px-4 py-2 rounded-full inline-flex items-center gap-2 shadow-sm">
+            <Sparkles className="w-3.5 h-3.5 text-purple-700" />
+            <span>MASTERMIND CURRICULUM ARCHITECTURE</span>
           </span>
-          <h2 className="text-3xl sm:text-5xl font-black text-stone-950 font-hero tracking-tight mt-4">
-            The 8 Core Pillars We Install in Your Business
+          <h2 className="text-4xl sm:text-6xl font-black text-stone-950 font-hero tracking-tight mt-4 uppercase leading-tight">
+            The 8 Core Pillars We Install in <span className="animate-purple-gradient">Your Business</span>
           </h2>
-          <p className="text-stone-600 font-medium text-base mt-2">
+          <p className="text-stone-600 font-medium text-base sm:text-lg mt-3 max-w-2xl mx-auto">
             Every module is paired with plug-and-play SOPs, custom scripts, and direct 1:1 advisory implementation.
           </p>
         </div>
@@ -308,30 +309,31 @@ export default function PrivateMastermindPage() {
             return (
               <div
                 key={idx}
-                className="bg-white rounded-3xl border-2 border-stone-950 p-8 shadow-xl hover:border-purple-600 transition-all duration-300 flex flex-col justify-between"
+                className="bg-white rounded-3xl border-2 border-stone-950 p-8 shadow-xl hover:border-purple-600 hover:-translate-y-2 hover:scale-[1.01] hover:shadow-[0_20px_50px_rgba(147,51,234,0.18)] transition-all duration-300 flex flex-col justify-between group cursor-pointer"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-sm font-mono font-black text-purple-700 bg-purple-100 px-3 py-1 rounded-full border border-purple-200">
+                    <span className="text-xs font-mono font-black text-purple-700 bg-purple-100 px-3 py-1.5 rounded-full border border-purple-200 inline-flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-purple-600 animate-pulse" />
                       PILLAR {p.number}
                     </span>
-                    <div className="w-10 h-10 rounded-xl bg-stone-950 text-white flex items-center justify-center">
+                    <div className="w-11 h-11 rounded-2xl bg-stone-950 text-white flex items-center justify-center group-hover:bg-purple-700 transition-colors shadow-md">
                       <Icon className="w-5 h-5" />
                     </div>
                   </div>
 
-                  <h3 className="text-2xl font-black text-stone-950 font-hero tracking-tight mb-3">
+                  <h3 className="text-2xl font-black text-stone-950 font-hero tracking-tight mb-3 group-hover:text-purple-700 transition-colors">
                     {p.title}
                   </h3>
 
-                  <p className="text-stone-600 text-sm font-medium leading-relaxed mb-6">
+                  <p className="text-stone-600 text-sm sm:text-base font-medium leading-relaxed mb-6 font-sans">
                     {p.desc}
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-stone-100 flex items-center justify-between">
-                  <span className="text-xs font-mono font-bold text-stone-400">ScaleWithAds Blueprint #{p.number}</span>
-                  <span className="text-xs font-mono font-black text-purple-700 bg-purple-50 px-2.5 py-1 rounded-full border border-purple-200 uppercase">
+                <div className="pt-4 border-t border-stone-100 flex items-center justify-between font-mono">
+                  <span className="text-xs font-bold text-stone-400">ScaleWithAds Blueprint #{p.number}</span>
+                  <span className="text-xs font-black text-purple-700 bg-purple-50 px-3 py-1 rounded-full border border-purple-200 uppercase tracking-wide">
                     {p.highlight}
                   </span>
                 </div>
@@ -341,7 +343,7 @@ export default function PrivateMastermindPage() {
         </div>
       </section>
 
-      {/* Target Audience Comparison Grid */}
+      {/* Target Audience Qualification Matrix */}
       <section className="py-24 px-4 md:px-8 max-w-7xl mx-auto border-t border-stone-200">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-mono font-black uppercase tracking-widest text-purple-700 bg-purple-100 border border-purple-200 px-4 py-2 rounded-full inline-flex items-center gap-2 shadow-sm">
@@ -350,16 +352,16 @@ export default function PrivateMastermindPage() {
           </span>
           <h2 className="text-4xl sm:text-6xl font-black text-stone-950 tracking-tight uppercase font-hero mt-4 leading-tight">
             Is This Private Mastermind <br />
-            <span className="font-serif italic lowercase animate-purple-gradient font-normal">right for you?</span>
+            <span className="animate-purple-gradient font-hero tracking-tight">RIGHT FOR YOU?</span>
           </h2>
-          <p className="mt-3 text-stone-600 text-base font-medium max-w-xl mx-auto">
+          <p className="mt-3 text-stone-600 text-base sm:text-lg font-medium max-w-xl mx-auto font-sans">
             We maintain strict qualification criteria to protect candidate quality and guarantee maximum 1-on-1 focus.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Left Card: WHO THIS IS FOR */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-emerald-500/10 via-white to-emerald-500/5 border-2 border-emerald-500/30 hover:border-emerald-500/60 shadow-xl transition-all duration-300 flex flex-col justify-between group">
+          <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-emerald-500/10 via-white to-emerald-500/5 border-2 border-emerald-500/30 hover:border-emerald-500/60 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(16,185,129,0.18)] transition-all duration-300 flex flex-col justify-between group">
             <div>
               <div className="flex items-center justify-between mb-8 pb-4 border-b border-emerald-200/60">
                 <span className="px-4 py-1.5 rounded-full text-xs font-mono font-black uppercase tracking-wider text-emerald-950 bg-emerald-100 border border-emerald-300 inline-flex items-center gap-2 shadow-sm">
@@ -371,7 +373,7 @@ export default function PrivateMastermindPage() {
                 </span>
               </div>
 
-              <ul className="space-y-5">
+              <ul className="space-y-5 font-sans">
                 {[
                   "Agency owners doing $10K+/month wanting to double revenue in 90 days",
                   "High-ticket coaches & consultants needing a predictable call booking system",
@@ -393,7 +395,7 @@ export default function PrivateMastermindPage() {
           </div>
 
           {/* Right Card: WHO THIS IS NOT FOR */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-rose-500/10 via-white to-rose-500/5 border-2 border-rose-500/30 hover:border-rose-500/60 shadow-xl transition-all duration-300 flex flex-col justify-between group">
+          <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-rose-500/10 via-white to-rose-500/5 border-2 border-rose-500/30 hover:border-rose-500/60 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(244,63,94,0.18)] transition-all duration-300 flex flex-col justify-between group">
             <div>
               <div className="flex items-center justify-between mb-8 pb-4 border-b border-rose-200/60">
                 <span className="px-4 py-1.5 rounded-full text-xs font-mono font-black uppercase tracking-wider text-rose-950 bg-rose-100 border border-rose-300 inline-flex items-center gap-2 shadow-sm">
@@ -405,7 +407,7 @@ export default function PrivateMastermindPage() {
                 </span>
               </div>
 
-              <ul className="space-y-5">
+              <ul className="space-y-5 font-sans">
                 {[
                   "Brand new startups making less than $10,000 in monthly revenue",
                   "People looking for a 'get rich quick' course with no implementation work",
