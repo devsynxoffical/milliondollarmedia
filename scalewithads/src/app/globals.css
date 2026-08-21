@@ -1806,3 +1806,24 @@ a, button, [role="button"] {
   .hero-section .meta-post,
   .hero-section .arrow-run { animation: none; }
 }
+
+@keyframes textGradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-purple-gradient {
+  background: linear-gradient(90deg, #6b21a8, #a855f7, #4c1d95, #7e22ce, #6b21a8);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textGradientMove 5s ease infinite;
+}
+

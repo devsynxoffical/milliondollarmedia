@@ -106,7 +106,7 @@ export function ResultsSection() {
           
           <h2 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-stone-950 leading-tight uppercase font-hero">
             Don&apos;t Take Our Word For It... <br />
-            <span className="text-purple-700">See What Our Clients Have Achieved.</span>
+            <span className="font-serif italic lowercase animate-purple-gradient">see what our clients have achieved.</span>
           </h2>
 
           <p className="mt-4 text-stone-600 text-base sm:text-lg font-medium max-w-2xl mx-auto">

@@ -206,7 +206,7 @@ export function SelectedWorkShowcase() {
             </span>
             <h2 className="text-4xl sm:text-6xl font-black text-stone-950 tracking-tight leading-[0.98] uppercase font-hero">
               System Training <br />
-              & Upgrades <span className="text-purple-700">✦</span>
+              & Upgrades <span className="animate-purple-gradient">✦</span>
             </h2>
             <p className="mt-4 text-stone-600 font-medium text-base leading-relaxed max-w-md">
               Short, practical training videos that teach you the exact plays, scripts and upgrades behind your client acquisition system.

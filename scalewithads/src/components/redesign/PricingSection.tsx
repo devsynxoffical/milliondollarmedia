@@ -73,7 +73,7 @@ export function PricingSection() {
             <span>TRANSPARENT PERFORMANCE PRICING</span>
           </span>
           <h2 className="text-4xl sm:text-6xl font-black text-stone-950 tracking-tight uppercase font-hero leading-tight">
-            Simple, Transparent <span className="font-serif italic lowercase text-purple-700">pricing.</span>
+            Simple, Transparent <span className="font-serif italic lowercase animate-purple-gradient">pricing.</span>
           </h2>
           <p className="mt-4 text-stone-600 text-base sm:text-lg font-medium max-w-2xl mx-auto">
             Choose the acquisition engine tailored for your business. Backed by our written 90-day revenue growth guarantee.

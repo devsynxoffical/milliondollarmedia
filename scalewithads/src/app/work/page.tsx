@@ -24,7 +24,7 @@ export default function WorkPage() {
             <span>VERIFIED RESULTS & LIVE PROOF</span>
           </span>
           <h1 className="text-5xl sm:text-7xl md:text-8xl font-black text-stone-950 tracking-tight mt-6 leading-tight uppercase font-hero">
-            $50M+ VERIFIED <span className="font-serif italic lowercase text-purple-700">results.</span>
+            $50M+ VERIFIED <span className="font-serif italic lowercase animate-purple-gradient">results.</span>
           </h1>
           <p className="mt-4 text-stone-600 font-medium text-lg sm:text-xl max-w-2xl mx-auto font-sans">
             Deep dives into how we scale revenue, reduce cost per acquisition, and multiply ROAS across 20+ industries.

@@ -129,7 +129,7 @@ export default function ServicesPage() {
             <span>CORE ACQUISITION SERVICES WE OFFER</span>
           </span>
           <h1 className="text-4xl sm:text-6xl md:text-7xl font-black text-stone-950 tracking-tight leading-tight uppercase font-hero">
-            CORE <span className="font-serif italic lowercase text-purple-700">services.</span>
+            CORE <span className="font-serif italic lowercase animate-purple-gradient">services.</span>
           </h1>
           <p className="mt-4 text-stone-600 font-medium text-lg sm:text-xl max-w-3xl mx-auto font-sans">
             We build and manage the 5 essential pillars of your client acquisition engine: Creatives Creation, Funnels, Media Buying, Trainings, and Mastermind.

@@ -50,8 +50,8 @@ export function FaqSection() {
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-purple-700 bg-purple-100 px-3.5 py-1.5 rounded-full inline-block mb-4">
             Answers & Clarification
           </span>
-          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-black leading-tight">
-            Frequently Asked <span className="text-purple-700">Questions</span>
+          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-black leading-tight font-hero uppercase">
+            Frequently Asked <span className="font-serif italic lowercase animate-purple-gradient">questions.</span>
           </h2>
         </div>
 
