@@ -79,30 +79,30 @@ export default function PlaybooksPage() {
       <FloatingNavbar />
 
       {/* Hero Header Section */}
-      <section className="pt-28 sm:pt-36 pb-20 px-4 md:px-8 bg-white text-stone-900 overflow-hidden border-b border-stone-200 relative">
+      <section className="pt-28 sm:pt-36 pb-16 px-4 md:px-8 bg-white text-stone-900 overflow-hidden border-b border-stone-200 relative">
         {/* Subtle Ambient Background Glow */}
         <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[900px] h-[550px] bg-gradient-to-tr from-purple-200/40 via-purple-100/20 to-amber-100/10 rounded-full blur-3xl pointer-events-none -z-10" />
 
-        <div className="max-w-6xl mx-auto text-center flex flex-col items-center">
+        <div className="max-w-5xl mx-auto text-center flex flex-col items-center">
           {/* Eyebrow Tag */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-100 border border-purple-200 text-purple-900 font-extrabold text-xs tracking-widest uppercase mb-6 shadow-sm">
             <Sparkles className="w-4 h-4 text-purple-700" />
             <span>PROPRIETARY $847K SCALING CASE STUDY & SOPS</span>
           </div>
 
-          {/* Main Giant Headline */}
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-stone-950 tracking-tighter uppercase font-hero leading-tight select-none">
+          {/* Main Balanced Headline */}
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-black text-stone-950 tracking-tight uppercase font-hero leading-tight select-none">
             How We Scaled an LTO Funnel to <br />
             <span className="animate-purple-gradient font-hero tracking-tight">$847K in Revenue</span>
           </h1>
 
           {/* Subtext */}
-          <p className="mt-4 text-base sm:text-xl font-bold text-stone-800 max-w-3xl mx-auto leading-relaxed font-sans">
+          <p className="mt-4 text-base sm:text-lg font-medium text-stone-700 max-w-2xl mx-auto leading-relaxed font-sans">
             $255K tracked Meta ad spend generating nearly $1M in sales and 13,630+ offers sold using direct-response Meta Ads & VSL architecture.
           </p>
 
           {/* Stats Bar */}
-          <div className="mx-auto mt-10 grid max-w-4xl grid-cols-2 gap-3.5 sm:grid-cols-4 w-full">
+          <div className="mx-auto mt-8 grid max-w-4xl grid-cols-2 gap-3.5 sm:grid-cols-4 w-full">
             {stats.map((s, idx) => (
               <div key={idx} className="rounded-2xl border-2 border-stone-950 bg-stone-50 p-4 text-center shadow-sm hover:border-purple-600 transition-colors">
                 <p className="text-3xl font-black text-purple-700 font-mono">{s.value}</p>
@@ -110,33 +110,13 @@ export default function PlaybooksPage() {
               </div>
             ))}
           </div>
-
-          {/* CTA Button */}
-          <div className="mt-10 flex justify-center">
-            <Link
-              href="/book"
-              className="inline-flex items-center justify-center gap-3 px-10 py-5 rounded-full bg-stone-950 hover:bg-purple-700 text-white font-black text-base uppercase tracking-wider transition-all duration-300 shadow-xl border-2 border-purple-500/40 hover:scale-105 active:scale-95"
-            >
-              <span>GET INSTANT PLAYBOOK ACCESS</span>
-              <ArrowRight className="w-5 h-5 stroke-[2.5]" />
-            </Link>
-          </div>
         </div>
       </section>
 
       {/* Mastermind VSL Video Section */}
-      <section className="py-20 px-4 md:px-8 max-w-5xl mx-auto text-center">
-        <div className="mb-6">
-          <span className="inline-flex items-center gap-2 rounded-full bg-purple-100 border border-purple-200 px-4 py-1.5 text-xs font-mono font-bold text-purple-700 uppercase tracking-widest">
-            <Play className="w-3.5 h-3.5 fill-current" />
-            Watch Complete $847K Breakdown Video
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-stone-950 font-hero tracking-tight mt-3">
-            How We Scaled an LTO Funnel to $847K in Revenue | $255K Ad Spend Nearly $1M in Sales Using Meta Ads
-          </h2>
-        </div>
-
-        <div className="relative rounded-3xl overflow-hidden border-4 border-stone-950 shadow-2xl bg-black aspect-video">
+      <section className="py-16 px-4 md:px-8 max-w-5xl mx-auto text-center">
+        {/* VSL Video Player with Ambient Glow Border */}
+        <div className="relative rounded-3xl overflow-hidden border-4 border-stone-950 shadow-[0_25px_70px_rgba(147,51,234,0.3)] bg-black aspect-video">
           <video
             src="https://storage.googleapis.com/msgsndr/HWyar6Z3u3aF6ydghkCx/media/695da2543a532d67105ad96c.mp4"
             poster="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://storage.googleapis.com/msgsndr/HWyar6Z3u3aF6ydghkCx/media/695d947da88e874feacb84ad.png"
@@ -144,6 +124,21 @@ export default function PlaybooksPage() {
             autoPlay
             className="w-full h-full object-cover"
           />
+        </div>
+
+        {/* Big BOOK YOUR CALL Button Below VSL */}
+        <div className="mt-10 sm:mt-14 flex flex-col items-center justify-center">
+          <Link
+            href="/book"
+            className="w-full sm:w-auto px-12 py-5 sm:px-16 sm:py-6 text-xl sm:text-2xl font-black rounded-full bg-stone-950 hover:bg-purple-700 text-white shadow-[0_20px_50px_rgba(147,51,234,0.3)] transition-all duration-300 hover:scale-105 active:scale-95 border-2 border-purple-500/40 inline-flex items-center justify-center gap-3 tracking-wider uppercase"
+          >
+            <span>BOOK YOUR CALL</span>
+            <ArrowRight className="w-6 h-6 sm:w-7 sm:h-7 stroke-[2.5]" />
+          </Link>
+          <span className="mt-3.5 text-xs font-mono font-bold text-stone-500 uppercase tracking-widest flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span>100% Free Strategy Session • Limited Weekly Spots</span>
+          </span>
         </div>
       </section>
 
