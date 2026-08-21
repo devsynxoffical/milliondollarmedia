@@ -1,9 +1,12 @@
 import React from "react";
 import { FloatingNavbar } from "@/components/redesign/FloatingNavbar";
+import { ClientTestimonialsSection } from "@/components/redesign/ClientTestimonialsSection";
+import { TrainingVideosSection } from "@/components/redesign/TrainingVideosSection";
+import { ResultsSection } from "@/components/redesign/ResultsSection";
 import { LusionEndSection } from "@/components/redesign/LusionEndSection";
 import { EditorialFooter } from "@/components/redesign/EditorialFooter";
 import { MASTERMIND_FUNNEL } from "@/lib/funnels";
-import { Crown, Sparkles, ArrowRight, ShieldCheck, Zap, Users, Trophy, Play, CheckCircle2, TrendingUp, BarChart2, Star, AlertTriangle, HelpCircle, Layers, FileText, Lock, Target, Award, Crosshair } from "lucide-react";
+import { Crown, Sparkles, ArrowRight, ShieldCheck, Zap, Users, Trophy, Play, CheckCircle2, XCircle, TrendingUp, BarChart2, Star, AlertTriangle, HelpCircle, Layers, FileText, Lock, Target, Award, Crosshair } from "lucide-react";
 import Link from "next/link";
 
 export const metadata = {
@@ -31,31 +34,59 @@ export default function PrivateMastermindPage() {
   const curriculumPillars = [
     {
       number: "01",
-      title: "High-Hook Creative & Scripting System",
+      title: "High-Converting Ad Strategy",
       icon: Crosshair,
-      desc: "Master the 8-part VSL framework and shortform UGC ad script matrix that hook cold prospects within 3 seconds across Meta and TikTok.",
-      details: ["30+ Hook Angles Matrix", "Direct-Response Storyboards", "Creator Sourcing SOPs", "Dynamic Angle A/B Testing"],
+      desc: "Create compelling ad copies, hooks, angles, and creatives designed to attract your ideal buyers.",
+      highlight: "Custom Copy & Angles",
     },
     {
       number: "02",
-      title: "Hidden Interest & Advantage+ Media Buying",
+      title: "Hyper-Targeted Audience Segmentation",
       icon: Target,
-      desc: "Uncover un-tapped Facebook interest clusters and train Meta's Advantage+ algorithm to capture high-ticket buyers at 50% lower CPL.",
-      details: ["Algorithmic Audience Stacking", "Server-Side CAPI Telemetry", "Budget Scaling Formulas", "Daily ROAS Safeguards"],
+      desc: "Identify and segment the right audiences so your budget goes toward prospects most likely to become clients.",
+      highlight: "Buyer Targeting",
     },
     {
       number: "03",
-      title: "VSL Booking Funnel & Qualification Engine",
-      icon: Layers,
-      desc: "Build high-converting landing pages and automated CRM qualification bots that filter out tire-kickers before they touch your calendar.",
-      details: ["High-Ticket VSL Architecture", "Automated Lead Scoring", "Instant SMS/Email Nurture", "Cal.com & GoHighLevel Sync"],
+      title: "Testing & Optimization System",
+      icon: Zap,
+      desc: "Know exactly what to test, how to test it, and when to kill, optimize, or scale a campaign.",
+      highlight: "Optimization Protocol",
     },
     {
       number: "04",
-      title: "Client Acquisition Retention & Lifetime Value",
+      title: "Scaling Strategy",
       icon: TrendingUp,
-      desc: "Transform one-off ad campaigns into long-term enterprise client assets with continuous creative iteration and written performance SLAs.",
-      details: ["Weekly Telemetry Reports", "Creative Fatigue Shields", "Offer Up-sell SOPs", "Written Growth Guarantees"],
+      desc: "Move beyond random budget increases with a structured system for scaling campaigns while protecting profitability.",
+      highlight: "Profit-Safe Scaling",
+    },
+    {
+      number: "05",
+      title: "Lead Qualification System",
+      icon: ShieldCheck,
+      desc: "Build a process that helps separate serious prospects from low-quality leads before they waste your sales team's time.",
+      highlight: "High-Ticket Filter",
+    },
+    {
+      number: "06",
+      title: "Email & SMS Automation",
+      icon: Layers,
+      desc: "Set up follow-up systems that automatically nurture, qualify, and re-engage leads so opportunities don't fall through the cracks.",
+      highlight: "24/7 Automated Nurture",
+    },
+    {
+      number: "07",
+      title: "Weekly Private 1-on-1 Strategy Calls",
+      icon: Users,
+      desc: "Work directly with us every week. No rushed 30-minute calls. We stay on until your questions are answered and you know exactly what to do next.",
+      highlight: "1-on-1 Founders Access",
+    },
+    {
+      number: "08",
+      title: "24/7 Access & Session Recordings",
+      icon: Award,
+      desc: "Get ongoing access for questions between calls, plus recordings of every session so you can revisit the strategies and implementation whenever you need.",
+      highlight: "Lifetime Session Vault",
     },
   ];
 
@@ -86,20 +117,24 @@ export default function PrivateMastermindPage() {
 
   const faqs = [
     {
-      q: "What makes this Mastermind different from standard ad courses?",
-      a: "We don't sell theoretical courses. We audit, build, and co-install a complete live client acquisition system into your business. You get direct 1:1 advisory, custom VSL scripts, and full ownership of every funnel asset.",
+      q: "What exactly is included in the 90-day private mastermind?",
+      a: "You’ll get one private 1-on-1 strategy call every week, plus 24/7 access to us for questions and support throughout the program. There is no artificial time limit on your weekly calls — we stay on until your questions are answered and you have clarity on your next steps. You’ll also get recordings of every session so you can revisit the strategies and training whenever you need.",
     },
     {
-      q: "What is the minimum revenue required to qualify?",
-      a: "This program is strictly engineered for founders, agency owners, and high-ticket service providers currently generating at least $10,000 per month.",
+      q: "What will I learn during the 90 days?",
+      a: "We’ll work with you directly on the areas that drive growth, including ad copy creation, high-converting creatives, hyper-targeted audience segmentation, testing frameworks, scaling strategies, lead qualification systems, and email & SMS automations. The goal is to help you build a repeatable system you can use long after the mastermind ends.",
     },
     {
-      q: "Do I own all the ad creatives, funnels, and CRM setups?",
-      a: "Yes. 100% of landing pages, CRM pipelines, ad copy, video scripts, and custom automation workflows belong to you. No hidden lock-ins or agency dependence.",
+      q: "What if I don’t double my revenue in 90 days?",
+      a: "We stand behind the program with our 90-Day Double Revenue Guarantee. If you follow the strategies, implement the work, and don’t double your revenue within the 90-day period, we’ll continue working with you for free until you do.",
     },
     {
-      q: "What is the written 90-day growth guarantee?",
-      a: "If we don't double your qualified call bookings or target revenue milestones within 90 days while following our agreed SOP protocol, we continue working for free until we hit the metric.",
+      q: "Is there a refund policy?",
+      a: "There are no refunds for the mastermind. This is a hands-on, personalized program where we commit our time, expertise, and resources directly to your business. The 90-Day Double Revenue Guarantee is designed to give you confidence in the outcome while keeping the focus on implementation and results.",
+    },
+    {
+      q: "Will I get recordings of the 1-on-1 sessions?",
+      a: "Yes. Every session is recorded. You’ll have access to the recordings so you can review the strategies, revisit specific recommendations, and make sure nothing gets missed between sessions.",
     },
   ];
 
@@ -178,106 +213,96 @@ export default function PrivateMastermindPage() {
           {/* 3. BOTTOM SUB-TEXT (Below Giant Headline) */}
           <div className="mt-2 max-w-3xl text-center space-y-3 font-sans">
             <p className="text-base sm:text-xl font-bold text-stone-800 max-w-2xl mx-auto leading-relaxed">
-              Or We&apos;ll Continue Working For You At <span className="font-extrabold text-stone-950 underline underline-offset-4 decoration-purple-500">No Management Fee</span> Until We Do.
+              Double Your Revenue in the Next 90 Days Or <span className="font-extrabold text-stone-950 underline underline-offset-4 decoration-purple-500">We&apos;ll Keep Working With You For Free</span> Until You Do.
             </p>
 
-            <p className="text-xs sm:text-sm font-semibold text-stone-600 tracking-wide uppercase">
-              Done-For-You Client Acquisition From Meta Ads To The Booked Call.
+            <p className="text-xs sm:text-sm font-extrabold text-purple-700 tracking-wide uppercase font-mono">
+              Done-With-You. 1-on-1. Built Around Your Business.
             </p>
+          </div>
 
-            {/* Clean Pill Badges */}
-            <div className="flex flex-wrap items-center justify-center gap-2.5 pt-3">
-              <span className="px-4 py-1.5 rounded-full bg-stone-950 text-white font-mono text-[11px] font-black uppercase tracking-wider inline-flex items-center gap-1.5 shadow-sm">
-                <ShieldCheck className="w-3.5 h-3.5 text-purple-400" />
-                <span>Backed By A Written Agreement</span>
-              </span>
-              <span className="px-4 py-1.5 rounded-full bg-purple-100 text-purple-950 border border-purple-300 font-mono text-[11px] font-black uppercase tracking-wider inline-flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-purple-700" />
-                <span>100% Asset Ownership</span>
-              </span>
-              <span className="px-4 py-1.5 rounded-full bg-emerald-100 text-emerald-900 border border-emerald-300 font-mono text-[11px] font-black uppercase tracking-wider inline-flex items-center gap-1.5">
-                <Zap className="w-3.5 h-3.5 text-emerald-700" />
-                <span>Zero Risk Guarantee</span>
-              </span>
+          {/* 4 Core Hero Stats Bar */}
+          <div className="mx-auto mt-8 grid max-w-3xl grid-cols-2 gap-3.5 sm:grid-cols-4 w-full">
+            <div className="rounded-2xl border-2 border-stone-950 bg-stone-50 p-4 text-center shadow-sm hover:border-purple-600 transition-colors">
+              <p className="text-3xl font-black text-purple-700 font-mono">
+                $50M+
+              </p>
+              <p className="mt-1 text-[10px] font-extrabold uppercase tracking-wider text-stone-600 font-mono">
+                Meta Ads Spent
+              </p>
+            </div>
+            <div className="rounded-2xl border-2 border-stone-950 bg-stone-50 p-4 text-center shadow-sm hover:border-purple-600 transition-colors">
+              <p className="text-3xl font-black text-stone-950 font-mono">
+                12 YRS
+              </p>
+              <p className="mt-1 text-[10px] font-extrabold uppercase tracking-wider text-stone-600 font-mono">
+                Experience
+              </p>
+            </div>
+            <div className="rounded-2xl border-2 border-stone-950 bg-stone-50 p-4 text-center shadow-sm hover:border-purple-600 transition-colors">
+              <p className="text-3xl font-black text-purple-700 font-mono">
+                $10K+
+              </p>
+              <p className="mt-1 text-[10px] font-extrabold uppercase tracking-wider text-stone-600 font-mono">
+                Monthly Minimum
+              </p>
+            </div>
+            <div className="rounded-2xl border-2 border-stone-950 bg-stone-50 p-4 text-center shadow-sm hover:border-purple-600 transition-colors">
+              <p className="text-3xl font-black text-stone-950 font-mono">
+                90 DAYS
+              </p>
+              <p className="mt-1 text-[10px] font-extrabold uppercase tracking-wider text-stone-600 font-mono">
+                Revenue Target
+              </p>
             </div>
           </div>
 
-          {/* Hero Action Pill Buttons */}
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <Link
-              href="/book"
-              className="flex items-center gap-2 px-8 py-4 rounded-full bg-[#1D1435] hover:bg-[#2C1D50] text-white font-black text-sm uppercase tracking-wider transition-all shadow-lg hover:shadow-xl active:scale-95"
-            >
-              <span>Book Your Free Strategy Call</span>
-              <ArrowRight className="w-4 h-4 text-purple-300" />
-            </Link>
-            <Link
-              href="/services"
-              className="flex items-center gap-2 px-8 py-4 rounded-full bg-[#EAE0FF] hover:bg-[#DDD0FF] text-[#1D1435] font-black text-sm uppercase tracking-wider transition-all shadow-sm hover:shadow-md active:scale-95"
-            >
-              <span>Explore Systems</span>
-              <ArrowRight className="w-4 h-4 text-[#1D1435]" />
-            </Link>
-          </div>
+          {/* Mastermind Video Player Section (Official VSL Video) */}
+          <div className="mt-14 max-w-5xl mx-auto text-center">
+            <div className="mb-6">
+              <span className="inline-flex items-center gap-2 rounded-full bg-purple-100 border border-purple-200 px-4 py-1.5 text-xs font-mono font-bold text-purple-700 uppercase tracking-widest">
+                <Play className="w-3.5 h-3.5 fill-current" />
+                Watch Private 1:1 Mastermind Video
+              </span>
+              <h2 className="text-3xl sm:text-5xl font-black text-stone-950 font-hero tracking-tight mt-3 uppercase">
+                Glimse of our exact mastermind
+              </h2>
+              <p className="mt-2 text-stone-600 text-sm sm:text-base font-medium max-w-2xl mx-auto">
+                Understand exactly what we install, how it works, and why it doubles revenue in 90 days.
+              </p>
+            </div>
 
-          {/* DFY Creative Banner Tag */}
-          <div className="mt-5">
-            <Link
-              href="/book"
-              className="inline-flex items-center gap-1.5 text-xs font-mono font-black text-purple-700 hover:text-purple-900 tracking-wider uppercase underline underline-offset-4"
-            >
-              <span>GET DFY CREATIVE ADS FOR YOUR BRAND</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
-          </div>
+            <div className="relative rounded-3xl overflow-hidden border-4 border-stone-950 shadow-2xl bg-black aspect-video">
+              <iframe
+                src="https://www.youtube.com/embed/oSMaA6LOnrQ?autoplay=0&rel=0&modestbranding=1"
+                title="Private 1:1 Mastermind"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full border-0"
+              />
+            </div>
 
+            <div className="mt-8">
+              <Link
+                href="/book"
+                className="inline-flex items-center gap-2 px-9 py-4.5 rounded-full bg-stone-950 hover:bg-purple-700 text-white font-black text-sm uppercase tracking-wider transition-all shadow-xl active:scale-95"
+              >
+                <span>TRAIN MY AGENCY</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Mastermind Video Player Section (Official VSL Video) */}
-      <section className="py-20 px-4 md:px-8 max-w-5xl mx-auto text-center">
-        <div className="mb-6">
-          <span className="inline-flex items-center gap-2 rounded-full bg-purple-100 border border-purple-200 px-4 py-1.5 text-xs font-mono font-bold text-purple-700 uppercase tracking-widest">
-            <Play className="w-3.5 h-3.5 fill-current" />
-            Watch Private 1:1 Mastermind Video
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-stone-950 font-hero tracking-tight mt-3">
-            Watch This Before You Book a Call
-          </h2>
-          <p className="mt-2 text-stone-600 text-sm font-medium">
-            Understand exactly what we install, how it works, and why it doubles revenue in 90 days.
-          </p>
-        </div>
-
-        <div className="relative rounded-3xl overflow-hidden border-4 border-stone-950 shadow-2xl bg-black aspect-video">
-          <iframe
-            src="https://www.youtube.com/embed/oSMaA6LOnrQ?autoplay=0&rel=0&modestbranding=1"
-            title="Private 1:1 Mastermind"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="w-full h-full border-0"
-          />
-        </div>
-
-        <div className="mt-8">
-          <Link
-            href="/book"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-stone-950 hover:bg-purple-700 text-white font-black text-xs uppercase tracking-wider transition-colors shadow-xl"
-          >
-            <span>TRAIN MY AGENCY</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
-      </section>
-
-      {/* Curriculum Breakdown Grid (4 Core Pillars) */}
+      {/* Curriculum Breakdown Grid (8 Core Pillars) */}
       <section className="py-24 px-4 md:px-8 max-w-7xl mx-auto border-t border-stone-200">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-mono font-black uppercase tracking-widest text-purple-700 bg-purple-100 border border-purple-200 px-4 py-2 rounded-full">
             MASTERMIND CURRICULUM ARCHITECTURE
           </span>
           <h2 className="text-3xl sm:text-5xl font-black text-stone-950 font-hero tracking-tight mt-4">
-            The 4 Core Pillars We Install in Your Business
+            The 8 Core Pillars We Install in Your Business
           </h2>
           <p className="text-stone-600 font-medium text-base mt-2">
             Every module is paired with plug-and-play SOPs, custom scripts, and direct 1:1 advisory implementation.
@@ -309,20 +334,13 @@ export default function PrivateMastermindPage() {
                   <p className="text-stone-600 text-sm font-medium leading-relaxed mb-6">
                     {p.desc}
                   </p>
-
-                  <ul className="grid grid-cols-2 gap-2.5 mb-6">
-                    {p.details.map((d, dIdx) => (
-                      <li key={dIdx} className="flex items-center gap-2 text-xs font-bold text-stone-800 font-sans">
-                        <CheckCircle2 className="w-4 h-4 text-purple-700 shrink-0" />
-                        <span>{d}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </div>
 
                 <div className="pt-4 border-t border-stone-100 flex items-center justify-between">
-                  <span className="text-xs font-mono font-bold text-stone-400">ScaleWithAds Blueprint #0{idx + 1}</span>
-                  <span className="text-xs font-black text-purple-700 uppercase">100% Asset Included</span>
+                  <span className="text-xs font-mono font-bold text-stone-400">ScaleWithAds Blueprint #{p.number}</span>
+                  <span className="text-xs font-mono font-black text-purple-700 bg-purple-50 px-2.5 py-1 rounded-full border border-purple-200 uppercase">
+                    {p.highlight}
+                  </span>
                 </div>
               </div>
             );
@@ -331,106 +349,100 @@ export default function PrivateMastermindPage() {
       </section>
 
       {/* Target Audience Comparison Grid */}
-      <section className="py-20 px-4 md:px-8 max-w-7xl mx-auto border-t border-stone-200">
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <span className="text-xs font-mono font-black uppercase tracking-widest text-purple-700 bg-purple-100 border border-purple-200 px-4 py-2 rounded-full">
-            QUALIFICATION MATRIX
+      <section className="py-24 px-4 md:px-8 max-w-7xl mx-auto border-t border-stone-200">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="text-xs font-mono font-black uppercase tracking-widest text-purple-700 bg-purple-100 border border-purple-200 px-4 py-2 rounded-full inline-flex items-center gap-2 shadow-sm">
+            <Sparkles className="w-3.5 h-3.5 text-purple-700" />
+            <span>QUALIFICATION MATRIX</span>
           </span>
-          <h2 className="text-3xl sm:text-5xl font-black text-stone-950 font-hero tracking-tight mt-4">
-            Is This Private Mastermind Right For You?
+          <h2 className="text-4xl sm:text-6xl font-black text-stone-950 tracking-tight uppercase font-hero mt-4 leading-tight">
+            Is This Private Mastermind <br />
+            <span className="font-serif italic lowercase animate-purple-gradient font-normal">right for you?</span>
           </h2>
+          <p className="mt-3 text-stone-600 text-base font-medium max-w-xl mx-auto">
+            We maintain strict qualification criteria to protect candidate quality and guarantee maximum 1-on-1 focus.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {targetComparison.map((col, idx) => (
-            <div key={idx} className={`p-8 rounded-3xl border-2 border-stone-950 shadow-xl ${col.bg}`}>
-              <div className="flex items-center gap-3 mb-6">
-                <span className={`px-4 py-1.5 rounded-full text-xs font-mono font-black uppercase tracking-wider ${col.accent}`}>
-                  {col.type}
+          {/* Left Card: WHO THIS IS FOR */}
+          <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-emerald-500/10 via-white to-emerald-500/5 border-2 border-emerald-500/30 hover:border-emerald-500/60 shadow-xl transition-all duration-300 flex flex-col justify-between group">
+            <div>
+              <div className="flex items-center justify-between mb-8 pb-4 border-b border-emerald-200/60">
+                <span className="px-4 py-1.5 rounded-full text-xs font-mono font-black uppercase tracking-wider text-emerald-950 bg-emerald-100 border border-emerald-300 inline-flex items-center gap-2 shadow-sm">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                  <span>WHO THIS IS FOR</span>
+                </span>
+                <span className="text-xs font-mono font-extrabold text-emerald-700 bg-emerald-100/60 px-3 py-1 rounded-full border border-emerald-200">
+                  ✓ Ideal Fit
                 </span>
               </div>
-              <ul className="space-y-4">
-                {col.items.map((item, iIdx) => (
-                  <li key={iIdx} className="flex items-start gap-3 text-sm font-extrabold text-stone-950 leading-relaxed">
-                    <span className="w-6 h-6 rounded-full bg-stone-950 text-white font-mono text-xs flex items-center justify-center shrink-0 mt-0.5">
-                      ✓
-                    </span>
+
+              <ul className="space-y-5">
+                {[
+                  "Agency owners doing $10K+/month wanting to double revenue in 90 days",
+                  "High-ticket coaches & consultants needing a predictable call booking system",
+                  "B2B & local service founders tired of unreliable agency retainer fees",
+                  "Founders who demand 100% ownership of their funnels, copy & ad assets",
+                ].map((item, iIdx) => (
+                  <li key={iIdx} className="flex items-start gap-3.5 text-sm sm:text-base font-bold text-stone-900 leading-snug">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
-          ))}
+
+            <div className="mt-8 pt-4 border-t border-emerald-200/50 flex items-center justify-between text-xs font-mono font-bold text-emerald-800">
+              <span>✦ Guaranteed System Fit</span>
+              <span>100% Alignment</span>
+            </div>
+          </div>
+
+          {/* Right Card: WHO THIS IS NOT FOR */}
+          <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-rose-500/10 via-white to-rose-500/5 border-2 border-rose-500/30 hover:border-rose-500/60 shadow-xl transition-all duration-300 flex flex-col justify-between group">
+            <div>
+              <div className="flex items-center justify-between mb-8 pb-4 border-b border-rose-200/60">
+                <span className="px-4 py-1.5 rounded-full text-xs font-mono font-black uppercase tracking-wider text-rose-950 bg-rose-100 border border-rose-300 inline-flex items-center gap-2 shadow-sm">
+                  <span className="w-2 h-2 rounded-full bg-rose-500 animate-pulse" />
+                  <span>WHO THIS IS NOT FOR</span>
+                </span>
+                <span className="text-xs font-mono font-extrabold text-rose-700 bg-rose-100/60 px-3 py-1 rounded-full border border-rose-200">
+                  ✕ Strictly Filtered
+                </span>
+              </div>
+
+              <ul className="space-y-5">
+                {[
+                  "Brand new startups making less than $10,000 in monthly revenue",
+                  "People looking for a 'get rich quick' course with no implementation work",
+                  "Founders looking to delegate 100% of executive strategy without involvement",
+                  "Agencies unwilling to install server-side conversion tracking & CAPI",
+                ].map((item, iIdx) => (
+                  <li key={iIdx} className="flex items-start gap-3.5 text-sm sm:text-base font-bold text-stone-900 leading-snug">
+                    <XCircle className="w-5 h-5 text-rose-600 shrink-0 mt-0.5" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-8 pt-4 border-t border-rose-200/50 flex items-center justify-between text-xs font-mono font-bold text-rose-800">
+              <span>✦ Rejection Safeguard</span>
+              <span>Zero Low-Intent Leads</span>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Real Campaigns & Proof Numbers */}
-      <section className="py-24 px-4 md:px-8 bg-stone-950 text-white border-t border-b border-stone-800">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs font-mono font-black uppercase tracking-widest text-amber-400 bg-amber-400/10 border border-amber-400/30 px-4 py-2 rounded-full">
-              REAL CAMPAIGNS. REAL NUMBERS.
-            </span>
-            <h2 className="text-4xl sm:text-6xl font-black text-white font-hero tracking-tight mt-3">
-              Campaign Results & Proof
-            </h2>
-            <p className="text-stone-400 text-sm font-medium mt-2">
-              Every number you see is pulled directly from live ad accounts and CRM dashboards.
-            </p>
-          </div>
+      {/* Verified Results & Track Record Showcase */}
+      <ResultsSection />
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-16">
-            {proofMetrics.map((pm, idx) => (
-              <div key={idx} className="p-6 rounded-2xl bg-stone-900 border border-stone-800 text-center">
-                <p className="text-3xl font-black text-amber-400 font-mono">{pm.value}</p>
-                <p className="text-xs font-bold uppercase tracking-wider text-stone-400 font-mono mt-1">{pm.label}</p>
-              </div>
-            ))}
-          </div>
+      {/* System Training Library Section */}
+      <TrainingVideosSection />
 
-          {/* Testimonials */}
-          <div className="grid gap-6 md:grid-cols-3 mb-16">
-            {testimonials.map((t, i) => (
-              <div key={i} className="bg-stone-900 rounded-3xl border border-stone-800 p-8 flex flex-col justify-between">
-                <div>
-                  <div className="flex gap-1 mb-4">
-                    {Array.from({ length: t.stars }).map((_, s) => (
-                      <Star key={s} className="w-4 h-4 text-amber-400 fill-amber-400" />
-                    ))}
-                  </div>
-                  <p className="text-stone-300 text-sm leading-relaxed italic">
-                    &ldquo;{t.body}&rdquo;
-                  </p>
-                </div>
-                <div className="mt-6 pt-4 border-t border-stone-800">
-                  <p className="text-base font-extrabold text-white font-hero">{t.name}</p>
-                  <p className="text-xs text-amber-400 font-mono">{t.role}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Track Record Text Box */}
-          <div className="p-8 rounded-3xl bg-stone-900 border border-stone-800 text-center max-w-3xl mx-auto">
-            <h3 className="text-2xl font-black text-white font-hero mb-2">
-              Built for agencies. Proven across verticals.
-            </h3>
-            <p className="text-stone-400 text-sm font-medium leading-relaxed">
-              If you run a media agency, this recording shows how to get clients and keep them, with ads systems that sell in countless industries, not one template niche. Two Comma Club Winner. ClickFunnels Awards.
-            </p>
-          </div>
-
-          <div className="mt-12 text-center">
-            <Link
-              href="/book"
-              className="inline-flex items-center gap-2 px-9 py-4 rounded-full bg-amber-400 hover:bg-amber-300 text-stone-950 font-black text-xs uppercase tracking-wider transition-colors shadow-xl"
-            >
-              <span>BUILD MY CLIENT-GETTING MACHINE</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* Verified Client Video Testimonials */}
+      <ClientTestimonialsSection />
 
       {/* Frequently Asked Questions Accordion */}
       <section className="py-24 px-4 md:px-8 max-w-5xl mx-auto">

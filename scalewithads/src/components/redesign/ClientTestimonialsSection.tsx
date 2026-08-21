@@ -2,13 +2,14 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Play, Volume2, X, Star } from "lucide-react";
+import { Play, Volume2, X, Sparkles, CheckCircle2, ShieldCheck } from "lucide-react";
 
 interface TestimonialCard {
   id: string;
   clientName: string;
   title: string;
-  poster: string;
+  subtitle: string;
+  duration: string;
   videoUrl: string;
   aspectRatio: string;
 }
@@ -19,84 +20,111 @@ export function ClientTestimonialsSection() {
   const testimonials: TestimonialCard[] = [
     {
       id: "01",
-      clientName: "Edgar & Jeremi",
-      title: "How Edgar & Jeremi Are Getting High-Ticket Clients Using Our Million Dollar Funnel™ System",
-      poster: "https://images.leadconnectorhq.com/image/f_webp/q_80/r_900/u_https://storage.googleapis.com/msgsndr/HWyar6Z3u3aF6ydghkCx/media/695d947da88e874feacb84ad.png",
-      videoUrl: "https://storage.googleapis.com/msgsndr/HWyar6Z3u3aF6ydghkCx/media/695c7a35993346e69427d4db.mp4",
-      aspectRatio: "aspect-[9/14]",
+      clientName: "Edgar",
+      title: "How Edgar Landed High-Ticket Clients Using Our ScaleWithAds Client Acquisition System",
+      subtitle: "High-Ticket Client Acquisition Walkthrough",
+      duration: "2:04",
+      videoUrl: "https://storage.googleapis.com/msgsndr/HWyar6Z3u3aF6ydghkCx/media/69624f63f8a93b76e0751a55.mp4",
+      aspectRatio: "aspect-[16/10]",
     },
     {
       id: "02",
-      clientName: "Mary Grace",
-      title: "Marie Spent $2,000 With Another Agency And Got Zero Registrations. We generated 2,000+ registrations for Mary's Investors Online Summit",
-      poster: "https://images.leadconnectorhq.com/image/f_webp/q_80/r_900/u_https://storage.googleapis.com/msgsndr/HWyar6Z3u3aF6ydghkCx/media/695d947d7931f04304558d13.png",
-      videoUrl: "https://storage.googleapis.com/msgsndr/HWyar6Z3u3aF6ydghkCx/media/695da2543a532d67105ad96c.mp4",
-      aspectRatio: "aspect-[9/16]",
+      clientName: "Marie Grace Berg",
+      title: "Generated 2,000+ High-Ticket Registrations & Sales for Mary Grace Berg Summit",
+      subtitle: "2,000+ Summit Registrations Case Study",
+      duration: "1:12",
+      videoUrl: "https://storage.googleapis.com/msgsndr/HWyar6Z3u3aF6ydghkCx/media/69624f62f8a93b0480751a4e.mp4",
+      aspectRatio: "aspect-[16/10]",
     },
     {
       id: "03",
-      clientName: "Edgar",
-      title: "Edgar Landed A New Agency Client At A $1500/ Month MRR Deal For 3 Months ($4,500) At A $7 Lead Cost",
-      poster: "https://images.leadconnectorhq.com/image/f_webp/q_80/r_900/u_https://storage.googleapis.com/msgsndr/HWyar6Z3u3aF6ydghkCx/media/695d947db75f6f2a004fcbd6.png",
-      videoUrl: "https://storage.googleapis.com/msgsndr/HWyar6Z3u3aF6ydghkCx/media/695c7a35993346e69427d4db.mp4",
-      aspectRatio: "aspect-[9/14]",
+      clientName: "Edgar & Jeremi",
+      title: "How Edgar & Jeremi Are Getting High-Ticket Clients Using Our Million Dollar Funnel™ System",
+      subtitle: "$4,500 MRR Deal at $7 CPL Walkthrough",
+      duration: "0:45",
+      videoUrl: "https://storage.googleapis.com/msgsndr/HWyar6Z3u3aF6ydghkCx/media/6978f116d560857126a4804c.mp4",
+      aspectRatio: "aspect-[16/10]",
     },
   ];
 
   return (
-    <section className="py-24 sm:py-32 px-4 sm:px-8 bg-[#0a0a0d] text-white border-t border-b border-stone-800 relative overflow-hidden select-none">
+    <section className="py-24 sm:py-32 px-4 sm:px-8 bg-[#0F0C1B] text-white border-t border-b border-purple-950 relative overflow-hidden select-none">
       
-      {/* Red Ambient Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-rose-600/15 rounded-full blur-[120px] pointer-events-none -z-0" />
+      {/* Purple Ambient Background Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[550px] bg-purple-600/20 rounded-full blur-[140px] pointer-events-none -z-0" />
 
-      {/* Decorative Wavy Lines Pattern Overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(#ed1c24_1px,transparent_1px)] [background-size:24px_24px] opacity-10 pointer-events-none" />
+      {/* Decorative Grid Overlay */}
+      <div className="absolute inset-0 bg-[radial-gradient(#9333ea_1px,transparent_1px)] [background-size:28px_28px] opacity-15 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         
-        {/* Header */}
+        {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-rose-500 bg-rose-950/80 border border-rose-800/60 px-4 py-1.5 rounded-full inline-block mb-4 shadow-sm">
-            ✦ VERIFIED CLIENT PROOF
+          <span className="text-xs font-mono font-bold uppercase tracking-widest text-purple-300 bg-purple-950/80 border border-purple-800/80 px-4 py-2 rounded-full inline-flex items-center gap-2 mb-4 shadow-sm">
+            <Sparkles className="w-3.5 h-3.5 text-purple-400" />
+            <span>VERIFIED CLIENT PROOF</span>
           </span>
 
-          <h2 className="text-4xl sm:text-6xl md:text-7xl font-black text-white tracking-tight uppercase font-hero leading-none">
-            CLIENT <span className="text-rose-600">TESTIMONIALS</span>
+          <h2 className="text-4xl sm:text-6xl md:text-7xl font-black text-white tracking-tight uppercase font-hero leading-tight">
+            CLIENT <span className="animate-purple-gradient font-hero">TESTIMONIALS</span>
           </h2>
-          <p className="mt-4 text-stone-400 text-base sm:text-lg font-medium">
+          <p className="mt-4 text-stone-300 text-base sm:text-lg font-medium">
             Real founders, coaches & agencies sharing their client acquisition scaling results.
           </p>
         </div>
 
-        {/* 3 Video Cards Grid (Exact Screenshot Layout & Red Border Glow) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-center">
+        {/* 3 Video Cards Grid (Sleek Smooth Purple Border & Hover Glow) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
           {testimonials.map((item) => (
             <motion.div
               key={item.id}
-              whileHover={{ y: -8, scale: 1.02 }}
+              whileHover={{ y: -6, scale: 1.01 }}
               transition={{ duration: 0.3 }}
               onClick={() => setActiveVideo(item)}
-              className="rounded-[32px] bg-black border-2 border-rose-600/80 shadow-[0_0_30px_rgba(237,28,36,0.25)] hover:shadow-[0_0_45px_rgba(237,28,36,0.45)] overflow-hidden cursor-pointer group relative flex flex-col justify-between"
+              className="rounded-3xl bg-stone-950 border-2 border-purple-600/60 hover:border-purple-400 shadow-[0_0_30px_rgba(147,51,234,0.25)] hover:shadow-[0_0_50px_rgba(147,51,234,0.5)] overflow-hidden cursor-pointer group relative flex flex-col justify-between"
             >
-              {/* Media Poster & Video Frame Container */}
-              <div className={`relative w-full ${item.aspectRatio} bg-stone-950 overflow-hidden`}>
-                <img
-                  src={item.poster}
-                  alt={item.title}
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+              {/* Direct Video Preview Frame Container */}
+              <div className="relative w-full aspect-video bg-black flex items-center justify-center p-2 overflow-hidden rounded-t-3xl">
+                <video
+                  src={item.videoUrl}
+                  preload="metadata"
+                  muted
+                  playsInline
+                  className="w-full h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 opacity-80 group-hover:opacity-60 transition-opacity" />
+                <div className="absolute inset-0 bg-gradient-to-t from-stone-950/70 via-transparent to-black/20 opacity-40 group-hover:opacity-10 transition-opacity pointer-events-none" />
 
-                {/* Top Right Mute / Audio Badge */}
-                <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/70 backdrop-blur-md border border-white/20 flex items-center justify-center text-white shadow-lg">
-                  <Volume2 className="w-4 h-4" />
+                {/* Top Right Duration Badge */}
+                <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-stone-950/90 backdrop-blur-md border border-purple-500/40 flex items-center gap-1.5 text-[11px] font-mono text-purple-200 shadow-lg pointer-events-none">
+                  <Volume2 className="w-3 h-3 text-purple-400" />
+                  <span>{item.duration}</span>
                 </div>
 
-                {/* Center Play Icon with Glow */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-rose-600/90 text-white border-2 border-rose-400 flex items-center justify-center group-hover:scale-110 group-hover:bg-rose-500 transition-all duration-300 shadow-[0_0_35px_rgba(237,28,36,0.8)]">
-                    <Play className="w-7 h-7 sm:w-9 sm:h-9 fill-current ml-1" />
+                {/* Center Play Icon with Purple Glow */}
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-purple-600/90 text-white border-2 border-purple-300 flex items-center justify-center group-hover:scale-110 group-hover:bg-purple-500 transition-all duration-300 shadow-[0_0_35px_rgba(168,85,247,0.85)]">
+                    <Play className="w-6 h-6 sm:w-7 sm:h-7 fill-current ml-0.5" />
                   </div>
+                </div>
+              </div>
+
+              {/* Card Footer Info */}
+              <div className="p-6 bg-stone-950/90 border-t border-purple-900/50 flex flex-col justify-between grow">
+                <div>
+                  <span className="text-xs font-mono font-bold text-purple-400 uppercase tracking-wider block mb-1">
+                    ✦ {item.clientName}
+                  </span>
+                  <h3 className="text-sm font-extrabold text-white leading-snug group-hover:text-purple-300 transition-colors">
+                    {item.title}
+                  </h3>
+                </div>
+
+                <div className="mt-4 pt-3 border-t border-stone-800/60 flex items-center justify-between text-xs font-mono text-stone-400">
+                  <span className="inline-flex items-center gap-1 text-emerald-400">
+                    <CheckCircle2 className="w-3.5 h-3.5" />
+                    <span>Verified Result</span>
+                  </span>
+                  <span className="text-purple-400 font-bold uppercase">Watch Video ↗</span>
                 </div>
               </div>
             </motion.div>
@@ -120,19 +148,19 @@ export function ClientTestimonialsSection() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-4xl bg-stone-950 border-2 border-rose-600 rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(237,28,36,0.4)]"
+              className="relative w-full max-w-4xl bg-stone-950 border-2 border-purple-600 rounded-3xl overflow-hidden shadow-[0_0_60px_rgba(147,51,234,0.5)]"
             >
               {/* Modal Top Header Bar */}
-              <div className="p-4 bg-black border-b border-rose-900/60 flex items-center justify-between">
+              <div className="p-4 bg-stone-950 border-b border-purple-900/60 flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <span className="w-3 h-3 rounded-full bg-rose-500 animate-pulse" />
+                  <span className="w-3 h-3 rounded-full bg-purple-500 animate-pulse" />
                   <span className="font-extrabold text-sm text-white font-hero tracking-wide">
-                    {activeVideo.clientName} Case Study
+                    {activeVideo.clientName} Video Walkthrough
                   </span>
                 </div>
                 <button
                   onClick={() => setActiveVideo(null)}
-                  className="w-8 h-8 rounded-full bg-stone-900 flex items-center justify-center text-stone-300 hover:text-white hover:bg-rose-900 transition-colors"
+                  className="w-8 h-8 rounded-full bg-stone-900 flex items-center justify-center text-stone-300 hover:text-white hover:bg-purple-900 transition-colors"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -155,3 +183,4 @@ export function ClientTestimonialsSection() {
     </section>
   );
 }
+

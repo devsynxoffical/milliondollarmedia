@@ -12,6 +12,7 @@ import { OwnershipSection } from "@/components/redesign/OwnershipSection";
 import { MeetTheTeamSection } from "@/components/redesign/MeetTheTeamSection";
 import { GuaranteeSection } from "@/components/redesign/GuaranteeSection";
 import { CommunitySection } from "@/components/redesign/CommunitySection";
+import { ClientTestimonialsSection } from "@/components/redesign/ClientTestimonialsSection";
 import { FaqSection } from "@/components/redesign/FaqSection";
 import { ProcessSection } from "@/components/redesign/ProcessSection";
 import { PricingSection } from "@/components/redesign/PricingSection";
@@ -84,6 +85,9 @@ export default function RedesignPage() {
       <div id="pricing">
         <PricingSection />
       </div>
+
+      {/* Verified Client Video Testimonials */}
+      <ClientTestimonialsSection />
 
       {/* 15. Private Community Section */}
       <div id="community">
