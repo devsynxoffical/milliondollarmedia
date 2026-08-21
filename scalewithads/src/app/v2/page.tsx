@@ -79,16 +79,14 @@ export default function RedesignPage() {
         <GuaranteeSection />
       </div>
 
-      {/* 14. Frequently Asked Questions */}
-      <div id="faq">
-        <FaqSection />
-      </div>
-
-
-
-      {/* 15. Pricing Section */}
+      {/* 14. Transparent Performance Pricing */}
       <div id="pricing">
         <PricingSection />
+      </div>
+
+      {/* 15. Frequently Asked Questions */}
+      <div id="faq">
+        <FaqSection />
       </div>
 
       {/* 16. Lusion Interactive End Section */}

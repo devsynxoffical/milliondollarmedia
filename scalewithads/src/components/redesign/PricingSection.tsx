@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { CheckCircle2, ArrowRight, Sparkles, ShieldCheck, Zap, Star, AlertTriangle, Check, Crown } from "lucide-react";
+import { CheckCircle2, ArrowRight, Sparkles, ShieldCheck, Check } from "lucide-react";
 import Link from "next/link";
 
 export function PricingSection() {
@@ -29,6 +29,7 @@ export function PricingSection() {
       bgColor: "bg-white border-stone-950 text-stone-900 shadow-xl",
       badgeColor: "bg-purple-100 text-purple-900 border-purple-300",
       btnColor: "bg-stone-950 hover:bg-purple-700 text-white",
+      iconColor: "bg-purple-100 text-purple-700",
       accentGlow: "group-hover:border-purple-600 group-hover:shadow-[0_0_30px_rgba(147,51,234,0.25)]",
     },
     {
@@ -49,10 +50,11 @@ export function PricingSection() {
         "Continuous Conversion & ROAS Optimization",
       ],
       popular: true,
-      bgColor: "bg-[#1D1435] border-purple-900 text-white shadow-2xl",
-      badgeColor: "bg-amber-400 text-stone-950 font-black border-amber-300",
-      btnColor: "bg-amber-400 hover:bg-amber-300 text-stone-950 font-black",
-      accentGlow: "border-amber-400 shadow-[0_0_40px_rgba(251,191,36,0.3)]",
+      bgColor: "bg-[#1D1435] border-purple-600 text-white shadow-2xl",
+      badgeColor: "bg-purple-600 text-white font-extrabold border-purple-500",
+      btnColor: "bg-purple-600 hover:bg-purple-500 text-white font-extrabold",
+      iconColor: "bg-purple-600 text-white",
+      accentGlow: "border-purple-500 shadow-[0_0_40px_rgba(168,85,247,0.35)]",
     },
   ];
 
@@ -98,7 +100,7 @@ export function PricingSection() {
               }`}
             >
               <span>Quarterly Growth</span>
-              <span className="text-[10px] bg-amber-300 text-stone-950 font-black px-2 py-0.5 rounded-full">SAVE 15%</span>
+              <span className="text-[10px] bg-purple-100 text-purple-900 font-extrabold px-2 py-0.5 rounded-full border border-purple-300">SAVE 15%</span>
             </button>
           </div>
         </div>
@@ -119,8 +121,8 @@ export function PricingSection() {
                     {plan.badge}
                   </span>
                   {plan.popular && (
-                    <span className="text-[11px] font-mono font-bold text-amber-300 flex items-center gap-1">
-                      <ShieldCheck className="w-4 h-4 text-amber-400" />
+                    <span className="text-xs font-mono font-extrabold text-purple-300 flex items-center gap-1">
+                      <ShieldCheck className="w-4 h-4 text-purple-300" />
                       Written Guarantee
                     </span>
                   )}
@@ -140,7 +142,7 @@ export function PricingSection() {
                   </span>
                 </div>
 
-                <p className="text-sm font-medium leading-relaxed mb-8 opacity-90">
+                <p className="text-sm font-medium leading-relaxed mb-8 opacity-90 font-sans">
                   {plan.desc}
                 </p>
 
@@ -151,9 +153,7 @@ export function PricingSection() {
                 <ul className="space-y-3.5 mb-10">
                   {plan.features.map((feat, fIdx) => (
                     <li key={fIdx} className="flex items-start gap-3 text-xs sm:text-sm font-extrabold leading-snug">
-                      <div className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${
-                        plan.popular ? "bg-amber-400 text-stone-950" : "bg-purple-100 text-purple-700"
-                      }`}>
+                      <div className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${plan.iconColor}`}>
                         <Check className="w-3.5 h-3.5 stroke-[3]" />
                       </div>
                       <span>{feat}</span>
