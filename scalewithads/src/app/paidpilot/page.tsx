@@ -20,13 +20,7 @@ export default function PaidPilotPage() {
     { value: "30+", label: "Niches" },
   ];
 
-  const learnItems = [
-    "How to sell offers on Meta without burning budget",
-    "Creative + offer angles that drive ROAS across industries",
-    "How media agencies package ads that sell to win clients",
-    "Frameworks from $50M+ Meta spend and 12 years of installs",
-    "$10K minimum · We double your revenue in 90 days · Everything is written in the agreement",
-  ];
+
 
   const comparisonRows = [
     {
@@ -269,52 +263,7 @@ export default function PaidPilotPage() {
         </div>
       </section>
 
-      {/* Unlock Items */}
-      <section className="py-20 px-4 md:px-8 max-w-5xl mx-auto border-t border-stone-200">
-        <div className="text-center mb-14">
-          <span className="text-xs font-mono font-black uppercase tracking-widest text-purple-700 bg-purple-100 border border-purple-200 px-4 py-2 rounded-full">
-            INSIDE THIS PILOT
-          </span>
-          <h2 className="text-3xl sm:text-5xl font-black text-stone-950 font-hero tracking-tight mt-3">
-            What This Meta Training Unlocks
-          </h2>
-        </div>
 
-        <div className="space-y-4">
-          {learnItems.map((item, idx) => (
-            <div
-              key={idx}
-              className="p-6 rounded-3xl bg-white border-2 border-stone-950 shadow-lg flex items-start gap-4 text-stone-900"
-            >
-              <span className="w-10 h-10 rounded-xl bg-purple-700 text-white font-mono font-black text-sm flex items-center justify-center flex-shrink-0 mt-0.5">
-                0{idx + 1}
-              </span>
-              <p className="pt-1.5 text-base sm:text-lg font-extrabold font-sans text-stone-950 leading-relaxed">
-                {item}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        {/* Track record box */}
-        <div className="mt-14 p-8 rounded-3xl bg-white border-2 border-stone-950 shadow-xl text-center">
-          <span className="text-xs font-mono font-bold text-stone-400 uppercase tracking-widest block mb-2">TRACK RECORD</span>
-          <h3 className="text-2xl font-black text-stone-950 font-hero mb-3">Real Meta scale. Real awards. Real brands.</h3>
-          <p className="text-stone-600 text-sm font-medium leading-relaxed max-w-2xl mx-auto font-sans">
-            Two Comma Club Winner. ClickFunnels Awards. Client proof like $847K revenue on $255K tracked spend at 3.32 ROAS, and 13,630 LTO offers sold. This is ads that sell.
-          </p>
-
-          <div className="mt-8">
-            <Link
-              href="/book"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-stone-950 hover:bg-purple-700 text-white font-black text-xs uppercase tracking-wider transition-colors shadow-lg"
-            >
-              <span>APPLY FOR PAID PILOT TRIAL</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
 
       {/* Proven Track Record Section */}
       <ResultsSection />
