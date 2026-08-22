@@ -262,7 +262,7 @@ export default function PrivateMastermindPage() {
             {/* Glowing Video Frame Container */}
             <div className="relative rounded-[32px] overflow-hidden border-4 border-stone-950 shadow-[0_25px_70px_rgba(147,51,234,0.3)] bg-black aspect-video group">
               <iframe
-                src="https://www.youtube.com/embed/oSMaA6LOnrQ?autoplay=0&rel=0&modestbranding=1"
+                src="https://www.youtube.com/embed/oSMaA6LOnrQ?autoplay=1&mute=1&rel=0&modestbranding=1"
                 title="Private 1:1 Mastermind"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen

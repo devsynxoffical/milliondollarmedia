@@ -147,6 +147,8 @@ export default function MetaLTOPage() {
             src="https://storage.googleapis.com/msgsndr/HWyar6Z3u3aF6ydghkCx/media/695da2543a532d67105ad96c.mp4"
             controls
             autoPlay
+            muted
+            playsInline
             preload="auto"
             className="w-full h-full object-cover"
           />

@@ -145,6 +145,8 @@ export default function PaidPilotPage() {
             src="https://assets.cdn.filesafe.space/W8B8H8FvOolLCrvxXzYp/media/69ef9443717d5dd4e170f445.mp4"
             controls
             autoPlay
+            muted
+            playsInline
             preload="auto"
             className="w-full h-full object-cover"
           />
