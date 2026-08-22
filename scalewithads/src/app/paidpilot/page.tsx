@@ -84,18 +84,18 @@ export default function PaidPilotPage() {
   const onboardingSteps = [
     {
       step: "01",
-      title: "Strategy & Audit Deep-Dive",
-      desc: "We analyze your current offer, audience targeting, and funnel bottlenecks on a 1:1 onboarding session within 48 hours.",
+      title: "Get Everything Ready",
+      desc: "We prioritize your offer, market, audience, and campaign strategy so everything is aligned before launch.",
     },
     {
       step: "02",
-      title: "System Build & CAPI Deployment",
-      desc: "Our team writes your VSL scripts, builds your custom landing page, and configures server-side Meta CAPI tracking.",
+      title: "Build & Approve",
+      desc: "We create your ad copy, marketing materials, and 5–10 creatives, then get everything approved and ready to go.",
     },
     {
       step: "03",
-      title: "Paid Pilot Launch & Scaling",
-      desc: "We turn on live campaigns, run daily Advantage+ optimization, and scale your qualified call bookings backed by our written guarantee.",
+      title: "Launch Within 3-5 Business Days",
+      desc: "Once everything is approved, we launch your campaigns and begin testing, tracking, and optimizing for momentum.",
     },
   ];
 
@@ -242,7 +242,7 @@ export default function PaidPilotPage() {
             HOW THE PAID PILOT WORKS
           </span>
           <h2 className="text-3xl sm:text-5xl font-black text-stone-950 font-hero tracking-tight mt-4">
-            3 Steps to Launch Your Client Acquisition Engine
+            Your 3-Step Launch Plan
           </h2>
         </div>
 
