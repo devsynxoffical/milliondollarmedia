@@ -102,49 +102,30 @@ export function AdGenieHero() {
           </div>
         </motion.div>
 
-        {/* Hero Action Pill Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 35, scale: 0.92 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 1.5, delay: 0.75, ease: silkEase }}
-          className="mt-8 flex flex-wrap items-center justify-center gap-3"
-        >
-          <Link
-            href="/book"
-            className="flex items-center gap-2 px-8 py-4 rounded-full bg-[#1D1435] hover:bg-[#2C1D50] text-white font-black text-sm uppercase tracking-wider transition-all shadow-lg hover:shadow-xl active:scale-95"
-          >
-            <span>Book Your Free Strategy Call</span>
-            <ArrowRight className="w-4 h-4 text-purple-300" />
-          </Link>
-          <Link
-            href="/services"
-            className="flex items-center gap-2 px-8 py-4 rounded-full bg-[#EAE0FF] hover:bg-[#DDD0FF] text-[#1D1435] font-black text-sm uppercase tracking-wider transition-all shadow-sm hover:shadow-md active:scale-95"
-          >
-            <span>Explore Systems</span>
-            <ArrowRight className="w-4 h-4 text-[#1D1435]" />
-          </Link>
-        </motion.div>
-
-        {/* DFY Creative Banner Tag */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.9 }}
-          className="mt-5"
-        >
-          <Link
-            href="/book"
-            className="inline-flex items-center gap-1.5 text-xs font-mono font-black text-purple-700 hover:text-purple-900 tracking-wider uppercase underline underline-offset-4"
-          >
-            <span>GET DFY CREATIVE ADS FOR YOUR BRAND</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
-        </motion.div>
-
         {/* Static Realistic MacBook Pro Container containing VSL */}
         <div className="w-full mt-6 sm:mt-10">
           <MacbookScroll videoSrc="https://www.youtube.com/embed/1PGP3xs_nBk" />
         </div>
+
+        {/* Hero CTA Button Moved Below VSL */}
+        <motion.div
+          initial={{ opacity: 0, y: 35, scale: 0.92 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 1.2, delay: 0.75, ease: silkEase }}
+          className="mt-10 sm:mt-14 flex flex-col items-center justify-center"
+        >
+          <Link
+            href="/book"
+            className="w-full sm:w-auto px-12 py-5 sm:px-16 sm:py-6 text-xl sm:text-2xl font-black rounded-full bg-stone-950 hover:bg-purple-700 text-white shadow-[0_20px_50px_rgba(147,51,234,0.3)] transition-all duration-300 hover:scale-105 active:scale-95 border-2 border-purple-500/40 inline-flex items-center justify-center gap-3 tracking-wider uppercase"
+          >
+            <span>BOOK YOUR FREE STRATEGY CALL</span>
+            <ArrowRight className="w-6 h-6 sm:w-7 sm:h-7 stroke-[2.5]" />
+          </Link>
+          <span className="mt-3.5 text-xs font-mono font-bold text-stone-500 uppercase tracking-widest flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span>100% Free Strategy Session • Limited Weekly Spots</span>
+          </span>
+        </motion.div>
 
       </div>
     </section>
