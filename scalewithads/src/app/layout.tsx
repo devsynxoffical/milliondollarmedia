@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { SmoothScroll } from "../components/providers/SmoothScroll";
 import { ScrollToTop } from "../components/ScrollToTop";
+import { WhatsAppButton } from "../components/redesign/WhatsAppButton";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -34,6 +35,7 @@ export default function RootLayout({
         <SmoothScroll>
           {children}
         </SmoothScroll>
+        <WhatsAppButton />
       </body>
     </html>
   );

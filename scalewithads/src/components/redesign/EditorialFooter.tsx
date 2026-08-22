@@ -47,29 +47,29 @@ export function EditorialFooter() {
               {/* Col 1 */}
               <div className="flex flex-col gap-3">
                 <p className="text-xs font-mono font-bold uppercase tracking-widest text-purple-700">
-                  SYSTEM
+                  NAVIGATION
                 </p>
-                <Link href="/#hero" className="text-stone-600 hover:text-purple-700 transition-colors">
-                  Overview
+                <Link href="/" className="text-stone-600 hover:text-purple-700 transition-colors">
+                  Home
                 </Link>
-                <Link href="/#problem" className="text-stone-600 hover:text-purple-700 transition-colors">
-                  The Problem
+                <Link href="/medialibrary" className="text-stone-600 hover:text-purple-700 transition-colors">
+                  Shorts & Videos
                 </Link>
-                <Link href="/#process" className="text-stone-600 hover:text-purple-700 transition-colors">
-                  8-Step Process
+                <Link href="/work" className="text-stone-600 hover:text-purple-700 transition-colors">
+                  Proven Results
                 </Link>
-                <Link href="/#guarantee" className="text-stone-600 hover:text-purple-700 transition-colors">
-                  90-Day Guarantee
+                <Link href="/contact" className="text-stone-600 hover:text-purple-700 transition-colors">
+                  Contact Us
                 </Link>
               </div>
 
               {/* Col 2 */}
               <div className="flex flex-col gap-3">
                 <p className="text-xs font-mono font-bold uppercase tracking-widest text-purple-700">
-                  SOLUTIONS
+                  SERVICES
                 </p>
                 <Link href="/services" className="text-stone-600 hover:text-purple-700 transition-colors">
-                  Meta Ads
+                  Meta Ads Scale
                 </Link>
                 <Link href="/services" className="text-stone-600 hover:text-purple-700 transition-colors">
                   Creative Studio
@@ -85,16 +85,16 @@ export function EditorialFooter() {
               {/* Col 3 */}
               <div className="flex flex-col gap-3">
                 <p className="text-xs font-mono font-bold uppercase tracking-widest text-purple-700">
-                  MASTERMINDS
+                  MASTERMIND
                 </p>
                 <Link href="/privatemastermind" className="text-stone-600 hover:text-purple-700 transition-colors">
-                  Private Circle
+                  Private 1:1 Advisory
                 </Link>
-                <Link href="/metads" className="text-stone-600 hover:text-purple-700 transition-colors">
-                  Meta Ads Training
+                <Link href="/metalto" className="text-stone-600 hover:text-purple-700 transition-colors">
+                  $847K Meta Funnel
                 </Link>
-                <Link href="/leadpilot" className="text-stone-600 hover:text-purple-700 transition-colors">
-                  Lead Pilot
+                <Link href="/paidpilot" className="text-stone-600 hover:text-purple-700 transition-colors">
+                  7-Day Paid Pilot
                 </Link>
                 <Link href="/medialibrary" className="text-stone-600 hover:text-purple-700 transition-colors">
                   Media Library
@@ -104,24 +104,30 @@ export function EditorialFooter() {
               {/* Col 4 */}
               <div className="flex flex-col gap-3">
                 <p className="text-xs font-mono font-bold uppercase tracking-widest text-purple-700">
-                  SOCIALS
+                  COMMUNITY
                 </p>
-                <a href="#" className="flex items-center gap-1 text-stone-600 hover:text-purple-700 transition-colors">
-                  <span>Twitter / X</span>
-                  <ArrowUpRight className="w-3.5 h-3.5" />
+                <a
+                  href="https://www.facebook.com/groups/milliondollarmedia"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1 text-stone-600 hover:text-purple-700 transition-colors"
+                >
+                  <span>FB Group</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-purple-600" />
                 </a>
-                <a href="#" className="flex items-center gap-1 text-stone-600 hover:text-purple-700 transition-colors">
-                  <span>LinkedIn</span>
-                  <ArrowUpRight className="w-3.5 h-3.5" />
+                <a
+                  href="https://wa.me/918287782334?text=Hi%2C%20I%20would%20like%20to%20learn%20more%20about%20ScaleWithAds"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1 text-emerald-700 font-extrabold hover:text-emerald-600 transition-colors"
+                >
+                  <span>WhatsApp</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-emerald-600" />
                 </a>
-                <a href="#" className="flex items-center gap-1 text-stone-600 hover:text-purple-700 transition-colors">
-                  <span>Instagram</span>
+                <Link href="/contact" className="flex items-center gap-1 text-stone-600 hover:text-purple-700 transition-colors">
+                  <span>Strategy Call</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
-                </a>
-                <a href="#" className="flex items-center gap-1 text-stone-600 hover:text-purple-700 transition-colors">
-                  <span>YouTube</span>
-                  <ArrowUpRight className="w-3.5 h-3.5" />
-                </a>
+                </Link>
               </div>
 
             </div>

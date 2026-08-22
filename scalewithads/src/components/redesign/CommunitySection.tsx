@@ -90,13 +90,13 @@ export function CommunitySection() {
           transition={{ delay: 0.4 }}
           className="p-8 sm:p-10 rounded-3xl bg-[#1D1435] text-white border-2 border-stone-950 shadow-2xl text-center max-w-4xl mx-auto flex flex-col items-center justify-between gap-6"
         >
-          <p className="text-stone-300 text-sm sm:text-base font-medium max-w-2xl">
-            <span className="font-extrabold text-white">Free to join.</span> Updated daily with real results, strategies and what&apos;s working right now across 30+ niches.
+          <p className="text-stone-100 text-base sm:text-lg font-semibold max-w-2xl leading-relaxed">
+            <span className="font-black text-amber-400 uppercase tracking-wider">Free to join.</span> Updated daily with real results, strategies and what&apos;s working right now across 30+ niches.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-4">
             <a
-              href="https://www.facebook.com/groups/qualifiedleadsx"
+              href="https://www.facebook.com/groups/milliondollarmedia"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-4 rounded-full bg-purple-600 hover:bg-purple-500 text-white font-black text-sm uppercase tracking-wider transition-all shadow-lg hover:shadow-xl flex items-center gap-3 active:scale-95 group"
