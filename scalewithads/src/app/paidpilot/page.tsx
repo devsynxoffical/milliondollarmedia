@@ -121,13 +121,14 @@ export default function PaidPilotPage() {
       <FloatingNavbar />
 
       {/* Hero Header Section */}
-      <section className="pt-28 sm:pt-36 pb-16 px-4 md:px-8 bg-white text-stone-900 overflow-hidden border-b border-stone-200 relative">
+      <section className="pt-28 sm:pt-36 pb-8 sm:pb-10 px-4 md:px-8 bg-white text-stone-900 overflow-hidden relative">
         {/* Subtle Ambient Background Glow */}
         <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[900px] h-[550px] bg-gradient-to-tr from-purple-200/40 via-purple-100/20 to-amber-100/10 rounded-full blur-3xl pointer-events-none -z-10" />
 
         <div className="max-w-5xl mx-auto text-center flex flex-col items-center">
           {/* Eyebrow Tag */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-100 border border-purple-200 text-purple-900 font-extrabold text-xs tracking-widest uppercase mb-6 shadow-sm">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-100/90 border border-purple-300 text-purple-900 font-extrabold text-xs tracking-widest uppercase mb-6 shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-purple-600 animate-pulse" />
             <Crown className="w-4 h-4 text-purple-700" />
             <span>PAID PILOT TRIAL</span>
           </div>
@@ -139,24 +140,24 @@ export default function PaidPilotPage() {
           </h1>
 
           {/* Subtext */}
-          <p className="mt-4 text-base sm:text-lg font-medium text-stone-700 max-w-2xl mx-auto leading-relaxed font-sans">
+          <p className="mt-5 text-base sm:text-lg font-medium text-stone-700 max-w-2xl mx-auto leading-relaxed font-sans">
             Experience our full ad management, creative testing, and optimization for 7 days. See the momentum for yourself, then decide whether you want to continue.
           </p>
 
-          {/* Stats Grid (3 Items) */}
+          {/* Stats Grid (3 Premium Cards) */}
           <div className="mx-auto mt-8 grid max-w-3xl grid-cols-1 sm:grid-cols-3 gap-4 w-full">
             {stats.map((s, idx) => (
-              <div key={idx} className="rounded-2xl border-2 border-stone-950 bg-stone-50 p-4 text-center shadow-sm hover:border-purple-600 transition-colors">
-                <p className="text-3xl font-black text-purple-700 font-mono">{s.value}</p>
-                <p className="mt-1 text-[10px] font-extrabold uppercase tracking-wider text-stone-600 font-mono">{s.label}</p>
+              <div key={idx} className="rounded-2xl border-2 border-stone-950 bg-stone-50/80 p-5 text-center shadow-md hover:border-purple-600 hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+                <p className="text-3xl sm:text-4xl font-black text-purple-700 font-mono tracking-tight">{s.value}</p>
+                <p className="mt-1.5 text-[11px] font-extrabold uppercase tracking-wider text-stone-600 font-mono">{s.label}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Mastermind VSL Video Player Section */}
-      <section className="py-16 px-4 md:px-8 max-w-5xl mx-auto text-center">
+      {/* Mastermind VSL Video Player Section (Moved Up) */}
+      <section className="pt-4 sm:pt-6 pb-16 px-4 md:px-8 max-w-5xl mx-auto text-center">
         {/* Direct VSL Video Frame (No Poster Cover Image) */}
         <div className="relative rounded-3xl overflow-hidden border-4 border-stone-950 shadow-[0_25px_70px_rgba(147,51,234,0.3)] bg-black aspect-video">
           <video
