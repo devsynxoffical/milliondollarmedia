@@ -30,29 +30,54 @@ export default function PaidPilotPage() {
 
   const comparisonRows = [
     {
-      feature: "Asset Ownership",
-      traditional: "Agency owns funnels, ad accounts & CRM lock-ins",
-      scalewithads: "100% Asset Ownership (Landing pages, copy & CRM are yours)",
+      feature: "Long-Term Commitment",
+      traditional: "Monthly retainer from Day 1",
+      scalewithads: "Start with just 7 days",
     },
     {
-      feature: "Guarantee & Commitment",
-      traditional: "6-12 month locked retainers with zero revenue guarantee",
-      scalewithads: "Written 90-Day Revenue Guarantee (We double revenue or work free)",
+      feature: "Proof Before Commitment",
+      traditional: "Pay first, see results later",
+      scalewithads: "Experience our process before committing further",
     },
     {
-      feature: "Attribution Telemetry",
-      traditional: "Basic Meta Pixel with 30-40% lost data post-iOS14",
-      scalewithads: "Server-side Meta CAPI integration with 100% accurate data",
+      feature: "Market Segmentation",
+      traditional: "Generic targeting",
+      scalewithads: "Dedicated market & audience segmentation",
     },
     {
-      feature: "Creative Output",
-      traditional: "2-3 generic template graphics per month",
-      scalewithads: "30+ Motion & Direct-Response Hooks + VSL Scripts monthly",
+      feature: "Ad Strategy",
+      traditional: "One-size-fits-all approach",
+      scalewithads: "Strategy built around your offer & market",
     },
     {
-      feature: "CRM & Automation",
-      traditional: "Manual follow-ups and unorganized spreadsheet leads",
-      scalewithads: "Automated GoHighLevel qualification bot & calendar booking",
+      feature: "Creative Testing",
+      traditional: "Limited creative testing",
+      scalewithads: "5–10 creatives included",
+    },
+    {
+      feature: "Ad Copy",
+      traditional: "Standard ad copy",
+      scalewithads: "Multiple angles & messaging tested",
+    },
+    {
+      feature: "Optimization",
+      traditional: "Periodic optimization",
+      scalewithads: "Active monitoring & optimization throughout the pilot",
+    },
+    {
+      feature: "Scaling",
+      traditional: "Scale based on assumptions",
+      scalewithads: "Scale what actually proves to work",
+    },
+    {
+      feature: "Decision After 7 Days",
+      traditional: "Locked into a monthly contract",
+      scalewithads: "You decide whether to continue for the remaining 3 weeks",
+    },
+    {
+      feature: "Risk",
+      traditional: "Commit before seeing momentum",
+      scalewithads: "Reduce your risk by proving the process first",
     },
   ];
 
