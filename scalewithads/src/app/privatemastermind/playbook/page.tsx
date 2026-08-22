@@ -1,7 +1,7 @@
 import React from "react";
 import { FloatingNavbar } from "@/components/redesign/FloatingNavbar";
 import { ResultsSection } from "@/components/redesign/ResultsSection";
-import { TrainingVideosSection } from "@/components/redesign/TrainingVideosSection";
+import { SelectedWorkShowcase } from "@/components/redesign/SelectedWorkShowcase";
 import { ClientTestimonialsSection } from "@/components/redesign/ClientTestimonialsSection";
 import { LusionEndSection } from "@/components/redesign/LusionEndSection";
 import { EditorialFooter } from "@/components/redesign/EditorialFooter";
@@ -235,8 +235,8 @@ export default function PlaybooksPage() {
       {/* Proven Track Record Section */}
       <ResultsSection />
 
-      {/* System Training Library Section */}
-      <TrainingVideosSection />
+      {/* System Training Library Section (Home Page Component) */}
+      <SelectedWorkShowcase />
 
       {/* Verified Client Video Testimonials Section */}
       <ClientTestimonialsSection />
