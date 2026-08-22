@@ -58,7 +58,7 @@ export function CreativeCtaSection() {
           className="mt-10 flex flex-wrap items-center justify-center gap-4"
         >
           <a
-            href="/book"
+            href="/contact"
             className="flex items-center gap-2 px-8 py-4 rounded-full bg-purple-700 hover:bg-purple-800 text-white font-extrabold text-base transition-all shadow-lg hover:shadow-xl active:scale-95"
           >
             <span>BOOK YOUR FREE STRATEGY CALL</span>

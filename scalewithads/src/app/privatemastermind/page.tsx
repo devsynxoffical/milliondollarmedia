@@ -273,7 +273,7 @@ export default function PrivateMastermindPage() {
             {/* BIGGG CTA Button */}
             <div className="mt-10 flex flex-col items-center gap-3">
               <Link
-                href="/book"
+                href="/contact"
                 className="inline-flex items-center justify-center gap-3 px-12 py-5 sm:px-16 sm:py-6 rounded-full bg-stone-950 hover:bg-purple-700 text-white font-black text-lg sm:text-2xl uppercase tracking-wider transition-all duration-300 shadow-[0_15px_40px_rgba(147,51,234,0.35)] hover:scale-105 active:scale-95 border-2 border-purple-500/40"
               >
                 <span>BOOK YOUR CALL</span>

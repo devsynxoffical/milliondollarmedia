@@ -214,7 +214,7 @@ export function SelectedWorkShowcase() {
 
             <div className="mt-8 flex flex-col items-start gap-8">
               <Link
-                href="/book"
+                href="/contact"
                 className="px-8 py-4 rounded-full border-2 border-stone-950 bg-stone-950 hover:bg-purple-900 text-white font-black text-xs uppercase tracking-wider transition-all shadow-lg flex items-center gap-2"
               >
                 <span>Book Strategy Call</span>

@@ -2,6 +2,9 @@
 
 import React, { useState } from "react";
 import { FloatingNavbar } from "@/components/redesign/FloatingNavbar";
+import { ResultsSection } from "@/components/redesign/ResultsSection";
+import { ClientTestimonialsSection } from "@/components/redesign/ClientTestimonialsSection";
+import { LusionEndSection } from "@/components/redesign/LusionEndSection";
 import { EditorialFooter } from "@/components/redesign/EditorialFooter";
 import { ArrowRight, Sparkles, CheckCircle2, ShieldCheck } from "lucide-react";
 
@@ -113,7 +116,7 @@ export default function ContactPage() {
                       placeholder="https://yourbrand.com"
                       value={formData.website}
                       onChange={(e) => setFormData({ ...formData, website: e.target.value })}
-                      className="w-full px-4 py-3 rounded-2xl bg-white border-2 border-stone-300 focus:border-purple-600 focus:outline-none text-sm font-medium"
+                      className="w-full px-4 py-3 rounded-2xl bg-[#FDFBF7] border-2 border-stone-300 focus:border-purple-600 focus:outline-none text-sm font-medium"
                     />
                   </div>
 
@@ -160,6 +163,13 @@ export default function ContactPage() {
         </div>
       </section>
 
+      {/* Proven Track Record Section */}
+      <ResultsSection />
+
+      {/* Verified Client Video Testimonials Section */}
+      <ClientTestimonialsSection />
+
+      <LusionEndSection />
       <EditorialFooter />
     </main>
   );

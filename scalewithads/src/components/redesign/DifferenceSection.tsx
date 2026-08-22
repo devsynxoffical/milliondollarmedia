@@ -80,7 +80,7 @@ export function DifferenceSection() {
       desc: "We focus exclusively on revenue growth, qualified sales calls, and top-line ROI—not vanity clicks or impressions.",
       highlight: "Revenue Over Clicks",
       icon: TrendingUp,
-      href: "/book",
+      href: "/contact",
     },
   ];
 

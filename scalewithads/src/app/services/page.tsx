@@ -256,7 +256,7 @@ export default function ServicesPage() {
 
               <div className="mt-8">
                 <Link
-                  href="/book"
+                  href="/contact"
                   className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-stone-950 hover:bg-purple-700 text-white font-extrabold text-xs uppercase tracking-wider transition-colors shadow-lg"
                 >
                   <span>Deploy Creatives Engine</span>
@@ -375,7 +375,7 @@ export default function ServicesPage() {
 
               <div className="mt-8">
                 <Link
-                  href="/book"
+                  href="/contact"
                   className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-stone-950 hover:bg-amber-600 text-white font-extrabold text-xs uppercase tracking-wider transition-colors shadow-lg"
                 >
                   <span>Deploy Funnel Architecture</span>
@@ -426,7 +426,7 @@ export default function ServicesPage() {
 
               <div className="mt-8">
                 <Link
-                  href="/book"
+                  href="/contact"
                   className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-stone-950 hover:bg-purple-700 text-white font-extrabold text-xs uppercase tracking-wider transition-colors shadow-lg"
                 >
                   <span>Scale Media Buying</span>
@@ -501,7 +501,7 @@ export default function ServicesPage() {
 
               <div className="mt-8">
                 <Link
-                  href="/book"
+                  href="/contact"
                   className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-stone-950 hover:bg-emerald-600 text-white font-extrabold text-xs uppercase tracking-wider transition-colors shadow-lg"
                 >
                   <span>Access Training Vault</span>

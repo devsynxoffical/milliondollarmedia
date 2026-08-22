@@ -174,7 +174,7 @@ export default function PaidPilotPage() {
         {/* Big BOOK YOUR CALL Button Below VSL */}
         <div className="mt-10 sm:mt-14 flex flex-col items-center justify-center">
           <Link
-            href="/book"
+            href="/contact"
             className="w-full sm:w-auto px-12 py-5 sm:px-16 sm:py-6 text-xl sm:text-2xl font-black rounded-full bg-stone-950 hover:bg-purple-700 text-white shadow-[0_20px_50px_rgba(147,51,234,0.3)] transition-all duration-300 hover:scale-105 active:scale-95 border-2 border-purple-500/40 inline-flex items-center justify-center gap-3 tracking-wider uppercase"
           >
             <span>BOOK YOUR CALL</span>

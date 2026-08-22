@@ -28,7 +28,7 @@ export function FinalCtaSection() {
 
         <div>
           <Link
-            href="/book"
+            href="/contact"
             className="inline-flex items-center gap-2 px-10 py-5 rounded-full bg-purple-600 hover:bg-purple-500 text-white font-extrabold text-lg transition-all shadow-2xl hover:shadow-purple-500/50 active:scale-95"
           >
             <span>BOOK YOUR FREE STRATEGY CALL</span>

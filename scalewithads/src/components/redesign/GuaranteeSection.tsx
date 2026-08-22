@@ -139,7 +139,7 @@ export function GuaranteeSection() {
             </div>
 
             <Link
-              href="/book"
+              href="/contact"
               className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-stone-950 hover:bg-purple-700 text-white font-black text-xs sm:text-sm uppercase tracking-wider transition-all shadow-lg active:scale-95 group"
             >
               <span>BOOK YOUR FREE STRATEGY CALL</span>

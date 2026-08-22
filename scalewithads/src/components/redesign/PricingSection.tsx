@@ -164,7 +164,7 @@ export function PricingSection() {
 
               {/* Action CTA Button */}
               <Link
-                href="/book"
+                href="/contact"
                 className={`w-full py-4 rounded-full ${plan.btnColor} text-xs uppercase tracking-wider font-extrabold flex items-center justify-center gap-2 transition-all shadow-lg active:scale-95`}
               >
                 <span>Book Free Strategy Call</span>

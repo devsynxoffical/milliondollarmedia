@@ -262,7 +262,7 @@ export function ResultsSection() {
         {/* Section CTA */}
         <div className="text-center">
           <Link
-            href="/book"
+            href="/contact"
             className="inline-flex items-center gap-3 px-9 py-4 rounded-full bg-[#1D1435] hover:bg-[#2C1D50] text-white font-bold text-base transition-all shadow-xl hover:shadow-2xl active:scale-95 group"
           >
             <span>BOOK YOUR FREE STRATEGY CALL</span>

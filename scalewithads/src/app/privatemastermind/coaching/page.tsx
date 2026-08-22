@@ -71,7 +71,7 @@ export default function GrowthCoachingPage() {
 
           <div className="mt-10 flex flex-col items-center justify-center gap-3">
             <Link
-              href="/book"
+              href="/contact"
               className="inline-flex items-center gap-2 px-9 py-4.5 rounded-full bg-stone-950 hover:bg-purple-700 text-white font-black text-sm uppercase tracking-wider transition-all shadow-xl active:scale-95"
             >
               <span>GET MY ADS SELLING THIS WEEK</span>
@@ -110,7 +110,7 @@ export default function GrowthCoachingPage() {
 
         <div className="mt-8">
           <Link
-            href="/book"
+            href="/contact"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-stone-950 hover:bg-purple-700 text-white font-black text-xs uppercase tracking-wider transition-colors shadow-xl"
           >
             <span>BOOK APPLICATION CALL</span>

@@ -2,7 +2,7 @@ export const site = {
   name: "Scale With Ads™",
   legalName: "Million Dollar Media",
   url: "https://scalewithads.com",
-  bookCallUrl: "/book",
+  bookCallUrl: "/contact",
   email: "hello@scalewithads.com",
   phone: "+1 (800) 555-0148",
   founded: 2013,

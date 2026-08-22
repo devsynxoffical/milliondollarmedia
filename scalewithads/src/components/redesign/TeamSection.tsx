@@ -247,7 +247,7 @@ export function TeamSection() {
           {/* CTA Link */}
           <div className="mt-6">
             <Link
-              href="/book"
+              href="/contact"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-stone-950 text-white font-bold text-xs uppercase tracking-wider shadow-lg hover:bg-purple-700 transition-colors"
             >
               <span>Book Your Free Call Now</span>

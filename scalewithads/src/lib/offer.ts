@@ -1,4 +1,4 @@
-export const BOOKING_PATH = "/book";
+export const BOOKING_PATH = "/contact";
 
 export const OFFER = {
   brand: "Scale with Ads",
