@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import { FloatingNavbar } from "@/components/redesign/FloatingNavbar";
+import { ResultsSection } from "@/components/redesign/ResultsSection";
+import { ClientTestimonialsSection } from "@/components/redesign/ClientTestimonialsSection";
 import { LusionEndSection } from "@/components/redesign/LusionEndSection";
 import { EditorialFooter } from "@/components/redesign/EditorialFooter";
 import { ArrowRight, Sparkles, CheckCircle2, ShieldCheck, Calendar, Clock, DollarSign, User, Mail, Globe, Check, AlertTriangle } from "lucide-react";
@@ -219,6 +221,12 @@ export default function BookPage() {
 
         </div>
       </section>
+
+      {/* Proven Track Record Section */}
+      <ResultsSection />
+
+      {/* Verified Client Video Testimonials Section */}
+      <ClientTestimonialsSection />
 
       <LusionEndSection />
       <EditorialFooter />
