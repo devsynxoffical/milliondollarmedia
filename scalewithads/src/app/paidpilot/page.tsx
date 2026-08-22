@@ -15,10 +15,9 @@ export const metadata = {
 
 export default function PaidPilotPage() {
   const stats = [
-    { value: "$847K", label: "Client Revenue" },
-    { value: "3.32x", label: "Average ROAS" },
-    { value: "$50M+", label: "Meta Spend (Us)" },
+    { value: "$50M+", label: "Meta Ads Spent" },
     { value: "12 YRS", label: "Experience" },
+    { value: "30+", label: "Niches" },
   ];
 
   const learnItems = [
@@ -111,22 +110,22 @@ export default function PaidPilotPage() {
           {/* Eyebrow Tag */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-100 border border-purple-200 text-purple-900 font-extrabold text-xs tracking-widest uppercase mb-6 shadow-sm">
             <Crown className="w-4 h-4 text-purple-700" />
-            <span>PAID PILOT TRIAL · GUARANTEED REVENUE GROWTH</span>
+            <span>PAID PILOT TRIAL</span>
           </div>
 
           {/* Main Headline */}
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-stone-950 uppercase font-hero leading-tight select-none">
-            Turn Meta Ads into a <br />
-            <span className="animate-purple-gradient font-hero tracking-tight">CASH COW MACHINE</span> for any industry.
+            Start With a <span className="animate-purple-gradient font-hero tracking-tight">7-Day Paid Pilot</span> <br className="hidden sm:inline" />
+            & See the Results Before You Commit
           </h1>
 
           {/* Subtext */}
           <p className="mt-4 text-base sm:text-lg font-medium text-stone-700 max-w-2xl mx-auto leading-relaxed font-sans">
-            If your Meta ads aren’t converting at scale, it’s not the offer. It’s how you’re selling it. Test our complete acquisition system risk-free with our 90-day written growth guarantee.
+            Experience our full ad management, creative testing, and optimization for 7 days. See the momentum for yourself, then decide whether you want to continue.
           </p>
 
-          {/* Stats Grid */}
-          <div className="mx-auto mt-8 grid max-w-4xl grid-cols-2 gap-3.5 sm:grid-cols-4 w-full">
+          {/* Stats Grid (3 Items) */}
+          <div className="mx-auto mt-8 grid max-w-3xl grid-cols-1 sm:grid-cols-3 gap-4 w-full">
             {stats.map((s, idx) => (
               <div key={idx} className="rounded-2xl border-2 border-stone-950 bg-stone-50 p-4 text-center shadow-sm hover:border-purple-600 transition-colors">
                 <p className="text-3xl font-black text-purple-700 font-mono">{s.value}</p>
