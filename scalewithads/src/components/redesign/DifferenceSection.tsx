@@ -186,7 +186,7 @@ export function DifferenceSection() {
                     : "bg-white text-stone-900 border-2 border-stone-900 hover:border-purple-500 py-8 px-6 sm:px-8 rounded-2xl my-1 shadow-sm"
                 }`}
               >
-                <Link href={item.href} className="block w-full">
+                <div className="w-full">
                   <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
                     
                     {/* Number / Advantage Tag */}
@@ -239,8 +239,8 @@ export function DifferenceSection() {
                       </div>
                     </div>
 
-                    {/* Icon & Arrow Column */}
-                    <div className="md:col-span-3 flex items-center justify-end gap-4">
+                    {/* Icon Column (No Arrow Button) */}
+                    <div className="md:col-span-3 flex items-center justify-end">
                       <div
                         className={`w-12 h-12 rounded-2xl flex items-center justify-center transition-all ${
                           isHovered
@@ -250,20 +250,10 @@ export function DifferenceSection() {
                       >
                         <Icon className="w-6 h-6" />
                       </div>
-
-                      <div
-                        className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${
-                          isHovered
-                            ? "bg-amber-400 text-stone-950 rotate-45"
-                            : "bg-stone-100 text-stone-400"
-                        }`}
-                      >
-                        <ArrowUpRight className="w-5 h-5" />
-                      </div>
                     </div>
 
                   </div>
-                </Link>
+                </div>
               </motion.div>
             );
           })}
