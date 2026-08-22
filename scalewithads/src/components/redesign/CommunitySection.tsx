@@ -91,7 +91,7 @@ export function CommunitySection() {
           className="p-8 sm:p-10 rounded-3xl bg-[#1D1435] text-white border-2 border-stone-950 shadow-2xl text-center max-w-4xl mx-auto flex flex-col items-center justify-between gap-6"
         >
           <p className="text-stone-100 text-base sm:text-lg font-semibold max-w-2xl leading-relaxed">
-            <span className="font-black text-amber-400 uppercase tracking-wider">Free to join.</span> Updated daily with real results, strategies and what&apos;s working right now across 30+ niches.
+            <span className="font-black text-purple-300 uppercase tracking-wider">Free to join.</span> Updated daily with real results, strategies and what&apos;s working right now across 30+ niches.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-4">
