@@ -66,17 +66,14 @@ export const MacbookScroll = ({
         {/* LAPTOP DISPLAY TOP LID */}
         <div className="relative w-full bg-[#0d0d11] rounded-t-[20px] sm:rounded-t-[28px] p-2.5 sm:p-4 border-[3px] sm:border-[6px] border-[#22222a] shadow-[0_30px_70px_-15px_rgba(0,0,0,0.6)]">
 
-          {/* TOP CAMERA NOTCH & LIVE BADGE */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 sm:w-36 h-3.5 sm:h-5 bg-[#22222a] rounded-b-xl z-20 flex justify-center items-center gap-2 shadow-inner">
+          {/* TOP CAMERA NOTCH */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 sm:w-28 h-3.5 sm:h-5 bg-[#22222a] rounded-b-xl z-20 flex justify-center items-center gap-2 shadow-inner">
             {/* Camera lens */}
             <div className="w-1.5 h-1.5 rounded-full bg-[#0a0a0d] border border-blue-900/40 relative">
               <div className="absolute inset-0.5 rounded-full bg-blue-500/40 animate-pulse" />
             </div>
             {/* Green live indicator */}
             <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
-            <span className="text-[8px] sm:text-[9px] font-mono font-bold text-stone-300 tracking-wider hidden sm:inline uppercase">
-              System VSL
-            </span>
           </div>
 
           {/* SCREEN DISPLAY AREA (16:9) */}
