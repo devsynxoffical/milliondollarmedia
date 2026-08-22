@@ -95,24 +95,24 @@ export default function PaidPilotPage() {
 
   const faqs = [
     {
-      q: "What exactly is included in the 90-day private mastermind?",
-      a: "You’ll get one private 1-on-1 strategy call every week, plus 24/7 access to us for questions and support throughout the program. There is no artificial time limit on your weekly calls — we stay on until your questions are answered and you have clarity on your next steps. You’ll also get recordings of every session so you can revisit the strategies and training whenever you need.",
+      q: "How quickly will my ads go live?",
+      a: "We aim to launch your campaigns within 5 business days, provided all required information, assets, and approvals are received on time.",
     },
     {
-      q: "What will I learn during the 90 days?",
-      a: "We’ll work with you directly on the areas that drive growth, including ad copy creation, high-converting creatives, hyper-targeted audience segmentation, testing frameworks, scaling strategies, lead qualification systems, and email & SMS automations. The goal is to help you build a repeatable system you can use long after the mastermind ends.",
+      q: "What’s included in the 7-Day Paid Pilot?",
+      a: "The pilot includes market segmentation, ad strategy, copy creation, 5–10 creatives, campaign setup, testing, monitoring, and optimization for 7 days.",
     },
     {
-      q: "What if I don’t double my revenue in 90 days?",
-      a: "We stand behind the program with our 90-Day Double Revenue Guarantee. If you follow the strategies, implement the work, and don’t double your revenue within the 90-day period, we’ll continue working with you for free until you do.",
+      q: "What happens after the 7-day pilot?",
+      a: "You review the results and momentum from the pilot. If you’re happy with the direction, you can continue with us for the remaining 3 weeks of the month.",
     },
     {
-      q: "Is there a refund policy?",
-      a: "There are no refunds for the mastermind. This is a hands-on, personalized program where we commit our time, expertise, and resources directly to your business. The 90-Day Double Revenue Guarantee is designed to give you confidence in the outcome while keeping the focus on implementation and results.",
+      q: "Is the 7-Day Paid Pilot refundable?",
+      a: "No. All pilot payments are non-refundable once the program has been purchased and work has commenced.",
     },
     {
-      q: "Will I get recordings of the 1-on-1 sessions?",
-      a: "Yes. Every session is recorded. You’ll have access to the recordings so you can review the strategies, revisit specific recommendations, and make sure nothing gets missed between sessions.",
+      q: "Do I need to commit to a monthly retainer?",
+      a: "No. The 7-Day Paid Pilot is designed to let you experience our process and see campaign momentum before deciding whether you want to continue.",
     },
   ];
 
