@@ -57,8 +57,8 @@ export function MeetTheTeamSection() {
   const headerY = useTransform(scrollYProgress, [0, 0.08, 0.78, 0.90], [0, -40, -40, 0]);
   const headerScale = useTransform(scrollYProgress, [0, 0.08, 0.78, 0.90], [1, 0.96, 0.96, 1]);
 
-  // Card Stage Y: Smoothly moves up into screen center as header fades out
-  const stageY = useTransform(scrollYProgress, [0, 0.10, 0.78, 0.90], [0, -70, -70, 0]);
+  // Card Stage Y: Smoothly moves up as header fades out
+  const stageY = useTransform(scrollYProgress, [0, 0.10, 0.78, 0.90], [0, -30, -30, 0]);
 
   // -------------------------------------------------------------
   // Progressive Scroll Transforms for 5 Stacking & Unfolding Cards
@@ -138,22 +138,22 @@ export function MeetTheTeamSection() {
       ref={containerRef}
       className="relative h-[420vh] bg-[#FDFBF7] text-stone-900 border-b border-stone-200"
     >
-      {/* Sticky 100vh Viewport */}
-      <div className="sticky top-0 h-screen w-full flex flex-col justify-start items-center overflow-hidden px-4 md:px-8 pt-28 sm:pt-32">
+      {/* Sticky Viewport Container */}
+      <div className="sticky top-0 h-screen w-full flex flex-col justify-start items-center px-4 md:px-8 pt-24 sm:pt-28 pb-8 overflow-visible">
         
-        {/* Animated Header (Visible on entry, fades out on card stack, reappears on grid unfold) */}
+        {/* Animated Header */}
         <motion.div
           style={{ opacity: headerOpacity, y: headerY, scale: headerScale }}
-          className="text-center max-w-2xl mx-auto mb-6 z-10 pointer-events-none shrink-0"
+          className="text-center max-w-2xl mx-auto mb-4 z-10 pointer-events-none shrink-0"
         >
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-purple-700 bg-purple-100 border border-purple-200 px-4 py-1.5 rounded-full inline-block mb-3 shadow-sm">
+          <span className="text-xs font-mono font-bold uppercase tracking-widest text-purple-700 bg-purple-100 border border-purple-200 px-4 py-1 rounded-full inline-block mb-2 shadow-sm">
             ✦ MEET THE MINDS BEHIND SCALEWITHADS
           </span>
-          <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-stone-950 tracking-tight font-hero uppercase leading-none">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-stone-950 tracking-tight font-hero uppercase leading-none">
             Meet the minds behind <br />
             <span className="font-serif italic lowercase text-purple-700">scalewithads</span>
           </h2>
-          <p className="mt-3 text-stone-600 font-medium text-xs sm:text-sm max-w-xl mx-auto">
+          <p className="mt-2 text-stone-600 font-medium text-xs sm:text-sm max-w-xl mx-auto leading-snug">
             A passionate team of designers, developers, and strategists crafting bold digital experiences that drive impact and innovation.
           </p>
         </motion.div>
@@ -161,7 +161,7 @@ export function MeetTheTeamSection() {
         {/* Stack & Unfold Stage */}
         <motion.div
           style={{ y: stageY }}
-          className="relative w-full max-w-7xl h-[400px] sm:h-[460px] flex items-center justify-center mt-2 sm:mt-4"
+          className="relative w-full max-w-7xl h-[340px] sm:h-[390px] flex items-center justify-center mt-2"
         >
           {teamMembers.map((member, idx) => {
             const transform = cardTransforms[idx];
@@ -176,15 +176,15 @@ export function MeetTheTeamSection() {
                   opacity: transform.opacity,
                   zIndex: member.zIndex,
                 }}
-                className="absolute w-[220px] sm:w-[250px] md:w-[260px] h-[340px] sm:h-[390px] rounded-[32px] border-2 border-stone-950 bg-[#EBEBEB] p-3.5 shadow-2xl flex flex-col justify-between cursor-pointer group hover:border-purple-600 transition-colors duration-300 overflow-hidden"
+                className="absolute w-[190px] sm:w-[220px] md:w-[240px] h-[310px] sm:h-[360px] rounded-[30px] border-2 border-stone-950 bg-[#EBEBEB] p-3 shadow-2xl flex flex-col justify-between cursor-pointer group hover:border-purple-600 transition-colors duration-300 overflow-hidden"
               >
                 {/* Top Left Signature Circle */}
-                <div className="absolute top-4 left-5 w-6 h-6 rounded-full border-2 border-stone-950 bg-white flex items-center justify-center text-[10px] font-mono font-bold z-20 shadow-sm">
+                <div className="absolute top-3.5 left-4 w-5 h-5 rounded-full border-2 border-stone-950 bg-white flex items-center justify-center text-[9px] font-mono font-bold z-20 shadow-sm">
                   °
                 </div>
 
                 {/* Member Portrait Image */}
-                <div className="w-full h-[230px] sm:h-[270px] rounded-2xl overflow-hidden bg-stone-200 relative border border-stone-300">
+                <div className="w-full h-[200px] sm:h-[240px] rounded-2xl overflow-hidden bg-stone-200 relative border border-stone-300">
                   <img
                     src={member.img}
                     alt={member.name}
@@ -193,11 +193,11 @@ export function MeetTheTeamSection() {
                 </div>
 
                 {/* Bottom Opaque White Label Container */}
-                <div className="bg-white rounded-2xl p-3 sm:p-3.5 border border-stone-300 shadow-md text-left z-20 relative">
-                  <h3 className="font-extrabold text-stone-950 text-sm sm:text-base tracking-tight leading-tight font-hero truncate">
+                <div className="bg-white rounded-xl p-2.5 sm:p-3 border border-stone-300 shadow-md text-left z-20 relative">
+                  <h3 className="font-extrabold text-stone-950 text-xs sm:text-sm tracking-tight leading-tight font-hero truncate">
                     {member.name}
                   </h3>
-                  <p className="text-stone-500 font-medium text-xs mt-0.5">
+                  <p className="text-stone-500 font-medium text-[11px] mt-0.5 truncate">
                     {member.role}
                   </p>
                 </div>
