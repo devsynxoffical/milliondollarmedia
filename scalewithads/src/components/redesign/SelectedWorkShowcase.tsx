@@ -274,11 +274,16 @@ export function SelectedWorkShowcase() {
 
               <div className="relative aspect-video bg-black flex items-center justify-center">
                 <video
-                  src={activeVideo.videoUrl}
+                  key={activeVideo.id}
                   controls
                   autoPlay
+                  playsInline
+                  preload="auto"
                   className="w-full h-full object-contain"
-                />
+                >
+                  <source src={activeVideo.videoUrl} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
               </div>
             </motion.div>
           </motion.div>
