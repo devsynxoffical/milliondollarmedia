@@ -13,7 +13,7 @@ export const metadata = {
   description: "90-Day Guaranteed Paid Pilot Trial for agency owners, coaches, and high-ticket service founders.",
 };
 
-export default function OperatorCirclePage() {
+export default function PaidPilotPage() {
   const stats = [
     { value: "$847K", label: "Client Revenue" },
     { value: "3.32x", label: "Average ROAS" },

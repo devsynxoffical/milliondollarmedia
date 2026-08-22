@@ -9,11 +9,11 @@ import { BookOpen, ArrowRight, ShieldCheck, Download, Sparkles, CheckCircle2, Al
 import Link from "next/link";
 
 export const metadata = {
-  title: "How We Scaled an LTO Funnel to $847K | ScaleWithAds Playbook",
+  title: "How We Scaled an LTO Funnel to $847K | ScaleWithAds Meta LTO",
   description: "Plug-and-play Meta Ads SOPs, VSL scripts, and $847K LTO funnel scaling case study.",
 };
 
-export default function PlaybooksPage() {
+export default function MetaLTOPage() {
   const stats = [
     { value: "$847K", label: "Client Revenue" },
     { value: "3.32x", label: "Average ROAS" },

@@ -44,7 +44,7 @@ export function PricingSection() {
         "Custom 3–5 Page High-Converting Funnel",
         "24/7 AI Automations & Follow-Up Workflows",
         "Automated Email & SMS Nurture Sequences",
-        "Unlimited Ad Creatives & Variations (40–100+)",
+        "40–50 Ad Creation & Variations",
         "Multi-Validation Lead Qualification System",
         "CRM Pipeline Integration & Direct Calendar Booking",
         "Continuous Conversion & ROAS Optimization",
