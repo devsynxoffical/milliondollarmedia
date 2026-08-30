@@ -121,10 +121,16 @@ $table_prefix = 'dbj_';
 // Railway/reverse-proxy: ensure WordPress detects HTTPS correctly.
 if ( isset( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) && 'https' === $_SERVER['HTTP_X_FORWARDED_PROTO'] ) {
 	$_SERVER['HTTPS'] = 'on';
+	$_SERVER['SERVER_PORT'] = 443;
 }
 
 if ( isset( $_SERVER['HTTP_X_FORWARDED_HOST'] ) ) {
 	$_SERVER['HTTP_HOST'] = $_SERVER['HTTP_X_FORWARDED_HOST'];
+}
+
+// Strip internal container ports (e.g., :8080) from HTTP_HOST if present
+if ( isset( $_SERVER['HTTP_HOST'] ) ) {
+	$_SERVER['HTTP_HOST'] = preg_replace( '/:\d+$/', '', $_SERVER['HTTP_HOST'] );
 }
 
 define( 'DISABLE_WP_CRON', true );
