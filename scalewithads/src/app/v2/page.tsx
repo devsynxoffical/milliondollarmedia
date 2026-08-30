@@ -15,7 +15,6 @@ import { CommunitySection } from "@/components/redesign/CommunitySection";
 import { ClientTestimonialsSection } from "@/components/redesign/ClientTestimonialsSection";
 import { FaqSection } from "@/components/redesign/FaqSection";
 import { ProcessSection } from "@/components/redesign/ProcessSection";
-import { PricingSection } from "@/components/redesign/PricingSection";
 import { CreativeCtaSection } from "@/components/redesign/CreativeCtaSection";
 import { LusionEndSection } from "@/components/redesign/LusionEndSection";
 import { EditorialFooter } from "@/components/redesign/EditorialFooter";
@@ -81,10 +80,6 @@ export default function RedesignPage() {
         <GuaranteeSection />
       </div>
 
-      {/* 14. Transparent Performance Pricing */}
-      <div id="pricing">
-        <PricingSection />
-      </div>
 
       {/* Verified Client Video Testimonials */}
       <ClientTestimonialsSection />

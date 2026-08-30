@@ -3,7 +3,6 @@
 import React from "react";
 import { FloatingNavbar } from "@/components/redesign/FloatingNavbar";
 import { MarqueeTicker } from "@/components/redesign/MarqueeTicker";
-import { PricingSection } from "@/components/redesign/PricingSection";
 import { CreativeCtaSection } from "@/components/redesign/CreativeCtaSection";
 import { LusionEndSection } from "@/components/redesign/LusionEndSection";
 import { EditorialFooter } from "@/components/redesign/EditorialFooter";
@@ -514,8 +513,6 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Pricing Components */}
-      <PricingSection />
       <CreativeCtaSection />
       <LusionEndSection />
       <EditorialFooter />
