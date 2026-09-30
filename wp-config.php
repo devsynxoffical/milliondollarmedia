@@ -65,8 +65,8 @@ function wp_configure_database_from_env() {
 		}
 	}
 
-	define( 'DB_NAME', wp_env( 'MYSQLDATABASE', wp_env( 'DB_NAME', '' ) ) );
-	define( 'DB_USER', wp_env( 'MYSQLUSER', wp_env( 'DB_USER', '' ) ) );
+	define( 'DB_NAME', wp_env( 'MYSQLDATABASE', wp_env( 'DB_NAME', 'milliondollarmedia_local' ) ) );
+	define( 'DB_USER', wp_env( 'MYSQLUSER', wp_env( 'DB_USER', 'root' ) ) );
 	define( 'DB_PASSWORD', wp_env( 'MYSQLPASSWORD', wp_env( 'DB_PASSWORD', '' ) ) );
 
 	$db_host = wp_env( 'MYSQLHOST', wp_env( 'DB_HOST', '127.0.0.1' ) );
@@ -128,8 +128,8 @@ if ( isset( $_SERVER['HTTP_X_FORWARDED_HOST'] ) ) {
 	$_SERVER['HTTP_HOST'] = $_SERVER['HTTP_X_FORWARDED_HOST'];
 }
 
-// Strip internal container ports (e.g., :8080) from HTTP_HOST if present
-if ( isset( $_SERVER['HTTP_HOST'] ) ) {
+// Strip internal container ports (e.g., :8080) from HTTP_HOST if present on non-localhost domains
+if ( isset( $_SERVER['HTTP_HOST'] ) && false === strpos( $_SERVER['HTTP_HOST'], 'localhost' ) ) {
 	$_SERVER['HTTP_HOST'] = preg_replace( '/:\d+$/', '', $_SERVER['HTTP_HOST'] );
 }
 
@@ -166,7 +166,9 @@ if ( wp_env( 'WP_SITEURL' ) ) {
 	define( 'WP_SITEURL', wp_env( 'WP_SITEURL' ) );
 }
 
-if ( 'https' === wp_env( 'FORCE_SSL_ADMIN', 'https' ) ) {
+if ( isset( $_SERVER['HTTP_HOST'] ) && false !== strpos( $_SERVER['HTTP_HOST'], 'localhost' ) ) {
+	define( 'FORCE_SSL_ADMIN', false );
+} elseif ( 'https' === wp_env( 'FORCE_SSL_ADMIN', 'https' ) ) {
 	define( 'FORCE_SSL_ADMIN', true );
 }
 /* That's all, stop editing! Happy publishing. */
