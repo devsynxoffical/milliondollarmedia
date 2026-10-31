@@ -44,9 +44,9 @@ function mdm_shortcode_faq( $atts ) {
 			'bot_name'  => 'Million Dollar Media',
 			'bot_short' => 'MDM',
 			'bot_status'=> 'Usually replies within a day',
-			'stat1'     => '24–48h|delivery',
-			'stat2'     => '<24h|reply time',
-			'stat3'     => '250+|case studies',
+			'stat1'     => '<24h|reply time',
+			'stat2'     => 'Free|strategy call',
+			'stat3'     => 'No|lock-in contracts',
 		),
 		$atts,
 		'mdm_faq'

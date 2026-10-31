@@ -50,11 +50,14 @@ function mdm_shortcode_pricing( $atts ) {
 			'highlight' => 'works.',
 			'subtitle'  => 'No retainers, no lock-ins. Order exactly what you need and get it back in 24–48 hours.',
 			'checkout'  => home_url( '/checkout/' ),
+			'points'    => 'Delivered in 24–48 hours|Half the cost of agencies|Fully done-for-you|Instant AI-led support|10+ years of experience|$100M+ in client results',
 		),
 		$atts,
 		'mdm_pricing'
 	);
-	$plans = apply_filters( 'mdm_pricing_plans', mdm_default_pricing_plans() );
+	$plans  = apply_filters( 'mdm_pricing_plans', mdm_default_pricing_plans() );
+	$points = MDM_Sections::split_list( $atts['points'] );
+	$icons  = array( '⏱', '💸', '🤝', '🤖', '🏆', '📈' );
 
 	ob_start();
 	echo MDM_Sections::assets(); // phpcs:ignore WordPress.Security.EscapeOutput
@@ -94,6 +97,16 @@ function mdm_shortcode_pricing( $atts ) {
 				</article>
 			<?php endforeach; ?>
 		</div>
+
+		<?php if ( $points ) : ?>
+			<div class="mdm-marquee mdm-marquee--wide" aria-label="Why us">
+				<div class="mdm-marquee__inner">
+					<?php for ( $dup = 0; $dup < 2; $dup++ ) : foreach ( $points as $k => $p ) : ?>
+						<span class="mdm-feature"<?php echo $dup ? ' aria-hidden="true"' : ''; ?>><i><?php echo esc_html( $icons[ $k % count( $icons ) ] ); ?></i><?php echo esc_html( $p ); ?></span>
+					<?php endforeach; endfor; ?>
+				</div>
+			</div>
+		<?php endif; ?>
 	</section>
 	<?php
 	return ob_get_clean();

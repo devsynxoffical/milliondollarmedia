@@ -24,7 +24,7 @@ function mdm_render_preloader() {
 	$colors = array( '#ED1C24', '#111114', '#ED1C24', '#111114', '#ED1C24', '#111114', '#ED1C24' );
 	?>
 	<style>
-		.mdm-loader{position:fixed;inset:0;z-index:2147483000;background:#F6F5F2;color:#111114;display:flex;align-items:center;justify-content:center;font-family:'Archivo Black','Arial Black',Impact,sans-serif;overflow:hidden;transition:transform 1s cubic-bezier(.77,0,.18,1),border-radius 1s cubic-bezier(.77,0,.18,1);animation:mdmLoaderFailsafe .01s 6s forwards}
+		.mdm-loader{position:fixed;inset:0;z-index:2147483000;background:#fff;color:#111114;display:flex;align-items:center;justify-content:center;font-family:'Syncopate','Arial Black',sans-serif;font-weight:700;overflow:hidden;transition:transform 1s cubic-bezier(.77,0,.18,1),border-radius 1s cubic-bezier(.77,0,.18,1);animation:mdmLoaderFailsafe .01s 6s forwards}
 		.mdm-loader.is-done{transform:translateY(-100%);border-radius:0 0 50% 50%/0 0 12vh 12vh}
 		.mdm-loader.is-gone{display:none}
 		.mdm-loader__kicker,.mdm-loader__brand{position:absolute;font:600 13px/1 Inter,system-ui,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:rgba(17,17,20,.55)}

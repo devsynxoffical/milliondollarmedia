@@ -118,8 +118,10 @@ function mdm_default_action( $s, $index ) {
 	if ( preg_match( '/^\s*how it works/i', $t ) ) {
 		return 'how';
 	}
+	// The service list is already on the page (the "VSLs / UGC Ads / YouTube / Podcast..." section),
+	// so the old "Next-Gen Videos" block is hidden instead of becoming a second services section.
 	if ( preg_match( '/^\s*next-gen videos/i', $t ) ) {
-		return 'services';
+		return 'remove';
 	}
 	if ( preg_match( '/special launch pricing/i', $t ) ) {
 		return 'pricing';
@@ -139,14 +141,17 @@ function mdm_section_map( $outline = null ) {
 	$outline = null === $outline ? mdm_front_page_outline() : $outline;
 	$saved   = get_option( MDM_HOME_MAP_OPTION, array() );
 	$saved   = is_array( $saved ) ? $saved : array();
-	// Choices saved before v2 did not know the services / pricing / remove suggestions: apply those.
-	$upgrade = (int) get_option( MDM_HOME_MAP_OPTION . '_v', 1 ) < 2;
+	// Choices saved by an older version did not know later suggestions: apply those.
+	$version = (int) get_option( MDM_HOME_MAP_OPTION . '_v', 1 );
 	$map     = array();
 	foreach ( $outline as $k => $s ) {
 		$suggest         = mdm_default_action( $s, $k );
 		$map[ $s['id'] ] = isset( $saved[ $s['id'] ] ) ? $saved[ $s['id'] ] : $suggest;
-		if ( $upgrade && 'keep' === $map[ $s['id'] ] && in_array( $suggest, array( 'services', 'pricing', 'remove' ), true ) ) {
+		if ( $version < 2 && 'keep' === $map[ $s['id'] ] && in_array( $suggest, array( 'pricing', 'remove' ), true ) ) {
 			$map[ $s['id'] ] = $suggest;
+		}
+		if ( $version < 3 && 'services' === $map[ $s['id'] ] && 'remove' === $suggest ) {
+			$map[ $s['id'] ] = 'remove'; // v3: no duplicate services section
 		}
 	}
 	return $map;
@@ -203,49 +208,94 @@ add_filter(
 		$map     = mdm_section_map( $outline );
 		$choices = mdm_new_section_choices();
 
-		// Where to add the extra sections + footer: right after the last section.
-		$last     = end( $outline );
-		$lastb    = mdm_element_bounds( $content, $last['id'] );
-		$edits    = array();
-		$tail     = '';
-		foreach ( mdm_extra_sections( $map ) as $key ) {
-			if ( isset( $choices[ $key ] ) ) {
-				$tail .= do_shortcode( $choices[ $key ][1] );
+		// 1. Cut the page into its top-level sections.
+		$blocks = array();
+		foreach ( $outline as $k => $s ) {
+			$b = mdm_element_bounds( $content, $s['id'] );
+			if ( $b ) {
+				$blocks[] = array( 'section' => $s, 'index' => $k, 'start' => $b[0], 'end' => $b[1] );
 			}
+		}
+		if ( ! $blocks ) {
+			return $content;
+		}
+		$region_start = $blocks[0]['start'];
+		$region_end   = $blocks[ count( $blocks ) - 1 ]['end'];
+
+		// 2. Kept old sections stay where they are; new sections take the slots of the
+		//    sections they replace, plus extra slots after the last replaced one.
+		$items     = array(); // pos => html (old) or key (new)
+		$new_slots = array();
+		$new_keys  = array();
+		$last_slot = null;
+		foreach ( $blocks as $blk ) {
+			$pos    = ( $blk['index'] + 1 ) * 100;
+			$action = isset( $map[ $blk['section']['id'] ] ) ? $map[ $blk['section']['id'] ] : 'keep';
+			if ( 'keep' === $action ) {
+				$items[ $pos ] = array( 'html', substr( $content, $blk['start'], $blk['end'] - $blk['start'] ) );
+			} elseif ( isset( $choices[ $action ] ) ) {
+				$new_slots[] = $pos;
+				$new_keys[]  = $action;
+				$last_slot   = $pos;
+			}
+		}
+		$faq = false;
+		foreach ( mdm_extra_sections( $map ) as $key ) {
+			if ( 'faq' === $key ) {
+				$faq = true; // FAQ always closes the page, just before the footer
+				continue;
+			}
+			if ( isset( $choices[ $key ] ) ) {
+				$last_slot   = null === $last_slot ? ( count( $outline ) + 1 ) * 100 : $last_slot;
+				$last_slot  += 1;
+				$new_slots[] = $last_slot;
+				$new_keys[]  = $key;
+			}
+		}
+		if ( in_array( 'faq', $new_keys, true ) ) {
+			$faq      = true;
+			$i        = array_search( 'faq', $new_keys, true );
+			unset( $new_keys[ $i ], $new_slots[ $i ] );
+		}
+
+		// 3. Fill the new-section slots in a natural reading order
+		//    (work -> results -> process -> price -> numbers -> proof -> about).
+		$flow = apply_filters( 'mdm_homepage_flow', array( 'reels', 'impact', 'services', 'how', 'pricing', 'numbers', 'cases', 'about' ) );
+		usort( $new_keys, static function ( $a, $b ) use ( $flow ) {
+			$ia = array_search( $a, $flow, true );
+			$ib = array_search( $b, $flow, true );
+			return ( false === $ia ? 99 : $ia ) - ( false === $ib ? 99 : $ib );
+		} );
+		sort( $new_slots );
+		foreach ( array_values( $new_slots ) as $i => $pos ) {
+			$items[ $pos ] = array( 'new', $new_keys[ $i ] );
+		}
+		if ( $faq ) {
+			$items[ PHP_INT_MAX - 1 ] = array( 'new', 'faq' );
+		}
+		ksort( $items );
+
+		// 4. Render.
+		$kept_text = '';
+		$out       = '';
+		foreach ( $items as $item ) {
+			if ( 'html' === $item[0] ) {
+				$out       .= $item[1];
+				$kept_text .= ' ' . $item[1];
+				continue;
+			}
+			$sc = $choices[ $item[1] ][1];
+			// Don't repeat the "80% creative" intro if a kept section above already shows it.
+			if ( 'reels' === $item[1] && false !== stripos( wp_strip_all_tags( $kept_text ), '80% creative' ) ) {
+				$sc = str_replace( ']', ' intro=""]', $sc );
+			}
+			$out .= '<div class="mdm-newhome">' . do_shortcode( $sc ) . '</div>';
 		}
 		if ( get_option( MDM_HOME_FOOT_OPTION, 1 ) ) {
-			$tail .= do_shortcode( '[mdm_footer]' );
-		}
-		if ( $lastb && '' !== $tail ) {
-			$edits[] = array( $lastb[1], $lastb[1], '<div class="mdm-newhome">' . $tail . '</div>' );
+			$out .= '<div class="mdm-newhome">' . do_shortcode( '[mdm_footer]' ) . '</div>';
 		}
 
-		foreach ( $outline as $s ) {
-			$action = isset( $map[ $s['id'] ] ) ? $map[ $s['id'] ] : 'keep';
-			if ( 'keep' === $action ) {
-				continue;
-			}
-			$b = mdm_element_bounds( $content, $s['id'] );
-			if ( ! $b ) {
-				continue;
-			}
-			$html = '';
-			if ( isset( $choices[ $action ] ) ) {
-				$sc = $choices[ $action ][1];
-				// Don't repeat the "80% creative" intro if a kept section above already shows it.
-				if ( 'reels' === $action && false !== stripos( wp_strip_all_tags( substr( $content, 0, $b[0] ) ), '80% creative' ) ) {
-					$sc = str_replace( ']', ' intro=""]', $sc );
-				}
-				$html = '<div class="mdm-newhome">' . do_shortcode( $sc ) . '</div>';
-			}
-			$edits[] = array( $b[0], $b[1], $html );
-		}
-
-		// Apply from the end so earlier offsets stay valid.
-		usort( $edits, static function ( $a, $b ) { return $b[0] - $a[0]; } );
-		foreach ( $edits as $e ) {
-			$content = substr( $content, 0, $e[0] ) . $e[2] . substr( $content, $e[1] );
-		}
+		$content = substr( $content, 0, $region_start ) . $out . substr( $content, $region_end );
 		return $content;
 	},
 	9999
@@ -367,7 +417,7 @@ add_action(
 				}
 			}
 			update_option( MDM_HOME_MAP_OPTION, $map );
-			update_option( MDM_HOME_MAP_OPTION . '_v', 2 );
+			update_option( MDM_HOME_MAP_OPTION . '_v', 3 );
 			update_option( MDM_HOME_EXTRA_OPTION, $extras );
 			update_option( MDM_HOME_OPTION, ! empty( $_POST['mdm_use_new'] ) ? 1 : 0 );
 			update_option( MDM_HOME_MENU_OPTION, ! empty( $_POST['mdm_menu'] ) ? 1 : 0 );

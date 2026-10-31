@@ -51,11 +51,25 @@ final class MDM_Sections {
 		}
 		self::$assets_printed = true;
 
-		$fonts = 'https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Instrument+Serif&family=Inter:wght@400;500;600;700;800&display=swap';
+		$fonts = 'https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600;700;800&display=swap';
+
+		// The site's own fonts (Syncopate headings, Poppins text) are already stored locally by
+		// Elementor; use those exact files so new sections match the rest of the page.
+		$local = '';
+		$upl   = wp_get_upload_dir();
+		foreach ( array( 'syncopate', 'poppins' ) as $family ) {
+			$rel = 'elementor/google-fonts/css/' . $family . '.css';
+			if ( ! empty( $upl['basedir'] ) && file_exists( trailingslashit( $upl['basedir'] ) . $rel ) ) {
+				$local .= '<link rel="stylesheet" href="' . esc_url( trailingslashit( $upl['baseurl'] ) . $rel ) . '">';
+			} else {
+				$local .= '<link rel="stylesheet" href="' . esc_url( 'https://fonts.googleapis.com/css2?family=' . ( 'syncopate' === $family ? 'Syncopate:wght@400;700' : 'Poppins:wght@400;500;600;700;800' ) . '&display=swap' ) . '">';
+			}
+		}
 
 		return '<link rel="preconnect" href="https://fonts.googleapis.com">'
 			. '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
 			. '<link rel="stylesheet" href="' . esc_url( $fonts ) . '">'
+			. $local
 			. '<link rel="stylesheet" href="' . esc_url( self::asset_url( 'mdm-sections.css' ) ) . '">'
 			. '<script src="' . esc_url( self::asset_url( 'mdm-sections.js' ) ) . '" defer></script>';
 	}

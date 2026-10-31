@@ -972,6 +972,129 @@ html.mdm-menu-open, html.mdm-menu-open body { overflow: hidden !important; }
 }
 
 /* ==========================================================================
+   SITE THEME - light. White backgrounds with very light grey alternate
+   sections, the site's own fonts (Syncopate headings, Poppins text), brand
+   red #ED1C24 accents, 20px cards and 66px pill buttons. A few dark blocks
+   (FAQ chat, About card, featured price) give the page hierarchy.
+   ========================================================================== */
+
+.mdm-reels, .mdm-impact, .mdm-how, .mdm-numbers, .mdm-about, .mdm-cases, .mdm-faq, .mdm-nav, .mdm-footer, .mdm-services, .mdm-pricing, .mdm-lightbox {
+	--mdm-bg: #FFFFFF;
+	--mdm-alt: #F7F7F5;
+	--mdm-surface: #F6F6F4;
+	--mdm-line: rgba(17, 17, 20, .09);
+	--mdm-muted: rgba(17, 17, 20, .66);
+	--mdm-display: "Syncopate", "Archivo Black", sans-serif;
+	--mdm-condensed: "Poppins", Inter, sans-serif;
+	font-family: "Poppins", Inter, system-ui, sans-serif;
+}
+
+/* Section rhythm: same padding everywhere, white / light grey alternating */
+.mdm-reels, .mdm-how, .mdm-numbers, .mdm-cases, .mdm-faq, .mdm-services, .mdm-pricing { padding-top: clamp(64px, 8vw, 112px); padding-bottom: clamp(64px, 8vw, 112px); }
+.mdm-reels, .mdm-reels--nohead, .mdm-pricing, .mdm-cases, .mdm-services { background: #FFFFFF; }
+.mdm-how, .mdm-numbers, .mdm-faq { background: var(--mdm-alt); }
+.mdm-reels--nohead { padding-top: clamp(32px, 4vw, 56px); }
+
+/* Headings */
+.mdm-display { font-family: var(--mdm-display) !important; font-weight: 700 !important; letter-spacing: -.02em !important; line-height: 1.08 !important; color: #111114 !important; }
+.mdm-reels__title, .mdm-how__title, .mdm-cases__title, .mdm-services__title, .mdm-pricing__title, .mdm-faq__title { font-size: clamp(26px, 4.2vw, 60px) !important; }
+.mdm-footer__title { font-size: clamp(28px, 4.6vw, 66px) !important; }
+.mdm-impact__title, .mdm-numbers__headline { font-family: var(--mdm-display) !important; font-weight: 700 !important; letter-spacing: -.02em !important; line-height: 1.08 !important; }
+.mdm-impact__title { font-size: clamp(24px, 3.4vw, 48px) !important; max-width: 16em; color: #111114 !important; }
+.mdm-numbers__headline { font-size: clamp(24px, 3.2vw, 46px) !important; }
+.mdm-lead { color: var(--mdm-muted); }
+.mdm-eyebrow { font-family: "Poppins", sans-serif; text-transform: uppercase; letter-spacing: .1em; font-size: 13px; }
+.mdm-eyebrow--plain { color: #ED1C24; border-color: rgba(237,28,36,.35); background: #fff; font-weight: 600; }
+
+/* Buttons: site pill */
+.mdm-btn { background: #ED1C24; border-radius: 66px; font-family: "Poppins", sans-serif; text-transform: uppercase; letter-spacing: .04em; font-size: 15px; }
+.mdm-btn .mdm-btn__icon { background: #fff; color: #ED1C24; }
+.mdm-btn:hover { box-shadow: 0 14px 34px -12px rgba(237,28,36,.6); }
+
+/* Chips & marquees */
+.mdm-feature, .mdm-platform { background: var(--mdm-surface); border: 1px solid var(--mdm-line); }
+
+/* Video cards */
+.mdm-reel__face { border: 1px solid rgba(17,17,20,.06); }
+.mdm-reel.is-settled:hover .mdm-reel__face { box-shadow: 0 40px 70px -25px rgba(237,28,36,.35), 0 0 0 1px rgba(237,28,36,.25); }
+
+/* Impact: light grid, light cards */
+.mdm-impact { --green: #FFFFFF; color: #111114; }
+.mdm-impact__grid { background-image: linear-gradient(to right, rgba(17,17,20,.07) 1px, transparent 1px), linear-gradient(to bottom, rgba(17,17,20,.07) 1px, transparent 1px); }
+.mdm-impact__pin { background: radial-gradient(60% 45% at 50% 100%, rgba(237,28,36,.1), transparent 70%); }
+.mdm-impact__eyebrow { color: #ED1C24; font-family: "Poppins", sans-serif; font-weight: 600; }
+.mdm-impact__badge { background: #fff; border-color: rgba(237,28,36,.35); color: #111114; font-family: "Poppins", sans-serif; }
+.mdm-impact__dots i { background: rgba(17,17,20,.2); }
+.mdm-impact__dots i.is-on { background: #ED1C24; }
+.mdm-case { background: #FFFFFF; border: 1px solid var(--mdm-line); border-radius: 20px; box-shadow: -14px 0 40px -22px rgba(17,17,20,.35); }
+.mdm-case::after { background: #fff; }
+.mdm-case__brand svg path { fill: #ED1C24; }
+.mdm-case__brand { font-family: "Poppins", sans-serif; font-weight: 700; }
+.mdm-case__stat { font-weight: 800; letter-spacing: -.04em; }
+.mdm-case__text { font-family: "Poppins", sans-serif; font-weight: 400; text-transform: none; color: var(--mdm-muted); }
+.mdm-case__visual { border-radius: 14px; background: linear-gradient(210deg, var(--c) 0%, #111114 130%); }
+.mdm-mock__top b, .mdm-mock__kpis b { font-family: "Poppins", sans-serif; font-weight: 800; text-transform: none; }
+
+/* How it works: light pastel cards, the last one in brand red */
+.mdm-step__tab { font-family: var(--mdm-display); font-weight: 700; font-size: 20px; }
+.mdm-step__card { border-radius: 20px; }
+.mdm-step__card h3 { font-family: "Poppins", sans-serif !important; }
+.mdm-check.is-done i { background: #ED1C24; }
+.mdm-orbit__core { background: #ED1C24; box-shadow: 0 0 0 6px rgba(237,28,36,.18); }
+.mdm-approve__chip--ok { background: #ED1C24; color: #fff; }
+.mdm-step__cta { border: 1px solid var(--mdm-line); border-top: 0; border-radius: 0 0 20px 20px; }
+.mdm-step__cta span { background: #ED1C24; }
+
+/* Numbers */
+.mdm-numbers__media, .mdm-numbers__card { border-radius: 20px; }
+.mdm-numbers__card { border: 1px solid var(--mdm-line); }
+.mdm-numbers__big, .mdm-numbers__val { font-family: "Poppins", sans-serif; font-weight: 800; letter-spacing: -.04em; }
+.mdm-numbers .mdm-marquee--wide { margin-top: 24px; }
+.mdm-feature { background: #fff; }
+
+/* About: dark feature card on a white page */
+.mdm-about { border-radius: 20px; }
+.mdm-about__title { font-family: var(--mdm-display) !important; font-weight: 700 !important; font-size: clamp(22px, 2.6vw, 38px) !important; letter-spacing: -.02em !important; }
+.mdm-about__num { font-family: "Poppins", sans-serif; font-weight: 700; }
+.mdm-about__btn { border-radius: 66px; }
+
+/* Case studies */
+.mdm-switch__thumb { background: #ED1C24; }
+.mdm-switch__btn.is-on small { background: #fff; color: #ED1C24; }
+.mdm-cs { border-radius: 20px; }
+.mdm-cs__headline { font-family: "Poppins", sans-serif !important; }
+.mdm-cs__metrics span:first-child { background: #ED1C24; color: #fff; }
+.mdm-cs__zoom { background: #ED1C24; }
+
+/* FAQ: light page, dark chat panel */
+.mdm-faq__stats div { border-radius: 20px; }
+.mdm-faq__stats b { font-family: "Poppins", sans-serif; font-weight: 800; }
+.mdm-faq__app { border-radius: 20px; }
+
+/* Services (optional section) */
+.mdm-svc { border-radius: 20px; }
+.mdm-svc--dark { background: linear-gradient(210deg, #ED1C24 0%, #8A0F14 100%); }
+.mdm-svc h3 { font-family: "Poppins", sans-serif !important; }
+
+/* Pricing */
+.mdm-plan { border-radius: 20px; }
+.mdm-plan--hot { background: linear-gradient(210deg, #ED1C24 0%, #8A0F14 100%); border-color: transparent; }
+.mdm-plan__badge { background: #111114; color: #fff; }
+.mdm-plan__price { font-family: "Poppins", sans-serif; font-weight: 800; }
+.mdm-plan--hot .mdm-plan__price sup { color: #fff; }
+.mdm-plan--hot .mdm-plan__list li::before { background: #fff; }
+.mdm-plan__cta { background: #ED1C24; border-radius: 66px; text-transform: uppercase; font-size: 14px; letter-spacing: .04em; }
+.mdm-plan--hot .mdm-plan__cta { background: #fff; color: #ED1C24 !important; }
+.mdm-plan__cta:hover { background: #111114; color: #fff !important; }
+
+/* Footer (arpeggio layout, white) */
+.mdm-ft__word { font-family: var(--mdm-display) !important; font-weight: 700 !important; letter-spacing: -.04em !important; font-size: clamp(34px, 6.4vw, 124px) !important; line-height: 1 !important; }
+.mdm-ft__note, .mdm-ft__loop h3, .mdm-ft__links a, .mdm-ft__rows a { font-family: "Poppins", sans-serif; }
+
+/* Menu */
+.mdm-nav__toggle { background: #ED1C24 !important; }
+
+/* ==========================================================================
    Reduced motion: final state, no movement.
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {

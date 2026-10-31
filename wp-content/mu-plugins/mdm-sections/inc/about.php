@@ -25,8 +25,8 @@ function mdm_shortcode_about( $atts ) {
 			'p2'          => 'Creative that sells: VSLs, UGC, AI videos and short-form, tested and iterated every week.',
 			'p3'          => 'Two Comma Club winners, ClickFunnels award recipients and a team obsessed with tracking.',
 			'stat1'       => '10|+|Years in the game',
-			'stat2'       => '50|$|M+|Ad spend managed',
-			'stat3'       => '250|+|Case studies',
+			'stat2'       => '24||–48h|Turnaround per creative',
+			'stat3'       => '100||%|Done-for-you',
 		),
 		$atts,
 		'mdm_about'
