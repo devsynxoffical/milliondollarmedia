@@ -19,3 +19,6 @@ wp-content/updraft/
 
 # Local tooling
 scripts/node_modules/
+
+# Server-only secrets (DB login, salts) - never commit
+wp-config-server.php

@@ -74,8 +74,27 @@ function wp_configure_database_from_env() {
 	define( 'DB_HOST', $db_port ? $db_host . ':' . $db_port : $db_host );
 }
 
-// ** Database settings - provided by Railway environment variables ** //
-wp_configure_database_from_env();
+/*
+ * Server-specific secrets (Hostinger, etc.).
+ *
+ * Put a file called "wp-config-server.php" in the folder ABOVE public_html
+ * (recommended: it is not web-accessible and Git deploys never touch it),
+ * or next to this file. It should define DB_NAME, DB_USER, DB_PASSWORD,
+ * DB_HOST and, ideally, the AUTH_KEY ... NONCE_SALT keys.
+ * The file is ignored by Git, so deploying never overwrites it.
+ */
+foreach ( array( dirname( __DIR__ ) . '/wp-config-server.php', __DIR__ . '/wp-config-server.php' ) as $wp_server_config ) {
+	if ( @is_readable( $wp_server_config ) ) { // @: some hosts restrict paths outside public_html
+		require_once $wp_server_config;
+		break;
+	}
+}
+unset( $wp_server_config );
+
+// ** Database settings - from wp-config-server.php, else Railway environment variables ** //
+if ( ! defined( 'DB_NAME' ) ) {
+	wp_configure_database_from_env();
+}
 
 /** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );
@@ -94,15 +113,12 @@ define( 'DB_COLLATE', '' );
  *
  * @since 2.6.0
  */
-define( 'AUTH_KEY',          wp_env( 'AUTH_KEY', 'put-unique-phrase-here' ) );
-define( 'SECURE_AUTH_KEY',   wp_env( 'SECURE_AUTH_KEY', 'put-unique-phrase-here' ) );
-define( 'LOGGED_IN_KEY',     wp_env( 'LOGGED_IN_KEY', 'put-unique-phrase-here' ) );
-define( 'NONCE_KEY',         wp_env( 'NONCE_KEY', 'put-unique-phrase-here' ) );
-define( 'AUTH_SALT',         wp_env( 'AUTH_SALT', 'put-unique-phrase-here' ) );
-define( 'SECURE_AUTH_SALT',  wp_env( 'SECURE_AUTH_SALT', 'put-unique-phrase-here' ) );
-define( 'LOGGED_IN_SALT',    wp_env( 'LOGGED_IN_SALT', 'put-unique-phrase-here' ) );
-define( 'NONCE_SALT',        wp_env( 'NONCE_SALT', 'put-unique-phrase-here' ) );
-define( 'WP_CACHE_KEY_SALT', wp_env( 'WP_CACHE_KEY_SALT', 'put-unique-phrase-here' ) );
+foreach ( array( 'AUTH_KEY', 'SECURE_AUTH_KEY', 'LOGGED_IN_KEY', 'NONCE_KEY', 'AUTH_SALT', 'SECURE_AUTH_SALT', 'LOGGED_IN_SALT', 'NONCE_SALT', 'WP_CACHE_KEY_SALT' ) as $wp_salt_key ) {
+	if ( ! defined( $wp_salt_key ) ) {
+		define( $wp_salt_key, wp_env( $wp_salt_key, 'put-unique-phrase-here' ) );
+	}
+}
+unset( $wp_salt_key );
 
 
 /**#@-*/
