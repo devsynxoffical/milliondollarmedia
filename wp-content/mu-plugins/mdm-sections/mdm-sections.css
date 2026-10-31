@@ -568,13 +568,13 @@ a.mdm-reel__label { color: #fff !important; }
 @keyframes mdmDrift { to { transform: translate(12%, -10%) scale(1.15); } }
 
 .mdm-about__inner { position: relative; padding: clamp(24px, 3.5vw, 48px) clamp(20px, 3.5vw, 48px) clamp(40px, 6vw, 90px); }
-.mdm-about__top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .8fr); gap: 24px; align-items: end; min-height: clamp(360px, 38vw, 560px); }
-.mdm-about__top > div:first-child { align-self: center; padding-top: 20px; }
-.mdm-about__top .mdm-about__btn { margin-top: 26px; }
-/* Cut-out photo: full face and upper body, never cropped, standing in the glow */
-.mdm-about__photo { position: relative; align-self: stretch; display: flex; align-items: flex-end; justify-content: center; margin: calc(-1 * clamp(24px, 3.5vw, 48px)) 0 0; isolation: isolate; }
-.mdm-about__photo::before { content: ""; position: absolute; left: 10%; right: 10%; bottom: 0; height: 75%; z-index: -1; border-radius: 50% 50% 0 0; background: radial-gradient(60% 70% at 50% 100%, rgba(237,28,36,.55), transparent 70%); filter: blur(10px); }
-.mdm-about__photo img { width: auto; max-width: 100%; height: clamp(340px, 38vw, 560px); object-fit: contain; object-position: center bottom; transform: translateY(var(--py, 0px)); -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent); mask-image: linear-gradient(to bottom, #000 78%, transparent); }
+.mdm-about__top { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; }
+.mdm-about__btn { flex: 0 0 auto; }
+/* Wide photo banner, focused on the face */
+.mdm-about__photo { position: relative; height: clamp(240px, 30vw, 440px); overflow: hidden; background: radial-gradient(70% 90% at 50% 100%, rgba(237,28,36,.45), transparent 70%), #0b0b0f; }
+.mdm-about__photo img { position: absolute; left: 0; top: -6%; width: 100%; height: 112%; object-fit: cover; filter: contrast(1.08) saturate(1.1); transform: translateY(var(--py, 0px)); }
+.mdm-about__photo::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(to bottom, transparent 55%, #050508 100%); }
+.mdm-about__dots { position: absolute; inset: 0; z-index: 1; pointer-events: none; background-image: radial-gradient(rgba(0,0,0,.5) 1px, transparent 1.6px); background-size: 4px 4px; opacity: .35; }
 .mdm-about__title { font-size: clamp(30px, 3.4vw, 50px) !important; font-weight: 500 !important; line-height: 1.12 !important; letter-spacing: -.02em !important; max-width: 11em; color: #fff !important; }
 .mdm-about__text { margin-top: 12px !important; max-width: 470px; color: rgba(255,255,255,.75); font-size: 15px; line-height: 1.5; }
 .mdm-about__btn { flex: 0 0 auto; display: inline-flex; align-items: center; gap: 10px; background: #fff; color: #111 !important; padding: 11px 20px; border-radius: 10px; font-weight: 500; font-size: 15px; transition: transform .3s var(--mdm-ease), box-shadow .3s; }
@@ -590,9 +590,8 @@ a.mdm-reel__label { color: #fff !important; }
 
 @media (max-width: 760px) {
 	.mdm-about { border-radius: 22px; margin: 16px; }
-	.mdm-about__top { grid-template-columns: 1fr; min-height: 0; }
-	.mdm-about__photo { order: -1; margin-top: 0; }
-	.mdm-about__photo img { height: 340px; }
+	.mdm-about__top { flex-direction: column; }
+	.mdm-about__photo { height: 260px; }
 	.mdm-about__cols { grid-template-columns: 1fr; gap: 28px; }
 	.mdm-about__pillar { min-height: 0; }
 	.mdm-about__num { margin-top: 16px !important; }
