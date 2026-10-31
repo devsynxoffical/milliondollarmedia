@@ -1099,6 +1099,153 @@ html.mdm-menu-open, html.mdm-menu-open body { overflow: hidden !important; }
 .mdm-nav__toggle { background: #ED1C24 !important; }
 
 /* ==========================================================================
+   12. WHOLE WEBSITE - animations on every page  (body.mdm-site-anim)
+   ========================================================================== */
+
+html.mdm-anim { scroll-behavior: smooth; }
+::selection { background: #ED1C24; color: #fff; }
+
+/* Scroll reveal for page content (added by JS only to blocks below the fold) */
+html.mdm-anim .mdm-ra { opacity: 0; transform: translateY(28px); transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1); transition-delay: var(--mdm-ra-d, 0s); }
+html.mdm-anim .mdm-ra.is-in { opacity: 1; transform: none; }
+
+/* Scroll progress line */
+.mdm-progress { position: fixed; left: 0; top: 0; z-index: 2147481000; height: 3px; width: 100%; background: #ED1C24; transform: scaleX(0); transform-origin: left; pointer-events: none; }
+body.admin-bar .mdm-progress { top: 32px; }
+
+/* Page transition curtain */
+.mdm-curtain { position: fixed; inset: 0; z-index: 2147481500; pointer-events: none; background: #fff; transform: translateY(100%); transition: transform .45s cubic-bezier(.77,0,.18,1); }
+.mdm-curtain::after { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 4px; background: #ED1C24; }
+html.mdm-leaving .mdm-curtain { transform: none; pointer-events: auto; }
+html.mdm-anim body { animation: mdmPageIn .55s cubic-bezier(.22,1,.36,1) both; }
+@keyframes mdmPageIn { from { opacity: 0; } to { opacity: 1; } } /* opacity only: a transform here would break fixed elements */
+
+/* Hover polish on existing Elementor buttons & images */
+body.mdm-site-anim .elementor-button, body.mdm-site-anim .wp-element-button, body.mdm-site-anim .button:not(.mdm-btn) { transition: transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s, background-color .3s, color .3s !important; }
+body.mdm-site-anim .elementor-button:hover, body.mdm-site-anim .wp-element-button:hover { transform: translateY(-2px); box-shadow: 0 12px 28px -12px rgba(237,28,36,.55); }
+/* Photos and images are never altered (no zoom, crop or filter). */
+
+.mdm-site-footer { position: relative; z-index: 1; }
+
+/* ==========================================================================
+   13. CART / CHECKOUT / ORDER RECEIVED  (body.mdm-shop)
+   ========================================================================== */
+
+body.mdm-shop { background: #F7F7F5; font-family: "Poppins", Inter, system-ui, sans-serif; }
+body.mdm-shop .woocommerce, body.mdm-shop .wp-block-woocommerce-checkout, body.mdm-shop .wp-block-woocommerce-cart { max-width: 1200px; margin: 0 auto; padding: 0 16px 80px; color: #111114; }
+
+.mdm-shop-head { text-align: center; padding: clamp(32px, 5vw, 64px) 16px clamp(20px, 3vw, 36px); animation: mdmShopIn .7s cubic-bezier(.22,1,.36,1) both; }
+.mdm-shop-title { font-family: "Syncopate", "Archivo Black", sans-serif !important; font-weight: 700 !important; font-size: clamp(22px, 3.4vw, 42px) !important; letter-spacing: -.02em !important; line-height: 1.1 !important; margin: 18px 0 8px !important; color: #111114 !important; text-transform: uppercase; }
+.mdm-shop-sub { color: rgba(17,17,20,.65); font-size: 16px; margin: 0 !important; }
+@keyframes mdmShopIn { from { opacity: 0; transform: translateY(16px); } }
+
+.mdm-steps { list-style: none !important; margin: 0 auto !important; padding: 0 !important; display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+.mdm-steps li { display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px 7px 7px; border-radius: 999px; background: #fff; border: 1px solid rgba(17,17,20,.09); font-size: 14px; font-weight: 600; color: rgba(17,17,20,.55); margin: 0 !important; }
+.mdm-steps li i { width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; font-style: normal; font-size: 12px; background: #F0F0EE; color: rgba(17,17,20,.6); }
+.mdm-steps li.is-done { color: #111114; }
+.mdm-steps li.is-done i { background: #111114; color: #fff; }
+.mdm-steps li.is-current { color: #111114; border-color: rgba(237,28,36,.4); box-shadow: 0 6px 18px -10px rgba(237,28,36,.5); }
+.mdm-steps li.is-current i { background: #ED1C24; color: #fff; animation: mdmStepPulse 2s infinite; }
+@keyframes mdmStepPulse { 0% { box-shadow: 0 0 0 0 rgba(237,28,36,.5); } 70%, 100% { box-shadow: 0 0 0 8px rgba(237,28,36,0); } }
+
+/* Two-column checkout: details left, sticky order summary right */
+body.mdm-shop form.checkout { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 0 clamp(20px, 3vw, 40px); align-items: start; }
+body.mdm-shop form.checkout > * { grid-column: 1 / -1; }
+body.mdm-shop form.checkout > #customer_details { grid-column: 1; grid-row: 2 / span 3; }
+body.mdm-shop form.checkout > #order_review_heading { grid-column: 2; grid-row: 2; margin: 0 0 12px !important; }
+body.mdm-shop form.checkout > #order_review { grid-column: 2; grid-row: 3; position: sticky; top: 24px; }
+body.mdm-shop #customer_details .col-1, body.mdm-shop #customer_details .col-2 { width: 100% !important; float: none !important; max-width: none !important; }
+body.mdm-shop form.checkout *, body.mdm-shop .woocommerce-cart-form, body.mdm-shop .cart_totals, body.mdm-shop .woocommerce-order * { box-sizing: border-box; }
+body.mdm-shop form.checkout > * { min-width: 0; }
+
+body.mdm-shop #customer_details > div, body.mdm-shop #order_review, body.mdm-shop .woocommerce-cart-form, body.mdm-shop .cart-collaterals .cart_totals,
+body.mdm-shop .woocommerce-order-details, body.mdm-shop .woocommerce-customer-details, body.mdm-shop .woocommerce-order-overview {
+	background: #fff; border: 1px solid rgba(17,17,20,.09); border-radius: 20px; padding: clamp(18px, 2.4vw, 32px) !important; margin-bottom: 18px !important;
+	box-shadow: 0 20px 40px -32px rgba(17,17,20,.35); animation: mdmShopIn .8s cubic-bezier(.22,1,.36,1) both;
+}
+body.mdm-shop #order_review { animation-delay: .1s; }
+body.mdm-shop h3, body.mdm-shop #order_review_heading, body.mdm-shop .cart_totals h2, body.mdm-shop .woocommerce-order-details__title, body.mdm-shop .woocommerce-column__title {
+	font-family: "Poppins", sans-serif !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em !important; text-transform: none !important; color: #111114 !important;
+}
+
+/* Fields */
+body.mdm-shop .form-row label { font-size: 13px; font-weight: 600; color: rgba(17,17,20,.75); margin-bottom: 6px; }
+body.mdm-shop .form-row .input-text, body.mdm-shop .form-row select, body.mdm-shop .form-row textarea, body.mdm-shop .select2-container .select2-selection--single,
+body.mdm-shop .wc-block-components-text-input input, body.mdm-shop .coupon .input-text {
+	border: 1.5px solid rgba(17,17,20,.14) !important; border-radius: 12px !important; background: #fff !important; min-height: 50px; padding: 12px 14px !important; font-size: 15px !important; box-shadow: none !important; transition: border-color .25s, box-shadow .25s;
+}
+body.mdm-shop .select2-container .select2-selection--single .select2-selection__rendered { line-height: 24px; padding: 0 !important; }
+body.mdm-shop .select2-container .select2-selection--single .select2-selection__arrow { top: 12px; right: 10px; }
+body.mdm-shop .form-row .input-text:focus, body.mdm-shop .form-row select:focus, body.mdm-shop .form-row textarea:focus, body.mdm-shop .wc-block-components-text-input input:focus {
+	border-color: #ED1C24 !important; box-shadow: 0 0 0 4px rgba(237,28,36,.12) !important; outline: none;
+}
+body.mdm-shop .form-row.woocommerce-invalid .input-text { border-color: #ED1C24 !important; }
+
+/* Order summary table */
+body.mdm-shop table.shop_table { width: 100% !important; border: 0 !important; border-radius: 0; margin: 0 0 12px !important; border-collapse: collapse; }
+body.mdm-shop table.shop_table th, body.mdm-shop table.shop_table td { text-align: left; }
+body.mdm-shop table.shop_table td:last-child, body.mdm-shop table.shop_table th:last-child { text-align: right; }
+body.mdm-shop table.shop_table th, body.mdm-shop table.shop_table td { border: 0 !important; border-bottom: 1px solid rgba(17,17,20,.08) !important; padding: 12px 4px !important; background: transparent !important; }
+body.mdm-shop table.shop_table .order-total th, body.mdm-shop table.shop_table .order-total td { font-size: 18px; font-weight: 800; border-bottom: 0 !important; }
+body.mdm-shop table.shop_table .order-total .amount { color: #ED1C24; }
+
+/* Payment box */
+body.mdm-shop #payment { background: transparent !important; border-radius: 0 !important; }
+body.mdm-shop #payment ul.payment_methods { border: 0 !important; padding: 0 !important; display: grid; gap: 10px; }
+body.mdm-shop #payment ul.payment_methods li { list-style: none; border: 1.5px solid rgba(17,17,20,.12); border-radius: 14px; padding: 14px 16px !important; background: #fff; transition: border-color .25s, box-shadow .25s; }
+body.mdm-shop #payment ul.payment_methods li:has(input:checked) { border-color: #ED1C24; box-shadow: 0 0 0 4px rgba(237,28,36,.1); }
+body.mdm-shop #payment div.payment_box { background: #F7F7F5 !important; border-radius: 12px !important; color: #333 !important; }
+body.mdm-shop #payment div.payment_box::before { display: none !important; }
+body.mdm-shop #payment .place-order { padding: 16px 0 0 !important; }
+
+/* Main buttons: brand pill */
+body.mdm-shop #place_order, body.mdm-shop .checkout-button, body.mdm-shop .wc-block-components-checkout-place-order-button, body.mdm-shop .wc-block-cart__submit-button {
+	width: 100%; background: #ED1C24 !important; color: #fff !important; border: 0 !important; border-radius: 66px !important; padding: 18px 24px !important; font-family: "Poppins", sans-serif !important;
+	font-weight: 700 !important; font-size: 16px !important; letter-spacing: .04em; text-transform: uppercase; box-shadow: 0 16px 30px -16px rgba(237,28,36,.8);
+	transition: transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s, background-color .3s !important;
+}
+body.mdm-shop #place_order:hover, body.mdm-shop .checkout-button:hover { transform: translateY(-2px); background: #111114 !important; box-shadow: 0 18px 34px -16px rgba(17,17,20,.7); }
+body.mdm-shop .woocommerce .button:not(#place_order):not(.checkout-button) { border-radius: 66px !important; }
+
+/* Notices & coupon */
+body.mdm-shop .woocommerce-info, body.mdm-shop .woocommerce-message, body.mdm-shop .woocommerce-error {
+	border: 1px solid rgba(17,17,20,.09) !important; border-left: 4px solid #ED1C24 !important; border-radius: 14px !important; background: #fff !important; color: #111114 !important; padding: 14px 18px 14px 48px !important;
+}
+body.mdm-shop .woocommerce-info::before, body.mdm-shop .woocommerce-message::before { color: #ED1C24 !important; }
+body.mdm-shop .checkout_coupon { background: #fff; border: 1px dashed rgba(17,17,20,.2) !important; border-radius: 16px !important; }
+
+/* Trust strip under the pay button */
+.mdm-trust { list-style: none !important; margin: 16px 0 0 !important; padding: 0 !important; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.mdm-trust li { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: rgba(17,17,20,.75); background: #F7F7F5; border-radius: 12px; padding: 10px 12px; margin: 0 !important; }
+.mdm-trust i { font-style: normal; }
+
+/* Order received */
+body.mdm-shop .woocommerce-order { position: relative; }
+body.mdm-shop .woocommerce-thankyou-order-received { display: none; } /* replaced by the confirmed header */
+body.mdm-shop ul.woocommerce-order-overview { display: grid !important; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; list-style: none !important; }
+body.mdm-shop ul.woocommerce-order-overview li { border: 0 !important; margin: 0 !important; padding: 0 !important; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: rgba(17,17,20,.55); }
+body.mdm-shop ul.woocommerce-order-overview li strong { display: block; margin-top: 4px; font-size: 17px; text-transform: none; letter-spacing: 0; color: #111114; }
+.mdm-thanks-burst { position: absolute; left: 50%; top: 40px; width: 0; height: 0; pointer-events: none; }
+.mdm-thanks-burst i { position: absolute; width: 10px; height: 10px; border-radius: 3px; background: #ED1C24; opacity: 0; animation: mdmBurst 1.4s .3s cubic-bezier(.22,1,.36,1) forwards; }
+.mdm-thanks-burst i:nth-child(even) { background: #111114; border-radius: 50%; }
+.mdm-thanks-burst i:nth-child(1) { --x: -160px; --y: -40px; } .mdm-thanks-burst i:nth-child(2) { --x: 150px; --y: -60px; }
+.mdm-thanks-burst i:nth-child(3) { --x: -110px; --y: 70px; } .mdm-thanks-burst i:nth-child(4) { --x: 120px; --y: 60px; }
+.mdm-thanks-burst i:nth-child(5) { --x: -60px; --y: -90px; } .mdm-thanks-burst i:nth-child(6) { --x: 60px; --y: -100px; }
+.mdm-thanks-burst i:nth-child(7) { --x: -200px; --y: 20px; } .mdm-thanks-burst i:nth-child(8) { --x: 210px; --y: 10px; }
+@keyframes mdmBurst { 0% { opacity: 1; transform: translate(0, 0) scale(.4) rotate(0); } 100% { opacity: 0; transform: translate(var(--x), var(--y)) scale(1) rotate(220deg); } }
+
+@media (max-width: 900px) {
+	body.mdm-shop form.checkout { display: block; }
+	body.mdm-shop form.checkout > #order_review { position: static; }
+	.mdm-trust { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+	html.mdm-anim .mdm-ra { opacity: 1 !important; transform: none !important; transition: none !important; }
+	html.mdm-anim body, .mdm-shop-head, body.mdm-shop #customer_details > div, body.mdm-shop #order_review, .mdm-thanks-burst i { animation: none !important; }
+	.mdm-curtain { display: none; }
+}
+
+/* ==========================================================================
    Reduced motion: final state, no movement.
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {

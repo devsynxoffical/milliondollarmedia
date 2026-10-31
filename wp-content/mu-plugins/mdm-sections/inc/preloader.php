@@ -1,7 +1,7 @@
 <?php
 /**
  * Opening loader on the front page: "We create VSLs / Images / GIFs / Videos / UGC / AI Videos / Short Form".
- * Shown once per browser session. Disable with: add_filter( 'mdm_preloader_enabled', '__return_false' );
+ * Shown once per day per visitor. Disable with: add_filter( 'mdm_preloader_enabled', '__return_false' );
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -56,10 +56,11 @@ function mdm_render_preloader() {
 	(function(){
 		var el=document.getElementById('mdm-loader');
 		if(!el)return;
-		var seen=false;
-		try{seen=sessionStorage.getItem('mdmLoaderSeen')==='1';}catch(e){}
+		// Shown once per day for every visitor (fresh each new day), never twice in one visit.
+		var d=new Date(),today=d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate(),seen=false;
+		try{seen=localStorage.getItem('mdmLoaderDay')===today;}catch(e){try{seen=sessionStorage.getItem('mdmLoaderSeen')==='1';}catch(e2){}}
 		if(seen||matchMedia('(prefers-reduced-motion: reduce)').matches){el.classList.add('is-gone');return;}
-		try{sessionStorage.setItem('mdmLoaderSeen','1');}catch(e){}
+		try{localStorage.setItem('mdmLoaderDay',today);}catch(e){try{sessionStorage.setItem('mdmLoaderSeen','1');}catch(e2){}}
 		document.documentElement.classList.add('mdm-loading');
 		var words=el.querySelectorAll('.mdm-loader__word'),num=document.getElementById('mdm-loader-num'),bar=document.getElementById('mdm-loader-bar');
 		var step=320,total=step*words.length+250,start=performance.now(),idx=-1;

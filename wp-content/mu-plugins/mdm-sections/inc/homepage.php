@@ -20,6 +20,71 @@ const MDM_HOME_MAP_OPTION   = 'mdm_new_home_map';
 const MDM_HOME_EXTRA_OPTION = 'mdm_new_home_extras';
 const MDM_HOME_MENU_OPTION  = 'mdm_new_home_menu';
 const MDM_HOME_FOOT_OPTION  = 'mdm_new_home_footer';
+const MDM_SITE_ANIM_OPTION  = 'mdm_site_animations';
+const MDM_SITE_SHOP_OPTION  = 'mdm_site_shop_design';
+const MDM_SITE_LIGHT_OPTION = 'mdm_site_light_theme';
+
+/* ------------------------------------------------------------------ */
+/* Which page is being designed, and its saved choices                 */
+/* ------------------------------------------------------------------ */
+
+/** Page being rendered (front end) or edited (admin screen). */
+function mdm_design_pid() {
+	if ( is_admin() ) {
+		return isset( $GLOBALS['mdm_admin_pid'] ) ? (int) $GLOBALS['mdm_admin_pid'] : mdm_front_page_id();
+	}
+	if ( is_front_page() ) {
+		return mdm_front_page_id();
+	}
+	return is_page() ? (int) get_queried_object_id() : 0;
+}
+
+function mdm_is_front_pid( $pid ) {
+	return $pid && (int) $pid === mdm_front_page_id();
+}
+
+/** Saved setting of a page. The homepage keeps its original option names. */
+function mdm_design_get( $pid, $key, $default = null ) {
+	if ( mdm_is_front_pid( $pid ) ) {
+		$names = array( 'on' => MDM_HOME_OPTION, 'map' => MDM_HOME_MAP_OPTION, 'extras' => MDM_HOME_EXTRA_OPTION, 'v' => MDM_HOME_MAP_OPTION . '_v' );
+		return get_option( $names[ $key ], $default );
+	}
+	$o = get_option( 'mdm_design_' . (int) $pid, array() );
+	return is_array( $o ) && array_key_exists( $key, $o ) ? $o[ $key ] : $default;
+}
+
+function mdm_design_set( $pid, $values ) {
+	if ( mdm_is_front_pid( $pid ) ) {
+		$names = array( 'on' => MDM_HOME_OPTION, 'map' => MDM_HOME_MAP_OPTION, 'extras' => MDM_HOME_EXTRA_OPTION, 'v' => MDM_HOME_MAP_OPTION . '_v' );
+		foreach ( $values as $k => $v ) {
+			null === $v ? delete_option( $names[ $k ] ) : update_option( $names[ $k ], $v );
+		}
+		return;
+	}
+	$o = get_option( 'mdm_design_' . (int) $pid, array() );
+	$o = is_array( $o ) ? $o : array();
+	foreach ( $values as $k => $v ) {
+		if ( null === $v ) {
+			unset( $o[ $k ] );
+		} else {
+			$o[ $k ] = $v;
+		}
+	}
+	update_option( 'mdm_design_' . (int) $pid, $o, false );
+}
+
+/** Preview with ?mdm_new_home=1 works on every page. */
+function mdm_preview_requested() {
+	return isset( $_GET['mdm_new_home'] ) && '0' !== $_GET['mdm_new_home']; // phpcs:ignore WordPress.Security.NonceVerification
+}
+
+/** Site-wide parts (new footer / menu): live when the homepage switch is on, or in preview. */
+function mdm_site_design_active() {
+	if ( isset( $_GET['mdm_new_home'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
+		return mdm_preview_requested();
+	}
+	return (bool) get_option( MDM_HOME_OPTION, 1 );
+}
 
 /** New sections that can replace an old one or be added at the end. */
 function mdm_new_section_choices() {
@@ -36,15 +101,18 @@ function mdm_new_section_choices() {
 	);
 }
 
-function mdm_new_homepage_active() {
+function mdm_new_homepage_active( $pid = null ) {
+	$pid = null === $pid ? mdm_design_pid() : $pid;
 	if ( isset( $_GET['mdm_new_home'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
-		return '0' !== $_GET['mdm_new_home']; // phpcs:ignore WordPress.Security.NonceVerification
+		return mdm_preview_requested();
 	}
-	return (bool) get_option( MDM_HOME_OPTION, false );
+	return (bool) mdm_design_get( $pid, 'on', mdm_is_front_pid( $pid ) ? 1 : false );
 }
 
+/** True when the current page is shown with its new sections. */
 function mdm_new_home_applies() {
-	if ( is_admin() || ! is_front_page() || ! mdm_new_homepage_active() ) {
+	$pid = is_admin() ? 0 : mdm_design_pid();
+	if ( ! $pid || ! mdm_new_homepage_active( $pid ) ) {
 		return false;
 	}
 	if ( isset( $_GET['elementor-preview'] ) || isset( $_GET['preview'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
@@ -81,8 +149,8 @@ function mdm_el_text( $el, &$videos ) {
 	return $out;
 }
 
-function mdm_front_page_outline() {
-	$id = mdm_front_page_id();
+function mdm_front_page_outline( $pid = null ) {
+	$id = null === $pid ? mdm_design_pid() : (int) $pid;
 	if ( ! $id ) {
 		return array();
 	}
@@ -137,15 +205,18 @@ function mdm_default_action( $s, $index ) {
 }
 
 /** id => action for every section (saved choice, else the suggestion). */
-function mdm_section_map( $outline = null ) {
-	$outline = null === $outline ? mdm_front_page_outline() : $outline;
-	$saved   = get_option( MDM_HOME_MAP_OPTION, array() );
+function mdm_section_map( $outline = null, $pid = null ) {
+	$pid     = null === $pid ? mdm_design_pid() : (int) $pid;
+	$outline = null === $outline ? mdm_front_page_outline( $pid ) : $outline;
+	$saved   = mdm_design_get( $pid, 'map', array() );
 	$saved   = is_array( $saved ) ? $saved : array();
+	$front   = mdm_is_front_pid( $pid );
 	// Choices saved by an older version did not know later suggestions: apply those.
-	$version = (int) get_option( MDM_HOME_MAP_OPTION . '_v', 1 );
+	$version = $front ? (int) mdm_design_get( $pid, 'v', 1 ) : 3;
 	$map     = array();
 	foreach ( $outline as $k => $s ) {
-		$suggest         = mdm_default_action( $s, $k );
+		// Other pages start with everything kept; you choose what to replace.
+		$suggest         = $front ? mdm_default_action( $s, $k ) : 'keep';
 		$map[ $s['id'] ] = isset( $saved[ $s['id'] ] ) ? $saved[ $s['id'] ] : $suggest;
 		if ( $version < 2 && 'keep' === $map[ $s['id'] ] && in_array( $suggest, array( 'pricing', 'remove' ), true ) ) {
 			$map[ $s['id'] ] = $suggest;
@@ -158,8 +229,9 @@ function mdm_section_map( $outline = null ) {
 }
 
 /** New sections added at the end (those not already used as a replacement). */
-function mdm_extra_sections( $map ) {
-	$extras = get_option( MDM_HOME_EXTRA_OPTION, array( 'numbers', 'about', 'cases', 'faq' ) );
+function mdm_extra_sections( $map, $pid = null ) {
+	$pid    = null === $pid ? mdm_design_pid() : (int) $pid;
+	$extras = mdm_design_get( $pid, 'extras', mdm_is_front_pid( $pid ) ? array( 'numbers', 'about', 'cases', 'faq' ) : array() );
 	$extras = is_array( $extras ) ? $extras : array();
 	$used   = array_values( $map );
 	return array_values( array_filter( $extras, static function ( $e ) use ( $used ) { return ! in_array( $e, $used, true ); } ) );
@@ -373,24 +445,10 @@ add_filter(
 				unset( $f );
 			}
 		}
-		if ( get_option( MDM_HOME_FOOT_OPTION, 1 ) ) {
-			$out .= '<div class="mdm-newhome">' . do_shortcode( '[mdm_footer]' ) . '</div>';
-		}
-
 		$content = substr( $content, 0, $region_start ) . $out . substr( $content, $region_end );
 		return $content;
 	},
 	9999
-);
-
-add_action(
-	'wp_body_open',
-	static function () {
-		if ( mdm_new_home_applies() && get_option( MDM_HOME_MENU_OPTION, 0 ) ) {
-			echo do_shortcode( '[mdm_menu]' ); // phpcs:ignore WordPress.Security.EscapeOutput
-		}
-	},
-	20
 );
 
 add_filter(
@@ -398,12 +456,6 @@ add_filter(
 	static function ( $classes ) {
 		if ( mdm_new_home_applies() ) {
 			$classes[] = 'mdm-new-home';
-			if ( get_option( MDM_HOME_FOOT_OPTION, 1 ) ) {
-				$classes[] = 'mdm-new-footer';
-			}
-			if ( get_option( MDM_HOME_MENU_OPTION, 0 ) ) {
-				$classes[] = 'mdm-new-menu';
-			}
 		}
 		return $classes;
 	}
@@ -417,14 +469,11 @@ add_action(
 		}
 		?>
 		<style id="mdm-new-home">
+			/* sticky sections need ancestors without overflow:hidden */
 			body.mdm-new-home #page, body.mdm-new-home .site, body.mdm-new-home .site-content,
 			body.mdm-new-home .ast-container, body.mdm-new-home #primary, body.mdm-new-home .elementor { overflow: visible !important; }
 			body.mdm-new-home { overflow-x: clip; }
 			.mdm-newhome { width: 100%; max-width: none; }
-			body.mdm-new-footer .site-footer, body.mdm-new-footer #colophon,
-			body.mdm-new-footer .elementor-location-footer, body.mdm-new-footer [data-elementor-type="footer"] { display: none !important; }
-			body.mdm-new-menu .site-header, body.mdm-new-menu #masthead,
-			body.mdm-new-menu .elementor-location-header, body.mdm-new-menu [data-elementor-type="header"] { display: none !important; }
 		</style>
 		<?php
 	},
@@ -457,7 +506,7 @@ function mdm_clear_page_cache() {
 add_action(
 	'admin_menu',
 	static function () {
-		add_options_page( 'New Homepage', 'New Homepage', 'manage_options', 'mdm-new-homepage', 'mdm_render_homepage_settings' );
+		add_options_page( 'Page Designer', 'Page Designer', 'manage_options', 'mdm-new-homepage', 'mdm_render_homepage_settings' );
 	}
 );
 
@@ -469,13 +518,13 @@ add_action(
 		}
 		check_admin_referer( 'mdm_homepage_save' );
 
+		$pid = isset( $_POST['mdm_pid'] ) ? absint( $_POST['mdm_pid'] ) : mdm_front_page_id();
+		$GLOBALS['mdm_admin_pid'] = $pid;
 		$msg = 'saved';
 		if ( isset( $_POST['mdm_clear_cache'] ) ) {
 			$msg = 'cleared';
 		} elseif ( isset( $_POST['mdm_reset'] ) ) {
-			delete_option( MDM_HOME_MAP_OPTION );
-			delete_option( MDM_HOME_EXTRA_OPTION );
-			delete_option( MDM_HOME_MAP_OPTION . '_v' );
+			mdm_design_set( $pid, array( 'map' => null, 'extras' => null, 'v' => null ) );
 			$msg = 'reset';
 		} else {
 			$allowed = array_merge( array( 'keep', 'remove' ), array_keys( mdm_new_section_choices() ) );
@@ -498,15 +547,16 @@ add_action(
 					}
 				}
 			}
-			update_option( MDM_HOME_MAP_OPTION, $map );
-			update_option( MDM_HOME_MAP_OPTION . '_v', 3 );
-			update_option( MDM_HOME_EXTRA_OPTION, $extras );
-			update_option( MDM_HOME_OPTION, ! empty( $_POST['mdm_use_new'] ) ? 1 : 0 );
+			mdm_design_set( $pid, array( 'map' => $map, 'extras' => $extras, 'v' => 3, 'on' => ! empty( $_POST['mdm_use_new'] ) ? 1 : 0 ) );
+			// Site-wide settings.
 			update_option( MDM_HOME_MENU_OPTION, ! empty( $_POST['mdm_menu'] ) ? 1 : 0 );
 			update_option( MDM_HOME_FOOT_OPTION, ! empty( $_POST['mdm_footer'] ) ? 1 : 0 );
+			update_option( MDM_SITE_ANIM_OPTION, ! empty( $_POST['mdm_anim'] ) ? 1 : 0 );
+			update_option( MDM_SITE_SHOP_OPTION, ! empty( $_POST['mdm_shop'] ) ? 1 : 0 );
+			update_option( MDM_SITE_LIGHT_OPTION, ! empty( $_POST['mdm_light'] ) ? 1 : 0 );
 		}
 		mdm_clear_page_cache();
-		wp_safe_redirect( admin_url( 'options-general.php?page=mdm-new-homepage&mdm=' . $msg ) );
+		wp_safe_redirect( admin_url( 'options-general.php?page=mdm-new-homepage&design_page=' . $pid . '&mdm=' . $msg ) );
 		exit;
 	}
 );
@@ -514,7 +564,7 @@ add_action(
 add_action(
 	'admin_notices',
 	static function () {
-		if ( ! current_user_can( 'manage_options' ) || get_option( MDM_HOME_OPTION, false ) ) {
+		if ( ! current_user_can( 'manage_options' ) || get_option( MDM_HOME_OPTION, 1 ) ) {
 			return;
 		}
 		$screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
@@ -522,48 +572,93 @@ add_action(
 			return;
 		}
 		printf(
-			'<div class="notice notice-info"><p><strong>New sections are ready</strong> (your hero stays the same). <a href="%s" target="_blank">Preview</a> or <a href="%s">choose sections</a>.</p></div>',
+			'<div class="notice notice-info"><p><strong>The new design is ready</strong> (your hero stays the same). <a href="%s" target="_blank">Preview</a> or <a href="%s">open the Page Designer</a>.</p></div>',
 			esc_url( home_url( '/?mdm_new_home=1' ) ),
 			esc_url( admin_url( 'options-general.php?page=mdm-new-homepage' ) )
 		);
 	}
 );
 
+/** Pages built with Elementor (the ones the designer can work on). */
+function mdm_designable_pages() {
+	$pages = get_posts(
+		array(
+			'post_type'      => 'page',
+			'post_status'    => array( 'publish', 'private', 'draft' ),
+			'posts_per_page' => 200,
+			'orderby'        => 'title',
+			'order'          => 'ASC',
+			'meta_key'       => '_elementor_data', // phpcs:ignore WordPress.DB.SlowDBQuery
+		)
+	);
+	$front = mdm_front_page_id();
+	usort( $pages, static function ( $a, $b ) use ( $front ) {
+		return ( (int) ( $b->ID === $front ) ) - ( (int) ( $a->ID === $front ) );
+	} );
+	return $pages;
+}
+
 function mdm_render_homepage_settings() {
-	$on      = (bool) get_option( MDM_HOME_OPTION, false );
+	$pid = isset( $_GET['design_page'] ) ? absint( $_GET['design_page'] ) : mdm_front_page_id(); // phpcs:ignore WordPress.Security.NonceVerification
+	$pid = $pid ? $pid : mdm_front_page_id();
+	$GLOBALS['mdm_admin_pid'] = $pid;
+	$front   = mdm_is_front_pid( $pid );
+	$on      = (bool) mdm_design_get( $pid, 'on', $front ? 1 : false );
 	$menu    = (bool) get_option( MDM_HOME_MENU_OPTION, 0 );
 	$footer  = (bool) get_option( MDM_HOME_FOOT_OPTION, 1 );
-	$outline = mdm_front_page_outline();
-	$map     = mdm_section_map( $outline );
+	$anim    = (bool) get_option( MDM_SITE_ANIM_OPTION, 1 );
+	$shop    = (bool) get_option( MDM_SITE_SHOP_OPTION, 1 );
+	$light   = (bool) get_option( MDM_SITE_LIGHT_OPTION, 1 );
+	$outline = mdm_front_page_outline( $pid );
+	$map     = mdm_section_map( $outline, $pid );
 	$choices = mdm_new_section_choices();
-	$extras  = get_option( MDM_HOME_EXTRA_OPTION, array( 'numbers', 'about', 'cases', 'faq' ) );
+	$extras  = mdm_design_get( $pid, 'extras', $front ? array( 'numbers', 'about', 'cases', 'faq' ) : array() );
 	$extras  = is_array( $extras ) ? $extras : array();
 	$msg     = isset( $_GET['mdm'] ) ? sanitize_key( $_GET['mdm'] ) : ''; // phpcs:ignore WordPress.Security.NonceVerification
+	$url     = $pid ? get_permalink( $pid ) : home_url( '/' );
+	$preview = add_query_arg( 'mdm_new_home', 1, $url );
+	$title   = $pid ? get_the_title( $pid ) : 'Homepage';
 	?>
 	<div class="wrap">
-		<h1>New Homepage</h1>
+		<h1>Page Designer</h1>
 		<?php if ( 'saved' === $msg ) : ?>
-			<div class="notice notice-success"><p>Saved. The page cache was cleared too. <a href="<?php echo esc_url( home_url( $on ? '/' : '/?mdm_new_home=1' ) ); ?>" target="_blank">View ↗</a></p></div>
+			<div class="notice notice-success"><p>Saved. The page cache was cleared too. <a href="<?php echo esc_url( $on ? $url : $preview ); ?>" target="_blank">View ↗</a></p></div>
 		<?php elseif ( 'cleared' === $msg ) : ?>
 			<div class="notice notice-success"><p>Page cache cleared.</p></div>
 		<?php elseif ( 'reset' === $msg ) : ?>
-			<div class="notice notice-success"><p>Section choices reset to the suggestions.</p></div>
+			<div class="notice notice-success"><p>Section choices reset.</p></div>
 		<?php endif; ?>
 
-		<p style="font-size:15px">Status:
-			<?php echo $on ? '<strong style="color:#1a7f37">New sections are LIVE.</strong>' : '<strong style="color:#9a6700">Your old homepage is showing.</strong>'; ?>
-			&nbsp; <a class="button" href="<?php echo esc_url( home_url( '/?mdm_new_home=1' ) ); ?>" target="_blank">Preview ↗</a>
+		<form method="get" style="margin:14px 0 6px">
+			<input type="hidden" name="page" value="mdm-new-homepage">
+			<label for="mdm-page-pick"><strong>Page:</strong></label>
+			<select id="mdm-page-pick" name="design_page" onchange="this.form.submit()" style="min-width:320px">
+				<?php foreach ( mdm_designable_pages() as $pg ) :
+					$is_on = (bool) mdm_design_get( $pg->ID, 'on', mdm_is_front_pid( $pg->ID ) ? 1 : false );
+					?>
+					<option value="<?php echo (int) $pg->ID; ?>" <?php selected( $pg->ID, $pid ); ?>>
+						<?php echo esc_html( ( mdm_is_front_pid( $pg->ID ) ? '★ Homepage: ' : '' ) . ( $pg->post_title ? $pg->post_title : '(no title)' ) . ( $is_on ? '  ✓ new design on' : '' ) ); ?>
+					</option>
+				<?php endforeach; ?>
+			</select>
+			<noscript><button class="button">Open</button></noscript>
+		</form>
+
+		<p style="font-size:15px">Status of <strong><?php echo esc_html( $title ); ?></strong>:
+			<?php echo $on ? '<strong style="color:#1a7f37">new design LIVE</strong>' : '<strong style="color:#9a6700">old design showing</strong>'; ?>
+			&nbsp; <a class="button" href="<?php echo esc_url( $preview ); ?>" target="_blank">Preview ↗</a>
 		</p>
 
 		<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
 			<?php wp_nonce_field( 'mdm_homepage_save' ); ?>
 			<input type="hidden" name="action" value="mdm_homepage_save">
+			<input type="hidden" name="mdm_pid" value="<?php echo (int) $pid; ?>">
 
-			<h2>1. Your homepage sections</h2>
+			<h2>1. Sections of this page</h2>
 			<?php if ( ! $outline ) : ?>
-				<div class="notice notice-warning inline"><p>Could not read the homepage's Elementor sections (Settings → Reading must point to a static homepage built with Elementor).</p></div>
+				<div class="notice notice-warning inline"><p>This page has no Elementor sections to work with.</p></div>
 			<?php else : ?>
-				<p>Choose what happens to each section. <strong>Keep</strong> leaves it exactly as it is now.</p>
+				<p>Choose what happens to each section. <strong>Keep</strong> leaves it exactly as it is now.<?php echo $front ? '' : ' On this page everything starts as "Keep".'; ?></p>
 				<table class="widefat striped" style="max-width:1100px">
 					<thead><tr><th style="width:36px">#</th><th>Section content</th><th style="width:360px">What to do</th></tr></thead>
 					<tbody>
@@ -603,23 +698,28 @@ function mdm_render_homepage_settings() {
 				</table>
 			<?php endif; ?>
 
-			<h2>2. Add new sections at the end (before the footer)</h2>
+			<h2>2. Add new sections at the end of this page</h2>
 			<?php foreach ( array( 'numbers', 'about', 'cases', 'faq', 'services', 'pricing', 'impact', 'how', 'reels' ) as $key ) : ?>
 				<label style="display:block;margin:4px 0"><input type="checkbox" name="mdm_extra[]" value="<?php echo esc_attr( $key ); ?>" <?php checked( in_array( $key, $extras, true ) ); ?>> <?php echo esc_html( $choices[ $key ][0] ); ?></label>
 			<?php endforeach; ?>
 			<p class="description">A section already chosen as a replacement above is not added twice.</p>
 
-			<h2>3. Header &amp; footer</h2>
-			<p><label><input type="checkbox" name="mdm_footer" value="1" <?php checked( $footer ); ?>> Replace the old footer with the new footer</label></p>
-			<p><label><input type="checkbox" name="mdm_menu" value="1" <?php checked( $menu ); ?>> Replace the old top menu with the new floating menu</label></p>
+			<h2>3. Go live for this page</h2>
+			<p style="font-size:15px"><label><input type="checkbox" name="mdm_use_new" value="1" <?php checked( $on ); ?>> <strong><?php echo $front ? 'Switch the new design on (homepage + new footer/menu on every page)' : 'Use the new sections on this page'; ?></strong></label></p>
 
-			<h2>4. Go live</h2>
-			<p style="font-size:15px"><label><input type="checkbox" name="mdm_use_new" value="1" <?php checked( $on ); ?>> <strong>Switch the new sections on for visitors</strong></label></p>
+			<h2>4. Whole website</h2>
+			<p><label><input type="checkbox" name="mdm_anim" value="1" <?php checked( $anim ); ?>> Smooth animations on every page (sections fade in while scrolling, page transitions, scroll progress line, button &amp; image hover effects)</label></p>
+			<p><label><input type="checkbox" name="mdm_light" value="1" <?php checked( $light ); ?>> Light theme on every page (dark Elementor backgrounds become white, white text becomes dark; photos, videos and image backgrounds are never changed)</label></p>
+			<p><label><input type="checkbox" name="mdm_shop" value="1" <?php checked( $shop ); ?>> New design for cart, checkout and order-received pages</label></p>
+			<p><label><input type="checkbox" name="mdm_footer" value="1" <?php checked( $footer ); ?>> Use the new footer on every page</label></p>
+			<p><label><input type="checkbox" name="mdm_menu" value="1" <?php checked( $menu ); ?>> Use the new floating menu on every page</label></p>
+			<p class="description">The new footer and menu go live together with the homepage switch above. Animations and the checkout design work on their own.</p>
+
 			<p>
 				<button type="submit" class="button button-primary button-hero">Save</button>
-				&nbsp; <button type="submit" name="mdm_reset" value="1" class="button">Reset section choices to suggestions</button>
+				&nbsp; <button type="submit" name="mdm_reset" value="1" class="button">Reset section choices for this page</button>
 			</p>
-			<p class="description">Leave "Switch on" unticked and use Preview to check first. Untick and save at any time to go back. Nothing in Elementor is changed or deleted.</p>
+			<p class="description">Use Preview to check first. Untick and save at any time to go back. Nothing in Elementor is changed or deleted.</p>
 			<hr>
 			<p><button type="submit" name="mdm_clear_cache" value="1" class="button">Clear page cache</button></p>
 		</form>
