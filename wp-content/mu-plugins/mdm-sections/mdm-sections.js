@@ -311,7 +311,7 @@
 		if (photo && !reduceMotion) {
 			tickers.push(function () {
 				var p = viewProgress(root);
-				if (p !== null) { photo.style.setProperty('--py', (p * 40).toFixed(1) + 'px'); }
+				if (p !== null) { photo.style.setProperty('--py', (p * 16).toFixed(1) + 'px'); }
 			});
 			requestTick();
 		}
@@ -654,6 +654,30 @@
 	/* Boot                                                                */
 	/* ------------------------------------------------------------------ */
 
+	/* ------------------------------------------------------------------ */
+	/* Pricing quantity selectors                                          */
+	/* ------------------------------------------------------------------ */
+
+	function initPricing(root) {
+		if (!once(root, 'pricing')) { return; }
+		$$('.mdm-plan', root).forEach(function (plan) {
+			var out = plan.querySelector('[data-qty-val]');
+			var total = plan.querySelector('[data-plan-total]');
+			var cta = plan.querySelector('.mdm-plan__cta');
+			var price = parseFloat(plan.getAttribute('data-price')) || 0;
+			var qty = 1;
+			$$('[data-qty]', plan).forEach(function (b) {
+				b.addEventListener('click', function () {
+					qty = clamp(qty + parseInt(b.getAttribute('data-qty'), 10), 1, 99);
+					out.textContent = qty;
+					total.textContent = (price * qty).toFixed(2);
+					var url = cta.getAttribute('data-base');
+					cta.href = url + (url.indexOf('?') === -1 ? '?' : '&') + 'quantity=' + qty;
+				});
+			});
+		});
+	}
+
 	function initAll(scope) {
 		scope = scope || document;
 		$$('[data-mdm-reels]', scope).forEach(initReels);
@@ -663,6 +687,7 @@
 		$$('[data-mdm-faq]', scope).forEach(initFaq);
 		$$('[data-mdm-menu]', scope).forEach(initMenu);
 		$$('[data-mdm-footer]', scope).forEach(initFooter);
+		$$('[data-mdm-pricing]', scope).forEach(initPricing);
 	}
 
 	if (document.readyState === 'loading') {

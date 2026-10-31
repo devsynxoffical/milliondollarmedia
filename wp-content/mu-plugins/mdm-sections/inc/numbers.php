@@ -19,9 +19,10 @@ function mdm_shortcode_numbers( $atts ) {
 			'image'     => '',
 			'video'     => MDM_Sections::upload_url( '2026/07/million_dollar_header_video_v1-1080p.mp4' ),
 			'eyebrow'   => 'By the numbers',
-			'big'       => '13630',
-			'big_after' => '+',
-			'big_text'  => 'Offers converted through funnels we built and scaled.',
+			'big'       => '100',
+			'big_before'=> '$',
+			'big_after' => 'M+',
+			'big_text'  => 'Revenue generated for our clients since 2019.',
 			'features'  => 'Weekly performance reports|You approve every video|First content in 7 days|Unlimited revisions|Hook testing included|Performance-based creative|Dedicated strategist|AI-enhanced editing',
 		),
 		$atts,
@@ -31,7 +32,8 @@ function mdm_shortcode_numbers( $atts ) {
 	$rows = apply_filters(
 		'mdm_numbers_rows',
 		array(
-			array( 'value' => '50', 'before' => '$', 'after' => 'M+', 'color' => 'var(--mdm-red)', 'text' => 'Meta ad spend managed. Every niche, every platform.' ),
+			array( 'value' => '50', 'before' => '$', 'after' => 'M+', 'color' => 'var(--mdm-red)', 'text' => 'Spent on ads. Every niche, every platform.' ),
+			array( 'value' => '13630', 'before' => '', 'after' => '+', 'color' => 'var(--mdm-ink)', 'text' => 'Offers converted through funnels we built.' ),
 			array( 'value' => '6.6', 'before' => '', 'after' => 'X', 'color' => 'var(--mdm-ink)', 'text' => 'Best ROAS: $9,766 into $64,455 in 20 days.' ),
 			array( 'value' => '250', 'before' => '', 'after' => '+', 'color' => 'var(--mdm-red)', 'text' => 'Case studies across lead gen and e-commerce.' ),
 		)
@@ -61,7 +63,7 @@ function mdm_shortcode_numbers( $atts ) {
 
 			<div class="mdm-numbers__card mdm-rise" style="--d:.15s">
 				<span class="mdm-eyebrow mdm-eyebrow--plain"><?php echo esc_html( $atts['eyebrow'] ); ?></span>
-				<p class="mdm-numbers__big"><span class="mdm-count" data-to="<?php echo esc_attr( $atts['big'] ); ?>"><?php echo esc_html( number_format( (float) $atts['big'] ) ); ?></span><em style="color:var(--mdm-red)"><?php echo esc_html( $atts['big_after'] ); ?></em></p>
+				<p class="mdm-numbers__big"><?php echo esc_html( $atts['big_before'] ); ?><span class="mdm-count" data-to="<?php echo esc_attr( $atts['big'] ); ?>"><?php echo esc_html( number_format( (float) $atts['big'] ) ); ?></span><em style="color:var(--mdm-red)"><?php echo esc_html( $atts['big_after'] ); ?></em></p>
 				<p class="mdm-numbers__bigtext"><?php echo esc_html( $atts['big_text'] ); ?></p>
 				<div class="mdm-numbers__rows">
 					<?php foreach ( $rows as $row ) :

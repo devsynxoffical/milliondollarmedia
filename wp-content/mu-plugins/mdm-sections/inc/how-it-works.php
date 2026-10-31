@@ -91,7 +91,7 @@ function mdm_shortcode_how_it_works( $atts ) {
 							<video muted loop playsinline preload="none" data-src="<?php echo esc_url( $atts['video'] ); ?>"></video>
 							<span class="mdm-approve__tag">Ok to live</span>
 						</div>
-						<span class="mdm-approve__chip">Day 7 goes live</span>
+						<span class="mdm-approve__chip">Delivered in 24–48h</span>
 						<span class="mdm-approve__chip mdm-approve__chip--ok">✓ You approve</span>
 					</div>
 					<h3><?php echo esc_html( $atts['s3_title'] ); ?></h3>

@@ -24,7 +24,9 @@ const MDM_HOME_FOOT_OPTION  = 'mdm_new_home_footer';
 /** New sections that can replace an old one or be added at the end. */
 function mdm_new_section_choices() {
 	return array(
-		'reels'   => array( 'New video rows (4 per row, animated)', '[mdm_reels_showcase head="no"]' ),
+		'reels'    => array( 'New video rows (4 per row, animated)', '[mdm_reels_showcase head="no"]' ),
+		'services' => array( 'What we make (services)', '[mdm_services]' ),
+		'pricing'  => array( 'Pricing (Image / Video / GIF plans)', '[mdm_pricing]' ),
 		'impact'  => array( 'The difference we make (stacked case cards)', '[mdm_impact_cards]' ),
 		'how'     => array( 'How it works (4 coloured steps)', '[mdm_how_it_works]' ),
 		'numbers' => array( 'Real growth / By the numbers', '[mdm_numbers]' ),
@@ -116,6 +118,16 @@ function mdm_default_action( $s, $index ) {
 	if ( preg_match( '/^\s*how it works/i', $t ) ) {
 		return 'how';
 	}
+	if ( preg_match( '/^\s*next-gen videos/i', $t ) ) {
+		return 'services';
+	}
+	if ( preg_match( '/special launch pricing/i', $t ) ) {
+		return 'pricing';
+	}
+	// Merged into the new sections (services / numbers / FAQ), so hidden.
+	if ( preg_match( '/^\s*(youtube videos|trusted by titans|since 2019|the latest)\b/i', $t ) ) {
+		return 'remove';
+	}
 	if ( preg_match( '/^\s*(faq|frequently asked)/i', $t ) ) {
 		return 'faq';
 	}
@@ -127,9 +139,15 @@ function mdm_section_map( $outline = null ) {
 	$outline = null === $outline ? mdm_front_page_outline() : $outline;
 	$saved   = get_option( MDM_HOME_MAP_OPTION, array() );
 	$saved   = is_array( $saved ) ? $saved : array();
+	// Choices saved before v2 did not know the services / pricing / remove suggestions: apply those.
+	$upgrade = (int) get_option( MDM_HOME_MAP_OPTION . '_v', 1 ) < 2;
 	$map     = array();
 	foreach ( $outline as $k => $s ) {
-		$map[ $s['id'] ] = isset( $saved[ $s['id'] ] ) ? $saved[ $s['id'] ] : mdm_default_action( $s, $k );
+		$suggest         = mdm_default_action( $s, $k );
+		$map[ $s['id'] ] = isset( $saved[ $s['id'] ] ) ? $saved[ $s['id'] ] : $suggest;
+		if ( $upgrade && 'keep' === $map[ $s['id'] ] && in_array( $suggest, array( 'services', 'pricing', 'remove' ), true ) ) {
+			$map[ $s['id'] ] = $suggest;
+		}
 	}
 	return $map;
 }
@@ -325,6 +343,7 @@ add_action(
 		} elseif ( isset( $_POST['mdm_reset'] ) ) {
 			delete_option( MDM_HOME_MAP_OPTION );
 			delete_option( MDM_HOME_EXTRA_OPTION );
+			delete_option( MDM_HOME_MAP_OPTION . '_v' );
 			$msg = 'reset';
 		} else {
 			$allowed = array_merge( array( 'keep', 'remove' ), array_keys( mdm_new_section_choices() ) );
@@ -348,6 +367,7 @@ add_action(
 				}
 			}
 			update_option( MDM_HOME_MAP_OPTION, $map );
+			update_option( MDM_HOME_MAP_OPTION . '_v', 2 );
 			update_option( MDM_HOME_EXTRA_OPTION, $extras );
 			update_option( MDM_HOME_OPTION, ! empty( $_POST['mdm_use_new'] ) ? 1 : 0 );
 			update_option( MDM_HOME_MENU_OPTION, ! empty( $_POST['mdm_menu'] ) ? 1 : 0 );
@@ -437,7 +457,7 @@ function mdm_render_homepage_settings() {
 			<?php endif; ?>
 
 			<h2>2. Add new sections at the end (before the footer)</h2>
-			<?php foreach ( array( 'numbers', 'about', 'cases', 'faq', 'impact', 'how', 'reels' ) as $key ) : ?>
+			<?php foreach ( array( 'numbers', 'about', 'cases', 'faq', 'services', 'pricing', 'impact', 'how', 'reels' ) as $key ) : ?>
 				<label style="display:block;margin:4px 0"><input type="checkbox" name="mdm_extra[]" value="<?php echo esc_attr( $key ); ?>" <?php checked( in_array( $key, $extras, true ) ); ?>> <?php echo esc_html( $choices[ $key ][0] ); ?></label>
 			<?php endforeach; ?>
 			<p class="description">A section already chosen as a replacement above is not added twice.</p>
