@@ -49,7 +49,9 @@ function mdm_shortcode_about( $atts ) {
 	<section class="mdm-about" data-mdm-reveal>
 		<?php if ( $atts['image'] ) : ?>
 			<div class="mdm-about__photo">
-				<img src="<?php echo esc_url( $atts['image'] ); ?>" alt="<?php echo esc_attr( $atts['title'] ); ?>" loading="lazy" style="object-position:50% <?php echo esc_attr( $atts['face_y'] ); ?>">
+				<?php // A background image, not <img>: lazy-load plugins and theme image rules can't hide it. ?>
+				<div class="mdm-about__img skip-lazy no-lazyload" data-no-lazy="1" role="img" aria-label="<?php echo esc_attr( $atts['title'] ); ?>"
+					style="background-image:url('<?php echo esc_url( $atts['image'] ); ?>');background-position:50% <?php echo esc_attr( $atts['face_y'] ); ?>"></div>
 				<span class="mdm-about__dots" aria-hidden="true"></span>
 			</div>
 		<?php endif; ?>

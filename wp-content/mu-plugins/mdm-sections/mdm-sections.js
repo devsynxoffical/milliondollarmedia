@@ -346,7 +346,7 @@
 		});
 
 		// About: slow parallax on the banner photo.
-		var photo = root.querySelector('.mdm-about__photo img');
+		var photo = root.querySelector('.mdm-about__img, .mdm-about__photo img');
 		if (photo && !reduceMotion) {
 			tickers.push(function () {
 				var p = viewProgress(root);

@@ -576,6 +576,7 @@ html .mdm-about__top { display: flex; justify-content: space-between; align-item
 html .mdm-about__btn { flex: 0 0 auto; }
 /* Wide photo banner, focused on the face */
 html .mdm-about__photo { position: relative; height: clamp(240px, 30vw, 440px); overflow: hidden; background: radial-gradient(70% 90% at 50% 100%, rgba(237,28,36,.45), transparent 70%), #0b0b0f; }
+html .mdm-about__img { position: absolute; left: 0; right: 0; top: -6%; height: 112%; background-repeat: no-repeat; background-size: cover; filter: contrast(1.08) saturate(1.1); transform: translateY(var(--py, 0px)); z-index: 0; }
 html .mdm-about__photo img { position: absolute; left: 0; top: -6%; width: 100%; height: 112%; object-fit: cover; filter: contrast(1.08) saturate(1.1); transform: translateY(var(--py, 0px)); }
 html .mdm-about__photo::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(to bottom, transparent 55%, #050508 100%); }
 html .mdm-about__dots { position: absolute; inset: 0; z-index: 1; pointer-events: none; background-image: radial-gradient(rgba(0,0,0,.5) 1px, transparent 1.6px); background-size: 4px 4px; opacity: .35; }
