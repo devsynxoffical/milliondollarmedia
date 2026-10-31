@@ -83,11 +83,30 @@ function wp_configure_database_from_env() {
  * DB_HOST and, ideally, the AUTH_KEY ... NONCE_SALT keys.
  * The file is ignored by Git, so deploying never overwrites it.
  */
+$wp_server_table_prefix = null;
 foreach ( array( dirname( __DIR__ ) . '/wp-config-server.php', __DIR__ . '/wp-config-server.php' ) as $wp_server_config ) {
-	if ( @is_readable( $wp_server_config ) ) { // @: some hosts restrict paths outside public_html
-		require_once $wp_server_config;
-		break;
+	if ( ! @is_readable( $wp_server_config ) ) { // @: some hosts restrict paths outside public_html
+		continue;
 	}
+	$wp_server_src = (string) file_get_contents( $wp_server_config );
+	if ( false === strpos( $wp_server_src, 'wp-settings.php' ) ) {
+		// A small file with just the define()s: load it directly.
+		require_once $wp_server_config;
+	} else {
+		// A full copy of the host's old wp-config.php: read only the values we need.
+		$wp_server_keys = array( 'DB_NAME', 'DB_USER', 'DB_PASSWORD', 'DB_HOST', 'DB_CHARSET', 'DB_COLLATE', 'AUTH_KEY', 'SECURE_AUTH_KEY', 'LOGGED_IN_KEY', 'NONCE_KEY', 'AUTH_SALT', 'SECURE_AUTH_SALT', 'LOGGED_IN_SALT', 'NONCE_SALT', 'WP_CACHE_KEY_SALT' );
+		foreach ( $wp_server_keys as $wp_k ) {
+			if ( ! defined( $wp_k ) && preg_match( '/define\s*\(\s*[\'"]' . $wp_k . '[\'"]\s*,\s*(\'((?:[^\'\\\\]|\\\\.)*)\'|"((?:[^"\\\\]|\\\\.)*)")\s*\)/', $wp_server_src, $wp_m ) ) {
+				define( $wp_k, isset( $wp_m[3] ) && '' !== $wp_m[3] ? stripcslashes( $wp_m[3] ) : stripslashes( $wp_m[2] ) );
+			}
+		}
+		if ( preg_match( '/\$table_prefix\s*=\s*[\'"]([A-Za-z0-9_]+)[\'"]/', $wp_server_src, $wp_m ) ) {
+			$wp_server_table_prefix = $wp_m[1];
+		}
+		unset( $wp_server_keys, $wp_k, $wp_m );
+	}
+	unset( $wp_server_src );
+	break;
 }
 unset( $wp_server_config );
 
@@ -97,10 +116,10 @@ if ( ! defined( 'DB_NAME' ) ) {
 }
 
 /** Database charset to use in creating database tables. */
-define( 'DB_CHARSET', 'utf8' );
+defined( 'DB_CHARSET' ) || define( 'DB_CHARSET', 'utf8' );
 
 /** The database collate type. Don't change this if in doubt. */
-define( 'DB_COLLATE', '' );
+defined( 'DB_COLLATE' ) || define( 'DB_COLLATE', '' );
 
 /**#@+
  * Authentication unique keys and salts.
@@ -129,7 +148,7 @@ unset( $wp_salt_key );
  * You can have multiple installations in one database if you give each
  * a unique prefix. Only numbers, letters, and underscores please!
  */
-$table_prefix = 'dbj_';
+$table_prefix = $wp_server_table_prefix ? $wp_server_table_prefix : 'dbj_';
 
 
 /* Add any custom values between this line and the "stop editing" line. */
