@@ -1,5 +1,12 @@
 # MDM homepage sections
 
+**Easiest:** WordPress admin → Settings → New Homepage. Your header, hero and the next
+section stay exactly as they are; pick the section to start replacing from (the video
+section is pre-selected), tick "Switch the new sections on", Save.
+Nothing in Elementor is changed; untick to go back.
+
+Manual alternative:
+
 Loaded automatically by `wp-content/mu-plugins/mdm-sections.php`. You don't need to activate anything.
 In Elementor, add a **Shortcode** widget and paste one of these:
 

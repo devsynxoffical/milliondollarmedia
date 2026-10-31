@@ -31,6 +31,8 @@ function mdm_shortcode_reels( $atts ) {
 
 	$atts = shortcode_atts(
 		array(
+			'head'            => 'yes',
+			'intro'           => 'Creating winning ads in 2026 is 80% creative and 20% media buying.|But it’s hard to make good ad creative at scale. And the bottleneck is creative, until now…',
 			'eyebrow'         => 'AI Video Production · Done For You',
 			'title_1'         => 'Ads that',
 			'title_2'         => 'stop the',
@@ -69,7 +71,16 @@ function mdm_shortcode_reels( $atts ) {
 	ob_start();
 	echo MDM_Sections::assets(); // phpcs:ignore WordPress.Security.EscapeOutput
 	?>
-	<section class="mdm-reels" data-mdm-reels>
+	<section class="mdm-reels<?php echo 'no' === $atts['head'] ? ' mdm-reels--nohead' : ''; ?>" data-mdm-reels>
+		<?php if ( 'no' === $atts['head'] ) : ?>
+			<?php if ( '' !== trim( $atts['intro'] ) ) : ?>
+				<div class="mdm-reels__intro">
+					<?php foreach ( MDM_Sections::split_list( $atts['intro'] ) as $k => $line ) : ?>
+						<p class="mdm-rise" style="--d:<?php echo esc_attr( 0.1 + $k * 0.12 ); ?>s"><?php echo esc_html( $line ); ?></p>
+					<?php endforeach; ?>
+				</div>
+			<?php endif; ?>
+		<?php else : ?>
 		<div class="mdm-reels__head">
 			<?php if ( $atts['eyebrow'] ) : ?>
 				<span class="mdm-eyebrow mdm-rise" style="--d:.05s"><?php echo esc_html( $atts['eyebrow'] ); ?></span>
@@ -90,6 +101,8 @@ function mdm_shortcode_reels( $atts ) {
 			<?php endif; ?>
 			<div class="mdm-rise" style="--d:.9s"><?php echo MDM_Sections::button( $atts['cta_text'], $atts['cta_url'] ); // phpcs:ignore ?></div>
 		</div>
+
+		<?php endif; ?>
 
 		<div class="mdm-reels__grid">
 			<?php foreach ( $labels as $i => $label ) :
