@@ -61,7 +61,7 @@ function mdm_shortcode_case_studies( $atts ) {
 
 	$groups = apply_filters( 'mdm_case_studies', mdm_default_case_studies() );
 	$uid    = 'mdm-cs-' . wp_rand( 1000, 9999 );
-	$colors = array( 'var(--mdm-purple)', 'var(--mdm-blue)', 'var(--mdm-green)', 'var(--mdm-yellow)', 'var(--mdm-orange)' );
+	$colors = array( 'var(--mdm-red)', 'var(--mdm-ink)' );
 
 	ob_start();
 	echo MDM_Sections::assets(); // phpcs:ignore WordPress.Security.EscapeOutput

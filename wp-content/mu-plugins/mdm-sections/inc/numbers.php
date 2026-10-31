@@ -31,9 +31,9 @@ function mdm_shortcode_numbers( $atts ) {
 	$rows = apply_filters(
 		'mdm_numbers_rows',
 		array(
-			array( 'value' => '50', 'before' => '$', 'after' => 'M+', 'color' => 'var(--mdm-blue)', 'text' => 'Meta ad spend managed. Every niche, every platform.' ),
-			array( 'value' => '6.6', 'before' => '', 'after' => 'X', 'color' => 'var(--mdm-yellow)', 'text' => 'Best ROAS: $9,766 into $64,455 in 20 days.' ),
-			array( 'value' => '250', 'before' => '', 'after' => '+', 'color' => 'var(--mdm-green)', 'text' => 'Case studies across lead gen and e-commerce.' ),
+			array( 'value' => '50', 'before' => '$', 'after' => 'M+', 'color' => 'var(--mdm-red)', 'text' => 'Meta ad spend managed. Every niche, every platform.' ),
+			array( 'value' => '6.6', 'before' => '', 'after' => 'X', 'color' => 'var(--mdm-ink)', 'text' => 'Best ROAS: $9,766 into $64,455 in 20 days.' ),
+			array( 'value' => '250', 'before' => '', 'after' => '+', 'color' => 'var(--mdm-red)', 'text' => 'Case studies across lead gen and e-commerce.' ),
 		)
 	);
 
@@ -61,7 +61,7 @@ function mdm_shortcode_numbers( $atts ) {
 
 			<div class="mdm-numbers__card mdm-rise" style="--d:.15s">
 				<span class="mdm-eyebrow mdm-eyebrow--plain"><?php echo esc_html( $atts['eyebrow'] ); ?></span>
-				<p class="mdm-numbers__big"><span class="mdm-count" data-to="<?php echo esc_attr( $atts['big'] ); ?>"><?php echo esc_html( number_format( (float) $atts['big'] ) ); ?></span><em style="color:var(--mdm-purple)"><?php echo esc_html( $atts['big_after'] ); ?></em></p>
+				<p class="mdm-numbers__big"><span class="mdm-count" data-to="<?php echo esc_attr( $atts['big'] ); ?>"><?php echo esc_html( number_format( (float) $atts['big'] ) ); ?></span><em style="color:var(--mdm-red)"><?php echo esc_html( $atts['big_after'] ); ?></em></p>
 				<p class="mdm-numbers__bigtext"><?php echo esc_html( $atts['big_text'] ); ?></p>
 				<div class="mdm-numbers__rows">
 					<?php foreach ( $rows as $row ) :

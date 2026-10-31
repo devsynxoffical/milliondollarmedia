@@ -5,7 +5,7 @@
  * then link columns, a "Stay in the loop" signup and big social rows that fill on hover.
  *
  * Put it in an Elementor Footer template (Shortcode widget):
- * [mdm_footer accent="#FF5A1F" city="New York" timezone="America/New_York"]
+ * [mdm_footer accent="#ED1C24" city="New York" timezone="America/New_York"]
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -17,7 +17,7 @@ add_shortcode( 'mdm_footer', 'mdm_shortcode_footer' );
 function mdm_shortcode_footer( $atts ) {
 	$atts = shortcode_atts(
 		array(
-			'accent'       => '#FF5A1F',
+			'accent'       => '#ED1C24',
 			'line1'        => 'Million Dollar',
 			'line2'        => 'Media',
 			'tagline_1'    => 'The Ad Creative',

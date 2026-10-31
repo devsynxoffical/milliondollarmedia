@@ -29,7 +29,7 @@ function mdm_default_impact_cards() {
 			'text'   => 'Website leads in just 8 days at $5.31 CPL and a 2.17% CTR',
 			'link'   => $cta,
 			'image'  => MDM_Sections::upload_url( '2026/06/Screenshot-2025-12-31-at-11.19.23-PM.png' ),
-			'color'  => '#FFBA3B',
+			'color'  => '#ED1C24',
 		),
 		array(
 			'brand'  => 'Wellness Brand',
@@ -39,7 +39,7 @@ function mdm_default_impact_cards() {
 			'text'   => 'ROAS: $9,766 turned into $64,455 in 20 days from a brand-new funnel',
 			'link'   => $cta,
 			'image'  => MDM_Sections::upload_url( '2026/06/Screenshot-2025-12-31-at-11.17.05-PM.png' ),
-			'color'  => '#8E6CF0',
+			'color'  => '#FFE1DE',
 		),
 		array(
 			'brand'  => 'HVAC',
@@ -49,7 +49,7 @@ function mdm_default_impact_cards() {
 			'text'   => 'Qualified HVAC leads in just 26 days at $4.68 CPL',
 			'link'   => $cta,
 			'image'  => MDM_Sections::upload_url( '2026/06/Screenshot-2025-12-31-at-11.30.50-PM.png' ),
-			'color'  => '#2FC98F',
+			'color'  => '#111114',
 		),
 		array(
 			'brand'  => 'Athleisure E-Com',
@@ -59,7 +59,7 @@ function mdm_default_impact_cards() {
 			'text'   => 'Revenue from $14,967 in ad spend for a women\'s athleisure brand',
 			'link'   => $cta,
 			'image'  => MDM_Sections::upload_url( '2026/06/Screenshot-2025-12-31-at-11.17.35-PM.png' ),
-			'color'  => '#4F9BFF',
+			'color'  => '#FFF0BF',
 		),
 		array(
 			'brand'  => 'Case Studies',
@@ -68,7 +68,7 @@ function mdm_default_impact_cards() {
 			'suffix' => '+',
 			'text'   => 'Case studies across Roofing, HVAC, Mortgage, Remodeling, E-Com & Coaching',
 			'link'   => $cta,
-			'color'  => '#FF7A30',
+			'color'  => '#ED1C24',
 		),
 	);
 }
@@ -108,17 +108,17 @@ function mdm_shortcode_impact( $atts ) {
 			<div class="mdm-impact__stack">
 				<span class="mdm-sticker" aria-hidden="true">
 					<svg viewBox="0 0 100 100">
-						<path fill="#C9A7FF" d="M50 2l8.6 17.4 18.4-6.4-3.6 19.1 19.1 3.6-12.2 15.3 12.2 15.3-19.1 3.6 3.6 19.1-18.4-6.4L50 98l-8.6-17.4-18.4 6.4 3.6-19.1-19.1-3.6L19.7 49 7.5 33.7l19.1-3.6L23 11l18.4 6.4z"/>
-						<g fill="none" stroke="#3B1F6B" stroke-width="4" stroke-linecap="round">
-							<circle cx="41" cy="44" r="2.5" fill="#3B1F6B" stroke="none"/>
-							<circle cx="59" cy="44" r="2.5" fill="#3B1F6B" stroke="none"/>
+						<path fill="#FFC9C4" d="M50 2l8.6 17.4 18.4-6.4-3.6 19.1 19.1 3.6-12.2 15.3 12.2 15.3-19.1 3.6 3.6 19.1-18.4-6.4L50 98l-8.6-17.4-18.4 6.4 3.6-19.1-19.1-3.6L19.7 49 7.5 33.7l19.1-3.6L23 11l18.4 6.4z"/>
+						<g fill="none" stroke="#7A0A10" stroke-width="4" stroke-linecap="round">
+							<circle cx="41" cy="44" r="2.5" fill="#7A0A10" stroke="none"/>
+							<circle cx="59" cy="44" r="2.5" fill="#7A0A10" stroke="none"/>
 							<path d="M38 56c6 7 18 7 24 0"/>
 						</g>
 					</svg>
 				</span>
 
 				<?php foreach ( $cards as $i => $card ) :
-					$color  = ! empty( $card['color'] ) ? $card['color'] : '#5FB3C9';
+					$color  = ! empty( $card['color'] ) ? $card['color'] : '#ED1C24';
 					$prefix = isset( $card['prefix'] ) ? $card['prefix'] : '';
 					$suffix = isset( $card['suffix'] ) ? $card['suffix'] : '';
 					?>
