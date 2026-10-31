@@ -22,7 +22,7 @@ const MDM_HOME_MENU_OPTION  = 'mdm_new_home_menu';
 const MDM_HOME_FOOT_OPTION  = 'mdm_new_home_footer';
 const MDM_SITE_ANIM_OPTION  = 'mdm_site_animations';
 const MDM_SITE_SHOP_OPTION  = 'mdm_site_shop_design';
-const MDM_SITE_LIGHT_OPTION = 'mdm_site_light_theme';
+const MDM_SITE_LIGHT_OPTION = 'mdm_site_light_theme_v2'; // new name: any earlier saved "on" is ignored, so it starts OFF
 
 /* ------------------------------------------------------------------ */
 /* Which page is being designed, and its saved choices                 */
