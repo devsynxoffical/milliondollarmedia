@@ -21,7 +21,7 @@ function mdm_render_preloader() {
 	}
 
 	$words  = apply_filters( 'mdm_preloader_words', array( 'VSLs', 'Images', 'GIFs', 'Videos', 'UGC', 'AI Videos', 'Short Form' ) );
-	$colors = array( '#8E6CF0', '#4F9BFF', '#2FC98F', '#FFBA3B', '#FF7A30', '#F472B6', '#8E6CF0' );
+	$colors = array( '#ED1C24', '#111114', '#ED1C24', '#111114', '#ED1C24', '#111114', '#ED1C24' );
 	?>
 	<style>
 		.mdm-loader{position:fixed;inset:0;z-index:2147483000;background:#F6F5F2;color:#111114;display:flex;align-items:center;justify-content:center;font-family:'Archivo Black','Arial Black',Impact,sans-serif;overflow:hidden;transition:transform 1s cubic-bezier(.77,0,.18,1),border-radius 1s cubic-bezier(.77,0,.18,1);animation:mdmLoaderFailsafe .01s 6s forwards}
@@ -36,7 +36,7 @@ function mdm_render_preloader() {
 		.mdm-loader__word span{display:inline-block;padding:0 .28em;border-radius:.4em;color:#fff}
 		.mdm-loader__word.is-in{transform:translateY(0)}
 		.mdm-loader__word.is-out{transform:translateY(-110%)}
-		.mdm-loader__bar{position:absolute;left:0;bottom:0;height:5px;width:100%;background:linear-gradient(90deg,#8E6CF0,#4F9BFF,#2FC98F,#FFBA3B,#FF7A30);transform-origin:left;transform:scaleX(0)}
+		.mdm-loader__bar{position:absolute;left:0;bottom:0;height:5px;width:100%;background:#ED1C24;transform-origin:left;transform:scaleX(0)}
 		html.mdm-loading,html.mdm-loading body{overflow:hidden!important}
 		@keyframes mdmLoaderFailsafe{to{transform:translateY(-100%);visibility:hidden}}
 		@media (prefers-reduced-motion:reduce){.mdm-loader{display:none}}
