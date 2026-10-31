@@ -59,9 +59,9 @@ h1{margin:0 0 6px;font-size:24px} .ok{color:#1a7f37} .bad{color:#ED1C24} li{marg
 <?php if ( ! $mdm_new_code ) : ?>
 	<strong>Fix:</strong> Hostinger deployed an older branch. In hPanel → Git, set the branch to <code>claude/awesome-volta-2thvq6</code> (or merge it into main) and click Deploy.
 <?php elseif ( ! $mdm_has_above && ! $mdm_has_in ) : ?>
-	<strong>Fix:</strong> Restore <code>public_html/wp-config.php</code> from a Hostinger backup taken <em>before</em> the deploy (hPanel → Files → Backups), then in File Manager copy it and name the copy <code>wp-config-server.php</code>.
+	<strong>Fix:</strong> Restore <code>public_html/wp-config.php</code> from a Hostinger backup taken <em>before</em> the first Git deploy (hPanel → Files → Backups), then open the website once. The login is saved automatically, so future deploys are safe.
 <?php elseif ( ! $mdm_file_ok ) : ?>
-	<strong>Fix:</strong> <code>wp-config-server.php</code> is a copy of the wrong file (it has no real database name). Restore <code>wp-config.php</code> from a backup taken <em>before</em> the first deploy, copy it again as <code>wp-config-server.php</code> (replace the old one), then deploy.
+	<strong>Fix:</strong> Restore <code>public_html/wp-config.php</code> from a Hostinger backup taken <em>before</em> the first Git deploy (hPanel → Files → Backups), then open the website once. The correct login is then saved into <code>wp-config-server.php</code> automatically (no copying needed), and future deploys are safe.
 <?php elseif ( $mdm_fallback ) : ?>
 	<strong>Fix:</strong> The file is there but was not loaded yet. Click Deploy again in hPanel → Git (branch <code>claude/awesome-volta-2thvq6</code>) and reload this page.
 <?php else : ?>
