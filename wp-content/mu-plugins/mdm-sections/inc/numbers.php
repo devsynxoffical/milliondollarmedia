@@ -23,7 +23,7 @@ function mdm_shortcode_numbers( $atts ) {
 			'big_before'=> '$',
 			'big_after' => 'M+',
 			'big_text'  => 'Revenue generated for our clients.',
-			'features'  => 'Weekly performance reports|You approve every video|First content in 7 days|Unlimited revisions|Hook testing included|Performance-based creative|Dedicated strategist|AI-enhanced editing',
+			'features'  => 'Weekly performance reports|You approve every video|Delivered in 24–48 hours|Revisions included|Hook testing included|Performance-based creative|Dedicated strategist|AI-enhanced editing',
 		),
 		$atts,
 		'mdm_numbers'

@@ -68,7 +68,7 @@ add_action(
 			<?php
 		}
 	},
-	5
+	100 // after the theme's and Elementor's styles, so their text spacing can't leak into the new sections
 );
 
 add_filter(
