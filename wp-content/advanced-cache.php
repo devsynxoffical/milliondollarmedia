@@ -24,8 +24,14 @@ foreach ( $exclude as $path ) {
 	}
 }
 
-if ( ! empty( $_COOKIE['wordpress_logged_in_'] ) || ! empty( $_COOKIE['woocommerce_items_in_cart'] ) ) {
+// Never serve cached pages to logged-in users (cookie is "wordpress_logged_in_<hash>") or shoppers.
+if ( ! empty( $_COOKIE['woocommerce_items_in_cart'] ) ) {
 	return;
+}
+foreach ( array_keys( $_COOKIE ) as $cookie_name ) {
+	if ( 0 === strpos( $cookie_name, 'wordpress_logged_in_' ) || 0 === strpos( $cookie_name, 'wp-postpass_' ) ) {
+		return;
+	}
 }
 
 $cache_dir = WP_CONTENT_DIR . '/cache/page-cache';

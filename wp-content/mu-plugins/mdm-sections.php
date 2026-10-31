@@ -23,7 +23,7 @@ final class MDM_Sections {
 
 	public static function init() {
 		$dir = __DIR__ . '/mdm-sections/inc/';
-		foreach ( array( 'reels', 'impact', 'how-it-works', 'numbers', 'about', 'case-studies', 'faq', 'menu', 'footer', 'preloader' ) as $part ) {
+		foreach ( array( 'reels', 'impact', 'how-it-works', 'numbers', 'about', 'case-studies', 'faq', 'menu', 'footer', 'preloader', 'homepage' ) as $part ) {
 			if ( file_exists( $dir . $part . '.php' ) ) {
 				require_once $dir . $part . '.php';
 			}
