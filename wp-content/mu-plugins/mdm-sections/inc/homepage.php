@@ -471,7 +471,7 @@ add_action(
 		<style id="mdm-new-home">
 			/* sticky sections need ancestors without overflow:hidden */
 			body.mdm-new-home #page, body.mdm-new-home .site, body.mdm-new-home .site-content,
-			body.mdm-new-home .ast-container, body.mdm-new-home #primary, body.mdm-new-home .elementor { overflow: visible !important; }
+			body.mdm-new-home .ast-container, body.mdm-new-home #primary { overflow: visible !important; }
 			body.mdm-new-home { overflow-x: clip; }
 			.mdm-newhome { width: 100%; max-width: none; }
 		</style>
@@ -608,7 +608,7 @@ function mdm_render_homepage_settings() {
 	$footer  = (bool) get_option( MDM_HOME_FOOT_OPTION, 1 );
 	$anim    = (bool) get_option( MDM_SITE_ANIM_OPTION, 1 );
 	$shop    = (bool) get_option( MDM_SITE_SHOP_OPTION, 1 );
-	$light   = (bool) get_option( MDM_SITE_LIGHT_OPTION, 1 );
+	$light   = (bool) get_option( MDM_SITE_LIGHT_OPTION, 0 );
 	$outline = mdm_front_page_outline( $pid );
 	$map     = mdm_section_map( $outline, $pid );
 	$choices = mdm_new_section_choices();
@@ -709,7 +709,7 @@ function mdm_render_homepage_settings() {
 
 			<h2>4. Whole website</h2>
 			<p><label><input type="checkbox" name="mdm_anim" value="1" <?php checked( $anim ); ?>> Smooth animations on every page (sections fade in while scrolling, page transitions, scroll progress line, button &amp; image hover effects)</label></p>
-			<p><label><input type="checkbox" name="mdm_light" value="1" <?php checked( $light ); ?>> Light theme on every page (dark Elementor backgrounds become white, white text becomes dark; photos, videos and image backgrounds are never changed)</label></p>
+			<p><label><input type="checkbox" name="mdm_light" value="1" <?php checked( $light ); ?>> Light theme converter for your existing Elementor sections (not recommended: it repaints your original dark sections; photos and videos are never changed)</label></p>
 			<p><label><input type="checkbox" name="mdm_shop" value="1" <?php checked( $shop ); ?>> New design for cart, checkout and order-received pages</label></p>
 			<p><label><input type="checkbox" name="mdm_footer" value="1" <?php checked( $footer ); ?>> Use the new footer on every page</label></p>
 			<p><label><input type="checkbox" name="mdm_menu" value="1" <?php checked( $menu ); ?>> Use the new floating menu on every page</label></p>

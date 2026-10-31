@@ -48,6 +48,7 @@ function mdm_shortcode_reels( $atts ) {
 			'platforms_title' => 'Your audience is everywhere. So are your ads.',
 			'more_url'        => '',
 			'more_text'       => 'Watch more',
+			'rows'            => 2,
 		),
 		$atts,
 		'mdm_reels_showcase'
@@ -79,6 +80,8 @@ function mdm_shortcode_reels( $atts ) {
 		}
 	}
 	$more_url = is_array( $source ) && ! empty( $source['more'] ) ? $source['more'] : $atts['more_url'];
+	// Two rows at first; the rest opens with "Show all videos" so the section stays compact.
+	$visible = max( 4, (int) $atts['rows'] * 4 );
 	$formats = MDM_Sections::split_list( $atts['formats'] );
 
 	$platforms = array(
@@ -134,7 +137,7 @@ function mdm_shortcode_reels( $atts ) {
 				$poster = $card['poster'];
 				$link   = $card['link'];
 				?>
-				<div class="mdm-reel" style="--i:<?php echo (int) $i; ?>;--col:<?php echo (int) ( $i % 4 ); ?>">
+				<div class="mdm-reel<?php echo $i >= $visible ? ' is-extra' : ''; ?>" style="--i:<?php echo (int) $i; ?>;--col:<?php echo (int) ( $i % 4 ); ?>">
 					<div class="mdm-reel__flip">
 						<div class="mdm-reel__face mdm-reel__front">
 							<?php if ( 'file' === $card['type'] ) : ?>
@@ -167,6 +170,9 @@ function mdm_shortcode_reels( $atts ) {
 			<?php endforeach; ?>
 		</div>
 
+		<?php if ( count( $cards ) > $visible ) : ?>
+			<div class="mdm-reels__more"><button type="button" class="mdm-btn mdm-btn--ghost" data-mdm-reels-more><span class="mdm-btn__icon"><?php echo MDM_Sections::arrow_icon(); // phpcs:ignore ?></span><span><?php echo esc_html( sprintf( 'Show all %d videos', count( $cards ) ) ); ?></span></button></div>
+		<?php endif; ?>
 		<?php if ( $more_url ) : ?>
 			<div class="mdm-reels__more mdm-rise"><?php echo MDM_Sections::button( $atts['more_text'], $more_url ); // phpcs:ignore ?></div>
 		<?php endif; ?>

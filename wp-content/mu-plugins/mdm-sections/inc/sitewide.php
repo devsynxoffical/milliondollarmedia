@@ -24,7 +24,7 @@ function mdm_site_menu_on() {
 }
 
 function mdm_site_light_on() {
-	return (bool) get_option( MDM_SITE_LIGHT_OPTION, 1 ) && mdm_site_design_active();
+	return (bool) get_option( MDM_SITE_LIGHT_OPTION, 0 ) && mdm_site_design_active();
 }
 
 function mdm_is_shop_page() {
