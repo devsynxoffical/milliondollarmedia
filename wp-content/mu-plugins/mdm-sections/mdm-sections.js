@@ -193,17 +193,36 @@
 			});
 		});
 
-		// Scroll: staggered columns drift in opposite directions.
-		var grid = root.querySelector('.mdm-reels__grid');
+		// Scroll: every row of cards is gathered into a stack while it sits low
+		// on the screen and fans out as it reaches the middle; on the way out
+		// the fan opens a little further and the cards drift apart.
+		var smooth = cards.map(function () { return 1; });
 		tickers.push(function () {
-			var p = viewProgress(grid);
-			if (p === null) { return; }
-			var amp = mobileMQ.matches ? 18 : 46;
-			cards.forEach(function (c, i) {
-				var col = mobileMQ.matches ? i % 2 : i % 4;
-				var dir = (col % 2) ? -1 : 1;
-				c.style.setProperty('--sy', (dir * p * amp).toFixed(1) + 'px');
-			});
+			var perRow = mobileMQ.matches ? 2 : 4;
+			var vh = window.innerHeight;
+			var moving = false;
+			for (var r = 0; r * perRow < cards.length; r++) {
+				var first = cards[r * perRow];
+				var rect = first.getBoundingClientRect();
+				var mid = rect.top + rect.height / 2;
+				if (rect.bottom < -200 || rect.top > vh + 200) { continue; }
+				// 0 when the row centre is at 85% of the viewport, 1 at 50%
+				var open = easeInOut(clamp((vh * .85 - mid) / (vh * .35), 0, 1));
+				var leave = clamp((vh * .5 - mid) / (vh * .5), 0, 1);
+				for (var k = 0; k < perRow; k++) {
+					var idx = r * perRow + k;
+					var c = cards[idx];
+					if (!c) { break; }
+					var target = 1 - open;
+					smooth[idx] += (target - smooth[idx]) * .18;
+					if (Math.abs(target - smooth[idx]) > .002) { moving = true; } else { smooth[idx] = target; }
+					var dir = k % 2 ? -1 : 1;
+					c.style.setProperty('--g', smooth[idx].toFixed(3));
+					c.style.setProperty('--sy', (dir * leave * 34).toFixed(1) + 'px');
+					c.style.setProperty('--sr', ((k - (perRow - 1) / 2) * leave * 2.4).toFixed(2) + 'deg');
+				}
+			}
+			if (moving) { requestTick(); }
 		});
 		requestTick();
 	}

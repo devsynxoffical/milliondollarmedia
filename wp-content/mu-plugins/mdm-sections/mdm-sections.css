@@ -149,39 +149,50 @@
 .mdm-reels__formats { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 22px; }
 
 .mdm-reels__grid {
-	--off: clamp(40px, 7vw, 110px);
 	display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
-	column-gap: clamp(16px, 3vw, 48px); row-gap: clamp(36px, 4vw, 56px);
-	max-width: 1320px; margin: clamp(48px, 7vw, 90px) auto 0; padding: 0 24px var(--off);
-	perspective: 1600px;
+	column-gap: clamp(8px, 1.6vw, 26px); row-gap: clamp(50px, 6vw, 96px);
+	max-width: 1280px; margin: clamp(48px, 7vw, 90px) auto 0; padding: 30px clamp(20px, 4vw, 60px) 60px;
+	perspective: 1800px;
 }
 
+/* Each row of 4 is a fanned hand of cards, like the reference hero:
+   tilted, slightly overlapping, uneven heights. While a row is below the
+   middle of the screen the cards are gathered into a stack (--g = 1);
+   scrolling it up fans them out (--g = 0). */
 .mdm-reel {
-	--sy: 0px; --tx: 0deg; --ty: 0deg; --stag: 0px;
+	--rot: 0deg; --fx: 0%; --fy: 0px;       /* fan pose per column            */
+	--g: 1;                                  /* gather amount, set by JS        */
+	--sy: 0px; --sr: 0deg;                   /* scroll drift, set by JS         */
+	--tx: 0deg; --ty: 0deg;                  /* cursor tilt, set by JS          */
+	--cx: calc((1.5 - var(--col)) * 100%);   /* distance to the row centre      */
 	position: relative; min-width: 0;
-	transform: translateY(calc(var(--stag) + var(--sy)));
+	z-index: var(--z, 1);
+	transform:
+		translate3d(calc(var(--fx) + var(--cx) * var(--g) * .82), calc(var(--fy) * (1 - var(--g)) + var(--sy) + var(--g) * 40px), 0)
+		rotate(calc(var(--rot) * (1 + var(--g) * .9) + var(--sr)));
 	will-change: transform;
 }
-/* staggered columns like the original layout: 1st & 3rd column sit lower */
-.mdm-reel:nth-child(4n+1), .mdm-reel:nth-child(4n+3) { --stag: var(--off); }
-
-.mdm-reel__top { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 14px; font-size: clamp(15px, 1.4vw, 21px); font-weight: 500; letter-spacing: .01em; color: var(--mdm-ink); opacity: 0; transform: translateY(14px); transition: opacity .7s var(--mdm-ease), transform .7s var(--mdm-ease); transition-delay: calc(var(--col) * 110ms + .1s); }
-.mdm-reel__top a { color: inherit !important; }
-.mdm-reel__arrow { width: 22px; height: 22px; flex: 0 0 auto; transition: transform .4s var(--mdm-ease); }
-.mdm-reel:hover .mdm-reel__arrow { transform: translateX(5px); }
-.mdm-reel.is-in .mdm-reel__top { opacity: 1; transform: none; }
+.mdm-reel:nth-child(4n+1) { --rot: -7deg; --fx: 7%;  --fy: 34px; --z: 2; }
+.mdm-reel:nth-child(4n+2) { --rot: -4deg; --fx: 3%;  --fy: 0px;  --z: 3; }
+.mdm-reel:nth-child(4n+3) { --rot: 6deg;  --fx: -3%; --fy: -14px; --z: 4; }
+.mdm-reel:nth-child(4n+4) { --rot: 4deg;  --fx: -7%; --fy: 26px; --z: 1; }
+.mdm-reel:hover { z-index: 20; }
 
 .mdm-reel__flip {
-	position: relative; width: 100%; aspect-ratio: 9 / 16;
+	position: relative; width: 100%; aspect-ratio: 9 / 15.5;
 	transform-style: preserve-3d;
-	transform: translateY(60px) rotateY(180deg) scale(.9);
+	transform: translateY(80px) rotateY(180deg) scale(.86);
 	opacity: 0;
-	transition: transform 1.2s var(--mdm-ease), opacity .45s ease;
+	transition: transform 1.3s var(--mdm-ease), opacity .45s ease;
 	transition-delay: calc(var(--col) * 110ms);
 }
 .mdm-reel.is-in .mdm-reel__flip { transform: rotateX(var(--tx)) rotateY(var(--ty)); opacity: 1; }
-.mdm-reel.is-settled .mdm-reel__flip { transition: transform .5s var(--mdm-ease), opacity .45s ease; transition-delay: 0s; }
-.mdm-reel.is-settled:hover .mdm-reel__flip { transform: rotateX(var(--tx)) rotateY(var(--ty)) scale(1.035); }
+.mdm-reel.is-settled .mdm-reel__flip { transition: transform .6s var(--mdm-ease), opacity .45s ease; transition-delay: 0s; }
+/* hover: straighten the card, lift it and let it follow the cursor */
+.mdm-reel.is-settled:hover .mdm-reel__flip {
+	transform: translateY(-14px) rotate(calc(-1 * (var(--rot) * (1 + var(--g) * .9) + var(--sr)))) rotateX(var(--tx)) rotateY(var(--ty)) scale(1.07);
+}
+.mdm-reel.is-settled:hover .mdm-reel__face { box-shadow: 0 40px 70px -25px rgba(20,20,40,.55), 0 10px 22px -10px rgba(20,20,40,.25); }
 
 .mdm-reel__face {
 	position: absolute; inset: 0;
@@ -205,6 +216,7 @@
 	color: #fff; font-weight: 600; font-size: 14px; line-height: 1.2;
 	text-shadow: 0 1px 6px rgba(0,0,0,.4);
 }
+a.mdm-reel__label { color: #fff !important; }
 .mdm-reel__avatar { flex: 0 0 auto; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-size: 12px; font-weight: 700; background: #fff; color: var(--mdm-ink); text-shadow: none; }
 .mdm-reel__name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .mdm-verified { flex: 0 0 auto; width: 16px; height: 16px; }
@@ -224,17 +236,16 @@
 .mdm-reels__platforms p { font-size: 15px; color: var(--mdm-muted); margin-bottom: 18px !important; }
 
 @media (max-width: 767px) {
-	.mdm-reels__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 12px; row-gap: 26px; padding: 0 16px 44px; --off: 44px; }
-	.mdm-reel:nth-child(4n+1), .mdm-reel:nth-child(4n+3) { --stag: 0px; }
-	.mdm-reel:nth-child(2n) { --stag: var(--off); }
-	.mdm-reel__top { font-size: 14px; margin-bottom: 8px; }
-	.mdm-reel__arrow { width: 16px; height: 16px; }
+	.mdm-reels__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 10px; row-gap: 40px; padding: 20px 18px 40px; }
+	.mdm-reel { --cx: calc((.5 - var(--c2)) * 100%); }
+	.mdm-reel:nth-child(odd)  { --c2: 0; --rot: -5deg; --fx: 4%;  --fy: 18px; --z: 2; }
+	.mdm-reel:nth-child(even) { --c2: 1; --rot: 4deg;  --fx: -4%; --fy: 0px;  --z: 3; }
 	.mdm-reel__label { left: 8px; bottom: 10px; right: 44px; font-size: 12px; gap: 6px; }
 	.mdm-reel__avatar { width: 22px; height: 22px; font-size: 10px; }
 	.mdm-verified { width: 13px; height: 13px; }
 	.mdm-reel__play { right: 8px; bottom: 8px; width: 28px; height: 28px; }
 	.mdm-reel__mute { top: 8px; padding: 6px 10px !important; font-size: 11px !important; border-radius: 8px !important; }
-	.mdm-reel__flip { transition-delay: calc(var(--col) * 60ms); }
+	.mdm-reel__flip { transition-delay: calc(var(--c2, 0) * 90ms); }
 }
 
 /* ==========================================================================
@@ -876,6 +887,7 @@ html.mdm-menu-open, html.mdm-menu-open body { overflow: hidden !important; }
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
 	:is(.mdm-reels, .mdm-impact, .mdm-how, .mdm-numbers, .mdm-about, .mdm-cases, .mdm-faq, .mdm-nav, .mdm-footer) :is(*, *::before, *::after) { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; transition-delay: 0s !important; }
-	.mdm-word__in, .mdm-rise, .mdm-step, .mdm-check, .mdm-cs, .mdm-ft__in, .mdm-ft__tag, .mdm-reel__top { transform: none !important; opacity: 1 !important; filter: none !important; }
+	.mdm-word__in, .mdm-rise, .mdm-step, .mdm-check, .mdm-cs, .mdm-ft__in, .mdm-ft__tag { transform: none !important; opacity: 1 !important; filter: none !important; }
 	.mdm-reel__flip { transform: none !important; opacity: 1 !important; }
+	.mdm-reel { --g: 0 !important; }
 }

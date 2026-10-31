@@ -98,14 +98,6 @@ function mdm_shortcode_reels( $atts ) {
 				$link   = isset( $links[ $i ] ) ? $links[ $i ] : '';
 				?>
 				<div class="mdm-reel" style="--i:<?php echo (int) $i; ?>;--col:<?php echo (int) ( $i % 4 ); ?>">
-					<div class="mdm-reel__top">
-						<?php if ( $link ) : ?>
-							<a href="<?php echo esc_url( $link ); ?>"><?php echo esc_html( $label ); ?></a>
-						<?php else : ?>
-							<span><?php echo esc_html( $label ); ?></span>
-						<?php endif; ?>
-						<?php echo MDM_Sections::arrow_icon( 'mdm-reel__arrow' ); // phpcs:ignore ?>
-					</div>
 					<div class="mdm-reel__flip">
 						<div class="mdm-reel__face mdm-reel__front">
 							<video class="mdm-reel__video" muted loop playsinline preload="none"
@@ -113,11 +105,11 @@ function mdm_shortcode_reels( $atts ) {
 								<?php echo $poster ? 'poster="' . esc_url( $poster ) . '"' : ''; ?>></video>
 							<span class="mdm-reel__shade" aria-hidden="true"></span>
 							<button type="button" class="mdm-reel__mute" aria-label="Unmute video">Unmute</button>
-							<span class="mdm-reel__label">
+							<<?php echo $link ? 'a href="' . esc_url( $link ) . '"' : 'span'; ?> class="mdm-reel__label">
 								<span class="mdm-reel__avatar"><?php echo esc_html( mb_substr( $label, 0, 1 ) ); ?></span>
 								<span class="mdm-reel__name"><?php echo esc_html( $label ); ?></span>
 								<?php echo MDM_Sections::verified_icon(); // phpcs:ignore ?>
-							</span>
+							</<?php echo $link ? 'a' : 'span'; ?>>
 							<button type="button" class="mdm-reel__play" aria-label="Pause video">
 								<svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" fill="currentColor"/></svg>
 								<svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z" fill="currentColor"/></svg>
