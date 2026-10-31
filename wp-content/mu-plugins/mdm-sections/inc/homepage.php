@@ -1,38 +1,36 @@
 <?php
 /**
- * New homepage: KEEP the top of the existing Elementor homepage (header, hero,
- * next section) and replace everything from the video section downwards with
- * the MDM sections.
+ * New homepage sections, section by section.
  *
- * WordPress admin -> Settings -> New Homepage:
- *   - Lists the homepage's own Elementor sections; pick the one to start replacing from
- *     (pre-selected: the video section with Roofing / Recruitment / HVAC).
- *   - "Switch on" checkbox, preview link (/?mdm_new_home=1), "Clear page cache".
- * Nothing in Elementor is edited or deleted; untick the box to get the old page back.
+ * WordPress admin -> Settings -> New Homepage lists the homepage's own Elementor
+ * sections. For each one choose: Keep / Replace with a new section / Remove.
+ * Defaults: the video grid -> new video rows, "Powered by $50M" -> new case cards,
+ * "How it Works" -> new How it works. Everything else is kept.
+ * New-only sections (numbers, about, case studies, FAQ) are added at the end,
+ * followed by the new footer.
+ * Nothing in Elementor is edited or deleted; untick "Switch on" to go back.
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-const MDM_HOME_OPTION      = 'mdm_use_new_homepage';
-const MDM_HOME_CUT_OPTION  = 'mdm_new_home_cut_id';
-const MDM_HOME_MENU_OPTION = 'mdm_new_home_menu';
-const MDM_HOME_FOOT_OPTION = 'mdm_new_home_footer';
+const MDM_HOME_OPTION       = 'mdm_use_new_homepage';
+const MDM_HOME_MAP_OPTION   = 'mdm_new_home_map';
+const MDM_HOME_EXTRA_OPTION = 'mdm_new_home_extras';
+const MDM_HOME_MENU_OPTION  = 'mdm_new_home_menu';
+const MDM_HOME_FOOT_OPTION  = 'mdm_new_home_footer';
 
-/** Sections added below the kept part, in order. Filter: mdm_homepage_sections. */
-function mdm_homepage_sections() {
-	return apply_filters(
-		'mdm_homepage_sections',
-		array(
-			'[mdm_reels_showcase head="no"]',
-			'[mdm_impact_cards]',
-			'[mdm_how_it_works]',
-			'[mdm_numbers]',
-			'[mdm_about]',
-			'[mdm_case_studies]',
-			'[mdm_faq]',
-		)
+/** New sections that can replace an old one or be added at the end. */
+function mdm_new_section_choices() {
+	return array(
+		'reels'   => array( 'New video rows (4 per row, animated)', '[mdm_reels_showcase head="no"]' ),
+		'impact'  => array( 'The difference we make (stacked case cards)', '[mdm_impact_cards]' ),
+		'how'     => array( 'How it works (4 coloured steps)', '[mdm_how_it_works]' ),
+		'numbers' => array( 'Real growth / By the numbers', '[mdm_numbers]' ),
+		'about'   => array( 'About Million Dollar Media', '[mdm_about]' ),
+		'cases'   => array( 'Case studies (Lead Gen / E-Commerce)', '[mdm_case_studies]' ),
+		'faq'     => array( 'FAQ chat', '[mdm_faq]' ),
 	);
 }
 
@@ -61,7 +59,6 @@ function mdm_front_page_id() {
 	return (int) get_option( 'page_on_front' );
 }
 
-/** Collect readable text from an Elementor element tree. */
 function mdm_el_text( $el, &$videos ) {
 	$out = '';
 	if ( isset( $el['widgetType'] ) && in_array( $el['widgetType'], array( 'video', 'html' ), true ) ) {
@@ -82,7 +79,6 @@ function mdm_el_text( $el, &$videos ) {
 	return $out;
 }
 
-/** Top-level sections of the homepage: id, label, video count. */
 function mdm_front_page_outline() {
 	$id = mdm_front_page_id();
 	if ( ! $id ) {
@@ -98,40 +94,81 @@ function mdm_front_page_outline() {
 		if ( empty( $el['id'] ) ) {
 			continue;
 		}
-		$videos = 0;
-		$text   = trim( preg_replace( '/\s+/', ' ', html_entity_decode( mdm_el_text( $el, $videos ) ) ) );
-		$outline[] = array(
-			'id'     => (string) $el['id'],
-			'text'   => $text,
-			'videos' => $videos,
-		);
+		$videos    = 0;
+		$text      = trim( preg_replace( '/\s+/', ' ', html_entity_decode( mdm_el_text( $el, $videos ) ) ) );
+		$outline[] = array( 'id' => (string) $el['id'], 'text' => $text, 'videos' => $videos );
 	}
 	return $outline;
 }
 
-/** The section to start replacing from: saved choice, else the detected video section. */
-function mdm_cut_id( $outline = null ) {
-	$saved = (string) get_option( MDM_HOME_CUT_OPTION, '' );
-	if ( '' !== $saved ) {
-		return $saved;
+/** Suggested action for a section, from its content. */
+function mdm_default_action( $s, $index ) {
+	if ( 0 === $index ) {
+		return 'keep';
 	}
+	$t = $s['text'];
+	if ( $s['videos'] >= 3 && preg_match( '/\b(roofing|recruitment|hvac)\b/i', $t ) ) {
+		return 'reels';
+	}
+	if ( preg_match( '/^\s*powered by \$?50m/i', $t ) ) {
+		return 'impact';
+	}
+	if ( preg_match( '/^\s*how it works/i', $t ) ) {
+		return 'how';
+	}
+	if ( preg_match( '/^\s*(faq|frequently asked)/i', $t ) ) {
+		return 'faq';
+	}
+	return 'keep';
+}
+
+/** id => action for every section (saved choice, else the suggestion). */
+function mdm_section_map( $outline = null ) {
 	$outline = null === $outline ? mdm_front_page_outline() : $outline;
+	$saved   = get_option( MDM_HOME_MAP_OPTION, array() );
+	$saved   = is_array( $saved ) ? $saved : array();
+	$map     = array();
 	foreach ( $outline as $k => $s ) {
-		if ( $k > 0 && preg_match( '/\b(roofing|recruitment|hvac|agency owners)\b/i', $s['text'] ) ) {
-			return $s['id'];
-		}
+		$map[ $s['id'] ] = isset( $saved[ $s['id'] ] ) ? $saved[ $s['id'] ] : mdm_default_action( $s, $k );
 	}
-	foreach ( $outline as $k => $s ) {
-		if ( $k > 0 && $s['videos'] >= 3 ) {
-			return $s['id'];
-		}
-	}
-	return '';
+	return $map;
+}
+
+/** New sections added at the end (those not already used as a replacement). */
+function mdm_extra_sections( $map ) {
+	$extras = get_option( MDM_HOME_EXTRA_OPTION, array( 'numbers', 'about', 'cases', 'faq' ) );
+	$extras = is_array( $extras ) ? $extras : array();
+	$used   = array_values( $map );
+	return array_values( array_filter( $extras, static function ( $e ) use ( $used ) { return ! in_array( $e, $used, true ); } ) );
 }
 
 /* ------------------------------------------------------------------ */
-/* Front end: cut the Elementor content and append the new sections   */
+/* Front end                                                           */
 /* ------------------------------------------------------------------ */
+
+/** [start, end) of the element whose opening tag carries data-id="$id". */
+function mdm_element_bounds( $html, $id ) {
+	$pos = strpos( $html, 'data-id="' . $id . '"' );
+	if ( false === $pos ) {
+		return null;
+	}
+	$start = strrpos( substr( $html, 0, $pos ), '<' );
+	if ( false === $start || ! preg_match( '/^<([a-z0-9]+)/i', substr( $html, $start, 20 ), $m ) ) {
+		return null;
+	}
+	$tag   = strtolower( $m[1] );
+	$depth = 0;
+	if ( ! preg_match_all( '/<(\/?)' . $tag . '\b[^>]*>/i', $html, $tags, PREG_OFFSET_CAPTURE, $start ) ) {
+		return null;
+	}
+	foreach ( $tags[0] as $i => $t ) {
+		$depth += ( '/' === $tags[1][ $i ][0] ) ? -1 : 1;
+		if ( 0 === $depth ) {
+			return array( $start, $t[1] + strlen( $t[0] ) );
+		}
+	}
+	return null;
+}
 
 add_filter(
 	'the_content',
@@ -140,44 +177,62 @@ add_filter(
 		if ( $done || ! mdm_new_home_applies() || ! in_the_loop() || ! is_main_query() ) {
 			return $content;
 		}
-		$cut = mdm_cut_id();
-		if ( '' === $cut ) {
+		$outline = mdm_front_page_outline();
+		if ( ! $outline || false === strpos( $content, 'data-id="' . $outline[0]['id'] . '"' ) ) {
 			return $content;
 		}
-		$pos = strpos( $content, 'data-id="' . $cut . '"' );
-		if ( false === $pos ) {
-			return $content;
-		}
-		$start = strrpos( substr( $content, 0, $pos ), '<' );
-		if ( false === $start ) {
-			return $content;
-		}
-		$done = true;
+		$done    = true;
+		$map     = mdm_section_map( $outline );
+		$choices = mdm_new_section_choices();
 
-		$kept = substr( $content, 0, $start );
-		// How many wrapper <div>s are still open at the cut point - close them after our sections.
-		$depth = max( 0, preg_match_all( '/<div[\s>]/i', $kept ) - preg_match_all( '/<\/div>/i', $kept ) );
-
-		// Keep the intro line above the videos if it lived inside the replaced section.
-		$intro = false === stripos( wp_strip_all_tags( $kept ), '80% creative' ) ? '' : ' intro=""';
-
-		$new = '';
-		foreach ( mdm_homepage_sections() as $sc ) {
-			if ( '' !== $intro && false !== strpos( $sc, 'mdm_reels_showcase' ) ) {
-				$sc = str_replace( ']', $intro . ']', $sc );
+		// Where to add the extra sections + footer: right after the last section.
+		$last     = end( $outline );
+		$lastb    = mdm_element_bounds( $content, $last['id'] );
+		$edits    = array();
+		$tail     = '';
+		foreach ( mdm_extra_sections( $map ) as $key ) {
+			if ( isset( $choices[ $key ] ) ) {
+				$tail .= do_shortcode( $choices[ $key ][1] );
 			}
-			$new .= do_shortcode( $sc );
 		}
 		if ( get_option( MDM_HOME_FOOT_OPTION, 1 ) ) {
-			$new .= do_shortcode( '[mdm_footer]' );
+			$tail .= do_shortcode( '[mdm_footer]' );
+		}
+		if ( $lastb && '' !== $tail ) {
+			$edits[] = array( $lastb[1], $lastb[1], '<div class="mdm-newhome">' . $tail . '</div>' );
 		}
 
-		return $kept . '<div class="mdm-newhome">' . $new . '</div>' . str_repeat( '</div>', $depth );
+		foreach ( $outline as $s ) {
+			$action = isset( $map[ $s['id'] ] ) ? $map[ $s['id'] ] : 'keep';
+			if ( 'keep' === $action ) {
+				continue;
+			}
+			$b = mdm_element_bounds( $content, $s['id'] );
+			if ( ! $b ) {
+				continue;
+			}
+			$html = '';
+			if ( isset( $choices[ $action ] ) ) {
+				$sc = $choices[ $action ][1];
+				// Don't repeat the "80% creative" intro if a kept section above already shows it.
+				if ( 'reels' === $action && false !== stripos( wp_strip_all_tags( substr( $content, 0, $b[0] ) ), '80% creative' ) ) {
+					$sc = str_replace( ']', ' intro=""]', $sc );
+				}
+				$html = '<div class="mdm-newhome">' . do_shortcode( $sc ) . '</div>';
+			}
+			$edits[] = array( $b[0], $b[1], $html );
+		}
+
+		// Apply from the end so earlier offsets stay valid.
+		usort( $edits, static function ( $a, $b ) { return $b[0] - $a[0]; } );
+		foreach ( $edits as $e ) {
+			$content = substr( $content, 0, $e[0] ) . $e[2] . substr( $content, $e[1] );
+		}
+		return $content;
 	},
 	9999
 );
 
-// New menu (optional) on the front page.
 add_action(
 	'wp_body_open',
 	static function () {
@@ -212,15 +267,12 @@ add_action(
 		}
 		?>
 		<style id="mdm-new-home">
-			/* sticky sections need ancestors without overflow:hidden */
 			body.mdm-new-home #page, body.mdm-new-home .site, body.mdm-new-home .site-content,
 			body.mdm-new-home .ast-container, body.mdm-new-home #primary, body.mdm-new-home .elementor { overflow: visible !important; }
 			body.mdm-new-home { overflow-x: clip; }
 			.mdm-newhome { width: 100%; max-width: none; }
-			/* old footer is replaced by [mdm_footer] */
 			body.mdm-new-footer .site-footer, body.mdm-new-footer #colophon,
 			body.mdm-new-footer .elementor-location-footer, body.mdm-new-footer [data-elementor-type="footer"] { display: none !important; }
-			/* old header hidden only when the new menu is switched on */
 			body.mdm-new-menu .site-header, body.mdm-new-menu #masthead,
 			body.mdm-new-menu .elementor-location-header, body.mdm-new-menu [data-elementor-type="header"] { display: none !important; }
 		</style>
@@ -242,7 +294,7 @@ function mdm_clear_page_cache() {
 			}
 		}
 	}
-	do_action( 'litespeed_purge_all' ); // LiteSpeed Cache (Hostinger), if active
+	do_action( 'litespeed_purge_all' );
 	if ( function_exists( 'wp_cache_flush' ) ) {
 		wp_cache_flush();
 	}
@@ -270,13 +322,36 @@ add_action(
 		$msg = 'saved';
 		if ( isset( $_POST['mdm_clear_cache'] ) ) {
 			$msg = 'cleared';
+		} elseif ( isset( $_POST['mdm_reset'] ) ) {
+			delete_option( MDM_HOME_MAP_OPTION );
+			delete_option( MDM_HOME_EXTRA_OPTION );
+			$msg = 'reset';
 		} else {
+			$allowed = array_merge( array( 'keep', 'remove' ), array_keys( mdm_new_section_choices() ) );
+			$map     = array();
+			if ( ! empty( $_POST['mdm_map'] ) && is_array( $_POST['mdm_map'] ) ) {
+				foreach ( wp_unslash( $_POST['mdm_map'] ) as $id => $action ) { // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+					$id     = sanitize_key( $id );
+					$action = sanitize_key( $action );
+					if ( $id && in_array( $action, $allowed, true ) ) {
+						$map[ $id ] = $action;
+					}
+				}
+			}
+			$extras = array();
+			if ( ! empty( $_POST['mdm_extra'] ) && is_array( $_POST['mdm_extra'] ) ) {
+				foreach ( wp_unslash( $_POST['mdm_extra'] ) as $e ) { // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+					$e = sanitize_key( $e );
+					if ( isset( mdm_new_section_choices()[ $e ] ) ) {
+						$extras[] = $e;
+					}
+				}
+			}
+			update_option( MDM_HOME_MAP_OPTION, $map );
+			update_option( MDM_HOME_EXTRA_OPTION, $extras );
 			update_option( MDM_HOME_OPTION, ! empty( $_POST['mdm_use_new'] ) ? 1 : 0 );
 			update_option( MDM_HOME_MENU_OPTION, ! empty( $_POST['mdm_menu'] ) ? 1 : 0 );
 			update_option( MDM_HOME_FOOT_OPTION, ! empty( $_POST['mdm_footer'] ) ? 1 : 0 );
-			if ( isset( $_POST['mdm_cut'] ) ) {
-				update_option( MDM_HOME_CUT_OPTION, sanitize_key( wp_unslash( $_POST['mdm_cut'] ) ) );
-			}
 		}
 		mdm_clear_page_cache();
 		wp_safe_redirect( admin_url( 'options-general.php?page=mdm-new-homepage&mdm=' . $msg ) );
@@ -295,7 +370,7 @@ add_action(
 			return;
 		}
 		printf(
-			'<div class="notice notice-info"><p><strong>New sections are ready</strong> (your hero stays the same). <a href="%s" target="_blank">Preview</a> or <a href="%s">switch on</a>.</p></div>',
+			'<div class="notice notice-info"><p><strong>New sections are ready</strong> (your hero stays the same). <a href="%s" target="_blank">Preview</a> or <a href="%s">choose sections</a>.</p></div>',
 			esc_url( home_url( '/?mdm_new_home=1' ) ),
 			esc_url( admin_url( 'options-general.php?page=mdm-new-homepage' ) )
 		);
@@ -307,58 +382,77 @@ function mdm_render_homepage_settings() {
 	$menu    = (bool) get_option( MDM_HOME_MENU_OPTION, 0 );
 	$footer  = (bool) get_option( MDM_HOME_FOOT_OPTION, 1 );
 	$outline = mdm_front_page_outline();
-	$cut     = mdm_cut_id( $outline );
+	$map     = mdm_section_map( $outline );
+	$choices = mdm_new_section_choices();
+	$extras  = get_option( MDM_HOME_EXTRA_OPTION, array( 'numbers', 'about', 'cases', 'faq' ) );
+	$extras  = is_array( $extras ) ? $extras : array();
 	$msg     = isset( $_GET['mdm'] ) ? sanitize_key( $_GET['mdm'] ) : ''; // phpcs:ignore WordPress.Security.NonceVerification
-	$replace = false;
 	?>
 	<div class="wrap">
 		<h1>New Homepage</h1>
 		<?php if ( 'saved' === $msg ) : ?>
-			<div class="notice notice-success"><p>Saved. The page cache was cleared too.</p></div>
+			<div class="notice notice-success"><p>Saved. The page cache was cleared too. <a href="<?php echo esc_url( home_url( $on ? '/' : '/?mdm_new_home=1' ) ); ?>" target="_blank">View ↗</a></p></div>
 		<?php elseif ( 'cleared' === $msg ) : ?>
 			<div class="notice notice-success"><p>Page cache cleared.</p></div>
+		<?php elseif ( 'reset' === $msg ) : ?>
+			<div class="notice notice-success"><p>Section choices reset to the suggestions.</p></div>
 		<?php endif; ?>
 
 		<p style="font-size:15px">Status:
 			<?php echo $on ? '<strong style="color:#1a7f37">New sections are LIVE.</strong>' : '<strong style="color:#9a6700">Your old homepage is showing.</strong>'; ?>
+			&nbsp; <a class="button" href="<?php echo esc_url( home_url( '/?mdm_new_home=1' ) ); ?>" target="_blank">Preview ↗</a>
 		</p>
-		<p><a class="button" href="<?php echo esc_url( home_url( '/?mdm_new_home=1' ) ); ?>" target="_blank">Preview ↗</a></p>
 
 		<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
 			<?php wp_nonce_field( 'mdm_homepage_save' ); ?>
 			<input type="hidden" name="action" value="mdm_homepage_save">
 
-			<h2>Your homepage sections</h2>
+			<h2>1. Your homepage sections</h2>
 			<?php if ( ! $outline ) : ?>
 				<div class="notice notice-warning inline"><p>Could not read the homepage's Elementor sections (Settings → Reading must point to a static homepage built with Elementor).</p></div>
 			<?php else : ?>
-				<p>Everything <strong>above</strong> the selected section stays exactly as it is. The selected section and everything below it is replaced by the new sections.</p>
-				<table class="widefat striped" style="max-width:900px">
-					<thead><tr><th style="width:150px">Replace from here</th><th>#</th><th>Section content</th><th>Result</th></tr></thead>
+				<p>Choose what happens to each section. <strong>Keep</strong> leaves it exactly as it is now.</p>
+				<table class="widefat striped" style="max-width:1100px">
+					<thead><tr><th style="width:36px">#</th><th>Section content</th><th style="width:360px">What to do</th></tr></thead>
 					<tbody>
 					<?php foreach ( $outline as $k => $s ) :
-						if ( $s['id'] === $cut ) {
-							$replace = true;
-						}
+						$cur = isset( $map[ $s['id'] ] ) ? $map[ $s['id'] ] : 'keep';
 						?>
-						<tr>
-							<td><label><input type="radio" name="mdm_cut" value="<?php echo esc_attr( $s['id'] ); ?>" <?php checked( $s['id'], $cut ); ?> <?php disabled( 0 === $k ); ?>> start here</label></td>
+						<tr<?php echo 'keep' !== $cur ? ' style="background:#fff4f4"' : ''; ?>>
 							<td><?php echo (int) ( $k + 1 ); ?></td>
 							<td><?php echo esc_html( $s['text'] ? wp_trim_words( $s['text'], 16 ) : '(no text: images / videos)' ); ?><?php echo $s['videos'] ? ' <em>(' . (int) $s['videos'] . ' video blocks)</em>' : ''; ?></td>
-							<td><?php echo $replace ? '<span style="color:#b32d2e">replaced</span>' : '<span style="color:#1a7f37">kept</span>'; ?></td>
+							<td>
+								<select name="mdm_map[<?php echo esc_attr( $s['id'] ); ?>]" style="width:100%">
+									<option value="keep" <?php selected( $cur, 'keep' ); ?>>Keep as it is</option>
+									<?php foreach ( $choices as $key => $c ) : ?>
+										<option value="<?php echo esc_attr( $key ); ?>" <?php selected( $cur, $key ); ?>>Replace with: <?php echo esc_html( $c[0] ); ?></option>
+									<?php endforeach; ?>
+									<option value="remove" <?php selected( $cur, 'remove' ); ?>>Remove (hide)</option>
+								</select>
+							</td>
 						</tr>
 					<?php endforeach; ?>
 					</tbody>
 				</table>
 			<?php endif; ?>
 
-			<h2>Options</h2>
+			<h2>2. Add new sections at the end (before the footer)</h2>
+			<?php foreach ( array( 'numbers', 'about', 'cases', 'faq', 'impact', 'how', 'reels' ) as $key ) : ?>
+				<label style="display:block;margin:4px 0"><input type="checkbox" name="mdm_extra[]" value="<?php echo esc_attr( $key ); ?>" <?php checked( in_array( $key, $extras, true ) ); ?>> <?php echo esc_html( $choices[ $key ][0] ); ?></label>
+			<?php endforeach; ?>
+			<p class="description">A section already chosen as a replacement above is not added twice.</p>
+
+			<h2>3. Header &amp; footer</h2>
 			<p><label><input type="checkbox" name="mdm_footer" value="1" <?php checked( $footer ); ?>> Replace the old footer with the new footer</label></p>
 			<p><label><input type="checkbox" name="mdm_menu" value="1" <?php checked( $menu ); ?>> Replace the old top menu with the new floating menu</label></p>
-			<hr>
+
+			<h2>4. Go live</h2>
 			<p style="font-size:15px"><label><input type="checkbox" name="mdm_use_new" value="1" <?php checked( $on ); ?>> <strong>Switch the new sections on for visitors</strong></label></p>
-			<p><button type="submit" class="button button-primary button-hero">Save</button></p>
-			<p class="description">Untick and save at any time to go back. Nothing in Elementor is changed or deleted.</p>
+			<p>
+				<button type="submit" class="button button-primary button-hero">Save</button>
+				&nbsp; <button type="submit" name="mdm_reset" value="1" class="button">Reset section choices to suggestions</button>
+			</p>
+			<p class="description">Leave "Switch on" unticked and use Preview to check first. Untick and save at any time to go back. Nothing in Elementor is changed or deleted.</p>
 			<hr>
 			<p><button type="submit" name="mdm_clear_cache" value="1" class="button">Clear page cache</button></p>
 		</form>
