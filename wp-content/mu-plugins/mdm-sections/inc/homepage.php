@@ -98,7 +98,7 @@ function mdm_front_page_outline() {
 		}
 		$videos    = 0;
 		$text      = trim( preg_replace( '/\s+/', ' ', html_entity_decode( mdm_el_text( $el, $videos ) ) ) );
-		$outline[] = array( 'id' => (string) $el['id'], 'text' => $text, 'videos' => $videos );
+		$outline[] = array( 'id' => (string) $el['id'], 'text' => $text, 'videos' => $videos, 'el' => $el );
 	}
 	return $outline;
 }
@@ -163,6 +163,73 @@ function mdm_extra_sections( $map ) {
 	$extras = is_array( $extras ) ? $extras : array();
 	$used   = array_values( $map );
 	return array_values( array_filter( $extras, static function ( $e ) use ( $used ) { return ! in_array( $e, $used, true ); } ) );
+}
+
+/**
+ * Videos of an Elementor section, in page order, each with the category heading above it.
+ * Supports Elementor Video widgets (self-hosted / external MP4, YouTube, Vimeo) and HTML widgets
+ * with <video>, <source> or <iframe>. Mobile-only duplicates and repeats are skipped.
+ *
+ * @return array{items: array<int, array{label:string, src:string, type:string, poster:string}>, more: string}
+ */
+function mdm_extract_videos( $el ) {
+	$items = array();
+	$seen  = array();
+	$label = '';
+	$more  = '';
+	$walk  = static function ( $node ) use ( &$walk, &$items, &$seen, &$label, &$more ) {
+		$set = isset( $node['settings'] ) && is_array( $node['settings'] ) ? $node['settings'] : array();
+		// Skip anything hidden on desktop (usually a mobile copy of the same video).
+		if ( ! empty( $set['hide_desktop'] ) ) {
+			return;
+		}
+		$type = isset( $node['widgetType'] ) ? $node['widgetType'] : '';
+		if ( 'heading' === $type && ! empty( $set['title'] ) ) {
+			$t = trim( wp_strip_all_tags( $set['title'] ) );
+			if ( '' !== $t && strlen( $t ) < 40 && ! preg_match( '/watch more|get videos/i', $t ) ) {
+				$label = $t;
+			}
+		}
+		if ( 'button' === $type && ! empty( $set['text'] ) && preg_match( '/watch more|see more|view more/i', $set['text'] ) && ! empty( $set['link']['url'] ) && '' === $more ) {
+			$more = $set['link']['url'];
+		}
+		$found = array();
+		if ( 'video' === $type ) {
+			$vt     = isset( $set['video_type'] ) ? $set['video_type'] : 'youtube';
+			$poster = ! empty( $set['image_overlay']['url'] ) && ! empty( $set['show_image_overlay'] ) ? $set['image_overlay']['url'] : '';
+			if ( 'hosted' === $vt ) {
+				$src = ! empty( $set['insert_url'] ) && ! empty( $set['external_url']['url'] ) ? $set['external_url']['url'] : ( isset( $set['hosted_url']['url'] ) ? $set['hosted_url']['url'] : '' );
+				$found[] = array( $src, 'file', $poster );
+			} elseif ( 'vimeo' === $vt && ! empty( $set['vimeo_url'] ) ) {
+				$found[] = array( $set['vimeo_url'], 'vimeo', $poster );
+			} elseif ( 'youtube' === $vt && ! empty( $set['youtube_url'] ) ) {
+				$found[] = array( $set['youtube_url'], 'youtube', $poster );
+			}
+		} elseif ( 'html' === $type && ! empty( $set['html'] ) ) {
+			$html   = $set['html'];
+			$poster = preg_match( '/poster=["\']([^"\']+)/i', $html, $pm ) ? $pm[1] : '';
+			if ( preg_match_all( '/<(?:video|source)[^>]+src=["\']([^"\']+\.(?:mp4|webm|mov|m3u8)[^"\']*)/i', $html, $mm ) ) {
+				$found[] = array( $mm[1][0], 'file', $poster );
+			} elseif ( preg_match( '/<iframe[^>]+src=["\']([^"\']+)/i', $html, $im ) ) {
+				$found[] = array( $im[1], preg_match( '/vimeo/i', $im[1] ) ? 'vimeo' : ( preg_match( '/youtu/i', $im[1] ) ? 'youtube' : 'iframe' ), $poster );
+			}
+		}
+		foreach ( $found as $f ) {
+			$src = trim( html_entity_decode( (string) $f[0] ) );
+			if ( '' === $src || isset( $seen[ $src ] ) ) {
+				continue;
+			}
+			$seen[ $src ] = true;
+			$items[]      = array( 'label' => $label ? $label : 'Video', 'src' => $src, 'type' => $f[1], 'poster' => (string) $f[2] );
+		}
+		if ( ! empty( $node['elements'] ) && is_array( $node['elements'] ) ) {
+			foreach ( $node['elements'] as $child ) {
+				$walk( $child );
+			}
+		}
+	};
+	$walk( $el );
+	return array( 'items' => $items, 'more' => $more );
 }
 
 /* ------------------------------------------------------------------ */
@@ -237,6 +304,9 @@ add_filter(
 				$new_slots[] = $pos;
 				$new_keys[]  = $action;
 				$last_slot   = $pos;
+				if ( 'reels' === $action ) {
+					$reels_source = $blk['section']['el'];
+				}
 			}
 		}
 		$faq = false;
@@ -268,7 +338,7 @@ add_filter(
 		} );
 		sort( $new_slots );
 		foreach ( array_values( $new_slots ) as $i => $pos ) {
-			$items[ $pos ] = array( 'new', $new_keys[ $i ] );
+			$items[ $pos ] = array( 'new', $new_keys[ $i ], 'reels' === $new_keys[ $i ] && isset( $reels_source ) ? $reels_source : null );
 		}
 		if ( $faq ) {
 			$items[ PHP_INT_MAX - 1 ] = array( 'new', 'faq' );
@@ -285,11 +355,23 @@ add_filter(
 				continue;
 			}
 			$sc = $choices[ $item[1] ][1];
+			// The new video rows play the ORIGINAL videos and categories of the section they replace.
+			$reels_items = null;
+			if ( 'reels' === $item[1] && ! empty( $item[2] ) ) {
+				$reels_items = mdm_extract_videos( $item[2] );
+				if ( $reels_items['items'] ) {
+					add_filter( 'mdm_reels_source', $f = static function () use ( $reels_items ) { return $reels_items; } );
+				}
+			}
 			// Don't repeat the "80% creative" intro if a kept section above already shows it.
 			if ( 'reels' === $item[1] && false !== stripos( wp_strip_all_tags( $kept_text ), '80% creative' ) ) {
 				$sc = str_replace( ']', ' intro=""]', $sc );
 			}
 			$out .= '<div class="mdm-newhome">' . do_shortcode( $sc ) . '</div>';
+			if ( isset( $f ) ) {
+				remove_filter( 'mdm_reels_source', $f );
+				unset( $f );
+			}
 		}
 		if ( get_option( MDM_HOME_FOOT_OPTION, 1 ) ) {
 			$out .= '<div class="mdm-newhome">' . do_shortcode( '[mdm_footer]' ) . '</div>';
@@ -490,7 +572,22 @@ function mdm_render_homepage_settings() {
 						?>
 						<tr<?php echo 'keep' !== $cur ? ' style="background:#fff4f4"' : ''; ?>>
 							<td><?php echo (int) ( $k + 1 ); ?></td>
-							<td><?php echo esc_html( $s['text'] ? wp_trim_words( $s['text'], 16 ) : '(no text: images / videos)' ); ?><?php echo $s['videos'] ? ' <em>(' . (int) $s['videos'] . ' video blocks)</em>' : ''; ?></td>
+							<td><?php echo esc_html( $s['text'] ? wp_trim_words( $s['text'], 16 ) : '(no text: images / videos)' ); ?><?php echo $s['videos'] ? ' <em>(' . (int) $s['videos'] . ' video blocks)</em>' : ''; ?>
+								<?php if ( 'reels' === $cur ) :
+									$vx = mdm_extract_videos( $s['el'] );
+									?>
+									<br><small style="color:<?php echo $vx['items'] ? '#1a7f37' : '#b32d2e'; ?>">
+										<?php
+										if ( $vx['items'] ) {
+											$labels = array_unique( wp_list_pluck( $vx['items'], 'label' ) );
+											echo esc_html( sprintf( '✔ Uses your %d original videos: %s', count( $vx['items'] ), implode( ', ', $labels ) ) );
+										} else {
+											echo esc_html( '✘ No videos could be read from this section, sample videos would be shown. Send this screen to your developer.' );
+										}
+										?>
+									</small>
+								<?php endif; ?>
+							</td>
 							<td>
 								<select name="mdm_map[<?php echo esc_attr( $s['id'] ); ?>]" style="width:100%">
 									<option value="keep" <?php selected( $cur, 'keep' ); ?>>Keep as it is</option>

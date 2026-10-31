@@ -221,6 +221,10 @@
 	color: #fff; font-family: var(--mdm-display); font-size: clamp(16px, 1.6vw, 24px); text-transform: uppercase;
 }
 .mdm-reel__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; background: #1b1b22; }
+.mdm-reel__frame { border: 0; pointer-events: none; transform: scale(1.02); }
+.mdm-reel.is-unmuted .mdm-reel__frame { pointer-events: auto; }
+.mdm-reel__poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.mdm-reels__more { text-align: center; margin-top: 8px; margin-bottom: 24px; }
 .mdm-reel__shade { position: absolute; inset: auto 0 0 0; height: 42%; background: linear-gradient(to top, rgba(0,0,0,.65), transparent); pointer-events: none; }
 
 .mdm-reel__label {

@@ -46,6 +46,8 @@ function mdm_shortcode_reels( $atts ) {
 			'links'           => '',
 			'formats'         => 'VSLs|Images|GIFs|Videos|UGC|AI Videos|Short Form',
 			'platforms_title' => 'Your audience is everywhere. So are your ads.',
+			'more_url'        => '',
+			'more_text'       => 'Watch more',
 		),
 		$atts,
 		'mdm_reels_showcase'
@@ -55,6 +57,28 @@ function mdm_shortcode_reels( $atts ) {
 	$videos  = MDM_Sections::split_list( $atts['videos'] );
 	$posters = MDM_Sections::split_list( $atts['posters'] );
 	$links   = MDM_Sections::split_list( $atts['links'] );
+
+	// Build the card list. When this grid replaces the old video section, the original
+	// videos + categories are handed in through the "mdm_reels_source" filter.
+	$source = apply_filters( 'mdm_reels_source', null );
+	$cards  = array();
+	if ( is_array( $source ) && ! empty( $source['items'] ) ) {
+		foreach ( $source['items'] as $it ) {
+			$cards[] = array( 'label' => $it['label'], 'src' => $it['src'], 'type' => $it['type'], 'poster' => $it['poster'], 'link' => '' );
+		}
+	} else {
+		foreach ( $labels as $i => $label ) {
+			$src     = $videos ? $videos[ $i % count( $videos ) ] : '';
+			$cards[] = array(
+				'label'  => $label,
+				'src'    => $src,
+				'type'   => preg_match( '/vimeo\.com/i', $src ) ? 'vimeo' : ( preg_match( '/youtu\.?be/i', $src ) ? 'youtube' : 'file' ),
+				'poster' => isset( $posters[ $i ] ) ? $posters[ $i ] : '',
+				'link'   => isset( $links[ $i ] ) ? $links[ $i ] : '',
+			);
+		}
+	}
+	$more_url = is_array( $source ) && ! empty( $source['more'] ) ? $source['more'] : $atts['more_url'];
 	$formats = MDM_Sections::split_list( $atts['formats'] );
 
 	$platforms = array(
@@ -105,17 +129,26 @@ function mdm_shortcode_reels( $atts ) {
 		<?php endif; ?>
 
 		<div class="mdm-reels__grid">
-			<?php foreach ( $labels as $i => $label ) :
-				$video  = $videos ? $videos[ $i % count( $videos ) ] : '';
-				$poster = isset( $posters[ $i ] ) ? $posters[ $i ] : '';
-				$link   = isset( $links[ $i ] ) ? $links[ $i ] : '';
+			<?php foreach ( $cards as $i => $card ) :
+				$label  = $card['label'];
+				$poster = $card['poster'];
+				$link   = $card['link'];
 				?>
 				<div class="mdm-reel" style="--i:<?php echo (int) $i; ?>;--col:<?php echo (int) ( $i % 4 ); ?>">
 					<div class="mdm-reel__flip">
 						<div class="mdm-reel__face mdm-reel__front">
-							<video class="mdm-reel__video" muted loop playsinline preload="none"
-								data-src="<?php echo esc_url( $video ); ?>"
-								<?php echo $poster ? 'poster="' . esc_url( $poster ) . '"' : ''; ?>></video>
+							<?php if ( 'file' === $card['type'] ) : ?>
+								<video class="mdm-reel__video" muted loop playsinline preload="none"
+									data-src="<?php echo esc_url( $card['src'] ); ?>"
+									<?php echo $poster ? 'poster="' . esc_url( $poster ) . '"' : ''; ?>></video>
+							<?php else : ?>
+								<?php if ( $poster ) : ?><img class="mdm-reel__poster" src="<?php echo esc_url( $poster ); ?>" alt="" loading="lazy"><?php endif; ?>
+								<iframe class="mdm-reel__video mdm-reel__frame" title="<?php echo esc_attr( $label ); ?> video" loading="lazy"
+									data-type="<?php echo esc_attr( $card['type'] ); ?>"
+									data-src="<?php echo esc_url( mdm_embed_url( $card['src'], $card['type'], true ) ); ?>"
+									data-src-sound="<?php echo esc_url( mdm_embed_url( $card['src'], $card['type'], false ) ); ?>"
+									allow="autoplay; fullscreen; picture-in-picture; encrypted-media" allowfullscreen></iframe>
+							<?php endif; ?>
 							<span class="mdm-reel__shade" aria-hidden="true"></span>
 							<button type="button" class="mdm-reel__mute" aria-label="Unmute video">Unmute</button>
 							<<?php echo $link ? 'a href="' . esc_url( $link ) . '"' : 'span'; ?> class="mdm-reel__label">
@@ -134,6 +167,10 @@ function mdm_shortcode_reels( $atts ) {
 			<?php endforeach; ?>
 		</div>
 
+		<?php if ( $more_url ) : ?>
+			<div class="mdm-reels__more mdm-rise"><?php echo MDM_Sections::button( $atts['more_text'], $more_url ); // phpcs:ignore ?></div>
+		<?php endif; ?>
+
 		<div class="mdm-reels__platforms">
 			<p class="mdm-rise"><?php echo esc_html( $atts['platforms_title'] ); ?></p>
 			<div class="mdm-marquee" aria-hidden="true">
@@ -147,4 +184,27 @@ function mdm_shortcode_reels( $atts ) {
 	</section>
 	<?php
 	return ob_get_clean();
+}
+
+/**
+ * Player URL for a Vimeo / YouTube / other iframe video.
+ * $muted = true: silent autoplay loop without controls (card preview).
+ * $muted = false: same video with sound, used after "Unmute".
+ */
+function mdm_embed_url( $src, $type, $muted ) {
+	if ( 'vimeo' === $type && preg_match( '~vimeo\.com/(?:video/|.*?/)?(\d+)(?:/([0-9a-f]+))?~i', $src, $m ) ) {
+		$hash = ! empty( $m[2] ) ? $m[2] : ( preg_match( '/[?&]h=([0-9a-f]+)/i', $src, $h ) ? $h[1] : '' );
+		$args = $muted
+			? array( 'background' => 1, 'autoplay' => 1, 'loop' => 1, 'muted' => 1, 'autopause' => 0, 'dnt' => 1 )
+			: array( 'autoplay' => 1, 'loop' => 1, 'muted' => 0, 'autopause' => 0, 'title' => 0, 'byline' => 0, 'portrait' => 0, 'dnt' => 1 );
+		if ( $hash ) {
+			$args = array( 'h' => $hash ) + $args;
+		}
+		return 'https://player.vimeo.com/video/' . $m[1] . '?' . http_build_query( $args );
+	}
+	if ( 'youtube' === $type && preg_match( '~(?:youtu\.be/|v=|/embed/|/shorts/)([A-Za-z0-9_-]{6,})~', $src, $m ) ) {
+		$args = array( 'autoplay' => 1, 'mute' => $muted ? 1 : 0, 'loop' => 1, 'playlist' => $m[1], 'controls' => $muted ? 0 : 1, 'playsinline' => 1, 'rel' => 0, 'modestbranding' => 1, 'enablejsapi' => 1 );
+		return 'https://www.youtube.com/embed/' . $m[1] . '?' . http_build_query( $args );
+	}
+	return $src;
 }

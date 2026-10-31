@@ -86,18 +86,46 @@
 	var videoIO = ('IntersectionObserver' in window) ? new IntersectionObserver(function (entries) {
 		entries.forEach(function (e) {
 			var v = e.target;
-			if (e.isIntersecting) { playVideo(v); } else { v.pause(); }
+			if (e.isIntersecting) { playVideo(v); } else { pauseVideo(v); }
 		});
 	}, { rootMargin: '200px 0px', threshold: 0.2 }) : null;
 
+	// Works for <video> and for Vimeo / YouTube <iframe> players.
+	function framePost(f, vimeoMsg, ytFunc) {
+		if (!f.contentWindow) { return; }
+		var type = f.getAttribute('data-type');
+		try {
+			if (type === 'vimeo') { f.contentWindow.postMessage(JSON.stringify(vimeoMsg), '*'); }
+			if (type === 'youtube') { f.contentWindow.postMessage(JSON.stringify({ event: 'command', func: ytFunc, args: [] }), '*'); }
+		} catch (e) {}
+	}
 	function playVideo(v) {
 		var card = v.closest('.mdm-reel');
 		if (card && card.classList.contains('is-paused')) { return; }
 		if (!v.getAttribute('src') && v.dataset.src) { v.src = v.dataset.src; }
+		if (v.tagName === 'IFRAME') { framePost(v, { method: 'play' }, 'playVideo'); return; }
 		var p = v.play();
 		if (p && p.catch) { p.catch(function () {}); }
 	}
+	function pauseVideo(v) {
+		if (v.tagName === 'IFRAME') { framePost(v, { method: 'pause' }, 'pauseVideo'); return; }
+		v.pause();
+	}
+	function isPaused(v) {
+		if (v.tagName === 'IFRAME') { return v.closest('.mdm-reel').classList.contains('is-paused'); }
+		return v.paused;
+	}
+	function setSound(v, on) {
+		if (v.tagName !== 'IFRAME') { v.muted = !on; return; }
+		var want = on ? v.getAttribute('data-src-sound') : v.getAttribute('data-src');
+		// Swapping to the "with sound" player is the reliable way to get audio from embeds.
+		if (want && v.getAttribute('src') !== want) { v.setAttribute('src', want); }
+	}
 	function watchVideos(root) {
+		$$('.mdm-reel__frame[data-src]', root).forEach(function (v) {
+			if (!once(v, 'video')) { return; }
+			if (videoIO) { videoIO.observe(v); } else { playVideo(v); }
+		});
 		$$('video[data-src]', root).forEach(function (v) {
 			if (!once(v, 'video')) { return; }
 			v.muted = true;
@@ -140,33 +168,33 @@
 			if (!btn || !root.contains(btn)) { return; }
 			ev.preventDefault();
 			var card = btn.closest('.mdm-reel');
-			var v = card.querySelector('video');
+			var v = card.querySelector('.mdm-reel__video');
 			if (!v) { return; }
 
 			if (btn.classList.contains('mdm-reel__play')) {
-				if (v.paused) {
+				if (isPaused(v)) {
 					card.classList.remove('is-paused');
 					btn.setAttribute('aria-label', 'Pause video');
 					playVideo(v);
 				} else {
 					card.classList.add('is-paused');
 					btn.setAttribute('aria-label', 'Play video');
-					v.pause();
+					pauseVideo(v);
 				}
 				return;
 			}
 
 			// Only one card plays sound at a time.
-			var willUnmute = v.muted;
+			var willUnmute = !card.classList.contains('is-unmuted');
 			videos.forEach(function (o) {
-				o.muted = true;
 				var c = o.closest('.mdm-reel');
+				if (c.classList.contains('is-unmuted') || o.tagName !== 'IFRAME') { setSound(o, false); }
 				c.classList.remove('is-unmuted');
 				var b = c.querySelector('.mdm-reel__mute');
 				if (b) { b.textContent = 'Unmute'; b.setAttribute('aria-label', 'Unmute video'); }
 			});
 			if (willUnmute) {
-				v.muted = false;
+				setSound(v, true);
 				card.classList.add('is-unmuted');
 				card.classList.remove('is-paused');
 				btn.textContent = 'Mute';
