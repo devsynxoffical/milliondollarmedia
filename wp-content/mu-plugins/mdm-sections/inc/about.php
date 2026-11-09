@@ -15,8 +15,8 @@ add_shortcode( 'mdm_about', 'mdm_shortcode_about' );
 function mdm_shortcode_about( $atts ) {
 	$atts = shortcode_atts(
 		array(
-			'image'       => MDM_Sections::upload_url( '2025/10/RKJI0017.png' ),
-			'face_y'      => '25%', // vertical focus of the banner photo (0% top - 100% bottom)
+			// Round portrait with red ring (shipped with the plugin). Alternative: img/about-portrait-standing.webp
+			'image'       => WPMU_PLUGIN_URL . '/mdm-sections/img/about-portrait-round.webp',
 			'title'       => 'About Million Dollar Media',
 			'text'        => 'A done-for-you creative and media buying team helping agencies, coaches, local service and e-commerce brands turn ads into booked calls and revenue.',
 			'button_text' => 'Our story',
@@ -47,14 +47,6 @@ function mdm_shortcode_about( $atts ) {
 	echo MDM_Sections::assets(); // phpcs:ignore WordPress.Security.EscapeOutput
 	?>
 	<section class="mdm-about" data-mdm-reveal>
-		<?php if ( $atts['image'] ) : ?>
-			<div class="mdm-about__photo">
-				<?php // A background image, not <img>: lazy-load plugins and theme image rules can't hide it. ?>
-				<div class="mdm-about__img skip-lazy no-lazyload" data-no-lazy="1" role="img" aria-label="<?php echo esc_attr( $atts['title'] ); ?>"
-					style="background-image:url('<?php echo esc_url( $atts['image'] ); ?>');background-position:50% <?php echo esc_attr( $atts['face_y'] ); ?>"></div>
-				<span class="mdm-about__dots" aria-hidden="true"></span>
-			</div>
-		<?php endif; ?>
 		<div class="mdm-about__glow" aria-hidden="true"><i></i><i></i><i></i></div>
 
 		<div class="mdm-about__inner">
@@ -64,6 +56,13 @@ function mdm_shortcode_about( $atts ) {
 					<p class="mdm-about__text mdm-rise" style="--d:.3s"><?php echo esc_html( $atts['text'] ); ?></p>
 					<a class="mdm-about__btn mdm-rise" style="--d:.4s" href="<?php echo esc_url( $atts['button_url'] ); ?>"><?php echo esc_html( $atts['button_text'] ); ?> <?php echo MDM_Sections::arrow_icon(); // phpcs:ignore ?></a>
 				</div>
+				<?php if ( $atts['image'] ) : ?>
+					<?php // Background image (not <img>) so lazy-load plugins can't hide it. ?>
+					<div class="mdm-about__portrait mdm-rise" style="--d:.2s">
+						<span class="mdm-about__ring" aria-hidden="true"></span>
+						<div class="mdm-about__face skip-lazy no-lazyload" data-no-lazy="1" role="img" aria-label="<?php echo esc_attr( $atts['title'] ); ?>" style="background-image:url('<?php echo esc_url( $atts['image'] ); ?>')"></div>
+					</div>
+				<?php endif; ?>
 			</div>
 
 			<div class="mdm-about__cols">

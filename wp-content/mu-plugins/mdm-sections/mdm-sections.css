@@ -1202,6 +1202,23 @@ html .mdm-ft__loop h3 { font-size: clamp(26px, 2.6vw, 44px) !important; }
 html .mdm-ft__looptext { font-size: clamp(15px, 1.2vw, 19px); }
 html .mdm-ft__rows a { font-size: clamp(19px, 1.7vw, 30px); padding: clamp(14px, 1.5vw, 24px) clamp(16px, 1.8vw, 32px); }
 
+
+/* About: text left, round portrait right - nothing overlaps */
+html .mdm-about__top { display: grid !important; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: clamp(20px, 4vw, 64px); align-items: center; padding-top: clamp(8px, 2vw, 24px); }
+html .mdm-about__top > div:first-child { position: relative; z-index: 2; max-width: 620px; }
+html .mdm-about__portrait { position: relative; justify-self: center; width: clamp(220px, 26vw, 380px); aspect-ratio: 1; z-index: 1; }
+html .mdm-about__face { position: absolute; inset: 0; border-radius: 50%; background-size: cover; background-position: center; box-shadow: 0 30px 60px -20px rgba(237,28,36,.45); animation: mdmFloat 6s ease-in-out infinite; }
+html .mdm-about__ring { position: absolute; inset: -14px; border-radius: 50%; border: 1px dashed rgba(255,255,255,.25); animation: mdmSpin 40s linear infinite; }
+html .mdm-about__ring::after { content: ""; position: absolute; top: 8%; right: 8%; width: 14px; height: 14px; border-radius: 50%; background: #ED1C24; box-shadow: 0 0 0 6px rgba(237,28,36,.25); }
+@keyframes mdmFloat { 50% { transform: translateY(-8px); } }
+html .mdm-about__btn { margin-top: 22px; }
+@media (max-width: 760px) {
+	html .mdm-about__top { grid-template-columns: 1fr; }
+	html .mdm-about__portrait { order: -1; width: min(240px, 70vw); margin: 8px auto 4px; }
+	html .mdm-about__top > div:first-child { text-align: left; }
+}
+@media (prefers-reduced-motion: reduce) { html .mdm-about__face, html .mdm-about__ring { animation: none; } }
+
 /* ==========================================================================
    12. WHOLE WEBSITE - animations on every page  (body.mdm-site-anim)
    ========================================================================== */
