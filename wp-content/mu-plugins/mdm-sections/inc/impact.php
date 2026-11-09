@@ -19,56 +19,36 @@ if ( ! defined( 'ABSPATH' ) ) {
 add_shortcode( 'mdm_impact_cards', 'mdm_shortcode_impact' );
 
 function mdm_default_impact_cards() {
-	$cta = MDM_Sections::cta_url();
+	// Highlights only. The screenshots themselves live in the Case studies section ("See the proof").
+	$proof = '#case-studies';
 	return array(
 		array(
-			'brand'  => 'Texas Roofing',
-			'stat'   => '686',
-			'prefix' => '',
-			'suffix' => '',
-			'text'   => 'Website leads in just 8 days at $5.31 CPL and a 2.17% CTR',
-			'link'   => $cta,
-			'image'  => MDM_Sections::upload_url( '2026/06/Screenshot-2025-12-31-at-11.19.23-PM.png' ),
-			'color'  => '#ED1C24',
+			'brand' => 'Texas Roofing', 'stat' => '686', 'prefix' => '', 'suffix' => '',
+			'text'  => 'Website leads in just 8 days at $5.31 CPL and a 2.17% CTR',
+			'link'  => $proof, 'color' => '#ED1C24',
+			'kpis'  => array( array( 'Leads', '686' ), array( 'CPL', '$5.31' ), array( 'CTR', '2.17%' ) ),
+			'bars'  => array( 12, 20, 26, 35, 44, 52, 63, 74, 86, 100 ),
 		),
 		array(
-			'brand'  => 'Wellness Brand',
-			'stat'   => '6.6',
-			'prefix' => '',
-			'suffix' => 'x',
-			'text'   => 'ROAS: $9,766 turned into $64,455 in 20 days from a brand-new funnel',
-			'link'   => $cta,
-			'image'  => MDM_Sections::upload_url( '2026/06/Screenshot-2025-12-31-at-11.17.05-PM.png' ),
-			'color'  => '#FFE1DE',
+			'brand' => 'Wellness Brand', 'stat' => '6.6', 'prefix' => '', 'suffix' => 'x',
+			'text'  => 'ROAS: $9,766 turned into $64,455 in 20 days from a brand-new funnel',
+			'link'  => $proof, 'color' => '#3A0A0C',
+			'kpis'  => array( array( 'Spend', '$9,766' ), array( 'Revenue', '$64,455' ), array( 'ROAS', '6.6x' ) ),
+			'bars'  => array( 20, 18, 30, 34, 42, 40, 58, 66, 80, 96 ),
 		),
 		array(
-			'brand'  => 'HVAC',
-			'stat'   => '326',
-			'prefix' => '',
-			'suffix' => '',
-			'text'   => 'Qualified HVAC leads in just 26 days at $4.68 CPL',
-			'link'   => $cta,
-			'image'  => MDM_Sections::upload_url( '2026/06/Screenshot-2025-12-31-at-11.30.50-PM.png' ),
-			'color'  => '#111114',
+			'brand' => 'HVAC', 'stat' => '326', 'prefix' => '', 'suffix' => '',
+			'text'  => 'Qualified HVAC leads in just 26 days at $4.68 CPL',
+			'link'  => $proof, 'color' => '#ED1C24',
+			'kpis'  => array( array( 'Leads', '326' ), array( 'CPL', '$4.68' ), array( 'Days', '26' ) ),
+			'bars'  => array( 30, 26, 38, 44, 40, 55, 62, 60, 78, 92 ),
 		),
 		array(
-			'brand'  => 'Athleisure E-Com',
-			'stat'   => '90597',
-			'prefix' => '$',
-			'suffix' => '',
-			'text'   => 'Revenue from $14,967 in ad spend for a women\'s athleisure brand',
-			'link'   => $cta,
-			'image'  => MDM_Sections::upload_url( '2026/06/Screenshot-2025-12-31-at-11.17.35-PM.png' ),
-			'color'  => '#FFF0BF',
-		),
-		array(
-			'brand'  => 'Case Studies',
-			'stat'   => '250',
-			'prefix' => '',
-			'suffix' => '+',
-			'text'   => 'Case studies across Roofing, HVAC, Mortgage, Remodeling, E-Com & Coaching',
-			'link'   => $cta,
-			'color'  => '#ED1C24',
+			'brand' => 'Athleisure E-Com', 'stat' => '90597', 'prefix' => '$', 'suffix' => '',
+			'text'  => 'Revenue from $14,967 in ad spend for a women\'s athleisure brand',
+			'link'  => $proof, 'color' => '#3A0A0C',
+			'kpis'  => array( array( 'Spend', '$14,967' ), array( 'Revenue', '$90,597' ), array( 'ROAS', '6.05x' ) ),
+			'bars'  => array( 16, 24, 22, 36, 48, 46, 60, 72, 84, 100 ),
 		),
 	);
 }
@@ -79,7 +59,7 @@ function mdm_shortcode_impact( $atts ) {
 			'eyebrow'   => 'Growth · Impact · Speed',
 			'title'     => 'The difference we make through our work',
 			'badge'     => 'Backed by 250+ case studies',
-			'link_text' => 'View project',
+			'link_text' => 'See the proof',
 		),
 		$atts,
 		'mdm_impact_cards'
@@ -161,35 +141,21 @@ function mdm_shortcode_impact( $atts ) {
 
 /** A pure-CSS "Ads Manager" screen for cards without an image. */
 function mdm_dashboard_mock( $card, $i ) {
-	$bars = array( 28, 42, 35, 55, 48, 66, 60, 78, 72, 92 );
-	$rows = array(
-		array( 'Roofing · 686 leads', '$5.31' ),
-		array( 'HVAC · 326 leads', '$4.68' ),
-		array( 'Mortgage · 773 leads', '$25.61' ),
-		array( 'Wellness · 6.6x ROAS', '$64K' ),
-	);
+	$bars = ! empty( $card['bars'] ) ? $card['bars'] : array( 28, 42, 35, 55, 48, 66, 60, 78, 72, 92 );
+	$kpis = ! empty( $card['kpis'] ) ? $card['kpis'] : array();
 	ob_start();
 	?>
 	<div class="mdm-mock" aria-hidden="true">
-		<div class="mdm-mock__screen mdm-mock__screen--back">
-			<div class="mdm-mock__bar"></div>
-			<div class="mdm-mock__lines"><i></i><i></i><i></i><i></i></div>
-		</div>
 		<div class="mdm-mock__screen">
-			<div class="mdm-mock__top"><b>Case study vault</b><span>2025 – 2026</span></div>
+			<div class="mdm-mock__top"><b><?php echo esc_html( $card['brand'] ); ?></b><span>Ads Manager</span></div>
 			<div class="mdm-mock__kpis">
-				<div><span>Case studies</span><b>250+</b></div>
-				<div><span>Best ROAS</span><b>6.6x</b></div>
-				<div><span>Lowest CPL</span><b>$0.50</b></div>
+				<?php foreach ( $kpis as $kpi ) : ?>
+					<div><span><?php echo esc_html( $kpi[0] ); ?></span><b><?php echo esc_html( $kpi[1] ); ?></b></div>
+				<?php endforeach; ?>
 			</div>
 			<div class="mdm-mock__chart">
 				<?php foreach ( $bars as $k => $h ) : ?>
 					<i style="--h:<?php echo (int) $h; ?>%;--k:<?php echo (int) $k; ?>"></i>
-				<?php endforeach; ?>
-			</div>
-			<div class="mdm-mock__rows">
-				<?php foreach ( $rows as $row ) : ?>
-					<div><span class="dot"></span><span><?php echo esc_html( $row[0] ); ?></span><b><?php echo esc_html( $row[1] ); ?></b></div>
 				<?php endforeach; ?>
 			</div>
 		</div>

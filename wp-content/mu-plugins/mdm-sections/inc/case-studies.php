@@ -102,6 +102,8 @@ function mdm_shortcode_case_studies( $atts ) {
 			</div>
 		<?php $first = false; endforeach; ?>
 
+		<div class="mdm-cases__showall"><button type="button" class="mdm-btn mdm-btn--ghost" data-mdm-cases-more><span class="mdm-btn__icon"><?php echo MDM_Sections::arrow_icon(); // phpcs:ignore ?></span><span>Show all case studies</span></button></div>
+
 		<div class="mdm-cases__cta mdm-rise"><?php echo MDM_Sections::button( $atts['cta_text'], $atts['cta_url'] ); // phpcs:ignore ?></div>
 
 		<div class="mdm-lightbox" hidden>

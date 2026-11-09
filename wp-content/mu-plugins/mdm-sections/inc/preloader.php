@@ -1,7 +1,7 @@
 <?php
 /**
  * Opening loader on the front page: "We create VSLs / Images / GIFs / Videos / UGC / AI Videos / Short Form".
- * Shown once per browser session. Disable with: add_filter( 'mdm_preloader_enabled', '__return_false' );
+ * Shown on every load / refresh of the homepage. Disable with: add_filter( 'mdm_preloader_enabled', '__return_false' );
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -24,7 +24,7 @@ function mdm_render_preloader() {
 	$colors = array( '#ED1C24', '#111114', '#ED1C24', '#111114', '#ED1C24', '#111114', '#ED1C24' );
 	?>
 	<style>
-		.mdm-loader{position:fixed;inset:0;z-index:2147483000;background:#F6F5F2;color:#111114;display:flex;align-items:center;justify-content:center;font-family:'Archivo Black','Arial Black',Impact,sans-serif;overflow:hidden;transition:transform 1s cubic-bezier(.77,0,.18,1),border-radius 1s cubic-bezier(.77,0,.18,1);animation:mdmLoaderFailsafe .01s 6s forwards}
+		.mdm-loader{position:fixed;inset:0;z-index:2147483000;background:#fff;color:#111114;display:flex;align-items:center;justify-content:center;font-family:'Syncopate','Arial Black',sans-serif;font-weight:700;overflow:hidden;transition:transform 1s cubic-bezier(.77,0,.18,1),border-radius 1s cubic-bezier(.77,0,.18,1);animation:mdmLoaderFailsafe .01s 6s forwards}
 		.mdm-loader.is-done{transform:translateY(-100%);border-radius:0 0 50% 50%/0 0 12vh 12vh}
 		.mdm-loader.is-gone{display:none}
 		.mdm-loader__kicker,.mdm-loader__brand{position:absolute;font:600 13px/1 Inter,system-ui,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:rgba(17,17,20,.55)}
@@ -56,10 +56,8 @@ function mdm_render_preloader() {
 	(function(){
 		var el=document.getElementById('mdm-loader');
 		if(!el)return;
-		var seen=false;
-		try{seen=sessionStorage.getItem('mdmLoaderSeen')==='1';}catch(e){}
-		if(seen||matchMedia('(prefers-reduced-motion: reduce)').matches){el.classList.add('is-gone');return;}
-		try{sessionStorage.setItem('mdmLoaderSeen','1');}catch(e){}
+		// Shown on every load / refresh of the homepage.
+		if(matchMedia('(prefers-reduced-motion: reduce)').matches){el.classList.add('is-gone');return;}
 		document.documentElement.classList.add('mdm-loading');
 		var words=el.querySelectorAll('.mdm-loader__word'),num=document.getElementById('mdm-loader-num'),bar=document.getElementById('mdm-loader-bar');
 		var step=320,total=step*words.length+250,start=performance.now(),idx=-1;
