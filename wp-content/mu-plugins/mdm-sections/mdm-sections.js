@@ -99,10 +99,19 @@
 			if (type === 'youtube') { f.contentWindow.postMessage(JSON.stringify({ event: 'command', func: ytFunc, args: [] }), '*'); }
 		} catch (e) {}
 	}
+	// Lazy-load plugins sometimes swap data-src for "about:blank" and move the real URL.
+	function realSrc(v, attr) {
+		var s = v.getAttribute(attr || 'data-src') || '';
+		if (!s || s === 'about:blank') {
+			s = v.getAttribute('data-lazy-src') || v.getAttribute('data-litespeed-src') || v.getAttribute('data-rocket-src') || v.getAttribute('data-orig-src') || '';
+		}
+		return s === 'about:blank' ? '' : s;
+	}
 	function playVideo(v) {
 		var card = v.closest('.mdm-reel');
 		if (card && card.classList.contains('is-paused')) { return; }
-		if (!v.getAttribute('src') && v.dataset.src) { v.src = v.dataset.src; }
+		var cur = v.getAttribute('src');
+		if (!cur || cur === 'about:blank') { var rs = realSrc(v); if (rs) { v.src = rs; } }
 		if (v.tagName === 'IFRAME') { framePost(v, { method: 'play' }, 'playVideo'); return; }
 		var p = v.play();
 		if (p && p.catch) { p.catch(function () {}); }
@@ -117,7 +126,7 @@
 	}
 	function setSound(v, on) {
 		if (v.tagName !== 'IFRAME') { v.muted = !on; return; }
-		var want = on ? v.getAttribute('data-src-sound') : v.getAttribute('data-src');
+		var want = on ? realSrc(v, 'data-src-sound') : realSrc(v);
 		// Swapping to the "with sound" player is the reliable way to get audio from embeds.
 		if (want && v.getAttribute('src') !== want) { v.setAttribute('src', want); }
 	}
