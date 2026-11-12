@@ -446,7 +446,7 @@ add_filter(
 				continue;
 			}
 			// Sections retired site-wide (the owner asked to remove "By the numbers").
-			if ( in_array( $item[1], (array) apply_filters( 'mdm_retired_sections', array( 'numbers' ) ), true ) ) {
+			if ( in_array( $item[1], (array) apply_filters( 'mdm_retired_sections', array( 'numbers', 'cases' ) ), true ) ) {
 				continue;
 			}
 			$sc = $choices[ $item[1] ][1];
