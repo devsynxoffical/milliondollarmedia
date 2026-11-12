@@ -441,7 +441,7 @@
 
 		// Paging: 9 cards per tab, "Show more" adds 12 at a time.
 		var showAll = root.querySelector('[data-mdm-cases-more]');
-		var STEP = 12, FIRST = 8;
+		var STEP = 12, FIRST = parseInt(root.getAttribute('data-first') || '8', 10) || 100000;
 		var page = function (panel, n) {
 			var cards = $$('.mdm-cs', panel);
 			panel._shown = Math.min(cards.length, n);
@@ -463,6 +463,23 @@
 		}
 		btns.forEach(function (b) { b.addEventListener('click', updateShort); });
 		updateShort();
+
+		// Muted video previews play while their card is on screen.
+		var previews = $$('.mdm-cs__preview', root);
+		if (previews.length && 'IntersectionObserver' in window && !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+			var pio = new IntersectionObserver(function (entries) {
+				entries.forEach(function (en) {
+					var v = en.target;
+					if (en.isIntersecting) {
+						if (!v.getAttribute('src')) { v.src = v.getAttribute('data-src'); }
+						v.muted = true;
+						var pr = v.play(); if (pr && pr.catch) { pr.catch(function () {}); }
+						v.addEventListener('playing', function () { v.classList.add('is-playing'); }, { once: true });
+					} else if (!v.paused) { v.pause(); }
+				});
+			}, { threshold: 0.35 });
+			previews.forEach(function (v) { pio.observe(v); });
+		}
 
 		var firstPanel = root.querySelector('.mdm-cases__grid.is-on');
 		if (firstPanel) {
