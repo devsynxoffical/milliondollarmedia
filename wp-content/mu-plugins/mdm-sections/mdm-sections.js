@@ -29,19 +29,18 @@
 	window.addEventListener('scroll', requestTick, { passive: true });
 	window.addEventListener('resize', requestTick);
 
-	// A tall block (e.g. a page of 100+ cards) can never be 20% on screen: lower the threshold.
-	function fitThreshold(el, t) {
-		var h = el.offsetHeight || 0, vh = window.innerHeight || 800;
-		return h > 0 ? Math.min(t, (vh * 0.4) / h) : t;
-	}
-
+	// Fires when the block is `threshold` visible, or (for tall blocks like a page of 100+ cards)
+	// when it fills at least 35% of the screen.
 	function onInView(el, cb, threshold, rootMargin) {
 		if (!('IntersectionObserver' in window)) { cb(); return; }
+		var t = threshold || 0.2;
 		var io = new IntersectionObserver(function (entries) {
 			entries.forEach(function (e) {
-				if (e.isIntersecting) { cb(); io.disconnect(); }
+				if (!e.isIntersecting) { return; }
+				var vh = window.innerHeight || 800;
+				if (e.intersectionRatio >= t || e.intersectionRect.height >= vh * 0.35) { cb(); io.disconnect(); }
 			});
-		}, { threshold: fitThreshold(el, threshold || 0.2), rootMargin: rootMargin || '0px' });
+		}, { threshold: [0, 0.01, 0.02, 0.05, 0.1, t, 0.25, 0.5], rootMargin: rootMargin || '0px' });
 		io.observe(el);
 	}
 
