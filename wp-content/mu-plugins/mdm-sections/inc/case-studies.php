@@ -14,44 +14,38 @@ if ( ! defined( 'ABSPATH' ) ) {
 add_shortcode( 'mdm_case_studies', 'mdm_shortcode_case_studies' );
 
 function mdm_default_case_studies() {
-	$img = function ( $file ) {
-		return MDM_Sections::upload_url( '2026/06/' . $file );
-	};
-	return array(
-		'leadgen' => array(
-			'label' => 'Lead Gen',
-			'items' => array(
-				array( 'niche' => 'Roofing · Texas', 'headline' => '686 leads in 8 days', 'metrics' => array( '$5.31 CPL', '2.17% CTR', '8 days' ), 'image' => $img( 'Screenshot-2025-12-31-at-11.19.23-PM.png' ) ),
-				array( 'niche' => 'Roofing', 'headline' => '537 qualified leads from $2,292', 'metrics' => array( '$4.27 CPL', '$2,292 spend' ), 'image' => $img( 'Screenshot-2025-12-31-at-11.27.53-PM.png' ) ),
-				array( 'niche' => 'HVAC', 'headline' => '326 qualified leads in 26 days', 'metrics' => array( '$4.68 CPL', '26 days' ), 'image' => $img( 'Screenshot-2025-12-31-at-11.30.50-PM.png' ) ),
-				array( 'niche' => 'Mortgage', 'headline' => '773 OTP-verified leads in 45 days', 'metrics' => array( '$25.61 CPL', 'OTP verified' ), 'image' => $img( 'Screenshot-2025-12-31-at-10.11.39-PM.png' ) ),
-				array( 'niche' => 'Roofing · Texas', 'headline' => '850 leads in 8 days', 'metrics' => array( '$7.60 CPL', '$6,461 spend' ), 'image' => $img( 'Screenshot-2026-01-03-at-1.36.46-PM.png' ) ),
-				array( 'niche' => 'HVAC', 'headline' => '630 OTP-verified leads from $14.5K', 'metrics' => array( '$23.09 CPL', 'OTP verified' ), 'image' => $img( 'Screenshot-2026-01-03-at-1.08.01-PM.png' ) ),
-				array( 'niche' => 'Kitchen Remodeling', 'headline' => '337 appointments in 19 days', 'metrics' => array( 'Cold traffic', '19 days' ), 'image' => $img( 'Screenshot-2025-12-31-at-10.31.57-PM.png' ) ),
-				array( 'niche' => 'Mortgage', 'headline' => '492 mortgage-ready leads in 19 days', 'metrics' => array( '19 days', 'Registrations' ), 'image' => $img( 'Screenshot-2025-12-31-at-11.13.14-PM.png' ) ),
-				array( 'niche' => 'Roofing', 'headline' => '177 roofing leads in 7 days', 'metrics' => array( '$4.80 per lead', '$849 spend' ), 'image' => $img( 'Screenshot-2026-01-03-at-1.07.27-PM.png' ) ),
-			),
-		),
-		'ecom'    => array(
-			'label' => 'E-Commerce',
-			'items' => array(
-				array( 'niche' => 'Wellness', 'headline' => '$9,766 into $64,455 in 20 days', 'metrics' => array( '6.6x ROAS', 'New funnel' ), 'image' => $img( 'Screenshot-2025-12-31-at-11.17.05-PM.png' ) ),
-				array( 'niche' => "Women's Athleisure", 'headline' => '$14,967 spend into $90,597', 'metrics' => array( '6.05x ROAS', '30 days' ), 'image' => $img( 'Screenshot-2025-12-31-at-11.17.35-PM.png' ) ),
-				array( 'niche' => 'Luxury Skincare', 'headline' => 'Scaling at 4.42 ROAS into Q4', 'metrics' => array( '4.42x ROAS', 'Full speed' ), 'image' => $img( 'Screenshot-2025-12-31-at-11.22.05-PM.png' ) ),
-				array( 'niche' => 'Fitness LTO', 'headline' => '$100,000+ in just 30 days', 'metrics' => array( '$100K+', '30 days' ), 'image' => $img( 'Screenshot-2026-01-03-at-1.38.39-PM.png' ) ),
-				array( 'niche' => 'Agency Scaling', 'headline' => '$846,000 year, 235 clients closed', 'metrics' => array( '$3,600 avg deal', 'All tracked' ), 'image' => $img( 'Screenshot-2025-12-31-at-10.11.17-PM.png' ) ),
-				array( 'niche' => 'Info Product', 'headline' => '2,064 registrations at $0.50 CPL', 'metrics' => array( '$0.50 CPL', 'Live session' ), 'image' => $img( 'Screenshot-2025-12-31-at-11.25.11-PM.png' ) ),
-			),
-		),
-	);
+	// 123 verified e-commerce / DTC case studies (from brandscalinghacks.com). Images are stored
+	// in img/cases/, the proof videos stream from brandscalinghacks.com.
+	$file = dirname( __DIR__ ) . '/data/cases.json';
+	$rows = file_exists( $file ) ? json_decode( (string) file_get_contents( $file ), true ) : array(); // phpcs:ignore
+	$rows = is_array( $rows ) ? $rows : array();
+	$all  = array();
+	$by   = array();
+	foreach ( $rows as $r ) {
+		$item = array(
+			'niche'    => $r['n'],
+			'headline' => $r['t'],
+			'metrics'  => array_values( array_filter( array( $r['r'], $r['x'], $r['v'] ? 'Video proof' : 'Dashboard proof' ) ) ),
+			'image'    => WPMU_PLUGIN_URL . '/mdm-sections/img/cases/' . rawurlencode( $r['img'] ),
+			'video'    => $r['v'],
+		);
+		$all[]               = $item;
+		$by[ $r['n'] ][]     = $item;
+	}
+	uasort( $by, static function ( $a, $b ) { return count( $b ) - count( $a ); } );
+	$groups = array( 'all' => array( 'label' => 'All', 'items' => $all ) );
+	foreach ( $by as $label => $items ) {
+		$groups[ sanitize_title( $label ) ] = array( 'label' => $label, 'items' => $items );
+	}
+	return $groups;
 }
 
 function mdm_shortcode_case_studies( $atts ) {
 	$atts = shortcode_atts(
 		array(
-			'eyebrow'  => 'Case studies',
+			'eyebrow'  => '123 verified case studies',
 			'title'    => 'Proof, not promises.',
-			'subtitle' => 'Real accounts, real screenshots. Pick a model and see what our system does for businesses like yours.',
+			'subtitle' => 'Real brands, real dashboards and screen recordings. Pick your niche and see what our system does for businesses like yours.',
 			'cta_text' => 'Get results like these',
 			'cta_url'  => MDM_Sections::cta_url(),
 		),
@@ -85,10 +79,11 @@ function mdm_shortcode_case_studies( $atts ) {
 		<?php $first = true; foreach ( $groups as $key => $group ) : ?>
 			<div class="mdm-cases__grid<?php echo $first ? ' is-on' : ''; ?>" role="tabpanel" id="<?php echo esc_attr( $uid . '-' . $key ); ?>" data-panel="<?php echo esc_attr( $key ); ?>"<?php echo $first ? '' : ' hidden'; ?>>
 				<?php foreach ( $group['items'] as $i => $item ) : ?>
-					<article class="mdm-cs" style="--c:<?php echo esc_attr( $colors[ $i % count( $colors ) ] ); ?>;--i:<?php echo (int) $i; ?>">
-						<button type="button" class="mdm-cs__shot" data-full="<?php echo esc_url( $item['image'] ); ?>" aria-label="<?php echo esc_attr( 'Enlarge screenshot: ' . $item['headline'] ); ?>">
+					<article class="mdm-cs" style="--c:<?php echo esc_attr( $colors[ $i % count( $colors ) ] ); ?>;--i:<?php echo (int) ( $i % 9 ); ?>">
+						<button type="button" class="mdm-cs__shot" data-full="<?php echo esc_url( $item['image'] ); ?>"<?php echo ! empty( $item['video'] ) ? ' data-video="' . esc_url( $item['video'] ) . '"' : ''; ?> aria-label="<?php echo esc_attr( ( empty( $item['video'] ) ? 'View proof: ' : 'Play proof video: ' ) . $item['headline'] ); ?>">
+							<?php if ( ! empty( $item['video'] ) ) : ?><span class="mdm-cs__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span><?php endif; ?>
 							<img src="<?php echo esc_url( $item['image'] ); ?>" alt="<?php echo esc_attr( $item['niche'] . ' results: ' . $item['headline'] ); ?>" loading="lazy" decoding="async">
-							<span class="mdm-cs__zoom">View proof ↗</span>
+							<span class="mdm-cs__zoom"><?php echo empty( $item['video'] ) ? 'View proof ↗' : 'Watch proof ▶'; ?></span>
 						</button>
 						<div class="mdm-cs__body">
 							<span class="mdm-cs__niche"><i></i><?php echo esc_html( $item['niche'] ); ?></span>
@@ -102,13 +97,14 @@ function mdm_shortcode_case_studies( $atts ) {
 			</div>
 		<?php $first = false; endforeach; ?>
 
-		<div class="mdm-cases__showall"><button type="button" class="mdm-btn mdm-btn--ghost" data-mdm-cases-more><span class="mdm-btn__icon"><?php echo MDM_Sections::arrow_icon(); // phpcs:ignore ?></span><span>Show all case studies</span></button></div>
+		<div class="mdm-cases__showall"><button type="button" class="mdm-btn mdm-btn--ghost" data-mdm-cases-more><span class="mdm-btn__icon"><?php echo MDM_Sections::arrow_icon(); // phpcs:ignore ?></span><span>Show more case studies</span></button></div>
 
 		<div class="mdm-cases__cta mdm-rise"><?php echo MDM_Sections::button( $atts['cta_text'], $atts['cta_url'] ); // phpcs:ignore ?></div>
 
 		<div class="mdm-lightbox" hidden>
 			<button type="button" class="mdm-lightbox__close" aria-label="Close">×</button>
 			<img alt="">
+			<video controls playsinline preload="none" hidden></video>
 		</div>
 	</section>
 	<?php

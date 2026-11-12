@@ -1463,3 +1463,22 @@ html .mdm-proofbox figure { margin: 0; display: flex; flex-direction: column; al
 html .mdm-proofbox figcaption { color: #fff; font: 600 15px/1.45 Poppins, Inter, sans-serif; text-align: center; max-width: 640px; }
 html .mdm-proofbox__cta { display: inline-flex; padding: 13px 22px; border-radius: 999px; background: #ED1C24; color: #fff !important; font: 700 15px/1 Poppins, Inter, sans-serif; text-decoration: none !important; transition: transform .3s; }
 html .mdm-proofbox__cta:hover { transform: translateY(-2px); }
+
+/* ==========================================================================
+   CASE STUDIES - 123 e-commerce cases: niche tabs, paging, video proof
+   ========================================================================== */
+html .mdm-switch { max-width: 100%; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+html .mdm-switch::-webkit-scrollbar { display: none; }
+html .mdm-switch__btn { flex: none; }
+@media (max-width: 760px) { html .mdm-cases__head .mdm-switch { display: flex; justify-content: flex-start; } }
+html .mdm-cases.is-paging .mdm-cs:nth-child(n+7) { display: flex; }
+html .mdm-cases .mdm-cs.is-paged { display: none !important; }
+html .mdm-cases.is-paging .mdm-cases__showall { display: block; }
+html .mdm-cases.is-paging.is-short .mdm-cases__showall { display: none; }
+html .mdm-cases .mdm-cs__shot { aspect-ratio: 4 / 5; background: #111114 !important; }
+html .mdm-cases .mdm-cs__shot img { object-position: center top; }
+html .mdm-cs__play { position: absolute; z-index: 2; left: 50%; top: 50%; width: 62px; height: 62px; margin: -31px 0 0 -31px; border-radius: 50%; display: grid; place-items: center; background: rgba(237, 28, 36, .92); color: #fff; box-shadow: 0 0 0 8px rgba(237, 28, 36, .25); transition: transform .4s var(--mdm-ease); }
+html .mdm-cs__play svg { width: 26px; height: 26px; margin-left: 3px; }
+html .mdm-cs:hover .mdm-cs__play { transform: scale(1.1); }
+html .mdm-cases .mdm-lightbox video { max-width: min(520px, 100%); max-height: calc(100vh - 100px); border-radius: 12px; background: #000; box-shadow: 0 30px 80px rgba(0,0,0,.6); }
+html .mdm-cases .mdm-lightbox [hidden] { display: none !important; }
