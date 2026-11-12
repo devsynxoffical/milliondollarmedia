@@ -439,12 +439,28 @@
 		if (document.fonts && document.fonts.ready) { document.fonts.ready.then(moveThumb); }
 		moveThumb();
 
+		// Paging: 9 cards per tab, "Show more" adds 12 at a time.
 		var showAll = root.querySelector('[data-mdm-cases-more]');
+		var STEP = 12, FIRST = 9;
+		var page = function (panel, n) {
+			var cards = $$('.mdm-cs', panel);
+			panel._shown = Math.min(cards.length, n);
+			cards.forEach(function (c, k) { c.classList.toggle('is-paged', k >= panel._shown); });
+		};
+		panels.forEach(function (p) { page(p, FIRST); });
 		var updateShort = function () {
 			var on = root.querySelector('.mdm-cases__grid.is-on');
-			root.classList.toggle('is-short', !on || on.querySelectorAll('.mdm-cs').length <= 6);
+			root.classList.add('is-paging');
+			root.classList.toggle('is-short', !on || on._shown >= on.querySelectorAll('.mdm-cs').length);
 		};
-		if (showAll) { showAll.addEventListener('click', function () { root.classList.add('is-expanded'); }); }
+		if (showAll) {
+			showAll.addEventListener('click', function () {
+				var on = root.querySelector('.mdm-cases__grid.is-on');
+				if (!on) { return; }
+				page(on, on._shown + STEP);
+				updateShort();
+			});
+		}
 		btns.forEach(function (b) { b.addEventListener('click', updateShort); });
 		updateShort();
 
@@ -457,12 +473,22 @@
 		if (lightbox) {
 			var img = lightbox.querySelector('img');
 			var lastFocus = null;
-			var close = function () { lightbox.hidden = true; document.documentElement.classList.remove('mdm-menu-open'); if (lastFocus) { lastFocus.focus(); } };
+			var vid = lightbox.querySelector('video');
+			var close = function () { lightbox.hidden = true; if (vid) { vid.pause(); vid.removeAttribute('src'); vid.load(); vid.hidden = true; } document.documentElement.classList.remove('mdm-menu-open'); if (lastFocus) { lastFocus.focus(); } };
 			root.addEventListener('click', function (e) {
 				var shot = e.target.closest('.mdm-cs__shot');
 				if (!shot) { return; }
 				lastFocus = shot;
-				img.src = shot.getAttribute('data-full');
+				var v = shot.getAttribute('data-video');
+				if (v && vid) {
+					img.hidden = true;
+					vid.hidden = false; vid.poster = shot.getAttribute('data-full'); vid.src = v;
+					var pr = vid.play(); if (pr && pr.catch) { pr.catch(function () {}); }
+				} else {
+					if (vid) { vid.hidden = true; }
+					img.hidden = false;
+					img.src = shot.getAttribute('data-full');
+				}
 				img.alt = shot.querySelector('img') ? shot.querySelector('img').alt : '';
 				lightbox.hidden = false;
 				document.documentElement.classList.add('mdm-menu-open');
