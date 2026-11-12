@@ -43,6 +43,24 @@ function mdm_find_auth_header() {
 	}
 } )();
 
+// Some plugins look up the current user before WordPress knows this is an API request; the
+// Application Password is then never checked. Re-run WordPress's own check for API requests.
+add_action(
+	'rest_api_init',
+	static function () {
+		if ( get_current_user_id() || empty( $_SERVER['PHP_AUTH_USER'] ) || ! function_exists( 'wp_authenticate_application_password' ) ) {
+			return;
+		}
+		$user = wp_authenticate_application_password( null, (string) $_SERVER['PHP_AUTH_USER'], (string) ( isset( $_SERVER['PHP_AUTH_PW'] ) ? $_SERVER['PHP_AUTH_PW'] : '' ) ); // phpcs:ignore
+		if ( $user instanceof WP_User ) {
+			wp_set_current_user( $user->ID );
+		} elseif ( is_wp_error( $user ) ) {
+			$GLOBALS['mdm_app_pw_error'] = $user->get_error_code();
+		}
+	},
+	0
+);
+
 add_action(
 	'rest_api_init',
 	static function () {
@@ -59,6 +77,7 @@ add_action(
 						'logged_in'   => $u && $u->ID > 0,
 						'user'        => $u && $u->ID ? $u->user_login : null,
 						'can_edit'    => current_user_can( 'edit_pages' ),
+						'error'       => isset( $GLOBALS['mdm_app_pw_error'] ) ? $GLOBALS['mdm_app_pw_error'] : null, // e.g. incorrect_password / invalid_username
 					);
 				},
 			)
