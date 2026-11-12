@@ -1443,3 +1443,8 @@ html .mdm-quote__wa:hover { opacity: 1; }
 	html .mdm-quote { flex-direction: column; align-items: flex-start; max-width: 440px; }
 	html .mdm-quote__actions { align-items: flex-start; }
 }
+
+/* Quantity selector readable on the white plan cards; no theme underline on Buy now */
+html .mdm-plan:not(.mdm-plan--hot) .mdm-qty, html .mdm-plan:not(.mdm-plan--hot) .mdm-qty :is(button, output) { color: #111114 !important; }
+html .mdm-plan--hot .mdm-qty, html .mdm-plan--hot .mdm-qty :is(button, output) { color: #fff !important; }
+html .mdm-plan__cta, html .mdm-plan__cta:hover { text-decoration: none !important; }
