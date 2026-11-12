@@ -1498,3 +1498,18 @@ html .mdm-cs__play { width: 50px; height: 50px; margin: -25px 0 0 -25px; }
 	html .mdm-cases .mdm-cs__zoom { display: none; }
 	html .mdm-cs__play { width: 40px; height: 40px; margin: -20px 0 0 -20px; box-shadow: 0 0 0 5px rgba(237,28,36,.25); }
 }
+
+
+/* ==========================================================================
+   CASE STUDIES - clean layout: badge, 8 cards, "View all" page, video previews
+   ========================================================================== */
+html .mdm-cases--clean .mdm-impact__badge { margin: 18px auto 0; }
+html .mdm-cases--clean .mdm-cases__head .mdm-lead { margin-top: 16px !important; }
+html .mdm-cases--clean .mdm-cases__showall { display: none !important; }
+html .mdm-cases .mdm-cs__shot img { object-position: center center !important; }
+html .mdm-cs__preview { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .5s ease; pointer-events: none; }
+html .mdm-cs__preview.is-playing { opacity: 1; }
+html .mdm-cs__shot:has(.mdm-cs__preview.is-playing) .mdm-cs__play { width: 38px; height: 38px; margin: 0; left: auto; top: auto; right: 12px; bottom: 12px; box-shadow: none; }
+html .mdm-cs__shot:has(.mdm-cs__preview.is-playing) .mdm-cs__play svg { width: 18px; height: 18px; }
+html .mdm-cases__cta { text-align: center; margin-top: clamp(26px, 3vw, 40px); }
+html .mdm-cases__cta .mdm-btn { margin-top: 0; }
