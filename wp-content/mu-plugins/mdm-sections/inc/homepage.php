@@ -198,6 +198,9 @@ function mdm_default_action( $s, $index ) {
 	if ( preg_match( '/^\s*(youtube videos|trusted by titans|since 2019|the latest)\b/i', $t ) ) {
 		return 'remove';
 	}
+	if ( preg_match( '/^\s*real talk,?\s*fam\b/i', $t ) ) {
+		return 'remove';
+	}
 	if ( preg_match( '/^\s*(faq|frequently asked)/i', $t ) ) {
 		return 'faq';
 	}
@@ -223,6 +226,10 @@ function mdm_section_map( $outline = null, $pid = null ) {
 		}
 		if ( $version < 3 && 'services' === $map[ $s['id'] ] && 'remove' === $suggest ) {
 			$map[ $s['id'] ] = 'remove'; // v3: no duplicate services section
+		}
+		// Removed at the owner's request, whatever was saved before.
+		if ( $front && preg_match( '/^\s*real talk,?\s*fam\b/i', $s['text'] ) ) {
+			$map[ $s['id'] ] = 'remove';
 		}
 	}
 	return $map;
