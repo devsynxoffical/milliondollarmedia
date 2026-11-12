@@ -91,18 +91,19 @@ function mdm_clone_for_client( $node, $client, &$line_i ) {
 			if ( '' === $plain ) {
 				continue;
 			}
+			if ( false !== strpos( $v, '<' ) ) {
+				// formatted text: replace each text piece, keep tags and styling
+				$node['settings'][ $k ] = mdm_replace_text_nodes( $v, $client, $line_i );
+				continue;
+			}
 			if ( false !== stripos( $plain, $client['match'] ) ) {
-				$new = $client['name'];
+				$node['settings'][ $k ] = $client['name'];
 			} elseif ( preg_match( '/\d[\d.,]*\s*[kKmM]?\+?\s*(followers?|subscribers?|fans)/i', $plain ) ) {
-				$new = $client['followers'];
+				$node['settings'][ $k ] = $client['followers'];
 			} else {
-				$new = isset( $client['lines'][ $line_i ] ) ? $client['lines'][ $line_i ] : '';
+				$node['settings'][ $k ] = isset( $client['lines'][ $line_i ] ) ? $client['lines'][ $line_i ] : '';
 				$line_i++;
 			}
-			// keep the original HTML wrapper (e.g. <p>…</p>) if there was one
-			$node['settings'][ $k ] = preg_match( '/^\s*<(p|span|div|h\d)\b[^>]*>/i', $v, $m )
-				? preg_replace( '/^(\s*<' . $m[1] . '\b[^>]*>).*(<\/' . $m[1] . '>\s*)$/is', '${1}' . esc_html( $new ) . '${2}', $v )
-				: $new;
 		}
 	}
 	if ( ! empty( $node['elements'] ) ) {
@@ -111,6 +112,32 @@ function mdm_clone_for_client( $node, $client, &$line_i ) {
 		}
 	}
 	return $node;
+}
+
+/**
+ * Replace every text piece inside formatted HTML (e.g. "<span>Coach</span><br><b>19K Followers</b>")
+ * while keeping the tags/styling: name -> name, "N Followers" -> followers, other pieces -> next line.
+ */
+function mdm_replace_text_nodes( $html, $client, &$line_i ) {
+	return preg_replace_callback(
+		'/(^|>)([^<]+)/',
+		static function ( $m ) use ( $client, &$line_i ) {
+			$t = trim( html_entity_decode( $m[2] ) );
+			if ( '' === $t ) {
+				return $m[0];
+			}
+			if ( false !== stripos( $t, $client['match'] ) ) {
+				$new = $client['name'];
+			} elseif ( preg_match( '/\d[\d.,]*\s*[kKmM]?\+?\s*(followers?|subscribers?|fans)/i', $t ) ) {
+				$new = $client['followers'];
+			} else {
+				$new = isset( $client['lines'][ $line_i ] ) ? $client['lines'][ $line_i ] : '';
+				$line_i++;
+			}
+			return $m[1] . esc_html( $new );
+		},
+		$html
+	);
 }
 
 /** Insert the cloned card into the Elementor data. Returns [ new data, message ] or [ null, error ]. */
@@ -267,4 +294,73 @@ add_action(
 		}
 		echo '</p></div>';
 	}
+);
+
+/* ------------------------------------------------------------------ */
+/* One-time repair: the first run kept Darrell's subtitle on the new    */
+/* card (title + followers live together in one formatted field).      */
+/* ------------------------------------------------------------------ */
+
+function mdm_fix_client_subtitle( $nodes, $client, $template_desc, &$changed ) {
+	foreach ( $nodes as $i => $n ) {
+		$set = isset( $n['settings'] ) && is_array( $n['settings'] ) ? $n['settings'] : array();
+		if ( isset( $set['title_text'] ) && trim( wp_strip_all_tags( $set['title_text'] ) ) === $client['name'] && isset( $set['description_text'] ) && null !== $template_desc ) {
+			$line_i = 0;
+			$nodes[ $i ]['settings']['description_text'] = mdm_replace_text_nodes( $template_desc, $client, $line_i );
+			$changed = true;
+		}
+		if ( ! empty( $n['elements'] ) ) {
+			$nodes[ $i ]['elements'] = mdm_fix_client_subtitle( $n['elements'], $client, $template_desc, $changed );
+		}
+	}
+	return $nodes;
+}
+
+function mdm_find_desc_of( $nodes, $name ) {
+	foreach ( $nodes as $n ) {
+		$set = isset( $n['settings'] ) && is_array( $n['settings'] ) ? $n['settings'] : array();
+		if ( isset( $set['title_text'], $set['description_text'] ) && false !== stripos( wp_strip_all_tags( $set['title_text'] ), $name ) ) {
+			return $set['description_text'];
+		}
+		if ( ! empty( $n['elements'] ) ) {
+			$d = mdm_find_desc_of( $n['elements'], $name );
+			if ( null !== $d ) {
+				return $d;
+			}
+		}
+	}
+	return null;
+}
+
+add_action(
+	'init',
+	static function () {
+		if ( wp_doing_ajax() || get_option( 'mdm_client_job_marcus_filly_fix1' ) ) {
+			return;
+		}
+		$job = get_option( MDM_CLIENT_JOB_OPTION );
+		if ( ! is_array( $job ) || 'done' !== $job['status'] ) {
+			return; // only repairs a card that the first job added
+		}
+		if ( ! add_option( 'mdm_client_job_marcus_filly_fix1', array( 'status' => 'running', 'time' => time() ), '', false ) ) {
+			return;
+		}
+		$pid  = isset( $job['pid'] ) ? (int) $job['pid'] : mdm_front_page_id();
+		$raw  = get_post_meta( $pid, '_elementor_data', true );
+		$data = is_array( $raw ) ? $raw : json_decode( (string) $raw, true );
+		if ( ! is_array( $data ) ) {
+			update_option( 'mdm_client_job_marcus_filly_fix1', array( 'status' => 'error', 'time' => time() ), false );
+			return;
+		}
+		$client  = mdm_new_client();
+		$changed = false;
+		$data    = mdm_fix_client_subtitle( $data, $client, mdm_find_desc_of( $data, $client['match'] ), $changed );
+		if ( $changed ) {
+			update_option( 'mdm_backup_elementor_' . $pid . '_fix1', array( 'time' => time(), 'data' => is_string( $raw ) ? $raw : wp_json_encode( $raw ) ), false );
+			update_post_meta( $pid, '_elementor_data', wp_slash( wp_json_encode( $data ) ) );
+			mdm_flush_elementor( $pid );
+		}
+		update_option( 'mdm_client_job_marcus_filly_fix1', array( 'status' => $changed ? 'done' : 'nothing-to-fix', 'time' => time() ), false );
+	},
+	21
 );

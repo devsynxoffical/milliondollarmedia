@@ -154,12 +154,12 @@ function mdm_shortcode_reels( $atts ) {
 					<div class="mdm-reel__flip">
 						<div class="mdm-reel__face mdm-reel__front">
 							<?php if ( 'file' === $card['type'] ) : ?>
-								<video class="mdm-reel__video" muted loop playsinline preload="none"
+								<video class="mdm-reel__video skip-lazy no-lazyload" data-no-lazy="1" muted loop playsinline preload="none"
 									data-src="<?php echo esc_url( $card['src'] ); ?>"
 									<?php echo $poster ? 'poster="' . esc_url( $poster ) . '"' : ''; ?>></video>
 							<?php else : ?>
 								<?php if ( $poster ) : ?><img class="mdm-reel__poster" src="<?php echo esc_url( $poster ); ?>" alt="" loading="lazy"><?php endif; ?>
-								<iframe class="mdm-reel__video mdm-reel__frame" title="<?php echo esc_attr( $label ); ?> video" loading="lazy"
+								<iframe class="mdm-reel__video mdm-reel__frame skip-lazy no-lazyload" data-no-lazy="1" data-skip-lazy="1" title="<?php echo esc_attr( $label ); ?> video" loading="lazy"
 									data-type="<?php echo esc_attr( $card['type'] ); ?>"
 									data-src="<?php echo esc_url( mdm_embed_url( $card['src'], $card['type'], true ) ); ?>"
 									data-src-sound="<?php echo esc_url( mdm_embed_url( $card['src'], $card['type'], false ) ); ?>"
