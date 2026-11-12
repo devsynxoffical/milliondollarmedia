@@ -79,6 +79,19 @@ function mdm_shortcode_reels( $atts ) {
 			);
 		}
 	}
+	// Featured client videos always come first (newest first). Add more with the "mdm_reels_featured" filter.
+	$featured = apply_filters( 'mdm_reels_featured', mdm_default_featured_reels() );
+	$seen     = wp_list_pluck( $cards, 'src' );
+	$top      = array();
+	foreach ( $featured as $fv ) {
+		if ( empty( $fv['src'] ) || in_array( $fv['src'], $seen, true ) ) {
+			continue;
+		}
+		$fv['type'] = isset( $fv['type'] ) ? $fv['type'] : ( preg_match( '/vimeo\.com/i', $fv['src'] ) ? 'vimeo' : ( preg_match( '/youtu\.?be/i', $fv['src'] ) ? 'youtube' : 'file' ) );
+		$top[]      = $fv + array( 'poster' => '', 'link' => '', 'avatar' => '' );
+	}
+	$cards = array_merge( $top, $cards );
+
 	$more_url = is_array( $source ) && ! empty( $source['more'] ) ? $source['more'] : $atts['more_url'];
 	// Two rows at first; the rest opens with "Show all videos" so the section stays compact.
 	$visible = max( 4, (int) $atts['rows'] * 4 );
@@ -154,8 +167,12 @@ function mdm_shortcode_reels( $atts ) {
 							<?php endif; ?>
 							<span class="mdm-reel__shade" aria-hidden="true"></span>
 							<button type="button" class="mdm-reel__mute" aria-label="Unmute video">Unmute</button>
-							<<?php echo $link ? 'a href="' . esc_url( $link ) . '"' : 'span'; ?> class="mdm-reel__label">
-								<span class="mdm-reel__avatar"><?php echo esc_html( mb_substr( $label, 0, 1 ) ); ?></span>
+							<<?php echo $link ? 'a href="' . esc_url( $link ) . '"' . ( 0 === strpos( $link, 'http' ) && false === strpos( $link, (string) wp_parse_url( home_url(), PHP_URL_HOST ) ) ? ' target="_blank" rel="noopener"' : '' ) : 'span'; ?> class="mdm-reel__label">
+								<?php if ( ! empty( $card['avatar'] ) ) : ?>
+									<span class="mdm-reel__avatar mdm-reel__avatar--img" style="background-image:url('<?php echo esc_url( $card['avatar'] ); ?>')" aria-hidden="true"></span>
+								<?php else : ?>
+									<span class="mdm-reel__avatar"><?php echo esc_html( mb_substr( $label, 0, 1 ) ); ?></span>
+								<?php endif; ?>
 								<span class="mdm-reel__name"><?php echo esc_html( $label ); ?></span>
 								<?php echo MDM_Sections::verified_icon(); // phpcs:ignore ?>
 							</<?php echo $link ? 'a' : 'span'; ?>>
@@ -213,4 +230,16 @@ function mdm_embed_url( $src, $type, $muted ) {
 		return 'https://www.youtube.com/embed/' . $m[1] . '?' . http_build_query( $args );
 	}
 	return $src;
+}
+
+/** Client videos pinned to the front of the video rows. */
+function mdm_default_featured_reels() {
+	return array(
+		array(
+			'label'  => 'Marcus Filly',
+			'src'    => 'https://vimeo.com/1246210855',
+			'avatar' => WPMU_PLUGIN_URL . '/mdm-sections/img/clients/marcus-filly.webp',
+			'link'   => 'https://www.instagram.com/marcusfilly/',
+		),
+	);
 }

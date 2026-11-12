@@ -1219,6 +1219,8 @@ html .mdm-about__btn { margin-top: 22px; }
 }
 @media (prefers-reduced-motion: reduce) { html .mdm-about__face, html .mdm-about__ring { animation: none; } }
 
+html .mdm-reel__avatar--img { background-size: cover; background-position: center 20%; border: 2px solid #fff; }
+
 /* ==========================================================================
    12. WHOLE WEBSITE - animations on every page  (body.mdm-site-anim)
    ========================================================================== */
