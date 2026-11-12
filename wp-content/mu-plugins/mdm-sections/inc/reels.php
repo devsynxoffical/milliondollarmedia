@@ -49,6 +49,9 @@ function mdm_shortcode_reels( $atts ) {
 			'more_url'        => '',
 			'more_text'       => 'Watch more',
 			'rows'            => 2,
+			'stat'            => 'yes',
+			'stat_label'      => 'Brands & creators we work with',
+			'stat_value'      => '250+',
 		),
 		$atts,
 		'mdm_reels_showcase'
@@ -91,6 +94,22 @@ function mdm_shortcode_reels( $atts ) {
 		$top[]      = $fv + array( 'poster' => '', 'link' => '', 'avatar' => '' );
 	}
 	$cards = array_merge( $top, $cards );
+
+	// Stat card (like "Creators we work with") as the 3rd card of the first row.
+	if ( 'no' !== $atts['stat'] && count( $cards ) >= 3 ) {
+		$pills = array();
+		foreach ( $cards as $c ) {
+			if ( ! empty( $c['avatar'] ) ) {
+				$pills[] = array( $c['label'], '1.1M', $c['avatar'] );
+			}
+		}
+		foreach ( array_unique( wp_list_pluck( $cards, 'label' ) ) as $lbl ) {
+			if ( 'Video' !== $lbl && ! in_array( $lbl, wp_list_pluck( $pills, 0 ), true ) ) {
+				$pills[] = array( $lbl, '', '' );
+			}
+		}
+		array_splice( $cards, 2, 0, array( array( 'type' => 'stat', 'label' => $atts['stat_label'], 'value' => $atts['stat_value'], 'pills' => $pills, 'src' => '', 'poster' => '', 'link' => '', 'avatar' => '' ) ) );
+	}
 
 	$more_url = is_array( $source ) && ! empty( $source['more'] ) ? $source['more'] : $atts['more_url'];
 	// Two rows at first; the rest opens with "Show all videos" so the section stays compact.
@@ -146,6 +165,39 @@ function mdm_shortcode_reels( $atts ) {
 
 		<div class="mdm-reels__grid">
 			<?php foreach ( $cards as $i => $card ) :
+				if ( 'stat' === $card['type'] ) :
+					?>
+					<div class="mdm-reel mdm-reel--stat<?php echo $i >= $visible ? ' is-extra' : ''; ?>" style="--i:<?php echo (int) $i; ?>;--col:<?php echo (int) ( $i % 4 ); ?>">
+						<div class="mdm-reel__flip">
+							<div class="mdm-reel__face mdm-reel__front mdm-stat">
+								<div class="mdm-stat__avatars" aria-hidden="true">
+									<?php foreach ( array_slice( $card['pills'], 0, 4 ) as $pi => $pl ) : ?>
+										<span<?php echo $pl[2] ? ' style="background-image:url(\'' . esc_url( $pl[2] ) . '\')"' : ''; ?>><?php echo $pl[2] ? '' : esc_html( mb_substr( $pl[0], 0, 1 ) ); ?></span>
+									<?php endforeach; ?>
+								</div>
+								<p class="mdm-stat__label"><?php echo esc_html( $card['label'] ); ?></p>
+								<p class="mdm-stat__value"><?php echo esc_html( $card['value'] ); ?></p>
+								<div class="mdm-stat__lanes" aria-hidden="true">
+									<?php for ( $lane = 0; $lane < 3; $lane++ ) :
+										$items = $card['pills'];
+										if ( $lane && count( $items ) > 2 ) {
+											$items = array_merge( array_slice( $items, $lane * 2 % count( $items ) ), array_slice( $items, 0, $lane * 2 % count( $items ) ) );
+										}
+										?>
+										<div class="mdm-stat__lane<?php echo 1 === $lane ? ' is-reverse' : ''; ?>"><div class="mdm-stat__lane-inner">
+											<?php for ( $dup = 0; $dup < 2; $dup++ ) : foreach ( $items as $pl ) : ?>
+												<span class="mdm-chip"><i<?php echo $pl[2] ? ' style="background-image:url(\'' . esc_url( $pl[2] ) . '\')"' : ''; ?>><?php echo $pl[2] ? '' : esc_html( mb_substr( $pl[0], 0, 1 ) ); ?></i><?php echo esc_html( $pl[0] ); ?><?php echo MDM_Sections::verified_icon(); // phpcs:ignore ?><?php echo $pl[1] ? '<em>• ' . esc_html( $pl[1] ) . '</em>' : ''; ?></span>
+											<?php endforeach; endfor; ?>
+										</div></div>
+									<?php endfor; ?>
+								</div>
+							</div>
+							<div class="mdm-reel__face mdm-reel__back" style="--c:var(--mdm-red)"><span><?php echo esc_html( $card['value'] ); ?></span></div>
+						</div>
+					</div>
+					<?php
+					continue;
+				endif;
 				$label  = $card['label'];
 				$poster = $card['poster'];
 				$link   = $card['link'];
@@ -188,7 +240,7 @@ function mdm_shortcode_reels( $atts ) {
 		</div>
 
 		<?php if ( count( $cards ) > $visible ) : ?>
-			<div class="mdm-reels__more"><button type="button" class="mdm-btn mdm-btn--ghost" data-mdm-reels-more><span class="mdm-btn__icon"><?php echo MDM_Sections::arrow_icon(); // phpcs:ignore ?></span><span><?php echo esc_html( sprintf( 'Show all %d videos', count( $cards ) ) ); ?></span></button></div>
+			<div class="mdm-reels__more"><button type="button" class="mdm-btn mdm-btn--ghost" data-mdm-reels-more><span class="mdm-btn__icon"><?php echo MDM_Sections::arrow_icon(); // phpcs:ignore ?></span><span><?php echo esc_html( sprintf( 'Show all %d videos', count( array_filter( $cards, static function ( $c ) { return 'stat' !== $c['type']; } ) ) ) ); ?></span></button></div>
 		<?php endif; ?>
 		<?php if ( $more_url ) : ?>
 			<div class="mdm-reels__more mdm-rise"><?php echo MDM_Sections::button( $atts['more_text'], $more_url ); // phpcs:ignore ?></div>
