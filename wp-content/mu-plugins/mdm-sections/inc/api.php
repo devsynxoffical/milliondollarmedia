@@ -78,6 +78,9 @@ add_action(
 						'user'        => $u && $u->ID ? $u->user_login : null,
 						'can_edit'    => current_user_can( 'edit_pages' ),
 						'error'       => isset( $GLOBALS['mdm_app_pw_error'] ) ? $GLOBALS['mdm_app_pw_error'] : null, // e.g. incorrect_password / invalid_username
+						'scheme'      => strtolower( strtok( mdm_find_auth_header() . ' ', ' ' ) ), // "basic" / "bearer" only, never the value
+						'user_sent'   => ! empty( $_SERVER['PHP_AUTH_USER'] ), // phpcs:ignore
+						'app_pw_in_use' => class_exists( 'WP_Application_Passwords' ) ? WP_Application_Passwords::is_in_use() : null,
 					);
 				},
 			)
