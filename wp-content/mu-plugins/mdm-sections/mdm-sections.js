@@ -512,6 +512,12 @@
 					img.src = shot.getAttribute('data-full');
 				}
 				img.alt = shot.querySelector('img') ? shot.querySelector('img').alt : '';
+				var lnk = lightbox.querySelector('.mdm-lightbox__link');
+				if (lnk) {
+					var href = shot.getAttribute('data-link');
+					lnk.hidden = !href;
+					if (href) { lnk.href = href; }
+				}
 				lightbox.hidden = false;
 				document.documentElement.classList.add('mdm-menu-open');
 				lightbox.querySelector('.mdm-lightbox__close').focus();
