@@ -1592,3 +1592,7 @@ html .mdm-story__step h3 { font-size: 20px !important; font-weight: 800 !importa
 html .mdm-story__step p { font-size: 15.5px; line-height: 1.55; color: var(--mdm-muted); }
 html .mdm-story-cta { background: #fff; padding-top: 0 !important; }
 @media (max-width: 900px) { html .mdm-story__stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } html .mdm-story__cards { grid-template-columns: 1fr; } }
+/* category cards: keep the fanned screenshots above the tag */
+html .mdm-cat__fan { margin-bottom: 26px; }
+html .mdm-cat__fan img { bottom: 0; }
+html .mdm-cat__tag, html .mdm-cat__name, html .mdm-cat__count { position: relative; z-index: 3; }
