@@ -231,7 +231,7 @@ function mdm_section_map( $outline = null, $pid = null ) {
 /** New sections added at the end (those not already used as a replacement). */
 function mdm_extra_sections( $map, $pid = null ) {
 	$pid    = null === $pid ? mdm_design_pid() : (int) $pid;
-	$extras = mdm_design_get( $pid, 'extras', mdm_is_front_pid( $pid ) ? array( 'numbers', 'about', 'cases', 'faq' ) : array() );
+	$extras = mdm_design_get( $pid, 'extras', mdm_is_front_pid( $pid ) ? array( 'about', 'cases', 'faq' ) : array() );
 	$extras = is_array( $extras ) ? $extras : array();
 	$used   = array_values( $map );
 	return array_values( array_filter( $extras, static function ( $e ) use ( $used ) { return ! in_array( $e, $used, true ); } ) );
@@ -438,6 +438,10 @@ add_filter(
 				$kept_text .= ' ' . $item[1];
 				continue;
 			}
+			// Sections retired site-wide (the owner asked to remove "By the numbers").
+			if ( in_array( $item[1], (array) apply_filters( 'mdm_retired_sections', array( 'numbers' ) ), true ) ) {
+				continue;
+			}
 			$sc = $choices[ $item[1] ][1];
 			// The new video rows play the ORIGINAL videos and categories of the section they replace.
 			$reels_items = null;
@@ -624,7 +628,7 @@ function mdm_render_homepage_settings() {
 	$outline = mdm_front_page_outline( $pid );
 	$map     = mdm_section_map( $outline, $pid );
 	$choices = mdm_new_section_choices();
-	$extras  = mdm_design_get( $pid, 'extras', $front ? array( 'numbers', 'about', 'cases', 'faq' ) : array() );
+	$extras  = mdm_design_get( $pid, 'extras', $front ? array( 'about', 'cases', 'faq' ) : array() );
 	$extras  = is_array( $extras ) ? $extras : array();
 	$msg     = isset( $_GET['mdm'] ) ? sanitize_key( $_GET['mdm'] ) : ''; // phpcs:ignore WordPress.Security.NonceVerification
 	$url     = $pid ? get_permalink( $pid ) : home_url( '/' );

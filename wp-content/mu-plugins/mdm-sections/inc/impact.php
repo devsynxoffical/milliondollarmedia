@@ -21,10 +21,14 @@ add_shortcode( 'mdm_impact_cards', 'mdm_shortcode_impact' );
 function mdm_default_impact_cards() {
 	// Highlights only. The screenshots themselves live in the Case studies section ("See the proof").
 	$proof = '#case-studies';
+	$img   = function ( $file ) {
+		return MDM_Sections::upload_url( '2026/06/' . $file );
+	};
 	return array(
 		array(
 			'brand' => 'Texas Roofing', 'stat' => '686', 'prefix' => '', 'suffix' => '',
 			'text'  => 'Website leads in just 8 days at $5.31 CPL and a 2.17% CTR',
+			'image' => $img( 'Screenshot-2025-12-31-at-11.19.23-PM.png' ),
 			'link'  => $proof, 'color' => '#ED1C24',
 			'kpis'  => array( array( 'Leads', '686' ), array( 'CPL', '$5.31' ), array( 'CTR', '2.17%' ) ),
 			'bars'  => array( 12, 20, 26, 35, 44, 52, 63, 74, 86, 100 ),
@@ -32,6 +36,7 @@ function mdm_default_impact_cards() {
 		array(
 			'brand' => 'Wellness Brand', 'stat' => '6.6', 'prefix' => '', 'suffix' => 'x',
 			'text'  => 'ROAS: $9,766 turned into $64,455 in 20 days from a brand-new funnel',
+			'image' => $img( 'Screenshot-2025-12-31-at-11.17.05-PM.png' ),
 			'link'  => $proof, 'color' => '#3A0A0C',
 			'kpis'  => array( array( 'Spend', '$9,766' ), array( 'Revenue', '$64,455' ), array( 'ROAS', '6.6x' ) ),
 			'bars'  => array( 20, 18, 30, 34, 42, 40, 58, 66, 80, 96 ),
@@ -39,6 +44,7 @@ function mdm_default_impact_cards() {
 		array(
 			'brand' => 'HVAC', 'stat' => '326', 'prefix' => '', 'suffix' => '',
 			'text'  => 'Qualified HVAC leads in just 26 days at $4.68 CPL',
+			'image' => $img( 'Screenshot-2025-12-31-at-11.30.50-PM.png' ),
 			'link'  => $proof, 'color' => '#ED1C24',
 			'kpis'  => array( array( 'Leads', '326' ), array( 'CPL', '$4.68' ), array( 'Days', '26' ) ),
 			'bars'  => array( 30, 26, 38, 44, 40, 55, 62, 60, 78, 92 ),
@@ -46,6 +52,7 @@ function mdm_default_impact_cards() {
 		array(
 			'brand' => 'Athleisure E-Com', 'stat' => '90597', 'prefix' => '$', 'suffix' => '',
 			'text'  => 'Revenue from $14,967 in ad spend for a women\'s athleisure brand',
+			'image' => $img( 'Screenshot-2025-12-31-at-11.17.35-PM.png' ),
 			'link'  => $proof, 'color' => '#3A0A0C',
 			'kpis'  => array( array( 'Spend', '$14,967' ), array( 'Revenue', '$90,597' ), array( 'ROAS', '6.05x' ) ),
 			'bars'  => array( 16, 24, 22, 36, 48, 46, 60, 72, 84, 100 ),
@@ -111,7 +118,7 @@ function mdm_shortcode_impact( $atts ) {
 							<div class="mdm-case__bottom">
 								<p class="mdm-case__stat"><?php echo esc_html( $prefix ); ?><span class="mdm-count" data-to="<?php echo esc_attr( $card['stat'] ); ?>"><?php echo esc_html( number_format( (float) $card['stat'], strlen( substr( strrchr( $card['stat'], '.' ), 1 ) ) ) ); ?></span><?php echo esc_html( $suffix ); ?></p>
 								<p class="mdm-case__text"><?php echo esc_html( $card['text'] ); ?></p>
-								<a class="mdm-case__link" href="<?php echo esc_url( $card['link'] ); ?>">
+								<a class="mdm-case__link" href="<?php echo esc_url( ! empty( $card['image'] ) ? $card['image'] : $card['link'] ); ?>"<?php echo ! empty( $card['image'] ) ? ' data-mdm-proof="' . esc_url( $card['image'] ) . '" data-mdm-proof-alt="' . esc_attr( $card['brand'] . ': ' . $card['text'] ) . '"' : ''; ?>>
 									<?php echo esc_html( $atts['link_text'] ); ?>
 									<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
 								</a>
@@ -119,9 +126,10 @@ function mdm_shortcode_impact( $atts ) {
 						</div>
 						<div class="mdm-case__visual">
 							<?php if ( ! empty( $card['image'] ) ) : ?>
-								<div class="mdm-case__shot">
+								<button type="button" class="mdm-case__shot mdm-case__shot--real" data-mdm-proof="<?php echo esc_url( $card['image'] ); ?>" data-mdm-proof-alt="<?php echo esc_attr( $card['brand'] . ': ' . $card['text'] ); ?>" aria-label="<?php echo esc_attr( 'View the ' . $card['brand'] . ' case study' ); ?>">
+									<span class="mdm-case__zoom" aria-hidden="true">View case study ↗</span>
 									<img src="<?php echo esc_url( $card['image'] ); ?>" alt="<?php echo esc_attr( $card['brand'] . ' results screenshot' ); ?>" loading="lazy" decoding="async">
-								</div>
+								</button>
 							<?php else : ?>
 								<?php echo mdm_dashboard_mock( $card, $i ); // phpcs:ignore ?>
 							<?php endif; ?>

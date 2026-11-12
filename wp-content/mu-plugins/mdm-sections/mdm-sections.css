@@ -1448,3 +1448,18 @@ html .mdm-quote__wa:hover { opacity: 1; }
 html .mdm-plan:not(.mdm-plan--hot) .mdm-qty, html .mdm-plan:not(.mdm-plan--hot) .mdm-qty :is(button, output) { color: #111114 !important; }
 html .mdm-plan--hot .mdm-qty, html .mdm-plan--hot .mdm-qty :is(button, output) { color: #fff !important; }
 html .mdm-plan__cta, html .mdm-plan__cta:hover { text-decoration: none !important; }
+
+/* ==========================================================================
+   IMPACT CARDS - real case-study screenshots + "See the proof" viewer
+   ========================================================================== */
+html .mdm-case__shot--real { display: block; padding: 0 !important; border: 0 !important; cursor: zoom-in; left: 50%; right: auto; top: 7%; bottom: auto; height: 104%; width: auto; aspect-ratio: 1.08; max-width: 88%; border-radius: 14px !important; background: #fff !important; transform: translate(-50%, 40px) rotate(-2.5deg); }
+html .mdm-case.is-active .mdm-case__shot--real { transform: translate(-50%, 0) rotate(-2.5deg); }
+html .mdm-case__shot--real:hover { transform: translate(-50%, -6px) rotate(-1deg) !important; transition-duration: .5s; }
+html .mdm-case__shot--real img { object-fit: cover; object-position: top center; }
+html .mdm-case__zoom { position: absolute; z-index: 2; right: 12px; top: 12px; padding: 7px 12px; border-radius: 999px; background: rgba(17,17,20,.82); color: #fff; font-size: 12.5px; font-weight: 700; letter-spacing: .02em; opacity: 0; transform: translateY(-4px); transition: opacity .3s, transform .3s; }
+html .mdm-case__shot--real:hover .mdm-case__zoom, html .mdm-case__shot--real:focus-visible .mdm-case__zoom { opacity: 1; transform: none; }
+@media (hover: none) { html .mdm-case__zoom { opacity: 1; transform: none; } }
+html .mdm-proofbox figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 14px; max-width: min(920px, 100%); }
+html .mdm-proofbox figcaption { color: #fff; font: 600 15px/1.45 Poppins, Inter, sans-serif; text-align: center; max-width: 640px; }
+html .mdm-proofbox__cta { display: inline-flex; padding: 13px 22px; border-radius: 999px; background: #ED1C24; color: #fff !important; font: 700 15px/1 Poppins, Inter, sans-serif; text-decoration: none !important; transition: transform .3s; }
+html .mdm-proofbox__cta:hover { transform: translateY(-2px); }
