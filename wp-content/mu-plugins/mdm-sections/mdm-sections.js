@@ -29,13 +29,19 @@
 	window.addEventListener('scroll', requestTick, { passive: true });
 	window.addEventListener('resize', requestTick);
 
+	// A tall block (e.g. a page of 100+ cards) can never be 20% on screen: lower the threshold.
+	function fitThreshold(el, t) {
+		var h = el.offsetHeight || 0, vh = window.innerHeight || 800;
+		return h > 0 ? Math.min(t, (vh * 0.4) / h) : t;
+	}
+
 	function onInView(el, cb, threshold, rootMargin) {
 		if (!('IntersectionObserver' in window)) { cb(); return; }
 		var io = new IntersectionObserver(function (entries) {
 			entries.forEach(function (e) {
 				if (e.isIntersecting) { cb(); io.disconnect(); }
 			});
-		}, { threshold: threshold || 0.2, rootMargin: rootMargin || '0px' });
+		}, { threshold: fitThreshold(el, threshold || 0.2), rootMargin: rootMargin || '0px' });
 		io.observe(el);
 	}
 
