@@ -1596,3 +1596,18 @@ html .mdm-story-cta { background: #fff; padding-top: 0 !important; }
 html .mdm-cat__fan { margin-bottom: 26px; }
 html .mdm-cat__fan img { bottom: 0; }
 html .mdm-cat__tag, html .mdm-cat__name, html .mdm-cat__count { position: relative; z-index: 3; }
+
+/* Marcus Filly client card: same style as the other client cards, even if Elementor rebuilds its CSS without it */
+@media(max-width:767px){.elementor-6 .elementor-element.elementor-element-9ee87ae .elementor-image-box-img{margin-bottom:15px;}}
+@media(max-width:767px){.elementor-6 .elementor-element.elementor-element-9ee87ae .elementor-image-box-title{font-size:14px;}}
+html .elementor-6 .elementor-element.elementor-element-9ee87ae > .elementor-widget-container{background-color:#000000;padding:10px 10px 10px 10px;border-style:solid;border-width:1px 1px 1px 1px;border-color:#ED1C24;border-radius:10px 10px 10px 10px;}
+html .elementor-6 .elementor-element.elementor-element-9ee87ae .elementor-image-box-wrapper{text-align:start;}
+html .elementor-6 .elementor-element.elementor-element-9ee87ae.elementor-position-right .elementor-image-box-img{margin-left:15px;}
+html .elementor-6 .elementor-element.elementor-element-9ee87ae.elementor-position-left .elementor-image-box-img{margin-right:15px;}
+html .elementor-6 .elementor-element.elementor-element-9ee87ae.elementor-position-top .elementor-image-box-img{margin-bottom:15px;}
+html .elementor-6 .elementor-element.elementor-element-9ee87ae .elementor-image-box-wrapper .elementor-image-box-img{width:100%;}
+html .elementor-6 .elementor-element.elementor-element-9ee87ae .elementor-image-box-img img{transition-duration:0.3s;}
+html .elementor-6 .elementor-element.elementor-element-9ee87ae .elementor-image-box-title{font-family:"Syncopate", Sans-serif;font-size:16px;font-weight:600;letter-spacing:1.3px;color:#FFFFFF;}
+html .elementor-6 .elementor-element.elementor-element-9ee87ae .elementor-image-box-description{font-family:var( --e-global-typography-text-font-family ), Sans-serif;font-weight:var( --e-global-typography-text-font-weight );color:#FFFFFF;}
+html .elementor-6 .elementor-element.elementor-element-b1442fd{--display:flex;}
+html .elementor-6 .elementor-element.elementor-element-b1442fd.e-con:hover{--e-con-transform-scale:1.02;}
