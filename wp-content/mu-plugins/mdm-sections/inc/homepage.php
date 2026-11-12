@@ -262,6 +262,18 @@ function mdm_extract_videos( $el ) {
 				$label = $t;
 			}
 		}
+		// Category names / "Watch More" links built with HTML widgets (no video inside).
+		if ( 'html' === $type && ! empty( $set['html'] ) && ! preg_match( '/<(video|iframe|source)\b/i', $set['html'] ) ) {
+			$t = trim( preg_replace( '/\s+/', ' ', html_entity_decode( wp_strip_all_tags( $set['html'] ) ) ) );
+			$t = trim( preg_replace( '/^[^\p{L}\p{N}]+|[^\p{L}\p{N}+)]+$/u', '', $t ) ); // drop arrows / icons around the name
+			if ( preg_match( '/watch more|see more|view more/i', $t ) ) {
+				if ( '' === $more && preg_match( '/href=["\']([^"\'#][^"\']*)/i', $set['html'], $hm ) ) {
+					$more = $hm[1];
+				}
+			} elseif ( '' !== $t && strlen( $t ) < 40 && ! preg_match( '/get videos/i', $t ) ) {
+				$label = $t;
+			}
+		}
 		if ( 'button' === $type && ! empty( $set['text'] ) && preg_match( '/watch more|see more|view more/i', $set['text'] ) && ! empty( $set['link']['url'] ) && '' === $more ) {
 			$more = $set['link']['url'];
 		}
