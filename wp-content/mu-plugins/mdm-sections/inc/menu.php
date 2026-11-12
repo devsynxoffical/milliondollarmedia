@@ -42,9 +42,9 @@ function mdm_socials() {
 	return apply_filters(
 		'mdm_socials',
 		array(
-			array( 'Instagram', 'https://www.instagram.com/' ),
-			array( 'Facebook', 'https://www.facebook.com/' ),
-			array( 'YouTube', 'https://www.youtube.com/' ),
+			array( 'Instagram', 'https://www.instagram.com/milliondollarmediaofficial/' ),
+			array( 'Facebook', 'https://www.facebook.com/vaishali.joshi.658637' ),
+			array( 'LinkedIn', 'https://www.linkedin.com/in/vaishali-joshi-milliondollarmedia' ),
 			array( 'WhatsApp', MDM_Sections::whatsapp_url() ),
 		)
 	);
@@ -53,7 +53,7 @@ function mdm_socials() {
 function mdm_shortcode_menu( $atts ) {
 	$atts = shortcode_atts(
 		array(
-			'links'     => 'Home:/|Services:/#services|Case Studies:/#case-studies|How it works:/#how-it-works|FAQ:/#faq|Contact:/book-your-call/',
+			'links'     => 'Home:/|Our Story:/our-story/|Services:/#services|Case Studies:/case-studies/|Pricing:/#pricing|FAQ:/#faq|Contact:/book-your-call/',
 			'logo'      => mdm_site_logo_url(),
 			'brand'     => 'Million Dollar Media',
 			'cta_text'  => 'Book a call',

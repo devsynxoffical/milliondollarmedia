@@ -97,15 +97,13 @@ function mdm_shortcode_reels( $atts ) {
 
 	// Stat card (like "Creators we work with") as the 3rd card of the first row.
 	if ( 'no' !== $atts['stat'] && count( $cards ) >= 3 ) {
-		$pills = array();
-		foreach ( $cards as $c ) {
-			if ( ! empty( $c['avatar'] ) ) {
-				$pills[] = array( $c['label'], '1.1M', $c['avatar'] );
-			}
-		}
-		foreach ( array_unique( wp_list_pluck( $cards, 'label' ) ) as $lbl ) {
-			if ( 'Video' !== $lbl && ! in_array( $lbl, wp_list_pluck( $pills, 0 ), true ) ) {
-				$pills[] = array( $lbl, '', '' );
+		// The real clients from the homepage client slider, each with their own follower count.
+		$pills = mdm_client_pills();
+		if ( count( $pills ) < 6 ) {
+			foreach ( array_unique( wp_list_pluck( $cards, 'label' ) ) as $lbl ) {
+				if ( 'Video' !== $lbl && ! in_array( $lbl, wp_list_pluck( $pills, 0 ), true ) ) {
+					$pills[] = array( $lbl, '', '' );
+				}
 			}
 		}
 		array_splice( $cards, 2, 0, array( array( 'type' => 'stat', 'label' => $atts['stat_label'], 'value' => $atts['stat_value'], 'pills' => $pills, 'src' => '', 'poster' => '', 'link' => '', 'avatar' => '' ) ) );
@@ -130,7 +128,7 @@ function mdm_shortcode_reels( $atts ) {
 	ob_start();
 	echo MDM_Sections::assets(); // phpcs:ignore WordPress.Security.EscapeOutput
 	?>
-	<section class="mdm-reels<?php echo 'no' === $atts['head'] ? ' mdm-reels--nohead' : ''; ?>" data-mdm-reels>
+	<section id="reel" class="mdm-reels<?php echo 'no' === $atts['head'] ? ' mdm-reels--nohead' : ''; ?>" data-mdm-reels>
 		<?php if ( 'no' === $atts['head'] ) : ?>
 			<?php if ( '' !== trim( $atts['intro'] ) ) : ?>
 				<div class="mdm-reels__intro">
@@ -179,9 +177,15 @@ function mdm_shortcode_reels( $atts ) {
 								<p class="mdm-stat__value"><?php echo esc_html( $card['value'] ); ?></p>
 								<div class="mdm-stat__lanes" aria-hidden="true">
 									<?php for ( $lane = 0; $lane < 3; $lane++ ) :
-										$items = $card['pills'];
-										if ( $lane && count( $items ) > 2 ) {
-											$items = array_merge( array_slice( $items, $lane * 2 % count( $items ) ), array_slice( $items, 0, $lane * 2 % count( $items ) ) );
+										// Each lane gets its own clients (1st, 4th, 7th ... / 2nd, 5th ... / 3rd, 6th ...), so no name repeats on screen.
+										$items = array();
+										foreach ( $card['pills'] as $pk => $pl ) {
+											if ( $pk % 3 === $lane ) {
+												$items[] = $pl;
+											}
+										}
+										if ( count( $items ) < 2 ) {
+											$items = $card['pills'];
 										}
 										?>
 										<div class="mdm-stat__lane<?php echo 1 === $lane ? ' is-reverse' : ''; ?>"><div class="mdm-stat__lane-inner">
@@ -295,3 +299,71 @@ function mdm_default_featured_reels() {
 		),
 	);
 }
+
+/**
+ * Clients from the homepage client slider (Elementor image boxes): array( name, followers, photo ).
+ * "1.1M Followers" -> "1.1M". Marcus Filly first, then the biggest audiences.
+ */
+function mdm_client_pills() {
+	$pid = function_exists( 'mdm_front_page_id' ) ? mdm_front_page_id() : (int) get_option( 'page_on_front' );
+	if ( ! $pid ) {
+		return array();
+	}
+	$key    = 'mdm_client_pills_' . $pid . '_' . md5( (string) get_post_modified_time( 'U', true, $pid ) . get_post_meta( $pid, '_elementor_edit_mode', true ) . '3' );
+	$cached = get_transient( $key );
+	if ( is_array( $cached ) ) {
+		return $cached;
+	}
+	$raw  = get_post_meta( $pid, '_elementor_data', true );
+	$data = is_string( $raw ) ? json_decode( $raw, true ) : $raw;
+	$out  = array();
+	$walk = static function ( $nodes, $in_carousel ) use ( &$walk, &$out ) {
+		foreach ( (array) $nodes as $n ) {
+			$type = isset( $n['widgetType'] ) ? $n['widgetType'] : '';
+			$in   = $in_carousel || in_array( $type, array( 'nested-carousel', 'n-carousel' ), true );
+			if ( $in && 'image-box' === $type && ! empty( $n['settings']['title_text'] ) ) {
+				$st   = $n['settings'];
+				$desc = isset( $st['description_text'] ) ? (string) $st['description_text'] : '';
+				$num  = '';
+				if ( preg_match( '/([\d.,]+\s*[KkMm]?)\s*(followers|subscribers|subs)/i', wp_strip_all_tags( $desc ), $m ) ) {
+					$num = strtoupper( str_replace( ' ', '', $m[1] ) );
+				}
+				$img   = isset( $st['image']['url'] ) ? $st['image']['url'] : '';
+				$out[] = array( trim( wp_strip_all_tags( $st['title_text'] ) ), $num, $img );
+			}
+			if ( ! empty( $n['elements'] ) ) {
+				$walk( $n['elements'], $in );
+			}
+		}
+	};
+	$walk( $data, false );
+
+	// De-duplicate, Marcus Filly first, then by audience size.
+	$seen = array();
+	$out  = array_values( array_filter( $out, static function ( $c ) use ( &$seen ) {
+		$k = strtolower( $c[0] );
+		if ( isset( $seen[ $k ] ) ) {
+			return false;
+		}
+		$seen[ $k ] = 1;
+		return true;
+	} ) );
+	$size = static function ( $f ) {
+		if ( ! preg_match( '/([\d.]+)([KM]?)/', str_replace( ',', '', $f ), $m ) ) {
+			return 0;
+		}
+		return (float) $m[1] * ( 'M' === $m[2] ? 1000000 : ( 'K' === $m[2] ? 1000 : 1 ) );
+	};
+	usort( $out, static function ( $a, $b ) use ( $size ) {
+		if ( 0 === stripos( $a[0], 'Marcus Filly' ) ) {
+			return -1;
+		}
+		if ( 0 === stripos( $b[0], 'Marcus Filly' ) ) {
+			return 1;
+		}
+		return $size( $b[1] ) <=> $size( $a[1] );
+	} );
+	set_transient( $key, $out, 12 * HOUR_IN_SECONDS );
+	return $out;
+}
+

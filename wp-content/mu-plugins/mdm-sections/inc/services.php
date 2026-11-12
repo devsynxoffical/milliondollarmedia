@@ -20,7 +20,7 @@ function mdm_shortcode_services( $atts ) {
 			'subtitle'  => 'High-converting, AI-powered videos that fill your calendar with high-ticket clients at half the cost and double the speed.',
 			'cta_text'  => 'Get videos like these',
 			'cta_url'   => MDM_Sections::cta_url(),
-			'points'    => 'Delivered in 24–48 hours|Half the cost of agencies|Fully done-for-you|Instant AI-led support|10+ years of experience|$100M+ in client results|Creatives that convert premium clients',
+			'points'    => 'Delivered in 24–48 hours|Half the cost of agencies|Fully done-for-you|Instant AI-led support|12+ years of experience|$100M+ in client results|Creatives that convert premium clients',
 		),
 		$atts,
 		'mdm_services'
