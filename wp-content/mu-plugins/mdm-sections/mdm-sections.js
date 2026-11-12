@@ -279,6 +279,36 @@
 	/* 2. Impact stacked cards                                             */
 	/* ------------------------------------------------------------------ */
 
+	/* "See the proof": open the real case-study screenshot full size */
+	var proofBox = null, proofLast = null;
+	function openProof(src, alt, from) {
+		if (!proofBox) {
+			proofBox = document.createElement('div');
+			proofBox.className = 'mdm-lightbox mdm-proofbox';
+			proofBox.hidden = true;
+			proofBox.setAttribute('role', 'dialog');
+			proofBox.setAttribute('aria-modal', 'true');
+			proofBox.innerHTML = '<button type="button" class="mdm-lightbox__close" aria-label="Close">\u00d7</button><figure><img alt=""><figcaption></figcaption><a class="mdm-proofbox__cta" href="' + (window.mdmCtaUrl || '/book-your-call/') + '">Get results like these \u2192</a></figure>';
+			document.body.appendChild(proofBox);
+			var shut = function () { proofBox.hidden = true; document.documentElement.classList.remove('mdm-menu-open'); if (proofLast) { proofLast.focus(); } };
+			proofBox.addEventListener('click', function (e) { if (e.target === proofBox || e.target.closest('.mdm-lightbox__close')) { shut(); } });
+			document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !proofBox.hidden) { shut(); } });
+		}
+		proofLast = from;
+		var im = proofBox.querySelector('img');
+		im.src = src; im.alt = alt || '';
+		proofBox.querySelector('figcaption').textContent = alt || '';
+		proofBox.hidden = false;
+		document.documentElement.classList.add('mdm-menu-open');
+		proofBox.querySelector('.mdm-lightbox__close').focus();
+	}
+	document.addEventListener('click', function (e) {
+		var t = e.target.closest ? e.target.closest('[data-mdm-proof]') : null;
+		if (!t) { return; }
+		e.preventDefault();
+		openProof(t.getAttribute('data-mdm-proof'), t.getAttribute('data-mdm-proof-alt'), t);
+	});
+
 	function initImpact(root) {
 		if (!once(root, 'init')) { return; }
 		var cards = $$('.mdm-case', root);
