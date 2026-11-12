@@ -20,11 +20,11 @@ function mdm_shortcode_about( $atts ) {
 			'title'       => 'About Million Dollar Media',
 			'text'        => 'A done-for-you creative and media buying team helping agencies, coaches, local service and e-commerce brands turn ads into booked calls and revenue.',
 			'button_text' => 'Our story',
-			'button_url'  => MDM_Sections::cta_url(),
+			'button_url'  => home_url( '/our-story/' ),
 			'p1'          => 'Built and scaled funnels across roofing, HVAC, mortgage, remodeling, coaching and e-commerce.',
 			'p2'          => 'Creative that sells: VSLs, UGC, AI videos and short-form, tested and iterated every week.',
 			'p3'          => 'Two Comma Club winners, ClickFunnels award recipients and a team obsessed with tracking.',
-			'stat1'       => '10|+|Years in the game',
+			'stat1'       => '12|+|Years in the game',
 			'stat2'       => '24||–48h|Turnaround per creative',
 			'stat3'       => '100||%|Done-for-you',
 		),
@@ -46,7 +46,7 @@ function mdm_shortcode_about( $atts ) {
 	ob_start();
 	echo MDM_Sections::assets(); // phpcs:ignore WordPress.Security.EscapeOutput
 	?>
-	<section class="mdm-about" data-mdm-reveal>
+	<section class="mdm-about" data-mdm-reveal id="about">
 		<div class="mdm-about__glow" aria-hidden="true"><i></i><i></i><i></i></div>
 
 		<div class="mdm-about__inner">

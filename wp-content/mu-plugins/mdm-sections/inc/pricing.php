@@ -53,7 +53,7 @@ function mdm_shortcode_pricing( $atts ) {
 			'quote_title' => 'Need 10+ creatives or a full done-for-you package?',
 			'quote_text'  => 'Get custom pricing for monthly volume, bundles and ads management. Book a free 15-minute call and we will build a plan around your budget.',
 			'quote_cta'   => 'Get custom pricing',
-			'points'    => 'Delivered in 24–48 hours|Half the cost of agencies|Fully done-for-you|Instant AI-led support|10+ years of experience|$100M+ in client results',
+			'points'    => 'Delivered in 24–48 hours|Half the cost of agencies|Fully done-for-you|Instant AI-led support|12+ years of experience|$100M+ in client results',
 		),
 		$atts,
 		'mdm_pricing'
