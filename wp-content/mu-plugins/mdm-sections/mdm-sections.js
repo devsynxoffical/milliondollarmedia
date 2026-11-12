@@ -441,7 +441,7 @@
 
 		// Paging: 9 cards per tab, "Show more" adds 12 at a time.
 		var showAll = root.querySelector('[data-mdm-cases-more]');
-		var STEP = 12, FIRST = 9;
+		var STEP = 12, FIRST = 8;
 		var page = function (panel, n) {
 			var cards = $$('.mdm-cs', panel);
 			panel._shown = Math.min(cards.length, n);
