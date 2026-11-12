@@ -50,6 +50,9 @@ function mdm_shortcode_pricing( $atts ) {
 			'highlight' => 'works.',
 			'subtitle'  => 'No retainers, no lock-ins. Order exactly what you need and get it back in 24–48 hours.',
 			'checkout'  => home_url( '/checkout/' ),
+			'quote_title' => 'Need 10+ creatives or a full done-for-you package?',
+			'quote_text'  => 'Get custom pricing for monthly volume, bundles and ads management. Book a free 15-minute call and we will build a plan around your budget.',
+			'quote_cta'   => 'Get custom pricing',
 			'points'    => 'Delivered in 24–48 hours|Half the cost of agencies|Fully done-for-you|Instant AI-led support|10+ years of experience|$100M+ in client results',
 		),
 		$atts,
@@ -96,6 +99,18 @@ function mdm_shortcode_pricing( $atts ) {
 					</div>
 				</article>
 			<?php endforeach; ?>
+		</div>
+
+		<div class="mdm-quote mdm-rise" style="--d:.2s">
+			<div class="mdm-quote__text">
+				<span class="mdm-quote__tag">Bigger orders = lower price</span>
+				<h3><?php echo esc_html( $atts['quote_title'] ); ?></h3>
+				<p><?php echo esc_html( $atts['quote_text'] ); ?></p>
+			</div>
+			<div class="mdm-quote__actions">
+				<?php echo MDM_Sections::button( $atts['quote_cta'], MDM_Sections::cta_url(), 'mdm-btn--red' ); // phpcs:ignore ?>
+				<a class="mdm-quote__wa" href="<?php echo esc_url( add_query_arg( 'text', rawurlencode( 'Hi! I want custom pricing for ad creatives.' ), MDM_Sections::whatsapp_url() ) ); ?>" target="_blank" rel="noopener">or message us on WhatsApp →</a>
+			</div>
 		</div>
 
 		<?php if ( $points ) : ?>

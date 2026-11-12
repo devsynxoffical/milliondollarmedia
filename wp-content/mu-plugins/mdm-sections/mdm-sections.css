@@ -1424,3 +1424,22 @@ html .mdm-thanks-burst i:nth-child(7) { --x: -200px; --y: 20px; } html .mdm-than
 	html .mdm-reel__flip { transform: none !important; opacity: 1 !important; }
 	html .mdm-reel { --g: 0 !important; }
 }
+
+/* ==========================================================================
+   CUSTOM PRICING BOX (under the price cards) - pushes visitors to book a call
+   ========================================================================== */
+html .mdm-quote { max-width: 1200px; margin: clamp(28px, 3vw, 44px) auto 0; display: flex; align-items: center; justify-content: space-between; gap: clamp(18px, 3vw, 40px); padding: clamp(24px, 3vw, 40px) clamp(22px, 3.4vw, 48px); border-radius: 28px; background: linear-gradient(120deg, #ED1C24 0%, #B3121A 100%); color: #fff; position: relative; overflow: hidden; box-shadow: 0 30px 60px -34px rgba(237, 28, 36, .7); }
+html .mdm-quote::after { content: ""; position: absolute; right: -80px; top: -80px; width: 260px; height: 260px; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,.22), transparent 70%); pointer-events: none; }
+html .mdm-quote__text { max-width: 640px; position: relative; z-index: 1; }
+html .mdm-quote__tag { display: inline-block; padding: 5px 12px; border-radius: 999px; background: rgba(255,255,255,.18); font-size: 12.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+html .mdm-quote h3 { margin: 12px 0 8px !important; font-size: clamp(22px, 2.2vw, 32px) !important; font-weight: 800 !important; line-height: 1.15 !important; letter-spacing: -.02em !important; color: #fff !important; }
+html .mdm-quote p { font-size: 15.5px; line-height: 1.55; opacity: .9; margin: 0 !important; }
+html .mdm-quote__actions { display: flex; flex-direction: column; align-items: center; gap: 12px; flex: none; position: relative; z-index: 1; }
+html .mdm-quote .mdm-btn { margin-top: 0; background: #fff; color: #111114 !important; font-weight: 700; }
+html .mdm-quote .mdm-btn__icon { background: #111114; color: #fff; }
+html .mdm-quote__wa { color: #fff !important; font-size: 14px; font-weight: 600; opacity: .9; text-decoration: underline !important; text-underline-offset: 3px; }
+html .mdm-quote__wa:hover { opacity: 1; }
+@media (max-width: 800px) {
+	html .mdm-quote { flex-direction: column; align-items: flex-start; max-width: 440px; }
+	html .mdm-quote__actions { align-items: flex-start; }
+}
