@@ -1517,3 +1517,45 @@ html .mdm-cases__cta .mdm-btn { margin-top: 0; }
 html body:has(.mdm-cases--all) :is(.entry-header, .ast-archive-description, .page-title) { display: none !important; }
 html body:has(.mdm-cases--all) :is(.site-content > .ast-container, .entry-content) { max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; }
 html body:has(.mdm-cases--all) #primary { margin-top: 0 !important; margin-bottom: 0 !important; padding: 0 !important; width: 100% !important; }
+
+/* ==========================================================================
+   CASE STUDY CATEGORIES  [mdm_case_categories] - Lead Gen / Ecom & DTC cards
+   ========================================================================== */
+html .mdm-cats { background: #F7F7F5 !important; }
+html .mdm-cats__head { text-align: center; max-width: 980px; margin: 0 auto; }
+html .mdm-cats__title { font-size: clamp(30px, 4.6vw, 64px); }
+html .mdm-cats .mdm-impact__badge { margin: 18px auto 0; }
+html .mdm-cats .mdm-lead { margin-top: 16px !important; }
+html .mdm-cats__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(16px, 2vw, 28px); max-width: 1240px; margin: clamp(36px, 4.5vw, 60px) auto 0; }
+html .mdm-cat { position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 14px; padding: clamp(24px, 3vw, 44px); padding-top: 0; border-radius: 28px; overflow: hidden; text-decoration: none !important; min-height: 100%;
+	opacity: 0; transform: translateY(50px); transition: transform 1s var(--mdm-ease), opacity .7s ease, box-shadow .4s; transition-delay: calc(.2s + var(--k) * .12s); }
+html .mdm-cats.is-inview .mdm-cat { opacity: 1; transform: none; }
+html .mdm-cats.is-inview .mdm-cat:hover { transform: translateY(-8px); box-shadow: 0 40px 70px -40px rgba(17,17,20,.55); transition-delay: 0s; }
+html .mdm-cat.is-dark { background: #111114; color: #fff !important; }
+html .mdm-cat.is-red { background: linear-gradient(150deg, #ED1C24 0%, #B3121A 100%); color: #fff !important; }
+html .mdm-cat__fan { position: relative; display: block; width: 100%; height: clamp(200px, 22vw, 300px); margin-bottom: 8px; }
+html .mdm-cat__fan img { position: absolute; left: 50%; bottom: -14px; width: 38%; aspect-ratio: 3 / 4; object-fit: cover; object-position: top center; border-radius: 14px; border: 3px solid rgba(255,255,255,.9); box-shadow: 0 24px 40px -18px rgba(0,0,0,.6);
+	transform: translateX(calc(-50% + (var(--j) - 1) * 62%)) rotate(calc((var(--j) - 1) * 9deg)) translateY(calc(var(--j) == 1 ? 0 : 18px)); transition: transform .8s var(--mdm-ease); }
+html .mdm-cat__fan img:nth-child(1) { transform: translateX(-112%) rotate(-9deg) translateY(22px); }
+html .mdm-cat__fan img:nth-child(2) { transform: translateX(-50%); z-index: 2; width: 42%; }
+html .mdm-cat__fan img:nth-child(3) { transform: translateX(12%) rotate(9deg) translateY(22px); }
+html .mdm-cat:hover .mdm-cat__fan img:nth-child(1) { transform: translateX(-122%) rotate(-13deg) translateY(14px); }
+html .mdm-cat:hover .mdm-cat__fan img:nth-child(2) { transform: translateX(-50%) translateY(-10px); }
+html .mdm-cat:hover .mdm-cat__fan img:nth-child(3) { transform: translateX(22%) rotate(13deg) translateY(14px); }
+html .mdm-cat__tag { display: inline-block; padding: 6px 12px; border-radius: 999px; font-size: 12.5px; font-weight: 700; letter-spacing: .04em; background: rgba(255,255,255,.14); color: #fff; }
+html .mdm-cat.is-dark .mdm-cat__tag { color: #FF8A8F; background: rgba(237,28,36,.16); }
+html .mdm-cat__name { font-family: var(--mdm-display); font-weight: 700; font-size: clamp(30px, 4vw, 56px); line-height: 1.02; letter-spacing: -.02em; text-transform: uppercase; color: #fff; }
+html .mdm-cat__count { font-size: 15px; opacity: .8; }
+html .mdm-cat__count b { font-family: var(--mdm-display); font-size: clamp(44px, 5.4vw, 76px); line-height: 1; letter-spacing: -.04em; margin-right: 8px; opacity: 1; color: #fff; }
+html .mdm-cat.is-dark .mdm-cat__count b { color: #ED1C24; }
+html .mdm-cat__text { max-width: 460px; font-size: 15.5px; line-height: 1.55; opacity: .85; }
+html .mdm-cat__chips { display: flex; flex-wrap: wrap; gap: 6px; }
+html .mdm-cat__chips i { font-style: normal; font-size: 12.5px; font-weight: 600; padding: 6px 11px; border-radius: 999px; border: 1px solid rgba(255,255,255,.28); }
+html .mdm-cat__btn { margin-top: auto; display: inline-flex; align-items: center; gap: 12px; padding: 7px 7px 7px 22px; border-radius: 999px; background: #fff; color: #111114; font-weight: 700; font-size: 15px; transition: transform .3s var(--mdm-ease); }
+html .mdm-cat__btn em { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: #ED1C24; color: #fff; transition: transform .35s var(--mdm-ease); }
+html .mdm-cat.is-red .mdm-cat__btn em { background: #111114; }
+html .mdm-cat__btn em svg { width: 18px; height: 18px; }
+html .mdm-cat:hover .mdm-cat__btn em { transform: rotate(-45deg); }
+@media (max-width: 860px) { html .mdm-cats__grid { grid-template-columns: 1fr; max-width: 520px; } }
+html .mdm-lightbox__link { margin-top: 14px; display: inline-flex; padding: 12px 20px; border-radius: 999px; background: #ED1C24; color: #fff !important; font-weight: 700; text-decoration: none !important; }
+html .mdm-lightbox__link[hidden] { display: none !important; }

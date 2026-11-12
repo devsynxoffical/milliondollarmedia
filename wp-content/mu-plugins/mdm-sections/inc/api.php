@@ -87,3 +87,74 @@ add_action(
 		);
 	}
 );
+
+/*
+ * Admin-only Elementor helpers (need a logged-in user who can edit the page):
+ *   GET  /wp-json/mdm/v1/elementor/<id>        -> { id, data } (the page's _elementor_data JSON)
+ *   POST /wp-json/mdm/v1/elementor/<id>  {data} -> saves it (old copy kept in option mdm_api_backup_<id>), clears CSS
+ *   POST /wp-json/mdm/v1/elementor-css         -> regenerates Elementor's CSS files
+ */
+function mdm_api_clear_elementor_css() {
+	if ( class_exists( '\Elementor\Plugin' ) && isset( \Elementor\Plugin::$instance->files_manager ) ) {
+		\Elementor\Plugin::$instance->files_manager->clear_cache();
+	}
+	if ( function_exists( 'mdm_clear_page_cache' ) ) {
+		mdm_clear_page_cache();
+	}
+	do_action( 'litespeed_purge_all' );
+}
+
+add_action(
+	'rest_api_init',
+	static function () {
+		$can = static function ( $req ) {
+			$id = (int) $req['id'];
+			return $id && current_user_can( 'edit_post', $id );
+		};
+		register_rest_route(
+			'mdm/v1',
+			'/elementor/(?P<id>\d+)',
+			array(
+				array(
+					'methods'             => 'GET',
+					'permission_callback' => $can,
+					'callback'            => static function ( $req ) {
+						$id = (int) $req['id'];
+						return array( 'id' => $id, 'data' => get_post_meta( $id, '_elementor_data', true ) );
+					},
+				),
+				array(
+					'methods'             => 'POST',
+					'permission_callback' => $can,
+					'callback'            => static function ( $req ) {
+						$id   = (int) $req['id'];
+						$data = $req->get_param( 'data' );
+						$data = is_string( $data ) ? $data : wp_json_encode( $data );
+						if ( ! is_array( json_decode( $data, true ) ) ) {
+							return new WP_Error( 'mdm_bad_data', 'data must be Elementor JSON', array( 'status' => 400 ) );
+						}
+						update_option( 'mdm_api_backup_' . $id, array( 'time' => time(), 'data' => get_post_meta( $id, '_elementor_data', true ) ), false );
+						update_post_meta( $id, '_elementor_data', wp_slash( $data ) );
+						delete_post_meta( $id, '_elementor_css' );
+						mdm_api_clear_elementor_css();
+						return array( 'saved' => true, 'id' => $id, 'backup' => 'mdm_api_backup_' . $id );
+					},
+				),
+			)
+		);
+		register_rest_route(
+			'mdm/v1',
+			'/elementor-css',
+			array(
+				'methods'             => 'POST',
+				'permission_callback' => static function () {
+					return current_user_can( 'edit_pages' );
+				},
+				'callback'            => static function () {
+					mdm_api_clear_elementor_css();
+					return array( 'cleared' => true );
+				},
+			)
+		);
+	}
+);

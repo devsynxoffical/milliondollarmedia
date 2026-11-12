@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-add_shortcode( 'mdm_impact_cards', 'mdm_shortcode_impact' );
+add_shortcode( 'mdm_impact_cards', 'mdm_shortcode_case_categories' ); // now the Lead Gen / Ecom category cards (inc/case-studies.php)
 
 function mdm_default_impact_cards() {
 	// Highlights only. The screenshots themselves live in the Case studies section ("See the proof").
