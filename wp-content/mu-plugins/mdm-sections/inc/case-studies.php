@@ -79,7 +79,7 @@ function mdm_shortcode_case_studies( $atts ) {
 		<?php $first = true; foreach ( $groups as $key => $group ) : ?>
 			<div class="mdm-cases__grid<?php echo $first ? ' is-on' : ''; ?>" role="tabpanel" id="<?php echo esc_attr( $uid . '-' . $key ); ?>" data-panel="<?php echo esc_attr( $key ); ?>"<?php echo $first ? '' : ' hidden'; ?>>
 				<?php foreach ( $group['items'] as $i => $item ) : ?>
-					<article class="mdm-cs" style="--c:<?php echo esc_attr( $colors[ $i % count( $colors ) ] ); ?>;--i:<?php echo (int) ( $i % 9 ); ?>">
+					<article class="mdm-cs" style="--c:<?php echo esc_attr( $colors[ $i % count( $colors ) ] ); ?>;--i:<?php echo (int) ( $i % 8 ); ?>">
 						<button type="button" class="mdm-cs__shot" data-full="<?php echo esc_url( $item['image'] ); ?>"<?php echo ! empty( $item['video'] ) ? ' data-video="' . esc_url( $item['video'] ) . '"' : ''; ?> aria-label="<?php echo esc_attr( ( empty( $item['video'] ) ? 'View proof: ' : 'Play proof video: ' ) . $item['headline'] ); ?>">
 							<?php if ( ! empty( $item['video'] ) ) : ?><span class="mdm-cs__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span><?php endif; ?>
 							<img src="<?php echo esc_url( $item['image'] ); ?>" alt="<?php echo esc_attr( $item['niche'] . ' results: ' . $item['headline'] ); ?>" loading="lazy" decoding="async">
