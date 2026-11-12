@@ -49,7 +49,8 @@ function mdm_shortcode_reels( $atts ) {
 			'more_url'        => '',
 			'more_text'       => 'Watch more',
 			'rows'            => 2,
-			'stat'            => 'yes',
+			'stat'            => 'no',   // "yes" = red "250+ brands & creators" card as the 3rd card
+			'names'           => 'no',   // "yes" = name / category label at the bottom of each video
 			'stat_label'      => 'Brands & creators we work with',
 			'stat_value'      => '250+',
 		),
@@ -112,6 +113,8 @@ function mdm_shortcode_reels( $atts ) {
 	$more_url = is_array( $source ) && ! empty( $source['more'] ) ? $source['more'] : $atts['more_url'];
 	// Two rows at first; the rest opens with "Show all videos" so the section stays compact.
 	$visible = max( 4, (int) $atts['rows'] * 4 );
+	$cards   = array_slice( $cards, 0, $visible ); // only full rows; "Watch more" opens the rest
+	$names   = 'yes' === $atts['names'];
 	$formats = MDM_Sections::split_list( $atts['formats'] );
 
 	$platforms = array(
@@ -223,6 +226,7 @@ function mdm_shortcode_reels( $atts ) {
 							<?php endif; ?>
 							<span class="mdm-reel__shade" aria-hidden="true"></span>
 							<button type="button" class="mdm-reel__mute" aria-label="Unmute video">Unmute</button>
+							<?php if ( $names ) : ?>
 							<<?php echo $link ? 'a href="' . esc_url( $link ) . '"' . ( 0 === strpos( $link, 'http' ) && false === strpos( $link, (string) wp_parse_url( home_url(), PHP_URL_HOST ) ) ? ' target="_blank" rel="noopener"' : '' ) : 'span'; ?> class="mdm-reel__label">
 								<?php if ( ! empty( $card['avatar'] ) ) : ?>
 									<span class="mdm-reel__avatar mdm-reel__avatar--img" style="background-image:url('<?php echo esc_url( $card['avatar'] ); ?>')" aria-hidden="true"></span>
@@ -232,20 +236,18 @@ function mdm_shortcode_reels( $atts ) {
 								<span class="mdm-reel__name"><?php echo esc_html( $label ); ?></span>
 								<?php echo MDM_Sections::verified_icon(); // phpcs:ignore ?>
 							</<?php echo $link ? 'a' : 'span'; ?>>
+							<?php endif; ?>
 							<button type="button" class="mdm-reel__play" aria-label="Pause video">
 								<svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" fill="currentColor"/></svg>
 								<svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z" fill="currentColor"/></svg>
 							</button>
 						</div>
-						<div class="mdm-reel__face mdm-reel__back" style="--c:var(--mdm-c<?php echo (int) ( $i % 5 ); ?>)"><span><?php echo esc_html( $label ); ?></span></div>
+						<div class="mdm-reel__face mdm-reel__back" style="--c:var(--mdm-c<?php echo (int) ( $i % 5 ); ?>)"><span><?php echo $names ? esc_html( $label ) : ''; ?></span></div>
 					</div>
 				</div>
 			<?php endforeach; ?>
 		</div>
 
-		<?php if ( count( $cards ) > $visible ) : ?>
-			<div class="mdm-reels__more"><button type="button" class="mdm-btn mdm-btn--ghost" data-mdm-reels-more><span class="mdm-btn__icon"><?php echo MDM_Sections::arrow_icon(); // phpcs:ignore ?></span><span><?php echo esc_html( sprintf( 'Show all %d videos', count( array_filter( $cards, static function ( $c ) { return 'stat' !== $c['type']; } ) ) ) ); ?></span></button></div>
-		<?php endif; ?>
 		<?php if ( $more_url ) : ?>
 			<div class="mdm-reels__more mdm-rise"><?php echo MDM_Sections::button( $atts['more_text'], $more_url ); // phpcs:ignore ?></div>
 		<?php endif; ?>
