@@ -53,7 +53,7 @@ function mdm_socials() {
 function mdm_shortcode_menu( $atts ) {
 	$atts = shortcode_atts(
 		array(
-			'links'     => 'Home:/|Services:/services/|Case Studies:/#case-studies|How it works:/#how-it-works|FAQ:/#faq|Contact:/book-your-call/',
+			'links'     => 'Home:/|Services:/#services|Case Studies:/#case-studies|How it works:/#how-it-works|FAQ:/#faq|Contact:/book-your-call/',
 			'logo'      => mdm_site_logo_url(),
 			'brand'     => 'Million Dollar Media',
 			'cta_text'  => 'Book a call',
