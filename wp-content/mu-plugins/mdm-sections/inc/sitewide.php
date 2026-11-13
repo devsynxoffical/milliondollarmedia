@@ -276,3 +276,13 @@ add_action(
 	},
 	1
 );
+
+// Sitemap (Rank Math): always fresh, so new pages appear right away; leave out cart / checkout / funnel steps.
+add_filter( 'rank_math/sitemap/enable_caching', '__return_false' );
+add_filter(
+	'rank_math/sitemap/posts_to_exclude',
+	static function ( $ids ) {
+		// checkout, cart, my-account, thank-you, provide-information, booking-confirmed, upsell, downsell
+		return array_merge( (array) $ids, array( 2642, 3267, 210, 1542, 4517, 3399, 4924, 4925 ) );
+	}
+);
