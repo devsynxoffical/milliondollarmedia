@@ -39,6 +39,14 @@ function mdm_default_pricing_plans() {
 			'badge'    => '',
 			'features' => array( 'Loop-perfect animations', 'Strategic messaging in seconds', 'Branded motion graphics', 'Perfect for retargeting & warm audiences', 'Fast turnaround (24–48 hrs per GIF)', 'Dedicated account manager' ),
 		),
+		array(
+			'name'     => '10 Videos',
+			'unit'     => 'for 10 videos ($29.90 each)',
+			'price'    => '299',
+			'product'  => 4956,
+			'badge'    => 'Best value',
+			'features' => array( '10 done-for-you ad videos', '45–60 second videos', 'Hook & angle testing built in', 'Stock footage & custom B-roll', 'Dedicated video editor', 'Fast turnaround (24–48 hrs per video)' ),
+		),
 	);
 }
 

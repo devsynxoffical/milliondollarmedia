@@ -1808,3 +1808,21 @@ html .mdm-casebox__info { height: 100%; max-height: none; }
 	html .mdm-casebox__media { height: 46vh; }
 	html .mdm-casebox__info { height: auto; }
 }
+
+/* Case study filter tags */
+html .mdm-cfilter { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; max-width: 1100px; margin: clamp(26px, 3vw, 40px) auto 0; padding: 0 8px; }
+html .mdm-cfilter__btn { display: inline-flex !important; align-items: center; gap: 8px; padding: 10px 16px !important; border-radius: 999px !important; border: 1px solid rgba(17,17,20,.14) !important; background: #fff !important; color: #111114 !important; font: 600 14px/1.2 "Poppins", Inter, sans-serif !important; cursor: pointer; white-space: nowrap; transition: background .25s, color .25s, border-color .25s, transform .25s; }
+html .mdm-cfilter__btn small { display: inline-grid; place-items: center; min-width: 24px; height: 22px; padding: 0 7px; border-radius: 999px; background: #F1F1EF; color: #111114; font-size: 12px; font-weight: 700; }
+html .mdm-cfilter__btn:hover { border-color: #ED1C24 !important; transform: translateY(-1px); }
+html .mdm-cfilter__btn.is-on { background: #ED1C24 !important; border-color: #ED1C24 !important; color: #fff !important; }
+html .mdm-cfilter__btn.is-on small { background: #fff; color: #ED1C24; }
+html .mdm-cases .mdm-cs.is-filtered { display: none !important; }
+@media (max-width: 600px) {
+	html .mdm-cfilter { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; padding-bottom: 6px; }
+	html .mdm-cfilter::-webkit-scrollbar { display: none; }
+	html .mdm-cfilter__btn { flex: none; font-size: 13px !important; padding: 9px 13px !important; }
+}
+/* Pricing: 4 plans (Image / Video / GIF / 10 Videos) */
+@media (min-width: 1101px) { html .mdm-pricing__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); max-width: 1320px; } html .mdm-plan__price { font-size: clamp(42px, 3.6vw, 60px); } }
+@media (min-width: 901px) and (max-width: 1100px) { html .mdm-pricing__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 820px; } }
+html .mdm-plan:last-child .mdm-plan__badge { background: #111114; }

@@ -518,6 +518,23 @@
 			afterLoader(function () { onInView(firstPanel, function () { animatePanel(firstPanel); moveThumb(); }, 0.08); });
 		}
 
+		// Filter tags
+		var fbtns = $$('.mdm-cfilter__btn', root);
+		fbtns.forEach(function (fb) {
+			fb.addEventListener('click', function () {
+				var key = fb.getAttribute('data-filter');
+				fbtns.forEach(function (o) { var on = o === fb; o.classList.toggle('is-on', on); o.setAttribute('aria-pressed', on ? 'true' : 'false'); });
+				var n = 0;
+				$$('.mdm-cs', root).forEach(function (c) {
+					var show = key === '*' || (' ' + c.getAttribute('data-f') + ' ').indexOf(' ' + key + ' ') !== -1;
+					c.classList.toggle('is-filtered', !show);
+					if (show) { c.style.setProperty('--i', n % 8); c.style.animation = 'none'; void c.offsetWidth; c.style.animation = ''; n++; }
+				});
+				var g = root.querySelector('.mdm-cases__grid');
+				if (g) { g.classList.remove('is-anim'); void g.offsetWidth; g.classList.add('is-anim'); }
+			});
+		});
+
 		// Case study popup: proof on one side, the full story on the other.
 		var box = root.querySelector('.mdm-casebox');
 		if (box) {
