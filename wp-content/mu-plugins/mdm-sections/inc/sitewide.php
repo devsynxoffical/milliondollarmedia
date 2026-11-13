@@ -267,3 +267,12 @@ add_action(
 	},
 	99
 );
+
+// Google Search Console verification (every page, in <head>).
+add_action(
+	'wp_head',
+	static function () {
+		echo '<meta name="google-site-verification" content="EGn8kxu1QHcwLdifqC13-oKVegJthGpHMY1YXQYsurg" />' . "\n";
+	},
+	1
+);
