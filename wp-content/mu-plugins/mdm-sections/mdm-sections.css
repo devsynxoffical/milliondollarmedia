@@ -1886,3 +1886,8 @@ html .mdm-plan:last-child .mdm-plan__badge { background: #111114; }
 	html .mdm-reel { transform: translate3d(0, calc(var(--fy) * (1 - var(--g)) + var(--sy) * .5 + var(--g) * 14px), 0) rotate(calc(var(--rot) + var(--sr) * .5)) !important; }
 	html .mdm-reels__grid { column-gap: 20px !important; padding-left: 16px !important; padding-right: 16px !important; }
 }
+/* Phones: first screen = header + full-height hero video (client cards come into view on scroll) */
+@media (max-width: 767px) {
+	html .elementor-6 .elementor-element.elementor-element-bbeb47a { --min-height: calc(100svh - 86px); min-height: calc(100vh - 86px); min-height: calc(100svh - 86px); justify-content: center; }
+	html .elementor-6 .elementor-element.elementor-element-ba55ff9 { margin-top: 0 !important; padding-top: 24px; }
+}
