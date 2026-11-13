@@ -18,7 +18,7 @@ function mdm_floating_cta_applies() {
 	if ( function_exists( 'mdm_is_shop_page' ) && mdm_is_shop_page() ) {
 		return false; // don't distract buyers on cart / checkout
 	}
-	if ( is_page( array( 'book-your-call', 'booking-confirmed' ) ) ) {
+	if ( is_page( array( 'book-your-call', 'bookcall', 'booking-confirmed' ) ) ) {
 		return false; // already on the booking page
 	}
 	if ( isset( $_GET['elementor-preview'] ) || ( function_exists( 'mdm_site_design_active' ) && ! mdm_site_design_active() ) ) { // phpcs:ignore
@@ -33,7 +33,7 @@ add_action(
 		if ( ! mdm_floating_cta_applies() ) {
 			return;
 		}
-		$cta = MDM_Sections::cta_url();
+		$cta = function_exists( 'mdm_pricing_call_url' ) ? mdm_pricing_call_url() : MDM_Sections::cta_url();
 		$wa  = add_query_arg( 'text', rawurlencode( 'Hi! I saw your website and want custom pricing for ad creatives.' ), MDM_Sections::whatsapp_url() );
 		?>
 		<div class="mdm-fcta" data-mdm-fcta aria-hidden="true">

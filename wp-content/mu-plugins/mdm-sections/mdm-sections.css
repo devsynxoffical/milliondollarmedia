@@ -1611,3 +1611,67 @@ html .elementor-6 .elementor-element.elementor-element-9ee87ae .elementor-image-
 html .elementor-6 .elementor-element.elementor-element-9ee87ae .elementor-image-box-description{font-family:var( --e-global-typography-text-font-family ), Sans-serif;font-weight:var( --e-global-typography-text-font-weight );color:#FFFFFF;}
 html .elementor-6 .elementor-element.elementor-element-b1442fd{--display:flex;}
 html .elementor-6 .elementor-element.elementor-element-b1442fd.e-con:hover{--e-con-transform-scale:1.02;}
+
+/* ==========================================================================
+   LIVE CALLS  [mdm_live_calls] - above the footer on every page
+   ========================================================================== */
+html .mdm-calls { position: relative; overflow: hidden; background: radial-gradient(120% 80% at 50% 0%, #1f1012 0%, #0b0b0d 60%); color: #fff; padding: clamp(60px, 7vw, 100px) 0 clamp(70px, 8vw, 110px); font-family: "Poppins", Inter, system-ui, sans-serif; }
+html .mdm-calls *, html .mdm-calls *::before, html .mdm-calls *::after { box-sizing: border-box; }
+html .mdm-calls__head { text-align: center; max-width: 860px; margin: 0 auto; padding: 0 16px; }
+html .mdm-calls__eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px; border: 1px solid rgba(237,28,36,.45); background: rgba(237,28,36,.12); color: #FF8A8F; font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+html .mdm-calls__eyebrow i { width: 7px; height: 7px; border-radius: 50%; background: #ED1C24; box-shadow: 0 0 10px #ED1C24; animation: mdmCallPulse 1.6s infinite; }
+html .mdm-calls__title { margin: 16px 0 10px !important; font-family: "Syncopate", "Archivo Black", sans-serif !important; font-weight: 700 !important; font-size: clamp(24px, 3.4vw, 46px) !important; line-height: 1.12 !important; letter-spacing: -.02em !important; text-transform: uppercase; color: #fff !important; }
+html .mdm-calls__text { margin: 0 !important; color: rgba(255,255,255,.65); font-size: 15.5px; line-height: 1.55; }
+html .mdm-calls__track { margin-top: clamp(36px, 4vw, 56px); -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+html .mdm-calls__row { display: flex; gap: clamp(18px, 2.4vw, 34px); width: max-content; padding: 26px 0 34px; animation: mdmCallsScroll 70s linear infinite; }
+html .mdm-calls:hover .mdm-calls__row { animation-play-state: paused; }
+html .mdm-call { margin: 0; flex: none; width: clamp(270px, 26vw, 400px); padding: 10px; border-radius: 18px; border: 1px solid rgba(255,255,255,.14); background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.015)); box-shadow: 0 16px 40px rgba(0,0,0,.6); backdrop-filter: blur(14px); transform: rotate(var(--rot)); transition: transform .5s cubic-bezier(.22,1,.36,1), border-color .3s, box-shadow .3s; }
+html .mdm-call:hover { transform: rotate(0) scale(1.06); border-color: rgba(237,28,36,.65); box-shadow: 0 22px 54px rgba(0,0,0,.85), 0 0 30px rgba(237,28,36,.35); z-index: 2; position: relative; }
+html .mdm-call__bar { display: flex; align-items: center; justify-content: space-between; padding: 0 4px 10px; }
+html .mdm-call__dots { display: inline-flex; gap: 6px; }
+html .mdm-call__dots i { width: 9px; height: 9px; border-radius: 50%; background: #f43f5e; opacity: .85; }
+html .mdm-call__dots i:nth-child(2) { background: #f59e0b; }
+html .mdm-call__dots i:nth-child(3) { background: #10b981; }
+html .mdm-call__badge { display: inline-flex; align-items: center; gap: 6px; padding: 3px 9px; border-radius: 999px; border: 1px solid rgba(43,212,106,.4); background: rgba(43,212,106,.1); color: #6EF0A0; font: 600 10px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .08em; text-transform: uppercase; }
+html .mdm-call__badge i { width: 6px; height: 6px; border-radius: 50%; background: #2BD46A; box-shadow: 0 0 8px #2BD46A; animation: mdmCallPulse 1.6s infinite; }
+html .mdm-call__img { position: relative; height: clamp(160px, 15vw, 225px); border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,.1); background: #0d0d10; }
+html .mdm-call__img img { width: 100%; height: 100%; object-fit: contain; object-position: center; transition: transform .7s cubic-bezier(.22,1,.36,1); }
+html .mdm-call:hover .mdm-call__img img { transform: scale(1.05); }
+html .mdm-call figcaption { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 10px 4px 2px; font: 500 11.5px/1.3 ui-monospace, SFMono-Regular, Menlo, monospace; color: rgba(255,255,255,.85); }
+html .mdm-call figcaption b { color: #ED1C24; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; white-space: nowrap; }
+@keyframes mdmCallsScroll { to { transform: translateX(-50%); } }
+@keyframes mdmCallPulse { 50% { opacity: .35; } }
+@media (prefers-reduced-motion: reduce) { html .mdm-calls__row { animation: none; overflow-x: auto; } }
+
+/* ==========================================================================
+   BOOK A CALL (custom pricing)  [mdm_bookcall]  - /bookcall/
+   ========================================================================== */
+html .mdm-book { background: linear-gradient(180deg, #fff 0%, #F7F7F5 100%); }
+html .mdm-book__grid { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: clamp(24px, 4vw, 64px); max-width: 1240px; margin: 0 auto; align-items: start; }
+html .mdm-book__title { font-size: clamp(30px, 3.8vw, 54px); margin-top: 14px !important; }
+html .mdm-book .mdm-impact__badge { margin-top: 18px; }
+html .mdm-book .mdm-lead { margin-top: 16px !important; text-align: left; }
+html .mdm-book__points { list-style: none !important; margin: 26px 0 0 !important; padding: 0 !important; display: grid; gap: 10px; }
+html .mdm-book__points li { display: flex; gap: 14px; align-items: flex-start; padding: 14px 16px; border-radius: 16px; background: #fff; border: 1px solid var(--mdm-line); opacity: 0; transform: translateX(-24px); transition: transform .8s var(--mdm-ease), opacity .6s; transition-delay: calc(.35s + var(--i) * 90ms); }
+html .mdm-book.is-inview .mdm-book__points li { opacity: 1; transform: none; }
+html .mdm-book__points i { font-style: normal; font-size: 22px; line-height: 1.2; }
+html .mdm-book__points b { display: block; font-size: 15.5px; font-weight: 700; color: #111114; }
+html .mdm-book__points span { display: block; font-size: 14px; color: var(--mdm-muted); margin-top: 2px; }
+html .mdm-book__stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 18px; }
+html .mdm-book__stats div { padding: 14px; border-radius: 16px; background: #111114; color: #fff; text-align: center; }
+html .mdm-book__stats div:nth-child(2) { background: #ED1C24; }
+html .mdm-book__stats b { display: block; font-family: var(--mdm-display); font-size: clamp(20px, 2vw, 28px); line-height: 1; }
+html .mdm-book__stats span { display: block; margin-top: 6px; font-size: 12.5px; opacity: .8; }
+html .mdm-book__alt { margin-top: 18px !important; font-size: 14.5px; color: var(--mdm-muted); }
+html .mdm-book__alt a { color: #ED1C24 !important; font-weight: 700; }
+html .mdm-book__cal { position: sticky; top: 24px; background: #fff; border-radius: 26px; border: 1px solid var(--mdm-line); box-shadow: 0 40px 80px -50px rgba(17,17,20,.45); padding: 18px 14px 6px; overflow: hidden; }
+html .mdm-book__cal-head { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 6px 0 10px; border-bottom: 1px solid var(--mdm-line); margin-bottom: 6px; }
+html .mdm-book__cal-head b { font-size: 18px; font-weight: 800; color: #111114; }
+html .mdm-book__live { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #1F9D55; }
+html .mdm-book__live i { width: 8px; height: 8px; border-radius: 50%; background: #2BD46A; animation: mdmCallPulse 1.6s infinite; }
+@media (max-width: 900px) { html .mdm-book__grid { grid-template-columns: 1fr; } html .mdm-book__cal { position: static; } }
+
+/* Video cards: cover image first, player fades in when ready */
+html .mdm-reel__poster { z-index: 0; }
+html .mdm-reel__frame { opacity: 0; transition: opacity .6s ease; z-index: 1; }
+html .mdm-reel__frame.is-ready { opacity: 1; }

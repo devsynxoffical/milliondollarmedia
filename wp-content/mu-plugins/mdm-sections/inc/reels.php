@@ -206,7 +206,7 @@ function mdm_shortcode_reels( $atts ) {
 					continue;
 				endif;
 				$label  = $card['label'];
-				$poster = $card['poster'];
+				$poster = $card['poster'] ? $card['poster'] : mdm_video_thumb( $card['src'], $card['type'] );
 				$link   = $card['link'];
 				?>
 				<div class="mdm-reel<?php echo $i >= $visible ? ' is-extra' : ''; ?>" style="--i:<?php echo (int) $i; ?>;--col:<?php echo (int) ( $i % 4 ); ?>">
@@ -217,7 +217,7 @@ function mdm_shortcode_reels( $atts ) {
 									data-src="<?php echo esc_url( $card['src'] ); ?>"
 									<?php echo $poster ? 'poster="' . esc_url( $poster ) . '"' : ''; ?>></video>
 							<?php else : ?>
-								<?php if ( $poster ) : ?><img class="mdm-reel__poster" src="<?php echo esc_url( $poster ); ?>" alt="" loading="lazy"><?php endif; ?>
+								<?php if ( $poster ) : ?><img class="mdm-reel__poster skip-lazy" data-no-lazy="1" src="<?php echo esc_url( $poster ); ?>" alt="" decoding="async"<?php echo $i < 4 ? ' fetchpriority="high"' : ''; ?>><?php endif; ?>
 								<iframe class="mdm-reel__video mdm-reel__frame skip-lazy no-lazyload" data-no-lazy="1" data-skip-lazy="1" title="<?php echo esc_attr( $label ); ?> video" loading="lazy"
 									data-type="<?php echo esc_attr( $card['type'] ); ?>"
 									data-src="<?php echo esc_url( mdm_embed_url( $card['src'], $card['type'], true ) ); ?>"
@@ -367,5 +367,33 @@ function mdm_client_pills() {
 	} );
 	set_transient( $key, $out, 12 * HOUR_IN_SECONDS );
 	return $out;
+}
+
+/**
+ * Cover image for a Vimeo / YouTube video, shown while the player loads.
+ * Vimeo: looked up once with oEmbed and cached for a week.
+ */
+function mdm_video_thumb( $src, $type ) {
+	if ( 'youtube' === $type && preg_match( '~(?:youtu\.be/|v=|/embed/|/shorts/)([A-Za-z0-9_-]{6,})~', $src, $m ) ) {
+		return 'https://i.ytimg.com/vi/' . $m[1] . '/hqdefault.jpg';
+	}
+	if ( 'vimeo' !== $type || ! preg_match( '~vimeo\.com/(?:video/|.*?/)?(\d+)~i', $src, $m ) ) {
+		return '';
+	}
+	$key = 'mdm_vthumb_' . $m[1];
+	$hit = get_transient( $key );
+	if ( false !== $hit ) {
+		return (string) $hit;
+	}
+	$thumb = '';
+	$res   = wp_remote_get( 'https://vimeo.com/api/oembed.json?width=720&url=' . rawurlencode( 'https://vimeo.com/' . $m[1] ), array( 'timeout' => 4 ) );
+	if ( ! is_wp_error( $res ) && 200 === (int) wp_remote_retrieve_response_code( $res ) ) {
+		$j = json_decode( wp_remote_retrieve_body( $res ), true );
+		if ( ! empty( $j['thumbnail_url'] ) ) {
+			$thumb = preg_replace( '~_\d+x\d+(\.\w+)?$~', '_720', $j['thumbnail_url'] ); // bigger cover
+		}
+	}
+	set_transient( $key, $thumb, $thumb ? WEEK_IN_SECONDS : HOUR_IN_SECONDS );
+	return $thumb;
 }
 

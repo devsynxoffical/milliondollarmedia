@@ -93,7 +93,7 @@
 			var v = e.target;
 			if (e.isIntersecting) { playVideo(v); } else { pauseVideo(v); }
 		});
-	}, { rootMargin: '200px 0px', threshold: 0.2 }) : null;
+	}, { rootMargin: '900px 0px', threshold: 0 }) : null;
 
 	// Works for <video> and for Vimeo / YouTube <iframe> players.
 	function framePost(f, vimeoMsg, ytFunc) {
@@ -116,7 +116,17 @@
 		var card = v.closest('.mdm-reel');
 		if (card && card.classList.contains('is-paused')) { return; }
 		var cur = v.getAttribute('src');
-		if (!cur || cur === 'about:blank') { var rs = realSrc(v); if (rs) { v.src = rs; } }
+		if (!cur || cur === 'about:blank') {
+			var rs = realSrc(v);
+			if (rs) {
+				if (v.tagName === 'IFRAME' && !v.__mdmReady) {
+					v.__mdmReady = true;
+					// Keep the cover image until the player has had a moment to start.
+					v.addEventListener('load', function () { setTimeout(function () { v.classList.add('is-ready'); }, 900); });
+				}
+				v.src = rs;
+			}
+		}
 		if (v.tagName === 'IFRAME') { framePost(v, { method: 'play' }, 'playVideo'); return; }
 		var p = v.play();
 		if (p && p.catch) { p.catch(function () {}); }
