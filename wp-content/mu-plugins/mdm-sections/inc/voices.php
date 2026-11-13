@@ -107,3 +107,30 @@ function mdm_shortcode_voices( $atts ) {
 	<?php
 	return ob_get_clean();
 }
+
+/*
+ * Video testimonials on most pages too (just above the "live calls" strip and the footer).
+ * Not on: the homepage (it has them already), cart / checkout, and funnel pages.
+ */
+function mdm_voices_everywhere_applies() {
+	if ( is_admin() || is_front_page() || ! function_exists( 'mdm_site_footer_on' ) || ! mdm_site_footer_on() ) {
+		return false;
+	}
+	if ( function_exists( 'mdm_is_shop_page' ) && mdm_is_shop_page() ) {
+		return false;
+	}
+	$skip = apply_filters( 'mdm_voices_skip_pages', array( 'book-your-call', 'booking-confirmed', 'thank-you', 'upsell', 'downsell', 'provide-information', 'my-account' ) );
+	if ( is_page( $skip ) || is_404() ) {
+		return false;
+	}
+	return (bool) apply_filters( 'mdm_voices_everywhere', true );
+}
+add_action(
+	'wp_footer',
+	static function () {
+		if ( mdm_voices_everywhere_applies() ) {
+			echo '<div class="mdm-site-voices">' . do_shortcode( '[mdm_voices]' ) . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput
+		}
+	},
+	-1 // before the live calls strip (0) and the footer (1)
+);
