@@ -225,12 +225,36 @@ function mdm_shortcode_case_studies( $atts ) {
 			<?php endif; ?>
 		</div>
 
+		<?php
+		// Filter tags (case study pages): niches on a category page, Lead gen / E-commerce on the all page.
+		$filters = array();
+		if ( $is_all ) {
+			if ( 'all' === $cat ) {
+				$filters = array( 'cat-leadgen' => array( 'Lead generation', 0 ), 'cat-ecom' => array( 'E-commerce & DTC', 0 ) );
+				foreach ( $items as $it ) {
+					$filters[ 'cat-' . $it['cat'] ][1]++;
+				}
+			} else {
+				foreach ( mdm_case_niches( $cat ) as $n => $c ) {
+					$filters[ 'n-' . sanitize_title( $n ) ] = array( $n, $c );
+				}
+			}
+		}
+		?>
+		<?php if ( count( $filters ) > 1 ) : ?>
+			<div class="mdm-cfilter mdm-rise" style="--d:.45s" role="toolbar" aria-label="Filter case studies">
+				<button type="button" class="mdm-cfilter__btn is-on" data-filter="*" aria-pressed="true">All <small><?php echo (int) $total; ?></small></button>
+				<?php foreach ( $filters as $fk => $f ) : ?>
+					<button type="button" class="mdm-cfilter__btn" data-filter="<?php echo esc_attr( $fk ); ?>" aria-pressed="false"><?php echo esc_html( $f[0] ); ?> <small><?php echo (int) $f[1]; ?></small></button>
+				<?php endforeach; ?>
+			</div>
+		<?php endif; ?>
 		<div class="mdm-cases__grid is-on" data-panel="all">
 			<?php foreach ( $shown as $i => $item ) :
 				$has_video = ! empty( $item['video'] );
 				$label     = $has_video || ! empty( $item['link'] ) ? 'Watch proof ▶' : 'View proof ↗';
 				?>
-				<article class="mdm-cs" style="--c:<?php echo esc_attr( $colors[ $i % count( $colors ) ] ); ?>;--i:<?php echo (int) ( $i % 8 ); ?>">
+				<article class="mdm-cs" data-f="<?php echo esc_attr( 'cat-' . $item['cat'] . ' n-' . sanitize_title( $item['niche'] ) ); ?>" style="--c:<?php echo esc_attr( $colors[ $i % count( $colors ) ] ); ?>;--i:<?php echo (int) ( $i % 8 ); ?>">
 					<button type="button" class="mdm-cs__shot" data-full="<?php echo esc_url( $item['image'] ); ?>"<?php echo $has_video ? ' data-video="' . esc_url( $item['video'] ) . '"' : ''; ?><?php echo ! empty( $item['link'] ) ? ' data-link="' . esc_url( $item['link'] ) . '"' : ''; ?> aria-label="<?php echo esc_attr( 'View proof: ' . $item['headline'] ); ?>">
 						<img class="skip-lazy no-lazyload" data-no-lazy="1" src="<?php echo esc_url( $item['image'] ); ?>" alt="<?php echo esc_attr( $item['niche'] . ' results: ' . $item['headline'] ); ?>" loading="lazy" decoding="async">
 						<?php if ( $has_video ) : ?>
