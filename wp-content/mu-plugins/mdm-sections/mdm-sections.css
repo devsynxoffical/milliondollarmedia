@@ -1677,3 +1677,4 @@ html .mdm-reel__frame { opacity: 0; transition: opacity .6s ease; z-index: 1; }
 html .mdm-reel__frame.is-ready { opacity: 1; }
 html .mdm-reel__shade, html .mdm-reel__mute, html .mdm-reel__play, html .mdm-reel__label { z-index: 2; }
 html .mdm-book__title { font-size: clamp(28px, 3vw, 42px) !important; }
+html .mdm-ft__mail { margin: 10px 0 0 !important; } html .mdm-ft__mail a { color: inherit !important; font-weight: 700; text-decoration: underline !important; text-underline-offset: 4px; }

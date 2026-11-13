@@ -60,7 +60,7 @@ function mdm_shortcode_menu( $atts ) {
 			'cta_url'   => MDM_Sections::cta_url(),
 			'card_title'=> 'Ready to make your ads print?',
 			'card_text' => 'Free strategy call. We review your offer, show matching case studies and map your first 30 days.',
-			'email'     => 'hello@milliondollarmedia.us',
+			'email'     => 'vaishali@milliondollarmedia.us',
 		),
 		$atts,
 		'mdm_menu'

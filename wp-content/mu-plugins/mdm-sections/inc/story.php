@@ -113,3 +113,22 @@ function mdm_shortcode_story_cta( $atts ) {
 	<?php
 	return ob_get_clean();
 }
+
+/*
+ * The pages built here (Our Story, case studies, Book a Call) use the main site header with the menu
+ * (Elementor template 69) instead of the logo-only landing-page header (4358) that other pages get.
+ */
+function mdm_main_header_pages() {
+	return apply_filters( 'mdm_main_header_pages', array( 'our-story', 'case-studies', 'lead-generation', 'ecommerce', 'bookcall' ) );
+}
+add_filter(
+	'elementor/theme/get_location_templates/template_id',
+	static function ( $template_id, $location = '' ) {
+		if ( 'header' !== $location || 4358 !== (int) $template_id || is_admin() ) {
+			return $template_id;
+		}
+		return is_page( mdm_main_header_pages() ) ? (int) apply_filters( 'mdm_main_header_id', 69 ) : $template_id;
+	},
+	10,
+	2
+);

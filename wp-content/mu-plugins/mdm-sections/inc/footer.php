@@ -31,7 +31,7 @@ function mdm_shortcode_footer( $atts ) {
 			'loop_text'    => 'Winning hooks, ad breakdowns and case studies, straight to your inbox.',
 			'loop_note'    => 'We respect your inbox. No spam, just valuable updates.',
 			'loop_action'  => MDM_Sections::cta_url(),
-			'email'        => 'hello@milliondollarmedia.us',
+			'email'        => 'vaishali@milliondollarmedia.us',
 			'logo'         => function_exists( 'mdm_site_logo_url' ) ? mdm_site_logo_url() : '',
 		),
 		$atts,
@@ -93,6 +93,7 @@ function mdm_shortcode_footer( $atts ) {
 			</div>
 			<div class="mdm-ft__based mdm-rise" style="--d:.5s">
 				<p class="mdm-ft__note"><i></i><?php echo esc_html( $atts['based'] ); ?></p>
+				<p class="mdm-ft__mail"><a href="<?php echo esc_url( 'mailto:' . $atts['email'] ); ?>"><?php echo esc_html( $atts['email'] ); ?></a></p>
 				<p class="mdm-ft__clock" data-tz="<?php echo esc_attr( $atts['timezone'] ); ?>">--:--:--</p>
 				<p class="mdm-ft__tz"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><?php echo esc_html( $atts['tz_label'] ); ?></p>
 			</div>
