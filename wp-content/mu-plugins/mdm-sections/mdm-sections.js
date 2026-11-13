@@ -557,7 +557,10 @@
 				bBg.src = full;
 				if (v) {
 					bImg.hidden = true; bVid.hidden = false; bVid.poster = full; bVid.src = v;
-					var pr = bVid.play(); if (pr && pr.catch) { pr.catch(function () {}); }
+					// try with sound; phones that block it get a muted start (tap the speaker for sound)
+					bVid.muted = false;
+					var pr = bVid.play();
+					if (pr && pr.catch) { pr.catch(function () { bVid.muted = true; var p2 = bVid.play(); if (p2 && p2.catch) { p2.catch(function () {}); } }); }
 				} else {
 					bVid.hidden = true; bImg.hidden = false; bImg.src = full;
 					bImg.alt = shot.querySelector('img') ? shot.querySelector('img').alt : '';
