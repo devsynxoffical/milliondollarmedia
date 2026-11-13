@@ -518,39 +518,48 @@
 			afterLoader(function () { onInView(firstPanel, function () { animatePanel(firstPanel); moveThumb(); }, 0.08); });
 		}
 
-		// Lightbox
-		if (lightbox) {
-			var img = lightbox.querySelector('img');
+		// Case study popup: proof on one side, the full story on the other.
+		var box = root.querySelector('.mdm-casebox');
+		if (box) {
+			document.body.appendChild(box); // out of any animated parent, so it covers the whole screen
+			var bImg = box.querySelector('.mdm-casebox__img'), bBg = box.querySelector('.mdm-casebox__bg'), bVid = box.querySelector('.mdm-casebox__video');
 			var lastFocus = null;
-			var vid = lightbox.querySelector('video');
-			var close = function () { lightbox.hidden = true; if (vid) { vid.pause(); vid.removeAttribute('src'); vid.load(); vid.hidden = true; } document.documentElement.classList.remove('mdm-menu-open'); if (lastFocus) { lastFocus.focus(); } };
+			var close = function () {
+				box.classList.remove('is-open');
+				setTimeout(function () { box.hidden = true; }, 250);
+				bVid.pause(); bVid.removeAttribute('src'); bVid.load();
+				document.documentElement.classList.remove('mdm-menu-open');
+				if (lastFocus) { lastFocus.focus(); }
+			};
 			root.addEventListener('click', function (e) {
-				var shot = e.target.closest('.mdm-cs__shot');
-				if (!shot) { return; }
+				var card = e.target.closest('.mdm-cs');
+				if (!card || e.target.closest('a')) { return; }
+				var shot = card.querySelector('.mdm-cs__shot');
 				lastFocus = shot;
-				var v = shot.getAttribute('data-video');
-				if (v && vid) {
-					img.hidden = true;
-					vid.hidden = false; vid.poster = shot.getAttribute('data-full'); vid.src = v;
-					var pr = vid.play(); if (pr && pr.catch) { pr.catch(function () {}); }
+				var full = shot.getAttribute('data-full'), v = shot.getAttribute('data-video');
+				bBg.src = full;
+				if (v) {
+					bImg.hidden = true; bVid.hidden = false; bVid.poster = full; bVid.src = v;
+					var pr = bVid.play(); if (pr && pr.catch) { pr.catch(function () {}); }
 				} else {
-					if (vid) { vid.hidden = true; }
-					img.hidden = false;
-					img.src = shot.getAttribute('data-full');
+					bVid.hidden = true; bImg.hidden = false; bImg.src = full;
+					bImg.alt = shot.querySelector('img') ? shot.querySelector('img').alt : '';
 				}
-				img.alt = shot.querySelector('img') ? shot.querySelector('img').alt : '';
-				var lnk = lightbox.querySelector('.mdm-lightbox__link');
-				if (lnk) {
-					var href = shot.getAttribute('data-link');
-					lnk.hidden = !href;
-					if (href) { lnk.href = href; }
-				}
-				lightbox.hidden = false;
+				box.querySelector('.mdm-casebox__niche').textContent = (card.querySelector('.mdm-cs__niche') || {}).textContent || '';
+				box.querySelector('.mdm-casebox__title').textContent = (card.querySelector('.mdm-cs__headline') || {}).textContent || '';
+				var met = card.querySelector('.mdm-cs__metrics');
+				box.querySelector('.mdm-casebox__metrics').innerHTML = met ? met.innerHTML : '';
+				var desc = card.querySelector('.mdm-cs__desc');
+				var txt = box.querySelector('.mdm-casebox__text');
+				txt.innerHTML = desc ? desc.innerHTML : '';
+				txt.scrollTop = 0;
+				box.hidden = false;
+				requestAnimationFrame(function () { box.classList.add('is-open'); });
 				document.documentElement.classList.add('mdm-menu-open');
-				lightbox.querySelector('.mdm-lightbox__close').focus();
+				box.querySelector('.mdm-casebox__close').focus();
 			});
-			lightbox.addEventListener('click', function (e) { if (e.target === lightbox || e.target.closest('.mdm-lightbox__close')) { close(); } });
-			document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !lightbox.hidden) { close(); } });
+			box.addEventListener('click', function (e) { if (e.target === box || e.target.closest('.mdm-casebox__close')) { close(); } });
+			document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !box.hidden) { close(); } });
 		}
 	}
 

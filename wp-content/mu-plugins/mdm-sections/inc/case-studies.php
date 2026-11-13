@@ -53,7 +53,8 @@ function mdm_case_data() {
 			'metrics'  => array_merge( (array) $r['m'], array( $r['vid'] ? 'Video proof' : 'Dashboard proof' ) ),
 			'image'    => $base . 'cases-lg/' . rawurlencode( $r['img'] ),
 			'video'    => null,
-			'link'     => $r['vid'] && ! empty( $r['ig'] ) ? $r['ig'] : null,
+			'link'     => null,
+			'desc'     => isset( $r['d'] ) ? $r['d'] : '',
 		);
 	}
 	$ecom = array();
@@ -66,6 +67,7 @@ function mdm_case_data() {
 			'image'    => $base . 'cases/' . rawurlencode( $r['img'] ),
 			'video'    => $r['v'],
 			'link'     => null,
+			'desc'     => isset( $r['d'] ) ? $r['d'] : '',
 		);
 	}
 	$data = apply_filters( 'mdm_case_data', array( 'leadgen' => $lead, 'ecom' => $ecom ) );
@@ -245,6 +247,9 @@ function mdm_shortcode_case_studies( $atts ) {
 						<div class="mdm-cs__metrics">
 							<?php foreach ( $item['metrics'] as $m ) : ?><span><?php echo esc_html( $m ); ?></span><?php endforeach; ?>
 						</div>
+						<?php if ( ! empty( $item['desc'] ) ) : ?>
+							<div class="mdm-cs__desc" hidden><?php echo wp_kses_post( wpautop( esc_html( $item['desc'] ) ) ); ?></div>
+						<?php endif; ?>
 					</div>
 				</article>
 			<?php endforeach; ?>
@@ -262,11 +267,25 @@ function mdm_shortcode_case_studies( $atts ) {
 			<?php endif; ?>
 		</div>
 
-		<div class="mdm-lightbox" hidden>
-			<button type="button" class="mdm-lightbox__close" aria-label="Close">×</button>
-			<img alt="">
-			<video controls playsinline preload="none" hidden></video>
-			<a class="mdm-lightbox__link" href="#" target="_blank" rel="noopener" hidden>Watch the video on Instagram ↗</a>
+		<div class="mdm-casebox" hidden role="dialog" aria-modal="true" aria-label="Case study">
+			<div class="mdm-casebox__panel">
+				<button type="button" class="mdm-casebox__close" aria-label="Close">×</button>
+				<div class="mdm-casebox__media">
+					<img class="mdm-casebox__bg" alt="" aria-hidden="true">
+					<img class="mdm-casebox__img" alt="">
+					<video class="mdm-casebox__video" controls playsinline preload="none" hidden></video>
+				</div>
+				<div class="mdm-casebox__info">
+					<span class="mdm-casebox__niche"></span>
+					<h3 class="mdm-casebox__title"></h3>
+					<div class="mdm-casebox__metrics"></div>
+					<div class="mdm-casebox__text"></div>
+					<div class="mdm-casebox__cta">
+						<a class="mdm-casebox__book" href="<?php echo esc_url( function_exists( 'mdm_pricing_call_url' ) ? mdm_pricing_call_url() : MDM_Sections::cta_url() ); ?>">Get results like these <span>→</span></a>
+						<a class="mdm-casebox__wa" href="<?php echo esc_url( MDM_Sections::whatsapp_url() ); ?>" target="_blank" rel="noopener">or message us on WhatsApp</a>
+					</div>
+				</div>
+			</div>
 		</div>
 	</section>
 	<?php
