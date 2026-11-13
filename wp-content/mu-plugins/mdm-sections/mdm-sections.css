@@ -1727,3 +1727,35 @@ html .mdm-bt--cta:hover .mdm-bt__go i { transform: rotate(45deg); }
 	html .mdm-bento { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 170px;
 		grid-template-areas: "p1 s1" "p1 p2" "l1 p2" "l1 s2" "sq sq" "sq sq" "l2 l2" "l3 s3"; }
 }
+
+/* S/3 - animated video editor (replaces the video) */
+html .mdm-render { aspect-ratio: auto !important; background: #fff !important; border: 1px solid rgba(17,17,20,.08) !important; box-shadow: 0 14px 30px -18px rgba(17,17,20,.35); padding: 10px 10px 14px; display: flex; flex-direction: column; gap: 8px; }
+html .mdm-render__screen { position: relative; height: 92px; border-radius: 12px; overflow: hidden; background: linear-gradient(135deg, #1b1b22 0%, #3a0a0c 60%, #ED1C24 140%); }
+html .mdm-render__screen::before { content: ""; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.14) 50%, transparent 70%); transform: translateX(-100%); animation: mdmShine 3.2s ease-in-out infinite; }
+html .mdm-render__rec { position: absolute; top: 8px; left: 10px; display: inline-flex; align-items: center; gap: 5px; font-size: 10px; font-weight: 800; letter-spacing: .1em; color: #fff; }
+html .mdm-render__rec i { width: 7px; height: 7px; border-radius: 50%; background: #ED1C24; box-shadow: 0 0 8px #ED1C24; animation: mdmCallPulse 1.2s infinite; }
+html .mdm-render__play { position: absolute; left: 50%; top: 50%; width: 38px; height: 38px; margin: -19px 0 0 -19px; border-radius: 50%; display: grid; place-items: center; background: #ED1C24; color: #fff; box-shadow: 0 0 0 0 rgba(237,28,36,.6); animation: mdmPlayPulse 2s infinite; }
+html .mdm-render__play svg { width: 18px; height: 18px; margin-left: 2px; }
+html .mdm-render__cap { position: absolute; left: 10px; right: 10px; bottom: 8px; display: flex; gap: 5px; }
+html .mdm-render__cap b { font-size: 9.5px; font-weight: 700; color: #fff; padding: 2px 7px; border-radius: 999px; background: rgba(255,255,255,.18); opacity: 0; transform: translateY(6px); animation: mdmCapIn 6s ease-in-out infinite; }
+html .mdm-render__cap b:nth-child(2) { animation-delay: .6s; } html .mdm-render__cap b:nth-child(3) { animation-delay: 1.2s; background: #ED1C24; }
+html .mdm-render__tracks { position: relative; display: grid; gap: 4px; padding: 2px 0; }
+html .mdm-render__track { position: relative; display: block; height: 9px; border-radius: 4px; background: #F1F1EF; }
+html .mdm-render__track i { position: absolute; top: 0; bottom: 0; left: var(--x); width: 0; border-radius: 4px; background: #ED1C24; transition: width 1s cubic-bezier(.22,1,.36,1); }
+html .mdm-render__track.is-b i { background: #111114; }
+html .mdm-render__track.is-c i { background: #FFB4B0; }
+html .mdm-how.is-inview .mdm-render__track i { width: var(--w); }
+html .mdm-how.is-inview .mdm-render__track:nth-child(2) i { transition-delay: .25s; }
+html .mdm-how.is-inview .mdm-render__track:nth-child(3) i { transition-delay: .5s; }
+html .mdm-render__head { position: absolute; top: -3px; bottom: -3px; left: 0; width: 2px; background: #111114; border-radius: 2px; animation: mdmPlayhead 4s linear infinite; }
+html .mdm-render__head::before { content: ""; position: absolute; top: -4px; left: -4px; width: 10px; height: 6px; border-radius: 2px; background: #111114; }
+html .mdm-render__bar { position: relative; height: 18px; border-radius: 999px; background: #F1F1EF; overflow: hidden; }
+html .mdm-render__bar b { position: absolute; inset: 0 auto 0 0; width: 0; background: linear-gradient(90deg, #ED1C24, #FF8A8F); border-radius: 999px; }
+html .mdm-how.is-inview .mdm-render__bar b { animation: mdmRenderFill 4s cubic-bezier(.45,0,.2,1) infinite; }
+html .mdm-render__bar span { position: relative; z-index: 1; display: block; text-align: center; font-size: 10px; font-weight: 800; letter-spacing: .06em; line-height: 18px; color: #111114; }
+@keyframes mdmShine { 60%, 100% { transform: translateX(100%); } }
+@keyframes mdmPlayPulse { 70% { box-shadow: 0 0 0 12px rgba(237,28,36,0); } 100% { box-shadow: 0 0 0 0 rgba(237,28,36,0); } }
+@keyframes mdmCapIn { 10%, 80% { opacity: 1; transform: none; } 95%, 100% { opacity: 0; transform: translateY(6px); } }
+@keyframes mdmPlayhead { from { left: 0; } to { left: 100%; } }
+@keyframes mdmRenderFill { 0% { width: 0; } 70%, 100% { width: 100%; } }
+@media (prefers-reduced-motion: reduce) { html .mdm-render *, html .mdm-render *::before { animation: none !important; } html .mdm-render__bar b { width: 100%; } }
