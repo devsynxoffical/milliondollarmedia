@@ -23,7 +23,7 @@ final class MDM_Sections {
 
 	public static function init() {
 		$dir = __DIR__ . '/mdm-sections/inc/';
-		foreach ( array( 'reels', 'impact', 'how-it-works', 'numbers', 'about', 'case-studies', 'faq', 'menu', 'footer', 'preloader', 'services', 'pricing', 'homepage', 'sitewide', 'client-add', 'api', 'convert', 'story' ) as $part ) {
+		foreach ( array( 'reels', 'impact', 'how-it-works', 'numbers', 'about', 'case-studies', 'faq', 'menu', 'footer', 'preloader', 'services', 'pricing', 'homepage', 'sitewide', 'client-add', 'api', 'convert', 'story', 'calls', 'bookcall' ) as $part ) {
 			if ( file_exists( $dir . $part . '.php' ) ) {
 				require_once $dir . $part . '.php';
 			}
@@ -66,7 +66,8 @@ final class MDM_Sections {
 			}
 		}
 
-		return '<link rel="preconnect" href="https://fonts.googleapis.com">'
+		return '<link rel="preconnect" href="https://player.vimeo.com"><link rel="preconnect" href="https://i.vimeocdn.com"><link rel="preconnect" href="https://f.vimeocdn.com">'
+			. '<link rel="preconnect" href="https://fonts.googleapis.com">'
 			. '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
 			. '<link rel="stylesheet" href="' . esc_url( $fonts ) . '">'
 			. $local

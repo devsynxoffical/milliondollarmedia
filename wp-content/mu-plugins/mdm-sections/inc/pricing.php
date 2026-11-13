@@ -108,7 +108,7 @@ function mdm_shortcode_pricing( $atts ) {
 				<p><?php echo esc_html( $atts['quote_text'] ); ?></p>
 			</div>
 			<div class="mdm-quote__actions">
-				<?php echo MDM_Sections::button( $atts['quote_cta'], MDM_Sections::cta_url(), 'mdm-btn--red' ); // phpcs:ignore ?>
+				<?php echo MDM_Sections::button( $atts['quote_cta'], function_exists( 'mdm_pricing_call_url' ) ? mdm_pricing_call_url() : MDM_Sections::cta_url(), 'mdm-btn--red' ); // phpcs:ignore ?>
 				<a class="mdm-quote__wa" href="<?php echo esc_url( add_query_arg( 'text', rawurlencode( 'Hi! I want custom pricing for ad creatives.' ), MDM_Sections::whatsapp_url() ) ); ?>" target="_blank" rel="noopener">or message us on WhatsApp →</a>
 			</div>
 		</div>
