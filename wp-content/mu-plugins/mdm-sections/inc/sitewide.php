@@ -212,3 +212,12 @@ add_filter(
 	10,
 	2
 );
+
+// SG Optimizer defers wp-hooks / wp-i18n, but WordPress prints an inline "wp.i18n..." call right after
+// them, which then fails with "wp is not defined". Keep these two core scripts out of the defer list.
+add_filter(
+	'sgo_js_async_exclude',
+	static function ( $handles ) {
+		return array_merge( (array) $handles, array( 'wp-hooks', 'wp-i18n' ) );
+	}
+);
