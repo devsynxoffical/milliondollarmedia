@@ -1851,7 +1851,7 @@ html .mdm-plan:last-child .mdm-plan__badge { background: #111114; }
 
 /* Mobile first screen: compact client cards that fit, names fully visible */
 @media (max-width: 767px) {
-	html .elementor-6 .elementor-element.elementor-element-bbeb47a { --min-height: 400px; min-height: 400px; }
+	html .elementor-6 .elementor-element.elementor-element-bbeb47a { --min-height: 455px; min-height: 455px; }
 	html .elementor-6 .elementor-element-cadb38d .elementor-widget-image-box > .elementor-widget-container { padding: 6px !important; border-radius: 10px !important; }
 	html .elementor-6 .elementor-element-cadb38d .elementor-image-box-img { margin-bottom: 8px !important; }
 	html .elementor-6 .elementor-element-cadb38d .elementor-image-box-img img { aspect-ratio: 1 / 1; object-fit: cover; object-position: center top; width: 100%; height: auto; border-radius: 6px; }
