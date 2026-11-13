@@ -1976,3 +1976,12 @@ html .mdm-steps li.is-current i { background: #ED1C24 !important; color: #fff !i
 	html .mdm-steps li span { font-size: 11.5px; line-height: 1.2; max-width: 92px; }
 	html body.woocommerce-checkout #order_review_heading { margin-top: 6px !important; padding: 0 4px !important; border: 0 !important; }
 }
+
+/* Video cards: a touch smaller, with a category title above each one */
+html .mdm-reels__grid { max-width: 1400px; }
+html .mdm-reel__cat { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 0 6px 10px; color: #111114 !important; text-decoration: none !important; font: 600 clamp(14px, 1.15vw, 17px)/1.2 "Poppins", Inter, sans-serif; opacity: 0; transform: translateY(10px); transition: opacity .6s ease, transform .6s var(--mdm-ease), color .25s; transition-delay: calc(.3s + var(--col) * 110ms); }
+html .mdm-reel.is-in .mdm-reel__cat { opacity: 1; transform: none; }
+html .mdm-reel__cat svg { width: 18px; height: 18px; flex: none; transition: transform .3s var(--mdm-ease); }
+html .mdm-reel__cat:hover { color: #ED1C24 !important; }
+html .mdm-reel__cat:hover svg { transform: translateX(4px); }
+@media (max-width: 767px) { html .mdm-reel__cat { font-size: 13px; margin: 0 2px 8px; } html .mdm-reel__cat svg { width: 15px; height: 15px; } }
