@@ -221,3 +221,17 @@ add_filter(
 		return array_merge( (array) $handles, array( 'wp-hooks', 'wp-i18n' ) );
 	}
 );
+
+// Something marks wp-hooks / wp-i18n as deferred while WordPress prints an inline "wp.i18n..." call right
+// after them ("wp is not defined"). Load these two small core scripts normally.
+add_filter(
+	'script_loader_tag',
+	static function ( $tag, $handle ) {
+		if ( in_array( $handle, array( 'wp-hooks', 'wp-i18n' ), true ) ) {
+			$tag = preg_replace( '/\s(defer|async)(=("|\')?(defer|async)?("|\')?)?(?=[\s>])/i', '', $tag );
+		}
+		return $tag;
+	},
+	PHP_INT_MAX,
+	2
+);
