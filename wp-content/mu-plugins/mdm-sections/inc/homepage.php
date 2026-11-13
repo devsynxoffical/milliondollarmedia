@@ -90,6 +90,7 @@ function mdm_site_design_active() {
 function mdm_new_section_choices() {
 	return array(
 		'reels'    => array( 'New video rows (4 per row, animated)', '[mdm_reels_showcase head="no"]' ),
+		'voices'   => array( 'Video testimonials (bento grid)', '[mdm_voices]' ),
 		'services' => array( 'What we make (services)', '[mdm_services]' ),
 		'pricing'  => array( 'Pricing (Image / Video / GIF plans)', '[mdm_pricing]' ),
 		'impact'  => array( 'The difference we make (stacked case cards)', '[mdm_impact_cards]' ),
@@ -240,6 +241,10 @@ function mdm_extra_sections( $map, $pid = null ) {
 	$pid    = null === $pid ? mdm_design_pid() : (int) $pid;
 	$extras = mdm_design_get( $pid, 'extras', mdm_is_front_pid( $pid ) ? array( 'about', 'cases', 'faq' ) : array() );
 	$extras = is_array( $extras ) ? $extras : array();
+	// Video testimonials: always on the homepage (right after the video rows).
+	if ( mdm_is_front_pid( $pid ) && ! in_array( 'voices', $extras, true ) && apply_filters( 'mdm_home_voices', true ) ) {
+		$extras[] = 'voices';
+	}
 	$used   = array_values( $map );
 	return array_values( array_filter( $extras, static function ( $e ) use ( $used ) { return ! in_array( $e, $used, true ); } ) );
 }
@@ -421,7 +426,7 @@ add_filter(
 
 		// 3. Fill the new-section slots in a natural reading order
 		//    (work -> results -> process -> price -> numbers -> proof -> about).
-		$flow = apply_filters( 'mdm_homepage_flow', array( 'reels', 'impact', 'services', 'how', 'pricing', 'numbers', 'cases', 'about' ) );
+		$flow = apply_filters( 'mdm_homepage_flow', array( 'reels', 'voices', 'impact', 'services', 'how', 'pricing', 'numbers', 'cases', 'about' ) );
 		usort( $new_keys, static function ( $a, $b ) use ( $flow ) {
 			$ia = array_search( $a, $flow, true );
 			$ib = array_search( $b, $flow, true );
