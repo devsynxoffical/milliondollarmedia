@@ -1946,3 +1946,33 @@ html .mdm-checkout-trust-banner svg { width: 14px !important; height: 14px !impo
 	html .mdm-checkout-trust-banner { flex-direction: column; align-items: flex-start; margin: 12px 0 0 !important; padding: 14px 16px !important; gap: 10px !important; }
 	html .mdm-checkout-trust-banner span { font-size: 11.5px !important; }
 }
+
+/* ==========================================================================
+   CHECKOUT / CART - polished (site font everywhere, one clean card, compact steps)
+   ========================================================================== */
+html body.woocommerce-checkout, html body.woocommerce-cart,
+html body.woocommerce-checkout :is(input, select, textarea, button, label, th, td, p, h2, h3, li, span, a),
+html body.woocommerce-cart :is(input, select, textarea, button, label, th, td, p, h2, h3, li, span, a) { font-family: "Poppins", Inter, system-ui, sans-serif !important; }
+html body.woocommerce-checkout .woocommerce-billing-fields h3, html body.woocommerce-checkout #order_review_heading, html body.woocommerce-checkout .woocommerce-additional-fields h3 { font-weight: 700 !important; letter-spacing: -.01em; }
+html body.woocommerce-checkout form .form-row label { font-size: 13px !important; font-weight: 600 !important; color: #3a3a40 !important; margin-bottom: 6px !important; }
+html body.woocommerce-checkout form .form-row input.input-text:focus, html body.woocommerce-checkout form .form-row select:focus, html body.woocommerce-checkout form .form-row textarea:focus { border-color: #ED1C24 !important; box-shadow: 0 0 0 3px rgba(237,28,36,.12) !important; outline: 0 !important; }
+
+/* progress steps: one compact bar with a connecting line */
+html .mdm-steps { position: relative; flex-wrap: nowrap !important; justify-content: space-between !important; gap: 0 !important; max-width: 520px; width: 100%; padding: 0 6px !important; counter-reset: none; }
+html .mdm-steps::before { content: ""; position: absolute; left: 16%; right: 16%; top: 15px; height: 2px; background: rgba(17,17,20,.12); z-index: 0; }
+html .mdm-steps li { position: relative; z-index: 1; flex: 1; flex-direction: column; gap: 6px !important; padding: 0 !important; border: 0 !important; background: transparent !important; box-shadow: none !important; font-size: 12.5px !important; text-align: center; }
+html .mdm-steps li i { width: 30px !important; height: 30px !important; font-size: 13px !important; font-weight: 700; box-shadow: 0 0 0 4px #F7F7F5; }
+html .mdm-steps li.is-current { color: #111114 !important; }
+html .mdm-steps li.is-current i { background: #ED1C24 !important; color: #fff !important; box-shadow: 0 0 0 4px #F7F7F5, 0 0 0 7px rgba(237,28,36,.18); }
+
+@media (max-width: 767px) {
+	/* one card instead of a card inside a card */
+	html body.woocommerce-checkout .woocommerce { padding: 0 !important; }
+	html body.woocommerce-checkout form.checkout .col2-set .col-1, html body.woocommerce-checkout form.checkout .col2-set .col-2 { border: 0 !important; background: transparent !important; box-shadow: none !important; padding: 0 !important; border-radius: 0 !important; }
+	html body.woocommerce-checkout .woocommerce-billing-fields, html body.woocommerce-checkout .woocommerce-additional-fields, html body.woocommerce-checkout #order_review { background: #fff !important; border: 1px solid rgba(17,17,20,.08) !important; box-shadow: 0 16px 40px -28px rgba(17,17,20,.35) !important; padding: 20px 16px !important; border-radius: 20px !important; margin-bottom: 14px !important; }
+	html body.woocommerce-checkout .woocommerce-billing-fields h3, html body.woocommerce-checkout .woocommerce-additional-fields h3, html body.woocommerce-checkout #order_review_heading { font-size: 19px !important; margin: 0 0 14px !important; padding-bottom: 12px !important; }
+	html body.woocommerce-checkout form .form-row { margin-bottom: 12px !important; padding: 0 !important; }
+	html .mdm-shop-title { font-size: 24px !important; }
+	html .mdm-steps li span { font-size: 11.5px; line-height: 1.2; max-width: 92px; }
+	html body.woocommerce-checkout #order_review_heading { margin-top: 6px !important; padding: 0 4px !important; border: 0 !important; }
+}
