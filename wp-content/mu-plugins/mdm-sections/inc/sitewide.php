@@ -229,9 +229,27 @@ add_filter(
 	static function ( $tag, $handle ) {
 		// Any script with inline code printed before/after it must not be deferred, otherwise that inline
 		// code runs first and fails ("wp is not defined", "moment is not defined", ...).
-		$ws     = wp_scripts();
-		$inline = in_array( $handle, array( 'wp-hooks', 'wp-i18n' ), true ) || $ws->get_data( $handle, 'after' ) || $ws->get_data( $handle, 'before' );
-		if ( $inline && ( false !== strpos( $tag, 'defer' ) || false !== strpos( $tag, 'async' ) ) ) {
+		// Its dependencies must then run in place too (in order), or it would run before them.
+		static $keep = null;
+		$ws = wp_scripts();
+		if ( null === $keep ) {
+			$keep = array();
+			$add  = static function ( $h ) use ( &$add, &$keep, $ws ) {
+				if ( isset( $keep[ $h ] ) || ! isset( $ws->registered[ $h ] ) ) {
+					return;
+				}
+				$keep[ $h ] = true;
+				foreach ( (array) $ws->registered[ $h ]->deps as $d ) {
+					$add( $d );
+				}
+			};
+			foreach ( $ws->registered as $h => $obj ) {
+				if ( in_array( $h, array( 'wp-hooks', 'wp-i18n' ), true ) || $ws->get_data( $h, 'after' ) || $ws->get_data( $h, 'before' ) ) {
+					$add( $h );
+				}
+			}
+		}
+		if ( isset( $keep[ $handle ] ) && ( false !== strpos( $tag, 'defer' ) || false !== strpos( $tag, 'async' ) ) ) {
 			$tag = preg_replace( '/\s(defer|async)(=("|\')?(defer|async)?("|\')?)?(?=[\s>])/i', '', $tag );
 		}
 		return $tag;
