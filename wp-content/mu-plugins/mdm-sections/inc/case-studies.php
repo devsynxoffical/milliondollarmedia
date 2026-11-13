@@ -183,7 +183,7 @@ function mdm_shortcode_case_studies( $atts ) {
 			'cat'      => 'all',             // all | leadgen | ecom
 			'eyebrow'  => 'Case studies',
 			'title'    => 'Proof, not promises.',
-			'badge'    => 'Backed by 250+ case studies',
+			'badge'    => 'auto',            // auto = "124 verified case studies" (the real count of this page)
 			'subtitle' => 'Real ad accounts, dashboards and screen recordings. Tap any card to see the proof.',
 			'limit'    => '8',               // 0 = every case study, 16 at a time
 			'all_url'  => '',
@@ -204,11 +204,14 @@ function mdm_shortcode_case_studies( $atts ) {
 	$urls   = mdm_case_urls();
 	$all    = $atts['all_url'] ? $atts['all_url'] : $urls[ $cat ];
 	$colors = array( 'var(--mdm-red)', 'var(--mdm-ink)' );
+	if ( 'auto' === $atts['badge'] ) {
+		$atts['badge'] = $is_all ? sprintf( '%d verified case studies', $total ) : 'Backed by 250+ case studies';
+	}
 
 	ob_start();
 	echo MDM_Sections::assets(); // phpcs:ignore WordPress.Security.EscapeOutput
 	?>
-	<section class="mdm-cases mdm-cases--clean<?php echo $is_all ? ' mdm-cases--all' : ''; ?>" data-mdm-cases data-mdm-reveal id="case-studies" data-first="<?php echo $is_all ? 16 : (int) $limit; ?>">
+	<section class="mdm-cases mdm-cases--clean<?php echo $is_all ? ' mdm-cases--all' : ''; ?>" data-mdm-cases data-mdm-reveal id="case-studies" data-first="<?php echo $is_all ? 0 : (int) $limit; ?>">
 		<div class="mdm-cases__head">
 			<span class="mdm-eyebrow mdm-eyebrow--plain mdm-rise" style="--d:0s"><?php echo esc_html( $atts['eyebrow'] ); ?></span>
 			<h2 class="mdm-display mdm-cases__title"><?php echo MDM_Sections::split_words( $atts['title'] ); // phpcs:ignore ?></h2>
@@ -247,7 +250,7 @@ function mdm_shortcode_case_studies( $atts ) {
 			<?php endforeach; ?>
 		</div>
 
-		<?php if ( $is_all ) : ?>
+		<?php if ( false ) : ?>
 			<div class="mdm-cases__showall"><button type="button" class="mdm-btn mdm-btn--ghost" data-mdm-cases-more><span class="mdm-btn__icon"><?php echo MDM_Sections::arrow_icon(); // phpcs:ignore ?></span><span>Show more case studies</span></button></div>
 		<?php endif; ?>
 
