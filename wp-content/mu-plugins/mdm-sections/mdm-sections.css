@@ -1990,3 +1990,10 @@ html .mdm-reel__cat:hover svg { transform: translateX(4px); }
 	html .mdm-reel__cat { transform-origin: left center; }
 	html .mdm-reel.is-in .mdm-reel__cat { transform: rotate(calc(-1 * (var(--rot) * (1 + var(--g) * .9) + var(--sr)))); opacity: clamp(0, calc(1 - var(--g) * 2.5), 1); transition: opacity .25s linear, color .25s; }
 }
+/* Hovered card grows and straightens: keep its title above it and lift it clear */
+html .mdm-reel__cat { position: relative; z-index: 6; }
+html .mdm-reel:hover .mdm-reel__cat { opacity: 1 !important; }
+@media (min-width: 1101px) {
+	html .mdm-reel.is-in.is-settled:hover .mdm-reel__cat { transform: translateY(-22px) rotate(calc(-1 * (var(--rot) * (1 + var(--g) * .9) + var(--sr)))); transition: transform .45s var(--mdm-ease), color .25s; }
+}
+@media (max-width: 1100px) { html .mdm-reel:hover .mdm-reel__cat { transform: translateY(-14px); } }
