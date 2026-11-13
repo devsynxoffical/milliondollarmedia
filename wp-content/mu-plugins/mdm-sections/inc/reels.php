@@ -47,7 +47,7 @@ function mdm_shortcode_reels( $atts ) {
 			'formats'         => 'VSLs|Images|GIFs|Videos|UGC|AI Videos|Short Form',
 			'platforms_title' => 'Your audience is everywhere. So are your ads.',
 			'more_url'        => '',
-			'more_text'       => 'Watch more',
+			'more_text'       => 'Watch all videos',
 			'rows'            => 2,
 			'stat'            => 'no',   // "yes" = red "250+ brands & creators" card as the 3rd card
 			'names'           => 'no',   // "yes" = name / category label at the bottom of each video

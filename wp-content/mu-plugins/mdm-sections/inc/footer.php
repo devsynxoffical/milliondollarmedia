@@ -25,7 +25,7 @@ function mdm_shortcode_footer( $atts ) {
 			'based'        => 'We create ads for clients worldwide and work remotely.',
 			'timezone'     => 'America/New_York',
 			'tz_label'     => 'Timezone (EST)',
-			'col1_links'   => 'Home:/|Our Story:/our-story/|Services:/#services|Case Studies:/case-studies/|Pricing:/#pricing|FAQ:/#faq|Contact:/book-your-call/',
+			'col1_links'   => 'Home:/|Our Story:/our-story/|Services:/#reel|Case Studies:/case-studies/|Pricing:/#pricing|FAQ:/#faq|Contact:/book-your-call/',
 			'col2_links'   => 'Pricing:/#pricing|Portfolio:/portfolio/|Blogs:/blogs/|Book a Free Call:/book-your-call/',
 			'loop_title'   => 'Stay in the loop',
 			'loop_text'    => 'Winning hooks, ad breakdowns and case studies, straight to your inbox.',
