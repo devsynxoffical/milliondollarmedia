@@ -87,8 +87,19 @@ function mdm_shortcode_how_it_works( $atts ) {
 				<span class="mdm-step__tab">S/3</span>
 				<div class="mdm-step__card">
 					<div class="mdm-step__widget mdm-approve">
-						<div class="mdm-approve__media">
-							<video muted loop playsinline preload="none" data-src="<?php echo esc_url( $atts['video'] ); ?>"></video>
+						<div class="mdm-approve__media mdm-render" aria-hidden="true">
+							<div class="mdm-render__screen">
+								<span class="mdm-render__rec"><i></i>REC</span>
+								<span class="mdm-render__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>
+								<span class="mdm-render__cap"><b>Hook</b><b>Proof</b><b>CTA</b></span>
+							</div>
+							<div class="mdm-render__tracks">
+								<span class="mdm-render__track"><i style="--x:0%;--w:34%"></i><i style="--x:38%;--w:26%"></i><i style="--x:68%;--w:30%"></i></span>
+								<span class="mdm-render__track is-b"><i style="--x:6%;--w:46%"></i><i style="--x:56%;--w:40%"></i></span>
+								<span class="mdm-render__track is-c"><i style="--x:0%;--w:98%"></i></span>
+								<span class="mdm-render__head"></span>
+							</div>
+							<div class="mdm-render__bar"><b></b><span>Rendering…</span></div>
 							<span class="mdm-approve__tag">Ok to live</span>
 						</div>
 						<span class="mdm-approve__chip">Delivered in 24–48h</span>
