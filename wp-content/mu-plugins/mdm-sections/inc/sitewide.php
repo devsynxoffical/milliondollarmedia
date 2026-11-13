@@ -308,3 +308,29 @@ add_filter(
 		return array_merge( (array) $ids, array( 2642, 3267, 210, 1542, 4517, 3399, 4924, 4925 ) );
 	}
 );
+
+// After every deploy (any section file changed), clear the page cache once so visitors get the new version.
+add_action(
+	'init',
+	static function () {
+		$files = array_merge( (array) glob( __DIR__ . '/*.php' ), array( dirname( __DIR__ ) . '/mdm-sections.css', dirname( __DIR__ ) . '/mdm-sections.js', dirname( __DIR__, 2 ) . '/mdm-sections.php' ) );
+		$stamp = 0;
+		foreach ( $files as $f ) {
+			if ( $f && file_exists( $f ) ) {
+				$stamp = max( $stamp, (int) filemtime( $f ) );
+			}
+		}
+		if ( (int) get_option( 'mdm_deploy_stamp' ) === $stamp ) {
+			return;
+		}
+		update_option( 'mdm_deploy_stamp', $stamp, true );
+		do_action( 'litespeed_purge_all' );
+		if ( function_exists( 'sg_cachepress_purge_cache' ) ) {
+			sg_cachepress_purge_cache();
+		}
+		if ( function_exists( 'mdm_clear_page_cache' ) ) {
+			mdm_clear_page_cache();
+		}
+	},
+	99
+);
