@@ -1058,7 +1058,7 @@
 	function initTransitions(root) {
 		// Page transitions between pages of this site.
 		var curtain = document.querySelector('.mdm-curtain');
-		if (!curtain) { return; }
+		if (!curtain && !document.getElementById('mdm-loader')) { return; }
 		window.addEventListener('pageshow', function () { root.classList.remove('mdm-leaving'); });
 		// Registered on window (bubble phase) so every other click handler has already run.
 		window.addEventListener('click', function (e) {
@@ -1074,11 +1074,50 @@
 			if (url.pathname === location.pathname && url.search === location.search) { return; } // same page / anchor
 			if (/\/wp-admin|\/wp-login|add-to-cart=|\.(pdf|zip|jpg|png|mp4)$/i.test(url.href)) { return; }
 			e.preventDefault();
-			root.classList.add('mdm-leaving');
-			setTimeout(function () { window.location.href = url.href; }, 380);
-			setTimeout(function () { root.classList.remove('mdm-leaving'); }, 4000); // safety
+			// Show the loader right away and keep it up until the next page paints (no white flash).
+			if (showLeaveLoader()) {
+				setTimeout(function () { window.location.href = url.href; }, 60);
+			} else {
+				root.classList.add('mdm-leaving');
+				setTimeout(function () { window.location.href = url.href; }, 380);
+			}
+			setTimeout(function () { root.classList.remove('mdm-leaving'); hideLeaveLoader(); }, 9000); // safety
 		});
 	}
+
+	var leaveTimer = null;
+	function showLeaveLoader() {
+		var el = document.getElementById('mdm-loader');
+		if (!el) { return false; }
+		var words = el.querySelectorAll('.mdm-loader__word'), num = document.getElementById('mdm-loader-num'), bar = document.getElementById('mdm-loader-bar');
+		el.style.animation = 'none';
+		el.style.transition = 'none';
+		el.classList.remove('is-done', 'is-gone');
+		words.forEach(function (w) { w.classList.remove('is-in', 'is-out'); });
+		var i = 0, pct = 0;
+		if (words[0]) { words[0].classList.add('is-in'); }
+		if (num) { num.textContent = '0'; }
+		if (bar) { bar.style.transform = 'scaleX(0)'; }
+		clearInterval(leaveTimer);
+		leaveTimer = setInterval(function () {
+			if (words.length) {
+				words[i].classList.remove('is-in'); words[i].classList.add('is-out');
+				i = (i + 1) % words.length;
+				words[i].classList.remove('is-out'); words[i].classList.add('is-in');
+			}
+			pct = Math.min(92, pct + (92 - pct) * 0.18 + 1);
+			if (num) { num.textContent = Math.round(pct); }
+			if (bar) { bar.style.transform = 'scaleX(' + (pct / 100) + ')'; }
+		}, 160);
+		return true;
+	}
+	function hideLeaveLoader() {
+		clearInterval(leaveTimer);
+		var el = document.getElementById('mdm-loader');
+		if (el) { el.classList.add('is-gone'); }
+	}
+	// Back / forward from the browser cache: do not show a stuck loader.
+	window.addEventListener('pageshow', function (e) { if (e.persisted) { hideLeaveLoader(); document.documentElement.classList.remove('mdm-leaving'); } });
 
 	function initAll(scope) {
 		scope = scope || document;
