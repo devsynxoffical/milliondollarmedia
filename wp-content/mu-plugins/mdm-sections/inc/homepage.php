@@ -229,7 +229,7 @@ function mdm_section_map( $outline = null, $pid = null ) {
 			$map[ $s['id'] ] = 'remove'; // v3: no duplicate services section
 		}
 		// Removed at the owner's request, whatever was saved before.
-		if ( $front && preg_match( '/^\s*real talk,?\s*fam\b/i', $s['text'] ) ) {
+		if ( $front && preg_match( '/^\s*(real talk,?\s*fam|million-dollar videos that turn)\b/i', $s['text'] ) ) {
 			$map[ $s['id'] ] = 'remove';
 		}
 	}
