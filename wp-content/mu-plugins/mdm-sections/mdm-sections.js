@@ -122,7 +122,16 @@
 				if (v.tagName === 'IFRAME' && !v.__mdmReady) {
 					v.__mdmReady = true;
 					// Keep the cover image until the player has had a moment to start.
-					v.addEventListener('load', function () { setTimeout(function () { v.classList.add('is-ready'); }, 900); });
+					// Show the player only once Vimeo says the video is playing (fallback: 6s).
+					v.addEventListener('load', function () {
+						if (v.getAttribute('data-type') === 'vimeo') {
+							framePost(v, { method: 'addEventListener', value: 'play' });
+							framePost(v, { method: 'addEventListener', value: 'timeupdate' });
+						} else {
+							setTimeout(function () { v.classList.add('is-ready'); }, 1200);
+						}
+						setTimeout(function () { v.classList.add('is-ready'); }, 6000);
+					});
 				}
 				v.src = rs;
 			}
@@ -131,6 +140,14 @@
 		var p = v.play();
 		if (p && p.catch) { p.catch(function () {}); }
 	}
+	window.addEventListener('message', function (e) {
+		var host = (e.origin || '').replace(/^https?:\/\//, '').split('/')[0];
+		if (!/vimeo\.com$/.test(host)) { return; }
+		var d = e.data;
+		try { if (typeof d === 'string') { d = JSON.parse(d); } } catch (err) { return; }
+		if (!d || (d.event !== 'play' && d.event !== 'timeupdate' && d.event !== 'playProgress')) { return; }
+		$$('.mdm-reel__frame').forEach(function (f) { if (f.contentWindow === e.source) { f.classList.add('is-ready'); } });
+	});
 	function pauseVideo(v) {
 		if (v.tagName === 'IFRAME') { framePost(v, { method: 'pause' }, 'pauseVideo'); return; }
 		v.pause();
