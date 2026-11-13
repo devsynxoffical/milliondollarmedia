@@ -44,6 +44,7 @@ function mdm_render_preloader() {
 		.mdm-loader__bar{position:absolute;left:0;bottom:0;height:5px;width:100%;background:#ED1C24;transform-origin:left;transform:scaleX(0)}
 		html.mdm-loading,html.mdm-loading body{overflow:hidden!important}
 		@keyframes mdmLoaderFailsafe{to{transform:translateY(-100%);visibility:hidden}}
+		@media (max-width:600px){.mdm-loader__count{font-size:44px;bottom:22px}.mdm-loader__brand{font-size:10px;bottom:28px;right:20px;letter-spacing:.14em}.mdm-loader__kicker{top:22px;left:22px}}
 		@media (prefers-reduced-motion:reduce){.mdm-loader{display:none}}
 	</style>
 	<div class="mdm-loader" id="mdm-loader" role="presentation" aria-hidden="true"<?php echo $front ? '' : ' data-quick="1"'; ?>>
