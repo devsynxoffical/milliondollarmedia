@@ -1875,3 +1875,14 @@ html .mdm-plan:last-child .mdm-plan__badge { background: #111114; }
 	/* first screen on phones: hero + client cards only ("Trusted by" logos are not needed there) */
 	html .elementor-6 .elementor-element.elementor-element-4bb105b { display: none !important; }
 }
+/* barely-tilted cards on phones / tablets: never touching */
+@media (min-width: 768px) and (max-width: 1100px) {
+	html .mdm-reel { transform: translate3d(0, calc(var(--fy) * .3 * (1 - var(--g)) + var(--sy) + var(--g) * 16px), 0) rotate(calc(var(--rot) * .25 + var(--sr) * .5)) !important; }
+	html .mdm-reels__grid { column-gap: 22px !important; }
+}
+@media (max-width: 767px) {
+	html .mdm-reel:nth-child(2n+1) { --rot: -1.5deg; --fx: 0%; }
+	html .mdm-reel:nth-child(2n+2) { --rot: 1.5deg; --fx: 0%; }
+	html .mdm-reel { transform: translate3d(0, calc(var(--fy) * (1 - var(--g)) + var(--sy) * .5 + var(--g) * 14px), 0) rotate(calc(var(--rot) + var(--sr) * .5)) !important; }
+	html .mdm-reels__grid { column-gap: 20px !important; padding-left: 16px !important; padding-right: 16px !important; }
+}
