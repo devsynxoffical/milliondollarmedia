@@ -1937,3 +1937,12 @@ html body.woocommerce-cart .entry-header, html body.woocommerce-cart h1.entry-ti
 	html .mdm-shop-trust, html [class*="mdm-trust"] { flex-direction: column !important; align-items: flex-start !important; gap: 10px !important; padding: 16px 18px !important; }
 	html .mdm-shop-trust *, html [class*="mdm-trust"] * { font-size: 12.5px !important; line-height: 1.35 !important; letter-spacing: .04em !important; }
 }
+/* Checkout trust banner: tidy on every screen, stacked on phones */
+html .mdm-checkout-trust-banner { display: flex !important; flex-wrap: wrap; justify-content: center; gap: 10px 28px !important; padding: 14px 20px !important; border-radius: 16px !important; }
+html .mdm-checkout-trust-banner br { display: none !important; }
+html .mdm-checkout-trust-banner span { display: inline-flex !important; align-items: center; gap: 8px; font: 700 12.5px/1.3 "Poppins", Inter, sans-serif !important; letter-spacing: .06em !important; text-transform: uppercase; }
+html .mdm-checkout-trust-banner svg { width: 14px !important; height: 14px !important; flex: none; fill: #ED1C24; }
+@media (max-width: 767px) {
+	html .mdm-checkout-trust-banner { flex-direction: column; align-items: flex-start; margin: 12px 0 0 !important; padding: 14px 16px !important; gap: 10px !important; }
+	html .mdm-checkout-trust-banner span { font-size: 11.5px !important; }
+}
