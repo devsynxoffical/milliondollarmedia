@@ -426,7 +426,7 @@ add_filter(
 
 		// 3. Fill the new-section slots in a natural reading order
 		//    (work -> results -> process -> price -> numbers -> proof -> about).
-		$flow = apply_filters( 'mdm_homepage_flow', array( 'reels', 'voices', 'impact', 'services', 'how', 'pricing', 'numbers', 'cases', 'about' ) );
+		$flow = apply_filters( 'mdm_homepage_flow', array( 'reels', 'impact', 'services', 'how', 'voices', 'pricing', 'numbers', 'cases', 'about' ) );
 		usort( $new_keys, static function ( $a, $b ) use ( $flow ) {
 			$ia = array_search( $a, $flow, true );
 			$ib = array_search( $b, $flow, true );
