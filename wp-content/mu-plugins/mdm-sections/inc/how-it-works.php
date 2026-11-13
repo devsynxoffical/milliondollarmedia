@@ -18,8 +18,8 @@ function mdm_shortcode_how_it_works( $atts ) {
 			'title'     => 'Four steps from brief to content that',
 			'highlight' => 'converts.',
 			'video'     => MDM_Sections::upload_url( '2026/02/The_Precision_Pivot-1.mp4' ),
-			'cta_text'  => 'Book a free call',
-			'cta_url'   => function_exists( 'mdm_pricing_call_url' ) ? mdm_pricing_call_url() : MDM_Sections::cta_url(),
+			'cta_text'  => 'Order now',
+			'cta_url'   => home_url( '/#pricing' ), // "Order now" scrolls to the price cards just below
 			's1_title'  => 'Pick your plan',
 			's1_text'   => 'Choose the package that fits your goals, one client-booking video or a full-scale bundle designed to flood your calendar.',
 			's2_title'  => 'Share your vision',
