@@ -77,7 +77,7 @@ add_action(
 		if ( is_admin() || ! function_exists( 'mdm_site_footer_on' ) || ! mdm_site_footer_on() ) {
 			return;
 		}
-		if ( function_exists( 'mdm_is_shop_page' ) && mdm_is_shop_page() ) {
+		if ( function_exists( 'is_order_received_page' ) && is_order_received_page() ) {
 			return;
 		}
 		if ( ! apply_filters( 'mdm_live_calls_above_footer', true ) ) {

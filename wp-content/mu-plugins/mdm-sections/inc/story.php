@@ -127,7 +127,9 @@ add_filter(
 		if ( 'header' !== $location || 4358 !== (int) $template_id || is_admin() ) {
 			return $template_id;
 		}
-		return is_page( mdm_main_header_pages() ) ? (int) apply_filters( 'mdm_main_header_id', 69 ) : $template_id;
+		// Funnel steps keep the logo-only header so buyers are not pulled away mid-funnel.
+		$funnel = apply_filters( 'mdm_logo_header_pages', array( 'upsell', 'downsell', 'provide-information', 'theleadpilot' ) );
+		return is_page( $funnel ) ? $template_id : (int) apply_filters( 'mdm_main_header_id', 69 );
 	},
 	10,
 	2

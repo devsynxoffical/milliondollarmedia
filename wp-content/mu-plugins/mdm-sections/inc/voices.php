@@ -85,21 +85,37 @@ function mdm_shortcode_voices( $atts ) {
 			var grid = document.currentScript && document.currentScript.previousElementSibling;
 			if (!grid || grid.__mdmVoices) { return; }
 			grid.__mdmVoices = true;
-			var tiles = grid.querySelectorAll('.mdm-bt--v');
-			function stop(t) { var v = t.querySelector('video'); v.pause(); t.classList.remove('is-playing'); }
-			tiles.forEach(function (t) {
-				var v = t.querySelector('video'), bar = t.querySelector('.mdm-bt__vpr');
-				v.addEventListener('timeupdate', function () { if (v.duration) { bar.style.width = (v.currentTime / v.duration * 100) + '%'; } });
-				v.addEventListener('ended', function () { t.classList.remove('is-playing'); bar.style.width = '0'; });
-				function toggle() {
-					if (t.classList.contains('is-playing')) { stop(t); return; }
-					tiles.forEach(function (o) { if (o !== t) { stop(o); } });
-					v.muted = false;
-					var p = v.play(); if (p && p.catch) { p.catch(function () {}); }
-					t.classList.add('is-playing');
+			var box = document.getElementById('mdm-vbox');
+			if (!box) {
+				box = document.createElement('div');
+				box.id = 'mdm-vbox';
+				box.className = 'mdm-vbox';
+				box.hidden = true;
+				box.setAttribute('role', 'dialog');
+				box.setAttribute('aria-modal', 'true');
+				box.innerHTML = '<div class="mdm-vbox__panel"><button type="button" class="mdm-vbox__close" aria-label="Close">\u00d7</button><video controls playsinline preload="metadata"></video><div class="mdm-vbox__cap"><b></b><a href="<?php echo esc_url( function_exists( 'mdm_pricing_call_url' ) ? mdm_pricing_call_url() : MDM_Sections::cta_url() ); ?>">Get results like these \u2192</a></div></div>';
+				document.body.appendChild(box);
+				var bv = box.querySelector('video');
+				var shut = function () { bv.pause(); bv.removeAttribute('src'); bv.load(); box.classList.remove('is-open'); setTimeout(function () { box.hidden = true; }, 220); document.documentElement.classList.remove('mdm-menu-open'); };
+				box.addEventListener('click', function (e) { if (e.target === box || e.target.closest('.mdm-vbox__close')) { shut(); } });
+				document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !box.hidden) { shut(); } });
+			}
+			var vid = box.querySelector('video');
+			grid.querySelectorAll('.mdm-bt--v').forEach(function (t) {
+				function open() {
+					var src = t.querySelector('video');
+					box.querySelector('.mdm-vbox__cap b').textContent = (t.querySelector('.mdm-bt__cap span') || {}).textContent || '';
+					vid.poster = src.getAttribute('poster');
+					vid.src = src.getAttribute('src');
+					box.hidden = false;
+					requestAnimationFrame(function () { box.classList.add('is-open'); });
+					document.documentElement.classList.add('mdm-menu-open');
+					vid.muted = false;
+					var pr = vid.play();
+					if (pr && pr.catch) { pr.catch(function () { vid.muted = true; vid.play().catch(function () {}); }); }
 				}
-				t.addEventListener('click', toggle);
-				t.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
+				t.addEventListener('click', open);
+				t.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
 			});
 		})();
 		</script>
@@ -116,7 +132,7 @@ function mdm_voices_everywhere_applies() {
 	if ( is_admin() || is_front_page() || ! function_exists( 'mdm_site_footer_on' ) || ! mdm_site_footer_on() ) {
 		return false;
 	}
-	if ( function_exists( 'mdm_is_shop_page' ) && mdm_is_shop_page() ) {
+	if ( function_exists( 'is_order_received_page' ) && is_order_received_page() ) {
 		return false;
 	}
 	$skip = apply_filters( 'mdm_voices_skip_pages', array( 'book-your-call', 'booking-confirmed', 'thank-you', 'upsell', 'downsell', 'provide-information', 'my-account' ) );
