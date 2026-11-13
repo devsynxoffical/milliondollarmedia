@@ -1862,3 +1862,16 @@ html .mdm-plan:last-child .mdm-plan__badge { background: #111114; }
 	html .mdm-casebox__media { height: 42vh !important; }
 	html .mdm-casebox__img, html .mdm-casebox__video { object-fit: contain !important; max-height: 42vh !important; }
 }
+
+/* No overlapping video cards on any phone or tablet */
+@media (min-width: 768px) and (max-width: 1100px) {
+	html .mdm-reel { transform: translate3d(calc(var(--fx) * .4), calc(var(--fy) * .5 * (1 - var(--g)) + var(--sy) + var(--g) * 20px), 0) rotate(calc(var(--rot) * .55 + var(--sr))) !important; }
+}
+@media (max-width: 767px) {
+	html .mdm-reel:nth-child(2n+1) { --rot: -3deg; --fx: 1%;  --fy: 12px; --z: 2; }
+	html .mdm-reel:nth-child(2n+2) { --rot: 3deg;  --fx: -1%; --fy: 0px;  --z: 3; }
+	html .mdm-reel { transform: translate3d(var(--fx), calc(var(--fy) * (1 - var(--g)) + var(--sy) + var(--g) * 16px), 0) rotate(calc(var(--rot) + var(--sr))) !important; }
+	html .mdm-reels__grid { column-gap: 14px !important; row-gap: 46px !important; }
+	/* first screen on phones: hero + client cards only ("Trusted by" logos are not needed there) */
+	html .elementor-6 .elementor-element.elementor-element-4bb105b { display: none !important; }
+}
