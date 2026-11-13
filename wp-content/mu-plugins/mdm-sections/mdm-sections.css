@@ -1759,3 +1759,4 @@ html .mdm-render__bar span { position: relative; z-index: 1; display: block; tex
 @keyframes mdmPlayhead { from { left: 0; } to { left: 100%; } }
 @keyframes mdmRenderFill { 0% { width: 0; } 70%, 100% { width: 100%; } }
 @media (prefers-reduced-motion: reduce) { html .mdm-render *, html .mdm-render *::before { animation: none !important; } html .mdm-render__bar b { width: 100%; } }
+html .mdm-render { padding-bottom: 26px !important; margin-bottom: 26px !important; }
