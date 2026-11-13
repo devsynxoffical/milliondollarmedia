@@ -235,3 +235,35 @@ add_filter(
 	PHP_INT_MAX,
 	2
 );
+
+// Phones, homepage: size the hero so header + hero + client cards fill exactly the first screen.
+add_action(
+	'wp_footer',
+	static function () {
+		if ( ! is_front_page() || is_admin() ) {
+			return;
+		}
+		?>
+		<script>
+		(function () {
+			function fit() {
+				var hero = document.querySelector('.elementor-element-bbeb47a'), cards = document.querySelector('.elementor-element-ba55ff9');
+				if (!hero || !cards) { return; }
+				if (window.innerWidth > 767) { hero.style.minHeight = ''; return; }
+				var head = document.querySelector('.elementor-location-header');
+				var vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+				var top = hero.getBoundingClientRect().top + window.pageYOffset; // header + admin bar above the hero
+				var free = vh - (head ? Math.min(top, head.offsetHeight + (top - head.offsetHeight)) : top) - cards.offsetHeight;
+				hero.style.minHeight = Math.max(380, Math.round(free)) + 'px';
+			}
+			fit();
+			window.addEventListener('load', fit);
+			window.addEventListener('orientationchange', function () { setTimeout(fit, 300); });
+			var w = window.innerWidth;
+			window.addEventListener('resize', function () { if (window.innerWidth !== w) { w = window.innerWidth; fit(); } });
+		})();
+		</script>
+		<?php
+	},
+	99
+);

@@ -1891,3 +1891,9 @@ html .mdm-plan:last-child .mdm-plan__badge { background: #111114; }
 	html .elementor-6 .elementor-element.elementor-element-bbeb47a { --min-height: calc(100svh - 86px); min-height: calc(100vh - 86px); min-height: calc(100svh - 86px); justify-content: center; }
 	html .elementor-6 .elementor-element.elementor-element-ba55ff9 { margin-top: 0 !important; padding-top: 24px; }
 }
+/* Phones: first screen = header + hero + client cards (exactly one screen); the hero height is set by a
+   tiny script so the cards end at the bottom of the screen on every phone. Fallback below. */
+@media (max-width: 767px) {
+	html .elementor-6 .elementor-element.elementor-element-bbeb47a { --min-height: calc(100svh - 86px - 300px); min-height: calc(100vh - 86px - 300px); min-height: calc(100svh - 86px - 300px); }
+	html .elementor-6 .elementor-element.elementor-element-ba55ff9 { padding-top: 0 !important; }
+}
