@@ -206,10 +206,12 @@ function mdm_shortcode_reels( $atts ) {
 					continue;
 				endif;
 				$label  = $card['label'];
+				$cat    = ! empty( $card['cat'] ) ? $card['cat'] : $label;
 				$poster = $card['poster'] ? $card['poster'] : mdm_video_thumb( $card['src'], $card['type'] );
 				$link   = $card['link'];
 				?>
 				<div class="mdm-reel<?php echo $i >= $visible ? ' is-extra' : ''; ?>" style="--i:<?php echo (int) $i; ?>;--col:<?php echo (int) ( $i % 4 ); ?>">
+					<?php if ( $cat && 'Video' !== $cat ) : ?><a class="mdm-reel__cat" href="<?php echo esc_url( $more_url ? $more_url : home_url( '/portfolio/' ) ); ?>"><span><?php echo esc_html( $cat ); ?></span><?php echo MDM_Sections::arrow_icon(); // phpcs:ignore ?></a><?php endif; ?>
 					<div class="mdm-reel__flip">
 						<div class="mdm-reel__face mdm-reel__front">
 							<?php if ( 'file' === $card['type'] ) : ?>
@@ -295,6 +297,7 @@ function mdm_default_featured_reels() {
 	return array(
 		array(
 			'label'  => 'Marcus Filly',
+			'cat'    => 'Fitness',
 			'src'    => 'https://vimeo.com/1246210855',
 			'avatar' => WPMU_PLUGIN_URL . '/mdm-sections/img/clients/marcus-filly.webp',
 			'link'   => 'https://www.instagram.com/marcusfilly/',
