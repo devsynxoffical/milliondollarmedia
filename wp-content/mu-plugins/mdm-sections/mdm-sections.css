@@ -1848,3 +1848,17 @@ html .mdm-plan:last-child .mdm-plan__badge { background: #111114; }
 	html .mdm-plan { padding: 24px !important; }
 }
 @media (max-width: 760px) { html .mdm-story__stat { padding: 16px; } html .mdm-story__stat b { font-size: clamp(22px, 7vw, 30px); white-space: nowrap; } }
+
+/* Mobile first screen: compact client cards that fit, names fully visible */
+@media (max-width: 767px) {
+	html .elementor-6 .elementor-element.elementor-element-bbeb47a { --min-height: 400px; min-height: 400px; }
+	html .elementor-6 .elementor-element-cadb38d .elementor-widget-image-box > .elementor-widget-container { padding: 6px !important; border-radius: 10px !important; }
+	html .elementor-6 .elementor-element-cadb38d .elementor-image-box-img { margin-bottom: 8px !important; }
+	html .elementor-6 .elementor-element-cadb38d .elementor-image-box-img img { aspect-ratio: 1 / 1; object-fit: cover; object-position: center top; width: 100%; height: auto; border-radius: 6px; }
+	html .elementor-6 .elementor-element-cadb38d .elementor-image-box-title { font-size: 11px !important; letter-spacing: .4px !important; line-height: 1.25 !important; margin: 0 0 4px !important; overflow-wrap: anywhere; }
+	html .elementor-6 .elementor-element-cadb38d .elementor-image-box-description { font-size: 11px !important; line-height: 1.35 !important; }
+	html .elementor-6 .elementor-element-cadb38d .elementor-image-box-description b { font-size: 11.5px; }
+	/* case popup on phones: show the whole proof, start videos muted (iPhones allow that) */
+	html .mdm-casebox__media { height: 42vh !important; }
+	html .mdm-casebox__img, html .mdm-casebox__video { object-fit: contain !important; max-height: 42vh !important; }
+}
