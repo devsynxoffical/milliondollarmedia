@@ -158,3 +158,63 @@ add_action(
 		);
 	}
 );
+
+/*
+ * One-time fix (admin only): a custom code snippet on checkout ticks the Klaviyo newsletter box with
+ * .trigger('change') inside its own change listener -> endless loop ("Maximum call stack size exceeded").
+ * POST /wp-json/mdm/v1/fix-checkout-snippet finds it (WPCode / Insert Headers & Footers / Elementor custom code),
+ * keeps a backup and makes it tick the box only when it is not ticked yet.
+ */
+add_action(
+	'rest_api_init',
+	static function () {
+		register_rest_route(
+			'mdm/v1',
+			'/fix-checkout-snippet',
+			array(
+				'methods'             => 'POST',
+				'permission_callback' => static function () {
+					return current_user_can( 'manage_options' );
+				},
+				'callback'            => static function () {
+					$re   = '/function\s+forceChecked\s*\(\s*\)\s*\{\s*\$\(\s*([\'"])#kl_newsletter_checkbox\1\s*\)\s*\.prop\(\s*([\'"])checked\2\s*,\s*true\s*\)\s*\.trigger\(\s*([\'"])change\3\s*\)\s*;?\s*\}/';
+					$fix  = "function forceChecked() {\n        var \$c = \$('#kl_newsletter_checkbox');\n        if ( \$c.length && ! \$c.prop('checked') ) { \$c.prop('checked', true).trigger('change'); }\n    }";
+					$done = array();
+					// Options (Insert Headers & Footers / WPCode global header-footer).
+					foreach ( array( 'ihaf_insert_header', 'ihaf_insert_body', 'ihaf_insert_footer' ) as $opt ) {
+						$v = get_option( $opt );
+						if ( is_string( $v ) && preg_match( $re, $v ) ) {
+							update_option( 'mdm_backup_' . $opt, $v, false );
+							update_option( $opt, preg_replace( $re, $fix, $v ) );
+							$done[] = 'option:' . $opt;
+						}
+					}
+					// WPCode snippets and Elementor custom code (post content or meta).
+					$posts = get_posts( array( 'post_type' => array( 'wpcode', 'elementor_snippet' ), 'post_status' => 'any', 'numberposts' => 200 ) );
+					foreach ( $posts as $p ) {
+						if ( preg_match( $re, $p->post_content ) ) {
+							update_post_meta( $p->ID, '_mdm_backup_content', $p->post_content );
+							wp_update_post( array( 'ID' => $p->ID, 'post_content' => wp_slash( preg_replace( $re, $fix, $p->post_content ) ) ) );
+							$done[] = $p->post_type . ':' . $p->ID . ' content';
+						}
+						foreach ( array( '_elementor_code', '_wpcode_code' ) as $mk ) {
+							$m = get_post_meta( $p->ID, $mk, true );
+							if ( is_string( $m ) && preg_match( $re, $m ) ) {
+								update_post_meta( $p->ID, '_mdm_backup' . $mk, $m );
+								update_post_meta( $p->ID, $mk, wp_slash( preg_replace( $re, $fix, $m ) ) );
+								$done[] = $p->post_type . ':' . $p->ID . ' ' . $mk;
+							}
+						}
+					}
+					if ( $done && function_exists( 'wpcode' ) && isset( wpcode()->cache ) && method_exists( wpcode()->cache, 'cache_all_loaded_snippets' ) ) {
+						wpcode()->cache->cache_all_loaded_snippets(); // refresh WPCode's snippet cache
+					}
+					if ( function_exists( 'mdm_api_clear_elementor_css' ) ) {
+						mdm_api_clear_elementor_css();
+					}
+					return array( 'fixed' => $done );
+				},
+			)
+		);
+	}
+);
