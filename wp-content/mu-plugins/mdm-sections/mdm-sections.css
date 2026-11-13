@@ -1997,3 +1997,7 @@ html .mdm-reel:hover .mdm-reel__cat { opacity: 1 !important; }
 	html .mdm-reel.is-in.is-settled:hover .mdm-reel__cat { transform: translateY(-22px) rotate(calc(-1 * (var(--rot) * (1 + var(--g) * .9) + var(--sr)))); transition: transform .45s var(--mdm-ease), color .25s; }
 }
 @media (max-width: 1100px) { html .mdm-reel:hover .mdm-reel__cat { transform: translateY(-14px); } }
+/* hover: the card grows ~7% and lifts 14px, so lift its title clear of it */
+@media (min-width: 1101px) {
+	html .mdm-reel:hover .mdm-reel__cat { transform: translateY(-46px) !important; transition: transform .45s var(--mdm-ease), color .25s !important; }
+}
