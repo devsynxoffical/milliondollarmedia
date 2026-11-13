@@ -227,7 +227,11 @@ add_filter(
 add_filter(
 	'script_loader_tag',
 	static function ( $tag, $handle ) {
-		if ( in_array( $handle, array( 'wp-hooks', 'wp-i18n' ), true ) ) {
+		// Any script with inline code printed before/after it must not be deferred, otherwise that inline
+		// code runs first and fails ("wp is not defined", "moment is not defined", ...).
+		$ws     = wp_scripts();
+		$inline = in_array( $handle, array( 'wp-hooks', 'wp-i18n' ), true ) || $ws->get_data( $handle, 'after' ) || $ws->get_data( $handle, 'before' );
+		if ( $inline && ( false !== strpos( $tag, 'defer' ) || false !== strpos( $tag, 'async' ) ) ) {
 			$tag = preg_replace( '/\s(defer|async)(=("|\')?(defer|async)?("|\')?)?(?=[\s>])/i', '', $tag );
 		}
 		return $tag;
