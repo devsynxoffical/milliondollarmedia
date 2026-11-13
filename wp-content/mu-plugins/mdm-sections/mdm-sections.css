@@ -1901,3 +1901,39 @@ html .mdm-plan:last-child .mdm-plan__badge { background: #111114; }
 html .mdm-calls:hover .mdm-calls__row { animation-play-state: running; }
 @media (hover: hover) and (pointer: fine) { html .mdm-calls:hover .mdm-calls__row { animation-play-state: paused; } }
 @media (hover: none) { html .mdm-call:hover { transform: rotate(var(--rot)); box-shadow: 0 16px 40px rgba(0,0,0,.6); } html .mdm-calls__row { animation-duration: 45s; } }
+/* Live calls strip: site fonts (Poppins text, Syncopate heading) instead of the monospace look */
+html .mdm-call__badge { font: 700 10.5px/1.4 "Poppins", Inter, sans-serif !important; letter-spacing: .06em; }
+html .mdm-call figcaption { font: 600 13px/1.3 "Poppins", Inter, sans-serif !important; }
+html .mdm-call figcaption b { font: 700 10.5px/1 "Poppins", Inter, sans-serif !important; letter-spacing: .08em; }
+html .mdm-calls__eyebrow, html .mdm-calls__text { font-family: "Poppins", Inter, sans-serif !important; }
+
+/* Testimonial video popup */
+html .mdm-vbox { position: fixed; inset: 0; z-index: 2147482000; display: grid; place-items: center; padding: 20px; background: rgba(10,10,14,.82); backdrop-filter: blur(6px); opacity: 0; transition: opacity .22s ease; }
+html .mdm-vbox[hidden] { display: none !important; }
+html .mdm-vbox.is-open { opacity: 1; }
+html .mdm-vbox__panel { position: relative; width: min(920px, 100%); background: #0d0d10; border-radius: 22px; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,.6); transform: translateY(20px) scale(.97); transition: transform .4s cubic-bezier(.22,1,.36,1); }
+html .mdm-vbox.is-open .mdm-vbox__panel { transform: none; }
+html .mdm-vbox video { display: block; width: 100%; max-height: min(78vh, 760px); background: #000; }
+html .mdm-vbox__close { position: absolute; top: 12px; right: 12px; z-index: 3; width: 42px; height: 42px; border-radius: 50% !important; border: 0 !important; padding: 0 !important; background: #fff !important; color: #111 !important; font-size: 24px !important; line-height: 1 !important; cursor: pointer; }
+html .mdm-vbox__cap { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; padding: 14px 18px; font-family: "Poppins", Inter, sans-serif; }
+html .mdm-vbox__cap b { color: #fff; font-size: 15px; }
+html .mdm-vbox__cap a { padding: 11px 18px; border-radius: 999px; background: #ED1C24; color: #fff !important; font-weight: 700; font-size: 14px; text-decoration: none !important; }
+html .mdm-bt--v.is-playing .mdm-bt__pb, html .mdm-bt--v .mdm-bt__vpr { display: none; }
+
+/* Cart / checkout: drop the old testimonial block and the duplicate page title */
+html .mdm-checkout-bottom-testimonials { display: none !important; }
+html body.woocommerce-cart .entry-header, html body.woocommerce-cart h1.entry-title, html body.woocommerce-checkout .entry-header { display: none !important; }
+
+/* Checkout on phones: clean, single column, comfortable spacing */
+@media (max-width: 767px) {
+	html body.woocommerce-checkout .site-content .ast-container, html body.woocommerce-cart .site-content .ast-container { padding-left: 14px !important; padding-right: 14px !important; }
+	html body.woocommerce-checkout form.checkout .col2-set, html body.woocommerce-checkout form.checkout #order_review, html body.woocommerce-checkout form.checkout #order_review_heading { width: 100% !important; float: none !important; margin: 0 !important; }
+	html body.woocommerce-checkout form.checkout .col2-set .col-1, html body.woocommerce-checkout form.checkout .col2-set .col-2 { width: 100% !important; float: none !important; padding: 0 !important; }
+	html body.woocommerce-checkout .woocommerce-billing-fields, html body.woocommerce-checkout .woocommerce-additional-fields, html body.woocommerce-checkout #order_review { padding: 18px 16px !important; border-radius: 18px !important; }
+	html body.woocommerce-checkout form .form-row-first, html body.woocommerce-checkout form .form-row-last { width: 100% !important; float: none !important; }
+	html body.woocommerce-checkout form .form-row input.input-text, html body.woocommerce-checkout form .form-row select, html body.woocommerce-checkout .select2-container .select2-selection--single { min-height: 50px; font-size: 16px !important; border-radius: 12px !important; }
+	html body.woocommerce-checkout #place_order { width: 100% !important; min-height: 56px; border-radius: 999px !important; font-size: 16px !important; }
+	html body.woocommerce-checkout .woocommerce-checkout-review-order-table th, html body.woocommerce-checkout .woocommerce-checkout-review-order-table td { padding: 12px 10px !important; font-size: 14px; }
+	html .mdm-shop-trust, html [class*="mdm-trust"] { flex-direction: column !important; align-items: flex-start !important; gap: 10px !important; padding: 16px 18px !important; }
+	html .mdm-shop-trust *, html [class*="mdm-trust"] * { font-size: 12.5px !important; line-height: 1.35 !important; letter-spacing: .04em !important; }
+}

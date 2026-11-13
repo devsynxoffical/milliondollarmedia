@@ -52,7 +52,7 @@ function mdm_case_data() {
 			'headline' => $r['t'],
 			'metrics'  => array_merge( (array) $r['m'], array( $r['vid'] ? 'Video proof' : 'Dashboard proof' ) ),
 			'image'    => $base . 'cases-lg/' . rawurlencode( $r['img'] ),
-			'video'    => null,
+			'video'    => ! empty( $r['v'] ) ? $r['v'] : null,
 			'link'     => null,
 			'desc'     => isset( $r['d'] ) ? $r['d'] : '',
 		);
