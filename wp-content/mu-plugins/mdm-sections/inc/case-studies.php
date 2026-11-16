@@ -152,6 +152,10 @@ function mdm_shortcode_case_categories( $atts ) {
 		<div class="mdm-cats__grid">
 			<?php $k = 0; foreach ( $cards as $cat => $c ) :
 				$items  = mdm_case_items( $cat );
+	if ( '' !== $atts['niche'] ) {
+		$want  = array_map( 'strtolower', MDM_Sections::split_list( $atts['niche'] ) );
+		$items = array_values( array_filter( $items, static function ( $it ) use ( $want ) { return in_array( strtolower( $it['niche'] ), $want, true ); } ) );
+	}
 				$niches = array_slice( array_keys( mdm_case_niches( $cat ) ), 0, 6 );
 				$fan    = array_slice( $items, 1, 3 );
 				?>
@@ -183,6 +187,7 @@ function mdm_shortcode_case_studies( $atts ) {
 	$atts = shortcode_atts(
 		array(
 			'cat'      => 'all',             // all | leadgen | ecom
+			'niche'    => '',                // optional: "Roofing|HVAC" = only these niches
 			'eyebrow'  => 'Case studies',
 			'title'    => 'Proof, not promises.',
 			'badge'    => 'auto',            // auto = "124 verified case studies" (the real count of this page)

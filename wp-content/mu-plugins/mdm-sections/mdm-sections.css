@@ -2002,3 +2002,29 @@ html .mdm-reel:hover .mdm-reel__cat { opacity: 1 !important; }
 	html .mdm-reel:hover .mdm-reel__cat { transform: translateY(-46px) rotate(calc(-1 * (var(--rot) * (1 + var(--g) * .9) + var(--sr)))) !important; transition: transform .45s var(--mdm-ease), color .25s !important; }
 }
 html .mdm-ft__addr { margin: 6px 0 0 !important; font-size: 14px; line-height: 1.5; opacity: .75; }
+
+/* ==========================================================================
+   SEO content blocks: industry results intro + FAQ, blog related links, 3 footer link columns
+   ========================================================================== */
+html .mdm-niche { background: #fff; padding: clamp(56px, 7vw, 96px) clamp(16px, 4vw, 64px) 0; font-family: "Poppins", Inter, sans-serif; }
+html .mdm-niche--faq { padding-bottom: clamp(56px, 7vw, 96px); }
+html .mdm-niche__intro { max-width: 860px; margin: 0 auto; text-align: center; }
+html .mdm-niche__h2 { font-size: clamp(26px, 3.4vw, 44px) !important; margin: 12px 0 18px !important; }
+html .mdm-niche__intro > p { font-size: 16.5px; line-height: 1.7; color: rgba(17,17,20,.72); margin: 0 0 14px !important; }
+html .mdm-niche--faq .mdm-niche__intro { text-align: left; }
+html .mdm-niche__faq { border: 1px solid rgba(17,17,20,.1); border-radius: 16px; padding: 16px 20px; margin: 0 0 10px; background: #fff; }
+html .mdm-niche__faq summary { cursor: pointer; font-weight: 700; font-size: 16.5px; color: #111114; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+html .mdm-niche__faq summary::after { content: "+"; color: #ED1C24; font-size: 22px; line-height: 1; }
+html .mdm-niche__faq[open] summary::after { content: "–"; }
+html .mdm-niche__faq p { margin: 10px 0 0 !important; font-size: 15.5px; line-height: 1.65; color: rgba(17,17,20,.72); }
+html .mdm-niche__links { margin-top: 18px !important; font-size: 14.5px; color: rgba(17,17,20,.6); }
+html .mdm-niche__links a { color: #ED1C24 !important; font-weight: 600; }
+html .mdm-related { margin: 40px 0 0; padding: 24px 26px; border-radius: 20px; background: #F7F7F5; border: 1px solid rgba(17,17,20,.08); font-family: "Poppins", Inter, sans-serif; }
+html .mdm-related h2 { font-size: 20px !important; margin: 0 0 12px !important; }
+html .mdm-related ul { margin: 0 0 14px !important; padding-left: 18px !important; columns: 2; }
+html .mdm-related li { margin-bottom: 6px; }
+html .mdm-related a { color: #ED1C24 !important; font-weight: 600; }
+html .mdm-related__cta { display: inline-block; padding: 12px 20px; border-radius: 999px; background: #ED1C24; color: #fff !important; text-decoration: none !important; }
+@media (max-width: 600px) { html .mdm-related ul { columns: 1; } }
+html .mdm-ft__links { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+@media (max-width: 600px) { html .mdm-ft__links { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; } }
