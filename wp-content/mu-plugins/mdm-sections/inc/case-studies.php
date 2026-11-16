@@ -152,10 +152,6 @@ function mdm_shortcode_case_categories( $atts ) {
 		<div class="mdm-cats__grid">
 			<?php $k = 0; foreach ( $cards as $cat => $c ) :
 				$items  = mdm_case_items( $cat );
-	if ( '' !== $atts['niche'] ) {
-		$want  = array_map( 'strtolower', MDM_Sections::split_list( $atts['niche'] ) );
-		$items = array_values( array_filter( $items, static function ( $it ) use ( $want ) { return in_array( strtolower( $it['niche'] ), $want, true ); } ) );
-	}
 				$niches = array_slice( array_keys( mdm_case_niches( $cat ) ), 0, 6 );
 				$fan    = array_slice( $items, 1, 3 );
 				?>
@@ -204,6 +200,10 @@ function mdm_shortcode_case_studies( $atts ) {
 
 	$cat    = in_array( $atts['cat'], array( 'leadgen', 'ecom' ), true ) ? $atts['cat'] : 'all';
 	$items  = mdm_case_items( $cat );
+	if ( '' !== $atts['niche'] ) {
+		$want  = array_map( 'strtolower', MDM_Sections::split_list( $atts['niche'] ) );
+		$items = array_values( array_filter( $items, static function ( $it ) use ( $want ) { return in_array( strtolower( $it['niche'] ), $want, true ); } ) );
+	}
 	$total  = count( $items );
 	$limit  = (int) $atts['limit'];
 	$is_all = $limit <= 0;
@@ -221,7 +221,8 @@ function mdm_shortcode_case_studies( $atts ) {
 	<section class="mdm-cases mdm-cases--clean<?php echo $is_all ? ' mdm-cases--all' : ''; ?>" data-mdm-cases data-mdm-reveal id="case-studies" data-first="<?php echo $is_all ? 0 : (int) $limit; ?>">
 		<div class="mdm-cases__head">
 			<span class="mdm-eyebrow mdm-eyebrow--plain mdm-rise" style="--d:0s"><?php echo esc_html( $atts['eyebrow'] ); ?></span>
-			<h2 class="mdm-display mdm-cases__title"><?php echo MDM_Sections::split_words( $atts['title'] ); // phpcs:ignore ?></h2>
+			<?php $htag = ( $is_all && is_page( array( 'case-studies', 'lead-generation', 'ecommerce' ) ) ) ? 'h1' : 'h2'; // the page's main heading ?>
+			<<?php echo $htag; ?> class="mdm-display mdm-cases__title"><?php echo MDM_Sections::split_words( $atts['title'] ); // phpcs:ignore ?></<?php echo $htag; ?>>
 			<?php if ( $atts['badge'] ) : ?>
 				<span class="mdm-impact__badge mdm-rise" style="--d:.3s"><i></i><?php echo esc_html( $atts['badge'] ); ?></span>
 			<?php endif; ?>

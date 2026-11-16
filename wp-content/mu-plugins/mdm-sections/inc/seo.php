@@ -386,6 +386,18 @@ add_filter(
 );
 
 // Our custom pages print their own H1, so the theme's page title would be a second H1.
+// Blog posts: the theme prints the post title as the H1, so headings inside the body that were written as H1 become H2.
+add_filter(
+	'the_content',
+	static function ( $html ) {
+		if ( ! is_singular( 'post' ) || false === stripos( $html, '<h1' ) ) {
+			return $html;
+		}
+		return preg_replace( array( '#<h1(\s|>)#i', '#</h1>#i' ), array( '<h2$1', '</h2>' ), $html );
+	},
+	20
+);
+
 add_filter(
 	'astra_the_title_enabled',
 	static function ( $on ) {
