@@ -348,3 +348,35 @@ add_action(
 	},
 	2
 );
+
+// OpenAI pixel events: checkout_started on checkout, order_created once per paid order (thank-you page).
+add_action(
+	'wp_footer',
+	static function () {
+		if ( is_admin() || ! function_exists( 'is_checkout' ) ) {
+			return;
+		}
+		$event = '';
+		if ( is_checkout() && ! is_wc_endpoint_url( 'order-received' ) ) {
+			$event = 'checkout_started';
+		} else {
+			$order = null;
+			if ( is_wc_endpoint_url( 'order-received' ) ) {
+				$order = wc_get_order( absint( get_query_var( 'order-received' ) ) );
+			} elseif ( is_page( 'thank-you' ) && ! empty( $_GET['order_id'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
+				$order = wc_get_order( absint( $_GET['order_id'] ) ); // phpcs:ignore WordPress.Security.NonceVerification
+			}
+			$key = isset( $_GET['order_key'] ) ? sanitize_text_field( wp_unslash( $_GET['order_key'] ) ) : ( isset( $_GET['key'] ) ? sanitize_text_field( wp_unslash( $_GET['key'] ) ) : '' ); // phpcs:ignore WordPress.Security.NonceVerification
+			if ( $order && $key && hash_equals( $order->get_order_key(), $key ) && ! $order->get_meta( '_mdm_oaiq_order_created' ) ) {
+				$order->update_meta_data( '_mdm_oaiq_order_created', '1' );
+				$order->save();
+				$event = 'order_created';
+			}
+		}
+		if ( ! $event ) {
+			return;
+		}
+		echo '<script>window.oaiq&&oaiq("measure",' . wp_json_encode( $event ) . ',{type:"contents"});</script>' . "\n"; // phpcs:ignore WordPress.Security.EscapeOutput
+	},
+	30
+);
