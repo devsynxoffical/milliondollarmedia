@@ -2001,3 +2001,4 @@ html .mdm-reel:hover .mdm-reel__cat { opacity: 1 !important; }
 @media (min-width: 1101px) {
 	html .mdm-reel:hover .mdm-reel__cat { transform: translateY(-46px) rotate(calc(-1 * (var(--rot) * (1 + var(--g) * .9) + var(--sr)))) !important; transition: transform .45s var(--mdm-ease), color .25s !important; }
 }
+html .mdm-ft__addr { margin: 6px 0 0 !important; font-size: 14px; line-height: 1.5; opacity: .75; }
