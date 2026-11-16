@@ -334,3 +334,17 @@ add_action(
 	},
 	99
 );
+
+// OpenAI ads pixel (every page, in <head>).
+add_action(
+	'wp_head',
+	static function () {
+		if ( is_admin() ) {
+			return;
+		}
+		?>
+<script>!function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f)}(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");oaiq("init",{pixelId:"MDvedvTqW3eDSeR5pNvT1H",debug:true});</script>
+		<?php
+	},
+	2
+);
