@@ -384,3 +384,12 @@ add_filter(
 	20,
 	2
 );
+
+// Our custom pages print their own H1, so the theme's page title would be a second H1.
+add_filter(
+	'astra_the_title_enabled',
+	static function ( $on ) {
+		return is_page( array( 'our-story', 'case-studies', 'lead-generation', 'ecommerce', 'bookcall' ) ) ? false : $on;
+	},
+	20
+);

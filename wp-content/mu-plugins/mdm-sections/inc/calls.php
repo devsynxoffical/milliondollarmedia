@@ -59,7 +59,7 @@ function mdm_shortcode_live_calls( $atts ) {
 							<span class="mdm-call__dots"><i></i><i></i><i></i></span>
 							<span class="mdm-call__badge"><i></i><?php echo esc_html( $c[0] ); ?></span>
 						</div>
-						<div class="mdm-call__img"><img src="<?php echo esc_url( $base . $c[1] . '.webp' ); ?>" alt="<?php echo $dup ? '' : esc_attr( $c[2] . ' (client call)' ); ?>" loading="lazy" decoding="async"></div>
+						<div class="mdm-call__img"><img src="<?php echo esc_url( $base . $c[1] . '.webp' ); ?>" alt="<?php echo $dup ? '' : esc_attr( $c[2] . ' (client call)' ); ?>"<?php echo $dup ? ' aria-hidden="true"' : ''; ?> loading="lazy" decoding="async"></div>
 						<figcaption><span><?php echo esc_html( $c[2] ); ?></span><b>Live recording</b></figcaption>
 					</figure>
 				<?php endforeach; endfor; ?>

@@ -219,7 +219,7 @@ function mdm_shortcode_reels( $atts ) {
 									data-src="<?php echo esc_url( $card['src'] ); ?>"
 									<?php echo $poster ? 'poster="' . esc_url( $poster ) . '"' : ''; ?>></video>
 							<?php else : ?>
-								<?php if ( $poster ) : ?><img class="mdm-reel__poster skip-lazy" data-no-lazy="1" src="<?php echo esc_url( $poster ); ?>" alt="" decoding="async"<?php echo $i < 4 ? ' fetchpriority="high"' : ''; ?>><?php endif; ?>
+								<?php if ( $poster ) : ?><img class="mdm-reel__poster skip-lazy" data-no-lazy="1" src="<?php echo esc_url( $poster ); ?>" alt="<?php echo esc_attr( ( $cat ? $cat : $label ) . ' video ad example' ); ?>" decoding="async"<?php echo $i < 4 ? ' fetchpriority="high"' : ''; ?>><?php endif; ?>
 								<iframe class="mdm-reel__video mdm-reel__frame skip-lazy no-lazyload" data-no-lazy="1" data-skip-lazy="1" title="<?php echo esc_attr( $label ); ?> video" loading="lazy"
 									data-type="<?php echo esc_attr( $card['type'] ); ?>"
 									data-src="<?php echo esc_url( mdm_embed_url( $card['src'], $card['type'], true ) ); ?>"
