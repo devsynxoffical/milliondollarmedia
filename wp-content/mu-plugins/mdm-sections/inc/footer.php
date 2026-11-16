@@ -26,7 +26,8 @@ function mdm_shortcode_footer( $atts ) {
 			'timezone'     => 'America/New_York',
 			'tz_label'     => 'Timezone (EST)',
 			'col1_links'   => 'Home:/|Our Story:/our-story/|Services:/#reel|Case Studies:/case-studies/|Pricing:/#pricing|FAQ:/#faq|Contact:/book-your-call/',
-			'col2_links'   => 'Portfolio:/portfolio/|Blogs:/blogs/|Book a Free Call:/book-your-call/',
+			'col2_links'   => 'Portfolio:/portfolio/|Blogs:/blogs/|What Is a VSL?:/what-is-a-vsl/|Book a Free Call:/book-your-call/',
+			'col3_links'   => 'Roofing Ads:/roofing-video-marketing-services/|HVAC Advertising:/hvac-video-marketing-services/|Plumbing Videos:/plumbing-video-production/|Home Services:/home-service-business/|MVA & Law Firms:/mva/|Real Estate:/real-estate/|Solar Ads:/solar/|SaaS Video:/saas/|Coaches:/strategic-video-marketing-for-coaches/|Agencies (White Label):/agency-owners/',
 			'loop_title'   => 'Stay in the loop',
 			'loop_text'    => 'Winning hooks, ad breakdowns and case studies, straight to your inbox.',
 			'loop_note'    => 'We respect your inbox. No spam, just valuable updates.',
@@ -103,7 +104,7 @@ function mdm_shortcode_footer( $atts ) {
 
 		<div class="mdm-ft__grid">
 			<div class="mdm-ft__links">
-				<?php foreach ( array( $atts['col1_links'], $atts['col2_links'] ) as $col ) : ?>
+				<?php foreach ( array( $atts['col1_links'], $atts['col2_links'], $atts['col3_links'] ) as $col ) : ?>
 					<ul>
 						<?php foreach ( mdm_parse_links( $col ) as $l ) : ?>
 							<li><a href="<?php echo esc_url( $l[1] ); ?>"><?php echo esc_html( $l[0] ); ?></a></li>
