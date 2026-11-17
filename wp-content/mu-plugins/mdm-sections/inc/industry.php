@@ -203,7 +203,25 @@ function mdm_industry_videos_html( $slug ) {
 	if ( ! $urls ) {
 		return '';
 	}
-	$label = mdm_industry_heroes()[ $slug ][0];
+	$names = array(
+		'roofing-video-marketing-services' => 'Roofing',
+		'hvac-video-marketing-services'    => 'HVAC',
+		'solar'                            => 'Solar',
+		'mva'                              => 'MVA & personal injury',
+		'saas'                             => 'SaaS',
+		'agency-owners'                    => 'Agency',
+		'home-service-business'            => 'Home service',
+	);
+	$label = isset( $names[ $slug ] ) ? $names[ $slug ] : 'Industry';
+	$subs  = array(
+		'roofing-video-marketing-services' => 'Real ads we made for roofing companies.',
+		'hvac-video-marketing-services'    => 'Real ads we made for HVAC companies.',
+		'solar'                            => 'Real ads we made for solar companies.',
+		'mva'                              => 'Real ads we made for MVA and personal injury law firms.',
+		'saas'                             => 'Real ads we made for SaaS companies.',
+		'agency-owners'                    => 'Real white label ads we made for agency owners.',
+		'home-service-business'            => 'Real ads we made for electricians, window & door and carpet cleaning companies.',
+	);
 	$tiles = '';
 	foreach ( $urls as $u ) {
 		if ( ! preg_match( '~vimeo\.com/(?:video/)?(\d+)~', $u, $m ) ) {
@@ -212,13 +230,13 @@ function mdm_industry_videos_html( $slug ) {
 		$thumb  = mdm_video_thumb( $u, 'vimeo' );
 		$player = 'https://player.vimeo.com/video/' . $m[1] . '?autoplay=1&title=0&byline=0&portrait=0&dnt=1';
 		$tiles .= '<div class="mdm-ivid"><button type="button" class="mdm-vfacade" data-src="' . esc_url( $player ) . '" aria-label="Play video">'
-			. ( $thumb ? '<img src="' . esc_url( $thumb ) . '" alt="' . esc_attr( $label . ' example' ) . '" loading="lazy" decoding="async">' : '' )
+			. ( $thumb ? '<img src="' . esc_url( $thumb ) . '" alt="' . esc_attr( $label . ' video ad example' ) . '" loading="lazy" decoding="async">' : '' )
 			. '<span class="mdm-vfacade__play" aria-hidden="true"></span></button></div>';
 	}
 	return '<section class="mdm-ivids"><div class="mdm-ivids__in">'
 		. '<span class="mdm-niche__pill">Our work</span>'
-		. '<h2 class="mdm-display mdm-ivids__h2">' . esc_html( preg_replace( '/\s*&\s*video ads$|\s*&\s*video marketing$/i', '', $label ) ) . ' videos we made</h2>'
-		. '<p class="mdm-ivids__sub">Real ads from our ' . esc_html( strtolower( implode( ', ', $map[ $slug ] ) ) ) . ' clients. Tap any video to play it.</p>'
+		. '<h2 class="mdm-display mdm-ivids__h2">' . esc_html( $label ) . ' video ads we made</h2>'
+		. '<p class="mdm-ivids__sub">' . esc_html( $subs[ $slug ] ?? 'Real ads from our clients.' ) . ' Tap any video to play it.</p>'
 		. '<div class="mdm-ivids__grid is-' . min( 4, count( $urls ) ) . '">' . $tiles . '</div>'
 		. '<p class="mdm-ivids__more"><a href="' . esc_url( home_url( '/portfolio/' ) ) . '">See all video ad examples →</a></p>'
 		. '</div></section>';
