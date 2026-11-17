@@ -226,7 +226,7 @@ function mdm_seo_niches() {
 	);
 }
 
-function mdm_seo_niche_section( $slug ) {
+function mdm_seo_niche_section( $slug, $part = 'all' ) {
 	$n = mdm_seo_niches();
 	if ( empty( $n[ $slug ] ) || ! function_exists( 'mdm_shortcode_case_studies' ) ) {
 		return '';
@@ -288,6 +288,12 @@ function mdm_seo_niche_section( $slug ) {
 		<?php
 		echo mdm_shortcode_case_studies( array( 'cat' => 'all', 'niche' => implode( '|', $c['niches'] ), 'limit' => '8', 'eyebrow' => 'Case studies', 'title' => 'Proof from this industry', 'badge' => '', 'subtitle' => 'Tap any card to see the proof video or dashboard.' ) ); // phpcs:ignore
 		?>
+	</div>
+	<?php
+	$top = ob_get_clean();
+	ob_start();
+	?>
+	<div class="mdm-niche mdm-niche--dark mdm-niche--faqonly">
 		<section class="mdm-niche__faqwrap">
 			<div class="mdm-niche__faqhead">
 				<span class="mdm-niche__pill">FAQ</span>
@@ -308,7 +314,8 @@ function mdm_seo_niche_section( $slug ) {
 		</section>
 	</div>
 	<?php
-	return ob_get_clean();
+	$faq = ob_get_clean();
+	return 'top' === $part ? $top : ( 'faq' === $part ? $faq : $top . $faq );
 }
 
 add_filter(
@@ -322,7 +329,9 @@ add_filter(
 		if ( empty( $n[ $slug ] ) || false !== strpos( $content, 'mdm-niche__top' ) ) {
 			return $content;
 		}
-		return $content . mdm_seo_niche_section( $slug );
+		// Proof right after the hero; the FAQ at the end, unless the page already has its own FAQ accordion.
+		$has_faq = false !== strpos( $content, 'e-n-accordion' ) || false !== strpos( $content, 'elementor-widget-nested-accordion' );
+		return mdm_seo_niche_section( $slug, 'top' ) . $content . ( $has_faq ? '' : mdm_seo_niche_section( $slug, 'faq' ) );
 	},
 	30
 );
