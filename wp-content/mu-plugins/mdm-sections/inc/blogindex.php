@@ -25,9 +25,10 @@ function mdm_blog_card_meta( $post_id ) {
 }
 
 function mdm_blog_excerpt( $post_id, $words = 24 ) {
+	// Never call get_the_excerpt() here: it runs the_content filters again (this index is one of them).
 	$ex = get_post_field( 'post_excerpt', $post_id );
 	if ( ! $ex ) {
-		$ex = get_the_excerpt( $post_id );
+		$ex = strip_shortcodes( (string) get_post_field( 'post_content', $post_id ) );
 	}
 	return wp_trim_words( wp_strip_all_tags( $ex ), $words, '…' );
 }
@@ -130,10 +131,13 @@ function mdm_blog_index_html() {
 add_filter(
 	'the_content',
 	static function ( $content ) {
-		if ( is_admin() || ! is_page( 'blogs' ) || ! in_the_loop() || ! is_main_query() ) {
+		static $busy = false;
+		if ( $busy || is_admin() || ! is_page( 'blogs' ) || ! in_the_loop() || ! is_main_query() ) {
 			return $content;
 		}
+		$busy = true;
 		$html = mdm_blog_index_html();
+		$busy = false;
 		return $html ? $html : $content;
 	},
 	40
