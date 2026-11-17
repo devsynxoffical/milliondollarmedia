@@ -400,3 +400,65 @@ function mdm_video_thumb( $src, $type ) {
 	return $thumb;
 }
 
+
+/*
+ * Elementor Vimeo video widgets: show the Vimeo thumbnail + a play button instead of an empty
+ * black player, and load the real player only on click (much lighter pages, e.g. /portfolio/).
+ * At most 12 thumbnails are fetched from Vimeo per page view; the rest keep the normal player until cached.
+ */
+add_filter(
+	'elementor/widget/render_content',
+	static function ( $content, $widget ) {
+		static $fetched = 0;
+		if ( is_admin() || 'video' !== $widget->get_name() || false === strpos( $content, '<iframe' ) ) {
+			return $content;
+		}
+		$s = $widget->get_settings_for_display();
+		if ( empty( $s['video_type'] ) || 'vimeo' !== $s['video_type'] || ( isset( $s['autoplay'] ) && 'yes' === $s['autoplay'] ) || empty( $s['vimeo_url'] ) ) {
+			return $content;
+		}
+		if ( ! preg_match( '~vimeo\.com/(?:video/|.*?/)?(\d+)~i', $s['vimeo_url'], $m ) ) {
+			return $content;
+		}
+		$cached = get_transient( 'mdm_vthumb_' . $m[1] );
+		if ( false === $cached ) {
+			if ( $fetched >= 12 ) {
+				return $content;
+			}
+			$fetched++;
+		}
+		$thumb = mdm_video_thumb( $s['vimeo_url'], 'vimeo' );
+		if ( ! $thumb ) {
+			return $content;
+		}
+		$player = 'https://player.vimeo.com/video/' . $m[1] . '?autoplay=1&title=0&byline=0&portrait=0&dnt=1';
+		$facade = '<button type="button" class="mdm-vfacade" data-src="' . esc_url( $player ) . '" aria-label="Play video">'
+			. '<img src="' . esc_url( $thumb ) . '" alt="Video ad example" loading="lazy" decoding="async">'
+			. '<span class="mdm-vfacade__play" aria-hidden="true"></span></button>';
+		return preg_replace( '~<iframe\b.*?</iframe>~is', $facade, $content, 1 );
+	},
+	10,
+	2
+);
+
+add_action(
+	'wp_footer',
+	static function () {
+		?>
+		<script>
+		document.addEventListener('click', function (e) {
+			var b = e.target.closest && e.target.closest('.mdm-vfacade');
+			if (!b) return;
+			var f = document.createElement('iframe');
+			f.src = b.getAttribute('data-src');
+			f.className = 'elementor-video-iframe';
+			f.allow = 'autoplay; fullscreen; picture-in-picture';
+			f.setAttribute('allowfullscreen', '');
+			f.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:0';
+			b.replaceWith(f);
+		});
+		</script>
+		<?php
+	},
+	60
+);
