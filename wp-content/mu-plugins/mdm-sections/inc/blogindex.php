@@ -30,6 +30,7 @@ function mdm_blog_excerpt( $post_id, $words = 24 ) {
 	if ( ! $ex ) {
 		$ex = strip_shortcodes( (string) get_post_field( 'post_content', $post_id ) );
 	}
+	$ex = preg_replace( '/<\/?(h[1-6]|p|li|br|div|tr|td)[^>]*>/i', ' ', $ex ); // keep words apart
 	return wp_trim_words( wp_strip_all_tags( $ex ), $words, '…' );
 }
 
