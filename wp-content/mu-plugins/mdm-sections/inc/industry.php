@@ -126,3 +126,100 @@ add_filter(
 	},
 	31
 );
+
+/* ------------------------------------------------------------------ */
+/* Each service page shows only its own industry's video ads, taken    */
+/* live from the matching Portfolio tab(s) (page 380).                 */
+/* ------------------------------------------------------------------ */
+
+function mdm_industry_video_tabs() {
+	return array(
+		'roofing-video-marketing-services' => array( 'Roofing' ),
+		'hvac-video-marketing-services'    => array( 'HVAC' ),
+		'solar'                            => array( 'Solar' ),
+		'mva'                              => array( 'MVA' ),
+		'saas'                             => array( 'SAAS' ),
+		'agency-owners'                    => array( 'Agency Owner' ),
+		'home-service-business'            => array( 'Electrician', 'Window & Doors', 'Carpet Cleaning' ),
+		// plumbing, real estate and coaches: no matching portfolio category yet, so no video section.
+	);
+}
+
+/** array( tab title => array( vimeo urls ) ) from the Portfolio page's Elementor tabs. */
+function mdm_portfolio_tab_videos() {
+	$pid  = 380;
+	$key  = 'mdm_pf_tabs_' . get_post_modified_time( 'U', true, $pid );
+	$hit  = get_transient( $key );
+	if ( is_array( $hit ) ) {
+		return $hit;
+	}
+	$out  = array();
+	$data = json_decode( (string) get_post_meta( $pid, '_elementor_data', true ), true );
+	$find = static function ( $nodes ) use ( &$find ) {
+		foreach ( (array) $nodes as $n ) {
+			if ( isset( $n['widgetType'] ) && 'nested-tabs' === $n['widgetType'] && ! empty( $n['settings']['tabs'] ) && count( $n['settings']['tabs'] ) > 3 ) {
+				return $n;
+			}
+			$r = $find( isset( $n['elements'] ) ? $n['elements'] : array() );
+			if ( $r ) {
+				return $r;
+			}
+		}
+		return null;
+	};
+	$tabs = $find( $data );
+	if ( $tabs ) {
+		foreach ( $tabs['settings']['tabs'] as $i => $t ) {
+			$urls = array();
+			$walk = static function ( $nodes ) use ( &$walk, &$urls ) {
+				foreach ( (array) $nodes as $m ) {
+					if ( isset( $m['widgetType'] ) && 'video' === $m['widgetType'] && isset( $m['settings']['video_type'] ) && 'vimeo' === $m['settings']['video_type'] && ! empty( $m['settings']['vimeo_url'] ) ) {
+						$urls[] = $m['settings']['vimeo_url'];
+					}
+					$walk( isset( $m['elements'] ) ? $m['elements'] : array() );
+				}
+			};
+			$walk( isset( $tabs['elements'][ $i ] ) ? array( $tabs['elements'][ $i ] ) : array() );
+			$out[ trim( $t['tab_title'] ) ] = array_values( array_unique( $urls ) );
+		}
+	}
+	set_transient( $key, $out, DAY_IN_SECONDS );
+	return $out;
+}
+
+function mdm_industry_videos_html( $slug ) {
+	$map = mdm_industry_video_tabs();
+	if ( empty( $map[ $slug ] ) || ! function_exists( 'mdm_video_thumb' ) ) {
+		return '';
+	}
+	$all  = mdm_portfolio_tab_videos();
+	$urls = array();
+	foreach ( $map[ $slug ] as $tab ) {
+		if ( ! empty( $all[ $tab ] ) ) {
+			$urls = array_merge( $urls, $all[ $tab ] );
+		}
+	}
+	$urls = array_slice( array_values( array_unique( $urls ) ), 0, 8 );
+	if ( ! $urls ) {
+		return '';
+	}
+	$label = mdm_industry_heroes()[ $slug ][0];
+	$tiles = '';
+	foreach ( $urls as $u ) {
+		if ( ! preg_match( '~vimeo\.com/(?:video/)?(\d+)~', $u, $m ) ) {
+			continue;
+		}
+		$thumb  = mdm_video_thumb( $u, 'vimeo' );
+		$player = 'https://player.vimeo.com/video/' . $m[1] . '?autoplay=1&title=0&byline=0&portrait=0&dnt=1';
+		$tiles .= '<div class="mdm-ivid"><button type="button" class="mdm-vfacade" data-src="' . esc_url( $player ) . '" aria-label="Play video">'
+			. ( $thumb ? '<img src="' . esc_url( $thumb ) . '" alt="' . esc_attr( $label . ' example' ) . '" loading="lazy" decoding="async">' : '' )
+			. '<span class="mdm-vfacade__play" aria-hidden="true"></span></button></div>';
+	}
+	return '<section class="mdm-ivids"><div class="mdm-ivids__in">'
+		. '<span class="mdm-niche__pill">Our work</span>'
+		. '<h2 class="mdm-display mdm-ivids__h2">' . esc_html( preg_replace( '/\s*&\s*video ads$|\s*&\s*video marketing$/i', '', $label ) ) . ' videos we made</h2>'
+		. '<p class="mdm-ivids__sub">Real ads from our ' . esc_html( strtolower( implode( ', ', $map[ $slug ] ) ) ) . ' clients. Tap any video to play it.</p>'
+		. '<div class="mdm-ivids__grid is-' . min( 4, count( $urls ) ) . '">' . $tiles . '</div>'
+		. '<p class="mdm-ivids__more"><a href="' . esc_url( home_url( '/portfolio/' ) ) . '">See all video ad examples →</a></p>'
+		. '</div></section>';
+}
