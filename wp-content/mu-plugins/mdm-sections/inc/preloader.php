@@ -28,8 +28,7 @@ function mdm_render_preloader() {
 	$colors = array( '#ED1C24', '#111114', '#ED1C24', '#111114', '#ED1C24', '#111114', '#ED1C24' );
 	?>
 	<style>
-		.mdm-loader{position:fixed;inset:0;z-index:2147483000;background:#fff;color:#111114;display:flex;align-items:center;justify-content:center;font-family:'Syncopate','Arial Black',sans-serif;font-weight:700;overflow:hidden;transition:transform 1s cubic-bezier(.77,0,.18,1),border-radius 1s cubic-bezier(.77,0,.18,1);animation:mdmLoaderFailsafe .01s 6s forwards}
-		.mdm-loader[data-quick]{animation-delay:4s}
+		.mdm-loader{position:fixed;inset:0;z-index:2147483000;background:#fff;color:#111114;display:flex;align-items:center;justify-content:center;font-family:'Syncopate','Arial Black',sans-serif;font-weight:700;overflow:hidden;transition:transform 1s cubic-bezier(.77,0,.18,1),border-radius 1s cubic-bezier(.77,0,.18,1);animation:mdmLoaderFailsafe .01s 3.8s forwards}
 		.mdm-loader.is-done{transform:translateY(-100%);border-radius:0 0 50% 50%/0 0 12vh 12vh}
 		.mdm-loader.is-gone{display:none}
 		.mdm-loader__kicker,.mdm-loader__brand{position:absolute;font:600 13px/1 Inter,system-ui,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:rgba(17,17,20,.55)}
@@ -45,6 +44,17 @@ function mdm_render_preloader() {
 		html.mdm-loading,html.mdm-loading body{overflow:hidden!important}
 		@keyframes mdmLoaderFailsafe{to{transform:translateY(-100%);visibility:hidden}}
 		@media (max-width:600px){.mdm-loader__count{font-size:44px;bottom:22px}.mdm-loader__brand{font-size:10px;bottom:28px;right:20px;letter-spacing:.14em}.mdm-loader__kicker{top:22px;left:22px}}
+		/* quick loader (every page except the homepage): pure CSS so it never freezes while a heavy page builds */
+		@property --mdmn{syntax:'<integer>';inherits:false;initial-value:0}
+		.mdm-loader[data-quick]{animation:mdmLoaderOut .65s cubic-bezier(.77,0,.18,1) .8s forwards;pointer-events:none}
+		.mdm-loader[data-quick] .mdm-loader__bar{animation:mdmLoaderBar .8s cubic-bezier(.3,.7,.2,1) forwards}
+		.mdm-loader[data-quick] #mdm-loader-num{display:none}
+		.mdm-loader[data-quick] .mdm-loader__count::before{content:counter(mdmn);counter-reset:mdmn var(--mdmn);animation:mdmLoaderNum .8s cubic-bezier(.3,.7,.2,1) forwards}
+		.mdm-loader[data-quick] .mdm-loader__word:nth-child(4){animation:mdmLoaderWord .45s cubic-bezier(.65,0,.35,1) .05s forwards}
+		@keyframes mdmLoaderOut{to{transform:translateY(-100%);border-radius:0 0 50% 50%/0 0 12vh 12vh;visibility:hidden}}
+		@keyframes mdmLoaderBar{to{transform:scaleX(1)}}
+		@keyframes mdmLoaderNum{to{--mdmn:100}}
+		@keyframes mdmLoaderWord{to{transform:translateY(0)}}
 		@media (prefers-reduced-motion:reduce){.mdm-loader{display:none}}
 	</style>
 	<div class="mdm-loader" id="mdm-loader" role="presentation" aria-hidden="true"<?php echo $front ? '' : ' data-quick="1"'; ?>>
@@ -64,6 +74,11 @@ function mdm_render_preloader() {
 		if(!el)return;
 		// Shown on every load / refresh of the homepage.
 		if(matchMedia('(prefers-reduced-motion: reduce)').matches){el.classList.add('is-gone');return;}
+		if(el.hasAttribute('data-quick')){
+			setTimeout(function(){document.dispatchEvent(new CustomEvent('mdm:loaded'));},800);
+			setTimeout(function(){el.classList.add('is-gone');},1600);
+			return;
+		}
 		document.documentElement.classList.add('mdm-loading');
 		var words=el.querySelectorAll('.mdm-loader__word'),num=document.getElementById('mdm-loader-num'),bar=document.getElementById('mdm-loader-bar');
 		var quick=el.hasAttribute('data-quick'),loaded=document.readyState==='complete';
