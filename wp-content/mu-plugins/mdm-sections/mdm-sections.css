@@ -2331,3 +2331,11 @@ html .mdm-niche--faqonly .mdm-niche__faqwrap { margin-top: 0; }
 /* article blocks never depend on Elementor's per-page CSS for their layout */
 html .mdm-service .elementor > .e-con.mdm-article { --display: flex; display: flex !important; flex-direction: column !important; }
 html .mdm-service .elementor > .e-con.mdm-article > .e-con-inner { --display: flex; display: flex !important; flex-direction: column !important; width: 100% !important; gap: 0 !important; }
+/* service pages, phones: creator cards become a swipe row instead of six full-screen cards */
+@media (max-width: 767px) {
+	html .mdm-service .elementor-element-a0cee7d, html .mdm-service .elementor-element-d8ca6d4 { flex-direction: row !important; flex-wrap: nowrap !important; overflow-x: auto !important; scroll-snap-type: x mandatory; gap: 12px !important; padding-left: 16px !important; padding-right: 16px !important; scrollbar-width: none; }
+	html .mdm-service .elementor-element-a0cee7d::-webkit-scrollbar, html .mdm-service .elementor-element-d8ca6d4::-webkit-scrollbar { display: none; }
+	html .mdm-service .elementor-element-a0cee7d > .e-con, html .mdm-service .elementor-element-d8ca6d4 > .e-con { flex: 0 0 76% !important; max-width: 76% !important; width: 76% !important; scroll-snap-align: start; }
+	html .mdm-service .elementor-element-a0cee7d .elementor-image-box-title, html .mdm-service .elementor-element-d8ca6d4 .elementor-image-box-title { font-size: 17px !important; }
+	html .mdm-service .elementor-element-a0cee7d .elementor-image-box-description, html .mdm-service .elementor-element-d8ca6d4 .elementor-image-box-description { font-size: 13.5px !important; }
+}
