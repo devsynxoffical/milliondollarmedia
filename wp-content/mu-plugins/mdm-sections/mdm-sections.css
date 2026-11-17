@@ -2123,3 +2123,7 @@ html .mdm-post-progress i { display: block; height: 100%; background: #E10600; t
 	html .mdm-post .ai-table td:first-child { border-top: 0; background: #111114 !important; color: #fff; }
 	html .mdm-post .ai-table td:not(:first-child)::before { content: attr(data-label); display: block; font-weight: 600; font-size: 13px; color: #111114; margin: 0 0 4px; }
 }
+html .mdm-post .entry-content .mdm-toc .mdm-toc__head { margin: 0 0 10px !important; font: 700 12px/1.2 "Poppins", sans-serif !important; letter-spacing: .14em; color: #E10600 !important; }
+html .mdm-post .entry-content .mdm-toc li { font-size: 15px; line-height: 1.45; }
+html .mdm-post .ai-table { min-width: 0; }
+@media (max-width: 600px) { html .mdm-post .entry-content .mdm-toc li { font-size: 14px; padding-top: 5px; padding-bottom: 5px; } }
