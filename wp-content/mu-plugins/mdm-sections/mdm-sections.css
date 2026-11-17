@@ -2029,3 +2029,97 @@ html .mdm-related__cta { display: inline-block; padding: 12px 20px; border-radiu
 html .mdm-ft__links { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
 @media (max-width: 600px) { html .mdm-ft__links { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; } }
 html .mdm-ft__links a { font-size: clamp(17px, 1.5vw, 26px) !important; }
+
+/* ================================================================== */
+/* Single blog post layout (body.mdm-post, inc/blog.php)               */
+/* ================================================================== */
+html body.mdm-post { background: #F4F4F1; }
+html .mdm-post .site-content > .ast-container { max-width: 940px !important; padding-left: 20px; padding-right: 20px; }
+html .mdm-post .site-content #primary { margin: 48px 0 64px !important; padding: 0 !important; width: 100%; }
+html .mdm-post .ast-article-single { padding: 60px 72px 56px !important; border-radius: 28px; background: #fff !important; border: 1px solid rgba(17,17,20,.06); box-shadow: 0 30px 60px -40px rgba(17,17,20,.25); }
+html .mdm-post .ast-article-single img:not(figure img), html .mdm-post .ast-article-single figure { box-shadow: none !important; }
+
+/* Header */
+html .mdm-post .entry-header { margin: 0 0 30px !important; text-align: left; }
+html .mdm-post-kicker { display: flex; align-items: center; gap: 8px; margin: 0 0 18px; font: 600 12px/1 "Poppins", sans-serif; letter-spacing: .12em; text-transform: uppercase; }
+html .mdm-post-kicker a { color: #111114 !important; text-decoration: none !important; }
+html .mdm-post-kicker a:last-child { color: #fff !important; background: #E10600; padding: 7px 12px; border-radius: 999px; }
+html .mdm-post-kicker i { font-style: normal; color: rgba(17,17,20,.35); }
+html .mdm-post .entry-title { font: 700 clamp(30px, 4.4vw, 50px)/1.12 "Poppins", sans-serif !important; letter-spacing: -.02em; color: #111114 !important; margin: 0 0 18px !important; text-wrap: balance; }
+html .mdm-post .entry-header .entry-meta { font: 500 15px/1.5 "Poppins", sans-serif !important; color: rgba(17,17,20,.6) !important; }
+html .mdm-post .entry-header .entry-meta a { color: #111114 !important; font-weight: 600; text-decoration: none !important; }
+html .mdm-post-facts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+html .mdm-post-facts span { font: 500 13px/1 "Poppins", sans-serif; color: rgba(17,17,20,.7); background: #F4F4F1; border: 1px solid rgba(17,17,20,.07); padding: 8px 12px; border-radius: 999px; }
+
+/* Cover + contents */
+html .mdm-post-cover { margin: 0 0 34px !important; border-radius: 20px; overflow: hidden; background: #111114; }
+html .mdm-post-cover img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+html .mdm-toc { margin: 0 0 44px; padding: 24px 28px; border-radius: 20px; background: #F7F7F5; border: 1px solid rgba(17,17,20,.07); }
+html .mdm-toc__head { margin: 0 0 12px !important; font: 700 13px/1 "Poppins", sans-serif !important; letter-spacing: .12em; text-transform: uppercase; color: #E10600 !important; }
+html .mdm-toc ol { margin: 0 !important; padding: 0 !important; list-style: none; counter-reset: toc; columns: 2; column-gap: 32px; }
+html .mdm-toc li { counter-increment: toc; break-inside: avoid; margin: 0 !important; padding: 6px 0 6px 34px; position: relative; font: 500 15px/1.45 "Poppins", sans-serif; }
+html .mdm-toc li::before { content: counter(toc, decimal-leading-zero); position: absolute; left: 0; top: 7px; font: 700 12px/1.6 "Poppins", sans-serif; color: rgba(17,17,20,.35); }
+html .mdm-toc a { color: #111114 !important; text-decoration: none !important; }
+html .mdm-toc a:hover { color: #E10600 !important; }
+
+/* Body copy (Elementor text widgets and normal post content) */
+html .mdm-post .entry-content .e-con { --padding-top: 0; --padding-bottom: 0; --padding-left: 0; --padding-right: 0; --gap: 0; padding: 0 !important; }
+html .mdm-post .entry-content .e-con-inner { max-width: 100% !important; padding: 0 !important; }
+html .mdm-post .entry-content .elementor-widget-text-editor { margin: 0 !important; }
+html .mdm-post .entry-content, html .mdm-post .entry-content .elementor-widget-text-editor { font: 400 18px/1.8 "Poppins", sans-serif !important; color: #33353D !important; }
+html .mdm-post .entry-content p { margin: 0 0 1.25em !important; font: inherit !important; color: inherit !important; }
+html .mdm-post .entry-content h2 { font: 700 clamp(25px, 2.6vw, 32px)/1.25 "Poppins", sans-serif !important; letter-spacing: -.015em; color: #111114 !important; margin: 2.1em 0 .7em !important; padding-left: 18px; border-left: 4px solid #E10600; scroll-margin-top: 110px; }
+html .mdm-post .entry-content h3 { font: 600 clamp(19px, 1.7vw, 22px)/1.4 "Poppins", sans-serif !important; color: #111114 !important; margin: 1.8em 0 .55em !important; }
+html .mdm-post .entry-content a:not(.mdm-related__cta) { color: #E10600; text-decoration: underline; text-underline-offset: 3px; }
+html .mdm-post .entry-content ul, html .mdm-post .entry-content ol:not(.mdm-toc ol) { margin: 0 0 1.4em 1.2em !important; }
+html .mdm-post .entry-content li { margin: 0 0 .5em; }
+html .mdm-post .entry-content strong, html .mdm-post .entry-content b { color: #111114; font-weight: 600; }
+
+/* "AI in action" style callouts */
+html .mdm-post-callout { margin: 1.8em 0 2em; padding: 24px 28px 6px; border-radius: 18px; background: #111114; color: rgba(255,255,255,.86); }
+html .mdm-post .entry-content .mdm-post-callout p { color: rgba(255,255,255,.86) !important; }
+html .mdm-post-callout__tag { display: inline-block; margin: 0 0 12px; padding: 6px 11px; border-radius: 999px; background: #E10600; color: #fff; font: 700 11px/1 "Poppins", sans-serif; letter-spacing: .12em; text-transform: uppercase; }
+
+/* Tables */
+html .mdm-post .entry-content table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 0 0 1.6em; font: 400 15px/1.6 "Poppins", sans-serif; border: 1px solid rgba(17,17,20,.1); border-radius: 16px; overflow: hidden; }
+html .mdm-post .entry-content th { background: #111114; color: #fff; font-weight: 600; text-align: left; padding: 14px 16px; border: 0; }
+html .mdm-post .entry-content td { padding: 14px 16px; border: 0; border-top: 1px solid rgba(17,17,20,.08); vertical-align: top; color: #33353D; }
+html .mdm-post .entry-content td:first-child { font-weight: 600; color: #111114; }
+html .mdm-post .entry-content tbody tr:nth-child(even) td { background: #FAFAF8; }
+html .mdm-post .ai-table-wrap { overflow-x: auto; margin: 0 0 1.6em; }
+html .mdm-post .ai-table { min-width: 760px; }
+
+/* FAQ: numbered questions as cards */
+html .mdm-post .entry-content h2#faqs ~ h3 { margin: 14px 0 0 !important; padding: 18px 22px 0; background: #F7F7F5; border-radius: 16px 16px 0 0; font-size: 18px !important; }
+html .mdm-post .entry-content h2#faqs ~ h3 + p { margin: 0 0 4px !important; padding: 6px 22px 18px; background: #F7F7F5; border-radius: 0 0 16px 16px; font-size: 16px !important; line-height: 1.7 !important; }
+
+/* Keep reading box at the end */
+html .mdm-post .mdm-related { margin-top: 56px; }
+html .mdm-post .mdm-related h2 { border: 0; padding: 0; }
+
+/* Reading progress */
+html .mdm-post-progress { position: fixed; left: 0; right: 0; top: 0; height: 3px; z-index: 99999; pointer-events: none; }
+html .mdm-post-progress i { display: block; height: 100%; background: #E10600; transform: scaleX(0); transform-origin: 0 50%; }
+
+@media (max-width: 921px) {
+	html .mdm-post .ast-article-single { padding: 40px 36px !important; }
+}
+@media (max-width: 600px) {
+	html .mdm-post .site-content > .ast-container { padding-left: 12px; padding-right: 12px; }
+	html .mdm-post .site-content #primary { margin: 20px 0 40px !important; }
+	html .mdm-post .ast-article-single { padding: 28px 20px 30px !important; border-radius: 20px; }
+	html .mdm-post .entry-content, html .mdm-post .entry-content .elementor-widget-text-editor { font-size: 17px !important; line-height: 1.75 !important; }
+	html .mdm-toc { padding: 20px; }
+	html .mdm-toc ol { columns: 1; }
+	html .mdm-post-cover { border-radius: 14px; margin-bottom: 26px !important; }
+	html .mdm-post-callout { padding: 20px 20px 4px; }
+	html .mdm-post .entry-content h2 { padding-left: 14px; }
+	/* stacked table rows on phones (uses data-label when present) */
+	html .mdm-post .ai-table { min-width: 0; border: 0; }
+	html .mdm-post .ai-table thead { display: none; }
+	html .mdm-post .ai-table, html .mdm-post .ai-table tbody, html .mdm-post .ai-table tr, html .mdm-post .ai-table td { display: block; width: 100%; }
+	html .mdm-post .ai-table tr { margin: 0 0 14px; border: 1px solid rgba(17,17,20,.1); border-radius: 14px; overflow: hidden; }
+	html .mdm-post .ai-table td { border-top: 1px solid rgba(17,17,20,.07); background: #fff !important; }
+	html .mdm-post .ai-table td:first-child { border-top: 0; background: #111114 !important; color: #fff; }
+	html .mdm-post .ai-table td:not(:first-child)::before { content: attr(data-label); display: block; font-weight: 600; font-size: 13px; color: #111114; margin: 0 0 4px; }
+}
