@@ -86,7 +86,7 @@ function mdm_industry_hero_html( $slug ) {
 						$metric = '';
 						foreach ( (array) $c['metrics'] as $m ) {
 							if ( false === stripos( $m, 'proof' ) ) {
-								$metric = $m;
+								$metric = preg_replace( '/\s*headline result$/i', ' result', $m );
 								break;
 							}
 						}
