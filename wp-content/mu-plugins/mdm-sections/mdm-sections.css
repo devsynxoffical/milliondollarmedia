@@ -2357,3 +2357,92 @@ html .mdm-ivids__more a { color: #fff !important; text-decoration: none !importa
 	html .mdm-ivids__grid::-webkit-scrollbar { display: none; }
 	html .mdm-ivid, html .mdm-ivids__grid[class*="is-"] .mdm-ivid { flex: 0 0 62% !important; max-width: 62% !important; scroll-snap-align: start; }
 }
+
+/* ================================================================== */
+/* Service pages: designed long-form sections (inc/industry-content.php) */
+/* ================================================================== */
+html .mdm-ic { background: #000; color: #fff; font-family: "Poppins", sans-serif; }
+html .mdm-ic__sec { padding: clamp(56px, 7vw, 100px) clamp(16px, 4vw, 64px); position: relative; }
+html .mdm-ic__sec:nth-child(even) { background: #0b0b0d; border-top: 1px solid rgba(255,255,255,.05); border-bottom: 1px solid rgba(255,255,255,.05); }
+html .mdm-ic__in { max-width: 1180px; margin: 0 auto; }
+html .mdm-ic__head { max-width: 760px; margin: 0 auto clamp(30px, 4vw, 48px); text-align: center; }
+html .mdm-ic__h2 { font-family: "Syncopate", sans-serif !important; font-weight: 700 !important; text-transform: uppercase; color: #fff !important; font-size: clamp(23px, 2.7vw, 38px) !important; line-height: 1.2 !important; letter-spacing: .005em; margin: 18px 0 14px !important; }
+html .mdm-ic__sub, html .mdm-ic__p { color: rgba(255,255,255,.7) !important; font-size: 16.5px !important; line-height: 1.75 !important; margin: 0 0 14px !important; }
+
+/* intro split */
+html .mdm-ic__split { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 70px); align-items: center; }
+html .mdm-ic__checks { list-style: none; margin: 22px 0 0 !important; padding: 0 !important; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 18px; }
+html .mdm-ic__checks li { position: relative; padding: 12px 14px 12px 42px; margin: 0; border-radius: 14px; background: #111114; border: 1px solid rgba(255,255,255,.08); font: 500 14.5px/1.4 "Poppins", sans-serif; color: #fff; }
+html .mdm-ic__checks li::before { content: "✓"; position: absolute; left: 13px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; border-radius: 50%; background: #ED1C24; color: #fff; font-size: 12px; font-weight: 700; display: grid; place-items: center; }
+html .mdm-ic__media img { width: 100%; height: auto; border-radius: 24px; display: block; border: 1px solid rgba(255,255,255,.1); box-shadow: 0 40px 80px -40px rgba(237,28,36,.55); }
+html .mdm-ic__yt { position: relative; aspect-ratio: 16 / 9; border-radius: 22px; overflow: hidden; border: 1px solid rgba(255,255,255,.12); background: #111; box-shadow: 0 40px 80px -40px rgba(237,28,36,.55); }
+html .mdm-ic__yt iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+/* problem -> with video cards */
+html .mdm-ic__compare { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+html .mdm-ic__compare:has(> :nth-child(4):last-child) { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 900px; margin: 0 auto; }
+html .mdm-ic__cmp { padding: 24px; border-radius: 22px; background: #111114; border: 1px solid rgba(255,255,255,.08); display: flex; flex-direction: column; gap: 12px; transition: border-color .25s, transform .25s; }
+html .mdm-ic__cmp:hover { border-color: rgba(237,28,36,.5); transform: translateY(-3px); }
+html .mdm-ic__cmp h3 { margin: 0 0 4px !important; font: 700 19px/1.3 "Poppins", sans-serif !important; color: #fff !important; }
+html .mdm-ic__row { padding: 12px 14px; border-radius: 14px; }
+html .mdm-ic__row b { display: block; margin-bottom: 4px; font: 700 11px/1 "Poppins", sans-serif; letter-spacing: .12em; text-transform: uppercase; }
+html .mdm-ic__row p { margin: 0 !important; font-size: 14.5px !important; line-height: 1.55 !important; }
+html .mdm-ic__row.is-bad { background: rgba(255,255,255,.04); }
+html .mdm-ic__row.is-bad b { color: rgba(255,255,255,.45); }
+html .mdm-ic__row.is-bad p { color: rgba(255,255,255,.6) !important; }
+html .mdm-ic__row.is-good { background: rgba(237,28,36,.12); border: 1px solid rgba(237,28,36,.3); }
+html .mdm-ic__row.is-good b { color: #FF4D52; }
+html .mdm-ic__row.is-good p { color: #fff !important; }
+
+/* numbered card grid */
+html .mdm-ic__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+html .mdm-ic__grid.is-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 900px; margin: 0 auto; }
+html .mdm-ic__card { position: relative; padding: 26px 24px 24px; border-radius: 22px; background: linear-gradient(160deg, #141417, #0c0c0e); border: 1px solid rgba(255,255,255,.08); overflow: hidden; transition: border-color .25s, transform .25s; }
+html .mdm-ic__card:hover { border-color: rgba(237,28,36,.5); transform: translateY(-3px); }
+html .mdm-ic__num { display: inline-grid; place-items: center; width: 42px; height: 42px; border-radius: 12px; background: #ED1C24; color: #fff; font: 700 14px/1 "Syncopate", sans-serif; margin-bottom: 16px; box-shadow: 0 10px 24px -10px rgba(237,28,36,.8); }
+html .mdm-ic__card h3, html .mdm-ic__tip h3 { margin: 0 0 8px !important; font: 700 18px/1.35 "Poppins", sans-serif !important; color: #fff !important; }
+html .mdm-ic__card p, html .mdm-ic__tip p { margin: 0 !important; font-size: 14.5px !important; line-height: 1.65 !important; color: rgba(255,255,255,.66) !important; }
+
+/* tips */
+html .mdm-ic__tips { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
+html .mdm-ic__tip { padding: 22px 18px; border-radius: 20px; background: #111114; border: 1px solid rgba(237,28,36,.35); }
+html .mdm-ic__tip > span { display: block; font-size: 24px; margin-bottom: 10px; }
+
+/* steps timeline */
+html .mdm-ic__steps { list-style: none; margin: 0 !important; padding: 0 !important; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; counter-reset: none; position: relative; }
+html .mdm-ic__steps::before { content: ""; position: absolute; left: 6%; right: 6%; top: 27px; height: 2px; background: linear-gradient(90deg, #ED1C24, rgba(237,28,36,.15)); }
+html .mdm-ic__steps li { position: relative; margin: 0; display: flex; flex-direction: column; gap: 16px; }
+html .mdm-ic__stepn { position: relative; z-index: 1; width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; background: #000; border: 2px solid #ED1C24; color: #fff; font: 700 18px/1 "Syncopate", sans-serif; box-shadow: 0 0 0 6px #000; }
+html .mdm-ic__sec:nth-child(even) .mdm-ic__stepn { background: #0b0b0d; box-shadow: 0 0 0 6px #0b0b0d; }
+html .mdm-ic__steps h3 { margin: 0 0 6px !important; font: 700 17px/1.35 "Poppins", sans-serif !important; color: #fff !important; }
+html .mdm-ic__steps p { margin: 0 !important; font-size: 14px !important; line-height: 1.6 !important; color: rgba(255,255,255,.64) !important; }
+
+/* testimonial videos */
+html .mdm-ic__vids { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; max-width: 980px; margin: 0 auto; }
+
+/* CTA band */
+html .mdm-ic__cta { position: relative; overflow: hidden; display: flex; align-items: center; justify-content: space-between; gap: 28px; padding: clamp(32px, 4.5vw, 56px); border-radius: 28px; background: linear-gradient(120deg, rgba(150,8,12,.96), rgba(237,28,36,.88)), var(--bg) center / cover; box-shadow: 0 40px 90px -40px rgba(237,28,36,.8); }
+html .mdm-ic__cta .mdm-ic__h2 { margin: 0 0 10px !important; font-size: clamp(22px, 2.4vw, 34px) !important; }
+html .mdm-ic__cta p { margin: 0 !important; color: rgba(255,255,255,.88) !important; font-size: 16px !important; line-height: 1.6 !important; max-width: 600px; }
+html .mdm-ic__cta .mdm-ihero__btn.is-red { background: #fff; border-color: #fff; color: #111114 !important; flex-shrink: 0; box-shadow: none; }
+html .mdm-ic__cta .mdm-ihero__btn.is-red em { background: #ED1C24; color: #fff; }
+
+@media (max-width: 1100px) {
+	html .mdm-ic__tips { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+	html .mdm-ic__steps { grid-template-columns: 1fr; gap: 0; max-width: 640px; margin: 0 auto !important; }
+	html .mdm-ic__steps::before { left: 27px; right: auto; top: 10px; bottom: 10px; width: 2px; height: auto; background: linear-gradient(180deg, #ED1C24, rgba(237,28,36,.15)); }
+	html .mdm-ic__steps li { flex-direction: row; gap: 18px; padding: 0 0 26px; }
+	html .mdm-ic__stepn { flex: 0 0 56px; }
+}
+@media (max-width: 900px) {
+	html .mdm-ic__split { grid-template-columns: 1fr; }
+	html .mdm-ic__compare, html .mdm-ic__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+	html .mdm-ic__cta { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 600px) {
+	html .mdm-ic__compare, html .mdm-ic__grid, html .mdm-ic__grid.is-2, html .mdm-ic__compare:has(> :nth-child(4):last-child), html .mdm-ic__vids { grid-template-columns: 1fr; }
+	html .mdm-ic__tips { grid-template-columns: 1fr 1fr; }
+	html .mdm-ic__checks { grid-template-columns: 1fr; }
+	html .mdm-ic__head { text-align: left; }
+	html .mdm-ic__cta .mdm-ihero__btn { width: 100%; justify-content: center; }
+}
