@@ -232,27 +232,66 @@ function mdm_seo_niche_section( $slug ) {
 		return '';
 	}
 	$c = $n[ $slug ];
+
+	// Stat cards from this industry's real case studies: the count + two headline results.
+	$want  = array_map( 'strtolower', $c['niches'] );
+	$items = array_values( array_filter( mdm_case_items( 'all' ), static function ( $it ) use ( $want ) { return in_array( strtolower( $it['niche'] ), $want, true ); } ) );
+	$stats = array( array( (string) count( $items ), 'verified case studies' ) );
+	foreach ( $items as $it ) {
+		if ( count( $stats ) >= 3 ) {
+			break;
+		}
+		$m = isset( $it['metrics'][0] ) ? $it['metrics'][0] : '';
+		if ( preg_match( '/^([$€£]?[\d][\d,.]*\s?[KkMm]?[x%]?)\s+(.+)$/u', $m, $mm ) ) {
+			$stats[] = array( $mm[1], $mm[2] );
+		}
+	}
+	$label = $c['niches'][0];
+	$links = array(
+		array( '/case-studies/', 'All 247 case studies' ),
+		array( '/portfolio/', 'Video ad examples' ),
+		array( '/what-is-a-vsl/', 'What is a VSL?' ),
+	);
+
 	ob_start();
 	?>
-	<section class="mdm-niche" id="results">
-		<div class="mdm-niche__intro">
-			<span class="mdm-eyebrow mdm-eyebrow--plain">Real results</span>
-			<h2 class="mdm-display mdm-niche__h2"><?php echo esc_html( $c['h2'] ); ?></h2>
-			<?php foreach ( $c['p'] as $p ) : ?><p><?php echo esc_html( $p ); ?></p><?php endforeach; ?>
-		</div>
-	</section>
-	<?php
-	echo mdm_shortcode_case_studies( array( 'cat' => 'all', 'niche' => implode( '|', $c['niches'] ), 'limit' => '8', 'eyebrow' => 'Case studies', 'title' => 'Proof from this industry', 'badge' => '', 'subtitle' => 'Tap any card to see the proof video or dashboard.' ) ); // phpcs:ignore
-	?>
-	<section class="mdm-niche mdm-niche--faq">
-		<div class="mdm-niche__intro">
-			<h2 class="mdm-display mdm-niche__h2">Frequently asked questions</h2>
-			<?php foreach ( $c['faq'] as $f ) : ?>
-				<details class="mdm-niche__faq"><summary><?php echo esc_html( $f[0] ); ?></summary><p><?php echo esc_html( $f[1] ); ?></p></details>
-			<?php endforeach; ?>
-			<p class="mdm-niche__links">Related: <a href="<?php echo esc_url( home_url( '/case-studies/' ) ); ?>">all 247 case studies</a> · <a href="<?php echo esc_url( home_url( '/portfolio/' ) ); ?>">video ad examples</a> · <a href="<?php echo esc_url( home_url( '/what-is-a-vsl/' ) ); ?>">what is a VSL?</a> · <a href="<?php echo esc_url( home_url( '/book-your-call/' ) ); ?>">book a free strategy call</a></p>
-		</div>
-	</section>
+	<div class="mdm-niche mdm-niche--dark" id="results">
+		<section class="mdm-niche__top">
+			<div class="mdm-niche__copy">
+				<span class="mdm-niche__pill">Real results</span>
+				<h2 class="mdm-display mdm-niche__h2"><?php echo esc_html( $c['h2'] ); ?></h2>
+				<?php foreach ( $c['p'] as $p ) : ?><p><?php echo esc_html( $p ); ?></p><?php endforeach; ?>
+			</div>
+			<?php if ( count( $items ) ) : ?>
+				<ul class="mdm-niche__stats">
+					<?php foreach ( $stats as $i => $st ) : ?>
+						<li<?php echo 0 === $i ? ' class="is-red"' : ''; ?>><b><?php echo esc_html( $st[0] ); ?></b><span><?php echo esc_html( 0 === $i ? $label . ' ' . $st[1] : $st[1] ); ?></span></li>
+					<?php endforeach; ?>
+				</ul>
+			<?php endif; ?>
+		</section>
+		<?php
+		echo mdm_shortcode_case_studies( array( 'cat' => 'all', 'niche' => implode( '|', $c['niches'] ), 'limit' => '8', 'eyebrow' => 'Case studies', 'title' => 'Proof from this industry', 'badge' => '', 'subtitle' => 'Tap any card to see the proof video or dashboard.' ) ); // phpcs:ignore
+		?>
+		<section class="mdm-niche__faqwrap">
+			<div class="mdm-niche__faqhead">
+				<span class="mdm-niche__pill">FAQ</span>
+				<h2 class="mdm-display mdm-niche__h2">Questions we get asked</h2>
+				<p>Still unsure? We answer the rest on a free 20-minute call.</p>
+				<div class="mdm-niche__btns">
+					<a class="mdm-niche__btn is-red" href="<?php echo esc_url( home_url( '/book-your-call/' ) ); ?>">Book a free strategy call</a>
+				</div>
+			</div>
+			<div class="mdm-niche__faqs">
+				<?php foreach ( $c['faq'] as $k => $f ) : ?>
+					<details class="mdm-niche__faq"<?php echo 0 === $k ? ' open' : ''; ?>><summary><?php echo esc_html( $f[0] ); ?></summary><p><?php echo esc_html( $f[1] ); ?></p></details>
+				<?php endforeach; ?>
+				<nav class="mdm-niche__more" aria-label="Related">
+					<?php foreach ( $links as $l ) : ?><a href="<?php echo esc_url( home_url( $l[0] ) ); ?>"><?php echo esc_html( $l[1] ); ?> <i aria-hidden="true">→</i></a><?php endforeach; ?>
+				</nav>
+			</div>
+		</section>
+	</div>
 	<?php
 	return ob_get_clean();
 }
@@ -265,7 +304,7 @@ add_filter(
 		}
 		$slug = get_post_field( 'post_name', get_queried_object_id() );
 		$n    = mdm_seo_niches();
-		if ( empty( $n[ $slug ] ) || false !== strpos( $content, 'class="mdm-niche"' ) ) {
+		if ( empty( $n[ $slug ] ) || false !== strpos( $content, 'mdm-niche__top' ) ) {
 			return $content;
 		}
 		return $content . mdm_seo_niche_section( $slug );
