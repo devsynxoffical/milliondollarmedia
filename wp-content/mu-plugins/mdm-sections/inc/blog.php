@@ -115,6 +115,8 @@ add_filter(
 					)
 				) . '</figure>';
 			}
+		} elseif ( function_exists( 'mdm_blog_cover' ) ) {
+			$top .= '<figure class="mdm-post-cover">' . mdm_blog_cover( $id ) . '</figure>'; // designed cover when there is no featured image
 		}
 		if ( count( $toc ) >= 3 && count( $toc ) <= 14 ) { // a very long list (posts that mark every point as a heading) is skipped
 			$top .= '<nav class="mdm-toc" aria-label="In this article"><p class="mdm-toc__head">In this article</p><ol>';

@@ -2446,3 +2446,70 @@ html .mdm-ic__cta .mdm-ihero__btn.is-red em { background: #ED1C24; color: #fff; 
 	html .mdm-ic__head { text-align: left; }
 	html .mdm-ic__cta .mdm-ihero__btn { width: 100%; justify-content: center; }
 }
+
+/* ================================================================== */
+/* Blog index (/blogs/, inc/blogindex.php)                             */
+/* ================================================================== */
+html .mdm-blog { font-family: "Poppins", sans-serif; }
+html .mdm-blog__in { max-width: 1240px; margin: 0 auto; }
+html .mdm-blog__hero { position: relative; overflow: hidden; background: #000; color: #fff; padding: clamp(56px, 7vw, 96px) clamp(16px, 4vw, 64px) clamp(48px, 6vw, 80px); }
+html .mdm-blog__hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(50% 70% at 85% 20%, rgba(225,6,0,.32), transparent 70%), radial-gradient(40% 50% at 0% 100%, rgba(225,6,0,.16), transparent 70%); pointer-events: none; }
+html .mdm-blog__hero > * { position: relative; }
+html .mdm-blog__h1 { margin: 20px 0 16px !important; max-width: 900px; font: 700 clamp(30px, 4.2vw, 58px)/1.08 "Syncopate", sans-serif !important; text-transform: uppercase; color: #fff !important; }
+html .mdm-blog__lead { max-width: 680px; margin: 0 0 30px !important; color: rgba(255,255,255,.72) !important; font-size: clamp(16px, 1.25vw, 18px) !important; line-height: 1.7 !important; }
+html .mdm-blog__filters { display: flex; flex-wrap: wrap; gap: 10px; }
+html .mdm-blog__filters button { display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 999px; border: 1px solid rgba(255,255,255,.18); background: rgba(255,255,255,.04); color: #fff; font: 500 14px/1 "Poppins", sans-serif; cursor: pointer; transition: background .2s, border-color .2s; }
+html .mdm-blog__filters button small { font-size: 11px; opacity: .7; }
+html .mdm-blog__filters button:hover { border-color: rgba(255,255,255,.4); }
+html .mdm-blog__filters button.is-on { background: #ED1C24; border-color: #ED1C24; }
+html .mdm-blog__body { background: #F4F4F1; padding: clamp(40px, 5vw, 72px) clamp(16px, 4vw, 64px) clamp(64px, 8vw, 110px); }
+
+/* covers (featured image or designed fallback) */
+html .mdm-blog img, html .mdm-bcover { display: block; width: 100%; height: 100%; object-fit: cover; }
+html .mdm-bcover { position: relative; display: flex; flex-direction: column; justify-content: flex-end; gap: 10px; padding: clamp(18px, 2.5vw, 30px); background: radial-gradient(70% 90% at 90% 0%, rgba(237,28,36,.55), transparent 70%), linear-gradient(150deg, #1a1a1d, #000); color: #fff; box-sizing: border-box; }
+html .mdm-bcover i { align-self: flex-start; font: 700 11px/1 "Poppins", sans-serif; font-style: normal; letter-spacing: .12em; text-transform: uppercase; background: #ED1C24; padding: 7px 11px; border-radius: 999px; }
+html .mdm-bcover b { font: 700 clamp(18px, 2vw, 28px)/1.15 "Syncopate", sans-serif; text-transform: uppercase; }
+html .mdm-bcover em { font: 600 11px/1 "Poppins", sans-serif; font-style: normal; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.55); }
+html .mdm-post-cover .mdm-bcover { aspect-ratio: 16 / 9; }
+
+/* featured post */
+html .mdm-bfeat { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 0; margin-bottom: 28px; border-radius: 28px; overflow: hidden; background: #fff; border: 1px solid rgba(17,17,20,.07); box-shadow: 0 30px 60px -40px rgba(17,17,20,.35); text-decoration: none !important; color: inherit; transition: transform .3s, box-shadow .3s; }
+html .mdm-bfeat:hover { transform: translateY(-4px); box-shadow: 0 40px 70px -40px rgba(237,28,36,.4); }
+html .mdm-bfeat__img { position: relative; display: block; min-height: 320px; aspect-ratio: 16 / 10; overflow: hidden; }
+html .mdm-bfeat__badge { position: absolute; top: 16px; left: 16px; padding: 8px 13px; border-radius: 999px; background: #fff; color: #111114; font: 700 11px/1 "Poppins", sans-serif; letter-spacing: .1em; text-transform: uppercase; }
+html .mdm-bfeat__txt { display: flex; flex-direction: column; justify-content: center; gap: 16px; padding: clamp(26px, 3.5vw, 52px); }
+html .mdm-bfeat__title { font: 700 clamp(24px, 2.4vw, 34px)/1.2 "Poppins", sans-serif; color: #111114; letter-spacing: -.015em; }
+html .mdm-bfeat__ex { font-size: 16px; line-height: 1.7; color: rgba(17,17,20,.66); }
+
+/* cards */
+html .mdm-bgrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+html .mdm-bcard { display: flex; flex-direction: column; border-radius: 24px; overflow: hidden; background: #fff; border: 1px solid rgba(17,17,20,.07); text-decoration: none !important; color: inherit; transition: transform .3s, box-shadow .3s; }
+html .mdm-bcard:hover { transform: translateY(-5px); box-shadow: 0 30px 60px -36px rgba(237,28,36,.45); }
+html .mdm-bcard[hidden], html .mdm-bfeat[hidden] { display: none; }
+html .mdm-bcard__img { display: block; aspect-ratio: 16 / 9; overflow: hidden; }
+html .mdm-bcard__img img { transition: transform .5s ease; }
+html .mdm-bcard:hover .mdm-bcard__img img { transform: scale(1.04); }
+html .mdm-bcard__body { display: flex; flex-direction: column; gap: 12px; flex: 1; padding: 22px 22px 24px; }
+html .mdm-bcard__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; font: 500 12.5px/1.2 "Poppins", sans-serif; color: rgba(17,17,20,.55); }
+html .mdm-bcard__meta > span + span::before { content: "•"; margin-right: 12px; color: rgba(17,17,20,.25); }
+html .mdm-bcard__meta .mdm-bcard__cat { padding: 6px 10px; border-radius: 999px; background: rgba(237,28,36,.1); color: #ED1C24; font-weight: 700; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+html .mdm-bcard__meta .mdm-bcard__cat + span::before { content: none; }
+html .mdm-bcard__title { font: 700 19px/1.35 "Poppins", sans-serif; color: #111114; letter-spacing: -.01em; }
+html .mdm-bcard__ex { font-size: 14.5px; line-height: 1.65; color: rgba(17,17,20,.62); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+html .mdm-bcard__more { margin-top: auto; padding-top: 4px; font: 700 14px/1 "Poppins", sans-serif; color: #ED1C24; }
+html .mdm-bcard__more i { font-style: normal; display: inline-block; transition: transform .25s; }
+html .mdm-bcard:hover .mdm-bcard__more i, html .mdm-bfeat:hover .mdm-bcard__more i { transform: translateX(4px); }
+html .mdm-blog__empty { text-align: center; color: rgba(17,17,20,.55); margin: 30px 0 0 !important; }
+html .mdm-blog__cta { margin-top: clamp(40px, 5vw, 64px); }
+
+@media (max-width: 1000px) {
+	html .mdm-bgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+	html .mdm-bfeat { grid-template-columns: 1fr; }
+	html .mdm-bfeat__img { min-height: 0; }
+}
+@media (max-width: 600px) {
+	html .mdm-bgrid { grid-template-columns: 1fr; gap: 18px; }
+	html .mdm-blog__filters { flex-wrap: nowrap; overflow-x: auto; margin: 0 -16px; padding: 0 16px 4px; scrollbar-width: none; }
+	html .mdm-blog__filters button { flex-shrink: 0; }
+	html .mdm-bfeat, html .mdm-bcard { border-radius: 20px; }
+}
