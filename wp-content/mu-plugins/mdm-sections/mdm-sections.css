@@ -2250,3 +2250,7 @@ html .mdm-ihero__cards.is-2 .mdm-ihero__card:nth-child(2) { --r: 2deg; margin-to
 	html .mdm-ihero__card, html .mdm-ihero__cards .mdm-ihero__card:nth-child(n) { flex: 0 0 66%; margin: 0 !important; aspect-ratio: 4 / 5 !important; grid-row: auto !important; scroll-snap-align: start; --r: 0deg; }
 }
 @media (prefers-reduced-motion: reduce) { html .mdm-ihero__card { animation: none; } }
+html .mdm-ihero__cards { max-width: 540px; margin-left: auto; }
+html .mdm-ihero__card { aspect-ratio: 1 / 1.08; }
+html .mdm-ihero__cards.is-4 .mdm-ihero__card:nth-child(2), html .mdm-ihero__cards.is-4 .mdm-ihero__card:nth-child(4) { margin-top: 36px; margin-bottom: -36px; }
+html .mdm-ihero__cards.is-4 { padding-bottom: 36px; }
