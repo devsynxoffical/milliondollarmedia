@@ -237,15 +237,19 @@ function mdm_seo_niche_section( $slug ) {
 	$want  = array_map( 'strtolower', $c['niches'] );
 	$items = array_values( array_filter( mdm_case_items( 'all' ), static function ( $it ) use ( $want ) { return in_array( strtolower( $it['niche'] ), $want, true ); } ) );
 	$stats = array( array( (string) count( $items ), 'verified case studies' ) );
+	$cands = array(); // every "<number> <label>" metric, one per label, money first
 	foreach ( $items as $it ) {
-		if ( count( $stats ) >= 3 ) {
-			break;
-		}
-		$m = isset( $it['metrics'][0] ) ? $it['metrics'][0] : '';
-		if ( preg_match( '/^([$€£]?[\d][\d,.]*\s?[KkMm]?[x%]?)\s+(.+)$/u', $m, $mm ) ) {
-			$stats[] = array( $mm[1], $mm[2] );
+		foreach ( (array) $it['metrics'] as $m ) {
+			if ( preg_match( '/^([$€£]?[\d][\d,.]*\s?[KkMm]?[x%]?)\s+(.+)$/u', $m, $mm ) && stripos( $mm[2], 'proof' ) === false ) {
+				$key = strtolower( trim( $mm[2] ) );
+				if ( ! isset( $cands[ $key ] ) ) {
+					$cands[ $key ] = array( $mm[1], $mm[2] );
+				}
+			}
 		}
 	}
+	uasort( $cands, static function ( $a, $b ) { return (int) ( '$' !== $a[0][0] ) - (int) ( '$' !== $b[0][0] ); } );
+	$stats = array_merge( $stats, array_slice( array_values( $cands ), 0, 2 ) );
 	$label = $c['niches'][0];
 	$links = array(
 		array( '/case-studies/', 'All 247 case studies' ),
