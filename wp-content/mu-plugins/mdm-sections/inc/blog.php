@@ -116,7 +116,7 @@ add_filter(
 				) . '</figure>';
 			}
 		}
-		if ( count( $toc ) >= 3 ) {
+		if ( count( $toc ) >= 3 && count( $toc ) <= 14 ) { // a very long list (posts that mark every point as a heading) is skipped
 			$top .= '<nav class="mdm-toc" aria-label="In this article"><p class="mdm-toc__head">In this article</p><ol>';
 			foreach ( $toc as $t ) {
 				$top .= '<li><a href="#' . esc_attr( $t[0] ) . '">' . esc_html( $t[1] ) . '</a></li>';
