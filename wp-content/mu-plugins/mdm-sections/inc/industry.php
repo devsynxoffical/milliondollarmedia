@@ -32,6 +32,32 @@ function mdm_industry_slug() {
 	return isset( $all[ $slug ] ) ? $slug : '';
 }
 
+/** Hero photos: 4 industry scenes per page (img/industry/), each with a short service label. */
+function mdm_industry_photos( $slug ) {
+	$sets = array(
+		'roofing-video-marketing-services'      => array( 'roofing', 'Roofing', array( array( 'Crew & project ads', 'Roofers installing new shingles' ), array( 'Contractor UGC ads', 'Roofing contractor recording a video ad on a roof' ), array( 'Homeowner testimonials', 'Homeowners shaking hands with their roofer' ), array( 'Storm damage ads', 'Roofer inspecting storm-damaged shingles' ) ) ),
+		'hvac-video-marketing-services'         => array( 'hvac', 'HVAC', array( array( 'Service & repair ads', 'HVAC technician servicing an AC unit' ), array( 'Tech tip videos', 'HVAC technician recording a video tip' ), array( 'Homeowner stories', 'Homeowner adjusting a smart thermostat' ), array( 'Install showcases', 'Technician installing a mini split' ) ) ),
+		'plumbing-video-production'             => array( 'plumbing', 'Plumbing', array( array( 'Repair explainers', 'Plumber fixing pipes under a sink' ), array( 'How-to tip videos', 'Plumber recording a how-to video' ), array( 'Install showcases', 'Plumber installing a water heater' ), array( 'Customer testimonials', 'Plumber talking with a happy homeowner' ) ) ),
+		'home-service-business'                 => array( 'home', 'Home services', array( array( 'Electrician ads', 'Electrician working on a panel' ), array( 'Window & door ads', 'Installers fitting a new window' ), array( 'Carpet cleaning ads', 'Technician cleaning a carpet' ), array( 'Owner-led UGC ads', 'Business owner recording a video ad by his van' ) ) ),
+		'mva'                                   => array( 'mva', 'MVA & PI', array( array( 'Attorney intake ads', 'Attorney consulting a client' ), array( 'Accident victim ads', 'Driver on the phone after a minor car accident' ), array( 'Lawyer video ads', 'Lawyer recording a video ad in his office' ), array( 'Client stories', 'Injured client on a call with her attorney' ) ) ),
+		'real-estate'                           => array( 'realestate', 'Real estate', array( array( 'Property walkthroughs', 'Agent filming a property walkthrough video' ), array( 'Buyer stories', 'Agent handing keys to new homeowners' ), array( 'Listing videos', 'Modern family home at golden hour' ), array( 'Mortgage & refi ads', 'Mortgage advisor meeting a couple' ) ) ),
+		'solar'                                 => array( 'solar', 'Solar', array( array( 'Install showcases', 'Installers mounting solar panels' ), array( 'Solar home videos', 'House with solar panels at sunset' ), array( 'Savings explainer ads', 'Solar consultant showing savings to a homeowner' ), array( 'Owner-led UGC ads', 'Solar company owner recording a video ad' ) ) ),
+		'saas'                                  => array( 'saas', 'SaaS', array( array( 'Product demo videos', 'Founder recording a product demo' ), array( 'Team & launch videos', 'Software team watching a product video' ), array( 'Results explainers', 'Laptop with an analytics dashboard' ), array( 'UGC explainer ads', 'Creator filming a software explainer' ) ) ),
+		'agency-owners'                         => array( 'agency', 'White label', array( array( 'Ad creative for clients', 'Agency team reviewing video ads' ), array( 'Editing done for you', 'Video editor cutting a vertical ad' ), array( 'Client-ready results', 'Agency owner presenting results to a client' ), array( 'UGC creator ads', 'Creator filming a UGC product ad' ) ) ),
+		'strategic-video-marketing-for-coaches' => array( 'coach', 'Coaching', array( array( 'Talking-head videos', 'Coach recording a talking-head video' ), array( 'Client call clips', 'Coach on a video call with a client' ), array( 'Workshop & event ads', 'Coach speaking at a workshop' ), array( 'VSL production', 'Coach being filmed for a video sales letter' ) ) ),
+	);
+	if ( empty( $sets[ $slug ] ) ) {
+		return array();
+	}
+	list( $file, $tag, $items ) = $sets[ $slug ];
+	$base = WPMU_PLUGIN_URL . '/mdm-sections/img/industry/';
+	$out  = array();
+	foreach ( $items as $k => $it ) {
+		$out[] = array( 'image' => $base . $file . '-' . ( $k + 1 ) . '.webp', 'tag' => $tag, 'label' => $it[0], 'alt' => $it[1] );
+	}
+	return $out;
+}
+
 /** Up to 4 case studies of this industry with an image (topped up with other lead gen cases if there are fewer than 3). */
 function mdm_industry_cards( $slug ) {
 	$niches = function_exists( 'mdm_seo_niches' ) ? mdm_seo_niches() : array();
@@ -60,7 +86,7 @@ function mdm_industry_cards( $slug ) {
 
 function mdm_industry_hero_html( $slug ) {
 	$h     = mdm_industry_heroes()[ $slug ];
-	$cards = mdm_industry_cards( $slug );
+	$cards = mdm_industry_photos( $slug );
 	$n     = count( $cards );
 	ob_start();
 	?>
@@ -82,19 +108,11 @@ function mdm_industry_hero_html( $slug ) {
 			</div>
 			<?php if ( $n ) : ?>
 				<div class="mdm-ihero__cards is-<?php echo (int) $n; ?>">
-					<?php foreach ( $cards as $i => $c ) :
-						$metric = '';
-						foreach ( (array) $c['metrics'] as $m ) {
-							if ( false === stripos( $m, 'proof' ) ) {
-								$metric = preg_replace( '/\s*headline result$/i', ' result', $m );
-								break;
-							}
-						}
-						?>
+					<?php foreach ( $cards as $i => $c ) : ?>
 						<a class="mdm-ihero__card" href="#results" style="--i:<?php echo (int) $i; ?>">
-							<img src="<?php echo esc_url( $c['image'] ); ?>" alt="<?php echo esc_attr( $c['niche'] . ' ad results: ' . $c['headline'] ); ?>" <?php echo $i < 2 ? 'fetchpriority="high"' : 'loading="lazy"'; ?> decoding="async" class="skip-lazy no-lazyload" data-no-lazy="1">
-							<span class="mdm-ihero__tag"><?php echo esc_html( $c['niche'] ); ?></span>
-							<?php if ( $metric ) : ?><span class="mdm-ihero__metric"><?php echo esc_html( $metric ); ?></span><?php endif; ?>
+							<img src="<?php echo esc_url( $c['image'] ); ?>" alt="<?php echo esc_attr( $c['alt'] ); ?>" width="720" height="900" <?php echo $i < 2 ? 'fetchpriority="high"' : 'loading="lazy"'; ?> decoding="async" class="skip-lazy no-lazyload" data-no-lazy="1">
+							<span class="mdm-ihero__tag"><?php echo esc_html( $c['tag'] ); ?></span>
+							<span class="mdm-ihero__metric"><?php echo esc_html( $c['label'] ); ?></span>
 						</a>
 					<?php endforeach; ?>
 				</div>
