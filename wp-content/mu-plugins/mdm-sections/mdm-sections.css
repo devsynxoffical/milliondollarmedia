@@ -2263,3 +2263,68 @@ html .mdm-vfacade:hover img { transform: scale(1.04); filter: brightness(.85); }
 html .mdm-vfacade__play { position: absolute; left: 50%; top: 50%; width: 58px; height: 58px; margin: -29px 0 0 -29px; border-radius: 50%; background: #ED1C24; box-shadow: 0 10px 30px -6px rgba(237,28,36,.7); transition: transform .25s; }
 html .mdm-vfacade__play::before { content: ""; position: absolute; left: 23px; top: 18px; border-style: solid; border-width: 11px 0 11px 17px; border-color: transparent transparent transparent #fff; }
 html .mdm-vfacade:hover .mdm-vfacade__play { transform: scale(1.1); }
+
+/* ================================================================== */
+/* Service pages (body.mdm-service): long-form article blocks          */
+/* ================================================================== */
+html body.mdm-service { background: #000; }
+html .mdm-service .elementor > .e-con.mdm-article { background: #000 !important; background-image: none !important; --padding-top: 0px; --padding-bottom: 0px; --padding-left: 22px; --padding-right: 22px; --content-width: 860px; --width: 100%; padding: 0 22px !important; margin: 0 !important; border: 0 !important; min-height: 0 !important; }
+html .mdm-service .elementor > .e-con.mdm-article > .e-con-inner { max-width: 860px !important; margin: 0 auto !important; padding: 0 !important; }
+html .mdm-service .elementor > .e-con.mdm-article:not(.e-con-boxed) > * { max-width: 860px; margin-left: auto !important; margin-right: auto !important; width: 100%; }
+html .mdm-service .elementor > .e-con:not(.mdm-article) + .e-con.mdm-article { padding-top: clamp(64px, 8vw, 110px) !important; }
+html .mdm-service .elementor > .e-con.mdm-article:has(+ .e-con:not(.mdm-article)), html .mdm-service .elementor > .e-con.mdm-article:last-child { padding-bottom: clamp(64px, 8vw, 110px) !important; }
+
+/* headings */
+html .mdm-service .mdm-article .elementor-widget-heading .elementor-heading-title { font: 700 clamp(23px, 2.3vw, 31px)/1.28 "Poppins", sans-serif !important; letter-spacing: -.012em !important; text-transform: none !important; color: #fff !important; text-align: left !important; margin: 0 !important; }
+html .mdm-service .mdm-article .elementor-widget-heading { margin: 2.2em 0 .7em !important; padding-left: 16px; border-left: 4px solid #ED1C24; }
+html .mdm-service .elementor > .e-con:not(.mdm-article) + .e-con.mdm-article .elementor-widget-heading:first-child { margin-top: 0 !important; }
+html .mdm-service .mdm-article .elementor-widget-text-editor h2, html .mdm-service .mdm-article .elementor-widget-text-editor h3, html .mdm-service .mdm-article .elementor-widget-text-editor h4 { font-family: "Poppins", sans-serif !important; color: #fff !important; text-transform: none !important; letter-spacing: -.01em; line-height: 1.35 !important; margin: 1.7em 0 .6em !important; }
+html .mdm-service .mdm-article .elementor-widget-text-editor h2 { font-size: clamp(21px, 2vw, 26px) !important; }
+html .mdm-service .mdm-article .elementor-widget-text-editor h3 { font-size: 19.5px !important; color: #FF4D52 !important; }
+html .mdm-service .mdm-article .elementor-widget-text-editor h4 { font-size: 17.5px !important; }
+
+/* body copy */
+html .mdm-service .mdm-article .elementor-widget-text-editor { font: 400 17px/1.8 "Poppins", sans-serif !important; color: rgba(255,255,255,.74) !important; text-align: left !important; }
+html .mdm-service .mdm-article .elementor-widget-text-editor p { margin: 0 0 1.1em !important; font-size: inherit !important; line-height: inherit !important; }
+html .mdm-service .mdm-article .elementor-widget-text-editor strong, html .mdm-service .mdm-article .elementor-widget-text-editor b { color: #fff; font-weight: 600; }
+html .mdm-service .mdm-article .elementor-widget-text-editor a { color: #FF4D52 !important; text-decoration: underline; text-underline-offset: 3px; }
+html .mdm-service .mdm-article .elementor-widget-text-editor ul { list-style: none; margin: 0 0 1.3em !important; padding: 0 !important; }
+html .mdm-service .mdm-article .elementor-widget-text-editor ul > li { position: relative; padding-left: 26px; margin: 0 0 .55em; }
+html .mdm-service .mdm-article .elementor-widget-text-editor ul > li::before { content: ""; position: absolute; left: 4px; top: .72em; width: 8px; height: 8px; border-radius: 50%; background: #ED1C24; box-shadow: 0 0 0 4px rgba(237,28,36,.15); }
+html .mdm-service .mdm-article .elementor-widget-text-editor ol { margin: 0 0 1.3em 1.2em !important; padding: 0 !important; }
+html .mdm-service .mdm-article .elementor-widget-text-editor ol > li { margin: 0 0 .55em; padding-left: 6px; }
+html .mdm-service .mdm-article .elementor-widget-text-editor ol > li::marker { color: #ED1C24; font-weight: 700; }
+
+/* tables */
+html .mdm-service .mdm-article table { width: 100%; border-collapse: separate !important; border-spacing: 0; margin: 1.4em 0 1.8em !important; font-size: 15px !important; line-height: 1.55 !important; border: 1px solid rgba(255,255,255,.12) !important; border-radius: 16px; overflow: hidden; background: #0b0b0d; }
+html .mdm-service .mdm-article th, html .mdm-service .mdm-article thead td, html .mdm-service .mdm-article tr:first-child > td:only-child { background: #16161a !important; color: #fff !important; font-weight: 600; }
+html .mdm-service .mdm-article th, html .mdm-service .mdm-article td { padding: 13px 15px !important; border: 0 !important; border-top: 1px solid rgba(255,255,255,.08) !important; vertical-align: top; text-align: left; color: rgba(255,255,255,.74); }
+html .mdm-service .mdm-article tr:first-child > th, html .mdm-service .mdm-article tr:first-child > td { border-top: 0 !important; }
+html .mdm-service .mdm-article tbody tr:first-child td { color: #fff; font-weight: 600; background: #16161a; }
+html .mdm-service .mdm-article td:first-child { color: #fff; font-weight: 600; }
+html .mdm-service .mdm-article .elementor-widget-text-editor:has(table) { overflow-x: auto; }
+
+/* images, videos, CTA and FAQ inside the article */
+html .mdm-service .mdm-article .elementor-widget-image img { border-radius: 18px; }
+html .mdm-service .mdm-article .elementor-widget-image, html .mdm-service .mdm-article .elementor-widget-video { margin: 1.4em 0 1.8em !important; }
+html .mdm-service .mdm-article .elementor-widget-video .elementor-wrapper { border-radius: 18px; overflow: hidden; }
+html .mdm-service .mdm-article .e-con { --gap: 16px; gap: 16px; }
+html .mdm-service .mdm-article .elementor-widget-call-to-action { margin: 2.4em 0 !important; }
+html .mdm-service .mdm-article .elementor-cta { border-radius: 22px; overflow: hidden; border: 1px solid rgba(237,28,36,.35); }
+html .mdm-service .mdm-article .e-n-accordion-item { background: #111114 !important; border: 1px solid rgba(255,255,255,.09) !important; border-radius: 16px !important; margin: 0 0 10px !important; overflow: hidden; }
+html .mdm-service .mdm-article .e-n-accordion-item-title { padding: 18px 22px !important; background: transparent !important; border: 0 !important; }
+html .mdm-service .mdm-article .e-n-accordion-item-title-text { font: 600 16.5px/1.4 "Poppins", sans-serif !important; color: #fff !important; }
+html .mdm-service .mdm-article .e-n-accordion-item[open] { border-color: rgba(237,28,36,.55) !important; }
+html .mdm-service .mdm-article .e-n-accordion-item .e-con { padding: 0 22px 18px !important; background: transparent !important; border: 0 !important; }
+html .mdm-service .mdm-article .e-n-accordion-item-title-icon svg, html .mdm-service .mdm-article .e-n-accordion-item-title-icon i { fill: #ED1C24 !important; color: #ED1C24 !important; }
+
+/* FAQ-only dark block at the end */
+html .mdm-niche--faqonly { padding-top: clamp(56px, 7vw, 96px); }
+html .mdm-niche--faqonly .mdm-niche__faqwrap { margin-top: 0; }
+
+@media (max-width: 600px) {
+	html .mdm-service .elementor > .e-con.mdm-article { padding: 0 16px !important; --padding-left: 16px; --padding-right: 16px; }
+	html .mdm-service .mdm-article .elementor-widget-text-editor { font-size: 16px !important; line-height: 1.75 !important; }
+	html .mdm-service .mdm-article .elementor-widget-heading { padding-left: 12px; }
+	html .mdm-service .mdm-article table { font-size: 13.5px !important; }
+}

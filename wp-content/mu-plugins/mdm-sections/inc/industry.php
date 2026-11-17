@@ -106,6 +106,16 @@ function mdm_industry_hero_html( $slug ) {
 }
 
 add_filter(
+	'body_class',
+	static function ( $c ) {
+		if ( mdm_industry_slug() ) {
+			$c[] = 'mdm-service';
+		}
+		return $c;
+	}
+);
+
+add_filter(
 	'the_content',
 	static function ( $content ) {
 		if ( ! in_the_loop() || ! is_main_query() || false !== strpos( $content, 'mdm-ihero' ) ) {
