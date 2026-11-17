@@ -2328,3 +2328,6 @@ html .mdm-niche--faqonly .mdm-niche__faqwrap { margin-top: 0; }
 	html .mdm-service .mdm-article .elementor-widget-heading { padding-left: 12px; }
 	html .mdm-service .mdm-article table { font-size: 13.5px !important; }
 }
+/* article blocks never depend on Elementor's per-page CSS for their layout */
+html .mdm-service .elementor > .e-con.mdm-article { --display: flex; display: flex !important; flex-direction: column !important; }
+html .mdm-service .elementor > .e-con.mdm-article > .e-con-inner { --display: flex; display: flex !important; flex-direction: column !important; width: 100% !important; gap: 0 !important; }
