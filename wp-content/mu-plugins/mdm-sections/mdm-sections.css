@@ -2189,3 +2189,64 @@ html .mdm-niche__more i { font-style: normal; color: #ED1C24; }
 	html .mdm-niche--dark .mdm-niche__faq summary { font-size: 15.5px; }
 	html .mdm-niche__btn { width: 100%; justify-content: center; }
 }
+
+/* ================================================================== */
+/* Industry page hero (inc/industry.php)                               */
+/* ================================================================== */
+html .mdm-ihero { position: relative; overflow: hidden; background: #000; color: #fff; padding: clamp(56px, 7vw, 100px) clamp(16px, 4vw, 64px) clamp(64px, 8vw, 110px); font-family: "Poppins", sans-serif; }
+html .mdm-ihero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(55% 60% at 78% 45%, rgba(225,6,0,.38), transparent 70%), radial-gradient(40% 50% at 5% 0%, rgba(225,6,0,.18), transparent 70%); pointer-events: none; }
+html .mdm-ihero::after { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px); background-size: 56px 56px; mask-image: radial-gradient(70% 80% at 60% 40%, #000, transparent 85%); -webkit-mask-image: radial-gradient(70% 80% at 60% 40%, #000, transparent 85%); pointer-events: none; }
+html .mdm-ihero__in { position: relative; z-index: 1; max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 80px); align-items: center; }
+html .mdm-ihero__pill { display: inline-flex; align-items: center; gap: 9px; padding: 9px 16px; border: 1.5px solid #ED1C24; border-radius: 999px; background: rgba(237,28,36,.1); font: 600 12px/1 "Poppins", sans-serif; letter-spacing: .1em; text-transform: uppercase; color: #fff; }
+html .mdm-ihero__pill i { width: 7px; height: 7px; border-radius: 50%; background: #3ddc84; box-shadow: 0 0 0 4px rgba(61,220,132,.18); }
+html .mdm-ihero__h1 { margin: 22px 0 20px !important; font: 700 clamp(30px, 3.9vw, 56px)/1.08 "Syncopate", sans-serif !important; text-transform: uppercase; letter-spacing: -.005em; color: #fff !important; }
+html .mdm-ihero__h1 span { display: block; margin-top: 12px; font-size: .5em; line-height: 1.25; color: #ED1C24; letter-spacing: .02em; }
+html .mdm-ihero__sub { max-width: 540px; margin: 0 0 30px !important; font: 400 clamp(16px, 1.25vw, 18.5px)/1.7 "Poppins", sans-serif !important; color: rgba(255,255,255,.74) !important; }
+html .mdm-ihero__btns { display: flex; flex-wrap: wrap; gap: 12px; }
+html .mdm-ihero__btn { display: inline-flex; align-items: center; gap: 12px; padding: 16px 26px; border-radius: 999px; border: 1.5px solid rgba(255,255,255,.28); color: #fff !important; font: 600 15.5px/1 "Poppins", sans-serif; text-decoration: none !important; transition: transform .25s, background .25s, border-color .25s; }
+html .mdm-ihero__btn:hover { transform: translateY(-2px); border-color: #fff; }
+html .mdm-ihero__btn.is-red { background: #ED1C24; border-color: #ED1C24; box-shadow: 0 14px 34px -12px rgba(237,28,36,.75); }
+html .mdm-ihero__btn em { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: #fff; color: #ED1C24; }
+html .mdm-ihero__btn em svg { width: 13px; height: 13px; }
+html .mdm-ihero__trust { list-style: none; margin: 34px 0 0 !important; padding: 0 !important; display: flex; flex-wrap: wrap; gap: 10px 22px; }
+html .mdm-ihero__trust li { margin: 0; font: 400 14px/1.4 "Poppins", sans-serif; color: rgba(255,255,255,.62); padding-left: 22px; position: relative; }
+html .mdm-ihero__trust li::before { content: "✓"; position: absolute; left: 0; color: #ED1C24; font-weight: 700; }
+html .mdm-ihero__trust b { color: #fff; font-weight: 600; }
+
+/* cards */
+html .mdm-ihero__cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+html .mdm-ihero__card { position: relative; display: block; border-radius: 20px; overflow: hidden; background: #111; border: 1px solid rgba(255,255,255,.12); box-shadow: 0 30px 60px -28px rgba(0,0,0,.9), 0 0 0 1px rgba(237,28,36,.08); aspect-ratio: 4 / 5; transform: rotate(var(--r, 0deg)); transition: transform .35s ease, box-shadow .35s; animation: mdmIheroIn .8s cubic-bezier(.2,.8,.2,1) both; animation-delay: calc(var(--i) * 110ms + 150ms); }
+html .mdm-ihero__card img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+html .mdm-ihero__card::after { content: ""; position: absolute; inset: 45% 0 0; background: linear-gradient(transparent, rgba(0,0,0,.85)); }
+html .mdm-ihero__card:hover { transform: rotate(0deg) translateY(-6px) scale(1.02); box-shadow: 0 40px 70px -28px rgba(237,28,36,.55); z-index: 2; }
+html .mdm-ihero__tag { position: absolute; z-index: 1; top: 12px; left: 12px; padding: 7px 11px; border-radius: 999px; background: rgba(0,0,0,.72); backdrop-filter: blur(6px); font: 600 11px/1 "Poppins", sans-serif; letter-spacing: .08em; text-transform: uppercase; color: #fff; }
+html .mdm-ihero__metric { position: absolute; z-index: 1; left: 12px; right: 12px; bottom: 12px; padding: 10px 12px; border-radius: 12px; background: #ED1C24; font: 700 14px/1.25 "Poppins", sans-serif; color: #fff; text-align: center; }
+html .mdm-ihero__cards.is-4 .mdm-ihero__card:nth-child(1) { --r: -2deg; }
+html .mdm-ihero__cards.is-4 .mdm-ihero__card:nth-child(2) { --r: 2deg; margin-top: 48px; margin-bottom: -48px; }
+html .mdm-ihero__cards.is-4 .mdm-ihero__card:nth-child(3) { --r: 1.5deg; }
+html .mdm-ihero__cards.is-4 .mdm-ihero__card:nth-child(4) { --r: -1.5deg; margin-top: 48px; margin-bottom: -48px; }
+html .mdm-ihero__cards.is-4 { padding-bottom: 48px; }
+html .mdm-ihero__cards.is-3 { grid-template-rows: 1fr 1fr; }
+html .mdm-ihero__cards.is-3 .mdm-ihero__card:nth-child(1) { grid-row: 1 / 3; aspect-ratio: auto; --r: -1.5deg; }
+html .mdm-ihero__cards.is-3 .mdm-ihero__card:nth-child(2), html .mdm-ihero__cards.is-3 .mdm-ihero__card:nth-child(3) { aspect-ratio: 1 / 1; }
+html .mdm-ihero__cards.is-3 .mdm-ihero__card:nth-child(2) { --r: 2deg; }
+html .mdm-ihero__cards.is-3 .mdm-ihero__card:nth-child(3) { --r: -1deg; }
+html .mdm-ihero__cards.is-2 .mdm-ihero__card:nth-child(2) { --r: 2deg; margin-top: 48px; }
+@keyframes mdmIheroIn { from { opacity: 0; transform: translateY(26px) rotate(var(--r, 0deg)); } to { opacity: 1; transform: rotate(var(--r, 0deg)); } }
+
+@media (max-width: 900px) {
+	html .mdm-ihero__in { grid-template-columns: 1fr; }
+	html .mdm-ihero__sub { max-width: none; }
+}
+@media (max-width: 600px) {
+	html .mdm-ihero { padding: 40px 16px 56px; }
+	html .mdm-ihero__h1 { font-size: clamp(25px, 7.4vw, 34px) !important; }
+	html .mdm-ihero__btn { flex: 1 1 100%; justify-content: center; }
+	html .mdm-ihero__trust { gap: 8px 16px; margin-top: 26px !important; }
+	html .mdm-ihero__trust li { font-size: 13px; }
+	/* cards become a swipe row on phones */
+	html .mdm-ihero__cards, html .mdm-ihero__cards.is-3, html .mdm-ihero__cards.is-4 { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; margin: 0 -16px; padding: 6px 16px 10px; scrollbar-width: none; }
+	html .mdm-ihero__cards::-webkit-scrollbar { display: none; }
+	html .mdm-ihero__card, html .mdm-ihero__cards .mdm-ihero__card:nth-child(n) { flex: 0 0 66%; margin: 0 !important; aspect-ratio: 4 / 5 !important; grid-row: auto !important; scroll-snap-align: start; --r: 0deg; }
+}
+@media (prefers-reduced-motion: reduce) { html .mdm-ihero__card { animation: none; } }
