@@ -241,3 +241,84 @@ function mdm_industry_videos_html( $slug ) {
 		. '<p class="mdm-ivids__more"><a href="' . esc_url( home_url( '/portfolio/' ) ) . '">See all video ad examples →</a></p>'
 		. '</div></section>';
 }
+
+/* ------------------------------------------------------------------ */
+/* Service pages: the same chat-style FAQ as the main pages, with      */
+/* questions written for that industry.                                */
+/* ------------------------------------------------------------------ */
+
+function mdm_industry_faq_items( $slug ) {
+	$who = array(
+		'roofing-video-marketing-services'      => 'roofing companies',
+		'hvac-video-marketing-services'         => 'HVAC companies',
+		'plumbing-video-production'             => 'plumbing companies',
+		'home-service-business'                 => 'home service businesses',
+		'mva'                                   => 'personal injury law firms',
+		'real-estate'                           => 'agents, investors and lenders',
+		'solar'                                 => 'solar companies',
+		'saas'                                  => 'SaaS companies',
+		'strategic-video-marketing-for-coaches' => 'coaches and consultants',
+		'agency-owners'                         => 'agency owners',
+	);
+	$niches = function_exists( 'mdm_seo_niches' ) ? mdm_seo_niches() : array();
+	if ( empty( $who[ $slug ] ) || empty( $niches[ $slug ] ) ) {
+		return array();
+	}
+	$w   = $who[ $slug ];
+	$n   = $niches[ $slug ];
+	$hero = mdm_industry_heroes()[ $slug ];
+	$lead = ! in_array( $slug, array( 'saas', 'agency-owners', 'strategic-video-marketing-for-coaches' ), true );
+
+	$items   = array();
+	$items[] = array( 'cat' => 'services', 'q' => 'What do you make for ' . $w . '?', 'a' => $hero[2] . ' That means scripts, VSLs, short video ads, UGC-style testimonials, AI videos and image or GIF ad variations, plus the Meta campaigns and funnels behind them.', 'tags' => array( 'Video ads', 'Meta Ads', 'Funnels' ) );
+	if ( ! empty( $n['faq'][0] ) ) {
+		$items[] = array( 'cat' => 'services', 'q' => $n['faq'][0][0], 'a' => $n['faq'][0][1], 'tags' => array( 'Strategy' ) );
+	}
+	$items[] = array( 'cat' => 'services', 'q' => 'Do you also run the ads or only make the videos?', 'a' => 'Both. You can take the creative only, or let us run the media buying too. Most ' . $w . ' choose both, because testing new hooks and scaling the winners is much faster under one roof.', 'tags' => array( 'Media buying', 'Creative' ) );
+	if ( $lead ) {
+		$items[] = array( 'cat' => 'services', 'q' => 'Are the leads exclusive to my business?', 'a' => 'Yes. The ads run for your brand only, so every lead that comes in is yours. We do not sell or share leads with other companies.', 'tags' => array( 'Exclusive leads' ) );
+	} elseif ( 'agency-owners' === $slug ) {
+		$items[] = array( 'cat' => 'services', 'q' => 'Can I sell the videos to my clients under my own brand?', 'a' => 'Yes. Everything is fully white label: no Million Dollar Media branding on the videos or files, and we can work quietly in the background of your client accounts.', 'tags' => array( 'White label' ) );
+	}
+	if ( ! empty( $n['faq'][1] ) ) {
+		$items[] = array( 'cat' => 'process', 'q' => $n['faq'][1][0], 'a' => $n['faq'][1][1], 'tags' => array( 'Launch' ) );
+	}
+	$items[] = array( 'cat' => 'process', 'q' => 'How fast do you deliver the videos?', 'a' => 'Most images, GIFs and videos are delivered in 24–48 hours. Bigger batches roll out in stages so there is always fresh creative to test, and revision rounds are included before anything goes live.', 'tags' => array( '24–48 hours', 'Revisions' ) );
+	$items[] = array( 'cat' => 'process', 'q' => 'Do I need to film anything or be on camera?', 'a' => 'No. We can use UGC creators, AI avatars or voice-over with b-roll. If you or your team want to be on camera, we write the script and edit the footage you record on your phone.', 'tags' => array( 'UGC', 'AI avatars' ) );
+	$items[] = array( 'cat' => 'process', 'q' => 'What do you need from me to get started?', 'a' => 'One short questionnaire about your offer, service area and ideal customer, plus access to your ad account if we run the ads. We handle the strategy, scripts, production and editing from there.', 'tags' => array( 'Onboarding' ) );
+	if ( ! empty( $n['faq'][2] ) ) {
+		$items[] = array( 'cat' => 'results', 'q' => $n['faq'][2][0], 'a' => $n['faq'][2][1], 'tags' => array( 'Quality' ) );
+	}
+	if ( ! empty( $n['p'][1] ) ) {
+		$items[] = array( 'cat' => 'results', 'q' => 'What results have you gotten for ' . $w . '?', 'a' => $n['p'][1] . ' Every number comes from a client ad account or CRM, and you can open each one in our case studies.', 'tags' => array( 'Case studies', 'Real numbers' ) );
+	}
+	$items[] = array( 'cat' => 'results', 'q' => 'How much does it cost?', 'a' => 'You can pay per creative with no retainer: images from $14.97, GIFs from $24.97 and videos from $34.97, or 10 videos for $299. For a full done-for-you program with ads and funnels, book a free call and we will quote it for you.', 'tags' => array( 'Pricing', 'No retainer' ) );
+	$items[] = array( 'cat' => 'results', 'q' => 'How do I get started?', 'a' => 'Book a free strategy call. We look at your offer and current ads, show you the case studies closest to your business and recommend the plan that fits, with no pressure.', 'tags' => array( 'Free call' ) );
+	return $items;
+}
+
+function mdm_industry_faq_html( $slug ) {
+	$items = mdm_industry_faq_items( $slug );
+	if ( ! $items || ! function_exists( 'mdm_shortcode_faq' ) ) {
+		return '';
+	}
+	$who = array(
+		'roofing-video-marketing-services'      => 'roofers',
+		'hvac-video-marketing-services'         => 'HVAC owners',
+		'plumbing-video-production'             => 'plumbers',
+		'home-service-business'                 => 'home service owners',
+		'mva'                                   => 'law firms',
+		'real-estate'                           => 'real estate pros',
+		'solar'                                 => 'solar companies',
+		'saas'                                  => 'SaaS founders',
+		'strategic-video-marketing-for-coaches' => 'coaches',
+		'agency-owners'                         => 'agency owners',
+	);
+	return '<div class="mdm-ifaq">' . mdm_shortcode_faq(
+		array(
+			'title'    => 'What ' . $who[ $slug ] . ' ask us.',
+			'subtitle' => 'Pick a question and get a straight answer, the same way we would answer it on a call. Or type your own.',
+		),
+		$items
+	) . '</div>';
+}
