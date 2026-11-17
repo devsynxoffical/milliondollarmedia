@@ -118,7 +118,7 @@ add_filter(
 add_filter(
 	'the_content',
 	static function ( $content ) {
-		if ( ! in_the_loop() || ! is_main_query() || false !== strpos( $content, 'mdm-ihero' ) ) {
+		if ( ! in_the_loop() || ! is_main_query() || false !== strpos( $content, 'class="mdm-ihero"' ) ) {
 			return $content;
 		}
 		$slug = mdm_industry_slug();
