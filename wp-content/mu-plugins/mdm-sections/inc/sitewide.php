@@ -380,3 +380,15 @@ add_action(
 	},
 	30
 );
+
+// Home: client photos in the moving slider load right away (lazy-loading inside a moving track can leave blank cards on some phones).
+add_action(
+	'wp_footer',
+	static function () {
+		if ( ! is_front_page() ) {
+			return;
+		}
+		echo "<script>document.querySelectorAll('.elementor-widget-image-box img[loading=\"lazy\"]').forEach(function(i){i.loading='eager';});</script>\n";
+	},
+	5
+);
