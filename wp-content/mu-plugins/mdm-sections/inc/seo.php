@@ -237,19 +237,30 @@ function mdm_seo_niche_section( $slug ) {
 	$want  = array_map( 'strtolower', $c['niches'] );
 	$items = array_values( array_filter( mdm_case_items( 'all' ), static function ( $it ) use ( $want ) { return in_array( strtolower( $it['niche'] ), $want, true ); } ) );
 	$stats = array( array( (string) count( $items ), 'verified case studies' ) );
-	$cands = array(); // every "<number> <label>" metric, one per label, money first
+	// Best revenue, then lowest cost per lead (or most leads / appointments). Spend and vague labels are skipped.
+	$best = array();
 	foreach ( $items as $it ) {
 		foreach ( (array) $it['metrics'] as $m ) {
-			if ( preg_match( '/^([$€£]?[\d][\d,.]*\s?[KkMm]?[x%]?)\s+(.+)$/u', $m, $mm ) && stripos( $mm[2], 'proof' ) === false ) {
-				$key = strtolower( trim( $mm[2] ) );
-				if ( ! isset( $cands[ $key ] ) ) {
-					$cands[ $key ] = array( $mm[1], $mm[2] );
-				}
+			if ( ! preg_match( '/^([$€£]?)([\d][\d,.]*)\s?([KkMm]?)[x%]?\s+(.+)$/u', $m, $mm ) ) {
+				continue;
+			}
+			$val = (float) str_replace( ',', '', $mm[2] ) * ( 'k' === strtolower( $mm[3] ) ? 1e3 : ( 'm' === strtolower( $mm[3] ) ? 1e6 : 1 ) );
+			$lab = strtolower( $mm[4] );
+			$typ = preg_match( '/revenue|cash|sales/', $lab ) ? 'rev' : ( false !== strpos( $lab, 'cost per lead' ) ? 'cpl' : ( preg_match( '/^leads/', $lab ) ? 'leads' : ( preg_match( '/appointment|call|booked/', $lab ) ? 'appt' : '' ) ) );
+			if ( ! $typ || ( 'cpl' === $typ && $val <= 0 ) ) {
+				continue;
+			}
+			$better = ! isset( $best[ $typ ] ) || ( 'cpl' === $typ ? $val < $best[ $typ ][0] : $val > $best[ $typ ][0] );
+			if ( $better ) {
+				$best[ $typ ] = array( $val, trim( $mm[1] . $mm[2] . $mm[3] ), 'cpl' === $typ ? 'lowest cost per lead' : ( 'rev' === $typ ? 'revenue for one client' : $mm[4] ) );
 			}
 		}
 	}
-	uasort( $cands, static function ( $a, $b ) { return (int) ( '$' !== $a[0][0] ) - (int) ( '$' !== $b[0][0] ); } );
-	$stats = array_merge( $stats, array_slice( array_values( $cands ), 0, 2 ) );
+	foreach ( array( 'rev', 'cpl', 'leads', 'appt' ) as $typ ) {
+		if ( isset( $best[ $typ ] ) && count( $stats ) < 3 ) {
+			$stats[] = array( $best[ $typ ][1], $best[ $typ ][2] );
+		}
+	}
 	$label = $c['niches'][0];
 	$links = array(
 		array( '/case-studies/', 'All 247 case studies' ),
