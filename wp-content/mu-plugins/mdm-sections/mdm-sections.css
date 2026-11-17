@@ -2254,3 +2254,12 @@ html .mdm-ihero__cards { max-width: 540px; margin-left: auto; }
 html .mdm-ihero__card { aspect-ratio: 1 / 1.08; }
 html .mdm-ihero__cards.is-4 .mdm-ihero__card:nth-child(2), html .mdm-ihero__cards.is-4 .mdm-ihero__card:nth-child(4) { margin-top: 36px; margin-bottom: -36px; }
 html .mdm-ihero__cards.is-4 { padding-bottom: 36px; }
+
+/* Vimeo click-to-play covers (Elementor video widgets) */
+html .mdm-vfacade { position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; margin: 0; border: 0; background: #111; cursor: pointer; overflow: hidden; display: block; }
+html .elementor-wrapper:not(.elementor-fit-aspect-ratio) > .mdm-vfacade { position: relative; aspect-ratio: 9 / 16; }
+html .mdm-vfacade img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s ease, filter .3s; }
+html .mdm-vfacade:hover img { transform: scale(1.04); filter: brightness(.85); }
+html .mdm-vfacade__play { position: absolute; left: 50%; top: 50%; width: 58px; height: 58px; margin: -29px 0 0 -29px; border-radius: 50%; background: #ED1C24; box-shadow: 0 10px 30px -6px rgba(237,28,36,.7); transition: transform .25s; }
+html .mdm-vfacade__play::before { content: ""; position: absolute; left: 23px; top: 18px; border-style: solid; border-width: 11px 0 11px 17px; border-color: transparent transparent transparent #fff; }
+html .mdm-vfacade:hover .mdm-vfacade__play { transform: scale(1.1); }
