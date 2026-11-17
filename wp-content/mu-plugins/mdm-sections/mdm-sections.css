@@ -2127,3 +2127,65 @@ html .mdm-post .entry-content .mdm-toc .mdm-toc__head { margin: 0 0 10px !import
 html .mdm-post .entry-content .mdm-toc li { font-size: 15px; line-height: 1.45; }
 html .mdm-post .ai-table { min-width: 0; }
 @media (max-width: 600px) { html .mdm-post .entry-content .mdm-toc li { font-size: 14px; padding-top: 5px; padding-bottom: 5px; } }
+
+/* ================================================================== */
+/* Industry pages: results + case studies + FAQ (dark, matches template) */
+/* ================================================================== */
+html .mdm-niche--dark { background: #000; color: #fff; padding: clamp(64px, 8vw, 110px) clamp(16px, 4vw, 64px); font-family: "Poppins", sans-serif; position: relative; overflow: hidden; }
+html .mdm-niche--dark::before { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 40% at 85% 8%, rgba(225,6,0,.22), transparent 70%), radial-gradient(50% 35% at 0% 60%, rgba(225,6,0,.12), transparent 70%); pointer-events: none; }
+html .mdm-niche--dark > * { position: relative; }
+html .mdm-niche__pill { display: inline-block; padding: 9px 16px; border: 1.5px solid #ED1C24; border-radius: 999px; font: 600 12px/1 "Poppins", sans-serif; letter-spacing: .1em; text-transform: uppercase; color: #fff; background: rgba(237,28,36,.08); }
+html .mdm-niche--dark .mdm-niche__h2 { font-family: "Syncopate", sans-serif !important; font-weight: 700 !important; text-transform: uppercase; letter-spacing: .01em; color: #fff !important; font-size: clamp(24px, 2.9vw, 40px) !important; line-height: 1.18 !important; margin: 20px 0 18px !important; text-align: left; }
+html .mdm-niche--dark p { color: rgba(255,255,255,.72) !important; font-size: 16.5px !important; line-height: 1.75 !important; margin: 0 0 14px !important; }
+
+/* intro + stats */
+html .mdm-niche__top { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 72px); align-items: center; }
+html .mdm-niche__stats { list-style: none; margin: 0 !important; padding: 0 !important; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+html .mdm-niche__stats li { margin: 0; padding: 24px 22px; border-radius: 20px; background: #111114; border: 1px solid rgba(255,255,255,.09); display: flex; flex-direction: column; gap: 8px; min-height: 132px; justify-content: flex-end; }
+html .mdm-niche__stats li.is-red { grid-column: 1 / -1; background: linear-gradient(135deg, #ED1C24, #8E0A0F); border-color: transparent; min-height: 150px; }
+html .mdm-niche__stats b { font: 700 clamp(30px, 3.4vw, 46px)/1 "Syncopate", sans-serif; color: #fff; letter-spacing: -.01em; }
+html .mdm-niche__stats span { font: 500 14px/1.35 "Poppins", sans-serif; color: rgba(255,255,255,.75); text-transform: capitalize; }
+html .mdm-niche__stats li.is-red span { color: rgba(255,255,255,.9); }
+
+/* case grid inside the dark block */
+html .mdm-niche--dark .mdm-cases { background: transparent !important; padding: clamp(70px, 8vw, 110px) 0 0 !important; }
+html .mdm-niche--dark .mdm-cases__title { color: #fff !important; font-family: "Syncopate", sans-serif !important; }
+html .mdm-niche--dark .mdm-cases__head .mdm-lead, html .mdm-niche--dark .mdm-cases__head p { color: rgba(255,255,255,.6) !important; }
+html .mdm-niche--dark .mdm-eyebrow { color: #fff !important; border-color: #ED1C24 !important; background: rgba(237,28,36,.08) !important; }
+html .mdm-niche--dark .mdm-cases__grid { display: flex !important; flex-wrap: wrap; justify-content: center; gap: 18px; max-width: 1180px; }
+html .mdm-niche--dark .mdm-cases__grid > .mdm-cs { flex: 0 0 calc((100% - 54px) / 4); max-width: calc((100% - 54px) / 4); }
+html .mdm-niche--dark .mdm-cs { border-color: rgba(255,255,255,.08) !important; }
+html .mdm-niche--dark .mdm-cases__cta { margin-top: 36px; }
+
+/* FAQ */
+html .mdm-niche__faqwrap { max-width: 1180px; margin: clamp(80px, 9vw, 120px) auto 0; display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(28px, 5vw, 72px); align-items: start; }
+html .mdm-niche__btns { margin-top: 22px; }
+html .mdm-niche__btn { display: inline-flex; align-items: center; padding: 15px 24px; border-radius: 999px; font: 600 15px/1 "Poppins", sans-serif; color: #fff !important; text-decoration: none !important; border: 1.5px solid rgba(255,255,255,.25); transition: transform .2s, background .2s; }
+html .mdm-niche__btn.is-red { background: #ED1C24; border-color: #ED1C24; }
+html .mdm-niche__btn:hover { transform: translateY(-2px); }
+html .mdm-niche--dark .mdm-niche__faq { background: #111114 !important; border: 1px solid rgba(255,255,255,.09) !important; border-radius: 18px; padding: 20px 24px; margin: 0 0 12px; transition: border-color .2s; }
+html .mdm-niche--dark .mdm-niche__faq[open] { border-color: rgba(237,28,36,.55) !important; }
+html .mdm-niche--dark .mdm-niche__faq summary { color: #fff !important; font: 600 17px/1.4 "Poppins", sans-serif; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+html .mdm-niche--dark .mdm-niche__faq summary::-webkit-details-marker { display: none; }
+html .mdm-niche--dark .mdm-niche__faq summary::after { content: "+"; flex: 0 0 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: rgba(237,28,36,.15); color: #ED1C24; font-size: 20px; }
+html .mdm-niche--dark .mdm-niche__faq[open] summary::after { content: "–"; background: #ED1C24; color: #fff; }
+html .mdm-niche--dark .mdm-niche__faq p { margin: 12px 0 0 !important; font-size: 15.5px !important; }
+html .mdm-niche__more { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+html .mdm-niche__more a { display: inline-flex; gap: 8px; align-items: center; padding: 11px 16px; border-radius: 999px; border: 1px solid rgba(255,255,255,.16); color: #fff !important; text-decoration: none !important; font: 500 14px/1 "Poppins", sans-serif; transition: border-color .2s, background .2s; }
+html .mdm-niche__more a:hover { border-color: #ED1C24; background: rgba(237,28,36,.1); }
+html .mdm-niche__more i { font-style: normal; color: #ED1C24; }
+
+@media (max-width: 1099px) {
+	html .mdm-niche--dark .mdm-cases__grid > .mdm-cs { flex-basis: calc((100% - 18px) / 2); max-width: calc((100% - 18px) / 2); }
+}
+@media (max-width: 900px) {
+	html .mdm-niche__top, html .mdm-niche__faqwrap { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+	html .mdm-niche--dark .mdm-cases__grid { gap: 10px; }
+	html .mdm-niche--dark .mdm-cases__grid > .mdm-cs { flex-basis: calc((100% - 10px) / 2); max-width: calc((100% - 10px) / 2); }
+	html .mdm-niche__stats li { padding: 18px 16px; min-height: 108px; }
+	html .mdm-niche--dark .mdm-niche__faq { padding: 16px 18px; }
+	html .mdm-niche--dark .mdm-niche__faq summary { font-size: 15.5px; }
+	html .mdm-niche__btn { width: 100%; justify-content: center; }
+}
