@@ -330,8 +330,9 @@ add_filter(
 			return $content;
 		}
 		// Proof right after the hero; the FAQ at the end, unless the page already has its own FAQ accordion.
-		$has_faq = false !== strpos( $content, 'e-n-accordion' ) || false !== strpos( $content, 'elementor-widget-nested-accordion' );
-		return mdm_seo_niche_section( $slug, 'top' ) . ( function_exists( 'mdm_industry_videos_html' ) ? mdm_industry_videos_html( $slug ) : '' ) . $content . ( $has_faq ? '' : mdm_seo_niche_section( $slug, 'faq' ) );
+		// Proof right after the hero; the same chat-style FAQ as the main pages at the end (industry questions).
+		$faq = function_exists( 'mdm_industry_faq_html' ) ? mdm_industry_faq_html( $slug ) : '';
+		return mdm_seo_niche_section( $slug, 'top' ) . ( function_exists( 'mdm_industry_videos_html' ) ? mdm_industry_videos_html( $slug ) : '' ) . $content . ( $faq ? $faq : mdm_seo_niche_section( $slug, 'faq' ) );
 	},
 	30
 );

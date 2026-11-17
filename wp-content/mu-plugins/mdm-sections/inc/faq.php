@@ -35,7 +35,12 @@ function mdm_default_faq_items() {
 	);
 }
 
-function mdm_shortcode_faq( $atts ) {
+/**
+ * @param array|string $atts  Shortcode attributes.
+ * @param mixed        $items Optional array of FAQ items (used by the service pages); WordPress passes
+ *                            the shortcode content string here, which is ignored.
+ */
+function mdm_shortcode_faq( $atts, $items = null ) {
 	$atts = shortcode_atts(
 		array(
 			'eyebrow'   => 'FAQ',
@@ -60,7 +65,7 @@ function mdm_shortcode_faq( $atts ) {
 			'results'  => 'Results & budget',
 		)
 	);
-	$items = apply_filters( 'mdm_faq_items', mdm_default_faq_items() );
+	$items = is_array( $items ) && $items ? array_values( $items ) : apply_filters( 'mdm_faq_items', mdm_default_faq_items() );
 	$total = count( $items );
 
 	$counts = array();
