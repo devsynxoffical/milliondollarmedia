@@ -2575,3 +2575,14 @@ html .mdm-cb__mail { border-color: rgba(255,255,255,.25) !important; }
 }
 @media (prefers-reduced-motion: reduce) { html .mdm-cb__check, html .mdm-cb__check path { animation: none; stroke-dashoffset: 0; } }
 html .mdm-cb.mdm-page { max-width: none !important; width: 100% !important; margin: 0 !important; padding: 0 !important; }
+
+/* Blog posts: publisher box (inc/geo.php) */
+html .mdm-post .mdm-publisher { display: flex; gap: 18px; align-items: flex-start; margin: 48px 0 0; padding: 24px; border-radius: 20px; background: #111114; color: #fff; }
+html .mdm-publisher__logo { flex: 0 0 56px; height: 56px; border-radius: 16px; background: #ED1C24; display: grid; place-items: center; font: 700 13px/1 "Syncopate", sans-serif; color: #fff; }
+html .mdm-post .entry-content .mdm-publisher p { margin: 0 0 8px !important; color: rgba(255,255,255,.78) !important; font-size: 15px !important; line-height: 1.65 !important; }
+html .mdm-post .entry-content .mdm-publisher .mdm-publisher__label { font: 700 11px/1 "Poppins", sans-serif !important; letter-spacing: .14em; text-transform: uppercase; color: #FF4D52 !important; margin-bottom: 10px !important; }
+html .mdm-post .entry-content .mdm-publisher b { color: #fff; }
+html .mdm-post .entry-content .mdm-publisher a { color: #fff !important; text-decoration: underline; text-decoration-color: #ED1C24; }
+html .mdm-publisher__links { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 12px !important; }
+html .mdm-post .entry-content .mdm-publisher__links a { font-weight: 600; text-decoration: none !important; border-bottom: 2px solid #ED1C24; }
+@media (max-width: 600px) { html .mdm-post .mdm-publisher { flex-direction: column; } }

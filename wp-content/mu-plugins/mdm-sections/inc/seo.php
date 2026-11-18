@@ -25,16 +25,16 @@ function mdm_seo_meta_map() {
 			'/book-your-call/'                         => array( 'Book a Free Strategy Call | Million Dollar Media', 'Book a free 15-minute strategy call. We review your offer and ads, show matching case studies and map a video ad plan to get you more leads and sales.' ),
 			'/bookcall/'                               => array( 'Get Custom Pricing for Video Ads | Million Dollar Media', 'Need 10+ creatives a month or a full done-for-you package? Pick a time for a free 15-minute call and get custom pricing built around your budget.' ),
 			'/blogs/'                                  => array( 'Video Ads & Video Marketing Blog | Million Dollar Media', 'Practical guides on video ads, VSLs, UGC and video marketing for roofers, HVAC, coaches, agencies and e-commerce brands from the Million Dollar Media team.' ),
-			'/roofing-video-marketing-services/'       => array( 'Roofing Ads & Video Marketing for Roofers That Get Leads', 'Video ads and done-for-you Meta campaigns for roofing companies, with 19 roofing case studies such as 686 website leads in 8 days. Book a free strategy call.' ),
+			'/roofing-video-marketing-services/'       => array( 'Roofing Ads & Video Marketing for Roofers That Get Leads', 'Video ads and done-for-you Meta campaigns for roofing companies, with 11 roofing case studies such as 686 website leads in 8 days. Book a free strategy call.' ),
 			'/hvac-video-marketing-services/'          => array( 'HVAC Advertising & Video Marketing That Books Calls', 'HVAC video ads and Meta advertising that fill your schedule. See 6 HVAC case studies, including 326 leads in 26 days for one client. Get a free plan.' ),
 			'/plumbing-video-production/'              => array( 'Plumbing Video Production & Video Ads for Plumbers', 'Video production and video ads for plumbing companies: trust-building service videos, short-form ads and lead campaigns that turn local demand into booked jobs.' ),
 			'/mva/'                                    => array( 'MVA Leads & Personal Injury Lawyer Marketing With Video', 'Exclusive, OTP-verified MVA leads for personal injury firms from video ads and funnels, including 8,810 leads at $7.61 each. See 13 real legal case studies.' ),
 			'/real-estate/'                            => array( 'Real Estate Video Marketing & Video Ads for Agents', 'Real estate video marketing for agents, investors and lenders: listing videos, short-form ads and lead campaigns. See real estate and mortgage case studies.' ),
 			'/solar/'                                  => array( 'Solar Ads & Video Marketing for Solar Companies', 'Solar video ads and lead generation for installers: scroll-stopping creatives and funnels that reach homeowners with real interest. See our solar results.' ),
 			'/saas/'                                   => array( 'SaaS Video Production & Video Ads That Drive Sales', 'SaaS video production and paid video ads: demo, explainer and UGC-style ads that drive trials, demos and revenue, with 24–48 hour creative turnaround.' ),
-			'/agency-owners/'                          => array( 'White Label Video Ads for Marketing Agencies', 'White label video ad production for marketing agencies: on-brand creatives for your clients in 24–48 hours at half the in-house cost. See 8 agency case studies.' ),
+			'/agency-owners/'                          => array( 'White Label Video Ads for Marketing Agencies', 'White label video ad production for marketing agencies: on-brand creatives for your clients in 24–48 hours at half the in-house cost. See 9 agency case studies.' ),
 			'/home-service-business/'                  => array( 'Home Service Marketing Agency for Video Ads & Leads', 'Video ads and lead generation for home service businesses: roofing, HVAC, plumbing, solar, remodeling and home care. Real campaigns, real CPLs, done for you.' ),
-			'/strategic-video-marketing-for-coaches/'  => array( 'Video Marketing & Facebook Ads for Coaches', 'Done-for-you video marketing and Facebook ads for coaches and consultants. See 15 coaching case studies, including $115K from one campaign. Book a call.' ),
+			'/strategic-video-marketing-for-coaches/'  => array( 'Video Marketing & Facebook Ads for Coaches', 'Done-for-you video marketing and Facebook ads for coaches and consultants. See 17 coaching case studies, including $115K from one campaign. Book a call.' ),
 			'/video-marketing-for-roofing-business/'   => array( 'Video Marketing for Roofing Companies: Step-by-Step Guide', 'A step-by-step video marketing guide for roofing contractors: video ideas, simple scripts, filming on a phone, and turning videos into local roofing leads.' ),
 			'/what-is-a-vsl/'                          => array( 'What Is a VSL? Video Sales Letter Guide With Examples', 'What a VSL (video sales letter) is, how it works, the proven script structure, real examples and costs, and when a VSL beats a text sales page.' ),
 		)
@@ -98,7 +98,7 @@ function mdm_seo_niches() {
 			'h2'     => 'Roofing ads that bring real homeowners, not tire-kickers',
 			'p'      => array(
 				'Most roofing companies pay $40–$80 for a single lead from shared lead vendors. We run your own roofing ads instead: short video creatives that show your crew, your work and your offer, sent to homeowners in your service area and qualified by a short form before they reach your phone.',
-				'Across our 19 roofing campaigns we have generated 686 website leads in 8 days for a Texas roofer, 537 leads at $4.27 each and 215 leads at $12.79 on $2,749 of spend. Every number below comes from a client ad account, and you can open each one to see the proof.',
+				'Across our 11 roofing campaigns we have generated 686 website leads in 8 days for a Texas roofer, 537 leads at $4.27 each and 215 leads at $12.79 on $2,749 of spend. Every number below comes from a client ad account, and you can open each one to see the proof.',
 			),
 			'faq'    => array(
 				array( 'How much do roofing ads cost per lead?', 'In our roofing campaigns cost per lead has ranged from about $4 to $13, depending on the market, season and offer. Your budget, service area and storm activity all move this number, so we show you matching case studies on the call.' ),
@@ -189,7 +189,7 @@ function mdm_seo_niches() {
 			'h2'     => 'White label video ads your clients will think you made',
 			'p'      => array(
 				'Agencies win and keep clients on creative. We produce white label video ads under your brand, with no Million Dollar Media logos or contact with your clients, so you can offer more ad volume and better results without hiring editors.',
-				'Our 8 agency scaling case studies include 1,890 leads at $6.72 each on $12,707 of spend, $15,900 closed in 10 days for a home services agency and $14,040 from 180 verified appointments.',
+				'Our 9 agency scaling case studies include 1,890 leads at $6.72 each on $12,707 of spend, $15,900 closed in 10 days for a home services agency and $14,040 from 180 verified appointments.',
 			),
 			'faq'    => array(
 				array( 'Is the work fully white label?', 'Yes. Files are delivered without our branding, and we never contact your clients unless you ask us to join a call.' ),
