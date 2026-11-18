@@ -23,9 +23,28 @@ final class MDM_Sections {
 
 	public static function init() {
 		$dir = __DIR__ . '/mdm-sections/inc/';
-		foreach ( array( 'reels', 'impact', 'how-it-works', 'numbers', 'about', 'case-studies', 'faq', 'menu', 'footer', 'preloader', 'services', 'pricing', 'homepage', 'sitewide', 'client-add', 'api', 'convert', 'story', 'calls', 'bookcall', 'voices', 'seo', 'blog', 'industry', 'industry-content', 'blogindex', 'confirmed', 'geo' ) as $part ) {
-			if ( file_exists( $dir . $part . '.php' ) ) {
-				require_once $dir . $part . '.php';
+		// Known modules first (load order matters for a few), then any other module file in /inc,
+		// so adding a module never requires editing this loader.
+		$order = array( 'reels', 'impact', 'how-it-works', 'numbers', 'about', 'case-studies', 'faq', 'menu', 'footer', 'preloader', 'services', 'pricing', 'homepage', 'sitewide', 'client-add', 'api', 'convert', 'story', 'calls', 'bookcall', 'voices', 'seo', 'blog', 'industry', 'industry-content', 'blogindex', 'confirmed', 'geo' );
+		$files = array();
+		foreach ( $order as $part ) {
+			$files[] = $dir . $part . '.php';
+		}
+		foreach ( (array) glob( $dir . '*.php' ) as $f ) {
+			if ( ! in_array( $f, $files, true ) ) {
+				$files[] = $f;
+			}
+		}
+		foreach ( $files as $f ) {
+			if ( ! is_readable( $f ) ) {
+				continue;
+			}
+			// A file caught half-written during a deploy must not take the whole site down (HTTP 500):
+			// skip that one module for this request and log it instead.
+			try {
+				require_once $f;
+			} catch ( \Throwable $e ) {
+				error_log( 'mdm-sections: skipped ' . basename( $f ) . ': ' . $e->getMessage() ); // phpcs:ignore
 			}
 		}
 	}
