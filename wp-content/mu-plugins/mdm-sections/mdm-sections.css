@@ -2621,3 +2621,74 @@ html .mdm-post .entry-content .wp-block-table table { margin: 0 !important; }
 	html .mdm-post .entry-content .wp-block-table table { min-width: 560px; }
 	html .mdm-post .entry-content .wp-block-table::after { content: "Swipe to see the full table →"; display: block; margin-top: 8px; font: 500 12px/1 "Poppins", sans-serif; color: rgba(17,17,20,.5); }
 }
+
+/* ================================================================== */
+/* Case study cards link to their own page + case study pages          */
+/* ================================================================== */
+html .mdm-cs { position: relative; }
+html .mdm-cs__link { color: inherit !important; text-decoration: none !important; }
+html .mdm-cs__link::after { content: ""; position: absolute; inset: 0; z-index: 3; border-radius: inherit; }
+html .mdm-cs:hover .mdm-cs__link { color: #ED1C24 !important; }
+html .mdm-cs__link:focus-visible::after { outline: 3px solid #ED1C24; outline-offset: 2px; }
+
+html .mdm-casepage.mdm-page { max-width: none !important; width: 100% !important; margin: 0 !important; padding: 0 !important; }
+html .mdm-casepage { font-family: "Poppins", sans-serif; background: #F4F4F1; color: #111114; }
+html .mdm-casepage__in { max-width: 1180px; margin: 0 auto; }
+html .mdm-casepage__hero { position: relative; overflow: hidden; background: #000; color: #fff; padding: clamp(40px, 5vw, 72px) clamp(16px, 4vw, 64px) clamp(48px, 6vw, 84px); }
+html .mdm-casepage__hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(50% 70% at 85% 10%, rgba(225,6,0,.32), transparent 70%); pointer-events: none; }
+html .mdm-casepage__hero > * { position: relative; }
+html .mdm-casepage__crumbs { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0 0 22px; font: 500 13px/1.3 "Poppins", sans-serif; color: rgba(255,255,255,.55); }
+html .mdm-casepage__crumbs a { color: rgba(255,255,255,.85) !important; text-decoration: none !important; }
+html .mdm-casepage__crumbs a:hover { color: #fff !important; }
+html .mdm-casepage__crumbs i { font-style: normal; color: rgba(255,255,255,.3); }
+html .mdm-casepage__h1 { margin: 18px 0 22px !important; max-width: 980px; font: 700 clamp(26px, 3.4vw, 46px)/1.15 "Syncopate", sans-serif !important; text-transform: uppercase; color: #fff !important; }
+html .mdm-casepage__stats { list-style: none; margin: 0 0 28px !important; padding: 0 !important; display: flex; flex-wrap: wrap; gap: 10px; }
+html .mdm-casepage__stats li { margin: 0; padding: 12px 16px; border-radius: 14px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14); font: 600 15px/1.2 "Poppins", sans-serif; color: #fff; }
+html .mdm-casepage__stats li.is-red { background: #ED1C24; border-color: #ED1C24; font-size: 17px; }
+html .mdm-casepage__btns { display: flex; flex-wrap: wrap; gap: 12px; }
+
+html .mdm-casepage__main { padding: clamp(40px, 5vw, 72px) clamp(16px, 4vw, 64px); }
+html .mdm-casepage__grid { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(24px, 4vw, 56px); align-items: start; }
+html .mdm-casepage__media { position: sticky; top: 110px; }
+html .mdm-casepage__media video, html .mdm-casepage__media img { display: block; width: 100%; max-height: 78vh; object-fit: contain; border-radius: 22px; background: #111; box-shadow: 0 30px 60px -36px rgba(17,17,20,.5); }
+html .mdm-casepage__cap { margin: 10px 4px 0 !important; font-size: 13px !important; color: rgba(17,17,20,.55) !important; }
+html .mdm-casepage__story { background: #fff; border-radius: 26px; padding: clamp(24px, 3.5vw, 44px); border: 1px solid rgba(17,17,20,.07); font-size: 17px; line-height: 1.75; color: #33353D; }
+html .mdm-casepage__story h2 { margin: 0 0 16px !important; padding-left: 14px; border-left: 4px solid #ED1C24; font: 700 clamp(21px, 2vw, 27px)/1.25 "Poppins", sans-serif !important; color: #111114 !important; }
+html .mdm-casepage__story p { margin: 0 0 1em !important; }
+html .mdm-casepage__story ul { list-style: none; margin: 0 0 1.2em !important; padding: 0 !important; }
+html .mdm-casepage__story ul li { position: relative; padding-left: 24px; margin: 0 0 .5em; }
+html .mdm-casepage__story ul li::before { content: ""; position: absolute; left: 3px; top: .7em; width: 8px; height: 8px; border-radius: 50%; background: #ED1C24; }
+html .mdm-casepage__context, html .mdm-casepage__faq { margin-top: 34px; padding-top: 30px; border-top: 1px solid rgba(17,17,20,.08); }
+html .mdm-casepage__links { display: flex; flex-wrap: wrap; gap: 10px 18px; }
+html .mdm-casepage__links a { color: #ED1C24 !important; font-weight: 600; text-decoration: none !important; }
+html .mdm-casepage__faq details { margin: 0 0 10px; padding: 16px 18px; border-radius: 16px; background: #F7F7F5; border: 1px solid rgba(17,17,20,.07); }
+html .mdm-casepage__faq summary { cursor: pointer; font: 600 16px/1.4 "Poppins", sans-serif; color: #111114; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+html .mdm-casepage__faq summary::-webkit-details-marker { display: none; }
+html .mdm-casepage__faq summary::after { content: "+"; color: #ED1C24; font-size: 20px; line-height: 1; }
+html .mdm-casepage__faq details[open] summary::after { content: "–"; }
+html .mdm-casepage__faq details p { margin: 10px 0 0 !important; font-size: 15.5px; }
+
+html .mdm-casepage__more { padding: 0 clamp(16px, 4vw, 64px) clamp(40px, 5vw, 64px); }
+html .mdm-casepage__h2 { margin: 16px 0 22px !important; font: 700 clamp(22px, 2.5vw, 34px)/1.2 "Syncopate", sans-serif !important; text-transform: uppercase; color: #111114 !important; }
+html .mdm-casepage__more .mdm-niche__pill { color: #111114; background: rgba(237,28,36,.08); }
+html .mdm-casepage__cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+html .mdm-casepage__card { display: flex; flex-direction: column; border-radius: 20px; overflow: hidden; background: #fff; border: 1px solid rgba(17,17,20,.07); text-decoration: none !important; color: inherit !important; transition: transform .25s, box-shadow .25s; }
+html .mdm-casepage__card:hover { transform: translateY(-4px); box-shadow: 0 26px 50px -30px rgba(237,28,36,.55); }
+html .mdm-casepage__cardimg { display: block; aspect-ratio: 4 / 3; overflow: hidden; background: #111; }
+html .mdm-casepage__cardimg img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+html .mdm-casepage__cardbody { display: flex; flex-direction: column; gap: 8px; padding: 14px 16px 16px; }
+html .mdm-casepage__cardniche { font: 700 11px/1 "Poppins", sans-serif; letter-spacing: .1em; text-transform: uppercase; color: #ED1C24; }
+html .mdm-casepage__cardtitle { font: 700 15px/1.35 "Poppins", sans-serif; color: #111114; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+html .mdm-casepage__cardmetric { align-self: flex-start; padding: 6px 10px; border-radius: 999px; background: #ED1C24; color: #fff; font: 700 12px/1 "Poppins", sans-serif; }
+html .mdm-casepage__ctasec { padding: 0 clamp(16px, 4vw, 64px) clamp(56px, 7vw, 96px); }
+
+@media (max-width: 1000px) {
+	html .mdm-casepage__grid { grid-template-columns: 1fr; }
+	html .mdm-casepage__media { position: static; }
+	html .mdm-casepage__cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+	html .mdm-casepage__cards { grid-template-columns: 1fr; }
+	html .mdm-casepage__btns .mdm-ihero__btn { flex: 1 1 100%; justify-content: center; }
+	html .mdm-casepage__story { font-size: 16px; }
+}

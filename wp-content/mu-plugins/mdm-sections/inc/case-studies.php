@@ -273,13 +273,11 @@ function mdm_shortcode_case_studies( $atts ) {
 					</button>
 					<div class="mdm-cs__body">
 						<span class="mdm-cs__niche"><i></i><?php echo esc_html( ( 'leadgen' === $item['cat'] ? 'Lead gen · ' : 'Ecom · ' ) . $item['niche'] ); ?></span>
-						<h3 class="mdm-cs__headline"><?php echo esc_html( $item['headline'] ); ?></h3>
+						<?php $case_url = function_exists( 'mdm_case_url' ) ? mdm_case_url( $item ) : ''; ?>
+						<h3 class="mdm-cs__headline"><?php if ( $case_url ) : ?><a class="mdm-cs__link" href="<?php echo esc_url( $case_url ); ?>"><?php echo esc_html( $item['headline'] ); ?></a><?php else : ?><?php echo esc_html( $item['headline'] ); ?><?php endif; ?></h3>
 						<div class="mdm-cs__metrics">
 							<?php foreach ( $item['metrics'] as $m ) : ?><span><?php echo esc_html( $m ); ?></span><?php endforeach; ?>
 						</div>
-						<?php if ( ! empty( $item['desc'] ) ) : ?>
-							<div class="mdm-cs__desc" hidden><?php echo wp_kses_post( wpautop( esc_html( $item['desc'] ) ) ); ?></div>
-						<?php endif; ?>
 					</div>
 				</article>
 			<?php endforeach; ?>
@@ -297,26 +295,7 @@ function mdm_shortcode_case_studies( $atts ) {
 			<?php endif; ?>
 		</div>
 
-		<div class="mdm-casebox" hidden role="dialog" aria-modal="true" aria-label="Case study">
-			<div class="mdm-casebox__panel">
-				<button type="button" class="mdm-casebox__close" aria-label="Close">×</button>
-				<div class="mdm-casebox__media">
-					<img class="mdm-casebox__bg" alt="" aria-hidden="true">
-					<img class="mdm-casebox__img" alt="">
-					<video class="mdm-casebox__video" controls playsinline preload="none" hidden></video>
-				</div>
-				<div class="mdm-casebox__info">
-					<span class="mdm-casebox__niche"></span>
-					<h3 class="mdm-casebox__title"></h3>
-					<div class="mdm-casebox__metrics"></div>
-					<div class="mdm-casebox__text"></div>
-					<div class="mdm-casebox__cta">
-						<a class="mdm-casebox__book" href="<?php echo esc_url( function_exists( 'mdm_pricing_call_url' ) ? mdm_pricing_call_url() : MDM_Sections::cta_url() ); ?>">Get results like these <span>→</span></a>
-						<a class="mdm-casebox__wa" href="<?php echo esc_url( MDM_Sections::whatsapp_url() ); ?>" target="_blank" rel="noopener">or message us on WhatsApp</a>
-					</div>
-				</div>
-			</div>
-		</div>
+		<?php // Each card links to its own case study page (inc/casepages.php); the old popup is no longer rendered. ?>
 	</section>
 	<?php
 	return ob_get_clean();
