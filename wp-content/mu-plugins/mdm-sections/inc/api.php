@@ -218,3 +218,43 @@ add_action(
 		);
 	}
 );
+
+/*
+ * GET /wp-json/mdm/v1/mail-check  ->  the domain's public mail DNS records (MX, SPF, DMARC), so we can
+ * confirm the contact address can receive mail. Read-only; DNS records are public information.
+ */
+add_action(
+	'rest_api_init',
+	static function () {
+		register_rest_route(
+			'mdm/v1',
+			'/mail-check',
+			array(
+				'methods'             => 'GET',
+				'permission_callback' => '__return_true',
+				'callback'            => static function () {
+					$domain = wp_parse_url( home_url(), PHP_URL_HOST );
+					$domain = preg_replace( '/^www\./', '', (string) $domain );
+					$mx     = array();
+					foreach ( (array) @dns_get_record( $domain, DNS_MX ) as $r ) { // phpcs:ignore
+						$mx[] = array( 'host' => $r['target'], 'pri' => $r['pri'] );
+					}
+					usort( $mx, static function ( $a, $b ) { return $a['pri'] - $b['pri']; } );
+					$txt = array();
+					foreach ( (array) @dns_get_record( $domain, DNS_TXT ) as $r ) { // phpcs:ignore
+						if ( isset( $r['txt'] ) && 0 === stripos( $r['txt'], 'v=spf1' ) ) {
+							$txt[] = $r['txt'];
+						}
+					}
+					$dmarc = array();
+					foreach ( (array) @dns_get_record( '_dmarc.' . $domain, DNS_TXT ) as $r ) { // phpcs:ignore
+						if ( isset( $r['txt'] ) ) {
+							$dmarc[] = $r['txt'];
+						}
+					}
+					return array( 'domain' => $domain, 'mx' => $mx, 'spf' => $txt, 'dmarc' => $dmarc );
+				},
+			)
+		);
+	}
+);
