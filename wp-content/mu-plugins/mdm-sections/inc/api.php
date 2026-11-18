@@ -253,28 +253,6 @@ add_action(
 						}
 					}
 					$out = array( 'domain' => $domain, 'mx' => $mx, 'spf' => $txt, 'dmarc' => $dmarc );
-					// Ask the mail server whether it would accept mail for the site's contact address,
-					// then hang up before any message is sent (no email is delivered).
-					if ( ! empty( $_GET['rcpt'] ) && $mx ) { // phpcs:ignore
-						$addr = 'vaishali@' . $domain;
-						$log  = array();
-						$fp   = @fsockopen( $mx[0]['host'], 25, $errno, $errstr, 8 ); // phpcs:ignore
-						if ( ! $fp ) {
-							$out['rcpt'] = array( 'address' => $addr, 'result' => 'could not connect from this server (port 25): ' . $errstr );
-						} else {
-							stream_set_timeout( $fp, 8 );
-							$read = static function () use ( $fp ) { $r = ''; while ( ( $l = fgets( $fp, 1024 ) ) !== false ) { $r .= $l; if ( isset( $l[3] ) && ' ' === $l[3] ) { break; } } return trim( $r ); };
-							$log[] = $read();
-							foreach ( array( 'EHLO ' . $domain, 'MAIL FROM:<>', 'RCPT TO:<' . $addr . '>' ) as $cmd ) {
-								fwrite( $fp, $cmd . "\r\n" );
-								$log[] = $cmd . ' -> ' . strtok( $read(), "\n" );
-							}
-							fwrite( $fp, "QUIT\r\n" );
-							fclose( $fp );
-							$last         = end( $log );
-							$out['rcpt'] = array( 'address' => $addr, 'result' => ( false !== strpos( $last, '-> 250' ) ? 'accepted: mailbox exists' : 'not accepted' ), 'log' => $log );
-						}
-					}
 					return $out;
 				},
 			)
