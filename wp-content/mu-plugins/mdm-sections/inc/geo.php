@@ -103,6 +103,30 @@ add_filter(
 			}
 		}
 
+		// Pages are authored by the business; never publish an account whose display name is an email address.
+		$org_ref = array( '@id' => home_url( '/#organization' ) );
+		foreach ( $data as $k => $node ) {
+			if ( ! is_array( $node ) ) {
+				continue;
+			}
+			if ( 'Person' === ( $node['@type'] ?? '' ) && false !== strpos( (string) ( $node['name'] ?? '' ), '@' ) ) {
+				unset( $data[ $k ] );
+				continue;
+			}
+			if ( isset( $node['author'] ) && is_array( $node['author'] ) && ( is_page() || false !== strpos( (string) ( $node['author']['name'] ?? '' ), '@' ) ) ) {
+				$data[ $k ]['author'] = $org_ref;
+			}
+		}
+		// Videos that share one name (Rank Math names page videos after the page title) get numbered.
+		$seen = array();
+		foreach ( $data as $k => $node ) {
+			if ( is_array( $node ) && 'VideoObject' === ( $node['@type'] ?? '' ) && ! empty( $node['name'] ) ) {
+				$nm           = html_entity_decode( (string) $node['name'], ENT_QUOTES, 'UTF-8' );
+				$seen[ $nm ]  = isset( $seen[ $nm ] ) ? $seen[ $nm ] + 1 : 1;
+				$data[ $k ]['name'] = $seen[ $nm ] > 1 ? $nm . ' (video ' . $seen[ $nm ] . ')' : $nm;
+			}
+		}
+
 		// Service pages: FAQPage with the same questions as the on-page chat FAQ.
 		if ( function_exists( 'mdm_industry_slug' ) && function_exists( 'mdm_industry_faq_items' ) ) {
 			$slug = mdm_industry_slug();
