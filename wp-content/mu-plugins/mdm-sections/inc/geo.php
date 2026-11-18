@@ -73,6 +73,7 @@ add_filter(
 			if ( 'MarketingAgency' === $type ) {
 				$data[ $k ]['name']          = $brand;
 				$data[ $k ]['alternateName'] = 'MDM';
+				$data[ $k ]['telephone']     = '+91 82877 82334'; // the site's WhatsApp business number
 				if ( ! empty( $node['sameAs'] ) ) {
 					$data[ $k ]['sameAs'] = array_values( array_filter( (array) $node['sameAs'], static function ( $u ) { return (bool) preg_match( '#^https?://#', (string) $u ); } ) );
 				}
@@ -291,3 +292,13 @@ add_action(
 	},
 	0
 );
+
+/* The correct business WhatsApp is +91 82877 82334; old buttons that still point to the previous number are rewritten. */
+function mdm_fix_old_whatsapp( $html ) {
+	if ( ! is_string( $html ) || false === strpos( $html, '9654913015' ) ) {
+		return $html;
+	}
+	return str_replace( array( '%2B919654913015', '+919654913015', '919654913015' ), array( '%2B918287782334', '+918287782334', '918287782334' ), $html );
+}
+add_filter( 'the_content', 'mdm_fix_old_whatsapp', 999 );
+add_filter( 'elementor/frontend/the_content', 'mdm_fix_old_whatsapp', 999 );
