@@ -2608,3 +2608,16 @@ html .mdm-post .entry-content .mdm-related__services a { padding: 9px 13px; bord
 html .mdm-post .entry-content .mdm-related__services a:hover { border-color: #ED1C24; color: #ED1C24 !important; }
 html .mdm-post .entry-content .mdm-related__ctawrap { margin: 20px 0 0 !important; }
 @media (max-width: 700px) { html .mdm-related__grid { grid-template-columns: 1fr; } html .mdm-post .mdm-related { padding: 20px; } }
+
+/* Blog fixes: CTA text, designed-cover text on dark, tables scroll sideways on phones */
+html .mdm-post .entry-content a.mdm-related__cta, html .mdm-related__cta { display: inline-flex; align-items: center; padding: 13px 22px; border-radius: 999px; background: #ED1C24; color: #fff !important; text-decoration: none !important; font: 600 15px/1 "Poppins", sans-serif; }
+html .mdm-post .entry-content a.mdm-related__cta:hover { background: #c4141b; }
+html .mdm-bcover b, html .mdm-post .entry-content .mdm-bcover b { color: #fff !important; }
+html .mdm-bcover em, html .mdm-post .entry-content .mdm-bcover em { color: rgba(255,255,255,.6) !important; }
+html .mdm-bcover i { color: #fff !important; }
+html .mdm-post .entry-content .wp-block-table { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1.4em 0 1.8em; }
+html .mdm-post .entry-content .wp-block-table table { margin: 0 !important; }
+@media (max-width: 700px) {
+	html .mdm-post .entry-content .wp-block-table table { min-width: 560px; }
+	html .mdm-post .entry-content .wp-block-table::after { content: "Swipe to see the full table →"; display: block; margin-top: 8px; font: 500 12px/1 "Poppins", sans-serif; color: rgba(17,17,20,.5); }
+}
