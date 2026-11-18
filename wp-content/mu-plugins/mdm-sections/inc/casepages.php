@@ -184,7 +184,8 @@ function mdm_case_story_html( $item, $title ) {
 }
 
 function mdm_case_metrics( $item ) {
-	return array_values( array_filter( (array) $item['metrics'], static function ( $m ) { return false === stripos( $m, 'proof' ) && false === stripos( $m, 'breakdown' ); } ) );
+	$m = array_values( array_filter( (array) $item['metrics'], static function ( $m ) { return false === stripos( $m, 'proof' ) && false === stripos( $m, 'breakdown' ); } ) );
+	return array_map( static function ( $x ) { return trim( preg_replace( '/\s*headline result$/i', ' result', $x ) ); }, $m );
 }
 
 function mdm_case_faq( $item, $title ) {
@@ -329,20 +330,74 @@ add_filter(
 /* SEO: title, description, canonical, robots, social, schema          */
 /* ------------------------------------------------------------------ */
 
-function mdm_case_seo_title( $item ) {
+/** Headline-based title, cut at a word boundary. */
+function mdm_case_title_from_headline( $item, $max = 52 ) {
 	$t = mdm_case_title( $item );
-	if ( strlen( $t ) > 52 ) {
-		$t = substr( $t, 0, 52 );
-		$t = substr( $t, 0, strrpos( $t, ' ' ) ) . '…';
+	if ( strlen( $t ) > $max ) {
+		$t = substr( $t, 0, $max );
+		$t = rtrim( substr( $t, 0, strrpos( $t, ' ' ) ), ' ,.:;-' ) . '…';
 	}
-	return $t . ' | ' . $item['niche'] . ' Case Study';
+	return $t;
+}
+
+/** Unique, number-led titles for every case ("DTC Brands Case Study: $1M+ Scaled, 4.6x ROAS"). */
+function mdm_case_titles() {
+	static $titles = null;
+	if ( null !== $titles ) {
+		return $titles;
+	}
+	$titles = array();
+	$seen   = array();
+	foreach ( mdm_case_registry()['by_slug'] as $slug => $item ) {
+		$m    = mdm_case_metrics( $item );
+		$cand = '';
+		if ( $m ) {
+			$cand = $item['niche'] . ' Case Study: ' . implode( ', ', array_slice( $m, 0, 2 ) );
+			if ( strlen( $cand ) > 62 ) {
+				$cand = $item['niche'] . ' Case Study: ' . $m[0];
+			}
+		}
+		if ( ! $cand || strlen( $cand ) > 62 || isset( $seen[ strtolower( $cand ) ] ) ) {
+			$cand = mdm_case_title_from_headline( $item, 60 - strlen( $item['niche'] ) - 14 ) . ' | ' . $item['niche'] . ' Case Study';
+		}
+		$base = $cand;
+		$n    = 2;
+		while ( isset( $seen[ strtolower( $cand ) ] ) ) {
+			$cand = $base . ' (' . $n++ . ')';
+		}
+		$seen[ strtolower( $cand ) ] = true;
+		$titles[ $slug ]             = $cand;
+	}
+	return $titles;
+}
+
+function mdm_case_seo_title( $item ) {
+	$reg  = mdm_case_registry();
+	$slug = isset( $reg['by_key'][ mdm_case_key( $item ) ] ) ? $reg['by_key'][ mdm_case_key( $item ) ] : '';
+	$t    = mdm_case_titles();
+	return isset( $t[ $slug ] ) ? $t[ $slug ] : mdm_case_title_from_headline( $item ) . ' | ' . $item['niche'] . ' Case Study';
 }
 
 function mdm_case_seo_desc( $item ) {
-	$m    = mdm_case_metrics( $item );
-	$base = $item['niche'] . ( 'ecom' === $item['cat'] ? ' e-commerce' : ' lead generation' ) . ' case study' . ( $m ? ': ' . implode( ', ', $m ) : '' ) . '. ';
-	$base .= 'See the proof and how Million Dollar Media ran the campaign.';
-	return strlen( $base ) > 160 ? substr( $base, 0, 157 ) . '…' : $base;
+	$m     = mdm_case_metrics( $item );
+	$title = mdm_case_title( $item );
+	$story = '';
+	foreach ( preg_split( '/\R+/', mdm_case_clean( $item['desc'] ) ) as $line ) {
+		$line = trim( $line );
+		if ( strlen( $line ) > 40 && 0 !== stripos( $line, substr( $title, 0, 30 ) ) ) {
+			$story = $line;
+			break;
+		}
+	}
+	if ( ! $story ) {
+		$story = $title;
+	}
+	$d = ( $m ? implode( ', ', array_slice( $m, 0, 2 ) ) . '. ' : $item['niche'] . ' case study. ' ) . $story;
+	if ( strlen( $d ) > 158 ) {
+		$d = substr( $d, 0, 155 );
+		$d = rtrim( substr( $d, 0, strrpos( $d, ' ' ) ), ' ,.:;-' ) . '…';
+	}
+	return $d;
 }
 
 add_filter( 'rank_math/frontend/title', static function ( $t ) { $c = mdm_current_case(); return $c ? mdm_case_seo_title( $c ) : $t; }, 99 );
@@ -458,3 +513,6 @@ add_filter(
 		return $xml . '<sitemap><loc>' . esc_url( home_url( '/case-study-sitemap.xml' ) ) . '</loc><lastmod>' . gmdate( 'c', (int) filemtime( dirname( __DIR__ ) . '/data/leadgen.json' ) ) . '</lastmod></sitemap>' . "\n";
 	}
 );
+
+// Unknown case URLs must stay a 404, not be "guessed" into /case-studies/.
+add_filter( 'redirect_canonical', static function ( $r ) { return get_query_var( 'mdm_case' ) ? false : $r; } );
