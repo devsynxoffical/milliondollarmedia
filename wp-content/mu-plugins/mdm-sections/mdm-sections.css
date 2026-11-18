@@ -2574,3 +2574,4 @@ html .mdm-cb__mail { border-color: rgba(255,255,255,.25) !important; }
 	html .mdm-cb__head { text-align: left; }
 }
 @media (prefers-reduced-motion: reduce) { html .mdm-cb__check, html .mdm-cb__check path { animation: none; stroke-dashoffset: 0; } }
+html .mdm-cb.mdm-page { max-width: none !important; width: 100% !important; margin: 0 !important; padding: 0 !important; }
