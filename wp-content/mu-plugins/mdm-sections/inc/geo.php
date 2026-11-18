@@ -273,3 +273,21 @@ add_filter(
 		return apply_filters( 'get_the_author_display_name', $name, $uid );
 	}
 );
+
+/* IndexNow (Bing, Yandex and others): the key file that proves we own the site. */
+function mdm_indexnow_key() {
+	return 'cf33d5ec6898a2dab3cbccb39411d214';
+}
+add_action(
+	'init',
+	static function () {
+		$path = isset( $_SERVER['REQUEST_URI'] ) ? strtok( (string) $_SERVER['REQUEST_URI'], '?' ) : ''; // phpcs:ignore
+		if ( '/' . mdm_indexnow_key() . '.txt' === $path ) {
+			status_header( 200 );
+			header( 'Content-Type: text/plain; charset=utf-8' );
+			echo mdm_indexnow_key(); // phpcs:ignore WordPress.Security.EscapeOutput
+			exit;
+		}
+	},
+	0
+);
