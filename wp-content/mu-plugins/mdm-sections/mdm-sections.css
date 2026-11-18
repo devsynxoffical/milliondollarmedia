@@ -2586,3 +2586,6 @@ html .mdm-post .entry-content .mdm-publisher a { color: #fff !important; text-de
 html .mdm-publisher__links { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 12px !important; }
 html .mdm-post .entry-content .mdm-publisher__links a { font-weight: 600; text-decoration: none !important; border-bottom: 2px solid #ED1C24; }
 @media (max-width: 600px) { html .mdm-post .mdm-publisher { flex-direction: column; } }
+html .mdm-niche__guide { display: inline-flex; align-items: center; gap: 8px; margin-top: 8px; padding: 12px 16px; border-radius: 14px; background: rgba(237,28,36,.12); border: 1px solid rgba(237,28,36,.4); color: #fff !important; text-decoration: none !important; font: 600 14.5px/1.35 "Poppins", sans-serif; transition: background .2s; }
+html .mdm-niche__guide:hover { background: rgba(237,28,36,.22); }
+html .mdm-niche__guide i { font-style: normal; color: #FF4D52; }
