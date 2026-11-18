@@ -2692,3 +2692,5 @@ html .mdm-casepage__ctasec { padding: 0 clamp(16px, 4vw, 64px) clamp(56px, 7vw, 
 	html .mdm-casepage__btns .mdm-ihero__btn { flex: 1 1 100%; justify-content: center; }
 	html .mdm-casepage__story { font-size: 16px; }
 }
+html .mdm-casepage__h1 { font-size: clamp(22px, 2.8vw, 40px) !important; line-height: 1.2 !important; }
+@media (max-width: 600px) { html .mdm-casepage__h1 { font-size: 21px !important; } html .mdm-casepage__stats li { font-size: 14px; } html .mdm-casepage__stats li.is-red { font-size: 15px; } }
