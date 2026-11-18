@@ -1,4 +1,5 @@
 <?php
+// Loaded by mdm-sections.php (crash-safe loader).
 /**
  * [mdm_confirmed] - the /confirmedbooking/ page shown after someone books a strategy call:
  * confirmation hero, 3 steps before the call, what the call covers, proof while they wait,
