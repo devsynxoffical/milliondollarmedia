@@ -27,8 +27,13 @@ function mdm_case_title( $item ) {
 	$t     = mdm_case_clean( $item['headline'] );
 	$t     = rtrim( $t, " .…" );
 	$first = trim( strtok( mdm_case_clean( $item['desc'] ), "\n" ) );
-	if ( $first && strlen( $t ) > 20 && 0 === stripos( $first, substr( $t, 0, 30 ) ) && strlen( $first ) <= 160 ) {
-		$t = rtrim( $first, ' .' );
+	if ( $first && strlen( $t ) > 20 && 0 === stripos( $first, substr( rtrim( $t, '.… ' ), 0, 30 ) ) ) {
+		if ( strlen( $first ) > 200 && preg_match( '/^(.{60,200}?[.!?])\s/u', $first, $mm ) ) {
+			$first = $mm[1];
+		}
+		if ( strlen( $first ) <= 200 ) {
+			$t = rtrim( $first, ' .' );
+		}
 	}
 	return $t;
 }
@@ -184,8 +189,8 @@ function mdm_case_story_html( $item, $title ) {
 }
 
 function mdm_case_metrics( $item ) {
-	$m = array_values( array_filter( (array) $item['metrics'], static function ( $m ) { return false === stripos( $m, 'proof' ) && false === stripos( $m, 'breakdown' ); } ) );
-	return array_map( static function ( $x ) { return trim( preg_replace( '/\s*headline result$/i', ' result', $x ) ); }, $m );
+	// "Headline result" labels don't say what the number is, so they are left out of case pages.
+	return array_values( array_filter( (array) $item['metrics'], static function ( $m ) { return false === stripos( $m, 'proof' ) && false === stripos( $m, 'breakdown' ) && false === stripos( $m, 'headline result' ); } ) );
 }
 
 function mdm_case_faq( $item, $title ) {
