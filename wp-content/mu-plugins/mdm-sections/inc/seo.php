@@ -36,6 +36,8 @@ function mdm_seo_meta_map() {
 			'/home-service-business/'                  => array( 'Home Service Marketing Agency for Video Ads & Leads', 'Video ads and lead generation for home service businesses: roofing, HVAC, plumbing, solar, remodeling and home care. Real campaigns, real CPLs, done for you.' ),
 			'/strategic-video-marketing-for-coaches/'  => array( 'Video Marketing & Facebook Ads for Coaches', 'Done-for-you video marketing and Facebook ads for coaches and consultants. See 17 coaching case studies, including $115K from one campaign. Book a call.' ),
 			'/video-marketing-for-roofing-business/'   => array( 'Video Marketing for Roofing Companies: Step-by-Step Guide', 'A step-by-step video marketing guide for roofing contractors: video ideas, simple scripts, filming on a phone, and turning videos into local roofing leads.' ),
+			'/facebook-ads-for-roofers/'               => array( 'Facebook Ads for Roofers: Real Roofing Lead Costs & Setup', 'How roofers get leads from Facebook ads: real cost per lead from 9 roofing campaigns ($4.27 to $24), plus the targeting, lead form and verification setup.' ),
+			'/hvac-facebook-ads/'                      => array( 'Facebook Ads for HVAC: Real Lead, Booking & Install Costs', 'How HVAC companies get leads from Facebook ads: real cost per lead, per booked appointment and per install from our HVAC campaigns, plus the lead form we use.' ),
 			'/what-is-a-vsl/'                          => array( 'What Is a VSL? Video Sales Letter Guide With Examples', 'What a VSL (video sales letter) is, how it works, the proven script structure, real examples and costs, and when a VSL beats a text sales page.' ),
 		)
 	);
@@ -276,6 +278,15 @@ function mdm_seo_niche_section( $slug, $part = 'all' ) {
 				<span class="mdm-niche__pill">Real results</span>
 				<h2 class="mdm-display mdm-niche__h2"><?php echo esc_html( $c['h2'] ); ?></h2>
 				<?php foreach ( $c['p'] as $p ) : ?><p><?php echo esc_html( $p ); ?></p><?php endforeach; ?>
+				<?php
+				$guides = array(
+					'roofing-video-marketing-services' => array( '/facebook-ads-for-roofers/', 'Read the guide: Facebook ads for roofers, with real lead costs' ),
+					'hvac-video-marketing-services'    => array( '/hvac-facebook-ads/', 'Read the guide: Facebook ads for HVAC, from lead to installation' ),
+				);
+				if ( isset( $guides[ $slug ] ) ) :
+					?>
+					<a class="mdm-niche__guide" href="<?php echo esc_url( home_url( $guides[ $slug ][0] ) ); ?>"><?php echo esc_html( $guides[ $slug ][1] ); ?> <i aria-hidden="true">→</i></a>
+				<?php endif; ?>
 			</div>
 			<?php if ( count( $items ) ) : ?>
 				<ul class="mdm-niche__stats">
@@ -352,6 +363,8 @@ add_filter(
 			array( '/case-studies/', '247 video ad case studies' ),
 			array( '/portfolio/', 'Video ad examples' ),
 			array( '/what-is-a-vsl/', 'What is a VSL?' ),
+			array( '/facebook-ads-for-roofers/', 'Facebook ads for roofers' ),
+			array( '/hvac-facebook-ads/', 'Facebook ads for HVAC' ),
 			array( '/roofing-video-marketing-services/', 'Roofing ads & video marketing' ),
 			array( '/hvac-video-marketing-services/', 'HVAC advertising' ),
 			array( '/agency-owners/', 'White label video ads for agencies' ),
