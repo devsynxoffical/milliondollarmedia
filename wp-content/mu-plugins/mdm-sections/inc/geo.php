@@ -262,3 +262,14 @@ add_filter(
 	10,
 	2
 );
+add_filter(
+	'the_author',
+	static function ( $name ) {
+		if ( false === strpos( (string) $name, '@' ) ) {
+			return $name;
+		}
+		global $authordata;
+		$uid = is_object( $authordata ) ? (int) $authordata->ID : 0;
+		return apply_filters( 'get_the_author_display_name', $name, $uid );
+	}
+);
