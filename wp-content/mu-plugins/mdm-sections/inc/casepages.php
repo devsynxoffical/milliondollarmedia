@@ -18,7 +18,7 @@ function mdm_case_key( $item ) {
 }
 
 function mdm_case_clean( $text ) {
-	$text = preg_replace( '/[\x{1F000}-\x{1FAFF}\x{2600}-\x{27BF}\x{2B00}-\x{2BFF}\x{1F1E6}-\x{1F1FF}\x{FE0F}\x{200D}\x{2190}-\x{21FF}]/u', '', (string) $text );
+	$text = preg_replace( '/[\x{1F000}-\x{1FAFF}\x{2600}-\x{27BF}\x{2B00}-\x{2BFF}\x{1F1E6}-\x{1F1FF}\x{FE0F}\x{200D}\x{2190}-\x{21FF}\x{200B}-\x{200F}\x{2060}-\x{206F}\x{FEFF}]/u', '', (string) $text );
 	return trim( preg_replace( '/[ \t]+/', ' ', $text ) );
 }
 
