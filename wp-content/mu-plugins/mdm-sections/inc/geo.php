@@ -229,3 +229,36 @@ add_filter(
 	},
 	28
 );
+
+/* ------------------------------------------------------------------ */
+/* Names: Rank Math's own site / business name settings still said     */
+/* "Creativity that converts" (the slogan), and one admin account uses */
+/* its email address as display name. Fix both at read time.           */
+/* ------------------------------------------------------------------ */
+
+add_filter(
+	'option_rank-math-options-titles',
+	static function ( $opts ) {
+		if ( is_array( $opts ) ) {
+			foreach ( array( 'website_name', 'knowledgegraph_name' ) as $k ) {
+				if ( empty( $opts[ $k ] ) || 'creativity that converts' === strtolower( trim( (string) $opts[ $k ] ) ) ) {
+					$opts[ $k ] = mdm_brand_name();
+				}
+			}
+		}
+		return $opts;
+	}
+);
+
+add_filter(
+	'get_the_author_display_name',
+	static function ( $name, $user_id = 0 ) {
+		if ( false === strpos( (string) $name, '@' ) ) {
+			return $name;
+		}
+		$full = trim( ucwords( strtolower( get_user_meta( (int) $user_id, 'first_name', true ) . ' ' . get_user_meta( (int) $user_id, 'last_name', true ) ) ) );
+		return '' !== $full ? $full : mdm_brand_name();
+	},
+	10,
+	2
+);
