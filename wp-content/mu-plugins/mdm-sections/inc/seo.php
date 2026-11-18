@@ -358,23 +358,49 @@ add_filter(
 		if ( is_admin() || ! is_singular( 'post' ) || ! in_the_loop() || ! is_main_query() || false !== strpos( $content, 'mdm-related' ) ) {
 			return $content;
 		}
-		$slug  = get_post_field( 'post_name', get_queried_object_id() );
-		$links = array(
-			array( '/case-studies/', '247 video ad case studies' ),
-			array( '/portfolio/', 'Video ad examples' ),
-			array( '/what-is-a-vsl/', 'What is a VSL?' ),
-			array( '/facebook-ads-for-roofers/', 'Facebook ads for roofers' ),
-			array( '/hvac-facebook-ads/', 'Facebook ads for HVAC' ),
-			array( '/roofing-video-marketing-services/', 'Roofing ads & video marketing' ),
-			array( '/hvac-video-marketing-services/', 'HVAC advertising' ),
-			array( '/agency-owners/', 'White label video ads for agencies' ),
+		$id   = get_queried_object_id();
+		$slug = get_post_field( 'post_name', $id );
+		$text = strtolower( $slug . ' ' . get_the_title( $id ) );
+
+		// Services that match the article's topic.
+		$topics = array(
+			'roof'        => array( '/roofing-video-marketing-services/', 'Roofing ads & video marketing' ),
+			'hvac'        => array( '/hvac-video-marketing-services/', 'HVAC advertising & video ads' ),
+			'plumb'       => array( '/plumbing-video-production/', 'Plumbing video production' ),
+			'white-label' => array( '/agency-owners/', 'White label video ads for agencies' ),
+			'agency'      => array( '/agency-owners/', 'White label video ads for agencies' ),
+			'vsl'         => array( '/strategic-video-marketing-for-coaches/', 'Video marketing for coaches' ),
 		);
-		$links = array_values( array_filter( $links, static function ( $l ) use ( $slug ) { return '/' . $slug . '/' !== $l[0]; } ) );
-		$html  = '<aside class="mdm-related"><h2>Keep reading</h2><ul>';
-		foreach ( $links as $l ) {
-			$html .= '<li><a href="' . esc_url( home_url( $l[0] ) ) . '">' . esc_html( $l[1] ) . '</a></li>';
+		$services = array();
+		foreach ( $topics as $kw => $l ) {
+			if ( false !== strpos( $text, $kw ) ) {
+				$services[ $l[0] ] = $l;
+			}
 		}
-		$html .= '</ul><p><a class="mdm-related__cta" href="' . esc_url( home_url( '/book-your-call/' ) ) . '">Book a free strategy call →</a></p></aside>';
+		$services['/home-service-business/'] = array( '/home-service-business/', 'Home service video ads' );
+		$services['/case-studies/']          = array( '/case-studies/', '247 case studies' );
+		$services['/portfolio/']             = array( '/portfolio/', 'Video ad examples' );
+		$services                            = array_slice( array_values( $services ), 0, 4 );
+
+		// Three related articles: same topic first, then the newest.
+		$cats    = wp_get_post_categories( $id );
+		$related = get_posts( array( 'numberposts' => 3, 'post__not_in' => array( $id ), 'category__in' => $cats, 'post_status' => 'publish' ) );
+		if ( count( $related ) < 3 ) {
+			$related = array_merge( $related, get_posts( array( 'numberposts' => 3 - count( $related ), 'post__not_in' => array_merge( array( $id ), wp_list_pluck( $related, 'ID' ) ), 'post_status' => 'publish' ) ) );
+		}
+
+		$html = '<aside class="mdm-related"><p class="mdm-related__label">Keep reading</p><h2>Related articles</h2><div class="mdm-related__grid">';
+		foreach ( $related as $r ) {
+			$c     = get_the_category( $r->ID );
+			$min   = function_exists( 'mdm_blog_read_minutes' ) ? mdm_blog_read_minutes( $r->ID ) : 0;
+			$cover = function_exists( 'mdm_blog_cover' ) ? mdm_blog_cover( $r->ID ) : '';
+			$html .= '<a class="mdm-related__card" href="' . esc_url( get_permalink( $r ) ) . '"><span class="mdm-related__img">' . $cover . '</span><span class="mdm-related__body"><span class="mdm-related__meta">' . ( $c ? esc_html( $c[0]->name ) : 'Blog' ) . ( $min ? ' · ' . (int) $min . ' min read' : '' ) . '</span><span class="mdm-related__title">' . esc_html( get_the_title( $r ) ) . '</span></span></a>';
+		}
+		$html .= '</div><div class="mdm-related__services"><span>Related services:</span>';
+		foreach ( $services as $l ) {
+			$html .= '<a href="' . esc_url( home_url( $l[0] ) ) . '">' . esc_html( $l[1] ) . '</a>';
+		}
+		$html .= '</div><p class="mdm-related__ctawrap"><a class="mdm-related__cta" href="' . esc_url( home_url( '/book-your-call/' ) ) . '">Book a free strategy call →</a></p></aside>';
 		return $content . $html;
 	},
 	30
