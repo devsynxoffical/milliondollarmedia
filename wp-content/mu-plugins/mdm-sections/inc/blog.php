@@ -157,3 +157,67 @@ add_action(
 	},
 	50
 );
+
+/*
+ * Contextual internal links inside blog posts: the first natural mention of a topic in a paragraph
+ * links to the most relevant guide or service page. At most 4 per post, never to the post itself,
+ * never inside headings or existing links.
+ */
+function mdm_blog_autolinks() {
+	return array(
+		'roofing leads'             => '/facebook-ads-for-roofers/',
+		'facebook ads for roofers'  => '/facebook-ads-for-roofers/',
+		'HVAC leads'                => '/hvac-facebook-ads/',
+		'video sales letter'        => '/what-is-a-vsl/',
+		'VSL'                       => '/what-is-a-vsl/',
+		'roofing companies'         => '/roofing-video-marketing-services/',
+		'roofing businesses'        => '/roofing-video-marketing-services/',
+		'HVAC companies'            => '/hvac-video-marketing-services/',
+		'HVAC businesses'           => '/hvac-video-marketing-services/',
+		'plumbing companies'        => '/plumbing-video-production/',
+		'plumbing businesses'       => '/plumbing-video-production/',
+		'white label video'         => '/agency-owners/',
+		'white-label video'         => '/agency-owners/',
+		'home service businesses'   => '/home-service-business/',
+		'coaches'                   => '/strategic-video-marketing-for-coaches/',
+		'case studies'              => '/case-studies/',
+		'video ad examples'         => '/portfolio/',
+	);
+}
+
+add_filter(
+	'the_content',
+	static function ( $html ) {
+		if ( ! function_exists( 'mdm_blog_is_post' ) || ! mdm_blog_is_post() || ! in_the_loop() || ! is_main_query() ) {
+			return $html;
+		}
+		$self  = untrailingslashit( wp_parse_url( get_permalink(), PHP_URL_PATH ) ) . '/';
+		$used  = array();
+		$count = 0;
+		foreach ( mdm_blog_autolinks() as $phrase => $path ) {
+			if ( $count >= 4 || $path === $self || isset( $used[ $path ] ) || false !== stripos( $html, 'href="' . home_url( $path ) ) ) {
+				continue;
+			}
+			$re   = '/(<p\b[^>]*>)((?:(?!<\/p>).)*?)\b(' . preg_quote( $phrase, '/' ) . ')\b/is';
+			$done = false;
+			$html = preg_replace_callback(
+				$re,
+				static function ( $m ) use ( $path, &$done ) {
+					// skip paragraphs that already link, and matches inside a tag (e.g. an alt attribute)
+					if ( $done || false !== stripos( $m[2], '<a ' ) || substr_count( $m[2], '<' ) !== substr_count( $m[2], '>' ) ) {
+						return $m[0];
+					}
+					$done = true;
+					return $m[1] . $m[2] . '<a href="' . esc_url( home_url( $path ) ) . '">' . $m[3] . '</a>';
+				},
+				$html
+			);
+			if ( $done ) {
+				$used[ $path ] = true;
+				$count++;
+			}
+		}
+		return $html;
+	},
+	24
+);
