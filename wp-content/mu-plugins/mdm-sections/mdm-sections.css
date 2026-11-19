@@ -2945,3 +2945,28 @@ html body.mdm-service .mdm-niche__stats li.is-red { background: linear-gradient(
 html body.mdm-service .mdm-ic__cta .mdm-ic__h2 { color: #fff !important; }
 html body.mdm-service .mdm-ic__cta .mdm-ihero__btn.is-red { background: #fff; border-color: #fff; color: #111114 !important; box-shadow: none; }
 html body.mdm-service .mdm-ic__cta .mdm-ihero__btn.is-red em { background: #ED1C24; color: #fff; }
+
+/* ------------------------------------------------------------------ */
+/* Video cards: same design, but a clean fixed grid. No fan / stack,  */
+/* no overlap; cards fade up once and lift gently on hover.           */
+/* (Overrides the scroll "gather" effect above; remove this block to  */
+/* bring the fanned hand back.)                                        */
+/* ------------------------------------------------------------------ */
+html body .mdm-reels .mdm-reel {
+	--rot: 0deg !important; --fx: 0% !important; --fy: 0px !important; --g: 0 !important;
+	--sy: 0px !important; --sr: 0deg !important; --cx: 0% !important; --tx: 0deg !important; --ty: 0deg !important;
+	transform: none !important; z-index: 1; will-change: auto;
+}
+html body .mdm-reels .mdm-reels__grid { column-gap: clamp(14px, 1.8vw, 26px) !important; row-gap: clamp(40px, 4.5vw, 64px) !important; perspective: none; }
+html body .mdm-reels .mdm-reel__flip {
+	transform: translateY(28px) !important; opacity: 0;
+	transition: transform .7s cubic-bezier(.22,.8,.26,1), opacity .5s ease !important;
+	transition-delay: calc(var(--col) * 80ms) !important;
+}
+html body .mdm-reels .mdm-reel.is-in .mdm-reel__flip { transform: none !important; opacity: 1; }
+html body .mdm-reels .mdm-reel.is-settled .mdm-reel__flip { transition: transform .35s cubic-bezier(.22,.8,.26,1), opacity .3s ease !important; transition-delay: 0s !important; }
+html body .mdm-reels .mdm-reel.is-settled:hover .mdm-reel__flip { transform: translateY(-8px) !important; }
+html body .mdm-reels .mdm-reel__back { display: none; }
+html body .mdm-reels .mdm-reel__front { cursor: pointer; }
+html body .mdm-reels .mdm-reel__cat, html body .mdm-reels .mdm-reel.is-in .mdm-reel__cat, html body .mdm-reels .mdm-reel:hover .mdm-reel__cat, html body .mdm-reels .mdm-reel.is-in.is-settled:hover .mdm-reel__cat { transform: none !important; opacity: 1 !important; }
+@media (prefers-reduced-motion: reduce) { html body .mdm-reels .mdm-reel__flip { transform: none !important; opacity: 1; transition: none !important; } }
