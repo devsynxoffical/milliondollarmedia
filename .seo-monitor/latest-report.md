@@ -1,4 +1,4 @@
-# SEO monitor report: 2026-11-19T06:24Z
+# SEO monitor report: 2026-11-19T18:24Z
 
 Search Console window: 2026-11-11 to 2026-11-17 (vs 2026-11-04 to 2026-11-10). Data lags about 2 days.
 
@@ -29,7 +29,7 @@ Search Console window: 2026-11-11 to 2026-11-17 (vs 2026-11-04 to 2026-11-10). D
 
 ## Indexing (priority pages)
 
-- /: Submitted and indexed, last crawl 2026-11-13
+- /: Submitted and indexed, last crawl 2026-11-19
 - /facebook-ads-for-roofers/: Submitted and indexed, last crawl 2026-11-18
 - /hvac-facebook-ads/: Submitted and indexed, last crawl 2026-11-18
 - /what-is-a-vsl/: Crawled - currently not indexed, last crawl 2026-11-18
@@ -38,19 +38,19 @@ Search Console window: 2026-11-11 to 2026-11-17 (vs 2026-11-04 to 2026-11-10). D
 - /plumbing-video-production/: Crawled - currently not indexed, last crawl 2026-04-12
 - /home-service-business/: Crawled - currently not indexed, last crawl 2026-11-18
 - /mva/: Crawled - currently not indexed, last crawl 2026-11-18
-- /real-estate/: Discovered - currently not indexed, last crawl -  CHANGED (was: URL is unknown to Google)
+- /real-estate/: Discovered - currently not indexed, last crawl -
 - /solar/: Crawled - currently not indexed, last crawl 2026-11-18
 - /saas/: Crawled - currently not indexed, last crawl 2026-11-18
 - /strategic-video-marketing-for-coaches/: Crawled - currently not indexed, last crawl 2026-04-22
 - /agency-owners/: Crawled - currently not indexed, last crawl 2026-11-18
-- /portfolio/: URL is unknown to Google, last crawl -  CHANGED (was: Discovered - currently not indexed)
+- /portfolio/: Discovered - currently not indexed, last crawl -  CHANGED (was: URL is unknown to Google)
 - /case-studies/: Submitted and indexed, last crawl 2026-11-14
 - /case-studies/lead-generation/: Submitted and indexed, last crawl 2026-11-13
 - /case-studies/ecommerce/: Submitted and indexed, last crawl 2026-11-14
 - /our-story/: Submitted and indexed, last crawl 2026-11-14
-- /blogs/: 0, last crawl -  CHANGED (was: Submitted and indexed)
+- /blogs/: Submitted and indexed, last crawl 2026-11-03  CHANGED (was: None)
 
-## Site health (200 sitemap URLs)
+## Site health (201 sitemap URLs)
 
 - Not returning 200: 0 
 - Indexable pages with missing title, short description or not exactly one H1: 0 

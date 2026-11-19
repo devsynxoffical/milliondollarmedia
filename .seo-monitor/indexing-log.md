@@ -9,3 +9,15 @@ never resend a URL sent in the last 7 days. Read-only URL Inspection and IndexNo
 | 2026-11-19 07:31 | /ugc-ads-examples/ | 200 |
 | 2026-11-19 07:31 | /what-is-a-vsl/ | 429 (daily quota) |
 | 2026-11-19 07:31 | /portfolio/ | 429 (daily quota) |
+| 2026-11-19 18:27 | /roofing-video-marketing-services/ | 429 (quota exceeded) |
+| 2026-11-19 18:27 | /hvac-video-marketing-services/ | 429 (quota exceeded) |
+| 2026-11-19 18:27 | /plumbing-video-production/ | 429 (quota exceeded) |
+| 2026-11-19 18:27 | /home-service-business/ | 429 (quota exceeded) |
+| 2026-11-19 18:27 | /mva/ | 429 (quota exceeded) |
+| 2026-11-19 18:27 | /real-estate/ | 429 (quota exceeded) |
+| 2026-11-19 18:27 | /solar/ | 429 (quota exceeded) |
+| 2026-11-19 18:27 | /saas/ | 429 (quota exceeded) |
+| 2026-11-19 18:27 | /strategic-video-marketing-for-coaches/ | 429 (quota exceeded) |
+| 2026-11-19 18:27 | /agency-owners/ | 429 (quota exceeded) |
+
+Note: on a 429 stop the batch at the first rejection; every request counts toward the 20.
