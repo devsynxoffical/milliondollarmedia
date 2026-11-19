@@ -3004,3 +3004,72 @@ html .mdm-plan__price.is-swap { animation: mdmPriceSwap .35s ease; }
 
 /* No sideways page scroll: the client logo carousel (Elementor swiper, overflow visible) is wider than the screen. */
 html { overflow-x: clip; }
+
+/* ================================================================== */
+/* Blog posts: desktop layout (inc/blog-layout.php)                    */
+/* wide card, cover across, article + sticky sidebar, full-width tail  */
+/* ================================================================== */
+html .mdm-post .site-content > .ast-container { max-width: 1280px !important; }
+html .mdm-post .ast-article-single { padding: 56px 64px 60px !important; }
+html .mdm-post .entry-header { max-width: 900px; }
+html .mdm-post .entry-title { font-size: clamp(32px, 3.6vw, 52px) !important; }
+html .mdm-post .mdm-post-cover { margin: 0 0 48px !important; border-radius: 24px; }
+html .mdm-post .mdm-post-cover img { aspect-ratio: 21 / 9; }
+
+html .mdm-post-layout { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 64px; align-items: start; }
+html .mdm-post-main { min-width: 0; max-width: 780px; }
+html .mdm-post-side { position: sticky; top: 110px; }
+html .mdm-post-side__in { display: flex; flex-direction: column; gap: 18px; }
+html .mdm-post-main > .mdm-toc { display: none; }
+
+/* sidebar contents */
+html .mdm-post .mdm-toc--side { margin: 0; padding: 22px 20px 16px; border-radius: 20px; background: #F7F7F5; border: 1px solid rgba(17,17,20,.07); max-height: calc(100vh - 420px); min-height: 180px; overflow: auto; }
+html .mdm-post .mdm-toc--side ol { columns: 1 !important; }
+html .mdm-post .mdm-toc--side li { padding: 7px 8px 7px 34px; border-radius: 10px; font-size: 14px; line-height: 1.4; transition: background .2s; }
+html .mdm-post .mdm-toc--side li::before { left: 8px; top: 8px; }
+html .mdm-post .mdm-toc--side a { color: rgba(17,17,20,.72) !important; }
+html .mdm-post .mdm-toc--side li:has(a.is-active) { background: #fff; box-shadow: inset 3px 0 0 #E10600; }
+html .mdm-post .mdm-toc--side a.is-active { color: #111114 !important; font-weight: 600; }
+
+/* sidebar call card */
+html .mdm-sidecta { padding: 24px 22px; border-radius: 20px; background: linear-gradient(150deg, #ED1C24, #8E0A0F); color: #fff; font-family: "Poppins", sans-serif; box-shadow: 0 30px 60px -36px rgba(237,28,36,.8); }
+html .mdm-post .entry-content .mdm-sidecta p { color: #fff !important; }
+html .mdm-post .entry-content .mdm-sidecta .mdm-sidecta__tag { display: inline-block; margin: 0 0 10px !important; padding: 6px 10px; border-radius: 999px; background: rgba(0,0,0,.22); font: 700 11px/1 "Poppins", sans-serif !important; letter-spacing: .12em; text-transform: uppercase; }
+html .mdm-post .entry-content .mdm-sidecta .mdm-sidecta__title { margin: 0 0 14px !important; font: 700 20px/1.3 "Poppins", sans-serif !important; }
+html .mdm-post .entry-content .mdm-sidecta ul { list-style: none; margin: 0 0 18px !important; padding: 0 !important; display: grid; gap: 8px; }
+html .mdm-post .entry-content .mdm-sidecta li { margin: 0; padding-left: 24px; position: relative; font-size: 14px; line-height: 1.45; color: rgba(255,255,255,.9); }
+html .mdm-post .entry-content .mdm-sidecta li::before { content: "✓"; position: absolute; left: 0; top: 0; font-weight: 700; }
+html .mdm-post .entry-content .mdm-sidecta b { color: #fff; }
+html .mdm-post .entry-content a.mdm-sidecta__btn { display: block; text-align: center; padding: 14px 16px; border-radius: 999px; background: #fff; color: #111114 !important; font: 700 14.5px/1.2 "Poppins", sans-serif; text-decoration: none !important; transition: transform .2s; }
+html .mdm-post .entry-content a.mdm-sidecta__btn:hover { transform: translateY(-2px); }
+html .mdm-post .entry-content a.mdm-sidecta__wa { display: block; margin-top: 12px; text-align: center; color: #fff !important; font-size: 13.5px; text-decoration: underline !important; text-underline-offset: 3px; }
+
+/* full-width tail: lead form (light, like the service pages) + related */
+html .mdm-post-tail { margin-top: 64px; }
+html .mdm-post .mdm-post-tail .mdm-lf { margin: 0 !important; border-radius: 26px; background: #F6F5F2; color: #111114; padding: clamp(40px, 5vw, 64px) clamp(24px, 4vw, 56px); }
+html .mdm-post .mdm-post-tail .mdm-lf::before { background: radial-gradient(45% 60% at 90% 10%, rgba(237,28,36,.1), transparent 70%); }
+html .mdm-post .entry-content .mdm-post-tail .mdm-lf h2.mdm-lf__h2 { color: #111114 !important; border: 0 !important; padding: 0 !important; margin: 18px 0 14px !important; font: 700 clamp(24px, 2.6vw, 36px)/1.15 "Syncopate", sans-serif !important; text-transform: uppercase; }
+html .mdm-post .entry-content .mdm-post-tail .mdm-lf__pitch p { color: rgba(17,17,20,.7) !important; font-size: 16.5px !important; }
+html .mdm-post .entry-content .mdm-post-tail .mdm-lf__points { margin: 0 0 22px !important; padding: 0 !important; }
+html .mdm-post .entry-content .mdm-post-tail .mdm-lf__points li { background: #fff; border-color: rgba(17,17,20,.08); color: rgba(17,17,20,.78); text-align: left; font-size: 15px; line-height: 1.45; margin: 0; }
+html .mdm-post .entry-content .mdm-post-tail .mdm-lf__points b { color: #111114 !important; }
+html .mdm-post .entry-content .mdm-post-tail .mdm-lf__wa { color: #111114 !important; text-decoration: none !important; }
+html .mdm-post .mdm-post-tail .mdm-lf__form { box-shadow: 0 40px 80px -45px rgba(17,17,20,.4); border: 1px solid rgba(17,17,20,.06); }
+html .mdm-post .mdm-post-tail .mdm-related { margin-top: 40px; padding: 32px; border-radius: 26px; }
+
+@media (max-width: 1100px) {
+	html .mdm-post-layout { grid-template-columns: minmax(0, 1fr); gap: 0; }
+	html .mdm-post-side { display: none; }
+	html .mdm-post-main { max-width: 100%; }
+	html .mdm-post-main > .mdm-toc { display: block; }
+	html .mdm-post .mdm-post-cover img { aspect-ratio: 16 / 9; }
+}
+@media (max-width: 921px) {
+	html .mdm-post .ast-article-single { padding: 40px 32px !important; }
+	html .mdm-post-tail { margin-top: 44px; }
+}
+@media (max-width: 600px) {
+	html .mdm-post .ast-article-single { padding: 28px 18px 30px !important; }
+	html .mdm-post .mdm-post-tail .mdm-lf { margin: 0 -18px !important; border-radius: 20px; padding: 32px 18px; }
+	html .mdm-post .mdm-post-tail .mdm-related { padding: 22px 16px; margin-left: -8px; margin-right: -8px; }
+}
