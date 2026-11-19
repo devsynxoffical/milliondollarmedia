@@ -863,15 +863,44 @@
 			var cta = plan.querySelector('.mdm-plan__cta');
 			var price = parseFloat(plan.getAttribute('data-price')) || 0;
 			var qty = 1;
+			var fmt = function (n) { return (Math.round(n * 100) % 100) ? n.toFixed(2) : String(Math.round(n)); };
+			var render = function () {
+				out.textContent = qty;
+				total.textContent = fmt(price * qty);
+				var url = cta.getAttribute('data-base');
+				cta.href = url + (url.indexOf('?') === -1 ? '?' : '&') + 'quantity=' + qty;
+			};
 			$$('[data-qty]', plan).forEach(function (b) {
 				b.addEventListener('click', function () {
 					qty = clamp(qty + parseInt(b.getAttribute('data-qty'), 10), 1, 99);
-					out.textContent = qty;
-					total.textContent = (price * qty).toFixed(2);
-					var url = cta.getAttribute('data-base');
-					cta.href = url + (url.indexOf('?') === -1 ? '?' : '&') + 'quantity=' + qty;
+					render();
 				});
 			});
+			// Package dropdown (standard / AI / bundle): swaps price, unit line, features and the product in Buy now.
+			var sel = plan.querySelector('[data-plan-opt]');
+			if (sel) {
+				sel.addEventListener('change', function () {
+					var o = sel.options[sel.selectedIndex];
+					price = parseFloat(o.getAttribute('data-price')) || 0;
+					plan.setAttribute('data-price', o.getAttribute('data-price'));
+					cta.setAttribute('data-base', o.getAttribute('data-base'));
+					var unit = plan.querySelector('.mdm-plan__unit');
+					if (unit) { unit.textContent = o.getAttribute('data-unit'); }
+					var list = plan.querySelector('.mdm-plan__list');
+					var feats = [];
+					try { feats = JSON.parse(o.getAttribute('data-features') || '[]'); } catch (err) {}
+					if (list && feats.length) {
+						list.textContent = '';
+						feats.forEach(function (t) { var li = document.createElement('li'); li.textContent = t; list.appendChild(li); });
+					}
+					qty = 1;
+					render();
+					var box = total.parentNode;
+					box.classList.toggle('is-swap', false);
+					void box.offsetWidth;
+					box.classList.toggle('is-swap', true);
+				});
+			}
 		});
 	}
 
