@@ -2941,3 +2941,7 @@ html body.mdm-service .mdm-lf__pitch p { color: rgba(17,17,20,.7) !important; }
 html body.mdm-service .mdm-lf__points li { background: #fff; border-color: rgba(17,17,20,.08); color: rgba(17,17,20,.78); }
 html body.mdm-service .mdm-lf__points b, html body.mdm-service .mdm-lf__wa { color: #111114 !important; }
 html body.mdm-service .mdm-lf__form { box-shadow: 0 40px 80px -45px rgba(17,17,20,.4); border: 1px solid rgba(17,17,20,.06); }
+html body.mdm-service .mdm-niche__stats li.is-red { background: linear-gradient(135deg, #ED1C24, #8E0A0F); border-color: transparent; }
+html body.mdm-service .mdm-ic__cta .mdm-ic__h2 { color: #fff !important; }
+html body.mdm-service .mdm-ic__cta .mdm-ihero__btn.is-red { background: #fff; border-color: #fff; color: #111114 !important; box-shadow: none; }
+html body.mdm-service .mdm-ic__cta .mdm-ihero__btn.is-red em { background: #ED1C24; color: #fff; }

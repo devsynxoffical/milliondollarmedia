@@ -365,3 +365,11 @@ add_filter(
 	},
 	40
 );
+
+// Service pages: no site-wide client testimonials block (each page shows its own industry videos and case studies instead).
+add_filter(
+	'mdm_voices_everywhere',
+	static function ( $on ) {
+		return mdm_industry_slug() ? false : $on;
+	}
+);
