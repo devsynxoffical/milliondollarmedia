@@ -41,10 +41,15 @@ add_action(
 		if ( ! mdm_blog_is_post() ) {
 			return;
 		}
+		$id   = get_the_ID();
 		$cats = get_the_category();
 		$name = $cats ? $cats[0]->name : 'Blog';
 		$url  = $cats ? get_category_link( $cats[0] ) : home_url( '/blogs/' );
-		echo '<div class="mdm-post-kicker"><a href="' . esc_url( home_url( '/blogs/' ) ) . '">Blog</a><i aria-hidden="true">/</i><a href="' . esc_url( $url ) . '">' . esc_html( $name ) . '</a></div>';
+		echo '<a class="mdm-post-back" href="' . esc_url( home_url( '/blogs/' ) ) . '">← All articles</a>';
+		echo '<div class="mdm-post-kicker"><a href="' . esc_url( $url ) . '">' . esc_html( $name ) . '</a>'
+			. '<span>' . (int) mdm_blog_read_minutes( $id ) . ' min read</span>'
+			. ( get_the_modified_time( 'U', $id ) > get_the_time( 'U', $id ) + DAY_IN_SECONDS ? '<span>Updated ' . esc_html( get_the_modified_date( 'F j, Y', $id ) ) . '</span>' : '' )
+			. '</div>';
 	}
 );
 
@@ -54,12 +59,19 @@ add_action(
 		if ( ! mdm_blog_is_post() ) {
 			return;
 		}
-		$id = get_the_ID();
-		echo '<div class="mdm-post-facts"><span>' . (int) mdm_blog_read_minutes( $id ) . ' min read</span>';
-		if ( get_the_modified_time( 'U', $id ) > get_the_time( 'U', $id ) + DAY_IN_SECONDS ) {
-			echo '<span>Updated ' . esc_html( get_the_modified_date( 'F j, Y', $id ) ) . '</span>';
+		$id   = get_the_ID();
+		// Summary under the title: the SEO description, else the post excerpt, shortened.
+		$lead = (string) get_post_meta( $id, 'rank_math_description', true );
+		if ( '' === trim( $lead ) || false !== strpos( $lead, '%' ) ) {
+			$raw  = has_excerpt( $id ) ? get_post_field( 'post_excerpt', $id ) : strip_shortcodes( (string) get_post_field( 'post_content', $id ) );
+			$lead = wp_trim_words( wp_strip_all_tags( $raw ), 34, '…' ); // no get_the_excerpt(): it would run every the_content filter
 		}
-		echo '</div>';
+		if ( '' !== trim( $lead ) ) {
+			echo '<p class="mdm-post-lead">' . esc_html( $lead ) . '</p>';
+		}
+		$author = get_the_author_meta( 'display_name', (int) get_post_field( 'post_author', $id ) );
+		echo '<div class="mdm-post-byline"><span class="mdm-post-byline__avatar" aria-hidden="true">' . esc_html( mb_substr( $author ? $author : 'M', 0, 1 ) ) . '</span>'
+			. '<span><b>' . esc_html( $author ? $author : 'Million Dollar Media' ) . '</b><small>Million Dollar Media · Published ' . esc_html( get_the_date( 'F j, Y', $id ) ) . '</small></span></div>';
 	}
 );
 
