@@ -3128,3 +3128,9 @@ html .mdm-post .mdm-post-tail .mdm-related { background: #fff; border-color: rgb
 	html .mdm-post .mdm-post-tail .mdm-lf { margin: 0 !important; }
 	html .mdm-post .mdm-post-tail .mdm-related { margin-left: 0; margin-right: 0; }
 }
+/* (v3 set the desktop grid after the tablet rule; repeat the one-column rule here so it wins) */
+@media (max-width: 1100px) {
+	html .mdm-post-layout { grid-template-columns: minmax(0, 1fr); gap: 0; }
+	html .mdm-post-main { max-width: 100%; }
+}
+@media (max-width: 600px) { html .mdm-post .mdm-toc ol { columns: 1 !important; } }
