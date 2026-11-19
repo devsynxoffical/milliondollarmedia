@@ -131,7 +131,7 @@ function mdm_shortcode_reels( $atts ) {
 	ob_start();
 	echo MDM_Sections::assets(); // phpcs:ignore WordPress.Security.EscapeOutput
 	?>
-	<section id="reel" class="mdm-reels<?php echo 'no' === $atts['head'] ? ' mdm-reels--nohead' : ''; ?>" data-mdm-reels>
+	<section id="reel" class="mdm-reels<?php echo 'no' === $atts['head'] ? ' mdm-reels--nohead' : ''; ?>" data-mdm-reels data-href="<?php echo esc_url( home_url( '/portfolio/' ) ); ?>">
 		<?php if ( 'no' === $atts['head'] ) : ?>
 			<?php if ( '' !== trim( $atts['intro'] ) ) : ?>
 				<div class="mdm-reels__intro">
@@ -456,6 +456,14 @@ add_action(
 			f.setAttribute('allowfullscreen', '');
 			f.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:0';
 			b.replaceWith(f);
+		});
+		// Video cards (home + service pages): a click on the video opens the Portfolio. The Unmute / pause buttons and the category link keep their own job.
+		document.addEventListener('click', function (e) {
+			if (!e.target.closest) return;
+			var card = e.target.closest('.mdm-reel__front');
+			if (!card || e.target.closest('button, a') || card.closest('.mdm-reel--stat')) return;
+			var root = card.closest('[data-mdm-reels]');
+			window.location.href = (root && root.getAttribute('data-href')) || '/portfolio/';
 		});
 		</script>
 		<?php
