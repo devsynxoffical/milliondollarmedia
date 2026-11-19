@@ -38,7 +38,8 @@ function mdm_seo_meta_map() {
 			'/video-marketing-for-roofing-business/'   => array( 'Video Marketing for Roofing Companies: Step-by-Step Guide', 'A step-by-step video marketing guide for roofing contractors: video ideas, simple scripts, filming on a phone, and turning videos into local roofing leads.' ),
 			'/facebook-ads-for-roofers/'               => array( 'Facebook Ads for Roofers: Real Roofing Lead Costs & Setup', 'How roofers get leads from Facebook ads: real cost per lead from 9 roofing campaigns ($4.27 to $24), plus the targeting, lead form and verification setup.' ),
 			'/hvac-facebook-ads/'                      => array( 'Facebook Ads for HVAC: Real Lead, Booking & Install Costs', 'How HVAC companies get leads from Facebook ads: real cost per lead, per booked appointment and per install from our HVAC campaigns, plus the lead form we use.' ),
-			'/what-is-a-vsl/'                          => array( 'What Is a VSL? Video Sales Letter Guide With Examples', 'What a VSL (video sales letter) is, how it works, the proven script structure, real examples and costs, and when a VSL beats a text sales page.' ),
+			'/ugc-ads-examples/'                       => array( 'UGC Ad Examples: 38 UGC-Style Video Ads by Industry', 'Watch 38 real UGC-style video ads we made for roofing, solar, HVAC, legal, finance and SaaS clients, with the hook each one opens with. From $34.97 per video.' ),
+			'/what-is-a-vsl/'                          => array( 'What Is a VSL? Video Sales Letter Guide + Real VSL Examples', 'What a VSL (video sales letter) is, the script structure that converts, real VSL examples from our clients, what a VSL costs and when it beats a sales page.' ),
 		)
 	);
 }
