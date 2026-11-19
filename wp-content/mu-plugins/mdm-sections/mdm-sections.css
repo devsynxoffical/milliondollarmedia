@@ -2858,3 +2858,86 @@ html .mdm-vslx__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
 html .mdm-vslx__grid .mdm-ugc__video { aspect-ratio: 16 / 9; border-radius: 14px; }
 @media (max-width: 1000px) { html .mdm-ugc__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } html .mdm-ugc__pattern { grid-template-columns: 1fr 1fr; } html .mdm-ugc__herogrid { grid-template-columns: 1fr; } }
 @media (max-width: 600px) { html .mdm-ugc__grid { grid-template-columns: 1fr 1fr; gap: 10px; } html .mdm-ugc__pattern, html .mdm-vslx__grid { grid-template-columns: 1fr; } html .mdm-ugc__hook { font-size: 13px !important; } html .mdm-ugc__btns .mdm-ihero__btn { flex: 1 1 100%; justify-content: center; } }
+
+/* ------------------------------------------------------------------ */
+/* Service pages: light theme (matches the home page palette)         */
+/* ------------------------------------------------------------------ */
+html body.mdm-service { background: #fff; }
+html body.mdm-service .mdm-niche__pill, html body.mdm-service .mdm-ihero__pill { color: #111114; background: rgba(237,28,36,.07); }
+
+/* Hero */
+html body.mdm-service .mdm-ihero { background: #F6F5F2; color: #111114; }
+html body.mdm-service .mdm-ihero::before { background: radial-gradient(55% 60% at 80% 40%, rgba(237,28,36,.13), transparent 70%), radial-gradient(40% 50% at 5% 0%, rgba(237,28,36,.07), transparent 70%); }
+html body.mdm-service .mdm-ihero::after { background-image: linear-gradient(rgba(17,17,20,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(17,17,20,.05) 1px, transparent 1px); }
+html body.mdm-service .mdm-ihero__h1 { color: #111114 !important; }
+html body.mdm-service .mdm-ihero__sub { color: rgba(17,17,20,.7) !important; }
+html body.mdm-service .mdm-ihero__btn { color: #111114 !important; border-color: rgba(17,17,20,.2); background: #fff; }
+html body.mdm-service .mdm-ihero__btn:hover { border-color: #111114; }
+html body.mdm-service .mdm-ihero__btn.is-red { color: #fff !important; background: #ED1C24; border-color: #ED1C24; box-shadow: 0 14px 34px -14px rgba(237,28,36,.6); }
+html body.mdm-service .mdm-ihero__trust li { color: rgba(17,17,20,.62); }
+html body.mdm-service .mdm-ihero__trust b { color: #111114; }
+html body.mdm-service .mdm-ihero__card { border-color: rgba(17,17,20,.08); box-shadow: 0 30px 60px -30px rgba(17,17,20,.35); }
+
+/* Industry videos (home page reel cards) */
+html body.mdm-service .mdm-ivids { background: #fff; color: #111114; padding-bottom: 0; }
+html body.mdm-service .mdm-ivids__in { text-align: center; }
+html body.mdm-service .mdm-ivids__h2 { color: #111114 !important; }
+html body.mdm-service .mdm-ivids__sub { color: rgba(17,17,20,.62) !important; margin-bottom: 0 !important; }
+html body.mdm-service .mdm-ivids--reels .mdm-reels { padding-top: clamp(28px, 4vw, 44px); }
+
+/* Results + case studies */
+html body.mdm-service .mdm-niche--dark { background: #F6F5F2; color: #111114; }
+html body.mdm-service .mdm-niche--dark::before { background: radial-gradient(60% 40% at 85% 8%, rgba(237,28,36,.09), transparent 70%); }
+html body.mdm-service .mdm-niche--dark .mdm-niche__h2, html body.mdm-service .mdm-niche--dark .mdm-cases__title { color: #111114 !important; }
+html body.mdm-service .mdm-niche--dark p, html body.mdm-service .mdm-niche--dark .mdm-cases__head .mdm-lead { color: rgba(17,17,20,.7) !important; }
+html body.mdm-service .mdm-niche--dark .mdm-eyebrow { color: #111114 !important; }
+html body.mdm-service .mdm-niche__stats li { background: #fff; border-color: rgba(17,17,20,.08); box-shadow: 0 18px 40px -28px rgba(17,17,20,.3); transition: transform .25s, box-shadow .25s; }
+html body.mdm-service .mdm-niche__stats li:hover { transform: translateY(-4px); box-shadow: 0 24px 48px -26px rgba(237,28,36,.45); }
+html body.mdm-service .mdm-niche__stats b { color: #111114; }
+html body.mdm-service .mdm-niche__stats span { color: rgba(17,17,20,.62); }
+html body.mdm-service .mdm-niche__stats li.is-red b, html body.mdm-service .mdm-niche__stats li.is-red span { color: #fff; }
+html body.mdm-service .mdm-niche--dark .mdm-cs { border-color: rgba(17,17,20,.08) !important; }
+html body.mdm-service .mdm-niche__guide { color: #ED1C24 !important; }
+html body.mdm-service .mdm-niche__more a { color: #111114 !important; border-color: rgba(17,17,20,.14); background: #fff; }
+html body.mdm-service .mdm-niche--dark .mdm-niche__faq { background: #fff !important; border-color: rgba(17,17,20,.1) !important; }
+html body.mdm-service .mdm-niche--dark .mdm-niche__faq summary { color: #111114 !important; }
+html body.mdm-service .mdm-niche__btn:not(.is-red) { color: #111114 !important; border-color: rgba(17,17,20,.2); }
+
+/* Detail sections: interactive cards on light backgrounds */
+html body.mdm-service .mdm-ic { background: #fff; color: #111114; }
+html body.mdm-service .mdm-ic__sec:nth-child(even) { background: #F6F5F2; border-color: rgba(17,17,20,.05); }
+html body.mdm-service .mdm-ic__h2 { color: #111114 !important; }
+html body.mdm-service .mdm-ic__sub, html body.mdm-service .mdm-ic__p { color: rgba(17,17,20,.7) !important; }
+html body.mdm-service .mdm-ic__checks li { background: #fff; border-color: rgba(17,17,20,.08); color: #111114; box-shadow: 0 12px 28px -22px rgba(17,17,20,.35); transition: transform .2s, border-color .2s; }
+html body.mdm-service .mdm-ic__checks li:hover { transform: translateX(4px); border-color: rgba(237,28,36,.45); }
+html body.mdm-service .mdm-ic__media img { border-color: rgba(17,17,20,.08); box-shadow: 0 40px 80px -45px rgba(17,17,20,.45); }
+html body.mdm-service .mdm-ic__yt { border-color: rgba(17,17,20,.08); box-shadow: 0 40px 80px -45px rgba(17,17,20,.45); }
+html body.mdm-service .mdm-ic__card, html body.mdm-service .mdm-ic__cmp, html body.mdm-service .mdm-ic__tip { background: #fff; border-color: rgba(17,17,20,.08); box-shadow: 0 18px 40px -30px rgba(17,17,20,.35); }
+html body.mdm-service .mdm-ic__card:hover, html body.mdm-service .mdm-ic__cmp:hover, html body.mdm-service .mdm-ic__tip:hover { border-color: rgba(237,28,36,.45); box-shadow: 0 26px 50px -28px rgba(237,28,36,.4); }
+html body.mdm-service .mdm-ic__card h3, html body.mdm-service .mdm-ic__tip h3, html body.mdm-service .mdm-ic__cmp h3, html body.mdm-service .mdm-ic__steps h3 { color: #111114 !important; }
+html body.mdm-service .mdm-ic__card p, html body.mdm-service .mdm-ic__tip p, html body.mdm-service .mdm-ic__steps p { color: rgba(17,17,20,.66) !important; }
+html body.mdm-service .mdm-ic__row.is-bad { background: #F6F5F2; }
+html body.mdm-service .mdm-ic__row.is-bad b { color: rgba(17,17,20,.45); }
+html body.mdm-service .mdm-ic__row.is-bad p { color: rgba(17,17,20,.66) !important; }
+html body.mdm-service .mdm-ic__row.is-good { background: rgba(237,28,36,.06); }
+html body.mdm-service .mdm-ic__row.is-good p { color: #111114 !important; }
+html body.mdm-service .mdm-ic__steps li { padding: 20px 18px 22px; border-radius: 20px; background: #fff; border: 1px solid rgba(17,17,20,.08); box-shadow: 0 18px 40px -30px rgba(17,17,20,.35); transition: transform .25s, border-color .25s, box-shadow .25s; }
+html body.mdm-service .mdm-ic__steps li:hover { transform: translateY(-5px); border-color: rgba(237,28,36,.45); box-shadow: 0 26px 50px -28px rgba(237,28,36,.4); }
+html body.mdm-service .mdm-ic__steps::before { display: none; }
+html body.mdm-service .mdm-ic__stepn, html body.mdm-service .mdm-ic__sec:nth-child(even) .mdm-ic__stepn { background: #fff; color: #111114; box-shadow: 0 0 0 6px #fff; transition: background .25s, color .25s; }
+html body.mdm-service .mdm-ic__steps li:hover .mdm-ic__stepn { background: #ED1C24; color: #fff; }
+@media (max-width: 1024px) {
+	html body.mdm-service .mdm-ic__steps { gap: 12px; }
+	html body.mdm-service .mdm-ic__steps::before { display: none; }
+	html body.mdm-service .mdm-ic__steps li { padding: 18px; }
+	html body.mdm-service .mdm-ic__steps li:hover { transform: none; }
+}
+
+/* Lead form */
+html body.mdm-service .mdm-lf { background: #F6F5F2; color: #111114; }
+html body.mdm-service .mdm-lf::before { background: radial-gradient(45% 60% at 90% 10%, rgba(237,28,36,.1), transparent 70%); }
+html body.mdm-service .mdm-lf__h2 { color: #111114 !important; }
+html body.mdm-service .mdm-lf__pitch p { color: rgba(17,17,20,.7) !important; }
+html body.mdm-service .mdm-lf__points li { background: #fff; border-color: rgba(17,17,20,.08); color: rgba(17,17,20,.78); }
+html body.mdm-service .mdm-lf__points b, html body.mdm-service .mdm-lf__wa { color: #111114 !important; }
+html body.mdm-service .mdm-lf__form { box-shadow: 0 40px 80px -45px rgba(17,17,20,.4); border: 1px solid rgba(17,17,20,.06); }

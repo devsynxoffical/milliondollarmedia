@@ -341,10 +341,9 @@ add_filter(
 		if ( empty( $n[ $slug ] ) || false !== strpos( $content, 'mdm-niche__top' ) ) {
 			return $content;
 		}
-		// Proof right after the hero; the FAQ at the end, unless the page already has its own FAQ accordion.
-		// Proof right after the hero; the same chat-style FAQ as the main pages at the end (industry questions).
+		// Industry videos right after the hero, then results and case studies; the chat-style FAQ at the end.
 		$faq = function_exists( 'mdm_industry_faq_html' ) ? mdm_industry_faq_html( $slug ) : '';
-		return mdm_seo_niche_section( $slug, 'top' ) . ( function_exists( 'mdm_industry_videos_html' ) ? mdm_industry_videos_html( $slug ) : '' ) . $content . ( $faq ? $faq : mdm_seo_niche_section( $slug, 'faq' ) );
+		return ( function_exists( 'mdm_industry_videos_html' ) ? mdm_industry_videos_html( $slug ) : '' ) . mdm_seo_niche_section( $slug, 'top' ) . $content . ( $faq ? $faq : mdm_seo_niche_section( $slug, 'faq' ) );
 	},
 	30
 );
