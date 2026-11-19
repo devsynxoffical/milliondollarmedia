@@ -1,11 +1,11 @@
-# SEO monitor report: 2026-11-18T18:24Z
+# SEO monitor report: 2026-11-19T06:24Z
 
-Search Console window: 2026-11-10 to 2026-11-16 (vs 2026-11-03 to 2026-11-09). Data lags about 2 days.
+Search Console window: 2026-11-11 to 2026-11-17 (vs 2026-11-04 to 2026-11-10). Data lags about 2 days.
 
 ## Totals (last 7 days vs previous 7)
 
-- Clicks: 3 (previous 9)
-- Impressions: 124 (previous 90)
+- Clicks: 4 (previous 6)
+- Impressions: 132 (previous 79)
 
 ## Non-brand queries (last 7 days)
 
@@ -14,42 +14,41 @@ Search Console window: 2026-11-10 to 2026-11-16 (vs 2026-11-03 to 2026-11-09). D
 ## Opportunities
 
 - No queries at positions 4-20 with 5+ impressions yet
-- New queries this week: "milliondollarmedia.com"
-- Queries that disappeared: "million dollar advertising"
+- New queries this week: "milliondollarmedia.com", "site:milliondollarmedia.us"
 
 ## Pages (last 7 days)
 
-- /: 71 impr, 3 clicks, pos 3.8 (was 84 impr, pos 3.4)
-- /our-story/: 12 impr, 0 clicks, pos 8.8 (new)
-- /blogs/: 9 impr, 0 clicks, pos 4.9 (was 3 impr, pos 2.0)
-- /case-studies/ecommerce/: 9 impr, 0 clicks, pos 5.6 (new)
-- /case-studies/: 8 impr, 0 clicks, pos 5.5 (new)
-- /case-studies/lead-generation/: 7 impr, 0 clicks, pos 8.0 (new)
+- /: 66 impr, 4 clicks, pos 3.9 (was 79 impr, pos 3.4)
+- /case-studies/: 14 impr, 0 clicks, pos 5.4 (new)
+- /our-story/: 14 impr, 0 clicks, pos 9.0 (new)
+- /case-studies/ecommerce/: 10 impr, 0 clicks, pos 5.9 (new)
+- /case-studies/lead-generation/: 10 impr, 0 clicks, pos 7.7 (new)
+- /blogs/: 9 impr, 0 clicks, pos 4.9 (new)
+- /provide-information/: 5 impr, 0 clicks, pos 5.8 (new)
 - /book-your-call/: 4 impr, 0 clicks, pos 4.5 (new)
-- /provide-information/: 4 impr, 0 clicks, pos 4.8 (was 3 impr, pos 3.0)
 
 ## Indexing (priority pages)
 
 - /: Submitted and indexed, last crawl 2026-11-13
-- /facebook-ads-for-roofers/: Submitted and indexed, last crawl 2026-11-18  CHANGED (was: URL is unknown to Google)
-- /hvac-facebook-ads/: Submitted and indexed, last crawl 2026-11-18  CHANGED (was: URL is unknown to Google)
-- /what-is-a-vsl/: Crawled - currently not indexed, last crawl 2026-11-18  CHANGED (was: URL is unknown to Google)
-- /roofing-video-marketing-services/: Crawled - currently not indexed, last crawl 2026-11-18  CHANGED (was: Discovered - currently not indexed)
-- /hvac-video-marketing-services/: Crawled - currently not indexed, last crawl 2026-11-18  CHANGED (was: Discovered - currently not indexed)
+- /facebook-ads-for-roofers/: Submitted and indexed, last crawl 2026-11-18
+- /hvac-facebook-ads/: Submitted and indexed, last crawl 2026-11-18
+- /what-is-a-vsl/: Crawled - currently not indexed, last crawl 2026-11-18
+- /roofing-video-marketing-services/: Crawled - currently not indexed, last crawl 2026-11-18
+- /hvac-video-marketing-services/: Crawled - currently not indexed, last crawl 2026-11-18
 - /plumbing-video-production/: Crawled - currently not indexed, last crawl 2026-04-12
-- /home-service-business/: Crawled - currently not indexed, last crawl 2026-11-18  CHANGED (was: URL is unknown to Google)
-- /mva/: Crawled - currently not indexed, last crawl 2026-11-18  CHANGED (was: URL is unknown to Google)
-- /real-estate/: URL is unknown to Google, last crawl -
-- /solar/: Crawled - currently not indexed, last crawl 2026-11-18  CHANGED (was: Discovered - currently not indexed)
-- /saas/: Crawled - currently not indexed, last crawl 2026-11-18  CHANGED (was: Discovered - currently not indexed)
+- /home-service-business/: Crawled - currently not indexed, last crawl 2026-11-18
+- /mva/: Crawled - currently not indexed, last crawl 2026-11-18
+- /real-estate/: Discovered - currently not indexed, last crawl -  CHANGED (was: URL is unknown to Google)
+- /solar/: Crawled - currently not indexed, last crawl 2026-11-18
+- /saas/: Crawled - currently not indexed, last crawl 2026-11-18
 - /strategic-video-marketing-for-coaches/: Crawled - currently not indexed, last crawl 2026-04-22
-- /agency-owners/: Crawled - currently not indexed, last crawl 2026-11-18  CHANGED (was: Discovered - currently not indexed)
-- /portfolio/: Discovered - currently not indexed, last crawl -  CHANGED (was: URL is unknown to Google)
+- /agency-owners/: Crawled - currently not indexed, last crawl 2026-11-18
+- /portfolio/: URL is unknown to Google, last crawl -  CHANGED (was: Discovered - currently not indexed)
 - /case-studies/: Submitted and indexed, last crawl 2026-11-14
 - /case-studies/lead-generation/: Submitted and indexed, last crawl 2026-11-13
 - /case-studies/ecommerce/: Submitted and indexed, last crawl 2026-11-14
 - /our-story/: Submitted and indexed, last crawl 2026-11-14
-- /blogs/: Submitted and indexed, last crawl 2026-11-03
+- /blogs/: 0, last crawl -  CHANGED (was: Submitted and indexed)
 
 ## Site health (200 sitemap URLs)
 
