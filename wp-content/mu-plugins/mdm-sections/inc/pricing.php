@@ -22,6 +22,10 @@ function mdm_default_pricing_plans() {
 			'product'  => 343,
 			'badge'    => '',
 			'features' => array( 'Attention-grabbing visual elements', 'Custom designs that reflect your brand', 'Dedicated graphic designer', 'High-quality visuals for impact', 'Fast turnaround (24–48 hrs per image)' ),
+			'options'  => array(
+				array( 'AI Image', '19.97', 4977, 'per AI image', array( 'AI-generated visuals built from your offer', 'Custom designs that reflect your brand', 'Dedicated graphic designer', 'High-quality visuals for impact', 'Fast turnaround (24–48 hrs per image)' ) ),
+				array( '30 Images', '197', 426, 'for 30 images ($6.57 each)', null ),
+			),
 		),
 		array(
 			'name'     => 'Video',
@@ -30,6 +34,10 @@ function mdm_default_pricing_plans() {
 			'product'  => 427,
 			'badge'    => 'Most popular',
 			'features' => array( '45–60 second videos', 'Royalty-free stock audio & video', 'Stock footage & custom B-roll', 'Lower-third titles and transitions', 'Dedicated video editor', 'Fast turnaround (24–48 hrs per video)' ),
+			'options'  => array(
+				array( 'AI Video', '44.97', 4978, 'per AI video', array( '45–60 second AI videos', 'AI avatar or AI voice-over', 'Stock footage & custom B-roll', 'Lower-third titles and transitions', 'Dedicated video editor', 'Fast turnaround (24–48 hrs per video)' ) ),
+				array( '30 Videos', '797', 431, 'for 30 videos ($26.57 each)', null ),
+			),
 		),
 		array(
 			'name'     => 'GIF',
@@ -38,6 +46,10 @@ function mdm_default_pricing_plans() {
 			'product'  => 432,
 			'badge'    => '',
 			'features' => array( 'Loop-perfect animations', 'Strategic messaging in seconds', 'Branded motion graphics', 'Perfect for retargeting & warm audiences', 'Fast turnaround (24–48 hrs per GIF)', 'Dedicated account manager' ),
+			'options'  => array(
+				array( 'AI GIF', '29.97', 4979, 'per AI GIF', array( 'AI-animated, loop-perfect GIFs', 'Strategic messaging in seconds', 'Branded motion graphics', 'Perfect for retargeting & warm audiences', 'Fast turnaround (24–48 hrs per GIF)', 'Dedicated account manager' ) ),
+				array( '30 GIFs', '447', 436, 'for 30 GIFs ($14.90 each)', null ),
+			),
 		),
 		array(
 			'name'     => '10 Videos',
@@ -46,6 +58,9 @@ function mdm_default_pricing_plans() {
 			'product'  => 4956,
 			'badge'    => 'Best value',
 			'features' => array( '10 done-for-you ad videos', '45–60 second videos', 'Hook & angle testing built in', 'Stock footage & custom B-roll', 'Dedicated video editor', 'Fast turnaround (24–48 hrs per video)' ),
+			'options'  => array(
+				array( '10 AI Videos', '349', 4980, 'for 10 AI videos ($34.90 each)', array( '10 done-for-you AI video ads', 'AI avatar or AI voice-over', 'Hook & angle testing built in', 'Stock footage & custom B-roll', 'Dedicated video editor', 'Fast turnaround (24–48 hrs per video)' ) ),
+			),
 		),
 	);
 }
@@ -90,6 +105,17 @@ function mdm_shortcode_pricing( $atts ) {
 				<article class="mdm-plan<?php echo $p['badge'] ? ' mdm-plan--hot' : ''; ?>" style="--i:<?php echo (int) $i; ?>" data-price="<?php echo esc_attr( $p['price'] ); ?>">
 					<?php if ( $p['badge'] ) : ?><span class="mdm-plan__badge"><?php echo esc_html( $p['badge'] ); ?></span><?php endif; ?>
 					<p class="mdm-plan__name"><?php echo esc_html( $p['name'] ); ?></p>
+					<?php if ( ! empty( $p['options'] ) ) :
+						$opts = array_merge( array( array( $p['name'], $p['price'], $p['product'], $p['unit'], $p['features'] ) ), $p['options'] );
+						?>
+						<label class="mdm-plan__opt"><span class="screen-reader-text"><?php echo esc_html( 'Choose a ' . $p['name'] . ' package' ); ?></span>
+							<select data-plan-opt>
+								<?php foreach ( $opts as $o ) : ?>
+									<option value="<?php echo (int) $o[2]; ?>" data-price="<?php echo esc_attr( $o[1] ); ?>" data-unit="<?php echo esc_attr( $o[3] ); ?>" data-base="<?php echo esc_url( add_query_arg( array( 'add-to-cart' => (int) $o[2] ), $atts['checkout'] ) ); ?>" data-features="<?php echo esc_attr( wp_json_encode( $o[4] ? $o[4] : $p['features'] ) ); ?>"><?php echo esc_html( $o[0] . ' · $' . $o[1] ); ?></option>
+								<?php endforeach; ?>
+							</select>
+						</label>
+					<?php endif; ?>
 					<p class="mdm-plan__price"><sup>$</sup><span data-plan-total><?php echo esc_html( $p['price'] ); ?></span></p>
 					<p class="mdm-plan__unit"><?php echo esc_html( $p['unit'] ); ?></p>
 					<ul class="mdm-plan__list">
