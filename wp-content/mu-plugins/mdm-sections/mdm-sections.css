@@ -3001,3 +3001,6 @@ html .mdm-plan--hot .mdm-plan__opt select:hover, html .mdm-plan--hot .mdm-plan__
 html .mdm-plan--hot .mdm-plan__opt option { color: #111114; background: #fff; }
 html .mdm-plan__price.is-swap { animation: mdmPriceSwap .35s ease; }
 @keyframes mdmPriceSwap { from { opacity: .2; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+/* No sideways page scroll: the client logo carousel (Elementor swiper, overflow visible) is wider than the screen. */
+html { overflow-x: clip; }
