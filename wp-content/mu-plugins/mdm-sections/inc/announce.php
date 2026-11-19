@@ -16,7 +16,7 @@ function mdm_announce_settings() {
 			'text' => 'BFCM Sale Is ON!',
 			'code' => 'BFCM20',
 			'cta'  => 'Shop now',
-			'url'  => home_url( '/pricing/' ),
+			'url'  => home_url( '/#pricing' ),
 		)
 	);
 }
