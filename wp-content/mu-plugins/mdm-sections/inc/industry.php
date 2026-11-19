@@ -340,3 +340,22 @@ function mdm_industry_faq_html( $slug ) {
 		$items
 	) . '</div>';
 }
+
+/* Case study hub pages (indexed, gaining impressions): link to every industry service page. */
+add_filter(
+	'the_content',
+	static function ( $content ) {
+		if ( is_admin() || ! in_the_loop() || ! is_main_query() || ! is_page( array( 'case-studies', 'lead-generation', 'ecommerce' ) ) ) {
+			return $content;
+		}
+		if ( ( function_exists( 'mdm_current_case' ) && mdm_current_case() ) || false !== strpos( $content, 'mdm-indlinks' ) ) {
+			return $content;
+		}
+		$html = '<section class="mdm-indlinks"><div class="mdm-indlinks__in"><span class="mdm-niche__pill">Industries we serve</span><h2 class="mdm-indlinks__h2">Video ads and lead generation by industry</h2><div class="mdm-indlinks__grid">';
+		foreach ( mdm_industry_heroes() as $slug => $h ) {
+			$html .= '<a href="' . esc_url( home_url( '/' . $slug . '/' ) ) . '"><b>' . esc_html( $h[0] ) . '</b><span>' . esc_html( $h[1] ) . '</span></a>';
+		}
+		return $content . $html . '</div></div></section>';
+	},
+	40
+);

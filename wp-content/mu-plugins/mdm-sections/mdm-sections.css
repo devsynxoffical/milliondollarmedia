@@ -2694,3 +2694,14 @@ html .mdm-casepage__ctasec { padding: 0 clamp(16px, 4vw, 64px) clamp(56px, 7vw, 
 }
 html .mdm-casepage__h1 { font-size: clamp(22px, 2.8vw, 40px) !important; line-height: 1.2 !important; }
 @media (max-width: 600px) { html .mdm-casepage__h1 { font-size: 21px !important; } html .mdm-casepage__stats li { font-size: 14px; } html .mdm-casepage__stats li.is-red { font-size: 15px; } }
+
+/* Case study hubs: industry service links */
+html .mdm-indlinks { background: #000; color: #fff; padding: clamp(56px, 7vw, 96px) clamp(16px, 4vw, 64px); font-family: "Poppins", sans-serif; }
+html .mdm-indlinks__in { max-width: 1180px; margin: 0 auto; }
+html .mdm-indlinks__h2 { margin: 16px 0 26px !important; font: 700 clamp(22px, 2.6vw, 36px)/1.2 "Syncopate", sans-serif !important; text-transform: uppercase; color: #fff !important; }
+html .mdm-indlinks__grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+html .mdm-indlinks__grid a { display: flex; flex-direction: column; gap: 6px; padding: 18px 16px; border-radius: 18px; background: #111114; border: 1px solid rgba(255,255,255,.09); color: #fff !important; text-decoration: none !important; transition: border-color .2s, transform .2s; }
+html .mdm-indlinks__grid a:hover { border-color: #ED1C24; transform: translateY(-3px); }
+html .mdm-indlinks__grid b { font: 700 15px/1.3 "Poppins", sans-serif; }
+html .mdm-indlinks__grid span { font: 500 13px/1.35 "Poppins", sans-serif; color: rgba(255,255,255,.6); }
+@media (max-width: 1000px) { html .mdm-indlinks__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
