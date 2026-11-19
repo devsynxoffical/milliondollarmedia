@@ -166,7 +166,7 @@ function mdm_industry_video_tabs() {
 /** array( tab title => array( vimeo urls ) ) from the Portfolio page's Elementor tabs. */
 function mdm_portfolio_tab_videos() {
 	$pid  = 380;
-	$key  = 'mdm_pf_tabs_' . get_post_modified_time( 'U', true, $pid );
+	$key  = 'mdm_pf_tabs_' . md5( (string) get_post_meta( $pid, '_elementor_data', true ) ); // changes whenever the tabs are edited
 	$hit  = get_transient( $key );
 	if ( is_array( $hit ) ) {
 		return $hit;
