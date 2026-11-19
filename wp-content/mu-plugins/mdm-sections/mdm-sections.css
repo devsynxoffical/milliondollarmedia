@@ -2733,8 +2733,7 @@ html .mdm-pftext__faq details p { margin: 10px 0 0 !important; font-size: 15.5px
 /* Home hero: H1 moved to the subline for SEO; keep the original visual sizes (title 36px, subline 30px) */
 html body.home .elementor-element-df2076e .elementor-heading-title { font-size: 36px !important; line-height: 50.4px !important; }
 html body.home .elementor-element-9ee7543 .elementor-heading-title { font-size: 30px !important; line-height: 39px !important; }
-@media (max-width: 1024px) and (min-width: 768px) { html body.home .elementor-element-df2076e .elementor-heading-title { font-size: 36px !important; } }
-@media (max-width: 767px) {
+@media (max-width: 921px) {
 	html body.home .elementor-element-df2076e .elementor-heading-title { font-size: 27.36px !important; line-height: 38.3px !important; }
 	html body.home .elementor-element-9ee7543 .elementor-heading-title { font-size: 22.8px !important; line-height: 29.64px !important; }
 }
