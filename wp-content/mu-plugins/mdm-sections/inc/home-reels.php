@@ -2,7 +2,7 @@
 /**
  * Home page video cards: a fixed category order chosen by the owner, one video per category.
  * Fitness, Coaching, Agency, MVA, Roofing, eCom Brands, Supplements, Electrician.
- * Coaching and eCom Brands use the videos the owner sent; the rest are the first video of the
+ * Fitness, Coaching, eCom Brands and Supplements are fixed videos; the rest are the first video of the
  * matching Portfolio tab (page 380), so they follow the Portfolio when it changes.
  */
 
@@ -19,7 +19,7 @@ function mdm_home_reels_order() {
 		'MVA'         => array( 'tab' => 'MVA' ),
 		'Roofing'     => array( 'tab' => 'Roofing' ),
 		'eCom Brands' => 'https://vimeo.com/1248282491',
-		'Supplements' => array( 'tab' => array( 'Supplements', 'Fitness' ) ), // the Portfolio tab was renamed Supplements -> Fitness
+		'Supplements' => 'https://vimeo.com/1203105580', // fixed: the Portfolio Fitness tab now starts with Marcus Filly
 		'Electrician' => array( 'tab' => 'Electrician' ),
 	);
 }

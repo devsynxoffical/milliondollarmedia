@@ -18,6 +18,8 @@ function mdm_portfolio_text_html() {
 		'SAAS'         => '/saas/',
 		'Agency Owner' => '/agency-owners/',
 		'Electrician'  => '/home-service-business/',
+		'Coaching'     => '/strategic-video-marketing-for-coaches/',
+		'eCom Brands'  => '/case-studies/ecommerce/',
 		'VSL'          => '/what-is-a-vsl/',
 	);
 	$all   = array();
