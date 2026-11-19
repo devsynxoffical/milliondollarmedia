@@ -3002,8 +3002,9 @@ html .mdm-plan--hot .mdm-plan__opt option { color: #111114; background: #fff; }
 html .mdm-plan__price.is-swap { animation: mdmPriceSwap .35s ease; }
 @keyframes mdmPriceSwap { from { opacity: .2; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 
-/* No sideways page scroll: the client logo carousel (Elementor swiper, overflow visible) is wider than the screen. */
-html { overflow-x: clip; }
+/* No sideways page scroll: the client logo carousel (Elementor swiper, overflow visible) is wider than the screen.
+   Clipped on the carousel itself, not on <html>, so sticky elements (blog sidebar) keep working. */
+html .elementor-widget-n-carousel, html .e-n-carousel { overflow-x: clip; }
 
 /* ================================================================== */
 /* Blog posts: desktop layout (inc/blog-layout.php)                    */
@@ -3073,3 +3074,6 @@ html .mdm-post .mdm-post-tail .mdm-related { margin-top: 40px; padding: 32px; bo
 	html .mdm-post .mdm-post-tail .mdm-lf { margin: 0 -18px !important; border-radius: 20px; padding: 32px 18px; }
 	html .mdm-post .mdm-post-tail .mdm-related { padding: 22px 16px; margin-left: -8px; margin-right: -8px; }
 }
+
+/* Blog layout: Astra caps blocks in post content at 750px (narrow container); the layout uses the full card. */
+html .mdm-post .entry-content > .mdm-post-layout, html .mdm-post .entry-content > .mdm-post-tail, html .mdm-post .entry-content > .mdm-post-cover { max-width: none !important; width: 100% !important; margin-left: 0 !important; margin-right: 0 !important; }
