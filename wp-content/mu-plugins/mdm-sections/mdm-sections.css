@@ -2788,3 +2788,73 @@ html .mdm-lf__done p { color: rgba(17,17,20,.65) !important; margin: 0 0 18px !i
 html .mdm-post .mdm-lf { margin: 48px -72px 0; border-radius: 24px; }
 @media (max-width: 921px) { html .mdm-lf__in { grid-template-columns: 1fr; } html .mdm-post .mdm-lf { margin: 40px -36px 0; } }
 @media (max-width: 600px) { html .mdm-lf__grid { grid-template-columns: 1fr; } html .mdm-post .mdm-lf { margin: 32px -20px 0; border-radius: 18px; } html .mdm-lf__form { border-radius: 20px; } }
+
+/* ================================================================== */
+/* UGC ad examples page + VSL examples (inc/ugc.php)                   */
+/* ================================================================== */
+html .mdm-ugc.mdm-page { max-width: none !important; width: 100% !important; margin: 0 !important; padding: 0 !important; }
+html .mdm-ugc { font-family: "Poppins", sans-serif; background: #F4F4F1; color: #33353D; }
+html .mdm-ugc__in { max-width: 1180px; margin: 0 auto; }
+html .mdm-ugc__hero { position: relative; overflow: hidden; background: #000; color: #fff; padding: clamp(56px, 7vw, 100px) clamp(16px, 4vw, 64px); }
+html .mdm-ugc__hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(50% 70% at 85% 30%, rgba(225,6,0,.34), transparent 70%); pointer-events: none; }
+html .mdm-ugc__hero > * { position: relative; }
+html .mdm-ugc__herogrid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
+html .mdm-ugc__h1 { margin: 20px 0 18px !important; font: 700 clamp(30px, 4.2vw, 58px)/1.08 "Syncopate", sans-serif !important; text-transform: uppercase; color: #fff !important; }
+html .mdm-ugc__h1 span { display: block; color: #ED1C24; font-size: .55em; margin-top: 10px; }
+html .mdm-ugc__lead { color: rgba(255,255,255,.74) !important; font-size: clamp(16px, 1.25vw, 18px) !important; line-height: 1.7 !important; margin: 0 0 26px !important; max-width: 560px; }
+html .mdm-ugc__btns { display: flex; flex-wrap: wrap; gap: 12px; }
+html .mdm-ugc__stats { list-style: none; margin: 0 !important; padding: 0 !important; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+html .mdm-ugc__stats li { margin: 0; padding: 22px 20px; border-radius: 20px; background: #111114; border: 1px solid rgba(255,255,255,.09); display: flex; flex-direction: column; gap: 6px; }
+html .mdm-ugc__stats li.is-red { background: linear-gradient(135deg, #ED1C24, #8E0A0F); border-color: transparent; }
+html .mdm-ugc__stats b { font: 700 clamp(24px, 2.6vw, 36px)/1 "Syncopate", sans-serif; color: #fff; }
+html .mdm-ugc__stats span { font-size: 14px; color: rgba(255,255,255,.75); }
+html .mdm-ugc__sec { padding: clamp(56px, 7vw, 96px) clamp(16px, 4vw, 64px); }
+html .mdm-ugc__sec--alt { background: #fff; }
+html .mdm-ugc__sec--dark { background: #000; color: #fff; }
+html .mdm-ugc__h2 { margin: 14px 0 24px !important; font: 700 clamp(22px, 2.6vw, 36px)/1.2 "Syncopate", sans-serif !important; text-transform: uppercase; color: #111114 !important; }
+html .mdm-ugc__sec--dark .mdm-ugc__h2 { color: #fff !important; }
+html .mdm-ugc .mdm-niche__pill { color: inherit; }
+html .mdm-ugc__head { display: flex; flex-direction: column; gap: 4px; margin-bottom: 26px; }
+html .mdm-ugc__filters { display: flex; flex-wrap: wrap; gap: 8px; }
+html .mdm-ugc__filters button { padding: 10px 15px; border-radius: 999px; border: 1.5px solid rgba(17,17,20,.14); background: #fff; font: 500 14px/1 "Poppins", sans-serif; color: #111114; cursor: pointer; transition: all .2s; }
+html .mdm-ugc__filters button small { opacity: .6; margin-left: 3px; }
+html .mdm-ugc__filters button.is-on, html .mdm-ugc__filters button:hover { background: #ED1C24; border-color: #ED1C24; color: #fff; }
+html .mdm-ugc__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+html .mdm-ugc__card { background: #fff; border-radius: 20px; overflow: hidden; border: 1px solid rgba(17,17,20,.07); transition: transform .25s, box-shadow .25s; }
+html .mdm-ugc__card[hidden] { display: none; }
+html .mdm-ugc__card:hover { transform: translateY(-4px); box-shadow: 0 26px 50px -30px rgba(237,28,36,.55); }
+html .mdm-ugc__video { position: relative; aspect-ratio: 9 / 16; background: #111; overflow: hidden; }
+html .mdm-ugc__video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+html .mdm-ugc__meta { padding: 12px 14px 16px; }
+html .mdm-ugc__ind { font: 700 11px/1 "Poppins", sans-serif; letter-spacing: .1em; text-transform: uppercase; color: #ED1C24; }
+html .mdm-ugc__ind a { color: #ED1C24 !important; text-decoration: none !important; }
+html .mdm-ugc__hook { margin: 8px 0 0 !important; font: 600 14.5px/1.4 "Poppins", sans-serif !important; color: #111114 !important; }
+html .mdm-ugc__hook span { display: block; font: 600 10px/1 "Poppins", sans-serif; letter-spacing: .12em; text-transform: uppercase; color: rgba(17,17,20,.45); margin-bottom: 5px; }
+html .mdm-ugc__pattern { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+html .mdm-ugc__pattern div { padding: 24px 20px; border-radius: 20px; background: #111114; border: 1px solid rgba(255,255,255,.08); }
+html .mdm-ugc__pattern b { display: block; font: 700 28px/1 "Syncopate", sans-serif; color: #ED1C24; margin-bottom: 12px; }
+html .mdm-ugc__pattern h3 { margin: 0 0 8px !important; font: 700 17px/1.3 "Poppins", sans-serif !important; color: #fff !important; }
+html .mdm-ugc__pattern p { margin: 0 !important; font-size: 14.5px !important; line-height: 1.6 !important; color: rgba(255,255,255,.66) !important; }
+html .mdm-ugc__tablewrap { overflow-x: auto; }
+html .mdm-ugc__table { width: 100%; min-width: 620px; border-collapse: separate; border-spacing: 0; background: #fff; border-radius: 18px; overflow: hidden; border: 1px solid rgba(17,17,20,.08); font-size: 15px; }
+html .mdm-ugc__table th { background: #111114; color: #fff; text-align: left; padding: 14px 16px; }
+html .mdm-ugc__table td { padding: 14px 16px; border-top: 1px solid rgba(17,17,20,.07); vertical-align: top; }
+html .mdm-ugc__table td:first-child { font-weight: 700; color: #111114; }
+html .mdm-ugc__table td:nth-child(2) { background: rgba(237,28,36,.05); color: #111114; font-weight: 500; }
+html .mdm-ugc__more { margin: 26px 0 0 !important; font-size: 16px; }
+html .mdm-ugc__more a, html .mdm-ugc__faq a { color: #ED1C24; font-weight: 600; }
+html .mdm-ugc__faq { max-width: 860px; }
+html .mdm-ugc__faq details { margin: 0 0 10px; padding: 16px 18px; border-radius: 16px; background: #fff; border: 1px solid rgba(17,17,20,.07); }
+html .mdm-ugc__faq summary { cursor: pointer; font: 600 16px/1.4 "Poppins", sans-serif; color: #111114; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+html .mdm-ugc__faq summary::-webkit-details-marker { display: none; }
+html .mdm-ugc__faq summary::after { content: "+"; color: #ED1C24; font-size: 20px; line-height: 1; }
+html .mdm-ugc__faq details[open] summary::after { content: "–"; }
+html .mdm-ugc__faq details p { margin: 10px 0 0 !important; font-size: 15.5px; line-height: 1.7; }
+/* VSL examples inside the VSL guide */
+html .mdm-post .mdm-vslx { margin: 2em 0; padding: 24px; border-radius: 22px; background: #111114; color: #fff; }
+html .mdm-post .entry-content .mdm-vslx h2 { color: #fff !important; margin-top: 0 !important; }
+html .mdm-post .entry-content .mdm-vslx p { color: rgba(255,255,255,.75) !important; }
+html .mdm-vslx__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+html .mdm-vslx__grid .mdm-ugc__video { aspect-ratio: 16 / 9; border-radius: 14px; }
+@media (max-width: 1000px) { html .mdm-ugc__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } html .mdm-ugc__pattern { grid-template-columns: 1fr 1fr; } html .mdm-ugc__herogrid { grid-template-columns: 1fr; } }
+@media (max-width: 600px) { html .mdm-ugc__grid { grid-template-columns: 1fr 1fr; gap: 10px; } html .mdm-ugc__pattern, html .mdm-vslx__grid { grid-template-columns: 1fr; } html .mdm-ugc__hook { font-size: 13px !important; } html .mdm-ugc__btns .mdm-ihero__btn { flex: 1 1 100%; justify-content: center; } }

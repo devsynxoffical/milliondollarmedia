@@ -45,7 +45,7 @@ function mdm_portfolio_text_html() {
 				<span class="mdm-niche__pill">About these examples</span>
 				<h2 class="mdm-pftext__h2">Real video ads we made for clients</h2>
 				<p>Every video on this page is a real ad we scripted, edited or produced for a client: <?php echo (int) $total; ?> examples across <?php echo (int) max( 0, count( $tabs ) - 1 ); ?> industries, including UGC-style testimonials, founder and expert videos, VSLs and short-form ads for Facebook, Instagram, TikTok and YouTube Shorts.</p>
-				<p>Use the tabs to filter by industry, or tap any video to play it. To see what these ads achieved, open the <a href="<?php echo esc_url( home_url( '/case-studies/' ) ); ?>">case studies</a>, where each result comes with the ad account, dashboard or CRM proof.</p>
+				<p>Use the tabs to filter by industry, or tap any video to play it. To see what these ads achieved, open the <a href="<?php echo esc_url( home_url( '/case-studies/' ) ); ?>">case studies</a>, where each result comes with the ad account, dashboard or CRM proof. Looking for talking-head creator ads? Browse our <a href="<?php echo esc_url( home_url( '/ugc-ads-examples/' ) ); ?>">UGC ad examples</a> with the hook each one opens with.</p>
 			</div>
 			<div class="mdm-pftext__cats">
 				<h3>Video ad examples by industry</h3>
