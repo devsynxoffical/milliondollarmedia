@@ -1,0 +1,2057 @@
+{
+ "taken": "2026-11-19T18:24Z",
+ "window": [
+  "2026-11-11",
+  "2026-11-17"
+ ],
+ "prev_window": [
+  "2026-11-04",
+  "2026-11-10"
+ ],
+ "totals_7d": [
+  {
+   "keys": [
+    "2026-11-11"
+   ],
+   "clicks": 1,
+   "impr": 10,
+   "ctr": 10.0,
+   "pos": 2.8
+  },
+  {
+   "keys": [
+    "2026-11-12"
+   ],
+   "clicks": 0,
+   "impr": 12,
+   "ctr": 0,
+   "pos": 5
+  },
+  {
+   "keys": [
+    "2026-11-13"
+   ],
+   "clicks": 1,
+   "impr": 9,
+   "ctr": 11.11,
+   "pos": 3.4
+  },
+  {
+   "keys": [
+    "2026-11-14"
+   ],
+   "clicks": 0,
+   "impr": 14,
+   "ctr": 0,
+   "pos": 6
+  },
+  {
+   "keys": [
+    "2026-11-15"
+   ],
+   "clicks": 0,
+   "impr": 13,
+   "ctr": 0,
+   "pos": 5.8
+  },
+  {
+   "keys": [
+    "2026-11-16"
+   ],
+   "clicks": 1,
+   "impr": 15,
+   "ctr": 6.67,
+   "pos": 3.4
+  },
+  {
+   "keys": [
+    "2026-11-17"
+   ],
+   "clicks": 1,
+   "impr": 17,
+   "ctr": 5.88,
+   "pos": 4.6
+  }
+ ],
+ "queries_7d": [
+  {
+   "keys": [
+    "million dollar media"
+   ],
+   "clicks": 4,
+   "impr": 23,
+   "ctr": 17.39,
+   "pos": 2.0
+  },
+  {
+   "keys": [
+    "milliondollarmedia.com"
+   ],
+   "clicks": 0,
+   "impr": 1,
+   "ctr": 0,
+   "pos": 1
+  },
+  {
+   "keys": [
+    "site:milliondollarmedia.us"
+   ],
+   "clicks": 0,
+   "impr": 3,
+   "ctr": 0,
+   "pos": 1
+  }
+ ],
+ "queries_prev7d": [
+  {
+   "keys": [
+    "million dollar media"
+   ],
+   "clicks": 5,
+   "impr": 32,
+   "ctr": 15.62,
+   "pos": 1.9
+  }
+ ],
+ "pages_7d": [
+  {
+   "keys": [
+    "https://milliondollarmedia.us/"
+   ],
+   "clicks": 4,
+   "impr": 66,
+   "ctr": 6.06,
+   "pos": 3.9
+  },
+  {
+   "keys": [
+    "https://milliondollarmedia.us/blogs/"
+   ],
+   "clicks": 0,
+   "impr": 9,
+   "ctr": 0,
+   "pos": 4.9
+  },
+  {
+   "keys": [
+    "https://milliondollarmedia.us/book-your-call/"
+   ],
+   "clicks": 0,
+   "impr": 4,
+   "ctr": 0,
+   "pos": 4.5
+  },
+  {
+   "keys": [
+    "https://milliondollarmedia.us/case-studies/"
+   ],
+   "clicks": 0,
+   "impr": 14,
+   "ctr": 0,
+   "pos": 5.4
+  },
+  {
+   "keys": [
+    "https://milliondollarmedia.us/case-studies/ecommerce/"
+   ],
+   "clicks": 0,
+   "impr": 10,
+   "ctr": 0,
+   "pos": 5.9
+  },
+  {
+   "keys": [
+    "https://milliondollarmedia.us/case-studies/lead-generation/"
+   ],
+   "clicks": 0,
+   "impr": 10,
+   "ctr": 0,
+   "pos": 7.7
+  },
+  {
+   "keys": [
+    "https://milliondollarmedia.us/our-story/"
+   ],
+   "clicks": 0,
+   "impr": 14,
+   "ctr": 0,
+   "pos": 9
+  },
+  {
+   "keys": [
+    "https://milliondollarmedia.us/provide-information/"
+   ],
+   "clicks": 0,
+   "impr": 5,
+   "ctr": 0,
+   "pos": 5.8
+  }
+ ],
+ "pages_prev7d": [
+  {
+   "keys": [
+    "https://milliondollarmedia.us/"
+   ],
+   "clicks": 6,
+   "impr": 79,
+   "ctr": 7.59,
+   "pos": 3.4
+  }
+ ],
+ "query_page_28d": [
+  {
+   "keys": [
+    "million dollar media",
+    "https://milliondollarmedia.us/"
+   ],
+   "clicks": 15,
+   "impr": 154,
+   "ctr": 9.74,
+   "pos": 2.9
+  },
+  {
+   "keys": [
+    "dollar media technology limited",
+    "https://milliondollarmedia.us/"
+   ],
+   "clicks": 0,
+   "impr": 2,
+   "ctr": 0,
+   "pos": 20.5
+  },
+  {
+   "keys": [
+    "million dollar advertising",
+    "https://milliondollarmedia.us/"
+   ],
+   "clicks": 0,
+   "impr": 3,
+   "ctr": 0,
+   "pos": 19
+  },
+  {
+   "keys": [
+    "million dollar media",
+    "https://milliondollarmedia.us/our-story/"
+   ],
+   "clicks": 0,
+   "impr": 7,
+   "ctr": 0,
+   "pos": 10.1
+  },
+  {
+   "keys": [
+    "million dollar productions",
+    "https://milliondollarmedia.us/"
+   ],
+   "clicks": 0,
+   "impr": 1,
+   "ctr": 0,
+   "pos": 10
+  },
+  {
+   "keys": [
+    "milliondollarmedia.com",
+    "https://milliondollarmedia.us/"
+   ],
+   "clicks": 0,
+   "impr": 2,
+   "ctr": 0,
+   "pos": 3
+  },
+  {
+   "keys": [
+    "milliondollarmedia.com",
+    "https://milliondollarmedia.us/blogs/"
+   ],
+   "clicks": 0,
+   "impr": 1,
+   "ctr": 0,
+   "pos": 8
+  },
+  {
+   "keys": [
+    "site:milliondollarmedia.us",
+    "https://milliondollarmedia.us/"
+   ],
+   "clicks": 0,
+   "impr": 9,
+   "ctr": 0,
+   "pos": 1
+  },
+  {
+   "keys": [
+    "site:milliondollarmedia.us",
+    "https://milliondollarmedia.us/blogs/"
+   ],
+   "clicks": 0,
+   "impr": 9,
+   "ctr": 0,
+   "pos": 2
+  },
+  {
+   "keys": [
+    "site:milliondollarmedia.us",
+    "https://milliondollarmedia.us/book-your-call/"
+   ],
+   "clicks": 0,
+   "impr": 3,
+   "ctr": 0,
+   "pos": 5
+  },
+  {
+   "keys": [
+    "site:milliondollarmedia.us",
+    "https://milliondollarmedia.us/case-studies/"
+   ],
+   "clicks": 0,
+   "impr": 2,
+   "ctr": 0,
+   "pos": 3.5
+  },
+  {
+   "keys": [
+    "site:milliondollarmedia.us",
+    "https://milliondollarmedia.us/case-studies/ecommerce/"
+   ],
+   "clicks": 0,
+   "impr": 3,
+   "ctr": 0,
+   "pos": 6
+  },
+  {
+   "keys": [
+    "site:milliondollarmedia.us",
+    "https://milliondollarmedia.us/case-studies/lead-generation/"
+   ],
+   "clicks": 0,
+   "impr": 3,
+   "ctr": 0,
+   "pos": 8
+  },
+  {
+   "keys": [
+    "site:milliondollarmedia.us",
+    "https://milliondollarmedia.us/our-story/"
+   ],
+   "clicks": 0,
+   "impr": 1,
+   "ctr": 0,
+   "pos": 3
+  },
+  {
+   "keys": [
+    "site:milliondollarmedia.us",
+    "https://milliondollarmedia.us/provide-information/"
+   ],
+   "clicks": 0,
+   "impr": 9,
+   "ctr": 0,
+   "pos": 3.3
+  }
+ ],
+ "countries_28d": [
+  {
+   "keys": [
+    "usa"
+   ],
+   "clicks": 19,
+   "impr": 306,
+   "ctr": 6.21,
+   "pos": 4.2
+  },
+  {
+   "keys": [
+    "ind"
+   ],
+   "clicks": 1,
+   "impr": 14,
+   "ctr": 7.14,
+   "pos": 4.9
+  },
+  {
+   "keys": [
+    "arg"
+   ],
+   "clicks": 0,
+   "impr": 1,
+   "ctr": 0,
+   "pos": 1
+  },
+  {
+   "keys": [
+    "aus"
+   ],
+   "clicks": 0,
+   "impr": 5,
+   "ctr": 0,
+   "pos": 6
+  },
+  {
+   "keys": [
+    "bgd"
+   ],
+   "clicks": 0,
+   "impr": 1,
+   "ctr": 0,
+   "pos": 4
+  },
+  {
+   "keys": [
+    "bra"
+   ],
+   "clicks": 0,
+   "impr": 5,
+   "ctr": 0,
+   "pos": 4.8
+  },
+  {
+   "keys": [
+    "can"
+   ],
+   "clicks": 0,
+   "impr": 3,
+   "ctr": 0,
+   "pos": 1.7
+  },
+  {
+   "keys": [
+    "col"
+   ],
+   "clicks": 0,
+   "impr": 2,
+   "ctr": 0,
+   "pos": 3.5
+  },
+  {
+   "keys": [
+    "esp"
+   ],
+   "clicks": 0,
+   "impr": 1,
+   "ctr": 0,
+   "pos": 7
+  },
+  {
+   "keys": [
+    "gbr"
+   ],
+   "clicks": 0,
+   "impr": 6,
+   "ctr": 0,
+   "pos": 2.2
+  },
+  {
+   "keys": [
+    "irl"
+   ],
+   "clicks": 0,
+   "impr": 1,
+   "ctr": 0,
+   "pos": 10
+  },
+  {
+   "keys": [
+    "isl"
+   ],
+   "clicks": 0,
+   "impr": 2,
+   "ctr": 0,
+   "pos": 1
+  },
+  {
+   "keys": [
+    "jpn"
+   ],
+   "clicks": 0,
+   "impr": 5,
+   "ctr": 0,
+   "pos": 11.2
+  },
+  {
+   "keys": [
+    "lca"
+   ],
+   "clicks": 0,
+   "impr": 1,
+   "ctr": 0,
+   "pos": 3
+  },
+  {
+   "keys": [
+    "mex"
+   ],
+   "clicks": 0,
+   "impr": 3,
+   "ctr": 0,
+   "pos": 10
+  },
+  {
+   "keys": [
+    "pak"
+   ],
+   "clicks": 0,
+   "impr": 3,
+   "ctr": 0,
+   "pos": 2.3
+  },
+  {
+   "keys": [
+    "rou"
+   ],
+   "clicks": 0,
+   "impr": 1,
+   "ctr": 0,
+   "pos": 10
+  },
+  {
+   "keys": [
+    "twn"
+   ],
+   "clicks": 0,
+   "impr": 1,
+   "ctr": 0,
+   "pos": 5
+  },
+  {
+   "keys": [
+    "zaf"
+   ],
+   "clicks": 0,
+   "impr": 1,
+   "ctr": 0,
+   "pos": 6
+  }
+ ],
+ "indexing": {
+  "https://milliondollarmedia.us/": {
+   "verdict": "PASS",
+   "coverage": "Submitted and indexed",
+   "lastCrawl": "2026-11-19",
+   "canonical": "https://milliondollarmedia.us/"
+  },
+  "https://milliondollarmedia.us/facebook-ads-for-roofers/": {
+   "verdict": "PASS",
+   "coverage": "Submitted and indexed",
+   "lastCrawl": "2026-11-18",
+   "canonical": "https://milliondollarmedia.us/facebook-ads-for-roofers/"
+  },
+  "https://milliondollarmedia.us/hvac-facebook-ads/": {
+   "verdict": "PASS",
+   "coverage": "Submitted and indexed",
+   "lastCrawl": "2026-11-18",
+   "canonical": "https://milliondollarmedia.us/hvac-facebook-ads/"
+  },
+  "https://milliondollarmedia.us/what-is-a-vsl/": {
+   "verdict": "NEUTRAL",
+   "coverage": "Crawled - currently not indexed",
+   "lastCrawl": "2026-11-18",
+   "canonical": null
+  },
+  "https://milliondollarmedia.us/roofing-video-marketing-services/": {
+   "verdict": "NEUTRAL",
+   "coverage": "Crawled - currently not indexed",
+   "lastCrawl": "2026-11-18",
+   "canonical": "https://milliondollarmedia.us/roofing-video-marketing-services/"
+  },
+  "https://milliondollarmedia.us/hvac-video-marketing-services/": {
+   "verdict": "NEUTRAL",
+   "coverage": "Crawled - currently not indexed",
+   "lastCrawl": "2026-11-18",
+   "canonical": "https://milliondollarmedia.us/hvac-video-marketing-services/"
+  },
+  "https://milliondollarmedia.us/plumbing-video-production/": {
+   "verdict": "NEUTRAL",
+   "coverage": "Crawled - currently not indexed",
+   "lastCrawl": "2026-04-12",
+   "canonical": "https://milliondollarmedia.us/plumbing-video-production/"
+  },
+  "https://milliondollarmedia.us/home-service-business/": {
+   "verdict": "NEUTRAL",
+   "coverage": "Crawled - currently not indexed",
+   "lastCrawl": "2026-11-18",
+   "canonical": "https://milliondollarmedia.us/home-service-business/"
+  },
+  "https://milliondollarmedia.us/mva/": {
+   "verdict": "NEUTRAL",
+   "coverage": "Crawled - currently not indexed",
+   "lastCrawl": "2026-11-18",
+   "canonical": "https://milliondollarmedia.us/mva/"
+  },
+  "https://milliondollarmedia.us/real-estate/": {
+   "verdict": "NEUTRAL",
+   "coverage": "Discovered - currently not indexed",
+   "lastCrawl": "",
+   "canonical": null
+  },
+  "https://milliondollarmedia.us/solar/": {
+   "verdict": "NEUTRAL",
+   "coverage": "Crawled - currently not indexed",
+   "lastCrawl": "2026-11-18",
+   "canonical": "https://milliondollarmedia.us/solar/"
+  },
+  "https://milliondollarmedia.us/saas/": {
+   "verdict": "NEUTRAL",
+   "coverage": "Crawled - currently not indexed",
+   "lastCrawl": "2026-11-18",
+   "canonical": "https://milliondollarmedia.us/saas/"
+  },
+  "https://milliondollarmedia.us/strategic-video-marketing-for-coaches/": {
+   "verdict": "NEUTRAL",
+   "coverage": "Crawled - currently not indexed",
+   "lastCrawl": "2026-04-22",
+   "canonical": "https://milliondollarmedia.us/strategic-video-marketing-for-coaches/"
+  },
+  "https://milliondollarmedia.us/agency-owners/": {
+   "verdict": "NEUTRAL",
+   "coverage": "Crawled - currently not indexed",
+   "lastCrawl": "2026-11-18",
+   "canonical": "https://milliondollarmedia.us/agency-owners/"
+  },
+  "https://milliondollarmedia.us/portfolio/": {
+   "verdict": "NEUTRAL",
+   "coverage": "Discovered - currently not indexed",
+   "lastCrawl": "",
+   "canonical": null
+  },
+  "https://milliondollarmedia.us/case-studies/": {
+   "verdict": "PASS",
+   "coverage": "Submitted and indexed",
+   "lastCrawl": "2026-11-14",
+   "canonical": "https://milliondollarmedia.us/case-studies/"
+  },
+  "https://milliondollarmedia.us/case-studies/lead-generation/": {
+   "verdict": "PASS",
+   "coverage": "Submitted and indexed",
+   "lastCrawl": "2026-11-13",
+   "canonical": "https://milliondollarmedia.us/case-studies/lead-generation/"
+  },
+  "https://milliondollarmedia.us/case-studies/ecommerce/": {
+   "verdict": "PASS",
+   "coverage": "Submitted and indexed",
+   "lastCrawl": "2026-11-14",
+   "canonical": "https://milliondollarmedia.us/case-studies/ecommerce/"
+  },
+  "https://milliondollarmedia.us/our-story/": {
+   "verdict": "PASS",
+   "coverage": "Submitted and indexed",
+   "lastCrawl": "2026-11-14",
+   "canonical": "https://milliondollarmedia.us/our-story/"
+  },
+  "https://milliondollarmedia.us/blogs/": {
+   "verdict": "PASS",
+   "coverage": "Submitted and indexed",
+   "lastCrawl": "2026-11-03",
+   "canonical": "https://milliondollarmedia.us/blogs/"
+  }
+ },
+ "health": {
+  "https://milliondollarmedia.us/": {
+   "status": 200,
+   "title": "Video Ad Agency For Lead Gen &amp; DTC | Million Dollar Media",
+   "desc_len": 157,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/agency-owners/": {
+   "status": 200,
+   "title": "White Label Video Ads For Marketing Agencies",
+   "desc_len": 160,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/ai-video-marketing-strategies-and-tools/": {
+   "status": 200,
+   "title": "AI Video Marketing Strategies &amp; Tools For Business Growth",
+   "desc_len": 158,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/best-video-production-agency-los-angeles/": {
+   "status": 200,
+   "title": "Best Video Production Agency In Los Angeles",
+   "desc_len": 140,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/blogs/": {
+   "status": 200,
+   "title": "Video Ads &amp; Video Marketing Blog | Million Dollar Media",
+   "desc_len": 155,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/book-your-call/": {
+   "status": 200,
+   "title": "Book A Free Strategy Call | Million Dollar Media",
+   "desc_len": 150,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-studies/": {
+   "status": 200,
+   "title": "247 Video Ad Case Studies: Lead Gen &amp; E-commerce Results",
+   "desc_len": 148,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-studies/ecommerce/": {
+   "status": 200,
+   "title": "E-commerce &amp; DTC Case Studies: 123 Results With ROAS",
+   "desc_len": 137,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-studies/lead-generation/": {
+   "status": 200,
+   "title": "Lead Generation Case Studies: 124 Real Campaigns &amp; CPLs",
+   "desc_len": 153,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/1200-lto-offers-sold-in-just-6-weeks-boom-another-lto-scaling-case/": {
+   "status": 200,
+   "title": "Low-Ticket Offers Case Study: $120,770.67 Revenue",
+   "desc_len": 155,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/12707-55-spent-1890-leads-6-72-cost-per-lead/": {
+   "status": 200,
+   "title": "Agency Scaling Case Study: 1,890 Leads Generated",
+   "desc_len": 127,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/148k-in-one-day-the-best-day-in-my-whole-career-ending-up-this/": {
+   "status": 200,
+   "title": "E-commerce Case Study: $148,000 Scaled, 37% Net Margin",
+   "desc_len": 128,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/16630-spent-59241-generated-3-56-roas-even-in-the-chaos-of-bfcm-for/": {
+   "status": 200,
+   "title": "Apparel &amp; Fashion Case Study: $59,241 Generated, 3.56x ROAS",
+   "desc_len": 146,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/177-roofing-leads-in-just-7-days-we-spent-only-849-on-ads-for-a-new/": {
+   "status": 200,
+   "title": "Roofing Case Study: 177 Leads Generated, $849 Ad Spend",
+   "desc_len": 150,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/185936-in-21-days-with-56-profit-margin-scaled-another-dropshipping/": {
+   "status": 200,
+   "title": "E-commerce Case Study: $185,936 Scaled, 56% Profit Margin",
+   "desc_len": 144,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/1st-day-of-november-seems-very-great-42k-a-day/": {
+   "status": 200,
+   "title": "DTC Brands Case Study: $42,000 / Day, 4.6x ROAS",
+   "desc_len": 73,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/20-days-2184-ad-spend-140-appointments-64960-revenue-we-recently/": {
+   "status": 200,
+   "title": "Webinar Case Study: $64,960 Revenue, 140 Appointments",
+   "desc_len": 77,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/203941-generated-in-11-days-this-fitness-client-came-to-us-after/": {
+   "status": 200,
+   "title": "Low-Ticket Offers Case Study: 1,566 Memberships",
+   "desc_len": 60,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/208-mortgage-leads-otp-verified-37-closings-65k-in-commission-this/": {
+   "status": 200,
+   "title": "Mortgage &amp; Refinance Case Study: $65K+ Revenue, 208 Leads",
+   "desc_len": 153,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/213-am-ist-july-5th-just-wrapped-up-crafting-one-of-the-most/": {
+   "status": 200,
+   "title": "2:13 AM IST | July 5th\u2026 | Coaching &amp; Consulting Case Study",
+   "desc_len": 148,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/21k-in-one-day-with-a-4month-old-dropshipping-store-heres-how-we-did/": {
+   "status": 200,
+   "title": "E-commerce Case Study: $21,000 Scaled, 4.2x ROAS",
+   "desc_len": 149,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/26271-spent-115416-generated-4-39-roas-this-skincare-brand-crushed-it/": {
+   "status": 200,
+   "title": "Beauty &amp; Skincare Case Study: $26,271 Scaled, 4.39x ROAS",
+   "desc_len": 147,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/326-hvac-leads-in-just-26-days-its-11am-est-on-a-sunday-and-weve/": {
+   "status": 200,
+   "title": "HVAC Case Study: 326 Leads Generated, $5.57 Cost Per Lead",
+   "desc_len": 150,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/337-kitchen-remodelling-appointments-in-19-days-all-from-ice-cold/": {
+   "status": 200,
+   "title": "Home Services Case Study: 337 Appointments, $1,621 Ad Spend",
+   "desc_len": 140,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/4-38-per-accident-lead-in-just-19-days-we-turned-27467-70-in-ad-spend/": {
+   "status": 200,
+   "title": "Legal / MVA Case Study: 6,275 Leads Generated",
+   "desc_len": 121,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/4397-spent-157-motivated-home-seller-leads-28-per-lead-in-just-7-days/": {
+   "status": 200,
+   "title": "Real Estate Case Study: 157 Leads Generated, $28 Cost Per Lead",
+   "desc_len": 102,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/449221-in-the-last-49-daysone-of-our-newer-client-dropshipping-brands/": {
+   "status": 200,
+   "title": "E-commerce Case Study: $449,221 In 49 Days, 4.2x ROAS",
+   "desc_len": 107,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/52-calls-in-7-days-from-646-spent-no-funnels-no-lead-forms-no-landing/": {
+   "status": 200,
+   "title": "Roofing Case Study: 52 Calls, $646 Ad Spend",
+   "desc_len": 99,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/611-am-ist-birds-are-chirping-and-weve-already-scaled-680125-11-in/": {
+   "status": 200,
+   "title": "Coaching &amp; Consulting Case Study: $680,125.11 Revenue",
+   "desc_len": 104,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/7-79-per-final-expense-lead/": {
+   "status": 200,
+   "title": "Final Expense &amp; Insurance Case Study: 2,440 Leads Generated",
+   "desc_len": 104,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/79070-in-17-days-with-a-low-ticket-offer-booking-funnel/": {
+   "status": 200,
+   "title": "Low-Ticket Offers Case Study: $79,070 Revenue, 837 Sales",
+   "desc_len": 77,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/81327-in-29-days-on-meta-ads-live-breakdown-during-our-dwy-session/": {
+   "status": 200,
+   "title": "Webinar Case Study: $81K Revenue",
+   "desc_len": 153,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/850-roofing-leads-in-just-8-days-we-dropped-6461-25-on-ads-for-a/": {
+   "status": 200,
+   "title": "Roofing Case Study: 850 Leads Generated, $6,461.25 Ad Spend",
+   "desc_len": 148,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/8810-mva-leads-7-61-per-lead-67k-spent/": {
+   "status": 200,
+   "title": "Legal / MVA Case Study: 8,810 Leads Generated",
+   "desc_len": 120,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/97-funnels-cant-make-real-money-yeah-tell-that-to-the-client-who/": {
+   "status": 200,
+   "title": "Low-Ticket Offers Case Study: 53,662 Sales",
+   "desc_len": 73,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/97-of-luxury-real-estate-agents-are-wasting-money-on-ads-heres-the-fix/": {
+   "status": 200,
+   "title": "Real Estate Case Study: 10 Appointments",
+   "desc_len": 162,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/99-of-meta-advertisers-are-burning-money-heres-the-fix/": {
+   "status": 200,
+   "title": "Supplements Case Study: $71,788 Scaled, 4.09x ROAS",
+   "desc_len": 148,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/99-of-personal-injury-law-firms-are-doing-lead-generation-wrong-and-i/": {
+   "status": 200,
+   "title": "Legal / MVA Case Study: 530 Leads Generated, $27 Cost Per Lead",
+   "desc_len": 128,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/99-of-roofing-contractors-are-wasting-money-on-ads-heres-the-fix/": {
+   "status": 200,
+   "title": "Roofing Case Study: 54 Leads Generated, $23.81 Cost Per Lead",
+   "desc_len": 149,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/after-8-months-of-optimizing-testing-and-refining-strategies-we/": {
+   "status": 200,
+   "title": "E-commerce Case Study: $240,000 In 8 Months, 4.5x ROAS",
+   "desc_len": 153,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/agency-owners-selling-high-ticket-programs-read-this/": {
+   "status": 200,
+   "title": "Coaching &amp; Consulting Case Study: $115,500 Revenue",
+   "desc_len": 109,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/agency-owners-who-are-tired-of-selling-services-want-to-sell-180/": {
+   "status": 200,
+   "title": "Agency Scaling Case Study: $14,040 Revenue, 180 Appointments",
+   "desc_len": 92,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/aggressively-scaling-towards-6k-day/": {
+   "status": 200,
+   "title": "Aggressively Scaling Towards 6k$ Day | DTC Brands Case Study",
+   "desc_len": 155,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/another-agency-scaling-case-study-with-our-phenomenal-dwy-program/": {
+   "status": 200,
+   "title": "Another Agency Scaling\u2026 | Coaching &amp; Consulting Case Study",
+   "desc_len": 161,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/another-brand-is-exploding-black-friday-with-20k-day-39-healthy/": {
+   "status": 200,
+   "title": "Another Brand Is Exploding Black\u2026 | E-commerce Case Study",
+   "desc_len": 151,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/another-dtc-client-finally-went-beyond-the-six-figure-mark/": {
+   "status": 200,
+   "title": "DTC Brands Case Study: $100,000+ Scaled, 4.2x ROAS",
+   "desc_len": 92,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/another-massive-win-in-the-books-98k-in-just-23-days/": {
+   "status": 200,
+   "title": "Apparel &amp; Fashion Case Study: $98,000 Scaled, 4.2x ROAS",
+   "desc_len": 114,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/another-massive-win-of-one-of-our-e-commerce-agency-clients/": {
+   "status": 200,
+   "title": "DTC Brands Case Study: $220,438 / Month, 4.9x ROAS",
+   "desc_len": 156,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/another-new-store-pixel-with-huge-potential-after-1-5-months-of/": {
+   "status": 200,
+   "title": "E-commerce Case Study: $164,000 Scaled, 4.6x ROAS",
+   "desc_len": 145,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/another-six-figure-dropshipping-client-wins-in-the-books/": {
+   "status": 200,
+   "title": "E-commerce Case Study: $100,000+ Scaled, 4.2x ROAS",
+   "desc_len": 150,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/another-six-figures-fitness-brand-in-the-books-3-game-changing/": {
+   "status": 200,
+   "title": "Fitness &amp; Health Case Study: $156,000 Fitness Scale, 4.8x ROAS",
+   "desc_len": 151,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/another-success-story-in-the-books-finally-this-brand-ended-with-133k/": {
+   "status": 200,
+   "title": "E-commerce Case Study: $156,000 / Month, 4.5x ROAS",
+   "desc_len": 80,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/anyone-can-do-it-yes-even-you-can-do-dropshipping-successfully/": {
+   "status": 200,
+   "title": "E-commerce Case Study: $85,420 Scaled, 4.5x ROAS",
+   "desc_len": 89,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/bombshell-update-100k-hit-this-month/": {
+   "status": 200,
+   "title": "Beauty &amp; Skincare Case Study: $100,000 Scaled, 4.2x ROAS",
+   "desc_len": 153,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/case-study-6713-in-one-day-from-this-lto-funnel/": {
+   "status": 200,
+   "title": "Low-Ticket Offers Case Study: $3,248 Revenue, 59 Sales",
+   "desc_len": 154,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/case-study-how-we-killed-the-we-didnt-fill-the-form-excuse-and/": {
+   "status": 200,
+   "title": "Lead Generation Case Study: 1,131 Leads Generated",
+   "desc_len": 120,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/coach-helping-agency-owners-sell-5k-dwy-offers-heres-how-we-turned/": {
+   "status": 200,
+   "title": "Webinar Case Study: $115,000 Revenue, 527 Leads",
+   "desc_len": 150,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/coaches-course-sellers-537-memberships-in-just-19-days-one-of-our/": {
+   "status": 200,
+   "title": "Coaching &amp; Consulting Case Study: $57,577.57 Revenue",
+   "desc_len": 88,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/crazy-start-to-the-day-for-one-of-our-coaching-clients-just-closed-a/": {
+   "status": 200,
+   "title": "Crazy Start To The Day\u2026 | Coaching &amp; Consulting Case Study",
+   "desc_len": 112,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/do-not-be-embarrassed-by-your-failures-learn-from-them-and-start-again/": {
+   "status": 200,
+   "title": "DTC Brands Case Study: $6,000 / Day, 4.2x ROAS",
+   "desc_len": 129,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/does-dropshipping-still-work-in-2023-lets-find-out/": {
+   "status": 200,
+   "title": "E-commerce Case Study: $145,000 Scaled, 4.6x ROAS",
+   "desc_len": 91,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/dropshipping-isnt-a-get-rich-quick-scheme-its-a-path-to-building/": {
+   "status": 200,
+   "title": "E-commerce Case Study: $491,798 Scaled, 4.2x ROAS",
+   "desc_len": 153,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/ecom-brands-or-lead-gen-businesses-what-do-you-need/": {
+   "status": 200,
+   "title": "DTC Brands Case Study: $94,500 In 21 Days, 4.6x ROAS",
+   "desc_len": 164,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/everyone-in-the-coaching-space-screams-high-ticket-high-ticket-but-if/": {
+   "status": 200,
+   "title": "Low-Ticket Offers Case Study: $135,143 Revenue, 892 Sales",
+   "desc_len": 108,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/everyone-keeps-screaming-ltos-are-dead-yet-we-dropped-37-59-and/": {
+   "status": 200,
+   "title": "Everyone Keeps Screaming\u2026 | Low-Ticket Offers Case Study",
+   "desc_len": 71,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/everyone-says-facebook-ads-dont-work-for-mortgage-but-heres-what-just/": {
+   "status": 200,
+   "title": "Mortgage &amp; Refinance Case Study: 142 Leads Generated",
+   "desc_len": 96,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/everyone-talks-about-results-but-nobody-talks-about-what-it-takes-to/": {
+   "status": 200,
+   "title": "HVAC Case Study: 630 Leads Generated, $23.09 Cost Per Lead",
+   "desc_len": 124,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/everyones-been-screaming-that-the-andromeda-update-killed-their-ads/": {
+   "status": 200,
+   "title": "Roofing Case Study: 537 Leads Generated, $4.27 Cost Per Lead",
+   "desc_len": 94,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/finally-another-client-touched-the-1-6m-year-mark-with-insane-roas/": {
+   "status": 200,
+   "title": "DTC Brands Case Study: $1,600,000 Scaled, 4.2x ROAS",
+   "desc_len": 119,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/finally-this-is-how-our-monday-startsscaling-this-puppy-to-the-moon/": {
+   "status": 200,
+   "title": "E-commerce Case Study: $301,200 Scaled, 4.9x ROAS",
+   "desc_len": 85,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/finally-we-built-another-million-dollar-brand-this-2022-ending-with-2/": {
+   "status": 200,
+   "title": "E-commerce Case Study: $2,300,000 Scaled, 11.6x ROAS",
+   "desc_len": 154,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/finally-we-have-taken-this-brand-to-128k-in-just-14days-with-insane/": {
+   "status": 200,
+   "title": "DTC Brands Case Study: $128,000 Scaled, 4.2x ROAS",
+   "desc_len": 74,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/finally-we-scale-one-more-client-to-almost-1m-in-sales-in-just-6/": {
+   "status": 200,
+   "title": "DTC Brands Case Study: $1,000,000+ Scaled, 4.6x ROAS",
+   "desc_len": 118,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/florida-hvac-client-case-study-65872-net-cash-collected-with-roas-12/": {
+   "status": 200,
+   "title": "HVAC Case Study: $65,872 Net Cash Collected",
+   "desc_len": 153,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/for-most-people-jumping-into-something-new-that-theyve-never-done/": {
+   "status": 200,
+   "title": "DTC Brands Case Study: $276,400 Scaled, 5.1x ROAS",
+   "desc_len": 135,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/from-good-to-great-how-following-your-agencys-rules-leads-to-success/": {
+   "status": 200,
+   "title": "DTC Brands Case Study: $189,000 Scaled, 4.6x ROAS",
+   "desc_len": 151,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/from-zero-activity-to-686-website-leads-in-just-8-days-for-our-texas/": {
+   "status": 200,
+   "title": "Roofing Case Study: 686 Leads Generated, $5.31 Cost Per Lead",
+   "desc_len": 152,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/grind-grind-grind-woke-up-today-with-some-value-bombs-in-mind-i/": {
+   "status": 200,
+   "title": "E-commerce Case Study: $276,400 Scaled, 5.1x ROAS",
+   "desc_len": 124,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/happy-monday-everyone-lets-kick-off-the-week-with-some-serious/": {
+   "status": 200,
+   "title": "Apparel &amp; Fashion Case Study: $74,200 Scaled, 4.36x ROAS",
+   "desc_len": 122,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/have-you-ever-wished-for-a-foolproof-plan-for-how-every-6-7-figure/": {
+   "status": 200,
+   "title": "Have You Ever Wished For A\u2026 | DTC Brands Case Study",
+   "desc_len": 109,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/heads-up-scaling-this-brand-to-21k-day-with-facebook-ads/": {
+   "status": 200,
+   "title": "DTC Brands Case Study: $21,000 / Day, 4.2x ROAS",
+   "desc_len": 114,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/heres-a-sneak-peek-from-our-1hr-30min-done-with-you-session-with-one/": {
+   "status": 200,
+   "title": "Roofing Case Study: $10,000 Ad Spend",
+   "desc_len": 131,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/hot-dropshipping-niches-list-for-this-q4/": {
+   "status": 200,
+   "title": "E-commerce Case Study: $148,000 Scaled, 4.2x ROAS",
+   "desc_len": 73,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/how-a-simple-funnel-delivered-a-20-3x-roas-for-my-clients-landscaping/": {
+   "status": 200,
+   "title": "Lead Generation Case Study: 152 Leads Generated",
+   "desc_len": 152,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/how-did-we-deliver-89-qualified-leads-for-this-canada-based-car/": {
+   "status": 200,
+   "title": "Lead Generation Case Study: 89 Leads Generated",
+   "desc_len": 140,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/how-i-find-100k-month-winning-shopify-dropshipping-products-leaked/": {
+   "status": 200,
+   "title": "E-commerce Case Study: $100,000 Scaled, 4.2x ROAS",
+   "desc_len": 154,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/how-many-agencies-can-generate-mva-leads/": {
+   "status": 200,
+   "title": "Legal / MVA Case Study: 203 Leads Generated",
+   "desc_len": 87,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/how-to-find-winning-shopify-dropshipping-products-formula-leaked/": {
+   "status": 200,
+   "title": "E-commerce Case Study: $124,000 Scaled, 4.4x ROAS",
+   "desc_len": 98,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/how-to-structure-campaigns-for-50000-day-profits/": {
+   "status": 200,
+   "title": "DTC Brands Case Study: $50,000 / Day Scale, 5.2x ROAS",
+   "desc_len": 151,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/how-we-drove-54k-in-7-days-using-manual-bidding-campaigns-for-this/": {
+   "status": 200,
+   "title": "DTC Brands Case Study: $54,552 Scaled, 4.43x ROAS",
+   "desc_len": 150,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/how-we-generated-61960-with-a-3-80-roas-in-a-single-day-and-what-you/": {
+   "status": 200,
+   "title": "DTC Brands Case Study: $61,960 Scaled, 3.80x ROAS",
+   "desc_len": 147,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/how-we-turned-2162-in-ad-spend-into-18900-in-lead-value-for-one-of/": {
+   "status": 200,
+   "title": "Legal / MVA Case Study: 126 Leads Generated",
+   "desc_len": 160,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/i-bet-youre-still-figuring-out-how-to-scale-your-ltos-while-we-just/": {
+   "status": 200,
+   "title": "Low-Ticket Offers Case Study: $17,200 In One Day",
+   "desc_len": 73,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/i-started-this-dropshipping-brand-for-a-client-4weeks-ago-this-was/": {
+   "status": 200,
+   "title": "E-commerce Case Study: $1,500 Scaled, 4.2x ROAS",
+   "desc_len": 99,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/if-i-got-sales-then-why-you-cant/": {
+   "status": 200,
+   "title": "If I Got Sales. Then Why You Can&#039;t? | E-commerce Case Study",
+   "desc_len": 125,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/if-you-are-willing-to-invest-in-yourself-your-dreams-can-come-true/": {
+   "status": 200,
+   "title": "E-commerce Case Study: $184,200 Scaled, 4.5x ROAS",
+   "desc_len": 154,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/if-you-live-in-new-york-city-or-los-angeles-youve-probably-already/": {
+   "status": 200,
+   "title": "MedSpa Case Study: 1,011 Leads Generated, $4,703 Ad Spend",
+   "desc_len": 151,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/if-your-webinar-isnt-profitable-your-leads-are-the-problem-we-started/": {
+   "status": 200,
+   "title": "Webinar Case Study: $3,812 Ad Spend",
+   "desc_len": 64,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/if-youre-a-brand-owner-or-a-media-buyer-looking-for-that-one-viral/": {
+   "status": 200,
+   "title": "Apparel &amp; Fashion Case Study: $52,600 / Month, 4.41x ROAS",
+   "desc_len": 139,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/if-youre-an-ecom-brand-owner-read-this-carefully-16k-in-a-single-day/": {
+   "status": 200,
+   "title": "DTC Brands Case Study: $6,000 / Day, 2.06x ROAS",
+   "desc_len": 96,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/if-youre-building-an-ai-calling-agent-or-you-already-have-one-sitting/": {
+   "status": 200,
+   "title": "SaaS Case Study: 237 Buyers",
+   "desc_len": 65,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/if-youre-in-the-mortgage-industry-listen-up-just-wrapped-a-1hr-32min/": {
+   "status": 200,
+   "title": "If You&#039;re In The Mortgage\u2026 | Mortgage &amp; Refinance Case Study",
+   "desc_len": 78,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/if-youre-running-a-ppl-agency-or-youre-an-mva-provider-whos-been/": {
+   "status": 200,
+   "title": "If You&#039;re Running A PPL Agency Or\u2026 | Legal / MVA Case Study",
+   "desc_len": 138,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/incredible-success-story-alert-edgar-landed-a-new-agency-client-at-a/": {
+   "status": 200,
+   "title": "Coaching &amp; Consulting Case Study: 40 Appointments",
+   "desc_len": 158,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/its-330-am-ist-the-skys-dark-thunders-rolling-and-the-clouds-are-full/": {
+   "status": 200,
+   "title": "Low-Ticket Offers Case Study: $67,394+ Revenue",
+   "desc_len": 150,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/its-337-am-on-a-monday-while-the-world-sleeps-off-weekend-hangovers/": {
+   "status": 200,
+   "title": "Coaching &amp; Consulting Case Study: $56,645.82 Revenue",
+   "desc_len": 90,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/its-been-a-long-journey-with-this-mva-client-one-that-started-on/": {
+   "status": 200,
+   "title": "Legal / MVA Case Study: 1,865 Leads Generated",
+   "desc_len": 149,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/its-safe-to-say-we-figured-out-how-to-make-a-supplement-brand-print/": {
+   "status": 200,
+   "title": "Supplements Case Study: $52,000 Scaled, 4.51x ROAS",
+   "desc_len": 111,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/journey-of-this-client-behind-touching-the-way-to-the-100000-month/": {
+   "status": 200,
+   "title": "Supplements Case Study: $100,000 Scaled, 4.2x ROAS",
+   "desc_len": 148,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/just-launched-my-profit-accelerate-mastermind-for-dtc-brand-owners/": {
+   "status": 200,
+   "title": "E-commerce Case Study: $10,000 Scaled, 4.2x ROAS",
+   "desc_len": 158,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/just-to-give-you-some-context/": {
+   "status": 200,
+   "title": "SaaS Case Study: $64,571 Revenue, $19,768 Ad Spend",
+   "desc_len": 92,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/just-wrapped-a-1hr45min-done-with-you-session-with-one-of-our-agency/": {
+   "status": 200,
+   "title": "Just Wrapped A 1hr45min\u2026 | Coaching &amp; Consulting Case Study",
+   "desc_len": 135,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/last-chance-must-read/": {
+   "status": 200,
+   "title": "E-commerce Case Study: $114,000 / Month, 4.8x ROAS",
+   "desc_len": 157,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/lets-be-honest-youve-probably-worked-with-dozens-of-agencies-before/": {
+   "status": 200,
+   "title": "Home Services Case Study: $5.10 Cost Per Lead",
+   "desc_len": 145,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/lto-launch-57911-in-revenue-22660-spent-2-56-roas-all-in-just-22-days/": {
+   "status": 200,
+   "title": "Webinar Case Study: $57,911 Revenue, $22,660 Ad Spend",
+   "desc_len": 120,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/mark-zuckerberg-gets-paid-whether-your-ads-work-or-not/": {
+   "status": 200,
+   "title": "Agency Scaling Case Study: 142 Leads Generated",
+   "desc_len": 100,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/massive-alert-guys-its-911-pm-and-weve-already-crossed-53387-33-in/": {
+   "status": 200,
+   "title": "E-commerce Case Study: $198,000 Scaled, 5.2x ROAS",
+   "desc_len": 147,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/massive-success-once-again-didnt-expected-with-our-dfy-program/": {
+   "status": 200,
+   "title": "E-commerce Case Study: $128,500 Scaled, 4.4x ROAS",
+   "desc_len": 164,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/medspa-owners-with-multiple-locations-tired-of-paying-for-leads-that/": {
+   "status": 200,
+   "title": "MedSpa Case Study: $74,100 Revenue, 303 Clients",
+   "desc_len": 152,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/meet-one-of-our-e-com-clients-sasha-whom-we-have-been-helping-for/": {
+   "status": 200,
+   "title": "DTC Brands Case Study: $1,000,000+ Scaled, 4.2x ROAS",
+   "desc_len": 156,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/meet-riley-after-joining-brandscalinghacks-she-went-from-40k-per/": {
+   "status": 200,
+   "title": "DTC Brands Case Study: $40,000 Scaled, 4.2x ROAS",
+   "desc_len": 70,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/most-agencies-and-service-businesses-dont-have-a-lead-problem-they/": {
+   "status": 200,
+   "title": "Agency Scaling Case Study: 235 Clients",
+   "desc_len": 100,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/most-agencies-brag-about-leads-we-quietly-generated-492-mortgage/": {
+   "status": 200,
+   "title": "Mortgage &amp; Refinance Case Study: 492 Leads Generated",
+   "desc_len": 143,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/most-ai-saas-founders-dont-have-a-product-problem-they-have-a/": {
+   "status": 200,
+   "title": "SaaS Case Study: $71,934 Revenue In 24 Days",
+   "desc_len": 150,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/most-people-running-facebook-ads-have-no-idea-their-biggest-enemy-is/": {
+   "status": 200,
+   "title": "Most People Running Facebook Ads\u2026 | E-commerce Case Study",
+   "desc_len": 122,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/new-dtc-client-results-last-16-days-132832-ad-spend-374103-in-revenue/": {
+   "status": 200,
+   "title": "DTC Brands Case Study: $132,832 Scaled, 4.2x ROAS",
+   "desc_len": 77,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/new-jersey-hvac-client-case-study-36444-cash-collected-with-roas-19-63/": {
+   "status": 200,
+   "title": "HVAC Case Study: $36,444 Revenue, 140 Booked Appointments",
+   "desc_len": 153,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/no-sundays-no-days-off-1255-am-i-just-wrapped-our-1-1-dwy-mastermind/": {
+   "status": 200,
+   "title": "Agency Scaling Case Study: 18% CTR On Creatives",
+   "desc_len": 64,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/numbers-dont-lie-you-know-whats-dope/": {
+   "status": 200,
+   "title": "E-commerce Case Study: $20,000 In 12 Days, 4.2x ROAS",
+   "desc_len": 149,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/once-you-see-the-powerful-results-of-running-your-own-online-business/": {
+   "status": 200,
+   "title": "Supplements Case Study: $192,000 / Month, 4.7x ROAS",
+   "desc_len": 153,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/one-more-hit-with-100k-this-month/": {
+   "status": 200,
+   "title": "DTC Brands Case Study: $100,000 Scaled, 4.2x ROAS",
+   "desc_len": 155,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/one-thing-i-genuinely-dislike-in-the-online-business-space-is/": {
+   "status": 200,
+   "title": "Low-Ticket Offers Case Study: $86,275 Revenue, 689 Buyers",
+   "desc_len": 75,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/one-winning-product-can-change-everything-heres-how-we-made-one/": {
+   "status": 200,
+   "title": "E-commerce Case Study: $230,000 / Month, 4.8x ROAS",
+   "desc_len": 120,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/our-step-by-step-process-to-verify-pre-qualified-leads-for-our-hvac/": {
+   "status": 200,
+   "title": "HVAC Case Study: 55 Leads Generated, $11.02 Cost Per Lead",
+   "desc_len": 145,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/planning-to-host-a-2hr-e-commerce-profit-accelerator-bootcamp-for-you/": {
+   "status": 200,
+   "title": "DTC Brands Case Study: $184,500 Scaled, 4.5x ROAS",
+   "desc_len": 74,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/pov-curious-how-we-pulled-off-40669-in-sales-in-just-7-days-with-a/": {
+   "status": 200,
+   "title": "DTC Brands Case Study: $40,669 In 14 Days, 4.2x ROAS",
+   "desc_len": 125,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/q4-is-here-and-its-the-biggest-money-making-season-of-the-year/": {
+   "status": 200,
+   "title": "Beauty &amp; Skincare Case Study: $320,000 Q4 Engine, 5.3x ROAS",
+   "desc_len": 152,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/q4-is-shaping-up-to-be-incredible-while-many-slow-down-for-the-2/": {
+   "status": 200,
+   "title": "Q4 Is Shaping Up To Be Incredible!\u2026 | E-commerce Case Study",
+   "desc_len": 158,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/q4-is-shaping-up-to-be-incredible-while-many-slow-down-for-the/": {
+   "status": 200,
+   "title": "E-commerce Case Study: $162,000 Q4 Scale, 4.7x ROAS",
+   "desc_len": 146,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/read-this-twice-if-youre-a-coach-trying-to-sell-high-ticket-but/": {
+   "status": 200,
+   "title": "Low-Ticket Offers Case Study: $20,434 Revenue, 52 Calls",
+   "desc_len": 153,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/roofers-wont-like-this-but-it-needs-to-be-said/": {
+   "status": 200,
+   "title": "Roofing Case Study: 635 Leads Generated, $6 Cost Per Lead",
+   "desc_len": 93,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/rule-of-thumb-for-scaling-facebook-ads-how-we-hit-3-77-roas-for-a/": {
+   "status": 200,
+   "title": "Fitness &amp; Health Case Study: $38,400 In 14 Days, 3.77x ROAS",
+   "desc_len": 148,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/scaling-isnt-just-about-hitting-big-days-its-about-keeping-more-and/": {
+   "status": 200,
+   "title": "E-commerce Case Study: $3,000 Scaled, 2.53x ROAS",
+   "desc_len": 117,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/scaling-slowly-bigger-profits-1st-day-of-scaling-this-fashion-brand/": {
+   "status": 200,
+   "title": "Apparel &amp; Fashion Case Study: $148,000 Scaled, 4.7x ROAS",
+   "desc_len": 111,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/selling-a-skool-community-or-digital-program-this-ones-going-to-hurt/": {
+   "status": 200,
+   "title": "Low-Ticket Offers Case Study: $12,862 Ad Spend",
+   "desc_len": 103,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/selling-an-97-mid-ticket-product-heres-how-we-scaled-one-to-70k-month/": {
+   "status": 200,
+   "title": "Coaching &amp; Consulting Case Study: $70,673 Revenue",
+   "desc_len": 152,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/sneak-peek-from-our-1-5hr-dwy-session-with-an-agency-owner/": {
+   "status": 200,
+   "title": "MedSpa Case Study: $0.50 Cost Per Lead",
+   "desc_len": 154,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/solar-businesses-are-getting-robbed-80-90-100-cpms-and-still-getting/": {
+   "status": 200,
+   "title": "Solar Case Study: 300 Leads Generated, $14.71 Cost Per Lead",
+   "desc_len": 95,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/some-people-dont-fail-because-the-strategy-is-wrong-they-fail-because/": {
+   "status": 200,
+   "title": "Some People Don\u2019t Fail\u2026 | Agency Scaling Case Study",
+   "desc_len": 133,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/still-figuring-things-out-we-just-scaled-another-lto-client-to-157184/": {
+   "status": 200,
+   "title": "Low-Ticket Offers Case Study: $68,292 Revenue",
+   "desc_len": 79,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/still-trying-to-crack-your-funnel-we-just-pulled-in-150348-in-5-days/": {
+   "status": 200,
+   "title": "Low-Ticket Offers Case Study: $65,600 Revenue",
+   "desc_len": 119,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/the-dumbest-advice-refinance-businesses-are-following-right-now/": {
+   "status": 200,
+   "title": "Mortgage &amp; Refinance Case Study: 154 Leads Generated",
+   "desc_len": 108,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/the-ecom-world-is-split-into-two-groups/": {
+   "status": 200,
+   "title": "E-commerce Case Study: $10,800 / Day, 3.97x ROAS",
+   "desc_len": 145,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/the-funnels-that-dominate-q1-arent-being-built-in-january-theyre/": {
+   "status": 200,
+   "title": "Lead Generation Case Study: 561 Buyers",
+   "desc_len": 53,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/the-key-to-a-successful-e-commerce-business-is-consistency/": {
+   "status": 200,
+   "title": "E-commerce Case Study: $92,400 Scaled, 4.3x ROAS",
+   "desc_len": 150,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/the-truth-about-low-ticket-offers-everyones-missing/": {
+   "status": 200,
+   "title": "Low-Ticket Offers Case Study: 537 Memberships",
+   "desc_len": 83,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/the-truth-hurts-dropshipping-isnt-dead-you-are-doing-it-wrong/": {
+   "status": 200,
+   "title": "E-commerce Case Study: $94,500 In 21 Days, 4.6x ROAS",
+   "desc_len": 68,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/these-5days-has-been-on-fire-spent-26594-generated-99576-profit/": {
+   "status": 200,
+   "title": "E-commerce Case Study: $118,490 In 5 Days, 4.45x ROAS",
+   "desc_len": 147,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/this-60k-month-client-is-literally-crushing-the-skincare-game/": {
+   "status": 200,
+   "title": "Beauty &amp; Skincare Case Study: $312,800 Scaled, 4.2x ROAS",
+   "desc_len": 71,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/this-is-how-we-are-scaling-brands-from-scratch-absolutely-killing-the/": {
+   "status": 200,
+   "title": "E-commerce Case Study: $312,800 Scaled, 4.2x ROAS",
+   "desc_len": 153,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/this-lto-campaign-blew-up-on-day-1-not-exaggerating-this-one-went/": {
+   "status": 200,
+   "title": "Low-Ticket Offers Case Study: 132 Sales, $1,214.35 Ad Spend",
+   "desc_len": 130,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/this-one-ad-scaling-method-brought-my-agency-client-1068-exclusive/": {
+   "status": 200,
+   "title": "Roofing Case Study: 1,068 Leads Generated",
+   "desc_len": 155,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/tired-of-spending-thousands-on-ads-and-still-struggling-to-land-high/": {
+   "status": 200,
+   "title": "Coaching &amp; Consulting Case Study: $13.81 Cost Per Lead",
+   "desc_len": 95,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/two-months-ago-this-mva-client-came-to-us-frustrated/": {
+   "status": 200,
+   "title": "Legal / MVA Case Study: $388,000 Revenue, 1,079 Leads",
+   "desc_len": 137,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/two-weeks-ago-this-florida-based-mva-attorney-came-to-us-stuck-they/": {
+   "status": 200,
+   "title": "Legal / MVA Case Study: 465 Leads Generated",
+   "desc_len": 99,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/we-didnt-just-run-ads-we-packed-a-real-estate-pipeline-with-ready-to/": {
+   "status": 200,
+   "title": "Real Estate Case Study: 71 Leads Generated",
+   "desc_len": 145,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/we-dropped-24902-on-ads-for-a-ppl-agency-client-and-pulled-in-1024/": {
+   "status": 200,
+   "title": "Roofing Case Study: 1,024 Leads Generated, $24 Cost Per Lead",
+   "desc_len": 148,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/we-generated-45-qualified-medspa-leads-at-just-13-11-each-58-of-them/": {
+   "status": 200,
+   "title": "MedSpa Case Study: $11,700 Revenue, 45 Leads",
+   "desc_len": 131,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/we-helped-a-medspa-marketing-agency-owner-cross-639000-in-2-months/": {
+   "status": 200,
+   "title": "MedSpa Case Study: $639,000 Revenue, 178 Clients",
+   "desc_len": 159,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/we-scaled-a-simple-99-month-offer-into-a-recurring-cash-machine-29k/": {
+   "status": 200,
+   "title": "Low-Ticket Offers Case Study: $86K Revenue, $29K Ad Spend",
+   "desc_len": 158,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/were-currently-aggressively-scaling-one-of-the-biggest-names-in-the/": {
+   "status": 200,
+   "title": "Coaching &amp; Consulting Case Study: $125,000+ Ad Spend",
+   "desc_len": 142,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/what-if-i-told-you-14669-could-turn-into-62889-in-just-3-days/": {
+   "status": 200,
+   "title": "E-commerce Case Study: $14,669 Scaled, 4.2x ROAS",
+   "desc_len": 143,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/what-if-i-told-you-a-real-estate-business-in-texas-went-from-testing/": {
+   "status": 200,
+   "title": "Real Estate Case Study: 247 Leads Generated",
+   "desc_len": 91,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/what-it-takes-to-scale-beyond-63k-in-14-days-in-dropshipping/": {
+   "status": 200,
+   "title": "E-commerce Case Study: $63,000 In 14 Days, 4.1x ROAS",
+   "desc_len": 90,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/when-it-comes-to-generating-high-quality-mortgage-leads-most-agencies/": {
+   "status": 200,
+   "title": "When It Comes To\u2026 | Mortgage &amp; Refinance Case Study",
+   "desc_len": 158,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/why-do-fitness-brands-struggle-to-scale-hint-its-not-just-about-ads/": {
+   "status": 200,
+   "title": "Fitness &amp; Health Case Study: $19,167 Scaled, 3.61x ROAS",
+   "desc_len": 134,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/why-most-flooring-companies-bleed-money-on-fake-leads-and-how-we/": {
+   "status": 200,
+   "title": "Home Services Case Study: 49 Leads Generated",
+   "desc_len": 148,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/why-your-facebook-ads-arent-scaling-fix-these-manual-bidding-mistakes/": {
+   "status": 200,
+   "title": "DTC Brands Case Study: $142,000 Scaled, 4.4x ROAS",
+   "desc_len": 72,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/work-harder-than-you-think-you-did-yesterday-yes-i-have-been-doing/": {
+   "status": 200,
+   "title": "DTC Brands Case Study: $312,800 Scaled, 4.2x ROAS",
+   "desc_len": 115,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/your-ad-agency-is-lying-to-you/": {
+   "status": 200,
+   "title": "Real Estate Case Study: 69 Leads Generated",
+   "desc_len": 104,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/case-study/your-media-buyer-isnt-bad-at-their-job/": {
+   "status": 200,
+   "title": "Lead Generation Case Study: $7.75 Cost Per Lead",
+   "desc_len": 108,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/facebook-ads-for-roofers/": {
+   "status": 200,
+   "title": "Facebook Ads For Roofers: Real Roofing Lead Costs &amp; Setup",
+   "desc_len": 154,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/future-of-ai-in-content-marketing/": {
+   "status": 200,
+   "title": "Future Of AI In Content Marketing &amp; Advertising",
+   "desc_len": 144,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/home-service-business/": {
+   "status": 200,
+   "title": "Home Service Marketing Agency For Video Ads &amp; Leads",
+   "desc_len": 157,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/hvac-facebook-ads/": {
+   "status": 200,
+   "title": "Facebook Ads For HVAC: Real Lead, Booking &amp; Install Costs",
+   "desc_len": 158,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/hvac-video-marketing-los-angeles/": {
+   "status": 200,
+   "title": "Video Marketing Services For HVAC Businesses In Los Angeles",
+   "desc_len": 127,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/hvac-video-marketing-services/": {
+   "status": 200,
+   "title": "HVAC Advertising &amp; Video Marketing That Books Calls",
+   "desc_len": 149,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/mva/": {
+   "status": 200,
+   "title": "MVA Leads &amp; Personal Injury Lawyer Marketing With Video",
+   "desc_len": 156,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/our-story/": {
+   "status": 200,
+   "title": "About Million Dollar Media: Video Ad Agency Since 2019",
+   "desc_len": 147,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/plumbing-video-production/": {
+   "status": 200,
+   "title": "Plumbing Video Production &amp; Video Ads For Plumbers",
+   "desc_len": 160,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/portfolio/": {
+   "status": 200,
+   "title": "Video Ad Examples &amp; Portfolio | Million Dollar Media",
+   "desc_len": 157,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/real-estate/": {
+   "status": 200,
+   "title": "Real Estate Video Marketing &amp; Video Ads For Agents",
+   "desc_len": 156,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/roofing-video-marketing-services/": {
+   "status": 200,
+   "title": "Roofing Ads &amp; Video Marketing For Roofers That Get Leads",
+   "desc_len": 157,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/saas/": {
+   "status": 200,
+   "title": "SaaS Video Production &amp; Video Ads That Drive Sales",
+   "desc_len": 150,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/solar/": {
+   "status": 200,
+   "title": "Solar Ads &amp; Video Marketing For Solar Companies",
+   "desc_len": 154,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/strategic-video-marketing-for-coaches/": {
+   "status": 200,
+   "title": "Video Marketing &amp; Facebook Ads For Coaches",
+   "desc_len": 152,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/ugc-ads-examples/": {
+   "status": 200,
+   "title": "UGC Ad Examples: 38 UGC-Style Video Ads By Industry",
+   "desc_len": 158,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/video-marketing-for-roofing-business/": {
+   "status": 200,
+   "title": "Video Marketing For Roofing Companies: Step-by-Step Guide",
+   "desc_len": 155,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/video-production-for-marketing-guide/": {
+   "status": 200,
+   "title": "Why Video Production Is Essential For Modern Marketing",
+   "desc_len": 145,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/what-is-a-vsl/": {
+   "status": 200,
+   "title": "What Is A VSL? Video Sales Letter Guide + Real VSL Examples",
+   "desc_len": 156,
+   "h1": 1,
+   "noindex": false
+  },
+  "https://milliondollarmedia.us/white-label-video-marketing-services/": {
+   "status": 200,
+   "title": "White Label Video Marketing Services For Agencies Scale ROI",
+   "desc_len": 122,
+   "h1": 1,
+   "noindex": false
+  }
+ }
+}
