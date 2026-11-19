@@ -43,3 +43,7 @@ Optional extras: `posters="img1.jpg|img2.jpg|..."` and `links="/roofing/|/recrui
 - Footer: `accent="#FF5A1F" city/timezone="America/New_York" tz_label="Timezone (EST)"`.
 - Menu links: `[mdm_menu links="Home:/|Services:/services/|Case Studies:/#case-studies|FAQ:/#faq"]`.
 - Case studies, impact cards and FAQ questions are in `inc/case-studies.php`, `inc/impact.php` and `inc/faq.php`.
+
+## Pricing packages
+
+Each pricing card has a package dropdown (standard, AI, bundle). Options live in `mdm_default_pricing_plans()` in `inc/pricing.php`; AI products: 4977 AI Image, 4978 AI Video, 4979 AI GIF, 4980 10 AI Videos.
