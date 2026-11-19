@@ -2737,3 +2737,54 @@ html body.home .elementor-element-9ee7543 .elementor-heading-title { font-size: 
 	html body.home .elementor-element-df2076e .elementor-heading-title { font-size: 27.36px !important; line-height: 38.3px !important; }
 	html body.home .elementor-element-9ee7543 .elementor-heading-title { font-size: 22.8px !important; line-height: 29.64px !important; }
 }
+
+/* ================================================================== */
+/* Lead form (inc/leads.php)                                           */
+/* ================================================================== */
+html .mdm-lf { background: #000; color: #fff; padding: clamp(56px, 7vw, 96px) clamp(16px, 4vw, 64px); font-family: "Poppins", sans-serif; position: relative; overflow: hidden; }
+html .mdm-lf::before { content: ""; position: absolute; inset: 0; background: radial-gradient(45% 60% at 90% 10%, rgba(225,6,0,.3), transparent 70%); pointer-events: none; }
+html .mdm-lf__in { position: relative; max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
+html .mdm-lf__h2 { margin: 18px 0 14px !important; font: 700 clamp(24px, 2.8vw, 38px)/1.15 "Syncopate", sans-serif !important; text-transform: uppercase; color: #fff !important; }
+html .mdm-lf__pitch p { color: rgba(255,255,255,.72) !important; font-size: 16.5px !important; line-height: 1.7 !important; margin: 0 0 20px !important; }
+html .mdm-lf__points { list-style: none; margin: 0 0 22px !important; padding: 0 !important; display: grid; gap: 10px; }
+html .mdm-lf__points li { margin: 0; padding: 12px 14px 12px 44px; position: relative; border-radius: 14px; background: #111114; border: 1px solid rgba(255,255,255,.08); font-size: 15px; color: rgba(255,255,255,.8); }
+html .mdm-lf__points li::before { content: "✓"; position: absolute; left: 14px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; border-radius: 50%; background: #ED1C24; display: grid; place-items: center; font-size: 12px; font-weight: 700; color: #fff; }
+html .mdm-lf__points b { color: #fff; }
+html .mdm-lf__wa { color: #fff !important; font-weight: 600; text-decoration: none !important; border-bottom: 2px solid #25D366; }
+html .mdm-lf__form { position: relative; background: #fff; color: #111114; border-radius: 26px; padding: clamp(22px, 3vw, 34px); box-shadow: 0 40px 80px -40px rgba(237,28,36,.6); }
+html .mdm-lf__hp { position: absolute !important; left: -9999px !important; width: 1px; height: 1px; overflow: hidden; }
+html .mdm-lf__bar { height: 4px; border-radius: 4px; background: #F0F0EC; margin: 0 0 22px; overflow: hidden; }
+html .mdm-lf__bar i { display: block; height: 100%; width: 50%; background: #ED1C24; transition: width .35s ease; }
+html .mdm-lf__step { display: none; border: 0 !important; margin: 0 !important; padding: 0 !important; min-width: 0; }
+html .mdm-lf__step.is-on { display: block; animation: mdmLfIn .35s ease; }
+@keyframes mdmLfIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+html .mdm-lf legend { padding: 0 !important; margin: 0 0 12px !important; font: 700 17px/1.3 "Poppins", sans-serif; color: #111114; }
+html .mdm-lf legend.mdm-lf__sub { margin-top: 18px !important; font-size: 15px; }
+html .mdm-lf__chips { display: flex; flex-wrap: wrap; gap: 8px; }
+html .mdm-lf__chips label { cursor: pointer; margin: 0; }
+html .mdm-lf__chips input { position: absolute; opacity: 0; pointer-events: none; }
+html .mdm-lf__chips span { display: inline-block; padding: 10px 14px; border-radius: 999px; border: 1.5px solid rgba(17,17,20,.14); font: 500 14px/1 "Poppins", sans-serif; color: #111114; transition: all .2s; }
+html .mdm-lf__chips label:hover span { border-color: #ED1C24; }
+html .mdm-lf__chips input:checked + span { background: #ED1C24; border-color: #ED1C24; color: #fff; }
+html .mdm-lf__chips input:focus-visible + span { outline: 3px solid rgba(237,28,36,.35); outline-offset: 2px; }
+html .mdm-lf__chips.is-small span { font-size: 13px; padding: 9px 12px; }
+html .mdm-lf__next, html .mdm-lf__send { margin-top: 22px; width: 100%; border: 0; border-radius: 999px; padding: 16px 22px; background: #ED1C24; color: #fff; font: 600 16px/1 "Poppins", sans-serif; cursor: pointer; box-shadow: 0 14px 30px -12px rgba(237,28,36,.7); transition: transform .2s; }
+html .mdm-lf__next:hover, html .mdm-lf__send:hover { transform: translateY(-2px); }
+html .mdm-lf__send:disabled { opacity: .7; cursor: wait; }
+html .mdm-lf__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+html .mdm-lf__grid label, html .mdm-lf__full { display: flex; flex-direction: column; gap: 6px; font: 600 13px/1.2 "Poppins", sans-serif; color: rgba(17,17,20,.7); margin: 0; }
+html .mdm-lf__full { margin-top: 12px; }
+html .mdm-lf input[type=text], html .mdm-lf input[type=email], html .mdm-lf input[type=tel], html .mdm-lf input[type=url], html .mdm-lf textarea { width: 100%; box-sizing: border-box; padding: 13px 14px !important; border-radius: 14px !important; border: 1.5px solid rgba(17,17,20,.14) !important; background: #FAFAF8 !important; font: 400 15px/1.3 "Poppins", sans-serif !important; color: #111114 !important; }
+html .mdm-lf input:focus, html .mdm-lf textarea:focus { outline: none; border-color: #ED1C24 !important; background: #fff !important; }
+html .mdm-lf__actions { display: flex; gap: 10px; align-items: center; }
+html .mdm-lf__actions .mdm-lf__send { flex: 1; }
+html .mdm-lf__back { margin-top: 22px; border: 0; background: none; font: 600 14px/1 "Poppins", sans-serif; color: rgba(17,17,20,.6); cursor: pointer; padding: 16px 6px; }
+html .mdm-lf__err { margin: 12px 0 0 !important; padding: 10px 12px; border-radius: 12px; background: rgba(237,28,36,.08); color: #c4141b !important; font-size: 14px !important; }
+html .mdm-lf__note { margin: 10px 0 0 !important; font-size: 12.5px !important; color: rgba(17,17,20,.5) !important; text-align: center; }
+html .mdm-lf__done { text-align: center; padding: 20px 0; }
+html .mdm-lf__tick { width: 64px; height: 64px; margin: 0 auto 14px; border-radius: 50%; background: #ED1C24; color: #fff; display: grid; place-items: center; font-size: 30px; font-weight: 700; }
+html .mdm-lf__done h3 { margin: 0 0 8px !important; font: 700 22px/1.3 "Poppins", sans-serif !important; color: #111114 !important; }
+html .mdm-lf__done p { color: rgba(17,17,20,.65) !important; margin: 0 0 18px !important; }
+html .mdm-post .mdm-lf { margin: 48px -72px 0; border-radius: 24px; }
+@media (max-width: 921px) { html .mdm-lf__in { grid-template-columns: 1fr; } html .mdm-post .mdm-lf { margin: 40px -36px 0; } }
+@media (max-width: 600px) { html .mdm-lf__grid { grid-template-columns: 1fr; } html .mdm-post .mdm-lf { margin: 32px -20px 0; border-radius: 18px; } html .mdm-lf__form { border-radius: 20px; } }
