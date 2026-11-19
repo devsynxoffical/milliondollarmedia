@@ -10,4 +10,4 @@ This folder is blocked from the web by its `.htaccess`.
 
 ## Google Indexing API limit
 
-No requests before 2026-11-22; then at most 20 URLs per day and no URL resent within 7 days. Every request is logged in indexing-log.md.
+At most 20 URLs in any rolling 24 hours (rejected requests count too) and no URL resent within 7 days. Every request is logged in indexing-log.md.
