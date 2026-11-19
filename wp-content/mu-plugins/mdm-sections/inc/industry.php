@@ -217,7 +217,7 @@ function mdm_industry_videos_html( $slug ) {
 			$urls = array_merge( $urls, $all[ $tab ] );
 		}
 	}
-	$urls = array_slice( array_values( array_unique( $urls ) ), 0, 8 );
+	$urls = array_slice( array_values( array_unique( $urls ) ), 0, 8 ); // two rows of four
 	if ( ! $urls ) {
 		return '';
 	}
@@ -240,24 +240,30 @@ function mdm_industry_videos_html( $slug ) {
 		'agency-owners'                    => 'Real white label ads we made for agency owners.',
 		'home-service-business'            => 'Real ads we made for electricians, window & door and carpet cleaning companies.',
 	);
-	$tiles = '';
+	// Same video cards as the home page (muted autoplay preview, unmute, flip-in), via the reels grid.
+	$items = array();
 	foreach ( $urls as $u ) {
-		if ( ! preg_match( '~vimeo\.com/(?:video/)?(\d+)~', $u, $m ) ) {
-			continue;
+		if ( preg_match( '~vimeo\.com/(?:video/)?(\d+)~', $u, $m ) ) {
+			$items[] = array( 'label' => $label, 'src' => 'https://vimeo.com/' . $m[1], 'type' => 'vimeo', 'poster' => mdm_video_thumb( 'https://vimeo.com/' . $m[1], 'vimeo' ) );
 		}
-		$thumb  = mdm_video_thumb( $u, 'vimeo' );
-		$player = 'https://player.vimeo.com/video/' . $m[1] . '?autoplay=1&title=0&byline=0&portrait=0&dnt=1';
-		$tiles .= '<div class="mdm-ivid"><button type="button" class="mdm-vfacade" data-src="' . esc_url( $player ) . '" aria-label="Play video">'
-			. ( $thumb ? '<img src="' . esc_url( $thumb ) . '" alt="' . esc_attr( $label . ' video ad example' ) . '" loading="lazy" decoding="async">' : '' )
-			. '<span class="mdm-vfacade__play" aria-hidden="true"></span></button></div>';
 	}
-	return '<section class="mdm-ivids"><div class="mdm-ivids__in">'
+	if ( ! $items || ! function_exists( 'mdm_shortcode_reels' ) ) {
+		return '';
+	}
+	$src = static function () use ( $items ) {
+		return array( 'items' => $items, 'more' => home_url( '/portfolio/' ) );
+	};
+	add_filter( 'mdm_reels_source', $src, 999 );
+	add_filter( 'mdm_reels_featured', '__return_empty_array', 999 );
+	$grid = mdm_shortcode_reels( array( 'head' => 'no', 'intro' => '', 'rows' => 2, 'more_text' => 'See all video ad examples', 'platforms_title' => 'Built for every feed your customers scroll.' ) );
+	remove_filter( 'mdm_reels_source', $src, 999 );
+	remove_filter( 'mdm_reels_featured', '__return_empty_array', 999 );
+
+	return '<section class="mdm-ivids mdm-ivids--reels"><div class="mdm-ivids__in">'
 		. '<span class="mdm-niche__pill">Our work</span>'
 		. '<h2 class="mdm-display mdm-ivids__h2">' . esc_html( $label ) . ' video ads we made</h2>'
-		. '<p class="mdm-ivids__sub">' . esc_html( $subs[ $slug ] ?? 'Real ads from our clients.' ) . ' Tap any video to play it.</p>'
-		. '<div class="mdm-ivids__grid is-' . min( 4, count( $urls ) ) . '">' . $tiles . '</div>'
-		. '<p class="mdm-ivids__more"><a href="' . esc_url( home_url( '/portfolio/' ) ) . '">See all video ad examples →</a></p>'
-		. '</div></section>';
+		. '<p class="mdm-ivids__sub">' . esc_html( $subs[ $slug ] ?? 'Real ads from our clients.' ) . ' They play as you scroll. Tap Unmute to hear one.</p>'
+		. '</div>' . $grid . '</section>';
 }
 
 /* ------------------------------------------------------------------ */
