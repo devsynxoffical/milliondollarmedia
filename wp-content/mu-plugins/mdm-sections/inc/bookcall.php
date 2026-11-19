@@ -1,6 +1,6 @@
 <?php
 /**
- * [mdm_bookcall] - the /bookcall/ page: "Get custom pricing" pitch + the LeadConnector booking calendar
+ * [mdm_bookcall] - the /bookcall/ page: "Get custom pricing" pitch + the Google Calendar appointment schedule
  * (the same calendar as /book-your-call/). Every "Get custom pricing" button points here.
  */
 
@@ -21,7 +21,7 @@ function mdm_shortcode_bookcall( $atts ) {
 			'eyebrow'  => 'Custom pricing',
 			'title'    => 'Get a plan and price built around your budget',
 			'text'     => 'Need 10+ creatives a month, a full done-for-you package or ads management? Pick a time below. On a free 15-minute call we review your offer and current ads, show matching case studies and send you custom pricing.',
-			'calendar' => 'https://api.leadconnectorhq.com/widget/booking/mqKLUgDAfvpIc82l2f4Q',
+			'calendar' => 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ3MmTk94_MhSyjkpFQ6YvKT6tixEbjNfAdSslrScOGWjLTyee2aQlQxetfdPYxk-ZrOXFl_1Ln7?gv=true',
 		),
 		$atts,
 		'mdm_bookcall'
@@ -58,8 +58,7 @@ function mdm_shortcode_bookcall( $atts ) {
 			</div>
 			<div class="mdm-book__cal">
 				<div class="mdm-book__cal-head"><span class="mdm-book__live"><i></i>Free 15-minute call</span><b>Pick a time that suits you</b></div>
-				<iframe src="<?php echo esc_url( $atts['calendar'] ); ?>" id="<?php echo esc_attr( $id ); ?>" class="skip-lazy" data-no-lazy="1" scrolling="no" title="Book a call" style="width:100%;border:none;overflow:visible;min-height:760px"></iframe>
-				<script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
+				<iframe src="<?php echo esc_url( $atts['calendar'] ); ?>" id="<?php echo esc_attr( $id ); ?>" class="skip-lazy" data-no-lazy="1" title="Book a call" style="width:100%;border:0;min-height:800px" height="800"></iframe>
 			</div>
 		</div>
 	</section>
