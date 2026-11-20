@@ -5,10 +5,11 @@ from concurrent.futures import ThreadPoolExecutor
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = 'https://milliondollarmedia.us/'
-PRIORITY = ['', 'facebook-ads-for-roofers/', 'hvac-facebook-ads/', 'what-is-a-vsl/', 'roofing-video-marketing-services/',
-            'hvac-video-marketing-services/', 'plumbing-video-production/', 'home-service-business/', 'mva/', 'real-estate/',
+PRIORITY = ['', 'roofing-video-ads/', 'hvac-facebook-ads/', 'what-is-a-vsl/', 'roofing-video-marketing-services/',
+            'hvac-video-marketing-services/', 'plumbing-video-production/', 'home-service-business/', 'mva/', 'real-estate-video-marketing/',
             'solar/', 'saas/', 'strategic-video-marketing-for-coaches/', 'agency-owners/', 'portfolio/', 'case-studies/',
-            'case-studies/lead-generation/', 'case-studies/ecommerce/', 'our-story/', 'blogs/']
+            'case-studies/lead-generation/', 'case-studies/ecommerce/', 'our-story/', 'blogs/',
+            'ugc-ads-examples/', 'video-ad-agency/', 'ecommerce-video-ads/', 'facebook-ad-creatives-mastermind/']
 
 
 def key():
@@ -57,8 +58,13 @@ def gsc(tok, dims, start, end, limit=500):
 
 
 def inspect(tok, url):
-    st, body = http('https://searchconsole.googleapis.com/v1/urlInspection/index:inspect', json.dumps({'inspectionUrl': url, 'siteUrl': SITE}).encode(),
-                    headers={'Authorization': 'Bearer ' + tok, 'Content-Type': 'application/json'})
+    # Retry: parallel or rapid calls sometimes fail (status 0 / 429) and were reported as a change.
+    for attempt in range(3):
+        st, body = http('https://searchconsole.googleapis.com/v1/urlInspection/index:inspect', json.dumps({'inspectionUrl': url, 'siteUrl': SITE}).encode(),
+                        headers={'Authorization': 'Bearer ' + tok, 'Content-Type': 'application/json'})
+        if st == 200:
+            break
+        time.sleep(3 * (attempt + 1))
     if st != 200:
         return {'error': st}
     r = json.loads(body)['inspectionResult'].get('indexStatusResult', {})
