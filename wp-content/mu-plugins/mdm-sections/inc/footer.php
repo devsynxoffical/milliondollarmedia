@@ -27,7 +27,7 @@ function mdm_shortcode_footer( $atts ) {
 			'tz_label'     => 'Timezone (EST)',
 			'col1_links'   => 'Home:/|Our Story:/our-story/|Services:/#reel|Case Studies:/case-studies/|Pricing:/#pricing|FAQ:/#faq|Contact:/book-your-call/',
 			'col2_links'   => 'Portfolio:/portfolio/|Video Ad Agency:/video-ad-agency/|E-commerce Video Ads:/ecommerce-video-ads/|Blogs:/blogs/|UGC Ad Examples:/ugc-ads-examples/|What Is a VSL?:/what-is-a-vsl/|Book a Free Call:/book-your-call/',
-			'col3_links'   => 'Roofing Video Ads:/roofing-video-marketing-services/|HVAC Advertising:/hvac-video-marketing-services/|Plumbing Videos:/plumbing-video-production/|Home Services:/home-service-business/|MVA & Law Firms:/mva/|Real Estate:/real-estate/|Solar Ads:/solar/|SaaS Video:/saas/|Coaches:/strategic-video-marketing-for-coaches/|Agencies (White Label):/agency-owners/',
+			'col3_links'   => 'Roofing Video Marketing:/roofing-video-marketing-services/|HVAC Advertising:/hvac-video-marketing-services/|Plumbing Videos:/plumbing-video-production/|Home Services:/home-service-business/|MVA & Law Firms:/mva/|Real Estate:/real-estate-video-marketing/|Solar Ads:/solar/|SaaS Video:/saas/|Coaches:/strategic-video-marketing-for-coaches/|Agencies (White Label):/agency-owners/',
 			'loop_title'   => 'Stay in the loop',
 			'loop_text'    => 'Winning hooks, ad breakdowns and case studies, straight to your inbox.',
 			'loop_note'    => 'We respect your inbox. No spam, just valuable updates.',

@@ -57,7 +57,7 @@ function mdm_landing_pages() {
 		),
 		'ecommerce-video-ads' => array(
 			'pill'    => 'For Shopify & DTC brands',
-			'h1'      => array( 'E-commerce video ads', 'that scale DTC brands' ),
+			'h1'      => array( 'Ecommerce video ads', 'that scale DTC brands' ),
 			'lead'    => 'Video ads for Shopify and DTC brands: UGC-style reviews, product demos, problem-and-solution ads and offer ads for Meta and TikTok. Our ' . (int) $ecom['total'] . ' e-commerce case studies include a store scaled to $2.3M at an 11.6x ROAS.',
 			'cta'     => 'Get e-commerce video ads',
 			'stats'   => array( array( (string) $ecom['total'], 'e-commerce case studies' ), array( '11.6x', 'best ROAS in our case studies' ), array( '$2.3M', 'largest brand scaled' ), array( '$34.97', 'per video, no retainer' ) ),
