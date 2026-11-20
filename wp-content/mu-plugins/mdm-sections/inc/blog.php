@@ -177,8 +177,8 @@ add_action(
  */
 function mdm_blog_autolinks() {
 	return array(
-		'roofing leads'             => '/facebook-ads-for-roofers/',
-		'facebook ads for roofers'  => '/facebook-ads-for-roofers/',
+		'roofing video ads'         => '/roofing-video-ads/',
+		'roofing ad creatives'      => '/roofing-video-ads/',
 		'HVAC leads'                => '/hvac-facebook-ads/',
 		'video sales letter'        => '/what-is-a-vsl/',
 		'VSL'                       => '/what-is-a-vsl/',
