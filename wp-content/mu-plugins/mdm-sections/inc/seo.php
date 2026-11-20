@@ -41,6 +41,7 @@ function mdm_seo_meta_map() {
 			'/ugc-ads-examples/'                       => array( 'UGC Ads Examples: 38 Real UGC Video Ad Examples by Industry', 'UGC ads examples: 38 real UGC video ads we made for roofing, solar, HVAC, legal, finance and SaaS clients, with the hook each one opens with. From $34.97 per video.' ),
 			'/video-ad-agency/'                         => array( 'Video Ad Agency for Done-for-You Video Ads | Million Dollar Media', 'A done-for-you video ad agency: UGC, VSLs, AI videos and short-form ads for Facebook, Instagram, TikTok and YouTube, from $34.97 per video. 247 case studies.' ),
 			'/ecommerce-video-ads/'                     => array( 'Ecommerce Video Ads for Shopify & DTC Brands', 'Ecommerce video ads for Shopify and DTC brands: UGC reviews, product demos and offer ads. 123 ecommerce case studies, including $2.3M at an 11.6x ROAS.' ),
+			'/facebook-ad-creatives-mastermind/'      => array( 'Facebook Ad Creatives Mastermind: 6 Lessons for Lower Lead Costs', 'Facebook ad creatives that capture attention and trigger buyer intent: 6 lessons on creative strategy, buyer psychology and ad frameworks for service businesses.' ),
 			'/what-is-a-vsl/'                          => array( 'What Is a VSL? Video Sales Letter Guide + Real VSL Examples', 'What is a VSL? A VSL (video sales letter) is a sales pitch in video form. The script structure that converts, real VSL examples, costs and when to use one.' ),
 		)
 	);
