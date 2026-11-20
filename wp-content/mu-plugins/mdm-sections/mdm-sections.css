@@ -3249,43 +3249,4 @@ html body.mdm-mm-page .mdm-mm__lessons { background: #fff; }
 html body.mdm-mm-page .mdm-mm__chips li { background: #F6F5F2; }
 html body.mdm-mm-page .mdm-mm__chips li:first-child { background: #111114; }
 html body.mdm-mm-page .mdm-mm__card { background: #F9F9F7; }
-/* happy customers (creator carousel copied from the home page) */
-html body.mdm-mm-page [data-id="ba55ff9"] { background: radial-gradient(at 100% 0%, rgba(237,28,36,.16) 0%, #F6F5F2 55%) !important; }
-html body.mdm-mm-page [data-id="ba55ff9"] .elementor-widget-container { background: #fff !important; border-color: rgba(237,28,36,.3) !important; box-shadow: 0 20px 44px -30px rgba(17,17,20,.4); }
-html body.mdm-mm-page [data-id="ba55ff9"] .elementor-image-box-title, html body.mdm-mm-page [data-id="ba55ff9"] .elementor-heading-title, html body.mdm-mm-page [data-id="ba55ff9"] strong, html body.mdm-mm-page [data-id="ba55ff9"] b { color: #111114 !important; }
-/* clients scroller ("Trusted by" logos) */
-html body.mdm-mm-page [data-id="4bb105b"] { background: #fff !important; }
-html body.mdm-mm-page [data-id="4bb105b"] .elementor-heading-title { color: #111114 !important; }
-html body.mdm-mm-page [data-id="4bb105b"] img { filter: brightness(0); opacity: .72; }
-/* FAQ chat: light panel */
-html body.mdm-mm-page .mdm-faq__app { --dark: #ffffff; --dark2: #F4F4F1; --dline: rgba(17,17,20,.1); background: #fff; color: #111114; border: 1px solid rgba(17,17,20,.08); box-shadow: 0 40px 80px -50px rgba(17,17,20,.45); }
-html body.mdm-mm-page .mdm-faq__search svg, html body.mdm-mm-page .mdm-faq__nav, html body.mdm-mm-page .mdm-faq__who span, html body.mdm-mm-page .mdm-faq__empty { color: rgba(17,17,20,.55); }
-html body.mdm-mm-page .mdm-faq__search input, html body.mdm-mm-page .mdm-faq__ask input { color: #111114 !important; }
-html body.mdm-mm-page .mdm-faq__search input::placeholder, html body.mdm-mm-page .mdm-faq__ask input::placeholder { color: rgba(17,17,20,.45); }
-html body.mdm-mm-page .mdm-faq__filters button { color: rgba(17,17,20,.8) !important; }
-html body.mdm-mm-page .mdm-faq__filters button small, html body.mdm-mm-page .mdm-faq__list .n { color: rgba(17,17,20,.45); }
-html body.mdm-mm-page .mdm-faq__filters button.is-on, html body.mdm-mm-page .mdm-faq__filters button.is-on small { color: #fff !important; }
-html body.mdm-mm-page .mdm-faq__list button { color: rgba(17,17,20,.86) !important; }
-html body.mdm-mm-page .mdm-faq__nav b, html body.mdm-mm-page .mdm-faq__nav button { color: #111114 !important; }
-html body.mdm-mm-page .mdm-faq__chat { background: radial-gradient(rgba(17,17,20,.07) 1px, transparent 1.5px) 0 0 / 22px 22px, radial-gradient(120% 60% at 100% 0%, rgba(237,28,36,.08), transparent 60%); }
-html body.mdm-mm-page .mdm-msg--bot { color: rgba(17,17,20,.86); }
-html body.mdm-mm-page .mdm-msg__tags span { background: rgba(17,17,20,.06); color: rgba(17,17,20,.75); }
-html body.mdm-mm-page .mdm-typing i { background: rgba(17,17,20,.45); }
-html body.mdm-mm-page .mdm-faq__suggest button { border-color: rgba(17,17,20,.16) !important; color: rgba(17,17,20,.85) !important; }
-html body.mdm-mm-page .mdm-faq__list { scrollbar-color: rgba(17,17,20,.2) transparent; }
-/* form */
-html body.mdm-mm-page .mdm-lf { background: #F6F5F2; color: #111114; }
-html body.mdm-mm-page .mdm-lf::before { background: radial-gradient(45% 60% at 90% 10%, rgba(237,28,36,.1), transparent 70%); }
-html body.mdm-mm-page .mdm-lf__h2 { color: #111114 !important; }
-html body.mdm-mm-page .mdm-lf__pitch p { color: rgba(17,17,20,.7) !important; }
-html body.mdm-mm-page .mdm-lf .mdm-niche__pill { color: #111114; background: rgba(237,28,36,.07); }
-html body.mdm-mm-page .mdm-lf__points li { background: #fff; border-color: rgba(17,17,20,.08); color: rgba(17,17,20,.78); }
-html body.mdm-mm-page .mdm-lf__points b, html body.mdm-mm-page .mdm-lf__wa { color: #111114 !important; }
-html body.mdm-mm-page .mdm-lf__form { box-shadow: 0 40px 80px -45px rgba(17,17,20,.4); border: 1px solid rgba(17,17,20,.06); }
-/* live calls strip above the footer */
-html body.mdm-mm-page .mdm-calls { background: radial-gradient(120% 80% at 50% 0%, rgba(237,28,36,.08) 0%, #fff 60%); color: #111114; }
-html body.mdm-mm-page .mdm-calls__title { color: #111114 !important; }
-html body.mdm-mm-page .mdm-calls__text { color: rgba(17,17,20,.62); }
-html body.mdm-mm-page .mdm-calls__eyebrow { color: #111114; }
-html body.mdm-mm-page .mdm-call { border-color: rgba(17,17,20,.12); background: #fff; box-shadow: 0 24px 50px -34px rgba(17,17,20,.45); }
-html body.mdm-mm-page .mdm-call figcaption { color: rgba(17,17,20,.8); }
+/* creators + "Trusted by", FAQ chat, form and calls strip keep their original dark design (light / dark rhythm) */
