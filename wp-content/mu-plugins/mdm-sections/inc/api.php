@@ -135,6 +135,11 @@ add_action(
 						}
 						update_option( 'mdm_api_backup_' . $id, array( 'time' => time(), 'data' => get_post_meta( $id, '_elementor_data', true ) ), false );
 						update_post_meta( $id, '_elementor_data', wp_slash( $data ) );
+						if ( $req->get_param( 'builder' ) ) { // turn a new page into an Elementor page
+							update_post_meta( $id, '_elementor_edit_mode', 'builder' );
+							update_post_meta( $id, '_elementor_template_type', 'wp-page' );
+							update_post_meta( $id, '_elementor_version', defined( 'ELEMENTOR_VERSION' ) ? ELEMENTOR_VERSION : '3.0.0' );
+						}
 						delete_post_meta( $id, '_elementor_css' );
 						mdm_api_clear_elementor_css();
 						return array( 'saved' => true, 'id' => $id, 'backup' => 'mdm_api_backup_' . $id );
