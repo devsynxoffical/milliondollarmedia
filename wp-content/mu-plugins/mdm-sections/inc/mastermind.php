@@ -75,3 +75,6 @@ add_shortcode(
 add_filter( 'astra_the_title_enabled', static function ( $on ) { return is_page( mdm_mastermind_slug() ) ? false : $on; }, 30 );
 // Testimonials are placed in the page itself, so not again above the footer.
 add_filter( 'mdm_voices_skip_pages', static function ( $p ) { $p[] = mdm_mastermind_slug(); return $p; } );
+
+// Light theme for the whole page (styles scoped to body.mdm-mm-page).
+add_filter( 'body_class', static function ( $c ) { if ( is_page( mdm_mastermind_slug() ) ) { $c[] = 'mdm-mm-page'; } return $c; } );
