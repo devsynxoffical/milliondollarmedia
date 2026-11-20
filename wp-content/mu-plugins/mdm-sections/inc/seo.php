@@ -16,7 +16,7 @@ function mdm_seo_meta_map() {
 	return apply_filters(
 		'mdm_seo_meta_map',
 		array(
-			'/'                                        => array( 'Video Ad Agency for Lead Gen & DTC | Million Dollar Media', 'Done-for-you video ads, VSLs and UGC creatives delivered in 24–48 hours. 12+ years, 247 verified case studies and $100M+ in client revenue. Book a free call.' ),
+			'/'                                        => array( 'Video Marketing & Video Production Agency for Ads | Million Dollar Media', 'Million Dollar Media is a video marketing and video production agency for ads: UGC, VSLs and AI videos delivered in 24–48 hours, backed by 247 published case studies. Book a free call.' ),
 			'/portfolio/'                              => array( 'Video Ad Examples & Portfolio | Million Dollar Media', 'Watch real video ad examples we produced for roofing, HVAC, solar, SaaS, supplements, recruitment and more: hooks, UGC, VSLs and short-form ads that convert.' ),
 			'/case-studies/'                           => array( '247 Video Ad Case Studies: Lead Gen & E-commerce Results', 'Real results from client ad accounts: 124 lead generation and 123 e-commerce case studies with cost per lead, ROAS and revenue. Proof, not promises.' ),
 			'/case-studies/lead-generation/'           => array( 'Lead Generation Case Studies: 124 Real Campaigns & CPLs', '124 lead gen campaigns for roofing, MVA, mortgage, MedSpa, coaching and more, with real ad spend, cost per lead and booked calls. Watch the proof videos.' ),
@@ -25,7 +25,7 @@ function mdm_seo_meta_map() {
 			'/book-your-call/'                         => array( 'Book a Free Strategy Call | Million Dollar Media', 'Book a free 15-minute strategy call. We review your offer and ads, show matching case studies and map a video ad plan to get you more leads and sales.' ),
 			'/bookcall/'                               => array( 'Get Custom Pricing for Video Ads | Million Dollar Media', 'Need 10+ creatives a month or a full done-for-you package? Pick a time for a free 15-minute call and get custom pricing built around your budget.' ),
 			'/blogs/'                                  => array( 'Video Ads & Video Marketing Blog | Million Dollar Media', 'Practical guides on video ads, VSLs, UGC and video marketing for roofers, HVAC, coaches, agencies and e-commerce brands from the Million Dollar Media team.' ),
-			'/roofing-video-marketing-services/'       => array( 'Roofing Ads & Video Marketing for Roofers That Get Leads', 'Video ads and done-for-you Meta campaigns for roofing companies, with 11 roofing case studies such as 686 website leads in 8 days. Book a free strategy call.' ),
+			'/roofing-video-marketing-services/'       => array( 'Roofing Video Ads & Video Marketing for Roofers', 'Roofing video ads and video marketing for roofing companies: crew, project and homeowner videos, with 11 roofing case studies such as 686 website leads in 8 days. Book a free call.' ),
 			'/hvac-video-marketing-services/'          => array( 'HVAC Advertising & Video Marketing That Books Calls', 'HVAC video ads and Meta advertising that fill your schedule. See 6 HVAC case studies, including 326 leads in 26 days for one client. Get a free plan.' ),
 			'/plumbing-video-production/'              => array( 'Plumbing Video Production & Video Ads for Plumbers', 'Video production and video ads for plumbing companies: trust-building service videos, short-form ads and lead campaigns that turn local demand into booked jobs.' ),
 			'/mva/'                                    => array( 'MVA Leads & Personal Injury Lawyer Marketing With Video', 'Exclusive, OTP-verified MVA leads for personal injury firms from video ads and funnels, including 8,810 leads at $7.61 each. See 13 real legal case studies.' ),
@@ -36,9 +36,11 @@ function mdm_seo_meta_map() {
 			'/home-service-business/'                  => array( 'Home Service Marketing Agency for Video Ads & Leads', 'Video ads and lead generation for home service businesses: roofing, HVAC, plumbing, solar, remodeling and home care. Real campaigns, real CPLs, done for you.' ),
 			'/strategic-video-marketing-for-coaches/'  => array( 'Video Marketing & Facebook Ads for Coaches', 'Done-for-you video marketing and Facebook ads for coaches and consultants. See 17 coaching case studies, including $115K from one campaign. Book a call.' ),
 			'/video-marketing-for-roofing-business/'   => array( 'Video Marketing for Roofing Companies: Step-by-Step Guide', 'A step-by-step video marketing guide for roofing contractors: video ideas, simple scripts, filming on a phone, and turning videos into local roofing leads.' ),
-			'/facebook-ads-for-roofers/'               => array( 'Facebook Ads for Roofers: Real Roofing Lead Costs & Setup', 'How roofers get leads from Facebook ads: real cost per lead from 9 roofing campaigns ($4.27 to $24), plus the targeting, lead form and verification setup.' ),
-			'/hvac-facebook-ads/'                      => array( 'Facebook Ads for HVAC: Real Lead, Booking & Install Costs', 'How HVAC companies get leads from Facebook ads: real cost per lead, per booked appointment and per install from our HVAC campaigns, plus the lead form we use.' ),
-			'/ugc-ads-examples/'                       => array( 'UGC Ad Examples: 38 UGC-Style Video Ads by Industry', 'Watch 38 real UGC-style video ads we made for roofing, solar, HVAC, legal, finance and SaaS clients, with the hook each one opens with. From $34.97 per video.' ),
+			'/facebook-ads-for-roofers/'               => array( 'Roofing Video Ads: Ad Creatives That Get Roofing Leads', 'The roofing video ads and ad creatives behind 9 real roofing campaigns ($4.27 to $24 per lead): hooks, formats, targeting and lead verification, with the proof.' ),
+			'/hvac-facebook-ads/'                      => array( 'HVAC Facebook Ads: Real Lead, Booking & Install Costs', 'HVAC Facebook ads that bring leads and installs: real cost per lead, per booked appointment and per install from our HVAC campaigns, plus the setup behind them.' ),
+			'/ugc-ads-examples/'                       => array( 'UGC Ads Examples: 38 Real UGC Video Ad Examples by Industry', 'UGC ads examples: 38 real UGC video ads we made for roofing, solar, HVAC, legal, finance and SaaS clients, with the hook each one opens with. From $34.97 per video.' ),
+			'/video-ad-agency/'                         => array( 'Video Ad Agency for Done-for-You Video Ads | Million Dollar Media', 'A done-for-you video ad agency: UGC, VSLs, AI videos and short-form ads for Facebook, Instagram, TikTok and YouTube, from $34.97 per video. 247 case studies.' ),
+			'/ecommerce-video-ads/'                     => array( 'E-commerce Video Ads for Shopify & DTC Brands', 'E-commerce video ads for Shopify and DTC brands: UGC reviews, product demos and offer ads. 123 e-commerce case studies, including $2.3M at an 11.6x ROAS.' ),
 			'/what-is-a-vsl/'                          => array( 'What Is a VSL? Video Sales Letter Guide + Real VSL Examples', 'What a VSL (video sales letter) is, the script structure that converts, real VSL examples from our clients, what a VSL costs and when it beats a sales page.' ),
 		)
 	);
@@ -98,13 +100,13 @@ function mdm_seo_niches() {
 	return array(
 		'roofing-video-marketing-services'      => array(
 			'niches' => array( 'Roofing' ),
-			'h2'     => 'Roofing ads that bring real homeowners, not tire-kickers',
+			'h2'     => 'Roofing video ads that bring real homeowners, not tire-kickers',
 			'p'      => array(
-				'Most roofing companies pay $40–$80 for a single lead from shared lead vendors. We run your own roofing ads instead: short video creatives that show your crew, your work and your offer, sent to homeowners in your service area and qualified by a short form before they reach your phone.',
+				'Most roofing companies pay $40–$80 for a single lead from shared lead vendors. We run your own roofing video ads instead: short video creatives that show your crew, your work and your offer, sent to homeowners in your service area and qualified by a short form before they reach your phone.',
 				'Across our 11 roofing campaigns we have generated 686 website leads in 8 days for a Texas roofer, 537 leads at $4.27 each and 215 leads at $12.79 on $2,749 of spend. Every number below comes from a client ad account, and you can open each one to see the proof.',
 			),
 			'faq'    => array(
-				array( 'How much do roofing ads cost per lead?', 'In our roofing campaigns cost per lead has ranged from about $4 to $13, depending on the market, season and offer. Your budget, service area and storm activity all move this number, so we show you matching case studies on the call.' ),
+				array( 'How much do roofing video ads cost per lead?', 'In our roofing campaigns cost per lead has ranged from about $4 to $13, depending on the market, season and offer. Your budget, service area and storm activity all move this number, so we show you matching case studies on the call.' ),
 				array( 'Do you make the videos or just run the ads?', 'Both. We script and edit the video creatives, build the landing page or lead form, launch the Meta campaigns and test new hooks every week.' ),
 				array( 'Will the leads be exclusive to my company?', 'Yes. The ads run from your own ad account and funnel, so every lead belongs to you and is never resold.' ),
 			),
@@ -281,7 +283,7 @@ function mdm_seo_niche_section( $slug, $part = 'all' ) {
 				<?php foreach ( $c['p'] as $p ) : ?><p><?php echo esc_html( $p ); ?></p><?php endforeach; ?>
 				<?php
 				$guides = array(
-					'roofing-video-marketing-services' => array( '/facebook-ads-for-roofers/', 'Read the guide: Facebook ads for roofers, with real lead costs' ),
+					'roofing-video-marketing-services' => array( '/facebook-ads-for-roofers/', 'Read the guide: roofing video ads and ad creatives, with real lead costs' ),
 					'hvac-video-marketing-services'    => array( '/hvac-facebook-ads/', 'Read the guide: Facebook ads for HVAC, from lead to installation' ),
 				);
 				if ( isset( $guides[ $slug ] ) ) :
@@ -364,7 +366,7 @@ add_filter(
 
 		// Services that match the article's topic.
 		$topics = array(
-			'roof'        => array( '/roofing-video-marketing-services/', 'Roofing ads & video marketing' ),
+			'roof'        => array( '/roofing-video-marketing-services/', 'Roofing video ads & video marketing' ),
 			'hvac'        => array( '/hvac-video-marketing-services/', 'HVAC advertising & video ads' ),
 			'plumb'       => array( '/plumbing-video-production/', 'Plumbing video production' ),
 			'white-label' => array( '/agency-owners/', 'White label video ads for agencies' ),

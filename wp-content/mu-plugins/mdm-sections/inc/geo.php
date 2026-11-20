@@ -183,7 +183,7 @@ add_action(
 		$t .= '- [Book a free strategy call](' . $u( '/book-your-call/' ) . ")\n\n";
 		$t .= "## Industries\n\n";
 		$pages = array(
-			'/roofing-video-marketing-services/'      => 'Roofing ads and video marketing',
+			'/roofing-video-marketing-services/'      => 'Roofing video ads and video marketing',
 			'/hvac-video-marketing-services/'         => 'HVAC advertising and video ads',
 			'/plumbing-video-production/'             => 'Plumbing video production and ads',
 			'/home-service-business/'                 => 'Home service businesses',

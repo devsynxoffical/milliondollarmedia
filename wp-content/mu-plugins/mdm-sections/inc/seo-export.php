@@ -46,5 +46,29 @@ add_action(
 				},
 			)
 		);
+		// POST /wp-json/mdm/v1/seo-focus {"items":[{"id":123,"focus_keyword":"a,b"}]} -> sets Rank Math focus keywords (admin only).
+		register_rest_route(
+			'mdm/v1',
+			'/seo-focus',
+			array(
+				'methods'             => 'POST',
+				'permission_callback' => static function () {
+					return current_user_can( 'manage_options' );
+				},
+				'callback'            => static function ( $req ) {
+					$done = array();
+					foreach ( (array) $req->get_param( 'items' ) as $it ) {
+						$id = isset( $it['id'] ) ? (int) $it['id'] : 0;
+						if ( ! $id || ! get_post( $id ) || ! isset( $it['focus_keyword'] ) ) {
+							continue;
+						}
+						$kw = sanitize_text_field( (string) $it['focus_keyword'] );
+						update_post_meta( $id, 'rank_math_focus_keyword', $kw );
+						$done[ $id ] = $kw;
+					}
+					return array( 'updated' => $done );
+				},
+			)
+		);
 	}
 );

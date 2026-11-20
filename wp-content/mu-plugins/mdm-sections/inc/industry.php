@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 function mdm_industry_heroes() {
 	return array(
 		'hvac-video-marketing-services'         => array( 'HVAC advertising & video ads', 'for HVAC businesses', 'Short video ads for tune-ups, repairs and replacements, run on Meta in your service area, with every lead pre-qualified before it reaches your team.' ),
-		'roofing-video-marketing-services'      => array( 'Roofing ads & video marketing', 'for roofing companies', 'Your own roofing leads instead of shared lead lists: video ads that show your crew and your work, sent to homeowners in your service area.' ),
+		'roofing-video-marketing-services'      => array( 'Roofing video ads & video marketing', 'for roofing companies', 'Your own roofing leads instead of shared lead lists: video ads that show your crew and your work, sent to homeowners in your service area.' ),
 		'plumbing-video-production'             => array( 'Plumbing video production & ads', 'for plumbing companies', 'Short video ads for emergency calls, water heaters and repipes, run in your service area and built to fill your schedule.' ),
 		'mva'                                   => array( 'MVA leads & video ads', 'for personal injury law firms', 'Exclusive motor vehicle accident leads from video ads we script, edit and run for your firm, verified before they reach your intake team.' ),
 		'real-estate'                           => array( 'Real estate video marketing', 'for agents, investors & lenders', 'Video ads and funnels that bring buyers, sellers and refinance leads to your calendar, not just likes on your listings.' ),

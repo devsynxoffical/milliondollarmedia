@@ -21,3 +21,4 @@ never resend a URL sent in the last 7 days. Read-only URL Inspection and IndexNo
 | 2026-11-19 18:27 | /agency-owners/ | 429 (quota exceeded) |
 
 Note: on a 429 stop the batch at the first rejection; every request counts toward the 20.
+| 2026-11-20 06:28 | /video-production-for-marketing-guide/ | 429 |

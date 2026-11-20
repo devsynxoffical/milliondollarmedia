@@ -76,8 +76,8 @@ function mdm_shortcode_ugc_examples() {
 			<div class="mdm-ugc__in mdm-ugc__herogrid">
 				<div>
 					<span class="mdm-niche__pill">Real client ads</span>
-					<h1 class="mdm-ugc__h1">UGC ad examples <span>that real brands ran</span></h1>
-					<p class="mdm-ugc__lead"><?php echo (int) $total; ?> UGC-style video ads we made for clients in <?php echo (int) count( $inds ); ?> industries, from roofing and solar to legal and SaaS. Filter by industry, tap any video to watch it, and see the hook each one opens with.</p>
+					<h1 class="mdm-ugc__h1">UGC ads examples <span>that real brands ran</span></h1>
+					<p class="mdm-ugc__lead"><?php echo (int) $total; ?> UGC examples: real UGC-style video ads we made for clients in <?php echo (int) count( $inds ); ?> industries, from roofing and solar to legal and SaaS. Filter by industry, tap any video to watch it, and see the hook each one opens with.</p>
 					<div class="mdm-ugc__btns">
 						<a class="mdm-ihero__btn is-red" href="#free-plan">Get UGC ads for your business <em><?php echo MDM_Sections::arrow_icon(); // phpcs:ignore ?></em></a>
 						<a class="mdm-ihero__btn" href="#examples">See the examples</a>

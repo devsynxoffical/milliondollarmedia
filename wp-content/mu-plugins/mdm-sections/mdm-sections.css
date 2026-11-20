@@ -3134,3 +3134,68 @@ html .mdm-post .mdm-post-tail .mdm-related { background: #fff; border-color: rgb
 	html .mdm-post-main { max-width: 100%; }
 }
 @media (max-width: 600px) { html .mdm-post .mdm-toc ol { columns: 1 !important; } }
+
+/* ================================================================== */
+/* Keyword landing pages (inc/landing.php): light, like service pages  */
+/* ================================================================== */
+html .mdm-lp { background: #fff; color: #111114; }
+html .mdm-lp .mdm-lp__hero { background: #F6F5F2; color: #111114; }
+html .mdm-lp .mdm-lp__hero::before { background: radial-gradient(55% 60% at 80% 40%, rgba(237,28,36,.13), transparent 70%); }
+html .mdm-lp .mdm-ugc__h1 { color: #111114 !important; }
+html .mdm-lp .mdm-ugc__lead { color: rgba(17,17,20,.7) !important; }
+html .mdm-lp .mdm-niche__pill { color: #111114; background: rgba(237,28,36,.07); }
+html .mdm-lp .mdm-ihero__btn { color: #111114 !important; border-color: rgba(17,17,20,.2); background: #fff; }
+html .mdm-lp .mdm-ihero__btn.is-red { color: #fff !important; background: #ED1C24; border-color: #ED1C24; }
+html .mdm-lp .mdm-ugc__stats li { background: #fff; border-color: rgba(17,17,20,.08); box-shadow: 0 18px 40px -28px rgba(17,17,20,.3); transition: transform .25s, box-shadow .25s; }
+html .mdm-lp .mdm-ugc__stats li:hover { transform: translateY(-4px); box-shadow: 0 24px 48px -26px rgba(237,28,36,.45); }
+html .mdm-lp .mdm-ugc__stats li b { color: #111114; }
+html .mdm-lp .mdm-ugc__stats li span { color: rgba(17,17,20,.62); }
+html .mdm-lp .mdm-ugc__stats li.is-red { background: linear-gradient(135deg, #ED1C24, #8E0A0F); }
+html .mdm-lp .mdm-ugc__stats li.is-red b, html .mdm-lp .mdm-ugc__stats li.is-red span { color: #fff; }
+html .mdm-lp .mdm-ugc__sec { background: #fff; }
+html .mdm-lp .mdm-lp__alt { background: #F6F5F2; }
+html .mdm-lp .mdm-ugc__h2 { color: #111114 !important; }
+html .mdm-lp__center { text-align: center; }
+html .mdm-lp__videos { background: #fff; padding-top: clamp(56px, 7vw, 96px); }
+html .mdm-lp__videos .mdm-reels { padding-top: clamp(24px, 3vw, 40px); }
+html .mdm-lp__sub { color: rgba(17,17,20,.62) !important; font-size: 16px !important; margin: 0 !important; }
+
+html .mdm-lp__cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 8px; }
+html .mdm-lp__cards:has(> :nth-child(4):last-child) { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+html .mdm-lp__card { padding: 24px 22px; border-radius: 22px; background: #fff; border: 1px solid rgba(17,17,20,.08); box-shadow: 0 18px 40px -30px rgba(17,17,20,.35); transition: transform .25s, border-color .25s, box-shadow .25s; }
+html .mdm-lp__card:hover { transform: translateY(-5px); border-color: rgba(237,28,36,.45); box-shadow: 0 26px 50px -28px rgba(237,28,36,.4); }
+html .mdm-lp__card h3 { margin: 0 0 8px !important; font: 700 18px/1.3 "Poppins", sans-serif !important; color: #111114 !important; }
+html .mdm-lp__card p { margin: 0 0 12px !important; font-size: 14.5px !important; line-height: 1.6 !important; color: rgba(17,17,20,.66) !important; }
+html .mdm-lp__card a { color: #ED1C24 !important; font-weight: 600; font-size: 14px; text-decoration: none !important; }
+
+html .mdm-lp__proof { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 8px; }
+html .mdm-lp__proof div { padding: 26px 22px; border-radius: 22px; background: #fff; border: 1px solid rgba(17,17,20,.08); }
+html .mdm-lp__proof div:first-child { background: linear-gradient(135deg, #ED1C24, #8E0A0F); border-color: transparent; }
+html .mdm-lp__proof b { display: block; font: 700 clamp(26px, 2.6vw, 36px)/1 "Syncopate", sans-serif; color: #111114; }
+html .mdm-lp__proof em { display: inline-block; margin: 12px 0 10px; padding: 6px 10px; border-radius: 999px; background: rgba(237,28,36,.08); color: #ED1C24; font: 700 13px/1 "Poppins", sans-serif; font-style: normal; }
+html .mdm-lp__proof p { margin: 0 !important; font-size: 14.5px !important; line-height: 1.55 !important; color: rgba(17,17,20,.66) !important; }
+html .mdm-lp__proof div:first-child b, html .mdm-lp__proof div:first-child p { color: #fff !important; }
+html .mdm-lp__proof div:first-child em { background: rgba(255,255,255,.18); color: #fff; }
+html .mdm-lp__niches { margin: 18px 0 0 !important; font-size: 14.5px !important; color: rgba(17,17,20,.62) !important; }
+html .mdm-lp__niches span { font-weight: 700; color: #111114; }
+
+html .mdm-lp__cases .mdm-cases { background: #fff !important; }
+html .mdm-lp .mdm-ugc__table th { background: #111114; color: #fff; }
+html .mdm-lp__inds { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+html .mdm-lp__inds a { display: flex; flex-direction: column; gap: 4px; padding: 18px; border-radius: 16px; background: #F6F5F2; border: 1px solid rgba(17,17,20,.07); text-decoration: none !important; transition: border-color .2s, transform .2s; }
+html .mdm-lp__inds a:hover { border-color: #ED1C24; transform: translateY(-3px); }
+html .mdm-lp__inds b { color: #111114; font-size: 15px; }
+html .mdm-lp__inds span { color: rgba(17,17,20,.6); font-size: 13.5px; }
+html .mdm-lp .mdm-ic__steps li { padding: 20px 18px 22px; border-radius: 20px; background: #fff; border: 1px solid rgba(17,17,20,.08); }
+html .mdm-lp .mdm-ic__steps::before { display: none; }
+html .mdm-lp .mdm-ic__stepn { background: #fff; color: #111114; box-shadow: none; }
+html .mdm-lp .mdm-ic__steps h3 { color: #111114 !important; }
+html .mdm-lp .mdm-ic__steps p { color: rgba(17,17,20,.66) !important; }
+html .mdm-lp .mdm-lf { background: #F6F5F2; color: #111114; }
+html .mdm-lp .mdm-lf::before { background: radial-gradient(45% 60% at 90% 10%, rgba(237,28,36,.1), transparent 70%); }
+html .mdm-lp .mdm-lf__h2 { color: #111114 !important; }
+html .mdm-lp .mdm-lf__pitch p { color: rgba(17,17,20,.7) !important; }
+html .mdm-lp .mdm-lf__points li { background: #fff; border-color: rgba(17,17,20,.08); color: rgba(17,17,20,.78); }
+html .mdm-lp .mdm-lf__points b, html .mdm-lp .mdm-lf__wa { color: #111114 !important; }
+@media (max-width: 1000px) { html .mdm-lp__cards, html .mdm-lp__cards:has(> :nth-child(4):last-child), html .mdm-lp__proof, html .mdm-lp__inds { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { html .mdm-lp__cards, html .mdm-lp__cards:has(> :nth-child(4):last-child), html .mdm-lp__proof, html .mdm-lp__inds { grid-template-columns: 1fr; } }
