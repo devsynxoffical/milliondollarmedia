@@ -23,3 +23,4 @@ never resend a URL sent in the last 7 days. Read-only URL Inspection and IndexNo
 Note: on a 429 stop the batch at the first rejection; every request counts toward the 20.
 | 2026-11-20 06:28 | /video-production-for-marketing-guide/ | 429 |
 | 2026-11-20 07:03 | /video-ad-agency/ | 429 |
+| 2026-11-20 18:35 | /roofing-video-ads/ | 429 |

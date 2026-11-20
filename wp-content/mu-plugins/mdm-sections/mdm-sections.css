@@ -3250,3 +3250,9 @@ html body.mdm-mm-page .mdm-mm__chips li { background: #F6F5F2; }
 html body.mdm-mm-page .mdm-mm__chips li:first-child { background: #111114; }
 html body.mdm-mm-page .mdm-mm__card { background: #F9F9F7; }
 /* creators + "Trusted by", FAQ chat, form and calls strip keep their original dark design (light / dark rhythm) */
+
+/* Portfolio tab grids (page 380): fixed here so they never depend on Elementor's generated post CSS,
+   which was rebuilt without the rules for tabs added later (Electrician, Coaching, eCom Brands) and showed full-size videos. */
+html .elementor-380 .e-n-tabs-content .e-con.e-grid { --display: grid; --e-con-grid-template-columns: repeat(5, 1fr); --grid-auto-flow: row; }
+@media (max-width: 1024px) { html .elementor-380 .e-n-tabs-content .e-con.e-grid { --e-con-grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 767px) { html .elementor-380 .e-n-tabs-content .e-con.e-grid { --e-con-grid-template-columns: repeat(2, 1fr); } }
