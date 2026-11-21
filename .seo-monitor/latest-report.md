@@ -1,11 +1,11 @@
-# SEO monitor report: 2026-11-20T18:24Z
+# SEO monitor report: 2026-11-21T06:24Z
 
-Search Console window: 2026-11-12 to 2026-11-18 (vs 2026-11-05 to 2026-11-11). Data lags about 2 days.
+Search Console window: 2026-11-13 to 2026-11-19 (vs 2026-11-06 to 2026-11-12). Data lags about 2 days.
 
 ## Totals (last 7 days vs previous 7)
 
-- Clicks: 6 (previous 6)
-- Impressions: 147 (previous 75)
+- Clicks: 6 (previous 5)
+- Impressions: 134 (previous 75)
 
 ## Non-brand queries (last 7 days)
 
@@ -19,43 +19,43 @@ Search Console window: 2026-11-12 to 2026-11-18 (vs 2026-11-05 to 2026-11-11). D
 
 ## Pages (last 7 days)
 
-- /: 74 impr, 6 clicks, pos 3.7 (was 71 impr, pos 3.2)
+- /: 62 impr, 6 clicks, pos 3.4 (was 70 impr, pos 3.4)
 - /our-story/: 19 impr, 0 clicks, pos 8.8 (new)
 - /case-studies/: 16 impr, 0 clicks, pos 5.5 (new)
 - /case-studies/ecommerce/: 12 impr, 0 clicks, pos 5.6 (new)
 - /case-studies/lead-generation/: 10 impr, 0 clicks, pos 7.7 (new)
 - /blogs/: 5 impr, 0 clicks, pos 2.0 (was 4 impr, pos 8.5)
-- /provide-information/: 5 impr, 0 clicks, pos 5.8 (new)
 - /book-your-call/: 4 impr, 0 clicks, pos 4.5 (new)
+- /provide-information/: 4 impr, 0 clicks, pos 5.5 (was 1 impr, pos 7.0)
 - /facebook-ads-for-roofers/: 1 impr, 0 clicks, pos 40.0 (new)
 - /hvac-facebook-ads/: 1 impr, 0 clicks, pos 59.0 (new)
 
 ## Indexing (priority pages)
 
 - /: Submitted and indexed, last crawl 2026-11-19
-- /roofing-video-ads/: URL is unknown to Google, last crawl -  CHANGED (was: None)
+- /roofing-video-ads/: URL is unknown to Google, last crawl -
 - /hvac-facebook-ads/: Submitted and indexed, last crawl 2026-11-18
-- /what-is-a-vsl/: Submitted and indexed, last crawl 2026-11-20  CHANGED (was: Crawled - currently not indexed)
+- /what-is-a-vsl/: Submitted and indexed, last crawl 2026-11-20
 - /roofing-video-marketing-services/: Crawled - currently not indexed, last crawl 2026-11-18
 - /hvac-video-marketing-services/: Crawled - currently not indexed, last crawl 2026-11-18
 - /plumbing-video-production/: Crawled - currently not indexed, last crawl 2026-04-12
 - /home-service-business/: Crawled - currently not indexed, last crawl 2026-11-18
-- /mva/: Crawled - currently not indexed, last crawl 2026-11-18 (re-checked after a failed request)
-- /real-estate-video-marketing/: Submitted and indexed, last crawl 2026-11-20  CHANGED (was: None)
+- /mva/: Crawled - currently not indexed, last crawl 2026-11-18
+- /real-estate-video-marketing/: Submitted and indexed, last crawl 2026-11-20
 - /solar/: Crawled - currently not indexed, last crawl 2026-11-18
 - /saas/: Crawled - currently not indexed, last crawl 2026-11-18
 - /strategic-video-marketing-for-coaches/: Crawled - currently not indexed, last crawl 2026-04-22
-- /agency-owners/: Crawled - currently not indexed, last crawl 2026-11-18 (re-checked after a failed request)
-- /portfolio/: Discovered - currently not indexed, last crawl - (re-checked after a failed request)
-- /case-studies/: Submitted and indexed, last crawl 2026-11-14 (re-checked after a failed request)
+- /agency-owners/: Crawled - currently not indexed, last crawl 2026-11-18
+- /portfolio/: Discovered - currently not indexed, last crawl -
+- /case-studies/: Submitted and indexed, last crawl 2026-11-14
 - /case-studies/lead-generation/: Submitted and indexed, last crawl 2026-11-13
 - /case-studies/ecommerce/: Submitted and indexed, last crawl 2026-11-14
 - /our-story/: Submitted and indexed, last crawl 2026-11-14
 - /blogs/: Submitted and indexed, last crawl 2026-11-03
-- /ugc-ads-examples/: Submitted and indexed, last crawl 2026-11-19  CHANGED (was: None)
-- /video-ad-agency/: Submitted and indexed, last crawl 2026-11-20  CHANGED (was: None)
-- /ecommerce-video-ads/: Submitted and indexed, last crawl 2026-11-20  CHANGED (was: None)
-- /facebook-ad-creatives-mastermind/: URL is unknown to Google, last crawl - (re-checked after a failed request)
+- /ugc-ads-examples/: Submitted and indexed, last crawl 2026-11-19
+- /video-ad-agency/: Submitted and indexed, last crawl 2026-11-20
+- /ecommerce-video-ads/: Submitted and indexed, last crawl 2026-11-20
+- /facebook-ad-creatives-mastermind/: URL is unknown to Google, last crawl -
 
 ## Site health (204 sitemap URLs)
 
