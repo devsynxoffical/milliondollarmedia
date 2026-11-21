@@ -99,6 +99,7 @@ function mdm_shortcode_footer( $atts ) {
 				<p class="mdm-ft__addr"><?php echo esc_html( $atts['address'] ); ?></p>
 				<p class="mdm-ft__clock" data-tz="<?php echo esc_attr( $atts['timezone'] ); ?>">--:--:--</p>
 				<p class="mdm-ft__tz"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><?php echo esc_html( $atts['tz_label'] ); ?></p>
+				<?php echo function_exists( 'mdm_pref_source_button' ) ? '<p class="mdm-ft__gpref">' . mdm_pref_source_button() . '</p>' : ''; // phpcs:ignore ?>
 			</div>
 		</div>
 
