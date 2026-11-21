@@ -361,6 +361,9 @@ add_filter(
 		foreach ( mdm_industry_heroes() as $slug => $h ) {
 			$html .= '<a href="' . esc_url( home_url( '/' . $slug . '/' ) ) . '"><b>' . esc_html( $h[0] ) . '</b><span>' . esc_html( $h[1] ) . '</span></a>';
 		}
+		// Keyword-plan pages (indexed 20 Nov 2026): internal links from the indexed case-study hubs.
+		$html .= '<a href="' . esc_url( home_url( '/video-ad-agency/' ) ) . '"><b>Video ad agency</b><span>done-for-you video ads for any industry</span></a>';
+		$html .= '<a href="' . esc_url( home_url( '/ecommerce-video-ads/' ) ) . '"><b>Ecommerce video ads</b><span>for Shopify & DTC brands</span></a>';
 		return $content . $html . '</div></div></section>';
 	},
 	40
