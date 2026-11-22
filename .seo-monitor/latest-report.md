@@ -1,11 +1,11 @@
-# SEO monitor report: 2026-11-21T18:24Z
+# SEO monitor report: 2026-11-22T06:24Z
 
-Search Console window: 2026-11-13 to 2026-11-19 (vs 2026-11-06 to 2026-11-12). Data lags about 2 days.
+Search Console window: 2026-11-14 to 2026-11-20 (vs 2026-11-07 to 2026-11-13). Data lags about 2 days.
 
 ## Totals (last 7 days vs previous 7)
 
-- Clicks: 7 (previous 5)
-- Impressions: 177 (previous 75)
+- Clicks: 6 (previous 5)
+- Impressions: 167 (previous 73)
 
 ## Non-brand queries (last 7 days)
 
@@ -25,13 +25,13 @@ Search Console window: 2026-11-13 to 2026-11-19 (vs 2026-11-06 to 2026-11-12). D
 
 ## Pages (last 7 days)
 
-- /: 70 impr, 7 clicks, pos 3.5 (was 70 impr, pos 3.4)
+- /: 61 impr, 6 clicks, pos 3.5 (was 67 impr, pos 3.4)
 - /case-studies/: 21 impr, 0 clicks, pos 5.6 (new)
 - /our-story/: 21 impr, 0 clicks, pos 8.6 (new)
 - /case-studies/ecommerce/: 14 impr, 0 clicks, pos 6.1 (new)
 - /case-studies/lead-generation/: 11 impr, 0 clicks, pos 9.0 (new)
-- /blogs/: 5 impr, 0 clicks, pos 2.0 (was 4 impr, pos 8.5)
 - /hvac-facebook-ads/: 5 impr, 0 clicks, pos 64.6 (new)
+- /blogs/: 4 impr, 0 clicks, pos 2.0 (was 5 impr, pos 7.2)
 - /book-your-call/: 4 impr, 0 clicks, pos 4.5 (new)
 - /facebook-ads-for-roofers/: 4 impr, 0 clicks, pos 64.2 (new)
 - /provide-information/: 4 impr, 0 clicks, pos 5.5 (was 1 impr, pos 7.0)
