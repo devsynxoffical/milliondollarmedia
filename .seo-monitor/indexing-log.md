@@ -27,3 +27,4 @@ Note: on a 429 stop the batch at the first rejection; every request counts towar
 | 2026-11-21 06:30 | (none sent) | skipped: every request since 2026-11-19 returned 429; waiting for the Google Cloud quota to be checked |
 | 2026-11-21 18:30 | (none sent) | skipped: Indexing API quota still rejecting every request (429) |
 | 2026-11-22 06:30 | (none sent) | skipped: Indexing API quota still rejecting every request (429) |
+| 2026-11-22 18:30 | (none sent) | skipped: Indexing API quota still rejecting every request (429) |
