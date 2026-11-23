@@ -1,4 +1,4 @@
-# SEO monitor report: 2026-11-23T06:24Z
+# SEO monitor report: 2026-11-23T18:24Z
 
 Search Console window: 2026-11-15 to 2026-11-21 (vs 2026-11-08 to 2026-11-14). Data lags about 2 days.
 
@@ -31,6 +31,20 @@ Search Console window: 2026-11-15 to 2026-11-21 (vs 2026-11-08 to 2026-11-14). D
 - "v sl": 1 impressions, 0 clicks, position 9.0
 - "vs.l": 1 impressions, 0 clicks, position 6.0
 - "what is a vsl in marketing": 1 impressions, 0 clicks, position 48.0
+
+## Top 10 target keywords (28 days, exact query)
+
+- "video ad agency" -> /video-ad-agency/: not ranking yet
+- "video sales letter" -> /what-is-a-vsl/: not ranking yet
+- "hvac facebook ads" -> /hvac-facebook-ads/: not ranking yet
+- "real estate video marketing" -> /real-estate-video-marketing/: not ranking yet
+- "ecommerce video ads" -> /ecommerce-video-ads/: not ranking yet
+- "vsl examples" -> /what-is-a-vsl/: not ranking yet
+- "ugc ads examples" -> /ugc-ads-examples/: position 27.3, 3 impressions, ranking page /ugc-ads-examples/
+- "ugc ad examples" -> /ugc-ads-examples/: position 39.8, 5 impressions, ranking page /ugc-ads-examples/
+- "how much do video ads cost" -> /how-much-do-video-ads-cost/: not ranking yet
+- "product video ads" -> /product-video-ads/: not ranking yet
+- In the top 10: 0 of 10
 
 ## Opportunities
 
@@ -71,7 +85,7 @@ Search Console window: 2026-11-15 to 2026-11-21 (vs 2026-11-08 to 2026-11-14). D
 - /: Submitted and indexed, last crawl 2026-11-19
 - /roofing-video-ads/: URL is unknown to Google, last crawl -
 - /hvac-facebook-ads/: Submitted and indexed, last crawl 2026-11-18
-- /what-is-a-vsl/: Submitted and indexed, last crawl 2026-11-20
+- /what-is-a-vsl/: Submitted and indexed, last crawl 2026-11-23
 - /roofing-video-marketing-services/: Crawled - currently not indexed, last crawl 2026-11-18
 - /hvac-video-marketing-services/: Crawled - currently not indexed, last crawl 2026-11-18
 - /plumbing-video-production/: Crawled - currently not indexed, last crawl 2026-04-12
@@ -82,18 +96,20 @@ Search Console window: 2026-11-15 to 2026-11-21 (vs 2026-11-08 to 2026-11-14). D
 - /saas/: Crawled - currently not indexed, last crawl 2026-11-18
 - /strategic-video-marketing-for-coaches/: Crawled - currently not indexed, last crawl 2026-04-22
 - /agency-owners/: Crawled - currently not indexed, last crawl 2026-11-18
-- /portfolio/: Discovered - currently not indexed, last crawl -
+- /portfolio/: Submitted and indexed, last crawl 2026-11-23  CHANGED (was: Discovered - currently not indexed)
 - /case-studies/: Submitted and indexed, last crawl 2026-11-14
 - /case-studies/lead-generation/: Submitted and indexed, last crawl 2026-11-13
 - /case-studies/ecommerce/: Submitted and indexed, last crawl 2026-11-14
 - /our-story/: Submitted and indexed, last crawl 2026-11-14
 - /blogs/: Submitted and indexed, last crawl 2026-11-03
-- /ugc-ads-examples/: Submitted and indexed, last crawl 2026-11-19
+- /ugc-ads-examples/: Submitted and indexed, last crawl 2026-11-23
 - /video-ad-agency/: Submitted and indexed, last crawl 2026-11-20
 - /ecommerce-video-ads/: Submitted and indexed, last crawl 2026-11-20
 - /facebook-ad-creatives-mastermind/: URL is unknown to Google, last crawl -
+- /how-much-do-video-ads-cost/: URL is unknown to Google, last crawl -  CHANGED (was: None)
+- /product-video-ads/: URL is unknown to Google, last crawl -  CHANGED (was: None)
 
-## Site health (204 sitemap URLs)
+## Site health (206 sitemap URLs)
 
 - Not returning 200: 0 
 - Indexable pages with missing title, short description or not exactly one H1: 0 
