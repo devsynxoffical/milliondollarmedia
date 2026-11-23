@@ -28,3 +28,4 @@ Note: on a 429 stop the batch at the first rejection; every request counts towar
 | 2026-11-21 18:30 | (none sent) | skipped: Indexing API quota still rejecting every request (429) |
 | 2026-11-22 06:30 | (none sent) | skipped: Indexing API quota still rejecting every request (429) |
 | 2026-11-22 18:30 | (none sent) | skipped: Indexing API quota still rejecting every request (429) |
+| 2026-11-23 06:30 | (none sent) | skipped: Indexing API quota still rejecting every request (429) |
