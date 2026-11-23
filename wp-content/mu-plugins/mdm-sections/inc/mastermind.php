@@ -25,41 +25,108 @@ function mdm_mastermind_lessons() {
 	);
 }
 
+/** Creators shown as small avatars in the hero (all appear in the client carousel on this page and the home page). */
+function mdm_mastermind_avatars() {
+	$u = content_url( '/' );
+	return array(
+		array( content_url( '/mu-plugins/mdm-sections/img/clients/marcus-filly.jpg' ), 'Marcus Filly' ),
+		array( $u . 'uploads/2026/07/1663106313718.webp', 'Tim Burd' ),
+		array( $u . 'uploads/2026/06/c14.webp', 'Travis Stephenson' ),
+		array( $u . 'uploads/2026/06/c13.webp', 'Dr. Amy' ),
+		array( $u . 'uploads/2026/06/c12.webp', 'Pierce Grimes' ),
+	);
+}
+
+/*
+ * [mdm_mastermind part="hero|lessons|creators"]
+ *   hero     : tagline H1, short intro, buttons, creator avatars and the video frame (dark)
+ *   lessons  : the 6 lessons (light), with a call to action
+ *   creators : heading for the creator carousel that follows it
+ * No part = hero + lessons (old behaviour).
+ */
 add_shortcode(
 	'mdm_mastermind',
-	static function () {
+	static function ( $atts ) {
+		$atts = shortcode_atts( array( 'part' => '' ), $atts, 'mdm_mastermind' );
+		$part = $atts['part'];
 		ob_start();
 		echo MDM_Sections::assets(); // phpcs:ignore WordPress.Security.EscapeOutput
-		?>
-		<div class="mdm-mm">
-			<section class="mdm-mm__hero">
+		echo '<div class="mdm-mm">';
+		if ( '' === $part || 'hero' === $part ) :
+			?>
+			<section class="mdm-mmx-hero">
+				<div class="mdm-mmx-hero__glow" aria-hidden="true"></div>
 				<div class="mdm-mm__in">
-					<span class="mdm-mm__pill"><i></i>Creative Mastermind</span>
-					<h1 class="mdm-mm__h1">Discover How to Create <em>Facebook Ad Creatives</em> That Capture Attention, Trigger Buyer Intent &amp; Generate More Qualified Leads at Lower Costs.</h1>
-					<div class="mdm-mm__video" role="img" aria-label="Video coming soon">
-						<span class="mdm-mm__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z" fill="currentColor"/></svg></span>
+					<span class="mdm-mmx-pill"><i></i>Creative Mastermind<b>6 lessons</b></span>
+					<h1 class="mdm-mmx-h1">Discover How to Create <em>Facebook Ad Creatives</em> That Capture Attention, Trigger Buyer Intent &amp; Generate More Qualified Leads at Lower Costs.</h1>
+					<p class="mdm-mmx-lead">Six core lessons on creative strategy and buyer psychology, built for service-based businesses that want better leads from the same ad budget.</p>
+					<div class="mdm-mmx-btns">
+						<a class="mdm-mmx-btn is-red" href="#free-plan">Get a free video ad plan <span aria-hidden="true">&rarr;</span></a>
+						<a class="mdm-mmx-btn" href="#lessons">See the 6 lessons</a>
 					</div>
-				</div>
-			</section>
+					<div class="mdm-mmx-proof">
+						<span class="mdm-mmx-avatars"><?php foreach ( mdm_mastermind_avatars() as $a ) : ?><img src="<?php echo esc_url( $a[0] ); ?>" alt="<?php echo esc_attr( $a[1] ); ?>" width="40" height="40" loading="eager" decoding="async"><?php endforeach; ?></span>
+						<span>Ad creative for coaches, agencies and brands<br><b>247 published case studies</b></span>
+					</div>
 
-			<section class="mdm-mm__lessons" id="lessons">
-				<div class="mdm-mm__in">
-					<span class="mdm-niche__pill">What You'll Discover</span>
-					<h2 class="mdm-mm__h2">Inside This Exclusive Creative Mastermind</h2>
-					<ul class="mdm-mm__chips"><li>6 Core Lessons</li><li>Creative Strategy &amp; Buyer Psychology</li><li>Built for Service-Based Businesses</li></ul>
-					<div class="mdm-mm__grid">
-						<?php foreach ( mdm_mastermind_lessons() as $i => $l ) : ?>
-							<article class="mdm-mm__card">
-								<span class="mdm-mm__num">Lesson <?php echo esc_html( str_pad( (string) ( $i + 1 ), 2, '0', STR_PAD_LEFT ) ); ?></span>
-								<h3><?php echo esc_html( $l[0] ); ?></h3>
-								<p><?php echo esc_html( $l[1] ); ?></p>
-							</article>
-						<?php endforeach; ?>
+					<div class="mdm-mmx-stage">
+						<span class="mdm-mmx-tag is-1" aria-hidden="true">Hooks that stop the scroll</span>
+						<span class="mdm-mmx-tag is-2" aria-hidden="true">Buyer psychology</span>
+						<span class="mdm-mmx-tag is-3" aria-hidden="true">Lower cost per lead</span>
+						<div class="mdm-mmx-player" role="img" aria-label="Creative Mastermind video, coming soon">
+							<div class="mdm-mmx-player__bar"><i></i><i></i><i></i><span>Creative Mastermind &middot; Lesson preview</span></div>
+							<div class="mdm-mmx-player__screen">
+								<span class="mdm-mmx-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z" fill="currentColor"/></svg></span>
+								<span class="mdm-mmx-soon">Video coming soon</span>
+							</div>
+							<div class="mdm-mmx-player__ctrl" aria-hidden="true"><span class="mdm-mmx-player__track"><i></i></span><span>00:00</span></div>
+						</div>
 					</div>
 				</div>
 			</section>
-		</div>
-		<?php
+			<?php
+		endif;
+		if ( '' === $part || 'lessons' === $part ) :
+			?>
+			<section class="mdm-mmx-lessons" id="lessons">
+				<div class="mdm-mm__in mdm-mmx-lessons__grid">
+					<div class="mdm-mmx-lessons__intro">
+						<span class="mdm-niche__pill">What You'll Discover</span>
+						<h2 class="mdm-mmx-h2">Inside This Exclusive Creative Mastermind</h2>
+						<ul class="mdm-mm__chips"><li>6 Core Lessons</li><li>Creative Strategy &amp; Buyer Psychology</li><li>Built for Service-Based Businesses</li></ul>
+						<div class="mdm-mmx-cta">
+							<b>Want these lessons applied to your own ads?</b>
+							<p>Tell us about your offer and we will send a short plan: the hooks and video formats we would test first.</p>
+							<a class="mdm-mmx-btn is-red" href="#free-plan">Get a free video ad plan <span aria-hidden="true">&rarr;</span></a>
+						</div>
+					</div>
+					<ol class="mdm-mmx-list">
+						<?php foreach ( mdm_mastermind_lessons() as $i => $l ) : ?>
+							<li class="mdm-mmx-item">
+								<span class="mdm-mmx-item__n"><?php echo esc_html( str_pad( (string) ( $i + 1 ), 2, '0', STR_PAD_LEFT ) ); ?></span>
+								<div>
+									<span class="mdm-mmx-item__k">Lesson <?php echo (int) ( $i + 1 ); ?></span>
+									<h3><?php echo esc_html( $l[0] ); ?></h3>
+									<p><?php echo esc_html( $l[1] ); ?></p>
+								</div>
+							</li>
+						<?php endforeach; ?>
+					</ol>
+				</div>
+			</section>
+			<?php
+		endif;
+		if ( 'creators' === $part ) :
+			?>
+			<section class="mdm-mmx-creators">
+				<div class="mdm-mm__in">
+					<span class="mdm-niche__pill">Happy customers</span>
+					<h2 class="mdm-mmx-h2">Creators &amp; brands we make ads for</h2>
+				</div>
+			</section>
+			<?php
+		endif;
+		echo '</div>';
 		return ob_get_clean();
 	}
 );
