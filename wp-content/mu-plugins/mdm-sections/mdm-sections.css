@@ -3443,3 +3443,10 @@ html .mdm-mmx-creators { padding-bottom: 150px; }
 @media (max-width: 900px) { html .mdm-mmx-row__art::before { right: 0; top: -10px; } }
 @media (max-width: 900px) { html .mdm-mmx-chip.is-c { top: 3%; left: 2%; } html .mdm-mmx-adcard__foot span { white-space: nowrap; font-size: 9.5px; } html .mdm-mmx-adcard__foot em { padding: 5px 7px; font-size: 9.5px; } }
 @media (max-width: 600px) { html .mdm-mmx-adcard__foot span { display: none; } html .mdm-mmx-adcard__foot { justify-content: flex-end; } }
+/* Hero visual: generated studio image in a rounded frame (no personal photo) */
+html .mdm-mmx-shot { position: absolute; right: 0; top: 0; width: 84%; height: 100%; object-fit: cover; border-radius: 28px; border: 1px solid rgba(255,255,255,.12); box-shadow: 0 50px 100px -40px rgba(237,28,36,.65), 0 30px 60px -30px rgba(0,0,0,.9); }
+html .mdm-mmx-hero__art::before { content: ""; position: absolute; right: -18px; top: -18px; width: 140px; height: 140px; border-radius: 30px; background: repeating-linear-gradient(45deg, rgba(237,28,36,.35) 0 2px, transparent 2px 10px); }
+html .mdm-mmx-hero__art .mdm-mmx-chip.is-a { right: 4%; top: 6%; }
+html .mdm-mmx-hero__art .mdm-mmx-chip.is-b { right: -3%; top: 46%; }
+html .mdm-mmx-hero__art .mdm-mmx-chip.is-c { left: 2%; top: 10%; }
+@media (max-width: 900px) { html .mdm-mmx-shot { width: 86%; } html .mdm-mmx-hero__art::before { right: 0; top: -10px; } html .mdm-mmx-hero__art .mdm-mmx-chip.is-b { right: 0; } }
