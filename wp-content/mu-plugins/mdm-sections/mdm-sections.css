@@ -3450,3 +3450,5 @@ html .mdm-mmx-hero__art .mdm-mmx-chip.is-a { right: 4%; top: 6%; }
 html .mdm-mmx-hero__art .mdm-mmx-chip.is-b { right: -3%; top: 46%; }
 html .mdm-mmx-hero__art .mdm-mmx-chip.is-c { left: 2%; top: 10%; }
 @media (max-width: 900px) { html .mdm-mmx-shot { width: 86%; } html .mdm-mmx-hero__art::before { right: 0; top: -10px; } html .mdm-mmx-hero__art .mdm-mmx-chip.is-b { right: 0; } }
+html .mdm-mmx-shot { top: auto; bottom: 0; height: 86%; object-position: 50% 92%; }
+html .mdm-mmx-hero__art::before { top: 6%; }
