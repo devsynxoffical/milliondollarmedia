@@ -233,3 +233,42 @@ add_filter(
 	},
 	24
 );
+
+/*
+ * FAQPage schema for blog posts: built from the post's own "Frequently asked questions" section
+ * (each H3 question and the paragraph after it), so the schema always matches the visible text.
+ */
+function mdm_blog_faq_items( $content ) {
+	if ( ! preg_match( '~<h2[^>]*>\s*Frequently asked questions\s*</h2>(.*?)(?=<h2\b|$)~is', $content, $m ) ) {
+		return array();
+	}
+	preg_match_all( '~<h3[^>]*>(.*?)</h3>.*?<p[^>]*>(.*?)</p>~is', $m[1], $qa, PREG_SET_ORDER );
+	$out = array();
+	foreach ( $qa as $x ) {
+		$q = trim( wp_strip_all_tags( $x[1] ) );
+		$a = trim( wp_strip_all_tags( $x[2] ) );
+		if ( $q && $a && '?' === substr( $q, -1 ) ) {
+			$out[] = array( $q, $a );
+		}
+	}
+	return $out;
+}
+add_filter(
+	'rank_math/json_ld',
+	static function ( $data ) {
+		if ( ! is_singular( 'post' ) || ! is_array( $data ) ) {
+			return $data;
+		}
+		$items = mdm_blog_faq_items( (string) get_post_field( 'post_content', get_queried_object_id() ) );
+		if ( count( $items ) < 2 ) {
+			return $data;
+		}
+		$data['mdmPostFaq'] = array(
+			'@type'      => 'FAQPage',
+			'@id'        => get_permalink( get_queried_object_id() ) . '#faq',
+			'mainEntity' => array_map( static function ( $f ) { return array( '@type' => 'Question', 'name' => $f[0], 'acceptedAnswer' => array( '@type' => 'Answer', 'text' => $f[1] ) ); }, $items ),
+		);
+		return $data;
+	},
+	99
+);

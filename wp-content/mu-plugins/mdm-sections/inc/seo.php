@@ -42,6 +42,8 @@ function mdm_seo_meta_map() {
 			'/video-ad-agency/'                         => array( 'Video Ad Agency for Done-for-You Video Ads | Million Dollar Media', 'A done-for-you video ad agency: UGC, VSLs, AI videos and short-form ads for Facebook, Instagram, TikTok and YouTube, from $34.97 per video. 247 case studies.' ),
 			'/ecommerce-video-ads/'                     => array( 'Ecommerce Video Ads for Shopify & DTC Brands', 'Ecommerce video ads for Shopify and DTC brands: UGC reviews, product demos and offer ads. 123 ecommerce case studies, including $2.3M at an 11.6x ROAS.' ),
 			'/facebook-ad-creatives-mastermind/'      => array( 'Facebook Ad Creatives Mastermind: 6 Lessons for Lower Lead Costs', 'Facebook ad creatives that capture attention and trigger buyer intent: 6 lessons on creative strategy, buyer psychology and ad frameworks for service businesses.' ),
+			'/how-much-do-video-ads-cost/'             => array( 'How Much Do Video Ads Cost? Production Prices & Ad Spend', 'How much do video ads cost? Real prices to make an ad video ($34.97, or $299 for 10) plus what clients spent to run them, and a simple budget for your first test.' ),
+			'/product-video-ads/'                      => array( 'Product Video Ads: 7 Formats That Sell (Real Results)', 'Product video ads that sell: 7 formats, the hook-to-CTA structure we script them with, how to test them, and real results from Shopify and DTC brands.' ),
 			'/what-is-a-vsl/'                          => array( 'What Is a VSL? Video Sales Letter Guide + Real VSL Examples', 'What is a VSL? A VSL (video sales letter) is a sales pitch in video form. The script structure that converts, real VSL examples, costs and when to use one.' ),
 		)
 	);

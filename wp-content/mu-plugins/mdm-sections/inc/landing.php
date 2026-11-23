@@ -259,7 +259,7 @@ add_shortcode(
 				<div class="mdm-ugc__in mdm-ugc__faq">
 					<h2 class="mdm-ugc__h2">Questions</h2>
 					<?php foreach ( $c['faq'] as $k => $f ) : ?><details<?php echo 0 === $k ? ' open' : ''; ?>><summary><?php echo esc_html( $f[0] ); ?></summary><p><?php echo esc_html( $f[1] ); ?></p></details><?php endforeach; ?>
-					<p class="mdm-ugc__more">More: <a href="<?php echo esc_url( home_url( '/portfolio/' ) ); ?>">video ad examples</a> · <a href="<?php echo esc_url( home_url( '/ugc-ads-examples/' ) ); ?>">UGC ad examples</a> · <a href="<?php echo esc_url( home_url( '/what-is-a-vsl/' ) ); ?>">what is a VSL</a> · <a href="<?php echo esc_url( home_url( '/case-studies/' ) ); ?>">247 case studies</a></p>
+					<p class="mdm-ugc__more">More: <a href="<?php echo esc_url( home_url( '/portfolio/' ) ); ?>">video ad examples</a> · <a href="<?php echo esc_url( home_url( '/ugc-ads-examples/' ) ); ?>">UGC ad examples</a> · <a href="<?php echo esc_url( home_url( '/what-is-a-vsl/' ) ); ?>">what is a VSL</a> · <a href="<?php echo esc_url( home_url( '/case-studies/' ) ); ?>">247 case studies</a> · <?php echo 'ecommerce-video-ads' === $atts['page'] ? '<a href="' . esc_url( home_url( '/product-video-ads/' ) ) . '">product video ads guide</a>' : '<a href="' . esc_url( home_url( '/how-much-do-video-ads-cost/' ) ) . '">how much video ads cost</a>'; // phpcs:ignore ?></p>
 				</div>
 			</section>
 		</div>

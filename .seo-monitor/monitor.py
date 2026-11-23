@@ -9,7 +9,13 @@ PRIORITY = ['', 'roofing-video-ads/', 'hvac-facebook-ads/', 'what-is-a-vsl/', 'r
             'hvac-video-marketing-services/', 'plumbing-video-production/', 'home-service-business/', 'mva/', 'real-estate-video-marketing/',
             'solar/', 'saas/', 'strategic-video-marketing-for-coaches/', 'agency-owners/', 'portfolio/', 'case-studies/',
             'case-studies/lead-generation/', 'case-studies/ecommerce/', 'our-story/', 'blogs/',
-            'ugc-ads-examples/', 'video-ad-agency/', 'ecommerce-video-ads/', 'facebook-ad-creatives-mastermind/']
+            'ugc-ads-examples/', 'video-ad-agency/', 'ecommerce-video-ads/', 'facebook-ad-creatives-mastermind/',
+            'how-much-do-video-ads-cost/', 'product-video-ads/']
+# Top 10 targets from the 23 Nov 2026 plan (keyword -> target page). Goal: 5+ of these in the top 10 by day 90.
+TARGETS = {'video ad agency': 'video-ad-agency/', 'video sales letter': 'what-is-a-vsl/', 'hvac facebook ads': 'hvac-facebook-ads/',
+           'real estate video marketing': 'real-estate-video-marketing/', 'ecommerce video ads': 'ecommerce-video-ads/',
+           'vsl examples': 'what-is-a-vsl/', 'ugc ads examples': 'ugc-ads-examples/', 'ugc ad examples': 'ugc-ads-examples/',
+           'how much do video ads cost': 'how-much-do-video-ads-cost/', 'product video ads': 'product-video-ads/'}
 
 
 def key():
@@ -134,6 +140,16 @@ def report(s, prev):
     nb = [r for q, r in q7.items() if not brand.search(q)]
     L += ['## Non-brand queries (last 7 days)', '']
     L += ['- "%s": %d impressions, %d clicks, position %.1f%s' % (r['keys'][0], r['impr'], r['clicks'], r['pos'], ('' if r['keys'][0] not in q0 else ' (was %.1f)' % q0[r['keys'][0]]['pos'])) for r in sorted(nb, key=lambda x: -x['impr'])[:30]] or ['- none yet']
+    L += ['', '## Top 10 target keywords (28 days, exact query)', '']
+    q28 = {}
+    for r in s.get('query_page_28d') or []:
+        q = r['keys'][0]
+        if q in TARGETS and (q not in q28 or r['impr'] > q28[q]['impr']):
+            q28[q] = r
+    for kw, page in TARGETS.items():
+        r = q28.get(kw)
+        L.append('- "%s" -> /%s: %s' % (kw, page, ('position %.1f, %d impressions, ranking page %s%s' % (r['pos'], r['impr'], r['keys'][1].replace(SITE, '/'), '  TOP 10' if r['pos'] <= 10 else '')) if r else 'not ranking yet'))
+    L.append('- In the top 10: %d of %d' % (sum(1 for r in q28.values() if r['pos'] <= 10), len(TARGETS)))
     L += ['', '## Opportunities', '']
     opp = [r for r in q7.values() if 4 <= r['pos'] <= 20 and r['impr'] >= 5]
     L += ['- Position 4-20: "%s" pos %.1f, %d impressions' % (r['keys'][0], r['pos'], r['impr']) for r in sorted(opp, key=lambda x: -x['impr'])[:15]] or ['- No queries at positions 4-20 with 5+ impressions yet']
