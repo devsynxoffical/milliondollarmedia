@@ -56,23 +56,35 @@ add_shortcode(
 			?>
 			<section class="mdm-mmx-hero">
 				<div class="mdm-mmx-hero__glow" aria-hidden="true"></div>
+				<div class="mdm-mm__in mdm-mmx-hero__grid">
+					<div class="mdm-mmx-hero__text">
+						<span class="mdm-mmx-pill"><i></i>Creative Mastermind<b>6 lessons</b></span>
+						<h1 class="mdm-mmx-h1">Discover How to Create <em>Facebook Ad Creatives</em> That Capture Attention, Trigger Buyer Intent &amp; Generate More Qualified Leads at Lower Costs.</h1>
+						<p class="mdm-mmx-lead">Six core lessons on creative strategy and buyer psychology, built for service-based businesses that want better leads from the same ad budget.</p>
+						<div class="mdm-mmx-btns">
+							<a class="mdm-mmx-btn is-red" href="#free-plan">Get a free video ad plan <span aria-hidden="true">&rarr;</span></a>
+							<a class="mdm-mmx-btn" href="#lessons">See the 6 lessons</a>
+						</div>
+						<div class="mdm-mmx-proof">
+							<span class="mdm-mmx-avatars"><?php foreach ( mdm_mastermind_avatars() as $a ) : ?><img src="<?php echo esc_url( $a[0] ); ?>" alt="<?php echo esc_attr( $a[1] ); ?>" width="40" height="40" decoding="async"><?php endforeach; ?></span>
+							<span>Ad creative for coaches, agencies and brands<br><b>247 published case studies</b></span>
+						</div>
+					</div>
+					<div class="mdm-mmx-hero__art" aria-hidden="true">
+						<span class="mdm-mmx-ring"></span>
+						<img class="mdm-mmx-person" src="<?php echo esc_url( content_url( '/uploads/2025/10/RKJI0017-2-784x1024.webp' ) ); ?>" alt="" width="784" height="1024" fetchpriority="high" decoding="async">
+						<div class="mdm-mmx-adcard">
+							<div class="mdm-mmx-adcard__top"><img src="<?php echo esc_url( content_url( '/uploads/2025/05/MillionDollar-Media-icon-only-100x100.png' ) ); ?>" alt="" width="30" height="30"><span><b>Your Brand</b><small>Sponsored</small></span></div>
+							<div class="mdm-mmx-adcard__img"><img src="<?php echo esc_url( content_url( '/mu-plugins/mdm-sections/img/industry/coach-1.webp' ) ); ?>" alt="" width="720" height="900" decoding="async"><span class="mdm-mmx-adcard__hook">Struggling to get qualified leads?</span></div>
+							<div class="mdm-mmx-adcard__foot"><span>Book a free call</span><em>Learn more</em></div>
+						</div>
+						<span class="mdm-mmx-chip is-a">Hook</span>
+						<span class="mdm-mmx-chip is-b">Angle</span>
+						<span class="mdm-mmx-chip is-c">Offer</span>
+					</div>
+				</div>
 				<div class="mdm-mm__in">
-					<span class="mdm-mmx-pill"><i></i>Creative Mastermind<b>6 lessons</b></span>
-					<h1 class="mdm-mmx-h1">Discover How to Create <em>Facebook Ad Creatives</em> That Capture Attention, Trigger Buyer Intent &amp; Generate More Qualified Leads at Lower Costs.</h1>
-					<p class="mdm-mmx-lead">Six core lessons on creative strategy and buyer psychology, built for service-based businesses that want better leads from the same ad budget.</p>
-					<div class="mdm-mmx-btns">
-						<a class="mdm-mmx-btn is-red" href="#free-plan">Get a free video ad plan <span aria-hidden="true">&rarr;</span></a>
-						<a class="mdm-mmx-btn" href="#lessons">See the 6 lessons</a>
-					</div>
-					<div class="mdm-mmx-proof">
-						<span class="mdm-mmx-avatars"><?php foreach ( mdm_mastermind_avatars() as $a ) : ?><img src="<?php echo esc_url( $a[0] ); ?>" alt="<?php echo esc_attr( $a[1] ); ?>" width="40" height="40" loading="eager" decoding="async"><?php endforeach; ?></span>
-						<span>Ad creative for coaches, agencies and brands<br><b>247 published case studies</b></span>
-					</div>
-
 					<div class="mdm-mmx-stage">
-						<span class="mdm-mmx-tag is-1" aria-hidden="true">Hooks that stop the scroll</span>
-						<span class="mdm-mmx-tag is-2" aria-hidden="true">Buyer psychology</span>
-						<span class="mdm-mmx-tag is-3" aria-hidden="true">Lower cost per lead</span>
 						<div class="mdm-mmx-player" role="img" aria-label="Creative Mastermind video, coming soon">
 							<div class="mdm-mmx-player__bar"><i></i><i></i><i></i><span>Creative Mastermind &middot; Lesson preview</span></div>
 							<div class="mdm-mmx-player__screen">
@@ -89,29 +101,48 @@ add_shortcode(
 		if ( '' === $part || 'lessons' === $part ) :
 			?>
 			<section class="mdm-mmx-lessons" id="lessons">
-				<div class="mdm-mm__in mdm-mmx-lessons__grid">
-					<div class="mdm-mmx-lessons__intro">
+				<div class="mdm-mm__in">
+					<div class="mdm-mmx-lessons__head">
 						<span class="mdm-niche__pill">What You'll Discover</span>
 						<h2 class="mdm-mmx-h2">Inside This Exclusive Creative Mastermind</h2>
 						<ul class="mdm-mm__chips"><li>6 Core Lessons</li><li>Creative Strategy &amp; Buyer Psychology</li><li>Built for Service-Based Businesses</li></ul>
-						<div class="mdm-mmx-cta">
-							<b>Want these lessons applied to your own ads?</b>
-							<p>Tell us about your offer and we will send a short plan: the hooks and video formats we would test first.</p>
-							<a class="mdm-mmx-btn is-red" href="#free-plan">Get a free video ad plan <span aria-hidden="true">&rarr;</span></a>
-						</div>
 					</div>
-					<ol class="mdm-mmx-list">
-						<?php foreach ( mdm_mastermind_lessons() as $i => $l ) : ?>
-							<li class="mdm-mmx-item">
-								<span class="mdm-mmx-item__n"><?php echo esc_html( str_pad( (string) ( $i + 1 ), 2, '0', STR_PAD_LEFT ) ); ?></span>
-								<div>
-									<span class="mdm-mmx-item__k">Lesson <?php echo (int) ( $i + 1 ); ?></span>
-									<h3><?php echo esc_html( $l[0] ); ?></h3>
-									<p><?php echo esc_html( $l[1] ); ?></p>
-								</div>
-							</li>
-						<?php endforeach; ?>
-					</ol>
+					<?php
+					$lessons = mdm_mastermind_lessons();
+					$img     = content_url( '/mu-plugins/mdm-sections/img/industry/' );
+					$rows    = array(
+						array( 'Part 1', 'Psychology &amp; creative angles', array( 0, 1 ), array( 'coach-1.webp', 'agency-4.webp' ), 'Hook in the first 3 seconds' ),
+						array( 'Part 2', 'Messaging that brings buyers, not browsers', array( 2, 3 ), array( 'hvac-2.webp', 'realestate-1.webp' ), 'Speak to one buyer' ),
+						array( 'Part 3', 'Frameworks, testing &amp; lower costs', array( 4, 5 ), array( 'agency-2.webp', 'saas-3.webp' ), 'Test, keep winners, cut costs' ),
+					);
+					foreach ( $rows as $r ) :
+						?>
+						<div class="mdm-mmx-row">
+							<div class="mdm-mmx-row__text">
+								<span class="mdm-mmx-row__k"><?php echo esc_html( $r[0] ); ?></span>
+								<h3 class="mdm-mmx-row__h"><?php echo $r[1]; // phpcs:ignore ?></h3>
+								<?php foreach ( $r[2] as $i ) : ?>
+									<div class="mdm-mmx-item">
+										<span class="mdm-mmx-item__n"><?php echo esc_html( str_pad( (string) ( $i + 1 ), 2, '0', STR_PAD_LEFT ) ); ?></span>
+										<div>
+											<span class="mdm-mmx-item__k">Lesson <?php echo (int) ( $i + 1 ); ?></span>
+											<h4><?php echo esc_html( $lessons[ $i ][0] ); ?></h4>
+											<p><?php echo esc_html( $lessons[ $i ][1] ); ?></p>
+										</div>
+									</div>
+								<?php endforeach; ?>
+							</div>
+							<div class="mdm-mmx-row__art" aria-hidden="true">
+								<img class="is-main" src="<?php echo esc_url( $img . $r[3][0] ); ?>" alt="" width="720" height="900" loading="lazy" decoding="async">
+								<img class="is-side" src="<?php echo esc_url( $img . $r[3][1] ); ?>" alt="" width="720" height="900" loading="lazy" decoding="async">
+								<span class="mdm-mmx-row__chip"><?php echo esc_html( $r[4] ); ?></span>
+							</div>
+						</div>
+					<?php endforeach; ?>
+					<div class="mdm-mmx-cta">
+						<div><b>Want these lessons applied to your own ads?</b><p>Tell us about your offer and we will send a short plan: the hooks and video formats we would test first.</p></div>
+						<a class="mdm-mmx-btn is-red" href="#free-plan">Get a free video ad plan <span aria-hidden="true">&rarr;</span></a>
+					</div>
 				</div>
 			</section>
 			<?php
