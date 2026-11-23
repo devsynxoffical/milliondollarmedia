@@ -3438,3 +3438,6 @@ html .mdm-mmx-lessons .mdm-mmx-cta p { margin-bottom: 0 !important; }
 }
 @media (prefers-reduced-motion: reduce) { html .mdm-mmx-adcard, html .mdm-mmx-chip { animation: none; } }
 html .mdm-mmx-row__art { isolation: isolate; }
+/* Creators heading: the carousel cards sit 120px above their section, so leave room for them */
+html .mdm-mmx-creators { padding-bottom: 150px; }
+@media (max-width: 900px) { html .mdm-mmx-row__art::before { right: 0; top: -10px; } }
