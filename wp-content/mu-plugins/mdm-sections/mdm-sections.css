@@ -3441,3 +3441,4 @@ html .mdm-mmx-row__art { isolation: isolate; }
 /* Creators heading: the carousel cards sit 120px above their section, so leave room for them */
 html .mdm-mmx-creators { padding-bottom: 150px; }
 @media (max-width: 900px) { html .mdm-mmx-row__art::before { right: 0; top: -10px; } }
+@media (max-width: 900px) { html .mdm-mmx-chip.is-c { top: 3%; left: 2%; } html .mdm-mmx-adcard__foot span { white-space: nowrap; font-size: 9.5px; } html .mdm-mmx-adcard__foot em { padding: 5px 7px; font-size: 9.5px; } }
