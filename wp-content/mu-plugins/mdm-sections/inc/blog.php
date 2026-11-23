@@ -270,5 +270,5 @@ add_filter(
 		);
 		return $data;
 	},
-	99
+	20
 );

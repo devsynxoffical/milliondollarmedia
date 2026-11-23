@@ -21,7 +21,7 @@ function mdm_shortcode_footer( $atts ) {
 			'line1'        => 'Million Dollar',
 			'line2'        => 'Media',
 			'tagline_1'    => 'The Ad Creative',
-			'tagline_2'    => 'Agency—',
+			'tagline_2'    => 'Agency',
 			'based'        => 'We create ads for clients worldwide and work remotely.',
 			'timezone'     => 'America/New_York',
 			'tz_label'     => 'Timezone (EST)',
