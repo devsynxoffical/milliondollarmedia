@@ -31,3 +31,4 @@ Note: on a 429 stop the batch at the first rejection; every request counts towar
 | 2026-11-23 06:30 | (none sent) | skipped: Indexing API quota still rejecting every request (429) |
 
 **2026-11-23: Google Indexing API no longer used.** The 23 Nov 2026 plan (CLAUDE_CODE_TOP10_milliondollarmedia_us.md) says not to use it. No further requests will be sent; IndexNow is used instead and the owner requests indexing in URL Inspection.
+| 2026-11-23 07:45 | IndexNow: 10 URLs (UGC page, HVAC and VSL guides, 2 new guides, home, portfolio, mastermind, video ad agency, ecommerce video ads) | 200 |
