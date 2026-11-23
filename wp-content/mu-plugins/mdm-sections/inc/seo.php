@@ -65,6 +65,8 @@ function mdm_seo_entry() {
 }
 
 add_filter( 'rank_math/frontend/title', static function ( $t ) { $e = mdm_seo_entry(); return $e ? $e[0] : $t; }, 20 );
+// Rank Math's "capitalize titles" option changes "for" to "For" after the filter above; output mapped titles exactly as written.
+add_filter( 'pre_get_document_title', static function ( $t ) { $e = mdm_seo_entry(); return $e ? $e[0] : $t; }, 99 );
 add_filter( 'rank_math/frontend/description', static function ( $d ) { $e = mdm_seo_entry(); return $e ? $e[1] : $d; }, 20 );
 foreach ( array( 'facebook/og_title', 'twitter/twitter_title' ) as $f ) {
 	add_filter( 'rank_math/opengraph/' . $f, static function ( $t ) { $e = mdm_seo_entry(); return $e ? $e[0] : $t; }, 20 );
