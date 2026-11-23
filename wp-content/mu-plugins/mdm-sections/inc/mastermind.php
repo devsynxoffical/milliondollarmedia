@@ -71,8 +71,7 @@ add_shortcode(
 						</div>
 					</div>
 					<div class="mdm-mmx-hero__art" aria-hidden="true">
-						<span class="mdm-mmx-ring"></span>
-						<img class="mdm-mmx-person" src="<?php echo esc_url( content_url( '/uploads/2025/10/RKJI0017-2-784x1024.webp' ) ); ?>" alt="" width="784" height="1024" fetchpriority="high" decoding="async">
+						<img class="mdm-mmx-shot" src="<?php echo esc_url( content_url( '/mu-plugins/mdm-sections/img/mastermind/hero-creator-studio.webp' ) ); ?>" alt="" width="896" height="1120" fetchpriority="high" decoding="async">
 						<div class="mdm-mmx-adcard">
 							<div class="mdm-mmx-adcard__top"><img src="<?php echo esc_url( content_url( '/uploads/2025/05/MillionDollar-Media-icon-only-100x100.png' ) ); ?>" alt="" width="30" height="30"><span><b>Your Brand</b><small>Sponsored</small></span></div>
 							<div class="mdm-mmx-adcard__img"><img src="<?php echo esc_url( content_url( '/mu-plugins/mdm-sections/img/industry/coach-1.webp' ) ); ?>" alt="" width="720" height="900" decoding="async"><span class="mdm-mmx-adcard__hook">Struggling to get qualified leads?</span></div>
