@@ -3281,3 +3281,6 @@ html .mdm-ugc__type li { margin: 0 0 8px !important; font-size: 14px; line-heigh
 html .mdm-ugc__type li span { color: rgba(17,17,20,.45); font-size: 12px; white-space: nowrap; }
 @media (max-width: 900px) { html .mdm-ugc__types { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 600px) { html .mdm-ugc__types { grid-template-columns: 1fr; } html .mdm-ugc__why { font-size: 12px !important; } }
+
+/* Footer tagline: the dash after "Agency" is drawn, not typed (no em dash characters in site text) */
+html .mdm-ft__tag span:last-child::after { content: ""; display: inline-block; width: .85em; height: .055em; margin-left: .06em; background: currentColor; vertical-align: .28em; }
