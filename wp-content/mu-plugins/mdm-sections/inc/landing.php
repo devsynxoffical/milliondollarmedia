@@ -15,26 +15,28 @@ function mdm_landing_pages() {
 	return array(
 		'video-ad-agency'     => array(
 			'pill'    => 'Done-for-you video ads',
-			'h1'      => array( 'Video ad agency', 'for lead gen & e-commerce brands' ),
+			'h1'      => array( 'Video Ad Agency', 'for Lead Gen and Ecommerce Brands' ),
 			'lead'    => 'Million Dollar Media is a done-for-you video ad agency. We script, produce and edit video ads (UGC, VSLs, AI videos and short-form) for Facebook, Instagram, TikTok and YouTube, delivered in 24–48 hours from $34.97 per video. Every result we mention is one of our 247 published case studies.',
+			'lead2'   => '<b>What does a video marketing agency do?</b> A video marketing agency plans, scripts, produces and edits videos that help you sell, from short social ads to <a href="/what-is-a-vsl/">VSLs</a> and product demos. The best ones measure success by sales and leads, not views.',
 			'cta'     => 'Get a free video ad plan',
 			'stats'   => array( array( '247', 'published case studies' ), array( '15', 'industries in our portfolio' ), array( '24–48h', 'typical delivery' ), array( '$34.97', 'per video, no retainer' ) ),
 			'tabs'    => array( 'All' ),
 			'vlabel'  => 'Video ad',
 			'vh2'     => 'Video ads we made for clients',
-			'vsub'    => 'A mix of formats and industries from our portfolio.',
+			'vsub'    => 'Real ads from live campaigns on Facebook, Instagram, TikTok and YouTube. Each one was built to stop the scroll in the first two seconds and drive one action.',
 			'cards_h' => 'What our video ad agency makes',
 			'cards'   => array(
-				array( 'UGC ads', 'One presenter talking straight to camera, filmed like a phone video, with a hook in the first seconds.', '/ugc-ads-examples/', 'See 38 UGC ad examples' ),
-				array( 'VSLs', 'Video sales letters for landing pages, application funnels and longer ads.', '/what-is-a-vsl/', 'What is a VSL?' ),
-				array( 'AI videos', 'AI avatar or AI voice-over videos when you need volume and speed without a shoot.', '', '' ),
-				array( 'Short-form ads', 'Vertical, captioned ads built for Reels, TikTok, Stories and YouTube Shorts.', '/portfolio/', 'Video ad examples' ),
-				array( 'Image ads', 'Static ad creatives from $14.97 to test angles and offers next to your videos.', '', '' ),
-				array( 'GIF ads', 'Looping animated ads from $24.97, made for retargeting and warm audiences.', '', '' ),
+				array( 'UGC-style ads', 'Real people talking about real results.', '/ugc-ads-examples/', 'See 38 UGC ad examples' ),
+				array( 'VSLs', 'Longer videos that sell high-ticket offers.', '/what-is-a-vsl/', 'What is a VSL?' ),
+				array( 'AI video ads', 'Fast variations for testing new hooks.', '', '' ),
+				array( 'Product demos', 'Show the product working in seconds.', '/ecommerce-video-ads/', 'Ecommerce video ads' ),
+				array( 'Static ads', 'Quick image creatives for retargeting.', '', '' ),
+				array( 'GIF ads', 'Quick looping creatives for retargeting.', '', '' ),
 			),
-			'cases'   => array( 'cat' => 'all', 'title' => 'Results from our video ads' ),
+			'cases'   => array( 'cat' => 'all', 'title' => 'Results from our video ads', 'subtitle' => '$2.3M in sales at 11.6x ROAS, $115,416 at 4.39x ROAS, $62,182 in 7 days and $61,960 in a single day.' ),
 			'compare' => array(
 				'h2'   => 'Video ad agency vs. doing it in-house',
+				'intro' => 'An in-house team needs a scriptwriter, editor, designer and media buyer. A video ad agency gives you all of them, plus a library of hooks that already worked for other brands. You test more creatives faster and <a href="/how-much-do-video-ads-cost/">pay only for what you use</a>.',
 				'head' => array( 'Million Dollar Media', 'In-house or freelancer' ),
 				'rows' => array(
 					array( 'Turnaround', '24–48 hours per video', 'Depends on one person’s schedule' ),
@@ -45,12 +47,20 @@ function mdm_landing_pages() {
 				),
 			),
 			'industries' => true,
+			'steps'   => array(
+				array( 'Brief', 'Your offer, audience and goals.' ),
+				array( 'Scripts', 'Hooks and angles based on what works in your industry.' ),
+				array( 'Production', 'Filming, AI generation and editing.' ),
+				array( 'Delivery', 'Ready-to-run ads in every format, usually within 24 to 48 hours.' ),
+				array( 'Test & scale', 'Run them as ads, keep the winners and replace the rest.' ),
+			),
 			'faq'     => array(
-				array( 'What does a video ad agency do?', 'A video ad agency plans, scripts, produces and edits video ads for paid social and YouTube, and often runs the campaigns too. We handle the whole process: you fill in one short questionnaire, approve the drafts, and get finished ads in 24–48 hours.' ),
-				array( 'How much does a video ad cost?', 'Our video ads start at $34.97 per video with no retainer. 10 videos cost $299, AI videos start at $44.97, image ads at $14.97 and GIF ads at $24.97. Larger monthly volumes and ads management are quoted on a free strategy call.' ),
-				array( 'Do you also run the ads or only make the videos?', 'Both. You can take the creative only, or let us run the media buying too. Most clients choose both, because testing new hooks and scaling the winners is faster under one roof.' ),
-				array( 'Which platforms are the videos made for?', 'Facebook, Instagram, TikTok and YouTube, in the formats each placement needs: vertical 9:16 for Reels, Stories, TikTok and Shorts, and square or horizontal versions where they perform better.' ),
-				array( 'Which industries do you make video ads for?', 'Mostly lead generation businesses (roofing, HVAC, solar, legal, home services, SaaS, coaching and agencies) and e-commerce brands. Our portfolio covers 15 industries and our case studies show the results.' ),
+				array( 'What does a video ad agency do?', 'It scripts, produces and edits video ads for platforms like Facebook, Instagram, TikTok and YouTube, and helps you test which ones bring the most leads or sales.' ),
+				array( 'How much do video ads cost?', 'With us, video ads start at $34.97 per video, or $299 for 10, and full productions such as VSLs are quoted on a free call. Paying per creative lets you test many angles without a large upfront budget. See <a href="/how-much-do-video-ads-cost/">how much video ads cost</a> for the full breakdown.' ),
+				array( 'How do video ads work?', 'A video ad shows on a social or video platform to a chosen audience. The first seconds must stop the scroll, the middle shows the value and the end asks for one action, such as buying or booking a call.' ),
+				array( 'What makes a video ad successful?', 'A strong hook in the first two seconds, a clear problem and solution, proof such as results or reviews, captions for silent viewing and one clear call to action.' ),
+				array( 'How fast can I get video ads?', 'Most creatives are delivered within 24 to 48 hours after the brief is approved.' ),
+				array( 'What is the best video marketing agency for ecommerce?', 'One that shows <a href="/ecommerce-video-ads/">real sales results</a>, tests many creatives each month and builds ads for the platforms where your customers spend time.' ),
 			),
 			'src'     => 'video-ad-agency',
 			'form'    => array( 'Get a free video ad plan', 'Tell us about your offer and we will send a short plan: the video formats and hooks we would test first.' ),
@@ -171,6 +181,7 @@ add_shortcode(
 						<span class="mdm-niche__pill"><?php echo esc_html( $c['pill'] ); ?></span>
 						<h1 class="mdm-ugc__h1"><?php echo esc_html( $c['h1'][0] ); ?> <span><?php echo esc_html( $c['h1'][1] ); ?></span></h1>
 						<p class="mdm-ugc__lead"><?php echo esc_html( $c['lead'] ); ?></p>
+						<?php if ( ! empty( $c['lead2'] ) ) : ?><p class="mdm-ugc__lead mdm-lp__what"><?php echo wp_kses_post( $c['lead2'] ); ?></p><?php endif; ?>
 						<div class="mdm-ugc__btns">
 							<a class="mdm-ihero__btn is-red" href="#free-plan"><?php echo esc_html( $c['cta'] ); ?> <em><?php echo MDM_Sections::arrow_icon(); // phpcs:ignore ?></em></a>
 							<a class="mdm-ihero__btn" href="<?php echo esc_url( $cta ); ?>">Book a free strategy call</a>
@@ -211,12 +222,13 @@ add_shortcode(
 				</div>
 			</section>
 
-			<div class="mdm-lp__cases"><?php echo function_exists( 'mdm_shortcode_case_studies' ) ? mdm_shortcode_case_studies( array( 'cat' => $c['cases']['cat'], 'limit' => '8', 'eyebrow' => 'Case studies', 'title' => $c['cases']['title'], 'badge' => 'auto', 'subtitle' => 'Real ad accounts, dashboards and screen recordings. Tap any card to see the proof.' ) ) : ''; // phpcs:ignore ?></div>
+			<div class="mdm-lp__cases"><?php echo function_exists( 'mdm_shortcode_case_studies' ) ? mdm_shortcode_case_studies( array( 'cat' => $c['cases']['cat'], 'limit' => '8', 'eyebrow' => 'Case studies', 'title' => $c['cases']['title'], 'badge' => 'auto', 'subtitle' => ! empty( $c['cases']['subtitle'] ) ? $c['cases']['subtitle'] : 'Real ad accounts, dashboards and screen recordings. Tap any card to see the proof.' ) ) : ''; // phpcs:ignore ?></div>
 
 			<?php if ( ! empty( $c['compare'] ) ) : ?>
 				<section class="mdm-ugc__sec mdm-lp__alt">
 					<div class="mdm-ugc__in">
 						<h2 class="mdm-ugc__h2"><?php echo esc_html( $c['compare']['h2'] ); ?></h2>
+						<?php if ( ! empty( $c['compare']['intro'] ) ) : ?><p class="mdm-ugc__intro"><?php echo wp_kses_post( $c['compare']['intro'] ); ?></p><?php endif; ?>
 						<div class="mdm-ugc__tablewrap"><table class="mdm-ugc__table"><thead><tr><th></th><th><?php echo esc_html( $c['compare']['head'][0] ); ?></th><th><?php echo esc_html( $c['compare']['head'][1] ); ?></th></tr></thead><tbody>
 							<?php foreach ( $c['compare']['rows'] as $r ) : ?><tr><td><?php echo esc_html( $r[0] ); ?></td><td><?php echo esc_html( $r[1] ); ?></td><td><?php echo esc_html( $r[2] ); ?></td></tr><?php endforeach; ?>
 						</tbody></table></div>
@@ -231,11 +243,18 @@ add_shortcode(
 					<span class="mdm-niche__pill">How it works</span>
 					<h2 class="mdm-ugc__h2">From brief to live ads in days</h2>
 					<ol class="mdm-ic__steps">
-						<li><span class="mdm-ic__stepn">1</span><div><h3>Short brief</h3><p>One questionnaire about your offer, audience and what converts today.</p></div></li>
-						<li><span class="mdm-ic__stepn">2</span><div><h3>Hooks & scripts</h3><p>We write several hook-first scripts for each offer.</p></div></li>
-						<li><span class="mdm-ic__stepn">3</span><div><h3>Production</h3><p>UGC creators, AI avatars or voice-over, or footage you film with our shot list.</p></div></li>
-						<li><span class="mdm-ic__stepn">4</span><div><h3>Edit & approval</h3><p>Captions, hooks and sound, delivered in 24–48 hours for your review.</p></div></li>
-						<li><span class="mdm-ic__stepn">5</span><div><h3>Test & scale</h3><p>Run them as ads, keep the winners and replace the rest.</p></div></li>
+						<?php
+						$steps = ! empty( $c['steps'] ) ? $c['steps'] : array(
+							array( 'Short brief', 'One questionnaire about your offer, audience and what converts today.' ),
+							array( 'Hooks & scripts', 'We write several hook-first scripts for each offer.' ),
+							array( 'Production', 'UGC creators, AI avatars or voice-over, or footage you film with our shot list.' ),
+							array( 'Edit & approval', 'Captions, hooks and sound, delivered in 24–48 hours for your review.' ),
+							array( 'Test & scale', 'Run them as ads, keep the winners and replace the rest.' ),
+						);
+						foreach ( $steps as $i => $st ) :
+							?>
+							<li><span class="mdm-ic__stepn"><?php echo (int) ( $i + 1 ); ?></span><div><h3><?php echo esc_html( $st[0] ); ?></h3><p><?php echo esc_html( $st[1] ); ?></p></div></li>
+						<?php endforeach; ?>
 					</ol>
 				</div>
 			</section>
@@ -258,7 +277,7 @@ add_shortcode(
 			<section class="mdm-ugc__sec">
 				<div class="mdm-ugc__in mdm-ugc__faq">
 					<h2 class="mdm-ugc__h2">Questions</h2>
-					<?php foreach ( $c['faq'] as $k => $f ) : ?><details<?php echo 0 === $k ? ' open' : ''; ?>><summary><?php echo esc_html( $f[0] ); ?></summary><p><?php echo esc_html( $f[1] ); ?></p></details><?php endforeach; ?>
+					<?php foreach ( $c['faq'] as $k => $f ) : ?><details<?php echo 0 === $k ? ' open' : ''; ?>><summary><?php echo esc_html( $f[0] ); ?></summary><p><?php echo wp_kses_post( $f[1] ); ?></p></details><?php endforeach; ?>
 					<p class="mdm-ugc__more">More: <a href="<?php echo esc_url( home_url( '/portfolio/' ) ); ?>">video ad examples</a> · <a href="<?php echo esc_url( home_url( '/ugc-ads-examples/' ) ); ?>">UGC ad examples</a> · <a href="<?php echo esc_url( home_url( '/what-is-a-vsl/' ) ); ?>">what is a VSL</a> · <a href="<?php echo esc_url( home_url( '/case-studies/' ) ); ?>">247 case studies</a> · <?php echo 'ecommerce-video-ads' === $atts['page'] ? '<a href="' . esc_url( home_url( '/product-video-ads/' ) ) . '">product video ads guide</a>' : '<a href="' . esc_url( home_url( '/how-much-do-video-ads-cost/' ) ) . '">how much video ads cost</a>'; // phpcs:ignore ?></p>
 				</div>
 			</section>
@@ -283,7 +302,7 @@ add_filter(
 		$data['mdmLandingFaq'] = array(
 			'@type'      => 'FAQPage',
 			'@id'        => home_url( '/' . $s . '/#faq' ),
-			'mainEntity' => array_map( static function ( $f ) { return array( '@type' => 'Question', 'name' => $f[0], 'acceptedAnswer' => array( '@type' => 'Answer', 'text' => $f[1] ) ); }, mdm_landing_pages()[ $s ]['faq'] ),
+			'mainEntity' => array_map( static function ( $f ) { return array( '@type' => 'Question', 'name' => $f[0], 'acceptedAnswer' => array( '@type' => 'Answer', 'text' => wp_strip_all_tags( $f[1] ) ) ); }, mdm_landing_pages()[ $s ]['faq'] ),
 		);
 		return $data;
 	},
