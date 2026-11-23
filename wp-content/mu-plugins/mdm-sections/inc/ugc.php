@@ -42,6 +42,24 @@ function mdm_ugc_industry_link( $industry ) {
 	return isset( $map[ $industry ] ) ? home_url( $map[ $industry ] ) : '';
 }
 
+/** Six hook families used to group the examples on the page. */
+function mdm_ugc_hook_group( $type ) {
+	$groups = array(
+		'Question hooks'                   => array( 'Pain question', '"What if" question', 'Conditional "if you…"', 'Question opener', 'One-word question' ),
+		'Call-outs (audience, place, pain)' => array( 'Audience call-out', 'Audience call-out + pain', 'Location call-out', 'Local call-out', 'Topic call-out', 'Topic opener', 'Benefit call-out', 'Goal call-out', 'Pain call-out', 'Direct address' ),
+		'Curiosity & pattern interrupts'   => array( 'Pattern interrupt', 'Pattern opener', 'Insider warning', 'Announcement', 'Explainer opener', 'Scene-setter' ),
+		'Benefit, proof & emotion'         => array( 'Promise', 'Statistic', 'One-word benefit', 'Visual metaphor', 'Relatable situation', 'Emotional angle' ),
+		'Objection first'                  => array( 'Objection first', 'Objection + social proof' ),
+		'Presenter-led (no text hook)'     => array( 'Presenter-led' ),
+	);
+	foreach ( $groups as $g => $list ) {
+		if ( in_array( $type, $list, true ) ) {
+			return $g;
+		}
+	}
+	return 'Other hooks';
+}
+
 function mdm_ugc_faq() {
 	return array(
 		array( 'What is a UGC ad?', 'A UGC ad (user-generated content ad) is a short video that looks like it was made by a real customer or creator rather than a brand: a person talking straight to the camera, filmed on a phone, with captions and a quick hook. Brands run them as paid ads because they blend into the feed and feel more trustworthy than a polished commercial.' ),
@@ -126,10 +144,7 @@ function mdm_shortcode_ugc_examples() {
 			if ( empty( $u['type'] ) ) {
 				continue;
 			}
-			$t = preg_replace( '/^(.*?)( \+.*)?$/', '$1', $u['type'] ); // "Objection + social proof" -> "Objection"
-			$t = in_array( $t, array( 'Conditional "if you…"', '"What if" question', 'Pain question', 'Question opener', 'One-word question' ), true ) ? 'Question openers' : $t;
-			$t = in_array( $t, array( 'Audience call-out', 'Location call-out', 'Local call-out', 'Topic call-out', 'Benefit call-out', 'Goal call-out', 'Pain call-out' ), true ) ? 'Call-outs (audience, place or pain)' : $t;
-			$t = in_array( $t, array( 'Objection first', 'Objection' ), true ) ? 'Objection first' : $t;
+			$t = mdm_ugc_hook_group( $u['type'] );
 			$types[ $t ][] = $u;
 		}
 		uasort( $types, static function ( $a, $b ) { return count( $b ) - count( $a ); } );
@@ -144,8 +159,8 @@ function mdm_shortcode_ugc_examples() {
 						<div class="mdm-ugc__type">
 							<h3><?php echo esc_html( $name ); ?> <small><?php echo (int) count( $list ); ?> <?php echo 1 === count( $list ) ? 'example' : 'examples'; ?></small></h3>
 							<ul>
-								<?php foreach ( array_slice( $list, 0, 4 ) as $u ) : ?>
-									<li><?php echo $u['hook'] ? '“' . esc_html( $u['hook'] ) . '” ' : ''; ?><span><?php echo esc_html( 'SAAS' === $u['industry'] ? 'SaaS' : $u['industry'] ); ?></span></li>
+								<?php foreach ( array_slice( $list, 0, 5 ) as $u ) : ?>
+									<li><?php echo $u['hook'] ? '“' . esc_html( $u['hook'] ) . '” ' : 'Opens on the presenter, no on-screen text '; ?><span><?php echo esc_html( 'SAAS' === $u['industry'] ? 'SaaS' : $u['industry'] ); ?></span></li>
 								<?php endforeach; ?>
 							</ul>
 						</div>
