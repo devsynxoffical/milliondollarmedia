@@ -29,7 +29,7 @@ function mdm_seo_meta_map() {
 			'/hvac-video-marketing-services/'          => array( 'HVAC Advertising & Video Marketing That Books Calls', 'HVAC video ads and Meta advertising that fill your schedule. See 6 HVAC case studies, including 326 leads in 26 days for one client. Get a free plan.' ),
 			'/plumbing-video-production/'              => array( 'Plumbing Video Production & Video Ads for Plumbers', 'Video production and video ads for plumbing companies: trust-building service videos, short-form ads and lead campaigns that turn local demand into booked jobs.' ),
 			'/mva/'                                    => array( 'MVA Leads & Personal Injury Lawyer Marketing With Video', 'Exclusive, OTP-verified MVA leads for personal injury firms from video ads and funnels, including 8,810 leads at $7.61 each. See 13 real legal case studies.' ),
-			'/real-estate-video-marketing/'                            => array( 'Real Estate Video Marketing & Video Ads for Agents', 'Real estate video marketing for agents, investors and lenders: listing videos, short-form ads and lead campaigns, with real estate and mortgage case studies.' ),
+			'/real-estate-video-marketing/'                            => array( 'Real Estate Video Marketing for Agents and Investors', 'Real estate video marketing for agents, investors and brokerages. Listing videos, agent intros and video ads that bring leads. Get a free video plan.' ),
 			'/solar/'                                  => array( 'Solar Ads & Video Marketing for Solar Companies', 'Solar video ads and lead generation for installers: scroll-stopping creatives and funnels that reach homeowners with real interest. See our solar results.' ),
 			'/saas/'                                   => array( 'SaaS Video Production & Video Ads That Drive Sales', 'SaaS video production and paid video ads: demo, explainer and UGC-style ads that drive trials, demos and revenue, with 24–48 hour creative turnaround.' ),
 			'/agency-owners/'                          => array( 'White Label Video Ads for Marketing Agencies', 'White label video ad production for marketing agencies: on-brand creatives for your clients in 24–48 hours at half the in-house cost. See 9 agency case studies.' ),
@@ -37,14 +37,14 @@ function mdm_seo_meta_map() {
 			'/strategic-video-marketing-for-coaches/'  => array( 'Video Marketing & Facebook Ads for Coaches', 'Done-for-you video marketing and Facebook ads for coaches and consultants. See 17 coaching case studies, including $115K from one campaign. Book a call.' ),
 			'/video-marketing-for-roofing-business/'   => array( 'Video Marketing for Roofing Companies: Step-by-Step Guide', 'A step-by-step video marketing guide for roofing contractors: video ideas, simple scripts, filming on a phone, and turning videos into local roofing leads.' ),
 			'/roofing-video-ads/'               => array( 'Roofing Video Ads: Ad Creatives That Get Roofing Leads', 'The roofing video ads and ad creatives behind 9 real roofing campaigns ($4.27 to $24 per lead): hooks, formats, targeting and lead verification, with the proof.' ),
-			'/hvac-facebook-ads/'                      => array( 'HVAC Facebook Ads: Real Lead, Booking & Install Costs', 'HVAC Facebook ads that bring leads and installs: real cost per lead, per booked appointment and per install from our HVAC campaigns, plus the setup behind them.' ),
-			'/ugc-ads-examples/'                       => array( 'UGC Ads Examples: 38 Real UGC Video Ad Examples by Industry', 'UGC ads examples: 38 real UGC video ads we made for roofing, solar, HVAC, legal, finance and SaaS clients, with the hook each one opens with. From $34.97 per video.' ),
-			'/video-ad-agency/'                         => array( 'Video Ad Agency for Done-for-You Video Ads | Million Dollar Media', 'A done-for-you video ad agency: UGC, VSLs, AI videos and short-form ads for Facebook, Instagram, TikTok and YouTube, from $34.97 per video. 247 case studies.' ),
+			'/hvac-facebook-ads/'                      => array( 'HVAC Facebook Ads: How to Get HVAC Leads (Real Data)', 'HVAC Facebook ads explained with real lead cost data, a full funnel, setup steps and ad ideas that work for replacement and tune-up offers.' ),
+			'/ugc-ads-examples/'                       => array( 'UGC Ads Examples That Real Brands Ran (By Industry)', 'UGC ads examples from real brands, sorted by industry and hook type, with a breakdown of why each one works and how to make UGC ads for your business.' ),
+			'/video-ad-agency/'                         => array( 'Video Ad Agency for Lead Gen and Ecommerce Brands', 'Video ad agency for lead generation and ecommerce brands. Scroll-stopping ads that sold $2.3M at 11.6x ROAS. Pay per creative and scale what works.' ),
 			'/ecommerce-video-ads/'                     => array( 'Ecommerce Video Ads for Shopify & DTC Brands', 'Ecommerce video ads for Shopify and DTC brands: UGC reviews, product demos and offer ads. 123 ecommerce case studies, including $2.3M at an 11.6x ROAS.' ),
 			'/facebook-ad-creatives-mastermind/'      => array( 'Facebook Ad Creatives Mastermind: 6 Lessons for Lower Lead Costs', 'Facebook ad creatives that capture attention and trigger buyer intent: 6 lessons on creative strategy, buyer psychology and ad frameworks for service businesses.' ),
 			'/how-much-do-video-ads-cost/'             => array( 'How Much Do Video Ads Cost? Production Prices & Ad Spend', 'How much do video ads cost? Real prices to make an ad video ($34.97, or $299 for 10) plus what clients spent to run them, and a simple budget for your first test.' ),
 			'/product-video-ads/'                      => array( 'Product Video Ads: 7 Formats That Sell (Real Results)', 'Product video ads that sell: 7 formats, the hook-to-CTA structure we script them with, how to test them, and real results from Shopify and DTC brands.' ),
-			'/what-is-a-vsl/'                          => array( 'What Is a VSL? Video Sales Letter Guide + Real VSL Examples', 'What is a VSL? A VSL (video sales letter) is a sales pitch in video form. The script structure that converts, real VSL examples, costs and when to use one.' ),
+			'/what-is-a-vsl/'                          => array( 'What Is a VSL? Video Sales Letter Guide With Examples', 'What is a VSL? A video sales letter explained with real examples, a script template, ideal length, costs and when a VSL works best for your offer.' ),
 		)
 	);
 }
@@ -157,8 +157,21 @@ function mdm_seo_niches() {
 			'niches' => array( 'Real Estate', 'Mortgage & Refinance' ),
 			'h2'     => 'Real estate video marketing that fills your pipeline',
 			'p'      => array(
-				'Buyers and sellers watch before they call. We make short real estate videos and ads (listing tours, market updates and seller offers) and run them to the right zip codes, then route every lead through a qualifying form so agents spend time on motivated people.',
+				'Buyers and sellers now judge agents by their videos before they ever call. We create listing tours, agent introduction videos, market updates and video ads that put your face and your listings in front of the right people, then turn views into leads.',
 				'Our real estate and mortgage case studies include 157 motivated home seller leads at $28 each in 7 days, 247 leads at $16.48 for a Texas real estate business and 208 OTP-verified mortgage leads that led to 37 closings.',
+			),
+			'sections' => array(
+				array( 'Why use video in real estate', '<p>Video builds trust faster than photos or text. It shows the property, the neighborhood and the agent\'s personality in one minute. Listings with video get more attention on social media and portals, and sellers are more likely to choose an agent who markets with video.</p>' ),
+				array( 'Real estate video ideas that bring leads', '<ul><li>Listing walkthroughs with a clear price and location.</li><li>"Just sold" videos with the result.</li><li>Neighborhood guides for buyers moving to your area.</li><li>Market update videos every month.</li><li>Agent introduction video for your profile and ads.</li><li>Client testimonial videos, in the same style as these <a href="/ugc-ads-examples/">UGC ads examples</a>.</li></ul>' ),
+				array( 'Real estate video ads', '<p>Short video ads on Facebook and Instagram can bring seller leads, buyer leads and investor leads. A good ad shows one property or one offer, such as a free home valuation, and leads to a simple form. As a <a href="/video-ad-agency/">video ad agency</a>, we script, edit and run these ads for you.</p>' ),
+				array( 'Is real estate videography worth it?', '<p>For most agents, yes. One strong listing video can be reused on social media, portals, email and ads. The value comes from more listing appointments and faster sales, not from views alone. See <a href="/how-much-do-video-ads-cost/">how much video ads cost</a>.</p>' ),
+			),
+			'faq_full' => array(
+				array( 'Why use video in real estate marketing?', 'Video builds trust, shows properties better than photos and helps agents stand out. It works across social media, listing portals, email and ads.' ),
+				array( 'What are the best real estate video ideas?', 'Listing tours, just-sold videos, neighborhood guides, market updates, agent introductions and client testimonials.' ),
+				array( 'Is real estate videography worth it?', 'Usually yes, because one video can be reused across many channels and helps win listings and sell faster.' ),
+				array( 'How do real estate video ads generate leads?', 'They show a property or offer to a targeted audience and send viewers to a simple form, such as a home valuation request.' ),
+				array( 'How long should a real estate video be?', 'Social videos work best at 30 to 90 seconds. Full listing tours can run 2 to 4 minutes.' ),
 			),
 			'faq'    => array(
 				array( 'What types of real estate videos work best as ads?', 'Seller offers ("what is my home worth"), new listing tours and short market updates perform best for our clients. We test hooks for each and keep the winners.' ),
@@ -284,6 +297,11 @@ function mdm_seo_niche_section( $slug, $part = 'all' ) {
 				<span class="mdm-niche__pill">Real results</span>
 				<h2 class="mdm-display mdm-niche__h2"><?php echo esc_html( $c['h2'] ); ?></h2>
 				<?php foreach ( $c['p'] as $p ) : ?><p><?php echo esc_html( $p ); ?></p><?php endforeach; ?>
+				<?php if ( ! empty( $c['sections'] ) ) : ?>
+					<div class="mdm-niche__more-copy">
+						<?php foreach ( $c['sections'] as $sec ) : ?><h3><?php echo esc_html( $sec[0] ); ?></h3><?php echo wp_kses_post( $sec[1] ); ?><?php endforeach; ?>
+					</div>
+				<?php endif; ?>
 				<?php
 				$guides = array(
 					'roofing-video-marketing-services' => array( '/roofing-video-ads/', 'Read the guide: roofing video ads and ad creatives, with real lead costs' ),
@@ -429,6 +447,7 @@ add_filter(
 			'plumbing-video-production'             => 'Plumbing video production and video ads',
 			'mva'                                   => 'MVA lead generation for personal injury firms',
 			'real-estate-video-marketing'                           => 'Real estate video marketing',
+			'video-ad-agency'                       => 'Video ad production for lead generation and ecommerce brands',
 			'solar'                                 => 'Solar video ads and lead generation',
 			'saas'                                  => 'SaaS video production and video ads',
 			'agency-owners'                         => 'White label video ad production for agencies',

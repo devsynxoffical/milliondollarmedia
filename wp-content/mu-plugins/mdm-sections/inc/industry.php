@@ -94,6 +94,14 @@ function mdm_industry_hero_html( $slug ) {
 		<div class="mdm-ihero__in">
 			<div class="mdm-ihero__copy">
 				<span class="mdm-ihero__pill"><i></i>Your all-in-one video ad agency</span>
+				<?php
+				// Page-specific H1 wording (the shorter hero labels are reused in link lists elsewhere).
+				$h1 = array( 'real-estate-video-marketing' => array( 'Real Estate Video Marketing', 'for Agents, Investors and Brokerages' ) );
+				if ( isset( $h1[ $slug ] ) ) {
+					$h[0] = $h1[ $slug ][0];
+					$h[1] = $h1[ $slug ][1];
+				}
+				?>
 				<h1 class="mdm-ihero__h1"><?php echo esc_html( $h[0] ); ?> <span><?php echo esc_html( $h[1] ); ?></span></h1>
 				<p class="mdm-ihero__sub"><?php echo esc_html( $h[2] ); ?></p>
 				<div class="mdm-ihero__btns">
@@ -290,6 +298,15 @@ function mdm_industry_faq_items( $slug ) {
 	}
 	$w   = $who[ $slug ];
 	$n   = $niches[ $slug ];
+	// Pages with their own full FAQ list (written for that page's keywords) use only those questions.
+	if ( ! empty( $n['faq_full'] ) ) {
+		$cats = array( 'services', 'services', 'process', 'results', 'results' );
+		$out  = array();
+		foreach ( $n['faq_full'] as $i => $f ) {
+			$out[] = array( 'cat' => isset( $cats[ $i ] ) ? $cats[ $i ] : 'results', 'q' => $f[0], 'a' => $f[1], 'tags' => array( $n['niches'][0] ) );
+		}
+		return $out;
+	}
 	$hero = mdm_industry_heroes()[ $slug ];
 	$lead = ! in_array( $slug, array( 'saas', 'agency-owners', 'strategic-video-marketing-for-coaches' ), true );
 
