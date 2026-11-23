@@ -25,3 +25,9 @@ Note: on a 429 stop the batch at the first rejection; every request counts towar
 | 2026-11-20 07:03 | /video-ad-agency/ | 429 |
 | 2026-11-20 18:35 | /roofing-video-ads/ | 429 |
 | 2026-11-21 06:30 | (none sent) | skipped: every request since 2026-11-19 returned 429; waiting for the Google Cloud quota to be checked |
+| 2026-11-21 18:30 | (none sent) | skipped: Indexing API quota still rejecting every request (429) |
+| 2026-11-22 06:30 | (none sent) | skipped: Indexing API quota still rejecting every request (429) |
+| 2026-11-22 18:30 | (none sent) | skipped: Indexing API quota still rejecting every request (429) |
+| 2026-11-23 06:30 | (none sent) | skipped: Indexing API quota still rejecting every request (429) |
+
+**2026-11-23: Google Indexing API no longer used.** The 23 Nov 2026 plan (CLAUDE_CODE_TOP10_milliondollarmedia_us.md) says not to use it. No further requests will be sent; IndexNow is used instead and the owner requests indexing in URL Inspection.

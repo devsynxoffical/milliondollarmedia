@@ -46,6 +46,7 @@ function mdm_ugc_faq() {
 	return array(
 		array( 'What is a UGC ad?', 'A UGC ad (user-generated content ad) is a short video that looks like it was made by a real customer or creator rather than a brand: a person talking straight to the camera, filmed on a phone, with captions and a quick hook. Brands run them as paid ads because they blend into the feed and feel more trustworthy than a polished commercial.' ),
 		array( 'Are the presenters in these examples real people?', 'The examples use a mix of creators and AI avatar presenters, depending on the client’s budget and speed. Both follow the same UGC format: one presenter, direct to camera, a hook in the first seconds and captions.' ),
+		array( 'What makes a good UGC ad hook?', 'A good hook tells the right viewer, in one to three seconds and with the sound off, that the video is for them. The most common openers in these examples are questions (“Injured?”, “What if…”), call-outs that name the audience, place or problem (“Attention UK business owners”), and pattern interrupts that say something unexpected (“Don’t hire my dad”).' ),
 		array( 'How much does a UGC video ad cost?', 'Our UGC-style video ads start at $34.97 per video with no retainer, and 10 videos cost $299. Larger programs with ad management are quoted on a free strategy call.' ),
 		array( 'How long does it take to make a UGC ad?', 'Most videos are delivered in 24–48 hours, with revision rounds included before anything goes live.' ),
 		array( 'Do UGC ads work for local service businesses?', 'Yes. Most of the examples on this page are for roofing, solar, HVAC, legal and other local services. The format works because a homeowner or claimant sees someone like them explaining the problem and the offer.' ),
@@ -111,8 +112,43 @@ function mdm_shortcode_ugc_examples() {
 							<div class="mdm-ugc__meta">
 								<span class="mdm-ugc__ind"><?php echo $link ? '<a href="' . esc_url( $link ) . '">' . esc_html( $name ) . '</a>' : esc_html( $name ); // phpcs:ignore ?></span>
 								<?php if ( $u['hook'] ) : ?><p class="mdm-ugc__hook"><span>Hook</span>“<?php echo esc_html( $u['hook'] ); ?>”</p><?php endif; ?>
+								<?php if ( ! empty( $u['why'] ) ) : ?><p class="mdm-ugc__why"><b><?php echo esc_html( $u['type'] ); ?>:</b> <?php echo esc_html( $u['why'] ); ?></p><?php endif; ?>
 							</div>
 						</article>
+					<?php endforeach; ?>
+				</div>
+			</div>
+		</section>
+
+		<?php
+		$types = array();
+		foreach ( $ugc as $u ) {
+			if ( empty( $u['type'] ) ) {
+				continue;
+			}
+			$t = preg_replace( '/^(.*?)( \+.*)?$/', '$1', $u['type'] ); // "Objection + social proof" -> "Objection"
+			$t = in_array( $t, array( 'Conditional "if you…"', '"What if" question', 'Pain question', 'Question opener', 'One-word question' ), true ) ? 'Question openers' : $t;
+			$t = in_array( $t, array( 'Audience call-out', 'Location call-out', 'Local call-out', 'Topic call-out', 'Benefit call-out', 'Goal call-out', 'Pain call-out' ), true ) ? 'Call-outs (audience, place or pain)' : $t;
+			$t = in_array( $t, array( 'Objection first', 'Objection' ), true ) ? 'Objection first' : $t;
+			$types[ $t ][] = $u;
+		}
+		uasort( $types, static function ( $a, $b ) { return count( $b ) - count( $a ); } );
+		?>
+		<section class="mdm-ugc__sec mdm-ugc__sec--alt" id="hook-types">
+			<div class="mdm-ugc__in">
+				<span class="mdm-niche__pill">UGC ad hooks, broken down</span>
+				<h2 class="mdm-ugc__h2">UGC ad examples by hook type</h2>
+				<p class="mdm-ugc__intro">The first one to three seconds decide whether a UGC ad gets watched. Here is every example above grouped by the kind of hook it opens with, so you can pick a proven opener for your own ads.</p>
+				<div class="mdm-ugc__types">
+					<?php foreach ( $types as $name => $list ) : ?>
+						<div class="mdm-ugc__type">
+							<h3><?php echo esc_html( $name ); ?> <small><?php echo (int) count( $list ); ?> <?php echo 1 === count( $list ) ? 'example' : 'examples'; ?></small></h3>
+							<ul>
+								<?php foreach ( array_slice( $list, 0, 4 ) as $u ) : ?>
+									<li><?php echo $u['hook'] ? '“' . esc_html( $u['hook'] ) . '” ' : ''; ?><span><?php echo esc_html( 'SAAS' === $u['industry'] ? 'SaaS' : $u['industry'] ); ?></span></li>
+								<?php endforeach; ?>
+							</ul>
+						</div>
 					<?php endforeach; ?>
 				</div>
 			</div>
@@ -159,7 +195,7 @@ function mdm_shortcode_ugc_examples() {
 					<li><span class="mdm-ic__stepn">4</span><div><h3>Edit & captions</h3><p>Captions, on-screen hooks and sound, delivered in 24–48 hours.</p></div></li>
 					<li><span class="mdm-ic__stepn">5</span><div><h3>Test & scale</h3><p>Run them as ads, keep the winners and replace the rest.</p></div></li>
 				</ol>
-				<p class="mdm-ugc__more">See the results these ads produced in our <a href="<?php echo esc_url( home_url( '/case-studies/' ) ); ?>">case studies</a>, more formats in our <a href="<?php echo esc_url( home_url( '/portfolio/' ) ); ?>">video ad examples</a>, and longer sales videos in <a href="<?php echo esc_url( home_url( '/what-is-a-vsl/' ) ); ?>">what is a VSL</a>.</p>
+				<p class="mdm-ugc__more">See the results these ads produced in our <a href="<?php echo esc_url( home_url( '/case-studies/' ) ); ?>">case studies</a>, more formats in our <a href="<?php echo esc_url( home_url( '/portfolio/' ) ); ?>">video ad examples</a>, longer sales videos in <a href="<?php echo esc_url( home_url( '/what-is-a-vsl/' ) ); ?>">what is a VSL</a>, and how we run full campaigns as a <a href="<?php echo esc_url( home_url( '/video-ad-agency/' ) ); ?>">video ad agency</a> or for online stores with <a href="<?php echo esc_url( home_url( '/ecommerce-video-ads/' ) ); ?>">ecommerce video ads</a>.</p>
 			</div>
 		</section>
 
