@@ -16,6 +16,29 @@ function mdm_brand_name() {
 	return 'Million Dollar Media';
 }
 
+/**
+ * One brand description sentence, reused in the Organization schema, llms.txt and off-site profiles
+ * (Google Business Profile, Clutch, LinkedIn), so AI tools connect them to the same business.
+ */
+function mdm_brand_sentence() {
+	return 'Million Dollar Media is a done-for-you video ad agency that scripts, produces and edits UGC ads, VSLs and AI video ads for lead generation and ecommerce brands, backed by 247 published case studies.';
+}
+
+/* robots.txt: allow the AI crawlers explicitly (same private paths kept out as for all bots). */
+add_filter(
+	'robots_txt',
+	static function ( $out ) {
+		if ( false !== strpos( $out, 'User-agent: GPTBot' ) ) {
+			return $out;
+		}
+		$ai = "User-agent: GPTBot\nUser-agent: OAI-SearchBot\nUser-agent: ChatGPT-User\nUser-agent: PerplexityBot\nUser-agent: Google-Extended\nUser-agent: ClaudeBot\nUser-agent: Claude-SearchBot\n"
+			. "Allow: /\nDisallow: /wp-admin/\nAllow: /wp-admin/admin-ajax.php\nDisallow: /*?add-to-cart=\nDisallow: /*?*add-to-cart=\n\n";
+		$pos = strpos( $out, 'Sitemap:' );
+		return false === $pos ? rtrim( $out ) . "\n\n" . $ai : substr( $out, 0, $pos ) . $ai . substr( $out, $pos );
+	},
+	100
+);
+
 /** Funnel / thank-you steps: useful for buyers, not for search results. */
 function mdm_geo_noindex_slugs() {
 	return array( 'provide-information', 'upsell', 'downsell', 'booking-confirmed', 'thank-you' );
@@ -45,6 +68,9 @@ add_filter(
 			if ( is_array( $node ) && isset( $node['@type'] ) && 'MarketingAgency' === $node['@type'] ) {
 				$agency = $k;
 			}
+		}
+		if ( null !== $agency && empty( $data[ $agency ]['description'] ) ) {
+			$data[ $agency ]['description'] = mdm_brand_sentence();
 		}
 		$n = 0;
 		foreach ( $data as $k => $node ) {
@@ -169,14 +195,22 @@ add_action(
 		}
 		$u = static function ( $p ) { return home_url( $p ); };
 		$t  = "# Million Dollar Media\n\n";
-		$t .= "> Done-for-you video ad agency (legal name: Vaishali Media Productions LLC, founded 2019). We script, produce and edit video ads, VSLs, UGC-style and AI videos, and run Meta ad campaigns and funnels that turn attention into booked calls and sales for lead generation businesses and e-commerce brands. Most creatives are delivered in 24-48 hours.\n\n";
+		$t .= '> ' . mdm_brand_sentence() . "\n\n";
+		$t .= "Legal name: Vaishali Media Productions LLC, founded 2019. We also run Meta ad campaigns and funnels for clients. Most creatives are delivered in 24 to 48 hours. Updated: " . gmdate( 'F Y' ) . ".\n\n";
 		$t .= "Business address: 30 N Gould St # 58138, Sheridan, WY 82801, USA. Email: vaishali@milliondollarmedia.us. We work with clients across the USA remotely.\n\n";
 		$t .= "## Key facts\n\n";
 		$t .= "- 247 client case studies published on the site (124 lead generation, 123 e-commerce), each with the client's ad account, dashboard or CRM proof.\n";
-		$t .= "- Pricing without a retainer: images from \$14.97, GIFs from \$24.97, videos from \$34.97, or 10 videos for \$299. Full done-for-you programs are quoted on a free strategy call.\n";
+		$t .= "- Pricing without a retainer: image \$14.97, AI image \$19.97, 30 images \$197; GIF \$24.97, AI GIF \$29.97, 30 GIFs \$447; video \$34.97, AI video \$44.97, 10 videos \$299, 10 AI videos \$349, 30 videos \$797. Full done-for-you programs and VSL production are quoted on a free strategy call.\n";
+		$t .= "- E-commerce results (from the case studies): \$2.3M in sales at 11.6x ROAS; \$115,416 at 4.39x ROAS; \$62,182 in 7 days; \$61,960 in a single day.\n";
 		$t .= "- Example results (from the case studies): 686 roofing leads in 8 days at \$5.31 per lead for a Texas roofer; 326 HVAC leads in 26 days at \$5.57 per lead; \$36,444 collected at a 19.63x return on \$1,956 of ad spend for a New Jersey HVAC company.\n\n";
 		$t .= "## Main pages\n\n";
 		$t .= '- [Home](' . $u( '/' ) . "): services, pricing, video ad examples and FAQ\n";
+		$t .= '- [Video ad agency](' . $u( '/video-ad-agency/' ) . "): done-for-you video ads for lead generation and ecommerce brands\n";
+		$t .= '- [Ecommerce video ads](' . $u( '/ecommerce-video-ads/' ) . "): video ads for Shopify and DTC brands, 123 e-commerce case studies\n";
+		$t .= '- [UGC ads examples](' . $u( '/ugc-ads-examples/' ) . "): 38 real UGC-style client ads with a breakdown of each hook\n";
+		$t .= '- [What is a VSL?](' . $u( '/what-is-a-vsl/' ) . "): video sales letter guide with real VSL examples\n";
+		$t .= '- [How much do video ads cost?](' . $u( '/how-much-do-video-ads-cost/' ) . "): production prices and ad spend\n";
+		$t .= '- [Facebook Ad Creatives Mastermind](' . $u( '/facebook-ad-creatives-mastermind/' ) . "): 6 lessons on Facebook ad creatives\n";
 		$t .= '- [Case studies](' . $u( '/case-studies/' ) . "): all 247 case studies, filterable by industry\n";
 		$t .= '- [Video ad examples](' . $u( '/portfolio/' ) . "): portfolio by industry\n";
 		$t .= '- [Our story](' . $u( '/our-story/' ) . "): who we are\n";
