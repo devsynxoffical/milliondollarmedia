@@ -1,11 +1,11 @@
-# SEO monitor report: 2026-11-23T18:24Z
+# SEO monitor report: 2026-11-24T06:24Z
 
-Search Console window: 2026-11-15 to 2026-11-21 (vs 2026-11-08 to 2026-11-14). Data lags about 2 days.
+Search Console window: 2026-11-16 to 2026-11-22 (vs 2026-11-09 to 2026-11-15). Data lags about 2 days.
 
 ## Totals (last 7 days vs previous 7)
 
 - Clicks: 7 (previous 5)
-- Impressions: 274 (previous 101)
+- Impressions: 258 (previous 113)
 
 ## Non-brand queries (last 7 days)
 
@@ -54,15 +54,15 @@ Search Console window: 2026-11-15 to 2026-11-21 (vs 2026-11-08 to 2026-11-14). D
 
 ## Pages (last 7 days)
 
-- /: 76 impr, 7 clicks, pos 3.1 (was 72 impr, pos 3.7)
-- /our-story/: 32 impr, 0 clicks, pos 9.1 (was 1 impr, pos 3.0)
-- /case-studies/: 23 impr, 0 clicks, pos 5.7 (was 3 impr, pos 6.0)
-- /case-studies/ecommerce/: 16 impr, 0 clicks, pos 8.0 (was 4 impr, pos 6.8)
+- /: 71 impr, 7 clicks, pos 3.1 (was 73 impr, pos 3.7)
+- /our-story/: 29 impr, 0 clicks, pos 9.1 (was 4 impr, pos 7.5)
+- /case-studies/: 21 impr, 0 clicks, pos 5.7 (was 5 impr, pos 5.6)
+- /case-studies/ecommerce/: 12 impr, 0 clicks, pos 8.8 (was 8 impr, pos 6.1)
 - /what-is-a-vsl/: 12 impr, 0 clicks, pos 10.5 (new)
 - /facebook-ads-for-roofers/: 8 impr, 0 clicks, pos 49.1 (new)
 - /hvac-facebook-ads/: 8 impr, 0 clicks, pos 55.0 (new)
 - /ugc-ads-examples/: 8 impr, 0 clicks, pos 35.1 (new)
-- /case-studies/lead-generation/: 7 impr, 0 clicks, pos 9.6 (was 4 impr, pos 8.0)
+- /case-studies/lead-generation/: 5 impr, 0 clicks, pos 9.6 (was 6 impr, pos 8.5)
 - /case-study/some-people-dont-fail-because-the-strategy-is-wrong-they-fail-because/: 5 impr, 0 clicks, pos 3.0 (new)
 - /case-study/20-days-2184-ad-spend-140-appointments-64960-revenue-we-recently/: 4 impr, 0 clicks, pos 2.0 (new)
 - /case-study/agency-owners-selling-high-ticket-programs-read-this/: 4 impr, 0 clicks, pos 4.5 (new)
@@ -83,7 +83,7 @@ Search Console window: 2026-11-15 to 2026-11-21 (vs 2026-11-08 to 2026-11-14). D
 ## Indexing (priority pages)
 
 - /: Submitted and indexed, last crawl 2026-11-19
-- /roofing-video-ads/: URL is unknown to Google, last crawl -
+- /roofing-video-ads/: Submitted and indexed, last crawl 2026-11-23  CHANGED (was: URL is unknown to Google)
 - /hvac-facebook-ads/: Submitted and indexed, last crawl 2026-11-18
 - /what-is-a-vsl/: Submitted and indexed, last crawl 2026-11-23
 - /roofing-video-marketing-services/: Crawled - currently not indexed, last crawl 2026-11-18
@@ -96,7 +96,7 @@ Search Console window: 2026-11-15 to 2026-11-21 (vs 2026-11-08 to 2026-11-14). D
 - /saas/: Crawled - currently not indexed, last crawl 2026-11-18
 - /strategic-video-marketing-for-coaches/: Crawled - currently not indexed, last crawl 2026-04-22
 - /agency-owners/: Crawled - currently not indexed, last crawl 2026-11-18
-- /portfolio/: Submitted and indexed, last crawl 2026-11-23  CHANGED (was: Discovered - currently not indexed)
+- /portfolio/: Submitted and indexed, last crawl 2026-11-23
 - /case-studies/: Submitted and indexed, last crawl 2026-11-14
 - /case-studies/lead-generation/: Submitted and indexed, last crawl 2026-11-13
 - /case-studies/ecommerce/: Submitted and indexed, last crawl 2026-11-14
@@ -105,9 +105,9 @@ Search Console window: 2026-11-15 to 2026-11-21 (vs 2026-11-08 to 2026-11-14). D
 - /ugc-ads-examples/: Submitted and indexed, last crawl 2026-11-23
 - /video-ad-agency/: Submitted and indexed, last crawl 2026-11-20
 - /ecommerce-video-ads/: Submitted and indexed, last crawl 2026-11-20
-- /facebook-ad-creatives-mastermind/: URL is unknown to Google, last crawl -
-- /how-much-do-video-ads-cost/: URL is unknown to Google, last crawl -  CHANGED (was: None)
-- /product-video-ads/: URL is unknown to Google, last crawl -  CHANGED (was: None)
+- /facebook-ad-creatives-mastermind/: Submitted and indexed, last crawl 2026-11-23  CHANGED (was: URL is unknown to Google)
+- /how-much-do-video-ads-cost/: Submitted and indexed, last crawl 2026-11-23  CHANGED (was: URL is unknown to Google)
+- /product-video-ads/: Submitted and indexed, last crawl 2026-11-23  CHANGED (was: URL is unknown to Google)
 
 ## Site health (206 sitemap URLs)
 
