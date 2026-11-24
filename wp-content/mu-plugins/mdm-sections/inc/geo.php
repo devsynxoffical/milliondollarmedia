@@ -69,7 +69,7 @@ add_filter(
 				$agency = $k;
 			}
 		}
-		if ( null !== $agency && empty( $data[ $agency ]['description'] ) ) {
+		if ( null !== $agency ) { // one brand sentence everywhere (replaces Rank Math's older slogan text)
 			$data[ $agency ]['description'] = mdm_brand_sentence();
 		}
 		$n = 0;
