@@ -36,3 +36,4 @@ Note: on a 429 stop the batch at the first rejection; every request counts towar
 | 2026-11-23 18:30 | (none sent) | no pages changed since the 09:55 IndexNow submission |
 | 2026-11-24 06:40 | (none sent) | /our-story/ change not deployed yet; no live page changed |
 | 2026-11-24 | IndexNow: /our-story/ (new link block) and / (Organization schema description) | 200 |
+| 2026-11-24 18:30 | (none sent) | no pages changed this run |
