@@ -390,7 +390,7 @@ add_filter(
  * Home page and Portfolio: a "Video ad services" link block (23 Nov 2026 plan, task 2) so the money pages
  * are linked from the two strongest pages in normal page content, not only from the footer.
  */
-function mdm_services_links_html() {
+function mdm_services_links_html( $guides = false ) {
 	$items = array(
 		array( '/video-ad-agency/', 'Video ad agency', 'done-for-you video ads for lead gen & e-commerce' ),
 		array( '/ecommerce-video-ads/', 'Ecommerce video ads', 'for Shopify & DTC brands' ),
@@ -398,6 +398,11 @@ function mdm_services_links_html() {
 		array( '/what-is-a-vsl/', 'Video sales letters', 'what a VSL is, with real VSL examples' ),
 		array( '/facebook-ad-creatives-mastermind/', 'Creative Mastermind', '6 lessons on Facebook ad creatives' ),
 	);
+	if ( $guides ) { // guides newly indexed on 23 Nov 2026
+		$items[] = array( '/how-much-do-video-ads-cost/', 'How much video ads cost', 'real prices per video and ad spend' );
+		$items[] = array( '/product-video-ads/', 'Product video ads', '7 formats that sell products online' );
+		$items[] = array( '/roofing-video-ads/', 'Roofing video ads', 'the ad creatives that get roofing leads' );
+	}
 	$html = '<section class="mdm-indlinks mdm-svclinks"><div class="mdm-indlinks__in"><span class="mdm-niche__pill">What we do</span><h2 class="mdm-indlinks__h2">Video ad services</h2><div class="mdm-indlinks__grid">';
 	foreach ( $items as $i ) {
 		$html .= '<a href="' . esc_url( home_url( $i[0] ) ) . '"><b>' . esc_html( $i[1] ) . '</b><span>' . esc_html( $i[2] ) . '</span></a>';
@@ -407,10 +412,10 @@ function mdm_services_links_html() {
 add_filter(
 	'the_content',
 	static function ( $content ) {
-		if ( is_admin() || ! in_the_loop() || ! is_main_query() || ! ( is_front_page() || is_page( 'portfolio' ) ) || false !== strpos( $content, 'mdm-svclinks' ) ) {
+		if ( is_admin() || ! in_the_loop() || ! is_main_query() || ! ( is_front_page() || is_page( array( 'portfolio', 'our-story' ) ) ) || false !== strpos( $content, 'mdm-svclinks' ) ) {
 			return $content;
 		}
-		return $content . mdm_services_links_html();
+		return $content . mdm_services_links_html( is_page( 'our-story' ) );
 	},
 	40
 );
