@@ -1,0 +1,17 @@
+Type,URL,Target keywords,US volume/mo (Semrush 25 Nov),KD,Action,Week
+Fix,17 crawled-not-indexed + 19 discovered-not-indexed,n/a,,,"Triage: merge thin, rewrite case study titles, request indexing",1-2
+Fix,"3 x 404, 2 robots blocks, 3 noindex",n/a,,,301 / confirm intentional,1
+Fix,/facebook-ads-for-roofers/,roofing lane,,,301 to roofingsystems.co (after approval),2
+Fix,/hvac-facebook-ads/,MDF lane,320,7,301 to MDF /lead-generation/hvac or retitle HVAC Video Ads,2
+Fix,"/mva/, /solar/","SWA, QLX lanes",,,Retitle video angle or noindex,2
+Fix,disavow,n/a,,,Upload 235-domain file,1
+New,/commercial-video-production,commercial video production,2400,15,Build,3
+Upgrade,/what-is-a-vsl/,what is a vsl; vsl examples,1090,10-25,"Upgrade, target top 5",4
+Upgrade,/video-ad-agency/,video ad agency; video ads agency,600,10-12,Upgrade,4
+New,/video-marketing-agency,video marketing agency; best video marketing agency,2950,22-31,Build,5
+Upgrade,/real-estate-video-marketing/,real estate video marketing; real estate videographer,520,12-18,Upgrade,6
+Upgrade,/how-much-do-video-ads-cost/,video advertising cost; how much does a video ad cost,40,,Upgrade,8
+Upgrade,/ugc-ads-examples/,ugc ads examples,40,13,Upgrade,8
+Upgrade,/product-video-ads/,product video ads,50,24,Upgrade,9
+City,/video-production/los-angeles-ca,video production company los angeles; video marketing agency los angeles; real estate videographer los angeles,840,13-50,Only if LA address/shoots confirmed; merge /best-video-production-agency-los-angeles/,7
+City,"/video-production/{austin-tx, houston-tx, miami-fl, san-diego-ca, tampa-fl}",video production company [city],170-480 each,17-26,Only where MDM really shoots,9+

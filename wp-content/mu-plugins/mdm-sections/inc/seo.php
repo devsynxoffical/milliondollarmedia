@@ -44,6 +44,9 @@ function mdm_seo_meta_map() {
 			'/facebook-ad-creatives-mastermind/'      => array( 'Facebook Ad Creatives Mastermind: 6 Lessons for Lower Lead Costs', 'Facebook ad creatives that capture attention and trigger buyer intent: 6 lessons on creative strategy, buyer psychology and ad frameworks for service businesses.' ),
 			'/how-much-do-video-ads-cost/'             => array( 'How Much Do Video Ads Cost? Production Prices & Ad Spend', 'How much do video ads cost? Real prices to make an ad video ($34.97, or $299 for 10) plus what clients spent to run them, and a simple budget for your first test.' ),
 			'/product-video-ads/'                      => array( 'Product Video Ads: 7 Formats That Sell (Real Results)', 'Product video ads that sell: 7 formats, the hook-to-CTA structure we script them with, how to test them, and real results from Shopify and DTC brands.' ),
+			'/commercial-video-production/'           => array( 'Commercial Video Production Company', 'Commercial video production for brands: ad commercials, product demos, UGC-style spots and VSLs, delivered in 24 to 48 hours from $34.97 per video.' ),
+			'/video-marketing-agency/'                => array( 'Video Marketing Agency: Strategy, Production and Ads', 'Video marketing agency for lead gen and ecommerce brands: strategy, production and ads in one team. 247 published case studies, from $34.97 per video.' ),
+			'/video-production/los-angeles-ca/'       => array( 'Video Production Company in Los Angeles, CA', 'Video production and video ads for Los Angeles businesses: real estate, home services, med spas and ecommerce. From $34.97 per video, 24 to 48h delivery.' ),
 			'/what-is-a-vsl/'                          => array( 'What Is a VSL? Video Sales Letter Guide With Examples', 'What is a VSL? A video sales letter explained with real examples, a script template, ideal length, costs and when a VSL works best for your offer.' ),
 		)
 	);
@@ -450,6 +453,9 @@ add_filter(
 			'mva'                                   => 'MVA lead generation for personal injury firms',
 			'real-estate-video-marketing'                           => 'Real estate video marketing',
 			'video-ad-agency'                       => 'Video ad production for lead generation and ecommerce brands',
+			'commercial-video-production'           => 'Commercial video production',
+			'video-marketing-agency'                => 'Video marketing',
+			'los-angeles-ca'                        => 'Video production in Los Angeles',
 			'solar'                                 => 'Solar video ads and lead generation',
 			'saas'                                  => 'SaaS video production and video ads',
 			'agency-owners'                         => 'White label video ad production for agencies',

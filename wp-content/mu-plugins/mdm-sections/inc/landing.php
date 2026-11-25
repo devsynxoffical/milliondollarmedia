@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 function mdm_landing_pages() {
 	$ecom = mdm_landing_ecom_counts();
-	return array(
+	return apply_filters( 'mdm_landing_pages', array(
 		'video-ad-agency'     => array(
 			'pill'    => 'Done-for-you video ads',
 			'h1'      => array( 'Video Ad Agency', 'for Lead Gen and Ecommerce Brands' ),
@@ -102,7 +102,7 @@ function mdm_landing_pages() {
 			'src'     => 'ecommerce-video-ads',
 			'form'    => array( 'Get e-commerce video ads', 'Tell us about your store and products and we will send a short plan: the ad formats and hooks we would test first.' ),
 		),
-	);
+	) );
 }
 
 /** Real counts from data/cases.json (the e-commerce case studies). */
@@ -221,6 +221,17 @@ add_shortcode(
 					</div>
 				</div>
 			</section>
+
+			<?php if ( ! empty( $c['body'] ) ) : ?>
+				<?php foreach ( $c['body'] as $bi => $sec ) : ?>
+					<section class="mdm-ugc__sec<?php echo 1 === $bi % 2 ? ' mdm-lp__alt' : ''; ?>">
+						<div class="mdm-ugc__in mdm-lp__body">
+							<h2 class="mdm-ugc__h2"><?php echo esc_html( $sec[0] ); ?></h2>
+							<?php echo wp_kses_post( $sec[1] ); ?>
+						</div>
+					</section>
+				<?php endforeach; ?>
+			<?php endif; ?>
 
 			<div class="mdm-lp__cases"><?php echo function_exists( 'mdm_shortcode_case_studies' ) ? mdm_shortcode_case_studies( array( 'cat' => $c['cases']['cat'], 'limit' => '8', 'eyebrow' => 'Case studies', 'title' => $c['cases']['title'], 'badge' => 'auto', 'subtitle' => ! empty( $c['cases']['subtitle'] ) ? $c['cases']['subtitle'] : 'Real ad accounts, dashboards and screen recordings. Tap any card to see the proof.' ) ) : ''; // phpcs:ignore ?></div>
 
