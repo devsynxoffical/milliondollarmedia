@@ -206,6 +206,9 @@ add_action(
 		$t .= "## Main pages\n\n";
 		$t .= '- [Home](' . $u( '/' ) . "): services, pricing, video ad examples and FAQ\n";
 		$t .= '- [Video ad agency](' . $u( '/video-ad-agency/' ) . "): done-for-you video ads for lead generation and ecommerce brands\n";
+		$t .= '- [Video marketing agency](' . $u( '/video-marketing-agency/' ) . "): strategy, video production and ads in one team\n";
+		$t .= '- [Commercial video production](' . $u( '/commercial-video-production/' ) . "): ad commercials, product demos, UGC-style spots and VSLs\n";
+		$t .= '- [Video production in Los Angeles](' . $u( '/video-production/los-angeles-ca/' ) . "): video ads and marketing videos for Los Angeles businesses\n";
 		$t .= '- [Ecommerce video ads](' . $u( '/ecommerce-video-ads/' ) . "): video ads for Shopify and DTC brands, 123 e-commerce case studies\n";
 		$t .= '- [UGC ads examples](' . $u( '/ugc-ads-examples/' ) . "): 38 real UGC-style client ads with a breakdown of each hook\n";
 		$t .= '- [What is a VSL?](' . $u( '/what-is-a-vsl/' ) . "): video sales letter guide with real VSL examples\n";

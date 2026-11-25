@@ -49,7 +49,7 @@ add_filter(
 				array( 'How we produce commercials', '<p>Most of our commercials are produced remotely. Depending on the brief, the on-camera part comes from vetted UGC creators, from AI avatars and voice-over with B-roll, or from footage your own team films with the shot list we write. Our editors then add captions, motion graphics, music and sound, and deliver every version in the aspect ratios each platform needs.</p><p>We work with brands across the United States and have a Los Angeles address. See our <a href="/video-production/los-angeles-ca/">Los Angeles video production</a> page for LA businesses.</p>' ),
 				array( 'Results from commercials we produced', '<p>Every number below comes from one of our published case studies: $2.3M in sales at an 11.6x ROAS for an e-commerce store, $115,416 at a 4.39 ROAS for a skincare brand, 326 HVAC leads at $5.57 per lead, and $36,444 collected at a 19.63x return on $1,956 of ad spend for a New Jersey HVAC company. Browse all ' . (int) $ecom['total'] . ' e-commerce and 124 lead generation results in our <a href="/case-studies/">case studies</a>.</p>' ),
 			),
-			'cases'   => array( 'cat' => 'all', 'title' => 'Case studies from our commercials' ),
+			'cases'   => array( 'cat' => 'ecom', 'title' => 'Case studies from our commercials' ),
 			'compare' => array(
 				'h2'    => 'Performance commercials vs. traditional TV production',
 				'intro' => 'A traditional commercial is built once and run for months. A performance commercial is built to be tested: several hooks, lengths and formats, with the winners kept and the rest replaced.',
@@ -105,7 +105,7 @@ add_filter(
 				array( 'How to choose the best video marketing agency', '<p>Use these criteria to compare any agency, including us:</p><ol><li><b>Published results.</b> Real case studies with ad spend, leads or revenue, not only showreels.</li><li><b>Testing volume.</b> Several hooks and versions per offer every month.</li><li><b>Production and ads together.</b> The team that edits the video should see how it performs.</li><li><b>Clear pricing.</b> Prices per video or per package you can check before a call.</li><li><b>Speed.</b> New creatives in days, not weeks, so the account never runs out of fresh ads.</li><li><b>Your industry.</b> Examples from businesses like yours.</li></ol><p>Our answers: <a href="/case-studies/">247 published case studies</a>, prices from $34.97 per video, most videos delivered in 24 to 48 hours, and examples from 15 industries in our <a href="/portfolio/">portfolio</a>.</p>' ),
 				array( 'Video marketing for lead generation and ecommerce', '<p>For service businesses we build video ads and funnels that bring booked calls: roofing, HVAC, real estate, coaching and agencies among them. For online stores we make UGC-style reviews, product demos and offer ads, and our ' . (int) $ecom['total'] . ' e-commerce case studies show the results. See <a href="/ecommerce-video-ads/">ecommerce video ads</a> and <a href="/real-estate-video-marketing/">real estate video marketing</a>.</p>' ),
 			),
-			'cases'   => array( 'cat' => 'all', 'title' => 'Video marketing case studies' ),
+			'cases'   => array( 'cat' => 'leadgen', 'niche' => 'Coaching & Consulting|Agency Scaling|Webinar|SaaS', 'title' => 'Video marketing case studies' ),
 			'steps'   => $steps,
 			'industries' => true,
 			'faq'     => array(
@@ -146,7 +146,7 @@ add_filter(
 				array( 'Pricing for Los Angeles video production', '<p>Our prices are the same for LA businesses as everywhere else and they are published: $34.97 per ad video, $44.97 per AI video, 10 videos for $299 and 30 videos for $797, with no retainer. Image ads start at $14.97 and GIF ads at $24.97. Larger productions and ads management are quoted on a free call. See <a href="/how-much-do-video-ads-cost/">how much video ads cost</a> for the full breakdown.</p>' ),
 				array( 'How we work with LA businesses', '<p>Start with one short questionnaire about your offer, service area and ideal customer. We write hook-first scripts, produce the videos with creators, AI avatars or footage your team films with our shot list, and deliver most videos in 24 to 48 hours. If you want us to run the ads, we launch them in your area, test the versions and keep the winners.</p>' ),
 			),
-			'cases'   => array( 'cat' => 'all', 'title' => 'Case studies from our video ads' ),
+			'cases'   => array( 'cat' => 'leadgen', 'niche' => 'MedSpa|Real Estate|HVAC|Home Services', 'title' => 'Case studies for local businesses' ),
 			'steps'   => $steps,
 			'industries' => true,
 			'faq'     => array(
