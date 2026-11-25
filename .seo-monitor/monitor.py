@@ -10,12 +10,15 @@ PRIORITY = ['', 'roofing-video-ads/', 'hvac-facebook-ads/', 'what-is-a-vsl/', 'r
             'solar/', 'saas/', 'strategic-video-marketing-for-coaches/', 'agency-owners/', 'portfolio/', 'case-studies/',
             'case-studies/lead-generation/', 'case-studies/ecommerce/', 'our-story/', 'blogs/',
             'ugc-ads-examples/', 'video-ad-agency/', 'ecommerce-video-ads/', 'facebook-ad-creatives-mastermind/',
-            'how-much-do-video-ads-cost/', 'product-video-ads/']
+            'how-much-do-video-ads-cost/', 'product-video-ads/',
+            'commercial-video-production/', 'video-marketing-agency/', 'video-production/los-angeles-ca/']
 # Top 10 targets from the 23 Nov 2026 plan (keyword -> target page). Goal: 5+ of these in the top 10 by day 90.
 TARGETS = {'video ad agency': 'video-ad-agency/', 'video sales letter': 'what-is-a-vsl/', 'hvac facebook ads': 'hvac-facebook-ads/',
            'real estate video marketing': 'real-estate-video-marketing/', 'ecommerce video ads': 'ecommerce-video-ads/',
            'vsl examples': 'what-is-a-vsl/', 'ugc ads examples': 'ugc-ads-examples/', 'ugc ad examples': 'ugc-ads-examples/',
-           'how much do video ads cost': 'how-much-do-video-ads-cost/', 'product video ads': 'product-video-ads/'}
+           'how much do video ads cost': 'how-much-do-video-ads-cost/', 'product video ads': 'product-video-ads/',
+           'commercial video production': 'commercial-video-production/', 'video marketing agency': 'video-marketing-agency/',
+           'video production company los angeles': 'video-production/los-angeles-ca/'}
 
 
 def key():

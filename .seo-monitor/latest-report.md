@@ -1,4 +1,4 @@
-# SEO monitor report: 2026-11-25T06:24Z
+# SEO monitor report: 2026-11-25T18:24Z
 
 Search Console window: 2026-11-17 to 2026-11-23 (vs 2026-11-10 to 2026-11-16). Data lags about 2 days.
 
@@ -52,7 +52,10 @@ Search Console window: 2026-11-17 to 2026-11-23 (vs 2026-11-10 to 2026-11-16). D
 - "ugc ad examples" -> /ugc-ads-examples/: position 36.6, 8 impressions, ranking page /ugc-ads-examples/
 - "how much do video ads cost" -> /how-much-do-video-ads-cost/: not ranking yet
 - "product video ads" -> /product-video-ads/: not ranking yet
-- In the top 10: 0 of 10
+- "commercial video production" -> /commercial-video-production/: not ranking yet
+- "video marketing agency" -> /video-marketing-agency/: not ranking yet
+- "video production company los angeles" -> /video-production/los-angeles-ca/: not ranking yet
+- In the top 10: 0 of 13
 
 ## Opportunities
 
@@ -115,8 +118,11 @@ Search Console window: 2026-11-17 to 2026-11-23 (vs 2026-11-10 to 2026-11-16). D
 - /facebook-ad-creatives-mastermind/: Submitted and indexed, last crawl 2026-11-23
 - /how-much-do-video-ads-cost/: Submitted and indexed, last crawl 2026-11-23
 - /product-video-ads/: Submitted and indexed, last crawl 2026-11-23
+- /commercial-video-production/: Submitted and indexed, last crawl 2026-11-25  CHANGED (was: None)
+- /video-marketing-agency/: Submitted and indexed, last crawl 2026-11-25  CHANGED (was: None)
+- /video-production/los-angeles-ca/: Submitted and indexed, last crawl 2026-11-25  CHANGED (was: None)
 
-## Site health (206 sitemap URLs)
+## Site health (209 sitemap URLs)
 
 - Not returning 200: 0 
 - Indexable pages with missing title, short description or not exactly one H1: 0 

@@ -39,3 +39,4 @@ Note: on a 429 stop the batch at the first rejection; every request counts towar
 | 2026-11-24 18:30 | (none sent) | no pages changed this run |
 | 2026-11-25 06:30 | (none sent) | no pages changed this run |
 | 2026-11-25 | IndexNow (Bing): 3 new pages (commercial video production, video marketing agency, Los Angeles) + /hvac-video-marketing-los-angeles/ (new link) | 200 |
+| 2026-11-25 18:30 | (none sent) | no pages changed this run |
