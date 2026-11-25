@@ -60,3 +60,7 @@ Authority: 38 backlinks from 35 domains, spam score 59, rank 0 (OpenSEO, 2026-11
 1. `/`: rendered H1 is now "VIDEO ADS. CREATIVE. DIGITAL ADVERTISING. SOCIAL MEDIA." (was "WE MAKE CONTENT THAT"). Heading sizes measured at 1440 / 1024 / 768 / 390 px match the before state exactly (36/30 px desktop, 27.36/22.8 px tablet and phone). Search impact: re-check 2026-12-03.
 2. `/portfolio/`: main-area text 96 → 408 words, one H1, FAQPage data present, all 15 industries listed with live video counts (63 unique videos). Indexing: still "Discovered" on 2026-11-19; re-check 2026-12-03.
 3. Service pages, unique-text share before → after: roofing 59→61%, HVAC 58→62%, plumbing 64→64% (block was not on this page), home services 32→34%, MVA 63→66%, real estate 64→67%, solar 51→55%, SaaS 54→58%, agencies 65→69%, coaches 77→74% (block held unique text there). Indexing: all "Crawled - currently not indexed" on 2026-11-19; re-check 2026-12-03.
+
+## Planned (from monitor runs)
+
+- 2026-11-25: "hvac facebook ads cost" at position 18.2 (5 impressions) for /hvac-facebook-ads/. On or after 2026-11-30 (7-day rule), make the FAQ "How much do HVAC leads cost on Facebook?" answer it directly with the cost per lead range already published in the article table, and consider "HVAC Facebook ads cost" wording in the cost section heading. Do this with the scheduled 30 Nov AEO page items.
