@@ -233,7 +233,7 @@ add_shortcode(
 				<?php endforeach; ?>
 			<?php endif; ?>
 
-			<div class="mdm-lp__cases"><?php echo function_exists( 'mdm_shortcode_case_studies' ) ? mdm_shortcode_case_studies( array( 'cat' => $c['cases']['cat'], 'limit' => '8', 'eyebrow' => 'Case studies', 'title' => $c['cases']['title'], 'badge' => 'auto', 'subtitle' => ! empty( $c['cases']['subtitle'] ) ? $c['cases']['subtitle'] : 'Real ad accounts, dashboards and screen recordings. Tap any card to see the proof.' ) ) : ''; // phpcs:ignore ?></div>
+			<div class="mdm-lp__cases"><?php echo function_exists( 'mdm_shortcode_case_studies' ) ? mdm_shortcode_case_studies( array( 'cat' => $c['cases']['cat'], 'niche' => isset( $c['cases']['niche'] ) ? $c['cases']['niche'] : '', 'limit' => '8', 'eyebrow' => 'Case studies', 'title' => $c['cases']['title'], 'badge' => 'auto', 'subtitle' => ! empty( $c['cases']['subtitle'] ) ? $c['cases']['subtitle'] : 'Real ad accounts, dashboards and screen recordings. Tap any card to see the proof.' ) ) : ''; // phpcs:ignore ?></div>
 
 			<?php if ( ! empty( $c['compare'] ) ) : ?>
 				<section class="mdm-ugc__sec mdm-lp__alt">
