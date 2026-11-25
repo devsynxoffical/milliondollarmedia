@@ -298,5 +298,5 @@ function mdm_shortcode_case_studies( $atts ) {
 		<?php // Each card links to its own case study page (inc/casepages.php); the old popup is no longer rendered. ?>
 	</section>
 	<?php
-	return ob_get_clean();
+	return preg_replace( '/\s*\x{2014}\s*/u', ', ', ob_get_clean() ); // captions come from social posts: no em dashes on the site
 }
