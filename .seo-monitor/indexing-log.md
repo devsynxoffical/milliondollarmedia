@@ -41,3 +41,4 @@ Note: on a 429 stop the batch at the first rejection; every request counts towar
 | 2026-11-25 | IndexNow (Bing): 3 new pages (commercial video production, video marketing agency, Los Angeles) + /hvac-video-marketing-los-angeles/ (new link) | 200 |
 | 2026-11-25 18:30 | (none sent) | no pages changed this run |
 | 2026-11-26 06:30 | (none sent) | no pages changed this run |
+| 2026-11-26 | IndexNow (Bing): all 208 sitemap URLs after the metadata pass (case titles, H1s, descriptions, 6 new case slugs, hub answer blocks, page and post titles). Google: sitemap_index.xml and case-study-sitemap.xml resubmitted through the Search Console sitemaps API (204) | 200 |
