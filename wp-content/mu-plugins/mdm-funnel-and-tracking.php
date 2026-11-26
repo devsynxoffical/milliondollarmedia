@@ -75,6 +75,12 @@ class MDM_Funnel_Engine {
 		}
 	}
 
+	/** Only orders paid in the last 24 hours (and after this engine went live) are reported, so old orders never re-send a Purchase. */
+	private static function fresh( $order ) {
+		$paid = $order->get_date_paid() ? $order->get_date_paid()->getTimestamp() : ( $order->get_date_created() ? $order->get_date_created()->getTimestamp() : 0 );
+		return $paid >= max( time() - DAY_IN_SECONDS, 1795651200 ); // 1795651200 = 2026-11-26 00:00 UTC
+	}
+
 	/** Which funnel offer an order is: 'mastermind', 'leadpilot' or 'videoads'. */
 	public static function order_kind( $order ) {
 		$ids = array();
@@ -289,7 +295,7 @@ class MDM_Funnel_Engine {
 	/** Server-side Purchase once per paid order (also covers buyers who close the tab before the funnel page loads). */
 	public function server_purchase( $order_id ) {
 		$order = wc_get_order( $order_id );
-		if ( ! $order || ! $order->is_paid() || $order->get_meta( '_mdm_capi_purchase_sent' ) ) {
+		if ( ! $order || ! $order->is_paid() || ! self::fresh( $order ) || $order->get_meta( '_mdm_capi_purchase_sent' ) ) {
 			return;
 		}
 		$order->update_meta_data( '_mdm_capi_purchase_sent', time() );
@@ -302,7 +308,7 @@ class MDM_Funnel_Engine {
 
 	/** Browser Purchase on the page the buyer lands on after paying (once per order; same event_id as the server event). */
 	private function queue_purchase( $order ) {
-		if ( $order->get_meta( '_mdm_browser_purchase_fired' ) ) {
+		if ( ! self::fresh( $order ) || $order->get_meta( '_mdm_browser_purchase_fired' ) ) {
 			return;
 		}
 		$order->update_meta_data( '_mdm_browser_purchase_fired', time() );
