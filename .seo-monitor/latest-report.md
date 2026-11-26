@@ -1,4 +1,4 @@
-# SEO monitor report: 2026-11-26T06:24Z
+# SEO monitor report: 2026-11-26T18:24Z
 
 Search Console window: 2026-11-18 to 2026-11-24 (vs 2026-11-11 to 2026-11-17). Data lags about 2 days.
 
@@ -92,7 +92,7 @@ Search Console window: 2026-11-18 to 2026-11-24 (vs 2026-11-11 to 2026-11-17). D
 
 ## Indexing (priority pages)
 
-- /: Submitted and indexed, last crawl 2026-11-19
+- /: Submitted and indexed, last crawl 2026-11-26
 - /roofing-video-ads/: Submitted and indexed, last crawl 2026-11-23
 - /hvac-facebook-ads/: Submitted and indexed, last crawl 2026-11-18
 - /what-is-a-vsl/: Submitted and indexed, last crawl 2026-11-23
@@ -122,7 +122,7 @@ Search Console window: 2026-11-18 to 2026-11-24 (vs 2026-11-11 to 2026-11-17). D
 - /video-marketing-agency/: Submitted and indexed, last crawl 2026-11-25
 - /video-production/los-angeles-ca/: Submitted and indexed, last crawl 2026-11-25
 
-## Site health (209 sitemap URLs)
+## Site health (208 sitemap URLs)
 
 - Not returning 200: 0 
 - Indexable pages with missing title, short description or not exactly one H1: 0 
