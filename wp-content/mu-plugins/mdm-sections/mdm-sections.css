@@ -3461,3 +3461,11 @@ html .mdm-niche__more-copy li { margin: 0 0 6px; line-height: 1.6; }
 html body.mdm-service .mdm-niche--dark .mdm-niche__more-copy li { color: rgba(17,17,20,.7); }
 html .mdm-niche__more-copy a, html .mdm-lp__what a, html .mdm-ugc__intro a, html .mdm-ugc__faq p a { color: #ED1C24; font-weight: 600; }
 html .mdm-lp__what { margin-top: -6px !important; font-size: 15.5px !important; }
+
+/* Text sections on landing pages and the case study hub answer blocks */
+html .mdm-lp__body { max-width: 860px; }
+html .mdm-lp__body p { margin: 0 0 14px !important; font-size: 16.5px; line-height: 1.7; color: rgba(17,17,20,.75); }
+html .mdm-lp__body h3 { margin: 22px 0 10px !important; font: 700 18px/1.3 "Poppins", sans-serif !important; color: #111114 !important; }
+html .mdm-lp__body ul, html .mdm-lp__body ol { margin: 0 0 16px !important; padding-left: 22px !important; }
+html .mdm-lp__body li { margin: 0 0 8px; font-size: 16px; line-height: 1.6; color: rgba(17,17,20,.75); }
+html .mdm-lp__body a { color: #ED1C24; font-weight: 600; }
