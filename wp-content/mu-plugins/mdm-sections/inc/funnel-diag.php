@@ -22,6 +22,76 @@ function mdm_diag_mask( $v ) {
 add_action(
 	'rest_api_init',
 	static function () {
+		// Pause Pixel Cat's Facebook Pixel and Conversions API (the funnel engine sends both with shared event IDs). GA4 stays on.
+		register_rest_route(
+			'mdm/v1',
+			'/pixelcat-pause',
+			array(
+				'methods'             => 'POST',
+				'permission_callback' => static function () { return current_user_can( 'manage_options' ); },
+				'callback'            => static function ( $req ) {
+					$pc = get_option( 'fca_pc' );
+					if ( ! is_array( $pc ) ) {
+						return new WP_Error( 'mdm_no_pc', 'Pixel Cat settings not found', array( 'status' => 404 ) );
+					}
+					$undo = (bool) $req->get_param( 'undo' );
+					if ( $undo ) {
+						$b = get_option( 'mdm_backup_fca_pc' );
+						if ( $b ) {
+							update_option( 'fca_pc', $b );
+						}
+						return array( 'restored' => (bool) $b );
+					}
+					if ( ! get_option( 'mdm_backup_fca_pc' ) ) {
+						update_option( 'mdm_backup_fca_pc', $pc, false );
+					}
+					$done = array();
+					foreach ( (array) ( $pc['pixels'] ?? array() ) as $i => $px ) {
+						$j = json_decode( stripslashes( (string) $px ), true );
+						if ( is_array( $j ) && in_array( $j['type'] ?? '', array( 'Facebook Pixel', 'Conversions API' ), true ) ) {
+							$j['paused']           = true;
+							$pc['pixels'][ $i ] = addslashes( wp_json_encode( $j ) );
+							$done[]             = $j['type'];
+						}
+					}
+					update_option( 'fca_pc', $pc );
+					if ( function_exists( 'mdm_clear_page_cache' ) ) {
+						mdm_clear_page_cache();
+					}
+					return array( 'paused' => $done, 'backup' => 'mdm_backup_fca_pc' );
+				},
+			)
+		);
+		// One CAPI test event to Meta's Test Events (uses the test code saved in Pixel Cat), returns Meta's reply.
+		register_rest_route(
+			'mdm/v1',
+			'/capi-test',
+			array(
+				'methods'             => 'POST',
+				'permission_callback' => static function () { return current_user_can( 'manage_options' ); },
+				'callback'            => static function () {
+					$pc = get_option( 'fca_pc' );
+					$token = '';
+					$test  = '';
+					foreach ( (array) ( $pc['pixels'] ?? array() ) as $px ) {
+						$j = json_decode( stripslashes( (string) $px ), true );
+						if ( is_array( $j ) && 'Conversions API' === ( $j['type'] ?? '' ) ) {
+							$token = (string) ( $j['capi'] ?? '' );
+							$test  = (string) ( $j['test'] ?? '' );
+						}
+					}
+					if ( ! $token ) {
+						return new WP_Error( 'mdm_no_token', 'No CAPI token saved', array( 'status' => 400 ) );
+					}
+					$body = array( 'data' => array( array( 'event_name' => 'ViewContent', 'event_time' => time(), 'event_id' => 'capitest_' . wp_generate_uuid4(), 'action_source' => 'website', 'event_source_url' => home_url( '/' ), 'user_data' => array( 'client_ip_address' => '203.0.113.10', 'client_user_agent' => 'MDM CAPI connection test' ) ) ) );
+					if ( $test ) {
+						$body['test_event_code'] = $test;
+					}
+					$r = wp_remote_post( 'https://graph.facebook.com/v21.0/1298651362012468/events?access_token=' . rawurlencode( $token ), array( 'timeout' => 15, 'headers' => array( 'Content-Type' => 'application/json' ), 'body' => wp_json_encode( $body ) ) );
+					return array( 'http' => wp_remote_retrieve_response_code( $r ), 'meta' => json_decode( wp_remote_retrieve_body( $r ), true ), 'test_event_code_used' => (bool) $test );
+				},
+			)
+		);
 		register_rest_route(
 			'mdm/v1',
 			'/funnel-diag',
