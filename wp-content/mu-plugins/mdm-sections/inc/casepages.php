@@ -38,12 +38,34 @@ function mdm_case_title( $item ) {
 	return $t;
 }
 
+/**
+ * Clear slugs for case pages Google had not indexed (26 Nov 2026), 301 from the old slug.
+ * Indexed case pages keep their URLs. Duplicates point to the original.
+ */
+function mdm_case_slug_moves() {
+	return array(
+		'how-we-generated-61960-with-a-3-80-roas-in-a-single-day-and-what-you' => 'dtc-brand-61960-in-one-day-3-80-roas',
+		'ecom-brands-or-lead-gen-businesses-what-do-you-need'                   => 'dtc-brand-94500-in-21-days',
+		'dropshipping-isnt-a-get-rich-quick-scheme-its-a-path-to-building'      => 'dropshipping-store-491798-revenue',
+		'i-started-this-dropshipping-brand-for-a-client-4weeks-ago-this-was'    => 'dropshipping-brand-1500-in-first-4-weeks',
+		'another-success-story-in-the-books-finally-this-brand-ended-with-133k' => 'ecommerce-brand-156000-per-month',
+		'happy-monday-everyone-lets-kick-off-the-week-with-some-serious'        => 'apparel-brand-74200-revenue-4-36x-roas',
+	);
+}
+function mdm_case_slug_merges() {
+	return array(
+		'q4-is-shaping-up-to-be-incredible-while-many-slow-down-for-the-2' => 'q4-is-shaping-up-to-be-incredible-while-many-slow-down-for-the',
+	);
+}
+
 function mdm_case_registry() {
 	static $reg = null;
 	if ( null !== $reg ) {
 		return $reg;
 	}
-	$reg  = array( 'by_slug' => array(), 'by_key' => array() );
+	$reg  = array( 'by_slug' => array(), 'by_key' => array(), 'moved' => array() );
+	$moves  = mdm_case_slug_moves();
+	$merges = mdm_case_slug_merges();
 	$used = array();
 	if ( ! function_exists( 'mdm_case_data' ) ) {
 		return $reg;
@@ -61,7 +83,17 @@ function mdm_case_registry() {
 			while ( isset( $used[ $slug ] ) ) {
 				$slug = $base . '-' . $n++;
 			}
-			$used[ $slug ]                            = true;
+			$used[ $slug ] = true;
+			if ( isset( $merges[ $slug ] ) ) { // duplicate case: send to the original
+				$reg['moved'][ $slug ]                  = $merges[ $slug ];
+				$reg['by_key'][ mdm_case_key( $item ) ] = $merges[ $slug ];
+				continue;
+			}
+			if ( isset( $moves[ $slug ] ) ) {
+				$reg['moved'][ $slug ] = $moves[ $slug ];
+				$slug                  = $moves[ $slug ];
+				$used[ $slug ]         = true;
+			}
 			$reg['by_slug'][ $slug ]                  = $item;
 			$reg['by_key'][ mdm_case_key( $item ) ] = $slug;
 		}
@@ -108,6 +140,23 @@ add_action(
 			update_option( 'mdm_case_rw', '2', false );
 		}
 	}
+);
+
+// Old or duplicate case slug: 301 to the current URL.
+add_action(
+	'template_redirect',
+	static function () {
+		$s = get_query_var( 'mdm_case' );
+		if ( ! $s ) {
+			return;
+		}
+		$moved = mdm_case_registry()['moved'];
+		if ( isset( $moved[ $s ] ) ) {
+			wp_safe_redirect( home_url( '/case-study/' . $moved[ $s ] . '/' ), 301 );
+			exit;
+		}
+	},
+	0
 );
 
 // Unknown case slug: a real 404.
@@ -238,7 +287,7 @@ function mdm_case_page_html( $item ) {
 			<div class="mdm-casepage__in">
 				<nav class="mdm-casepage__crumbs" aria-label="Breadcrumb"><a href="<?php echo esc_url( home_url( '/case-studies/' ) ); ?>">Case studies</a><i>/</i><a href="<?php echo esc_url( $caturl ); ?>"><?php echo esc_html( $catname ); ?></a><i>/</i><span><?php echo esc_html( $item['niche'] ); ?></span></nav>
 				<span class="mdm-niche__pill"><?php echo esc_html( $item['niche'] ); ?> case study</span>
-				<h1 class="mdm-casepage__h1"><?php echo esc_html( $title ); ?></h1>
+				<h1 class="mdm-casepage__h1"><?php echo esc_html( mdm_case_h1( $item ) ); ?></h1>
 				<?php if ( $metrics ) : ?>
 					<ul class="mdm-casepage__stats">
 						<?php foreach ( $metrics as $i => $m ) : ?><li<?php echo 0 === $i ? ' class="is-red"' : ''; ?>><?php echo esc_html( $m ); ?></li><?php endforeach; ?>
@@ -345,7 +394,19 @@ function mdm_case_title_from_headline( $item, $max = 52 ) {
 	return $t;
 }
 
-/** Unique, number-led titles for every case ("DTC Brands Case Study: $1M+ Scaled, 4.6x ROAS"). */
+/** Cut text at a word boundary without a trailing "…" or a dangling small word. */
+function mdm_case_trim_words( $t, $max ) {
+	$t = trim( preg_replace( '/\s+/', ' ', (string) $t ) );
+	if ( strlen( $t ) <= $max ) {
+		return rtrim( $t, ' ,.:;-…' );
+	}
+	$t = substr( $t, 0, $max + 1 );
+	$t = substr( $t, 0, (int) strrpos( $t, ' ' ) );
+	$t = preg_replace( '/\s+(a|an|the|of|for|to|and|or|in|with|our|my|is|at|this|that|from|on|by|we|i|it|your|their)$/i', '', rtrim( $t, ' ,.:;-…' ) );
+	return rtrim( $t, ' ,.:;-…' );
+}
+
+/** Unique, number-led titles of 60 characters or fewer for every case ("DTC Brands Case Study: $1M+ Scaled, 4.6x ROAS"). */
 function mdm_case_titles() {
 	static $titles = null;
 	if ( null !== $titles ) {
@@ -354,26 +415,48 @@ function mdm_case_titles() {
 	$titles = array();
 	$seen   = array();
 	foreach ( mdm_case_registry()['by_slug'] as $slug => $item ) {
-		$m    = mdm_case_metrics( $item );
-		$cand = '';
+		$m     = mdm_case_metrics( $item );
+		$n     = $item['niche'];
+		$cands = array();
 		if ( $m ) {
-			$cand = $item['niche'] . ' Case Study: ' . implode( ', ', array_slice( $m, 0, 2 ) );
-			if ( strlen( $cand ) > 62 ) {
-				$cand = $item['niche'] . ' Case Study: ' . $m[0];
+			$cands[] = $n . ' Case Study: ' . implode( ', ', array_slice( $m, 0, 2 ) );
+			$cands[] = $n . ' Case Study: ' . $m[0];
+			$cands[] = $n . ': ' . implode( ', ', array_slice( $m, 0, 2 ) );
+			$cands[] = $n . ': ' . $m[0];
+		}
+		$head    = mdm_case_title( $item );
+		$cands[] = $n . ' Case Study: ' . mdm_case_trim_words( $head, 58 - strlen( $n ) - 13 );
+		$pick    = '';
+		foreach ( $cands as $c ) {
+			if ( strlen( $c ) <= 60 && ! isset( $seen[ strtolower( $c ) ] ) ) {
+				$pick = $c;
+				break;
 			}
 		}
-		if ( ! $cand || strlen( $cand ) > 62 || isset( $seen[ strtolower( $cand ) ] ) ) {
-			$cand = mdm_case_title_from_headline( $item, 60 - strlen( $item['niche'] ) - 14 ) . ' | ' . $item['niche'] . ' Case Study';
+		if ( ! $pick ) { // same numbers as another case: add words from its own headline
+			$base = $m ? $n . ': ' . $m[0] : $n . ' Case Study';
+			$pick = $base . ', ' . mdm_case_trim_words( $head, 58 - strlen( $base ) );
+			$k    = 2;
+			while ( isset( $seen[ strtolower( $pick ) ] ) || strlen( $pick ) > 60 ) {
+				$pick = mdm_case_trim_words( $base, 54 ) . ' (' . $k++ . ')';
+			}
 		}
-		$base = $cand;
-		$n    = 2;
-		while ( isset( $seen[ strtolower( $cand ) ] ) ) {
-			$cand = $base . ' (' . $n++ . ')';
-		}
-		$seen[ strtolower( $cand ) ] = true;
-		$titles[ $slug ]             = $cand;
+		$seen[ strtolower( $pick ) ] = true;
+		$titles[ $slug ]             = $pick;
 	}
 	return $titles;
+}
+
+/** H1: the headline's first clear sentence (up to 110 characters), else the number-led title. */
+function mdm_case_h1( $item ) {
+	$t = mdm_case_title( $item );
+	if ( strlen( $t ) <= 110 && ! preg_match( '/\b(a|an|the|of|for|to|and|in|with|our|at|this|from|on|by)$/i', $t ) ) {
+		return $t;
+	}
+	if ( preg_match( '/^(.{25,110}?[.!?])(\s|$)/u', $t, $mm ) ) {
+		return rtrim( $mm[1], '.' );
+	}
+	return mdm_case_seo_title( $item );
 }
 
 function mdm_case_seo_title( $item ) {
@@ -398,9 +481,15 @@ function mdm_case_seo_desc( $item ) {
 		$story = $title;
 	}
 	$d = ( $m ? implode( ', ', array_slice( $m, 0, 2 ) ) . '. ' : $item['niche'] . ' case study. ' ) . $story;
-	if ( strlen( $d ) > 158 ) {
-		$d = substr( $d, 0, 155 );
-		$d = rtrim( substr( $d, 0, strrpos( $d, ' ' ) ), ' ,.:;-' ) . '…';
+	$d = trim( preg_replace( '/\s+/', ' ', $d ) );
+	if ( strlen( $d ) > 155 ) { // end on a full sentence where possible, never with "…"
+		$cut = substr( $d, 0, 155 );
+		$end = max( (int) strrpos( $cut, '. ' ), (int) strrpos( $cut, '! ' ), (int) strrpos( $cut, '? ' ) );
+		$d   = $end > 90 ? substr( $cut, 0, $end + 1 ) : mdm_case_trim_words( $cut, 150 ) . '.';
+	}
+	if ( strlen( $d ) < 110 ) {
+		$add = ' A real ' . $item['niche'] . ' campaign by Million Dollar Media, with the ad account proof.';
+		$d   = rtrim( $d, ' .' ) . '.' . ( strlen( $d ) + strlen( $add ) <= 158 ? $add : '' );
 	}
 	return $d;
 }
