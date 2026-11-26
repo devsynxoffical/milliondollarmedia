@@ -35,6 +35,10 @@ add_action(
 				'callback'            => static function () {
 					global $wpdb;
 					$out = array();
+					$one = isset( $_GET['snippet'] ) ? absint( $_GET['snippet'] ) : 0; // phpcs:ignore
+					if ( $one && 'wpcode' === get_post_type( $one ) ) {
+						return array( 'id' => $one, 'title' => get_the_title( $one ), 'code' => preg_replace( '/(EAA[A-Za-z0-9]{10,}|pk_[A-Za-z0-9_]{10,}|sk_(live|test)_[A-Za-z0-9]+)/', '***', (string) get_post_field( 'post_content', $one ) ) );
+					}
 					// Code snippets (WPCode / Insert Headers and Footers) that touch the funnel or pixels.
 					$snips = get_posts( array( 'post_type' => 'wpcode', 'post_status' => 'any', 'numberposts' => 200 ) );
 					foreach ( $snips as $p ) {
