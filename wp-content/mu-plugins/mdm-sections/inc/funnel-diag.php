@@ -54,6 +54,17 @@ add_action(
 							$done[]             = $j['type'];
 						}
 					}
+					// Its Facebook event rules still call fbq() on the engine's pixel, so remove them too (backup keeps the originals).
+					$keep = array();
+					foreach ( (array) ( $pc['events'] ?? array() ) as $ev ) {
+						$j = json_decode( stripslashes( (string) $ev ), true );
+						if ( is_array( $j ) && 'Facebook' === ( $j['pixel_type'] ?? '' ) ) {
+							$done[] = 'event ' . ( $j['event'] ?? '' );
+							continue;
+						}
+						$keep[] = $ev;
+					}
+					$pc['events'] = $keep;
 					update_option( 'fca_pc', $pc );
 					if ( function_exists( 'mdm_clear_page_cache' ) ) {
 						mdm_clear_page_cache();
