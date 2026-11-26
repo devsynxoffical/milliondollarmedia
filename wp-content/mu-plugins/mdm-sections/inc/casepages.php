@@ -495,6 +495,7 @@ function mdm_case_seo_desc( $item ) {
 }
 
 add_filter( 'rank_math/frontend/title', static function ( $t ) { $c = mdm_current_case(); return $c ? mdm_case_seo_title( $c ) : $t; }, 99 );
+add_filter( 'pre_get_document_title', static function ( $t ) { $c = mdm_current_case(); return $c ? mdm_case_seo_title( $c ) : $t; }, 100 ); // exact case titles (no automatic Title Case)
 add_filter( 'rank_math/frontend/description', static function ( $d ) { $c = mdm_current_case(); return $c ? mdm_case_seo_desc( $c ) : $d; }, 99 );
 add_filter( 'rank_math/frontend/canonical', static function ( $u ) { $c = mdm_current_case(); return $c ? mdm_case_url( $c ) : $u; }, 99 );
 add_filter(
