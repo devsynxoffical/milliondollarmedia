@@ -16,6 +16,10 @@ function mdm_diag_mask( $v ) {
 		}
 		return $o;
 	}
+	if ( is_string( $v ) ) { // tokens inside stored JSON strings too
+		$v = preg_replace( '/("(?:capi|token|access_token|key|secret)\\*"\s*:\s*\\*")[^"\\]+/i', '$1***', $v );
+		$v = preg_replace( '/\b(EAA[A-Za-z0-9]{10,}|pk_[A-Za-z0-9_]{10,}|sk_(?:live|test)_[A-Za-z0-9]+)/', '***', $v );
+	}
 	return is_string( $v ) && strlen( $v ) > 300 ? substr( $v, 0, 300 ) . '...' : $v;
 }
 
@@ -36,7 +40,7 @@ add_action(
 					foreach ( $snips as $p ) {
 						$code = $p->post_content;
 						if ( preg_match( '/thank|order-received|order_received|fbq|oaiq|redirect|leadpilot|book-your-call|booking/i', $code ) ) {
-							$out['snippets'][] = array( 'id' => $p->ID, 'title' => $p->post_title, 'status' => $p->post_status, 'location' => get_post_meta( $p->ID, '_wpcode_auto_insert_location', true ), 'code' => preg_replace( '/(EAA[A-Za-z0-9]{10,}|sk_(live|test)_[A-Za-z0-9]+)/', '***', substr( $code, 0, 1500 ) ) );
+							$out['snippets'][] = array( 'id' => $p->ID, 'title' => $p->post_title, 'status' => $p->post_status, 'location' => get_post_meta( $p->ID, '_wpcode_auto_insert_location', true ), 'code' => preg_replace( '/(EAA[A-Za-z0-9]{10,}|pk_[A-Za-z0-9_]{10,}|sk_(live|test)_[A-Za-z0-9]+)/', '***', substr( $code, 0, 1500 ) ) );
 						}
 					}
 					foreach ( array( 'ihaf_insert_header', 'ihaf_insert_body', 'ihaf_insert_footer' ) as $o ) {
