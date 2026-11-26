@@ -16,10 +16,6 @@ function mdm_diag_mask( $v ) {
 		}
 		return $o;
 	}
-	if ( is_string( $v ) ) { // tokens inside stored JSON strings too
-		$v = preg_replace( '/("(?:capi|token|access_token|key|secret)\\*"\s*:\s*\\*")[^"\\]+/i', '$1***', $v );
-		$v = preg_replace( '/\b(EAA[A-Za-z0-9]{10,}|pk_[A-Za-z0-9_]{10,}|sk_(?:live|test)_[A-Za-z0-9]+)/', '***', $v );
-	}
 	return is_string( $v ) && strlen( $v ) > 300 ? substr( $v, 0, 300 ) . '...' : $v;
 }
 
@@ -54,7 +50,17 @@ add_action(
 						}
 					}
 					// Pixel Cat settings.
-					$out['pixelcat'] = mdm_diag_mask( get_option( 'fca_cc' ) ?: get_option( 'fca_pc' ) );
+					$pc = get_option( 'fca_pc' );
+					$out['pixelcat'] = array();
+					foreach ( (array) ( isset( $pc['pixels'] ) ? $pc['pixels'] : array() ) as $px ) {
+						$j = json_decode( stripslashes( (string) $px ), true );
+						$out['pixelcat']['pixels'][] = is_array( $j ) ? array( 'type' => $j['type'] ?? '', 'pixel' => $j['pixel'] ?? '', 'paused' => $j['paused'] ?? '', 'capi_set' => ! empty( $j['capi'] ), 'test_code_set' => ! empty( $j['test'] ) ) : 'unparsed';
+					}
+					foreach ( (array) ( isset( $pc['events'] ) ? $pc['events'] : array() ) as $ev ) {
+						$j = json_decode( stripslashes( (string) $ev ), true );
+						$out['pixelcat']['events'][] = is_array( $j ) ? array( 'event' => $j['event'] ?? '', 'pixel_type' => $j['pixel_type'] ?? '', 'triggerType' => $j['triggerType'] ?? '', 'trigger' => $j['trigger'] ?? '', 'delay' => $j['delay'] ?? '', 'apiAction' => $j['apiAction'] ?? '' ) : 'unparsed';
+					}
+					$out['pixelcat']['woo_integration'] = $pc['woo_integration'] ?? '';
 					$out['pixelcat_options'] = $wpdb->get_col( "SELECT option_name FROM {$wpdb->options} WHERE option_name LIKE 'fca%' OR option_name LIKE '%pixel%' OR option_name LIKE '%capi%' LIMIT 40" ); // phpcs:ignore
 					// Payment gateways.
 					if ( function_exists( 'WC' ) ) {
