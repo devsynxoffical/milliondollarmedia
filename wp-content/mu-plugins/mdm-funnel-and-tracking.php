@@ -472,9 +472,10 @@ fbq('init','<?php echo esc_js( self::PIXEL_ID ); ?>');fbq('track','PageView');
 		?>
 <script>
 (function(){
-  // Portfolio page view (owner request 27 Nov 2026).
-  if (location.pathname === "/portfolio/" && window.oaiq) {
-    oaiq("measure", "custom", { type: "custom" }, { custom_event_name: "portfolio" });
+  // Page-view custom events (owner requests 27 Nov 2026), by path so they also work on cached pages.
+  var pageEvents = { "/portfolio/": "portfolio", "/theleadpilot/": "lead-pilot", "/book-your-call/": "premium-bookers" };
+  if (pageEvents[location.pathname] && window.oaiq) {
+    oaiq("measure", "custom", { type: "custom" }, { custom_event_name: pageEvents[location.pathname] });
   }
   var map = { '/case-studies/lead-generation/': 'lead-gen-case-studies', '/case-studies/ecommerce/': 'ecom-case-studies' };
   document.addEventListener('click', function (e) {
