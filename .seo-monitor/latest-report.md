@@ -1,11 +1,11 @@
-# SEO monitor report: 2026-11-26T18:24Z
+# SEO monitor report: 2026-11-27T06:24Z
 
-Search Console window: 2026-11-18 to 2026-11-24 (vs 2026-11-11 to 2026-11-17). Data lags about 2 days.
+Search Console window: 2026-11-19 to 2026-11-25 (vs 2026-11-12 to 2026-11-18). Data lags about 2 days.
 
 ## Totals (last 7 days vs previous 7)
 
-- Clicks: 8 (previous 4)
-- Impressions: 457 (previous 132)
+- Clicks: 5 (previous 6)
+- Impressions: 429 (previous 147)
 
 ## Non-brand queries (last 7 days)
 
@@ -31,14 +31,14 @@ Search Console window: 2026-11-18 to 2026-11-24 (vs 2026-11-11 to 2026-11-17). D
 - "cost of online video advertising": 1 impressions, 0 clicks, position 22.0
 - "ecommerce video ads": 1 impressions, 0 clicks, position 29.0
 - "exclusive mva leads": 1 impressions, 0 clicks, position 35.0
-- "facebook ads for hvac contractors": 1 impressions, 0 clicks, position 59.0
 - "facebook ads for roofing": 1 impressions, 0 clicks, position 60.0
-- "facebook marketing for roofers": 1 impressions, 0 clicks, position 40.0
 - "low ticket funnel": 1 impressions, 0 clicks, position 80.0
 - "mva leads": 1 impressions, 0 clicks, position 43.0
 - "real estate lead generation case studies": 1 impressions, 0 clicks, position 14.0
 - "real vsl": 1 impressions, 0 clicks, position 6.0
 - "scaling apparel brand": 1 impressions, 0 clicks, position 24.0
+- "so what is it about": 1 impressions, 0 clicks, position 5.0
+- "texas lead generation case study": 1 impressions, 0 clicks, position 10.0
 
 ## Top 10 target keywords (28 days, exact query)
 
@@ -60,18 +60,19 @@ Search Console window: 2026-11-18 to 2026-11-24 (vs 2026-11-11 to 2026-11-17). D
 ## Opportunities
 
 - Position 4-20: "hvac facebook ads cost" pos 18.2, 5 impressions
-- New queries this week: "agency webinar case study high ticket offer sold", "best ugc ads", "cost of mva leads", "cost of online video advertising", "dropshipping product tracking proxy case study", "dtc affiliate program scaling", "dtc brand accelerator", "ecommerce video ads", "exclusive mva leads", "facebook ads for hvac", "facebook ads for hvac businesses", "facebook ads for hvac contractors", "facebook ads for roofers", "facebook ads for roofing", "facebook marketing for roofers", "how to get roofing leads on facebook", "hvac facebook ads cost", "hvac fb ads", "low ticket funnel", "low ticket offer funnel"
+- New queries this week: "agency webinar case study high ticket offer sold", "best ugc ads", "cost of mva leads", "cost of online video advertising", "dropshipping product tracking proxy case study", "dtc affiliate program scaling", "dtc brand accelerator", "ecommerce video ads", "exclusive mva leads", "facebook ads for hvac", "facebook ads for hvac businesses", "facebook ads for roofers", "facebook ads for roofing", "how to get roofing leads on facebook", "hvac facebook ads cost", "hvac fb ads", "low ticket funnel", "low ticket offer funnel", "media to millions", "medspa marketing case study"
+- Queries that disappeared: "facebook ads for hvac contractors", "facebook marketing for roofers", "milliondollarmedia.com"
 
 ## Pages (last 7 days)
 
-- /: 84 impr, 6 clicks, pos 3.6 (was 66 impr, pos 3.9)
+- /: 67 impr, 3 clicks, pos 4.1 (was 74 impr, pos 3.7)
 - /what-is-a-vsl/: 50 impr, 1 clicks, pos 10.4 (new)
 - /ugc-ads-examples/: 30 impr, 0 clicks, pos 22.0 (new)
-- /case-studies/: 29 impr, 0 clicks, pos 6.4 (was 14 impr, pos 5.4)
-- /our-story/: 28 impr, 0 clicks, pos 7.8 (was 14 impr, pos 9.0)
-- /case-studies/ecommerce/: 21 impr, 0 clicks, pos 8.3 (was 10 impr, pos 5.9)
-- /hvac-facebook-ads/: 18 impr, 0 clicks, pos 35.6 (new)
-- /facebook-ads-for-roofers/: 14 impr, 0 clicks, pos 46.7 (new)
+- /case-studies/: 27 impr, 0 clicks, pos 6.4 (was 16 impr, pos 5.5)
+- /our-story/: 23 impr, 0 clicks, pos 7.7 (was 19 impr, pos 8.8)
+- /case-studies/ecommerce/: 19 impr, 0 clicks, pos 8.8 (was 12 impr, pos 5.6)
+- /hvac-facebook-ads/: 17 impr, 0 clicks, pos 34.2 (was 1 impr, pos 59.0)
+- /facebook-ads-for-roofers/: 13 impr, 0 clicks, pos 47.2 (was 1 impr, pos 40.0)
 - /case-study/meet-one-of-our-e-com-clients-sasha-whom-we-have-been-helping-for/: 7 impr, 0 clicks, pos 23.9 (new)
 - /case-study/some-people-dont-fail-because-the-strategy-is-wrong-they-fail-because/: 7 impr, 0 clicks, pos 3.0 (new)
 - /case-study/20-days-2184-ad-spend-140-appointments-64960-revenue-we-recently/: 6 impr, 0 clicks, pos 1.8 (new)
@@ -80,7 +81,7 @@ Search Console window: 2026-11-18 to 2026-11-24 (vs 2026-11-11 to 2026-11-17). D
 - /case-study/roofers-wont-like-this-but-it-needs-to-be-said/: 6 impr, 0 clicks, pos 42.0 (new)
 - /case-study/another-new-store-pixel-with-huge-potential-after-1-5-months-of/: 5 impr, 0 clicks, pos 10.4 (new)
 - /case-study/scaling-isnt-just-about-hitting-big-days-its-about-keeping-more-and/: 5 impr, 0 clicks, pos 13.6 (new)
-- /blogs/: 4 impr, 0 clicks, pos 3.0 (was 9 impr, pos 4.9)
+- /blogs/: 4 impr, 0 clicks, pos 3.0 (was 5 impr, pos 2.0)
 - /case-studies/lead-generation/: 4 impr, 0 clicks, pos 11.5 (was 10 impr, pos 7.7)
 - /case-study/81327-in-29-days-on-meta-ads-live-breakdown-during-our-dwy-session/: 4 impr, 0 clicks, pos 30.2 (new)
 - /case-study/850-roofing-leads-in-just-8-days-we-dropped-6461-25-on-ads-for-a/: 4 impr, 0 clicks, pos 67.2 (new)
