@@ -52,6 +52,7 @@ class MDM_Funnel_Engine {
 		add_action( 'wp_head', array( $this, 'render_meta_pixel_head' ), 1 );
 		add_action( 'wp', array( $this, 'collect_page_events' ) );
 		add_action( 'wp_footer', array( $this, 'render_events' ), 20 );
+		add_action( 'wp_footer', array( $this, 'render_click_events' ), 21 );
 		add_action( 'rest_api_init', array( $this, 'register_routes' ) );
 
 		// YES / NO buttons.
@@ -454,6 +455,36 @@ fbq('init','<?php echo esc_js( self::PIXEL_ID ); ?>');fbq('track','PageView');
 			}
 		}
 		echo "<script>(function(){try{" . $js . "}catch(e){}})();</script>\n"; // phpcs:ignore WordPress.Security.EscapeOutput
+	}
+
+	/**
+	 * OpenAI custom events on the case-study category cards ("Explore lead gen cases" / "Explore ecom cases"),
+	 * owner request 27 Nov 2026. Matched by link target, so they work on every page that shows the cards.
+	 */
+	public function render_click_events() {
+		if ( is_admin() ) {
+			return;
+		}
+		?>
+<script>
+(function(){
+  var map = { '/case-studies/lead-generation/': 'lead-gen-case-studies', '/case-studies/ecommerce/': 'ecom-case-studies' };
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a.mdm-cat');
+    if (!a) return;
+    var path = '';
+    try { path = new URL(a.href, location.href).pathname; } catch (x) { return; }
+    var name = map[path];
+    if (!name || !window.oaiq) return;
+    oaiq("measure", "custom", { type: "custom" }, { custom_event_name: name });
+    if (e.button === 0 && !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && a.target !== '_blank') {
+      e.preventDefault();
+      setTimeout(function () { location.href = a.href; }, 250); // let the event leave before the page changes
+    }
+  }, true);
+})();
+</script>
+		<?php
 	}
 
 	/**
