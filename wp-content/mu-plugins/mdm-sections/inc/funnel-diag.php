@@ -65,6 +65,12 @@ add_action(
 						$keep[] = $ev;
 					}
 					$pc['events'] = $keep;
+					// Its WooCommerce integration also calls fbq() (AddToCart / InitiateCheckout / Purchase without event IDs).
+					// Only the Facebook part is switched off; 'woo_integration_ga' (GA4) is left as it is.
+					if ( ! empty( $pc['woo_integration'] ) ) {
+						$pc['woo_integration'] = '';
+						$done[]                = 'woo_integration (Facebook)';
+					}
 					update_option( 'fca_pc', $pc );
 					if ( function_exists( 'mdm_clear_page_cache' ) ) {
 						mdm_clear_page_cache();
