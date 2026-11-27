@@ -388,7 +388,11 @@ class MDM_Funnel_Engine {
 		if ( is_page( 'thank-you' ) ) {
 			$order = $wc ? $this->order_from_request() : null;
 			if ( $order ) {
-				$this->queue_purchase( $order );
+				$this->queue_purchase( $order ); // Meta Purchase + OpenAI order_created, once per paid order
+			} else {
+				// Owner spec: OpenAI order_created fires when the Thank You page loads (the page is only reached after a purchase),
+				// including orders not marked paid yet (e.g. bank transfer on hold). Meta Purchase stays tied to a paid order.
+				$this->queue[] = array( 'oaiq', 'order_created', array( 'type' => 'contents' ), '', false );
 			}
 			$b = self::beacon_events()['Mastermind'];
 			$this->page_event( 'Mastermind', $b[0], $b[1], $b[2], $b[3], true );
@@ -468,6 +472,10 @@ fbq('init','<?php echo esc_js( self::PIXEL_ID ); ?>');fbq('track','PageView');
 		?>
 <script>
 (function(){
+  // Portfolio page view (owner request 27 Nov 2026).
+  if (location.pathname === "/portfolio/" && window.oaiq) {
+    oaiq("measure", "custom", { type: "custom" }, { custom_event_name: "portfolio" });
+  }
   var map = { '/case-studies/lead-generation/': 'lead-gen-case-studies', '/case-studies/ecommerce/': 'ecom-case-studies' };
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a.mdm-cat');
