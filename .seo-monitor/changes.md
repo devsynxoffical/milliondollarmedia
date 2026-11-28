@@ -74,3 +74,4 @@ Authority: 38 backlinks from 35 domains, spam score 59, rank 0 (OpenSEO, 2026-11
 ## Planned (from monitor runs)
 
 - 2026-11-25: "hvac facebook ads cost" at position 18.2 (5 impressions) for /hvac-facebook-ads/. On or after 2026-11-30 (7-day rule), make the FAQ "How much do HVAC leads cost on Facebook?" answer it directly with the cost per lead range already published in the article table, and consider "HVAC Facebook ads cost" wording in the cost section heading. Do this with the scheduled 30 Nov AEO page items.
+- 2026-11-28: /commercial-video-production/ (55 impressions/week, "commercial video production" 37 impressions at 38.5) and /how-much-do-video-ads-cost/ (14 impressions at 10.0) are gaining. Once the 7-day windows clear (home, portfolio, our-story after 2-3 Dec), add both to the "Video ad services" link block (inc/industry.php mdm_services_links_html) and link the cost guide from /video-ad-agency/ pricing area.
